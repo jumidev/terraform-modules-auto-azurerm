@@ -4,12 +4,12 @@ Manages a Azure Site Recovery Replication Fabric within a Recovery Services vaul
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the network mapping. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string | True | -  |  -  | The name of the vault that should be updated. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | In what region should the fabric be located. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the network mapping. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string | True | The name of the vault that should be updated. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | In what region should the fabric be located. Changing this forces a new resource to be created. | 
 
 
 

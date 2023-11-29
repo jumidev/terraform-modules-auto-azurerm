@@ -4,14 +4,14 @@ Manages a custom Role Definition, used to assign Roles to Users/Principals. See 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.role_definition_id** | string | False | -  |  -  | A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created. | 
-| **var.name** | string | True | -  |  -  | The name of the Role Definition. | 
-| **var.scope** | string | True | -  |  -  | The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created. | 
-| **var.description** | string | False | -  |  -  | A description of the Role Definition. | 
-| **var.permissions** | block | False | -  |  -  | A `permissions` block. | 
-| **var.assignable_scopes** | list | False | -  |  -  | One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.role_definition_id** | string | False | A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created. | 
+| **var.name** | string | True | The name of the Role Definition. | 
+| **var.scope** | string | True | The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. It is recommended to use the first entry of the `assignable_scopes`. Changing this forces a new resource to be created. | 
+| **var.description** | string | False | A description of the Role Definition. | 
+| **var.permissions** | block | False | A `permissions` block. | 
+| **var.assignable_scopes** | list | False | One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. | 
 
 
 

@@ -4,14 +4,14 @@ Manages a Video Analyzer.!> Video Analyzer (Preview) is now Deprecated and will 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Video Analyzer. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.storage_account** | block | True | -  |  -  | A `storage_account` block. | 
-| **var.identity** | block | True | -  |  -  | An `identity` block. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags assigned to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the Video Analyzer. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.storage_account** | block | True | A `storage_account` block. | 
+| **var.identity** | block | True | An `identity` block. | 
+| **var.tags** | map | False | A mapping of tags assigned to the resource. | 
 
 
 

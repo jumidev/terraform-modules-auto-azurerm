@@ -28,6 +28,17 @@ variable "destinations" {
 #   storage_blob_direct (block)  : One or more 'storage_blob_direct' blocks.
 #   storage_table_direct (block) : One or more 'storage_table_direct' blocks.
 #
+# event_hub block structure:
+#   event_hub_id (string)    : (REQUIRED) The resource ID of the Event Hub.
+#   name (string)            : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
+# log_analytics block structure :
+#   name (string)                 : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#   workspace_resource_id (string): (REQUIRED) The ID of a Log Analytic Workspace resource.
+#
+# azure_monitor_metrics block structure:
+#   name (string)                        : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
 # storage_table_direct block structure:
 #   table_name (string)                 : (REQUIRED) The Storage Table name.
 #   name (string)                       : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
@@ -37,30 +48,19 @@ variable "destinations" {
 #   monitor_account_id (string)    : (REQUIRED) The resource ID of the Monitor Account.
 #   name (string)                  : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #
-# log_analytics block structure :
-#   name (string)                 : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#   workspace_resource_id (string): (REQUIRED) The ID of a Log Analytic Workspace resource.
-#
 # event_hub_direct block structure:
 #   event_hub_id (string)           : (REQUIRED) The resource ID of the Event Hub.
 #   name (string)                   : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#
-# event_hub block structure:
-#   event_hub_id (string)    : (REQUIRED) The resource ID of the Event Hub.
-#   name (string)            : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#
-# storage_blob_direct block structure:
-#   container_name (string)            : (REQUIRED) The Storage Container name.
-#   name (string)                      : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#   storage_account_id (string)        : (REQUIRED) The resource ID of the Storage Account.
-#
-# azure_monitor_metrics block structure:
-#   name (string)                        : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #
 # storage_blob block structure:
 #   container_name (string)     : (REQUIRED) The Storage Container name.
 #   name (string)               : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #   storage_account_id (string) : (REQUIRED) The resource ID of the Storage Account.
+#
+# storage_blob_direct block structure:
+#   container_name (string)            : (REQUIRED) The Storage Container name.
+#   name (string)                      : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#   storage_account_id (string)        : (REQUIRED) The resource ID of the Storage Account.
 
 
 variable "location" {
@@ -104,6 +104,30 @@ variable "data_sources" {
 #   windows_event_log (block)   : One or more 'windows_event_log' blocks.
 #   windows_firewall_log (block): One or more 'windows_firewall_log' blocks.
 #
+# syslog block structure :
+#   facility_names (string): (REQUIRED) Specifies a list of facility names. Use a wildcard '*' to collect logs for all facility names. Possible values are 'auth', 'authpriv', 'cron', 'daemon', 'kern', 'lpr', 'mail', 'mark', 'news', 'syslog', 'user', 'uucp', 'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6', 'local7',and '*'.
+#   log_levels (string)    : (REQUIRED) Specifies a list of log levels. Use a wildcard '*' to collect logs for all log levels. Possible values are 'Debug', 'Info', 'Notice', 'Warning', 'Error', 'Critical', 'Alert', 'Emergency',and '*'.
+#   name (string)          : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+#   streams (string)       : Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to 'Microsoft-Syslog',and 'Microsoft-CiscoAsa', and 'Microsoft-CommonSecurityLog'.
+#
+# windows_firewall_log block structure:
+#   name (string)                       : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+#   streams (string)                    : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
+#
+# prometheus_forwarder block structure:
+#   name (string)                       : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+#   streams (string)                    : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is 'Microsoft-PrometheusMetrics'.
+#   label_include_filter (list)         : One or more 'label_include_filter' blocks.
+#
+# platform_telemetry block structure:
+#   name (string)                     : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+#   streams (string)                  : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to 'Microsoft.Cache/redis:Metrics-Group-All'.
+#
+# iis_log block structure :
+#   name (string)           : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
+#   streams (string)        : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is 'Microsoft-W3CIISLog'.
+#   log_directories (string): Specifies a list of absolute paths where the log files are located.
+#
 # data_import block structure  :
 #   event_hub_data_source (block): (REQUIRED) An 'event_hub_data_source' block.
 #
@@ -123,42 +147,18 @@ variable "data_sources" {
 #   extension_json (string)    : A JSON String which specifies the extension setting.
 #   input_data_sources (string): Specifies a list of data sources this extension needs data from. An item should be a name of a supported data source which produces only one stream. Supported data sources type: 'performance_counter', 'windows_event_log',and 'syslog'.
 #
-# platform_telemetry block structure:
-#   name (string)                     : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-#   streams (string)                  : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to 'Microsoft.Cache/redis:Metrics-Group-All'.
-#
-# prometheus_forwarder block structure:
-#   name (string)                       : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-#   streams (string)                    : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is 'Microsoft-PrometheusMetrics'.
-#   label_include_filter (list)         : One or more 'label_include_filter' blocks.
+# log_file block structure:
+#   text (block)            : (REQUIRED) A 'text' block.
 #
 # windows_event_log block structure:
 #   name (string)                    : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 #   streams (string)                 : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to 'Microsoft-Event',and 'Microsoft-WindowsEvent', 'Microsoft-RomeDetectionEvent', and 'Microsoft-SecurityEvent'.
 #   x_path_queries (string)          : (REQUIRED) Specifies a list of Windows Event Log queries in XPath expression. Please see [this document](https://learn.microsoft.com/en-us/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent?tabs=cli#filter-events-using-xpath-queries) for more information.
 #
-# syslog block structure :
-#   facility_names (string): (REQUIRED) Specifies a list of facility names. Use a wildcard '*' to collect logs for all facility names. Possible values are 'auth', 'authpriv', 'cron', 'daemon', 'kern', 'lpr', 'mail', 'mark', 'news', 'syslog', 'user', 'uucp', 'local0', 'local1', 'local2', 'local3', 'local4', 'local5', 'local6', 'local7',and '*'.
-#   log_levels (string)    : (REQUIRED) Specifies a list of log levels. Use a wildcard '*' to collect logs for all log levels. Possible values are 'Debug', 'Info', 'Notice', 'Warning', 'Error', 'Critical', 'Alert', 'Emergency',and '*'.
-#   name (string)          : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-#   streams (string)       : Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values include but not limited to 'Microsoft-Syslog',and 'Microsoft-CiscoAsa', and 'Microsoft-CommonSecurityLog'.
-#
 # event_hub_data_source block structure:
 #   name (string)                        : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
 #   stream (string)                      : (REQUIRED) The stream to collect from Event Hub. Possible value should be a custom stream name.
 #   consumer_group (string)              : The Event Hub consumer group name.
-#
-# windows_firewall_log block structure:
-#   name (string)                       : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-#   streams (string)                    : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
-#
-# log_file block structure:
-#   text (block)            : (REQUIRED) A 'text' block.
-#
-# iis_log block structure :
-#   name (string)           : (REQUIRED) The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
-#   streams (string)        : (REQUIRED) Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is 'Microsoft-W3CIISLog'.
-#   log_directories (string): Specifies a list of absolute paths where the log files are located.
 
 
 variable "description" {

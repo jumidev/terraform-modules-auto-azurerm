@@ -4,11 +4,11 @@ Manages an Azure Web PubSub Custom Certificate.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
-| **var.web_pubsub_id** | string | True | -  |  -  | The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
-| **var.custom_certificate_id** | string | True | -  |  -  | The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
+| **var.web_pubsub_id** | string | True | The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
+| **var.custom_certificate_id** | string | True | The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
 
 
 

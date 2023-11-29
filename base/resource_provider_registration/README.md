@@ -4,10 +4,10 @@ Manages the registration of a Resource Provider - which allows access to the API
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created. | 
-| **var.feature** | block | False | -  |  -  | A list of `feature` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created. | 
+| **var.feature** | block | False | A list of `feature` blocks. | 
 
 
 

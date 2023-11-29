@@ -4,14 +4,14 @@ Manages a Route within a Route Table.~> **NOTE on Route Tables and Routes:** Ter
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the route. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the route. Changing this forces a new resource to be created. | 
-| **var.route_table_name** | string | True | -  |  -  | The name of the route table within which create the route. Changing this forces a new resource to be created. | 
-| **var.address_prefix** | string | True | -  |  -  | The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format. | 
-| **var.next_hop_type** | string | True | -  |  `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance`, `None`  | The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`. | 
-| **var.next_hop_in_ip_address** | string | False | -  |  -  | Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name of the route. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the route. Changing this forces a new resource to be created. | 
+| **var.route_table_name** | string | True | -  |  The name of the route table within which create the route. Changing this forces a new resource to be created. | 
+| **var.address_prefix** | string | True | -  |  The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format. | 
+| **var.next_hop_type** | string | True | `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance`, `None`  |  The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`. | 
+| **var.next_hop_in_ip_address** | string | False | -  |  Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`. | 
 
 
 

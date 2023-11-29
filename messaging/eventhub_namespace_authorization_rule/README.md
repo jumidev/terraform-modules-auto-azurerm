@@ -4,14 +4,14 @@ Manages an Authorization Rule for an Event Hub Namespace.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string | True | -  |  -  | Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created. | 
-| **var.listen** | bool | False | `False`  |  -  | Grants listen access to this this Authorization Rule. Defaults to `false`. | 
-| **var.send** | bool | False | `False`  |  -  | Grants send access to this this Authorization Rule. Defaults to `false`. | 
-| **var.manage** | bool | False | `False`  |  -  | Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
+| **var.namespace_name** | string | True | -  |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created. | 
+| **var.listen** | bool | False | `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
+| **var.send** | bool | False | `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
+| **var.manage** | bool | False | `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
 
 
 

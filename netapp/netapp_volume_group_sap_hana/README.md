@@ -4,15 +4,15 @@ Manages a Application Volume Group for SAP HANA application.>Note: This feature 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.account_name** | string | True | -  |  -  | Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.application_identifier** | string | True | -  |  -  | The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.group_description** | string | True | -  |  -  | Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.name** | string | True | -  |  -  | The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.volume** | block | True | -  |  -  | One or more `volume` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.account_name** | string | True | Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **var.application_identifier** | string | True | The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **var.group_description** | string | True | Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **var.location** | string | True | The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **var.name** | string | True | The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **var.resource_group_name** | string | True | The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **var.volume** | block | True | One or more `volume` blocks. | 
 
 
 

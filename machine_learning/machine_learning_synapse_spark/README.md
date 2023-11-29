@@ -4,16 +4,16 @@ Manages the linked service to link an Azure Machine learning workspace to an Azu
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.machine_learning_workspace_id** | string | True | -  |  -  | The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.synapse_spark_pool_id** | string | True | -  |  -  | The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.description** | string | False | -  |  -  | The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.local_auth_enabled** | bool | False | `True`  |  -  | Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name which should be used for this Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.machine_learning_workspace_id** | string | True | -  |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.location** | string | True | -  |  The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.synapse_spark_pool_id** | string | True | -  |  The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.description** | string | False | -  |  The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.identity** | block | False | -  |  An `identity` block. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.local_auth_enabled** | bool | False | `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 
 
 

@@ -4,12 +4,12 @@ Manages an Alexa integration for a Bot Channel~> **Note** A bot can only have a 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string | True | -  |  -  | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.skill_id** | string | True | -  |  -  | The Alexa skill ID for the Alexa Channel. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.resource_group_name** | string | True | The name of the resource group where the Alexa Channel should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.skill_id** | string | True | The Alexa skill ID for the Alexa Channel. | 
 
 
 

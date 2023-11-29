@@ -4,13 +4,13 @@ Manages an Azure Media Asset Filter.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.asset_id** | string | True | -  |  -  | The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created. | 
-| **var.name** | string | True | -  |  -  | The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created. | 
-| **var.first_quality_bitrate** | string | False | -  |  -  | The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning. | 
-| **var.presentation_time_range** | block | False | -  |  -  | A `presentation_time_range` block. | 
-| **var.track_selection** | block | False | -  |  -  | One or more `track_selection` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.asset_id** | string | True | The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created. | 
+| **var.name** | string | True | The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created. | 
+| **var.first_quality_bitrate** | string | False | The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning. | 
+| **var.presentation_time_range** | block | False | A `presentation_time_range` block. | 
+| **var.track_selection** | block | False | One or more `track_selection` blocks. | 
 
 
 

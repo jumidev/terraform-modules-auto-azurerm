@@ -4,11 +4,11 @@
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.frontend_endpoint_id** | string | True | -  |  -  | The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created. | 
-| **var.custom_https_provisioning_enabled** | bool | True | -  |  -  | Should the HTTPS protocol be enabled for this custom domain associated with the Front Door? | 
-| **var.custom_https_configuration** | block | False | -  |  -  | A `custom_https_configuration` block. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.frontend_endpoint_id** | string | True | The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created. | 
+| **var.custom_https_provisioning_enabled** | bool | True | Should the HTTPS protocol be enabled for this custom domain associated with the Front Door? | 
+| **var.custom_https_configuration** | block | False | A `custom_https_configuration` block. | 
 
 
 

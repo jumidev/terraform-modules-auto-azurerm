@@ -4,13 +4,13 @@ Manages a logz Tag Rule.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.logz_monitor_id** | string | True | -  |  -  | The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created. | 
-| **var.tag_filter** | block | False | -  |  -  | One or more (up to 10) `tag_filter` blocks. | 
-| **var.send_aad_logs** | string | False | -  |  -  | Whether AAD logs should be sent to the Monitor resource? | 
-| **var.send_activity_logs** | string | False | -  |  -  | Whether activity logs from Azure resources should be sent to the Monitor resource? | 
-| **var.send_subscription_logs** | string | False | -  |  -  | Whether subscription logs should be sent to the Monitor resource? | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.logz_monitor_id** | string | True | The ID of the Logz Monitor. Changing this forces a new logz Tag Rule to be created. | 
+| **var.tag_filter** | block | False | One or more (up to 10) `tag_filter` blocks. | 
+| **var.send_aad_logs** | string | False | Whether AAD logs should be sent to the Monitor resource? | 
+| **var.send_activity_logs** | string | False | Whether activity logs from Azure resources should be sent to the Monitor resource? | 
+| **var.send_subscription_logs** | string | False | Whether subscription logs should be sent to the Monitor resource? | 
 
 
 

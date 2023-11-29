@@ -4,19 +4,19 @@ Manages a Network Watcher Flow Log.~> **Note** The `azurerm_network_watcher_flow
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the Network Watcher Flow Log. Changing this forces a new resource to be created. | 
-| **var.network_watcher_name** | string | True | -  |  -  | The name of the Network Watcher. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created. | 
-| **var.network_security_group_id** | string | True | -  |  -  | The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string | True | -  |  -  | The ID of the Storage Account where flow logs are stored. | 
-| **var.enabled** | bool | True | -  |  -  | Should Network Flow Logging be Enabled? | 
-| **var.retention_policy** | block | True | -  |  -  | A `retention_policy` block. | 
-| **var.location** | string | False | `location`  |  -  | The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher. | 
-| **var.traffic_analytics** | block | False | -  |  -  | A `traffic_analytics` block. | 
-| **var.version** | string | False | -  |  `1`, `2`  | The version (revision) of the flow log. Possible values are `1` and `2`. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  The name of the Network Watcher Flow Log. Changing this forces a new resource to be created. | 
+| **var.network_watcher_name** | string | True | -  |  -  |  The name of the Network Watcher. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created. | 
+| **var.network_security_group_id** | string | True | -  |  -  |  The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string | True | -  |  -  |  The ID of the Storage Account where flow logs are stored. | 
+| **var.enabled** | bool | True | -  |  -  |  Should Network Flow Logging be Enabled? | 
+| **var.retention_policy** | block | True | -  |  -  |  A `retention_policy` block. | 
+| **var.location** | string | False | `location`  |  -  |  The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher. | 
+| **var.traffic_analytics** | block | False | -  |  -  |  A `traffic_analytics` block. | 
+| **var.version** | string | False | -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
+| **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
 
 
 

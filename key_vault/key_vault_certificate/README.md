@@ -4,13 +4,13 @@ Manages a Key Vault Certificate.~> **Note:** The Azure Provider includes a Featu
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created. | 
-| **var.key_vault_id** | string | True | -  |  -  | The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created. | 
-| **var.certificate** | block | False | -  |  -  | A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
-| **var.certificate_policy** | block | False | -  |  -  | A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created. | 
+| **var.key_vault_id** | string | True | The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created. | 
+| **var.certificate** | block | False | A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.certificate_policy** | block | False | A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
 

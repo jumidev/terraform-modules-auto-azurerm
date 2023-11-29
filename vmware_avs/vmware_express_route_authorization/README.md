@@ -4,10 +4,10 @@ Manages an Express Route VMware Authorization.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
-| **var.private_cloud_id** | string | True | -  |  -  | The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
+| **var.private_cloud_id** | string | True | The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
 
 
 

@@ -4,12 +4,12 @@ Manages a Front Door (standard/premium) Endpoint.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created. | 
-| **var.cdn_frontdoor_profile_id** | string | True | -  |  -  | The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created. | 
-| **var.enabled** | bool | False | `True`  |  -  | Specifies if this Front Door Endpoint is enabled? Defaults to `true`. | 
-| **var.tags** | map | False | -  |  -  | Specifies a mapping of tags which should be assigned to the Front Door Endpoint. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created. | 
+| **var.cdn_frontdoor_profile_id** | string | True | -  |  The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created. | 
+| **var.enabled** | bool | False | `True`  |  Specifies if this Front Door Endpoint is enabled? Defaults to `true`. | 
+| **var.tags** | map | False | -  |  Specifies a mapping of tags which should be assigned to the Front Door Endpoint. | 
 
 
 

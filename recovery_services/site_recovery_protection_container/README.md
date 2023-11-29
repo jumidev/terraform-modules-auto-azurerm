@@ -4,12 +4,12 @@ Manages a Azure Site Recovery protection container. Protection containers serve 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the protection container. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string | True | -  |  -  | The name of the vault that should be updated. Changing this forces a new resource to be created. | 
-| **var.recovery_fabric_name** | string | True | -  |  -  | Name of fabric that should contain this protection container. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the protection container. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string | True | The name of the vault that should be updated. Changing this forces a new resource to be created. | 
+| **var.recovery_fabric_name** | string | True | Name of fabric that should contain this protection container. Changing this forces a new resource to be created. | 
 
 
 

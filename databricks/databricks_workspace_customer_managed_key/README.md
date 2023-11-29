@@ -4,10 +4,10 @@ Manages a Customer Managed Key for a Databricks Workspace root DBFS!>**IMPORTANT
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.workspace_id** | string | True | -  |  -  | The ID of the Databricks Workspace.. | 
-| **var.key_vault_key_id** | string | True | -  |  -  | The ID of the Key Vault. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.workspace_id** | string | True | The ID of the Databricks Workspace.. | 
+| **var.key_vault_key_id** | string | True | The ID of the Key Vault. | 
 
 
 

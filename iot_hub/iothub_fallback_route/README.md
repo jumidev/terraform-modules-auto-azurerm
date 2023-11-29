@@ -4,14 +4,14 @@ Manages an IotHub Fallback Route## Disclaimers~> **Note:** Fallback route can be
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_name** | string | True | -  |  -  | The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created. | 
-| **var.source** | string | False | `DeviceMessages`  |  `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`  | The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`. | 
-| **var.enabled** | bool | True | -  |  -  | Used to specify whether the fallback route is enabled. | 
-| **var.endpoint_names** | string | True | -  |  -  | The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed. | 
-| **var.condition** | bool | False | `True`  |  -  | The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created. | 
+| **var.iothub_name** | string | True | -  |  -  |  The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created. | 
+| **var.source** | string | False | `DeviceMessages`  |  `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`  |  The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`. | 
+| **var.enabled** | bool | True | -  |  -  |  Used to specify whether the fallback route is enabled. | 
+| **var.endpoint_names** | string | True | -  |  -  |  The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed. | 
+| **var.condition** | bool | False | `True`  |  -  |  The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`. | 
 
 
 

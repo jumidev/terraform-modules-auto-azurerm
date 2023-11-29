@@ -4,10 +4,10 @@ Manages an Active Azure Spring Cloud Deployment.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.spring_cloud_app_id** | string | True | -  |  -  | Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created. | 
-| **var.deployment_name** | string | True | -  |  -  | Specifies the name of Spring Cloud Deployment which is going to be active. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.spring_cloud_app_id** | string | True | Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created. | 
+| **var.deployment_name** | string | True | Specifies the name of Spring Cloud Deployment which is going to be active. | 
 
 
 

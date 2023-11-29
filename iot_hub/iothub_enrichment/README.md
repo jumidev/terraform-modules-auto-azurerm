@@ -4,13 +4,13 @@ Manages an IotHub Enrichment~> **NOTE:** Enrichment can be defined either direct
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.iothub_name** | string | True | -  |  -  | The IoTHub name of the enrichment. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created. | 
-| **var.key** | string | True | -  |  -  | The key of the enrichment. Changing this forces a new resource to be created. | 
-| **var.value** | string | True | -  |  -  | The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`) | 
-| **var.endpoint_names** | string | True | -  |  -  | The list of endpoints which will be enriched. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.iothub_name** | string | True | The IoTHub name of the enrichment. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created. | 
+| **var.key** | string | True | The key of the enrichment. Changing this forces a new resource to be created. | 
+| **var.value** | string | True | The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`) | 
+| **var.endpoint_names** | string | True | The list of endpoints which will be enriched. | 
 
 
 

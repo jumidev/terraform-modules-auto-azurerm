@@ -4,16 +4,16 @@ Manages a Machine Learning File Share DataStore.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.workspace_id** | string | True | -  |  -  | The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.storage_fileshare_id** | string | True | -  |  -  | The ID of the Storage Account File Share. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.account_key** | string | False | -  |  -  | The access key of the Storage Account. Conflicts with `shared_access_signature`. | 
-| **var.shared_access_signature** | string | False | -  |  -  | The Shared Access Signature of the Storage Account. Conflicts with `account_key`. | 
-| **var.description** | string | False | -  |  -  | Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.service_data_identity** | string | False | `None`  |  `None`, `WorkspaceSystemAssignedIdentity`, `WorkspaceUserAssignedIdentity`  | Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
+| **var.workspace_id** | string | True | -  |  -  |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created. | 
+| **var.storage_fileshare_id** | string | True | -  |  -  |  The ID of the Storage Account File Share. Changing this forces a new Machine Learning DataStore to be created. | 
+| **var.account_key** | string | False | -  |  -  |  The access key of the Storage Account. Conflicts with `shared_access_signature`. | 
+| **var.shared_access_signature** | string | False | -  |  -  |  The Shared Access Signature of the Storage Account. Conflicts with `account_key`. | 
+| **var.description** | string | False | -  |  -  |  Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created. | 
+| **var.service_data_identity** | string | False | `None`  |  `None`, `WorkspaceSystemAssignedIdentity`, `WorkspaceUserAssignedIdentity`  |  Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`. | 
+| **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
 
 
 

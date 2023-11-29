@@ -4,19 +4,19 @@ Manages a Express Route Port.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
-| **var.bandwidth_in_gbps** | int | True | -  |  -  | Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created. | 
-| **var.encapsulation** | string | True | -  |  `Dot1Q`, `QinQ`  | The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`. | 
-| **var.peering_location** | string | True | -  |  -  | The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created. | 
-| **var.link1** | block | False | -  |  -  | A list of `link` blocks. | 
-| **var.link2** | block | False | -  |  -  | A list of `link` blocks. | 
-| **var.billing_type** | string | False | -  |  `MeteredData`, `UnlimitedData`  | The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Express Route Port. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
+| **var.location** | string | True | -  |  The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
+| **var.bandwidth_in_gbps** | int | True | -  |  Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created. | 
+| **var.encapsulation** | string | True | `Dot1Q`, `QinQ`  |  The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`. | 
+| **var.peering_location** | string | True | -  |  The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created. | 
+| **var.link1** | block | False | -  |  A list of `link` blocks. | 
+| **var.link2** | block | False | -  |  A list of `link` blocks. | 
+| **var.billing_type** | string | False | `MeteredData`, `UnlimitedData`  |  The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
+| **var.identity** | block | False | -  |  An `identity` block. | 
+| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Express Route Port. | 
 
 
 

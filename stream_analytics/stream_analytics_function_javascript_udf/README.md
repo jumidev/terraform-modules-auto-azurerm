@@ -4,14 +4,14 @@ Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the JavaScript UDF Function. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string | True | -  |  -  | The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
-| **var.input** | block | True | -  |  -  | One or more `input` blocks. | 
-| **var.output** | block | True | -  |  -  | An `output` blocks. | 
-| **var.script** | string | True | -  |  -  | The JavaScript of this UDF Function. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the JavaScript UDF Function. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **var.stream_analytics_job_name** | string | True | The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
+| **var.input** | block | True | One or more `input` blocks. | 
+| **var.output** | block | True | An `output` blocks. | 
+| **var.script** | string | True | The JavaScript of this UDF Function. | 
 
 
 

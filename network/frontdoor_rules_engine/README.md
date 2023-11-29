@@ -4,13 +4,13 @@
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the Rules engine configuration. Changing this forces a new resource to be created. | 
-| **var.frontdoor_name** | string | True | -  |  -  | The name of the Front Door instance. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool | False | `True`  |  -  | Whether this Rules engine configuration is enabled? Defaults to `true`. | 
-| **var.rule** | block | False | -  |  -  | A `rule` block. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name of the Rules engine configuration. Changing this forces a new resource to be created. | 
+| **var.frontdoor_name** | string | True | -  |  The name of the Front Door instance. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **var.enabled** | bool | False | `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
+| **var.rule** | block | False | -  |  A `rule` block. | 
 
 
 

@@ -4,14 +4,14 @@ Manages a MS Teams integration for a Bot Channel~> **Note** A bot can only have 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string | True | -  |  -  | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.calling_web_hook** | string | False | -  |  -  | Specifies the webhook for Microsoft Teams channel calls. | 
-| **var.deployment_environment** | string | False | `CommercialDeployment`  |  `CommercialDeployment`, `GCCModerateDeployment`  | The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`. | 
-| **var.enable_calling** | bool | False | `False`  |  -  | Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  -  |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string | True | -  |  -  |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.calling_web_hook** | string | False | -  |  -  |  Specifies the webhook for Microsoft Teams channel calls. | 
+| **var.deployment_environment** | string | False | `CommercialDeployment`  |  `CommercialDeployment`, `GCCModerateDeployment`  |  The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`. | 
+| **var.enable_calling** | bool | False | `False`  |  -  |  Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`. | 
 
 
 

@@ -4,10 +4,10 @@ Manages Key Vault Certificate Contacts.## Disclaimers~> **Note:** It's possible 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.key_vault_id** | string | True | -  |  -  | The ID of the Key Vault. Changing this forces a new resource to be created. | 
-| **var.contact** | block | True | -  |  -  | One or more `contact` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.key_vault_id** | string | True | The ID of the Key Vault. Changing this forces a new resource to be created. | 
+| **var.contact** | block | True | One or more `contact` blocks. | 
 
 
 

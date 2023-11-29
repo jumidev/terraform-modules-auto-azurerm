@@ -4,9 +4,9 @@ Manages Portal Tenant Configuration.~> **Note:** User has to be `Contributor` or
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.private_markdown_storage_enforced** | bool | True | -  |  -  | Is the private tile markdown storage which used to display custom dynamic and static content enabled? | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.private_markdown_storage_enforced** | bool | True | Is the private tile markdown storage which used to display custom dynamic and static content enabled? | 
 
 
 

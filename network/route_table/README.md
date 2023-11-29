@@ -4,21 +4,21 @@ Manages a Route Table~> **NOTE on Route Tables and Routes:** Terraform currently
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the route table. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the route table. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.route** | block | False | -  |  -  | List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. | 
-| **var.disable_bgp_route_propagation** | bool | False | -  |  -  | Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the route table. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which to create the route table. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.route** | block | False | List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. | 
+| **var.disable_bgp_route_propagation** | bool | False | Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
-### 1 optional associated resource:
+### 1 optional associated resource
 
-| variable | reference | Description |
-| -------- | --------- | ----------- |
-| **var.subnet_id** | **subnet_route_table_association** | Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
+| Variable | Information |
+| -------- | ----------- |
+| **var.subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
 
 ## Outputs
 

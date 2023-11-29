@@ -4,12 +4,12 @@ Enables you to manage DNS SRV Records within Azure DNS.~> **Note:** [The Azure D
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the DNS SRV Record. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | -  |  -  | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | -  |  -  | The Time To Live (TTL) of the DNS record in seconds. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the DNS SRV Record. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
 
 
 

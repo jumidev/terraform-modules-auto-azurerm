@@ -4,17 +4,17 @@ Manages a Machine Learning Inference Cluster.~> **NOTE:** The Machine Learning I
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.kubernetes_cluster_id** | string | True | -  |  -  | The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.machine_learning_workspace_id** | string | True | -  |  -  | The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.cluster_purpose** | string | False | -  |  -  | The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.description** | string | False | -  |  -  | The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.ssl** | block | False | -  |  -  | A `ssl` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.kubernetes_cluster_id** | string | True | The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.location** | string | True | The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.machine_learning_workspace_id** | string | True | The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.cluster_purpose** | string | False | The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.description** | string | False | The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.identity** | block | False | An `identity` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.ssl** | block | False | A `ssl` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
 
 
 

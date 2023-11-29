@@ -4,10 +4,10 @@ Manages a Disk Pool Managed Disk Attachment.!> **Note:** Azure are officially [h
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.disk_pool_id** | string | True | -  |  -  | The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created. | 
-| **var.managed_disk_id** | string | True | -  |  -  | The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.disk_pool_id** | string | True | The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created. | 
+| **var.managed_disk_id** | string | True | The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created. | 
 
 
 

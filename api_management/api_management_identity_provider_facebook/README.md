@@ -4,12 +4,12 @@ Manages an API Management Facebook Identity Provider.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.api_management_name** | string | True | -  |  -  | The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.app_id** | string | True | -  |  -  | App ID for Facebook. | 
-| **var.app_secret** | string | True | -  |  -  | App Secret for Facebook. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.api_management_name** | string | True | The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.app_id** | string | True | App ID for Facebook. | 
+| **var.app_secret** | string | True | App Secret for Facebook. | 
 
 
 

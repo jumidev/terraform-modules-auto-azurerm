@@ -4,13 +4,13 @@ Manages a Log Analytics Windows Event DataSource.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
-| **var.workspace_name** | string | True | -  |  -  | The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
-| **var.event_log_name** | string | True | -  |  -  | Specifies the name of the Windows Event Log to collect events from. | 
-| **var.event_types** | string | True | -  |  `Error`, `Warning`, `Information`  | Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
+| **var.workspace_name** | string | True | -  |  The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
+| **var.event_log_name** | string | True | -  |  Specifies the name of the Windows Event Log to collect events from. | 
+| **var.event_types** | string | True | `Error`, `Warning`, `Information`  |  Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`. | 
 
 
 

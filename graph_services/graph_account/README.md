@@ -4,12 +4,12 @@ Manages a Microsoft Graph Services Account.!> **NOTE:** This resource has been d
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of this Account. Changing this forces a new Account to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created. | 
-| **var.application_id** | string | True | -  |  -  | Customer owned application ID. Changing this forces a new Account to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Account. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of this Account. Changing this forces a new Account to be created. | 
+| **var.resource_group_name** | string | True | Specifies the name of the Resource Group within which this Account should exist. Changing this forces a new Account to be created. | 
+| **var.application_id** | string | True | Customer owned application ID. Changing this forces a new Account to be created. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the Account. | 
 
 
 

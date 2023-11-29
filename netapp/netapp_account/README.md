@@ -4,13 +4,13 @@ Manages a NetApp Account.~> **NOTE:** Azure allows only one active directory can
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the NetApp Account. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.active_directory** | block | False | -  |  -  | A `active_directory` block. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the NetApp Account. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.active_directory** | block | False | A `active_directory` block. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
 

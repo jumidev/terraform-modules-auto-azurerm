@@ -4,13 +4,13 @@ Manages a Hostname Binding within an App Service (or Function App).
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.hostname** | string | True | -  |  -  | Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
-| **var.app_service_name** | string | True | -  |  -  | The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the App Service exists. Changing this forces a new resource to be created. | 
-| **var.ssl_state** | string | False | -  |  `IpBasedEnabled`, `SniEnabled`  | The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created. | 
-| **var.thumbprint** | string | False | -  |  -  | The SSL certificate thumbprint. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.hostname** | string | True | -  |  Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
+| **var.app_service_name** | string | True | -  |  The name of the App Service in which to add the Custom Hostname Binding. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the App Service exists. Changing this forces a new resource to be created. | 
+| **var.ssl_state** | string | False | `IpBasedEnabled`, `SniEnabled`  |  The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created. | 
+| **var.thumbprint** | string | False | -  |  The SSL certificate thumbprint. Changing this forces a new resource to be created. | 
 
 
 

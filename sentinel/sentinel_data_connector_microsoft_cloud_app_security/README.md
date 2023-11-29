@@ -4,13 +4,13 @@ Manages a Microsoft Cloud App Security Data Connector.!> **NOTE:** This resource
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.log_analytics_workspace_id** | string | True | -  |  -  | The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
-| **var.name** | string | True | -  |  -  | The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
-| **var.alerts_enabled** | bool | False | `True`  |  -  | Should the alerts be enabled? Defaults to `true`. | 
-| **var.discovery_logs_enabled** | bool | False | `True`  |  -  | Should the Discovery Logs be enabled? Defaults to `true`. | 
-| **var.tenant_id** | string | False | -  |  -  | The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.log_analytics_workspace_id** | string | True | -  |  The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
+| **var.name** | string | True | -  |  The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
+| **var.alerts_enabled** | bool | False | `True`  |  Should the alerts be enabled? Defaults to `true`. | 
+| **var.discovery_logs_enabled** | bool | False | `True`  |  Should the Discovery Logs be enabled? Defaults to `true`. | 
+| **var.tenant_id** | string | False | -  |  The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. | 
 
 
 

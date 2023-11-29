@@ -4,13 +4,13 @@ Manages an Authorization Rule for a ServiceBus Queue.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
-| **var.queue_id** | string | True | -  |  -  | Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created. | 
-| **var.listen** | bool | False | `False`  |  -  | Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`. | 
-| **var.send** | bool | False | `False`  |  -  | Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`. | 
-| **var.manage** | bool | False | `False`  |  -  | Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
+| **var.queue_id** | string | True | -  |  Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created. | 
+| **var.listen** | bool | False | `False`  |  Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`. | 
+| **var.send** | bool | False | `False`  |  Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`. | 
+| **var.manage** | bool | False | `False`  |  Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
 
 
 

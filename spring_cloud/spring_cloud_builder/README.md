@@ -4,12 +4,12 @@ Manages a Spring Cloud Builder.-> **NOTE:** This resource is applicable only for
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created. | 
-| **var.spring_cloud_service_id** | string | True | -  |  -  | The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created. | 
-| **var.build_pack_group** | block | True | -  |  -  | One or more `build_pack_group` blocks. | 
-| **var.stack** | block | True | -  |  -  | A `stack` block. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created. | 
+| **var.spring_cloud_service_id** | string | True | The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created. | 
+| **var.build_pack_group** | block | True | One or more `build_pack_group` blocks. | 
+| **var.stack** | block | True | A `stack` block. | 
 
 
 

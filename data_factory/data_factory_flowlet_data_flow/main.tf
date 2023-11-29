@@ -8,6 +8,13 @@ resource "azurerm_data_factory_flowlet_data_flow" "this" {
   data_factory_id = var.data_factory_id
   name            = var.name
 
+  ########################################
+  # optional vars
+  ########################################
+  annotations = var.annotations
+  description = var.description
+  folder      = var.folder
+
   dynamic "source" { # var.source
     for_each = var.source != null ? var.source : []
     content {
@@ -117,13 +124,6 @@ resource "azurerm_data_factory_flowlet_data_flow" "this" {
     }
   }
 
-
-  ########################################
-  # optional vars
-  ########################################
-  annotations  = var.annotations
-  description  = var.description
-  folder       = var.folder
   script       = var.script
   script_lines = var.script_lines
 

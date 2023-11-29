@@ -4,22 +4,22 @@ Manages a Machine Learning Compute Cluster.**NOTE:** At this point in time the r
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.machine_learning_workspace_id** | string | True | -  |  -  | The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.vm_priority** | string | True | -  |  -  | The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`. | 
-| **var.vm_size** | string | True | -  |  -  | The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.scale_settings** | block | True | -  |  -  | A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.ssh** | block | False | -  |  -  | Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.description** | string | False | -  |  -  | The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.local_auth_enabled** | bool | False | `True`  |  -  | Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.node_public_ip_enabled** | bool | False | `True`  |  -  | Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.ssh_public_access_enabled** | bool | False | -  |  -  | A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.subnet_resource_id** | string | False | -  |  -  | The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.machine_learning_workspace_id** | string | True | -  |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.location** | string | True | -  |  The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.vm_priority** | string | True | -  |  The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`. | 
+| **var.vm_size** | string | True | -  |  The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.scale_settings** | block | True | -  |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.ssh** | block | False | -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.description** | string | False | -  |  The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.identity** | block | False | -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.local_auth_enabled** | bool | False | `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.node_public_ip_enabled** | bool | False | `True`  |  Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.ssh_public_access_enabled** | bool | False | -  |  A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.subnet_resource_id** | string | False | -  |  The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
 
 

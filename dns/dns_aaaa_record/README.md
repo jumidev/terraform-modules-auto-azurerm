@@ -4,15 +4,15 @@ Enables you to manage DNS AAAA Records within Azure DNS.~> **Note:** [The Azure 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the DNS AAAA Record. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | -  |  -  | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | -  |  -  | The Time To Live (TTL) of the DNS record in seconds. | 
-| **var.records** | string | False | -  |  -  | List of IPv6 Addresses. Conflicts with `target_resource_id`. | 
-| **var.target_resource_id** | string | False | -  |  -  | The Azure resource id of the target object. Conflicts with `records`. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the DNS AAAA Record. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
+| **var.records** | string | False | List of IPv6 Addresses. Conflicts with `target_resource_id`. | 
+| **var.target_resource_id** | string | False | The Azure resource id of the target object. Conflicts with `records`. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
 

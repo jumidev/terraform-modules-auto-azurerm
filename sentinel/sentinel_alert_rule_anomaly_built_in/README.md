@@ -4,13 +4,13 @@ Manages a Built-in Anomaly Alert Rule.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | False | -  |  -  | The Name of the built-in Anomaly Alert Rule. | 
-| **var.display_name** | string | False | -  |  -  | The Display Name of the built-in Anomaly Alert Rule. | 
-| **var.log_analytics_workspace_id** | string | True | -  |  -  | The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created. | 
-| **var.enabled** | bool | True | -  |  -  | Should the Built-in Anomaly Alert Rule be enabled? | 
-| **var.mode** | string | True | -  |  -  | mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | False | The Name of the built-in Anomaly Alert Rule. | 
+| **var.display_name** | string | False | The Display Name of the built-in Anomaly Alert Rule. | 
+| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created. | 
+| **var.enabled** | bool | True | Should the Built-in Anomaly Alert Rule be enabled? | 
+| **var.mode** | string | True | mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
 
 
 

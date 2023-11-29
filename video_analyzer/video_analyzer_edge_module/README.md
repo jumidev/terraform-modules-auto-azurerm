@@ -4,11 +4,11 @@ Manages a Video Analyzer Edge Module.!> Video Analyzer (Preview) is now Deprecat
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
-| **var.video_analyzer_name** | string | True | -  |  -  | The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which to create the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
+| **var.video_analyzer_name** | string | True | The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created. | 
 
 
 

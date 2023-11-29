@@ -4,25 +4,25 @@ Manages an App Service Slot (within an App Service).!> **NOTE:** This resource h
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the App Service Slot component. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.app_service_plan_id** | string | True | -  |  -  | The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created. | 
-| **var.app_service_name** | string | True | -  |  -  | The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created. | 
-| **var.app_settings** | string | False | -  |  -  | A key-value pair of App Settings. | 
-| **var.auth_settings** | block | False | -  |  -  | A `auth_settings` block. | 
-| **var.connection_string** | block | False | -  |  -  | An `connection_string` block. | 
-| **var.client_affinity_enabled** | bool | False | -  |  -  | Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? | 
-| **var.enabled** | bool | False | `True`  |  -  | Is the App Service Slot Enabled? Defaults to `true`. | 
-| **var.https_only** | bool | False | `False`  |  -  | Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. | 
-| **var.site_config** | block | False | -  |  -  | A `site_config` object as defined below. | 
-| **var.storage_account** | block | False | -  |  -  | One or more `storage_account` blocks. | 
-| **var.logs** | block | False | -  |  -  | A `logs` block. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. | 
-| **var.key_vault_reference_identity_id** | string | False | -  |  -  | The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the App Service Slot component. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.app_service_plan_id** | string | True | -  |  The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created. | 
+| **var.app_service_name** | string | True | -  |  The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created. | 
+| **var.app_settings** | string | False | -  |  A key-value pair of App Settings. | 
+| **var.auth_settings** | block | False | -  |  A `auth_settings` block. | 
+| **var.connection_string** | block | False | -  |  An `connection_string` block. | 
+| **var.client_affinity_enabled** | bool | False | -  |  Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? | 
+| **var.enabled** | bool | False | `True`  |  Is the App Service Slot Enabled? Defaults to `true`. | 
+| **var.https_only** | bool | False | `False`  |  Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. | 
+| **var.site_config** | block | False | -  |  A `site_config` object as defined below. | 
+| **var.storage_account** | block | False | -  |  One or more `storage_account` blocks. | 
+| **var.logs** | block | False | -  |  A `logs` block. | 
+| **var.identity** | block | False | -  |  An `identity` block. | 
+| **var.key_vault_reference_identity_id** | string | False | -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
+| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 
 

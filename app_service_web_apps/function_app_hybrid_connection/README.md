@@ -4,13 +4,13 @@ Manages a Function App Hybrid Connection.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.function_app_id** | string | True | -  |  -  | The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created. | 
-| **var.relay_id** | string | True | -  |  -  | The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created. | 
-| **var.hostname** | string | True | -  |  -  | The hostname of the endpoint. | 
-| **var.port** | string | True | -  |  -  | The port to use for the endpoint | 
-| **var.send_key_name** | string | False | `RootManageSharedAccessKey`  |  -  | The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey` | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.function_app_id** | string | True | -  |  The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created. | 
+| **var.relay_id** | string | True | -  |  The ID of the Relay Hybrid Connection to use. Changing this forces a new resource to be created. | 
+| **var.hostname** | string | True | -  |  The hostname of the endpoint. | 
+| **var.port** | string | True | -  |  The port to use for the endpoint | 
+| **var.send_key_name** | string | False | `RootManageSharedAccessKey`  |  The name of the Relay key with `Send` permission to use. Defaults to `RootManageSharedAccessKey` | 
 
 
 

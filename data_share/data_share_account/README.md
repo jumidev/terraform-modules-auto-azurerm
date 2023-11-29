@@ -4,13 +4,13 @@ Manages a Data Share Account.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
-| **var.identity** | block | True | -  |  -  | An `identity` block. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Data Share Account. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created. | 
+| **var.resource_group_name** | string | True | The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
+| **var.location** | string | True | The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
+| **var.identity** | block | True | An `identity` block. Changing this forces a new resource to be created. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the Data Share Account. | 
 
 
 

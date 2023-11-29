@@ -4,10 +4,10 @@ Manages a MS SQL Server DNS Alias.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.mssql_server_id** | string | True | -  |  -  | The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created. | 
-| **var.name** | string | True | -  |  -  | The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.mssql_server_id** | string | True | The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created. | 
+| **var.name** | string | True | The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created. | 
 
 
 

@@ -4,11 +4,11 @@ Manages a Customer Managed Key for a Cognitive Services Account.~> **NOTE:** It'
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.cognitive_account_id** | string | True | -  |  -  | The ID of the Cognitive Account. Changing this forces a new resource to be created. | 
-| **var.key_vault_key_id** | string | True | -  |  -  | The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. | 
-| **var.identity_client_id** | string | False | -  |  -  | The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.cognitive_account_id** | string | True | The ID of the Cognitive Account. Changing this forces a new resource to be created. | 
+| **var.key_vault_key_id** | string | True | The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. | 
+| **var.identity_client_id** | string | False | The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. | 
 
 
 

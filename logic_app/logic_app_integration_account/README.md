@@ -4,14 +4,14 @@ Manages a Logic App Integration Account.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.sku_name** | string | True | -  |  -  | The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`. | 
-| **var.integration_service_environment_id** | string | False | -  |  -  | The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Logic App Integration Account. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created. | 
+| **var.resource_group_name** | string | True | The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
+| **var.location** | string | True | The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
+| **var.sku_name** | string | True | The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`. | 
+| **var.integration_service_environment_id** | string | False | The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the Logic App Integration Account. | 
 
 
 

@@ -4,12 +4,12 @@ Enables you to manage Private DNS zones within Azure DNS. These zones are hosted
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
-| **var.soa_record** | block | False | -  |  -  | An `soa_record` block. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
+| **var.soa_record** | block | False | An `soa_record` block. Changing this forces a new resource to be created. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
 

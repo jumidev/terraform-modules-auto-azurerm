@@ -4,8 +4,8 @@ Manages a Dashboard Grafana.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
 
 
 

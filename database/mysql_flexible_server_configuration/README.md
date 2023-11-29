@@ -4,12 +4,12 @@ Sets a MySQL Flexible Server Configuration value on a MySQL Flexible Server.## D
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | -  |  -  | Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created. | 
-| **var.value** | string | True | -  |  -  | Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created. | 
+| **var.server_name** | string | True | Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created. | 
+| **var.value** | string | True | Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. | 
 
 
 

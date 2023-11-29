@@ -4,15 +4,15 @@ Manages an Automation Connection with type `AzureClassicCertificate`.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Connection. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string | True | -  |  -  | The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.certificate_asset_name** | string | True | -  |  -  | The name of the certificate asset. | 
-| **var.subscription_name** | string | True | -  |  -  | The name of subscription. | 
-| **var.subscription_id** | string | True | -  |  -  | The id of subscription. | 
-| **var.description** | string | False | -  |  -  | A description for this Connection. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the Connection. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string | True | The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
+| **var.certificate_asset_name** | string | True | The name of the certificate asset. | 
+| **var.subscription_name** | string | True | The name of subscription. | 
+| **var.subscription_id** | string | True | The id of subscription. | 
+| **var.description** | string | False | A description for this Connection. | 
 
 
 

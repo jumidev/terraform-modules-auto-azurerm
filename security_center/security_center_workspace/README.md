@@ -4,10 +4,10 @@ Manages the subscription's Security Center Workspace.~> **NOTE:** Owner access p
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.scope** | string | True | -  |  -  | The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope. | 
-| **var.workspace_id** | string | True | -  |  -  | The ID of the Log Analytics Workspace to save the data in. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.scope** | string | True | The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope. | 
+| **var.workspace_id** | string | True | The ID of the Log Analytics Workspace to save the data in. | 
 
 
 

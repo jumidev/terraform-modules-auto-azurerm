@@ -4,15 +4,15 @@ Manages a Function App Function.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the function. Changing this forces a new resource to be created. | 
-| **var.function_app_id** | string | True | -  |  -  | The ID of the Function App in which this function should reside. Changing this forces a new resource to be created. | 
-| **var.config_json** | string | True | -  |  -  | The config for this Function in JSON format. | 
-| **var.enabled** | bool | False | `True`  |  -  | Should this function be enabled. Defaults to `true`. | 
-| **var.file** | block | False | -  |  -  | A `file` block as detailed below. Changing this forces a new resource to be created. | 
-| **var.language** | string | False | -  |  `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, `TypeScript`  | The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`. | 
-| **var.test_data** | string | False | -  |  -  | The test data for the function. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  The name of the function. Changing this forces a new resource to be created. | 
+| **var.function_app_id** | string | True | -  |  -  |  The ID of the Function App in which this function should reside. Changing this forces a new resource to be created. | 
+| **var.config_json** | string | True | -  |  -  |  The config for this Function in JSON format. | 
+| **var.enabled** | bool | False | `True`  |  -  |  Should this function be enabled. Defaults to `true`. | 
+| **var.file** | block | False | -  |  -  |  A `file` block as detailed below. Changing this forces a new resource to be created. | 
+| **var.language** | string | False | -  |  `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, `TypeScript`  |  The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`. | 
+| **var.test_data** | string | False | -  |  -  |  The test data for the function. | 
 
 
 

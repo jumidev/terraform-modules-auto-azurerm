@@ -4,15 +4,15 @@ Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.~
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.path** | string | True | -  |  -  | The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created. | 
-| **var.filesystem_name** | string | True | -  |  -  | The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string | True | -  |  -  | Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created. | 
-| **var.resource** | string | True | -  |  -  | Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created. | 
-| **var.owner** | string | False | -  |  `$superuser`  | Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`. | 
-| **var.group** | string | False | -  |  `$superuser`  | Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`. | 
-| **var.ace** | block | False | -  |  -  | One or more `ace` blocks to specify the entries for the ACL for the path. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.path** | string | True | -  |  The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created. | 
+| **var.filesystem_name** | string | True | -  |  The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string | True | -  |  Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created. | 
+| **var.resource** | string | True | -  |  Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created. | 
+| **var.owner** | string | False | `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`. | 
+| **var.group** | string | False | `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`. | 
+| **var.ace** | block | False | -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
 
 
 

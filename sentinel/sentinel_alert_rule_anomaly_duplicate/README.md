@@ -4,17 +4,17 @@ Manages a Duplicated Anomaly Alert Rule.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.display_name** | string | True | -  |  -  | The Display Name of the built-in Anomaly Alert Rule. | 
-| **var.built_in_rule_id** | string | True | -  |  -  | The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
-| **var.log_analytics_workspace_id** | string | True | -  |  -  | The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
-| **var.enabled** | bool | True | -  |  -  | Should the Duplicated Anomaly Alert Rule be enabled? | 
-| **var.mode** | string | True | -  |  -  | mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
-| **var.multi_select_observation** | block | False | -  |  -  | A list of `multi_select_observation` blocks. | 
-| **var.single_select_observation** | block | False | -  |  -  | A list of `single_select_observation` blocks. | 
-| **var.prioritized_exclude_observation** | block | False | -  |  -  | A list of `prioritized_exclude_observation` blocks. | 
-| **var.threshold_observation** | block | False | -  |  -  | A list of `threshold_observation` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.display_name** | string | True | The Display Name of the built-in Anomaly Alert Rule. | 
+| **var.built_in_rule_id** | string | True | The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
+| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
+| **var.enabled** | bool | True | Should the Duplicated Anomaly Alert Rule be enabled? | 
+| **var.mode** | string | True | mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
+| **var.multi_select_observation** | block | False | A list of `multi_select_observation` blocks. | 
+| **var.single_select_observation** | block | False | A list of `single_select_observation` blocks. | 
+| **var.prioritized_exclude_observation** | block | False | A list of `prioritized_exclude_observation` blocks. | 
+| **var.threshold_observation** | block | False | A list of `threshold_observation` blocks. | 
 
 
 

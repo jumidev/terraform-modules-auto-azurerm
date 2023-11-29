@@ -4,15 +4,15 @@ Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and c
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
-| **var.network_profile** | block | True | -  |  -  | A `network_profile` block. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
-| **var.rulestack_id** | string | True | -  |  -  | The ID of the Local Rulestack which will be used to configure this Firewall Resource. | 
-| **var.destination_nat** | block | False | -  |  -  | One or more `destination_nat` blocks. | 
-| **var.dns_settings** | block | False | -  |  -  | A `dns_settings` block. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
+| **var.network_profile** | block | True | A `network_profile` block. | 
+| **var.resource_group_name** | string | True | The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
+| **var.rulestack_id** | string | True | The ID of the Local Rulestack which will be used to configure this Firewall Resource. | 
+| **var.destination_nat** | block | False | One or more `destination_nat` blocks. | 
+| **var.dns_settings** | block | False | A `dns_settings` block. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack. | 
 
 
 

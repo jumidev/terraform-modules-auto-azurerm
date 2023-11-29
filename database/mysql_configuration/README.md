@@ -4,12 +4,12 @@ Sets a MySQL Configuration value on a MySQL Server.## Disclaimers~> **Note:** Si
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | -  |  -  | Specifies the name of the MySQL Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created. | 
-| **var.value** | string | True | -  |  -  | Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created. | 
+| **var.server_name** | string | True | Specifies the name of the MySQL Server. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created. | 
+| **var.value** | string | True | Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created. | 
 
 
 

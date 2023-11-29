@@ -4,10 +4,10 @@ Manages the DNS servers associated with a virtual network.~> **NOTE on Virtual N
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.virtual_network_id** | string | True | -  |  -  | The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created. | 
-| **var.dns_servers** | string | False | -  |  -  | List of IP addresses of DNS servers | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.virtual_network_id** | string | True | The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created. | 
+| **var.dns_servers** | string | False | List of IP addresses of DNS servers | 
 
 
 

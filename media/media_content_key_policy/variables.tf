@@ -25,6 +25,10 @@ variable "policy_option" {
 #   token_restriction (block)               : A 'token_restriction' block.
 #   widevine_configuration_template (string): The Widevine template.
 #
+# offline_rental_configuration block structure:
+#   playback_duration_seconds (int)             : Playback duration.
+#   storage_duration_seconds (int)              : Storage duration.
+#
 # token_restriction block structure          :
 #   alternate_key (list)                       : One or more 'alternate_key' block.
 #   audience (string)                          : The audience for the token.
@@ -36,10 +40,6 @@ variable "policy_option" {
 #   primary_x509_token_key_raw (string)        : The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
 #   required_claim (list)                      : One or more 'required_claim' blocks.
 #   token_type (string)                        : The type of token. Supported values are 'Jwt' or 'Swt'.
-#
-# offline_rental_configuration block structure:
-#   playback_duration_seconds (int)             : Playback duration.
-#   storage_duration_seconds (int)              : Storage duration.
 #
 # fairplay_configuration block structure:
 #   ask (string)                          : The key that must be used as FairPlay Application Secret key.

@@ -4,11 +4,11 @@ Manages a Storage Object Replication.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.source_storage_account_id** | string | True | -  |  -  | The ID of the source storage account. Changing this forces a new Storage Object Replication to be created. | 
-| **var.destination_storage_account_id** | string | True | -  |  -  | The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created. | 
-| **var.rules** | block | True | -  |  -  | One or more `rules` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.source_storage_account_id** | string | True | The ID of the source storage account. Changing this forces a new Storage Object Replication to be created. | 
+| **var.destination_storage_account_id** | string | True | The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created. | 
+| **var.rules** | block | True | One or more `rules` blocks. | 
 
 
 

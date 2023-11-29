@@ -4,14 +4,14 @@ Manages a Blob Target within a HPC Cache.~> **NOTE:**: By request of the service
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.cache_name** | string | True | -  |  -  | The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created. | 
-| **var.name** | string | True | -  |  -  | The name of the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
-| **var.namespace_path** | string | True | -  |  -  | The client-facing file path of the HPC Cache Blob Target. | 
-| **var.storage_container_id** | string | True | -  |  -  | The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
-| **var.access_policy_name** | string | False | `default`  |  -  | The name of the access policy applied to this target. Defaults to `default`. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.cache_name** | string | True | -  |  The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created. | 
+| **var.name** | string | True | -  |  The name of the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **var.namespace_path** | string | True | -  |  The client-facing file path of the HPC Cache Blob Target. | 
+| **var.storage_container_id** | string | True | -  |  The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **var.access_policy_name** | string | False | `default`  |  The name of the access policy applied to this target. Defaults to `default`. | 
 
 
 

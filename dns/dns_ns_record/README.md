@@ -4,14 +4,14 @@ Enables you to manage DNS NS Records within Azure DNS.~> **Note:** [The Azure DN
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the DNS NS Record. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | -  |  -  | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | -  |  -  | The Time To Live (TTL) of the DNS record in seconds. | 
-| **var.records** | list | True | -  |  -  | A list of values that make up the NS record. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the DNS NS Record. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
+| **var.records** | list | True | A list of values that make up the NS record. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
 

@@ -4,11 +4,11 @@ Promotes an App Service Slot to Production within an App Service.!> **NOTE:** Th
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the App Service exists. Changing this forces a new resource to be created. | 
-| **var.app_service_name** | string | True | -  |  -  | The name of the App Service within which the Slot exists. Changing this forces a new resource to be created. | 
-| **var.app_service_slot_name** | string | True | -  |  -  | The name of the App Service Slot which should be promoted to the Production Slot within the App Service. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.resource_group_name** | string | True | The name of the resource group in which the App Service exists. Changing this forces a new resource to be created. | 
+| **var.app_service_name** | string | True | The name of the App Service within which the Slot exists. Changing this forces a new resource to be created. | 
+| **var.app_service_slot_name** | string | True | The name of the App Service Slot which should be promoted to the Production Slot within the App Service. | 
 
 
 

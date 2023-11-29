@@ -4,13 +4,13 @@ Manages an Entity within a Table in an Azure Storage Account.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.storage_account_name** | string | True | -  |  -  | Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created. | 
-| **var.table_name** | string | True | -  |  -  | The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created. | 
-| **var.partition_key** | string | True | -  |  -  | The key for the partition where the entity will be inserted/merged. Changing this forces a new resource. | 
-| **var.row_key** | string | True | -  |  -  | The key for the row where the entity will be inserted/merged. Changing this forces a new resource. | 
-| **var.entity** | string | True | -  |  -  | A map of key/value pairs that describe the entity to be inserted/merged in to the storage table. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.storage_account_name** | string | True | Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created. | 
+| **var.table_name** | string | True | The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created. | 
+| **var.partition_key** | string | True | The key for the partition where the entity will be inserted/merged. Changing this forces a new resource. | 
+| **var.row_key** | string | True | The key for the row where the entity will be inserted/merged. Changing this forces a new resource. | 
+| **var.entity** | string | True | A map of key/value pairs that describe the entity to be inserted/merged in to the storage table. | 
 
 
 

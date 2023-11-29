@@ -4,12 +4,12 @@ Manages a Databox Edge Order.!> Creation of Databox Edge Order is not supported 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created. | 
-| **var.device_name** | string | True | -  |  -  | The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created. | 
-| **var.contact** | block | True | -  |  -  | A `contact` block. | 
-| **var.shipment_address** | block | True | -  |  -  | A `shipment_address` block. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.resource_group_name** | string | True | The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created. | 
+| **var.device_name** | string | True | The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created. | 
+| **var.contact** | block | True | A `contact` block. | 
+| **var.shipment_address** | block | True | A `shipment_address` block. | 
 
 
 

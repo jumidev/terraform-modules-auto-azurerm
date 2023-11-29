@@ -4,12 +4,12 @@ Manages a User Assigned Identity.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.location** | string | True | -  |  -  | The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
-| **var.name** | string | True | -  |  -  | Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the User Assigned Identity. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.location** | string | True | The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
+| **var.name** | string | True | Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created. | 
+| **var.resource_group_name** | string | True | Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the User Assigned Identity. | 
 
 
 

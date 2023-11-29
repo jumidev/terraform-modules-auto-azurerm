@@ -4,12 +4,12 @@ Manages an iSCSI Target.!> **Note:** Azure are officially [halting](https://lear
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.acl_mode** | string | True | -  |  -  | Mode for Target connectivity. The only supported value is `Dynamic` for now. Changing this forces a new iSCSI Target to be created. | 
-| **var.disks_pool_id** | string | True | -  |  -  | The ID of the Disk Pool. Changing this forces a new iSCSI Target to be created. | 
-| **var.name** | string | True | -  |  -  | The name of the iSCSI Target. The name can only contain lowercase letters, numbers, periods, or hyphens, and length should between [5-223]. Changing this forces a new iSCSI Target to be created. | 
-| **var.target_iqn** | string | False | -  |  -  | ISCSI Target IQN (iSCSI Qualified Name); example: `iqn.2005-03.org.iscsi:server`. IQN should follow the format `iqn.yyyy-mm.<abc>.<pqr>[:xyz]`; supported characters include alphanumeric characters in lower case, hyphen, dot and colon, and the length should between `4` and `223`. Changing this forces a new iSCSI Target to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.acl_mode** | string | True | Mode for Target connectivity. The only supported value is `Dynamic` for now. Changing this forces a new iSCSI Target to be created. | 
+| **var.disks_pool_id** | string | True | The ID of the Disk Pool. Changing this forces a new iSCSI Target to be created. | 
+| **var.name** | string | True | The name of the iSCSI Target. The name can only contain lowercase letters, numbers, periods, or hyphens, and length should between [5-223]. Changing this forces a new iSCSI Target to be created. | 
+| **var.target_iqn** | string | False | ISCSI Target IQN (iSCSI Qualified Name); example: `iqn.2005-03.org.iscsi:server`. IQN should follow the format `iqn.yyyy-mm.<abc>.<pqr>[:xyz]`; supported characters include alphanumeric characters in lower case, hyphen, dot and colon, and the length should between `4` and `223`. Changing this forces a new iSCSI Target to be created. | 
 
 
 

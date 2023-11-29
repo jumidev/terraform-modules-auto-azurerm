@@ -4,14 +4,14 @@ Allows you to set a user or group as the AD administrator for an Azure SQL serve
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.server_name** | string | True | -  |  -  | The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group for the SQL server. Changing this forces a new resource to be created. | 
-| **var.login** | string | True | -  |  -  | The login name of the principal to set as the server administrator | 
-| **var.object_id** | string | True | -  |  -  | The ID of the principal to set as the server administrator | 
-| **var.tenant_id** | string | True | -  |  -  | The Azure Tenant ID | 
-| **var.azuread_authentication_only** | string | False | -  |  -  | Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.server_name** | string | True | The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group for the SQL server. Changing this forces a new resource to be created. | 
+| **var.login** | string | True | The login name of the principal to set as the server administrator | 
+| **var.object_id** | string | True | The ID of the principal to set as the server administrator | 
+| **var.tenant_id** | string | True | The Azure Tenant ID | 
+| **var.azuread_authentication_only** | string | False | Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). | 
 
 
 

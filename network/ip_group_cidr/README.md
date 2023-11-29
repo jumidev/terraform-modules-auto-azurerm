@@ -4,10 +4,10 @@ Manages IP Group CIDR records.~> Warning Do not use this resource at the same ti
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.ip_group_id** | string | True | -  |  -  | The ID of the destination IP Group. Changing this forces a new IP Group CIDR to be created. | 
-| **var.cidr** | string | True | -  |  -  | The `CIDR` that should be added to the IP Group. Changing this forces a new IP Group CIDR to be created. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.ip_group_id** | string | True | The ID of the destination IP Group. Changing this forces a new IP Group CIDR to be created. | 
+| **var.cidr** | string | True | The `CIDR` that should be added to the IP Group. Changing this forces a new IP Group CIDR to be created. | 
 
 
 

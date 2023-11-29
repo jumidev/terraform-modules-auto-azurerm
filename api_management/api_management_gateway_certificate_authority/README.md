@@ -4,12 +4,12 @@ Manages an API Management Gateway Certificate Authority.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.api_management_id** | string | True | -  |  -  | The ID of the API Management Service. Changing this forces a new resource to be created. | 
-| **var.certificate_name** | string | True | -  |  -  | The name of the API Management Certificate. Changing this forces a new resource to be created. | 
-| **var.gateway_name** | string | True | -  |  -  | The name of the API Management Gateway. Changing this forces a new resource to be created. | 
-| **var.is_trusted** | bool | False | -  |  -  | Whether the API Management Gateway Certificate Authority is trusted. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.api_management_id** | string | True | The ID of the API Management Service. Changing this forces a new resource to be created. | 
+| **var.certificate_name** | string | True | The name of the API Management Certificate. Changing this forces a new resource to be created. | 
+| **var.gateway_name** | string | True | The name of the API Management Gateway. Changing this forces a new resource to be created. | 
+| **var.is_trusted** | bool | False | Whether the API Management Gateway Certificate Authority is trusted. | 
 
 
 

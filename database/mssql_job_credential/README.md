@@ -4,12 +4,12 @@ Manages an Elastic Job Credential.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created. | 
-| **var.job_agent_id** | string | True | -  |  -  | The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created. | 
-| **var.username** | string | True | -  |  -  | The username part of the credential. | 
-| **var.password** | string | True | -  |  -  | The password part of the credential. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created. | 
+| **var.job_agent_id** | string | True | The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created. | 
+| **var.username** | string | True | The username part of the credential. | 
+| **var.password** | string | True | The password part of the credential. | 
 
 
 

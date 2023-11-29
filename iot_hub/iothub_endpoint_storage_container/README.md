@@ -4,20 +4,20 @@ Manages an IotHub Storage Container Endpoint~> **NOTE:** Endpoints can be define
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created. | 
-| **var.container_name** | string | True | -  |  -  | The name of storage container in the storage account. | 
-| **var.iothub_id** | string | True | -  |  -  | The IoTHub ID for the endpoint. Changing this forces a new resource to be created. | 
-| **var.authentication_type** | string | False | `keyBased`  |  `keyBased`, `identityBased`  | Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`. | 
-| **var.identity_id** | string | False | -  |  -  | ID of the User Managed Identity used to authenticate against the storage endpoint. | 
-| **var.endpoint_uri** | string | False | -  |  -  | URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
-| **var.connection_string** | string | False | -  |  -  | The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`. | 
-| **var.batch_frequency_in_seconds** | int | False | -  |  -  | Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. | 
-| **var.max_chunk_size_in_bytes** | int | False | -  |  -  | Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). | 
-| **var.encoding** | string | False | -  |  -  | Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created. | 
-| **var.file_name_format** | string | False | `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`  |  -  | File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group under which the Storage Container has been created. Changing this forces a new resource to be created. | 
+| **var.container_name** | string | True | -  |  -  |  The name of storage container in the storage account. | 
+| **var.iothub_id** | string | True | -  |  -  |  The IoTHub ID for the endpoint. Changing this forces a new resource to be created. | 
+| **var.authentication_type** | string | False | `keyBased`  |  `keyBased`, `identityBased`  |  Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`. | 
+| **var.identity_id** | string | False | -  |  -  |  ID of the User Managed Identity used to authenticate against the storage endpoint. | 
+| **var.endpoint_uri** | string | False | -  |  -  |  URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
+| **var.connection_string** | string | False | -  |  -  |  The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`. | 
+| **var.batch_frequency_in_seconds** | int | False | -  |  -  |  Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. | 
+| **var.max_chunk_size_in_bytes** | int | False | -  |  -  |  Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). | 
+| **var.encoding** | string | False | -  |  -  |  Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created. | 
+| **var.file_name_format** | string | False | `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`  |  -  |  File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. | 
 
 
 

@@ -4,12 +4,12 @@ Enables you to manage DNS MX Records within Azure DNS.~> **Note:** [The Azure DN
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | False | `@`  |  -  | The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | -  |  -  | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | -  |  -  | The Time To Live (TTL) of the DNS record in seconds. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | False | `@`  |  The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string | True | -  |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int | True | -  |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 
 

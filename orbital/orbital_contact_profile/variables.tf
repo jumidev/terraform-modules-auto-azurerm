@@ -41,6 +41,12 @@ variable "links" {
 #   name (string)        : (REQUIRED) Name of the link.
 #   polarization (string): (REQUIRED) Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'.
 #
+# end_point block structure:
+#   end_point_name (string)  : (REQUIRED) Name of an end point.
+#   port (string)            : (REQUIRED) TCP port to listen on to receive data.
+#   protocol (string)        : (REQUIRED) Protocol of an end point. Possible values are 'TCP' and 'UDP'.
+#   ip_address (string)      : IP address of an end point.
+#
 # channels block structure           :
 #   name (string)                      : (REQUIRED) Name of the channel.
 #   center_frequency_mhz (string)      : (REQUIRED) Center frequency in MHz.
@@ -48,12 +54,6 @@ variable "links" {
 #   end_point (block)                  : (REQUIRED) Customer End point to store/retrieve data during a contact. An 'end_point' block.
 #   modulation_configuration (string)  : Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 #   demodulation_configuration (string): Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
-#
-# end_point block structure:
-#   end_point_name (string)  : (REQUIRED) Name of an end point.
-#   port (string)            : (REQUIRED) TCP port to listen on to receive data.
-#   protocol (string)        : (REQUIRED) Protocol of an end point. Possible values are 'TCP' and 'UDP'.
-#   ip_address (string)      : IP address of an end point.
 
 
 

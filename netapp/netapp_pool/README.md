@@ -4,16 +4,16 @@ Manages a Pool within a NetApp Account.## NetApp Pool Usage```hclresource "azure
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the NetApp Pool. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string | True | -  |  -  | The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.service_level** | string | True | -  |  `Premium`, `Standard`, `Ultra`  | The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created. | 
-| **var.size_in_tb** | string | True | -  |  -  | Provisioned size of the pool in TB. Value must be between `2` and `500`. | 
-| **var.qos_type** | string | False | -  |  `Auto`, `Manual`  | QoS Type of the pool. Valid values include `Auto` or `Manual`. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name of the NetApp Pool. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group where the NetApp Pool should be created. Changing this forces a new resource to be created. | 
+| **var.account_name** | string | True | -  |  The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.service_level** | string | True | `Premium`, `Standard`, `Ultra`  |  The service level of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created. | 
+| **var.size_in_tb** | string | True | -  |  Provisioned size of the pool in TB. Value must be between `2` and `500`. | 
+| **var.qos_type** | string | False | `Auto`, `Manual`  |  QoS Type of the pool. Valid values include `Auto` or `Manual`. | 
+| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 
 

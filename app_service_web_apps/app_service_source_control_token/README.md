@@ -4,11 +4,11 @@ Manages an App Service source control token.!> **NOTE:** This resource has been 
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.type** | string | True | -  |  `BitBucket`, `Dropbox`, `GitHub`, `OneDrive`  | The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`. | 
-| **var.token** | string | True | -  |  -  | The OAuth access token. | 
-| **var.token_secret** | string | False | -  |  -  | The OAuth access token secret. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.type** | string | True | `BitBucket`, `Dropbox`, `GitHub`, `OneDrive`  |  The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`. | 
+| **var.token** | string | True | -  |  The OAuth access token. | 
+| **var.token_secret** | string | False | -  |  The OAuth access token secret. | 
 
 
 

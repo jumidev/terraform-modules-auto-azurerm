@@ -4,20 +4,20 @@ Manages an Azure App Configuration.## Disclaimers-> **Note:** Version 3.27.0 and
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the App Configuration. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. | 
-| **var.encryption** | block | False | -  |  -  | An `encryption` block. | 
-| **var.local_auth_enabled** | bool | False | `True`  |  -  | Whether local authentication methods is enabled. Defaults to `true`. | 
-| **var.public_network_access** | string | False | -  |  `Enabled`, `Disabled`  | The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`. | 
-| **var.purge_protection_enabled** | bool | False | `False`  |  -  | Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
-| **var.replica** | block | False | -  |  -  | One or more `replica` blocks. | 
-| **var.sku** | string | False | `free`  |  `free`, `standard`  | The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
-| **var.soft_delete_retention_days** | int | False | `7`  |  -  | The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  Specifies the name of the App Configuration. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.encryption** | block | False | -  |  -  |  An `encryption` block. | 
+| **var.local_auth_enabled** | bool | False | `True`  |  -  |  Whether local authentication methods is enabled. Defaults to `true`. | 
+| **var.public_network_access** | string | False | -  |  `Enabled`, `Disabled`  |  The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`. | 
+| **var.purge_protection_enabled** | bool | False | `False`  |  -  |  Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
+| **var.replica** | block | False | -  |  -  |  One or more `replica` blocks. | 
+| **var.sku** | string | False | `free`  |  `free`, `standard`  |  The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
+| **var.soft_delete_retention_days** | int | False | `7`  |  -  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
+| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 
 
 

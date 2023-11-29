@@ -4,12 +4,12 @@ Manages an Elastic Job Agent.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created. | 
-| **var.database_id** | string | True | -  |  -  | The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Database. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
+| **var.location** | string | True | The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created. | 
+| **var.database_id** | string | True | The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
+| **var.tags** | map | False | A mapping of tags which should be assigned to the Database. | 
 
 
 

@@ -4,17 +4,17 @@ Manages a datadog Monitor.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
-| **var.location** | string | True | -  |  -  | The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
-| **var.sku_name** | string | True | -  |  -  | The name which should be used for this sku. | 
-| **var.identity** | block | False | -  |  -  | A `identity` block. | 
-| **var.user** | block | True | -  |  -  | A `user` block. | 
-| **var.datadog_organization** | block | True | -  |  -  | A `datadog_organization` block. | 
-| **var.monitoring_enabled** | bool | False | `True`  |  -  | Is monitoring enabled? Defaults to `true`. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Datadog Monitor. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
+| **var.location** | string | True | -  |  The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
+| **var.sku_name** | string | True | -  |  The name which should be used for this sku. | 
+| **var.identity** | block | False | -  |  A `identity` block. | 
+| **var.user** | block | True | -  |  A `user` block. | 
+| **var.datadog_organization** | block | True | -  |  A `datadog_organization` block. | 
+| **var.monitoring_enabled** | bool | False | `True`  |  Is monitoring enabled? Defaults to `true`. | 
+| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
 
 
 

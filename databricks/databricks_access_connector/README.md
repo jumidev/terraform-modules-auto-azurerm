@@ -4,13 +4,13 @@ Manages a Databricks Access Connector
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
+| **var.identity** | block | False | An `identity` block. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
 

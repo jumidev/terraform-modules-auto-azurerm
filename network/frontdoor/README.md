@@ -4,19 +4,19 @@
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created. | 
-| **var.backend_pool** | block | True | -  |  -  | A `backend_pool` block. | 
-| **var.backend_pool_health_probe** | block | True | -  |  -  | A `backend_pool_health_probe` block. | 
-| **var.backend_pool_load_balancing** | block | True | -  |  -  | A `backend_pool_load_balancing` block. | 
-| **var.load_balancer_enabled** | bool | False | `True`  |  -  | Should the Front Door Load Balancer be Enabled? Defaults to `true`. | 
-| **var.friendly_name** | string | False | -  |  -  | A friendly name for the Front Door service. | 
-| **var.backend_pool_settings** | block | False | -  |  -  | A `backend_pool_settings` block. | 
-| **var.frontend_endpoint** | block | True | -  |  -  | A `frontend_endpoint` block. | 
-| **var.routing_rule** | block | True | -  |  -  | A `routing_rule` block. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Front Door service. Must be globally unique. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  Specifies the name of the Resource Group in which the Front Door service should exist. Changing this forces a new resource to be created. | 
+| **var.backend_pool** | block | True | -  |  A `backend_pool` block. | 
+| **var.backend_pool_health_probe** | block | True | -  |  A `backend_pool_health_probe` block. | 
+| **var.backend_pool_load_balancing** | block | True | -  |  A `backend_pool_load_balancing` block. | 
+| **var.load_balancer_enabled** | bool | False | `True`  |  Should the Front Door Load Balancer be Enabled? Defaults to `true`. | 
+| **var.friendly_name** | string | False | -  |  A friendly name for the Front Door service. | 
+| **var.backend_pool_settings** | block | False | -  |  A `backend_pool_settings` block. | 
+| **var.frontend_endpoint** | block | True | -  |  A `frontend_endpoint` block. | 
+| **var.routing_rule** | block | True | -  |  A `routing_rule` block. | 
+| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 
 

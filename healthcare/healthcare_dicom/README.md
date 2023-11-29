@@ -4,14 +4,14 @@ Manages a Healthcare DICOM Service
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created. | 
-| **var.workspace_id** | string | True | -  |  -  | Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created. | 
-| **var.identity** | block | False | -  |  -  | An `identity` block. | 
-| **var.public_network_access_enabled** | bool | False | `True`  |  -  | Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the Healthcare DICOM Service. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created. | 
+| **var.workspace_id** | string | True | -  |  Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created. | 
+| **var.location** | string | True | -  |  Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created. | 
+| **var.identity** | block | False | -  |  An `identity` block. | 
+| **var.public_network_access_enabled** | bool | False | `True`  |  Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`. | 
+| **var.tags** | map | False | -  |  A mapping of tags to assign to the Healthcare DICOM Service. | 
 
 
 

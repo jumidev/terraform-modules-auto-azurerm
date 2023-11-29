@@ -4,18 +4,18 @@ Manages a Data Flow inside an Azure Data Factory.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created. | 
-| **var.data_factory_id** | string | True | -  |  -  | The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource. | 
-| **var.script** | string | False | -  |  -  | The script for the Data Factory Data Flow. | 
-| **var.script_lines** | string | False | -  |  -  | The script lines for the Data Factory Data Flow. | 
-| **var.source** | block | True | -  |  -  | One or more `source` blocks. | 
-| **var.sink** | block | True | -  |  -  | One or more `sink` blocks. | 
-| **var.annotations** | string | False | -  |  -  | List of tags that can be used for describing the Data Factory Data Flow. | 
-| **var.description** | string | False | -  |  -  | The description for the Data Factory Data Flow. | 
-| **var.folder** | string | False | -  |  -  | The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
-| **var.transformation** | block | False | -  |  -  | One or more `transformation` blocks. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created. | 
+| **var.data_factory_id** | string | True | The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource. | 
+| **var.script** | string | False | The script for the Data Factory Data Flow. | 
+| **var.script_lines** | string | False | The script lines for the Data Factory Data Flow. | 
+| **var.source** | block | True | One or more `source` blocks. | 
+| **var.sink** | block | True | One or more `sink` blocks. | 
+| **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Data Flow. | 
+| **var.description** | string | False | The description for the Data Factory Data Flow. | 
+| **var.folder** | string | False | The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
+| **var.transformation** | block | False | One or more `transformation` blocks. | 
 
 
 

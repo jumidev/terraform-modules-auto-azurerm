@@ -4,16 +4,16 @@ Manages an App Service Web App or Function App Source Control Configuration.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.app_id** | string | True | -  |  -  | The ID of the Windows or Linux Web App. Changing this forces a new resource to be created. | 
-| **var.branch** | string | False | -  |  -  | The branch name to use for deployments. Changing this forces a new resource to be created. | 
-| **var.repo_url** | string | False | -  |  -  | The URL for the repository. Changing this forces a new resource to be created. | 
-| **var.github_action_configuration** | block | False | -  |  -  | A `github_action_configuration` block. Changing this forces a new resource to be created. | 
-| **var.use_manual_integration** | bool | False | `False`  |  -  | Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.rollback_enabled** | bool | False | `False`  |  -  | Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.use_local_git** | bool | False | -  |  -  | Should the App use local Git configuration. Changing this forces a new resource to be created. | 
-| **var.use_mercurial** | bool | False | `False`  |  -  | The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.app_id** | string | True | -  |  The ID of the Windows or Linux Web App. Changing this forces a new resource to be created. | 
+| **var.branch** | string | False | -  |  The branch name to use for deployments. Changing this forces a new resource to be created. | 
+| **var.repo_url** | string | False | -  |  The URL for the repository. Changing this forces a new resource to be created. | 
+| **var.github_action_configuration** | block | False | -  |  A `github_action_configuration` block. Changing this forces a new resource to be created. | 
+| **var.use_manual_integration** | bool | False | `False`  |  Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.rollback_enabled** | bool | False | `False`  |  Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.use_local_git** | bool | False | -  |  Should the App use local Git configuration. Changing this forces a new resource to be created. | 
+| **var.use_mercurial** | bool | False | `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
 
 

@@ -4,20 +4,20 @@ Manages a network security group that contains a list of network security rules.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the network security group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the network security group. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.security_rule** | block | False | -  |  -  | List of `security_rule` objects representing security rules, as defined below. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the network security group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The name of the resource group in which to create the network security group. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.security_rule** | block | False | List of `security_rule` objects representing security rules, as defined below. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 
-### 1 optional associated resource:
+### 1 optional associated resource
 
-| variable | reference | Description |
-| -------- | --------- | ----------- |
-| **var.subnet_id** | **subnet_network_security_group_association** | Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
+| Variable | Information |
+| -------- | ----------- |
+| **var.subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_network_security_group_association** - Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
 
 ## Outputs
 

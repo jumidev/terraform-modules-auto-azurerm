@@ -4,15 +4,15 @@ A CDN Endpoint is the entity within a CDN Profile containing configuration infor
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created. | 
-| **var.profile_name** | string | True | -  |  -  | The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.is_http_allowed** | bool | False | `True`  |  -  | Specifies if http allowed. Defaults to `true`. | 
-| **var.is_https_allowed** | bool | False | `True`  |  -  | Specifies if https allowed. Defaults to `true`. | 
-| **var.content_types_to_compress** | string | False | -  |  -  | An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. | 
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created. | 
+| **var.profile_name** | string | True | -  |  The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.is_http_allowed** | bool | False | `True`  |  Specifies if http allowed. Defaults to `true`. | 
+| **var.is_https_allowed** | bool | False | `True`  |  Specifies if https allowed. Defaults to `true`. | 
+| **var.content_types_to_compress** | string | False | -  |  An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. | 
 
 
 

@@ -4,18 +4,18 @@
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  | The name of the policy. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool | False | `True`  |  -  | Is the policy a enabled state or disabled state. Defaults to `true`. | 
-| **var.mode** | string | False | `Prevention`  |  `Detection`, `Prevention`  | The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`. | 
-| **var.redirect_url** | string | False | -  |  -  | If action type is redirect, this field represents redirect URL for the client. | 
-| **var.custom_rule** | block | False | -  |  -  | One or more `custom_rule` blocks. | 
-| **var.custom_block_response_status_code** | string | False | -  |  `200`, `403`, `405`, `406`, `429`  | If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
-| **var.custom_block_response_body** | string | False | -  |  -  | If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
-| **var.managed_rule** | block | False | -  |  -  | One or more `managed_rule` blocks. | 
-| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the Web Application Firewall Policy. | 
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  The name of the policy. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **var.enabled** | bool | False | `True`  |  -  |  Is the policy a enabled state or disabled state. Defaults to `true`. | 
+| **var.mode** | string | False | `Prevention`  |  `Detection`, `Prevention`  |  The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`. | 
+| **var.redirect_url** | string | False | -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
+| **var.custom_rule** | block | False | -  |  -  |  One or more `custom_rule` blocks. | 
+| **var.custom_block_response_status_code** | string | False | -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
+| **var.custom_block_response_body** | string | False | -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
+| **var.managed_rule** | block | False | -  |  -  |  One or more `managed_rule` blocks. | 
+| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
 
 

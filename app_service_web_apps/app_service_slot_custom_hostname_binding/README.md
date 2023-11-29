@@ -4,12 +4,12 @@ Manages a Hostname Binding within an App Service Slot.
 
 ## Variables
 
-| Name | Type | Required? | Default  | possible values | Description |
-| ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **var.app_service_slot_id** | string | True | -  |  -  | The ID of the App Service Slot. Changing this forces a new resource to be created. | 
-| **var.hostname** | string | True | -  |  -  | Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
-| **var.ssl_state** | string | False | -  |  `IpBasedEnabled`, `SniEnabled`  | The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created. | 
-| **var.thumbprint** | string | False | -  |  -  | The SSL certificate thumbprint. Changing this forces a new resource to be created. | 
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.app_service_slot_id** | string | True | -  |  The ID of the App Service Slot. Changing this forces a new resource to be created. | 
+| **var.hostname** | string | True | -  |  Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
+| **var.ssl_state** | string | False | `IpBasedEnabled`, `SniEnabled`  |  The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created. | 
+| **var.thumbprint** | string | False | -  |  The SSL certificate thumbprint. Changing this forces a new resource to be created. | 
 
 
 
