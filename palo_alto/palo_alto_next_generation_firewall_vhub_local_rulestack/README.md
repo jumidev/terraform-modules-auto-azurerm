@@ -2,15 +2,29 @@
 
 Manages a Palo Alto Next Generation Firewall VHub Local Rulestack.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
-| **rulestack_id** | string | True | -  |  -  | The ID of the Local Rulestack to be used for this Next Generation Firewall. | 
-| **network_profile** | block | True | -  |  -  | A `network_profile` block. | 
-| **destination_nat** | block | False | -  |  -  | One or more `destination_nat` blocks. | 
-| **dns_settings** | block | False | -  |  -  | A `dns_settings` block. | 
-| **tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack. | 
+| **var.name** | string | True | -  |  -  | The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
+| **var.rulestack_id** | string | True | -  |  -  | The ID of the Local Rulestack to be used for this Next Generation Firewall. | 
+| **var.network_profile** | block | True | -  |  -  | A `network_profile` block. | 
+| **var.destination_nat** | block | False | -  |  -  | One or more `destination_nat` blocks. | 
+| **var.dns_settings** | block | False | -  |  -  | A `dns_settings` block. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **rulestack_id** | string  | - | 
+| **network_profile** | block  | - | 
+| **destination_nat** | block  | - | 
+| **dns_settings** | block  | - | 
+| **tags** | map  | - | 
+| **id** | string  | The ID of the Palo Alto Next Generation Firewall VHub Local Rulestack. | 

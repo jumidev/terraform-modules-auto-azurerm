@@ -2,12 +2,27 @@
 
 Manages a Load Balancer Backend Address Pool.~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created. | 
-| **loadbalancer_id** | string | True | -  |  -  | The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created. | 
-| **tunnel_interface** | block | False | -  |  -  | One or more `tunnel_interface` blocks. | 
-| **virtual_network_id** | string | False | -  |  -  | The ID of the Virtual Network within which the Backend Address Pool should exist. | 
+| **var.name** | string | True | -  |  -  | Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created. | 
+| **var.loadbalancer_id** | string | True | -  |  -  | The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created. | 
+| **var.tunnel_interface** | block | False | -  |  -  | One or more `tunnel_interface` blocks. | 
+| **var.virtual_network_id** | string | False | -  |  -  | The ID of the Virtual Network within which the Backend Address Pool should exist. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **loadbalancer_id** | string  | - | 
+| **tunnel_interface** | block  | - | 
+| **virtual_network_id** | string  | - | 
+| **id** | string  | The ID of the Backend Address Pool. | 
+| **backend_ip_configurations** | string  | The Backend IP Configurations associated with this Backend Address Pool. | 
+| **load_balancing_rules** | string  | The Load Balancing Rules associated with this Backend Address Pool. | 
+| **inbound_nat_rules** | string  | An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool. | 
+| **outbound_rules** | string  | An array of the Load Balancing Outbound Rules associated with this Backend Address Pool. | 

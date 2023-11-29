@@ -2,14 +2,27 @@
 
 Manages a [Log Profile](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.-> **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.!> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name of the Log Profile. Changing this forces a new resource to be created. | 
-| **categories** | string | True | -  |  -  | List of categories of the logs. | 
-| **locations** | string | True | -  |  -  | List of regions for which Activity Log events are stored or streamed. | 
-| **storage_account_id** | string | False | -  |  -  | The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
-| **servicebus_rule_id** | string | False | -  |  -  | The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
-| **retention_policy** | block | True | -  |  -  | A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
+| **var.name** | string | True | -  |  -  | The name of the Log Profile. Changing this forces a new resource to be created. | 
+| **var.categories** | string | True | -  |  -  | List of categories of the logs. | 
+| **var.locations** | string | True | -  |  -  | List of regions for which Activity Log events are stored or streamed. | 
+| **var.storage_account_id** | string | False | -  |  -  | The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
+| **var.servicebus_rule_id** | string | False | -  |  -  | The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
+| **var.retention_policy** | block | True | -  |  -  | A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **categories** | string  | - | 
+| **locations** | string  | - | 
+| **storage_account_id** | string  | - | 
+| **servicebus_rule_id** | string  | - | 
+| **retention_policy** | block  | - | 
+| **id** | string  | The ID of the Log Profile. | 

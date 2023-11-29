@@ -2,13 +2,25 @@
 
 Manages a Logz Sub Account Tag Rule.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **logz_sub_account_id** | string | True | -  |  -  | The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created. | 
-| **tag_filter** | block | False | -  |  -  | One or more (up to 10) `tag_filter` blocks. | 
-| **send_aad_logs** | string | False | -  |  -  | Whether AAD logs should be sent to the Monitor resource? | 
-| **send_activity_logs** | string | False | -  |  -  | Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource? | 
-| **send_subscription_logs** | string | False | -  |  -  | Whether subscription logs should be sent to the Monitor resource? | 
+| **var.logz_sub_account_id** | string | True | -  |  -  | The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created. | 
+| **var.tag_filter** | block | False | -  |  -  | One or more (up to 10) `tag_filter` blocks. | 
+| **var.send_aad_logs** | string | False | -  |  -  | Whether AAD logs should be sent to the Monitor resource? | 
+| **var.send_activity_logs** | string | False | -  |  -  | Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource? | 
+| **var.send_subscription_logs** | string | False | -  |  -  | Whether subscription logs should be sent to the Monitor resource? | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **logz_sub_account_id** | string  | - | 
+| **tag_filter** | block  | - | 
+| **send_aad_logs** | string  | - | 
+| **send_activity_logs** | string  | - | 
+| **send_subscription_logs** | string  | - | 
+| **id** | string  | The ID of the Logz Sub Account Tag Rule. | 

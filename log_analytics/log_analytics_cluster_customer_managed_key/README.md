@@ -2,10 +2,19 @@
 
 Manages a Log Analytics Cluster Customer Managed Key.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **key_vault_key_id** | string | True | -  |  -  | The ID of the Key Vault Key to use for encryption. | 
-| **log_analytics_cluster_id** | string | True | -  |  -  | The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created. | 
+| **var.key_vault_key_id** | string | True | -  |  -  | The ID of the Key Vault Key to use for encryption. | 
+| **var.log_analytics_cluster_id** | string | True | -  |  -  | The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **key_vault_key_id** | string  | - | 
+| **log_analytics_cluster_id** | string  | - | 
+| **id** | string  | The ID of the Log Analytics Cluster Customer Managed Key. | 

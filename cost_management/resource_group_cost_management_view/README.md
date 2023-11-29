@@ -2,18 +2,35 @@
 
 Manages an Azure Cost Management View for a Resource Group.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **accumulated** | bool | True | -  |  -  | Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created. | 
-| **chart_type** | string | True | -  |  `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  | Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
-| **dataset** | block | True | -  |  -  | A `dataset` block. | 
-| **display_name** | string | True | -  |  -  | User visible input name of the Cost Management View. | 
-| **name** | string | True | -  |  -  | The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created. | 
-| **report_type** | string | True | -  |  -  | The type of the report. The only possible value is `Usage`. | 
-| **resource_group_id** | string | True | -  |  -  | The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created. | 
-| **timeframe** | string | True | -  |  `Custom`, `MonthToDate`, `WeekToDate`, `YearToDate`  | The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`. | 
-| **kpi** | block | False | -  |  -  | One or more `kpi` blocks, to show in Cost Analysis UI. | 
-| **pivot** | block | False | -  |  -  | One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
+| **var.accumulated** | bool | True | -  |  -  | Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created. | 
+| **var.chart_type** | string | True | -  |  `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  | Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
+| **var.dataset** | block | True | -  |  -  | A `dataset` block. | 
+| **var.display_name** | string | True | -  |  -  | User visible input name of the Cost Management View. | 
+| **var.name** | string | True | -  |  -  | The name which should be used for this Cost Management View for a Resource Group. Changing this forces a new Cost Management View for a Resource Group to be created. | 
+| **var.report_type** | string | True | -  |  -  | The type of the report. The only possible value is `Usage`. | 
+| **var.resource_group_id** | string | True | -  |  -  | The ID of the Resource Group this View is scoped to. Changing this forces a new Cost Management View for a Resource Group to be created. | 
+| **var.timeframe** | string | True | -  |  `Custom`, `MonthToDate`, `WeekToDate`, `YearToDate`  | The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`. | 
+| **var.kpi** | block | False | -  |  -  | One or more `kpi` blocks, to show in Cost Analysis UI. | 
+| **var.pivot** | block | False | -  |  -  | One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **accumulated** | bool  | - | 
+| **chart_type** | string  | - | 
+| **dataset** | block  | - | 
+| **display_name** | string  | - | 
+| **name** | string  | - | 
+| **report_type** | string  | - | 
+| **resource_group_id** | string  | - | 
+| **timeframe** | string  | - | 
+| **kpi** | block  | - | 
+| **pivot** | block  | - | 
+| **id** | string  | The ID of the Cost Management View for a Resource Group. | 

@@ -2,13 +2,27 @@
 
 Manages a API Management Email Template.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **template_name** | string | True | -  |  `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`  | The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created. | 
-| **api_management_name** | string | True | -  |  -  | The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created. | 
-| **subject** | string | True | -  |  -  | The subject of the Email. | 
-| **body** | string | True | -  |  -  | The body of the Email. Its format has to be a well-formed HTML document. | 
+| **var.template_name** | string | True | -  |  `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`  | The name of the Email Template. Possible values are `AccountClosedDeveloper`, `ApplicationApprovedNotificationMessage`, `ConfirmSignUpIdentityDefault`, `EmailChangeIdentityDefault`, `InviteUserNotificationMessage`, `NewCommentNotificationMessage`, `NewDeveloperNotificationMessage`, `NewIssueNotificationMessage`, `PasswordResetByAdminNotificationMessage`, `PasswordResetIdentityDefault`, `PurchaseDeveloperNotificationMessage`, `QuotaLimitApproachingDeveloperNotificationMessage`, `RejectDeveloperNotificationMessage`, `RequestDeveloperNotificationMessage`. Changing this forces a new API Management Email Template to be created. | 
+| **var.api_management_name** | string | True | -  |  -  | The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the API Management Email Template should exist. Changing this forces a new API Management Email Template to be created. | 
+| **var.subject** | string | True | -  |  -  | The subject of the Email. | 
+| **var.body** | string | True | -  |  -  | The body of the Email. Its format has to be a well-formed HTML document. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **template_name** | string  | - | 
+| **api_management_name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **subject** | string  | - | 
+| **body** | string  | - | 
+| **id** | string  | The ID of the API Management Email Template. | 
+| **title** | string  | The title of the Email Template. | 
+| **description** | string  | The description of the Email Template. | 

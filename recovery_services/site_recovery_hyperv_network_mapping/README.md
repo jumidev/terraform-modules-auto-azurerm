@@ -2,13 +2,25 @@
 
 Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name of the HyperV network mapping. Changing this forces a new resource to be created. | 
-| **recovery_vault_id** | string | True | -  |  -  | The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created. | 
-| **source_system_center_virtual_machine_manager_name** | string | True | -  |  -  | Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created. | 
-| **source_network_name** | string | True | -  |  -  | The Name of the primary network. Changing this forces a new resource to be created. | 
-| **target_network_id** | string | True | -  |  -  | The id of the recovery network. Changing this forces a new resource to be created. | 
+| **var.name** | string | True | -  |  -  | The name of the HyperV network mapping. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_id** | string | True | -  |  -  | The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created. | 
+| **var.source_system_center_virtual_machine_manager_name** | string | True | -  |  -  | Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created. | 
+| **var.source_network_name** | string | True | -  |  -  | The Name of the primary network. Changing this forces a new resource to be created. | 
+| **var.target_network_id** | string | True | -  |  -  | The id of the recovery network. Changing this forces a new resource to be created. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **recovery_vault_id** | string  | - | 
+| **source_system_center_virtual_machine_manager_name** | string  | - | 
+| **source_network_name** | string  | - | 
+| **target_network_id** | string  | - | 
+| **id** | string  | The ID of the Site Recovery HyperV Network Mapping. | 

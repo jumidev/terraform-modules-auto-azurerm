@@ -2,11 +2,21 @@
 
 Manages a Route Map.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name which should be used for this Route Map. Changing this forces a new resource to be created. | 
-| **virtual_hub_id** | string | True | -  |  -  | The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
-| **rule** | block | False | -  |  -  | A `rule` block. | 
+| **var.name** | string | True | -  |  -  | The name which should be used for this Route Map. Changing this forces a new resource to be created. | 
+| **var.virtual_hub_id** | string | True | -  |  -  | The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
+| **var.rule** | block | False | -  |  -  | A `rule` block. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **virtual_hub_id** | string  | - | 
+| **rule** | block  | - | 
+| **id** | string  | The ID of the Route Map. | 

@@ -2,12 +2,23 @@
 
 Manages an API Management Microsoft Identity Provider.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **api_management_name** | string | True | -  |  -  | The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **client_id** | string | True | -  |  -  | Client Id of the Azure AD Application. | 
-| **client_secret** | string | True | -  |  -  | Client secret of the Azure AD Application. | 
+| **var.api_management_name** | string | True | -  |  -  | The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.client_id** | string | True | -  |  -  | Client Id of the Azure AD Application. | 
+| **var.client_secret** | string | True | -  |  -  | Client secret of the Azure AD Application. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **api_management_name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **client_id** | string  | - | 
+| **client_secret** | string  | - | 
+| **id** | string  | The ID of the API Management Microsoft Identity Provider. | 

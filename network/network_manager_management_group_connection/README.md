@@ -2,12 +2,24 @@
 
 Manages a Network Manager Management Group Connection which may cross tenants.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created. | 
-| **management_group_id** | string | True | -  |  -  | Specifies the ID of the target Management Group. Changing this forces a new resource to be created. | 
-| **network_manager_id** | string | True | -  |  -  | Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created. | 
-| **description** | string | False | -  |  -  | A description of the Network Manager Management Group Connection. | 
+| **var.name** | string | True | -  |  -  | Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created. | 
+| **var.management_group_id** | string | True | -  |  -  | Specifies the ID of the target Management Group. Changing this forces a new resource to be created. | 
+| **var.network_manager_id** | string | True | -  |  -  | Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created. | 
+| **var.description** | string | False | -  |  -  | A description of the Network Manager Management Group Connection. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **management_group_id** | string  | - | 
+| **network_manager_id** | string  | - | 
+| **description** | string  | - | 
+| **id** | string  | The ID of the Network Manager Management Group Connection. | 
+| **connection_state** | string  | The Connection state of the Network Manager Management Group Connection. | 

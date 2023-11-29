@@ -2,43 +2,85 @@
 
 Manages a managed disk.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name of the Managed Disk. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created. | 
-| **location** | string | True | -  |  -  | Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **storage_account_type** | string | True | -  |  `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `UltraSSD_LRS`  | The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`. | 
-| **create_option** | string | True | -  |  `Import`, `source_uri`, `ImportSecure`, `Empty`, `Copy`, `source_resource_id`, `FromImage`, `image_reference_id`, `Restore`, `Upload`, `upload_size_bytes`  | The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`). | 
-| **disk_encryption_set_id** | string | False | -  |  -  | The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`. | 
-| **disk_iops_read_write** | int | False | -  |  -  | The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes. | 
-| **disk_mbps_read_write** | int | False | -  |  -  | The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second. | 
-| **disk_iops_read_only** | int | False | -  |  -  | The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes. | 
-| **disk_mbps_read_only** | int | False | -  |  -  | The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second. | 
-| **upload_size_bytes** | string | False | -  |  -  | Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created. | 
-| **disk_size_gb** | int | False | -  |  -  | (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased. | 
-| **edge_zone** | string | False | -  |  -  | Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created. | 
-| **encryption_settings** | block | False | -  |  -  | A `encryption_settings` block. | 
-| **hyper_v_generation** | string | False | -  |  `V1`, `V2`  | The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created. | 
-| **image_reference_id** | string | False | -  |  -  | ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created. | 
-| **gallery_image_reference_id** | string | False | -  |  -  | ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created. | 
-| **logical_sector_size** | string | False | `4096`  |  `512`, `4096`  | Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created. | 
-| **optimized_frequent_attach_enabled** | bool | False | `False`  |  -  | Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`. | 
-| **performance_plus_enabled** | bool | False | `False`  |  -  | Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created. | 
-| **os_type** | string | False | -  |  `Linux`, `Windows`  | Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`. | 
-| **source_resource_id** | string | False | -  |  -  | The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created. | 
-| **source_uri** | string | False | -  |  -  | URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created. | 
-| **storage_account_id** | string | False | -  |  -  | The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created. | 
-| **tier** | string | False | -  |  -  | The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs. | 
-| **max_shares** | int | False | -  |  -  | The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time. | 
-| **trusted_launch_enabled** | bool | False | -  |  -  | Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created. | 
-| **security_type** | string | False | -  |  `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithCustomerKey`  | Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created. | 
-| **secure_vm_disk_encryption_set_id** | string | False | -  |  -  | The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created. | 
-| **on_demand_bursting_enabled** | bool | False | -  |  -  | Specifies if On-Demand Bursting is enabled for the Managed Disk. | 
-| **tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
-| **zone** | string | False | -  |  -  | Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created. | 
-| **network_access_policy** | string | False | -  |  `AllowAll`, `AllowPrivate`, `DenyAll`  | Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. | 
-| **disk_access_id** | string | False | -  |  -  | The ID of the disk access resource for using private endpoints on disks. | 
-| **public_network_access_enabled** | bool | False | `True`  |  -  | Whether it is allowed to access the disk via public network. Defaults to `true`. | 
+| **var.name** | string | True | -  |  -  | Specifies the name of the Managed Disk. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Managed Disk should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  -  | Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.storage_account_type** | string | True | -  |  `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS`, `UltraSSD_LRS`  | The type of storage to use for the managed disk. Possible values are `Standard_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, `StandardSSD_LRS` or `UltraSSD_LRS`. | 
+| **var.create_option** | string | True | -  |  `Import`, `source_uri`, `ImportSecure`, `Empty`, `Copy`, `source_resource_id`, `FromImage`, `image_reference_id`, `Restore`, `Upload`, `upload_size_bytes`  | The method to use when creating the managed disk. Changing this forces a new resource to be created. Possible values include: * `Import` - Import a VHD file in to the managed disk (VHD specified with `source_uri`). * `ImportSecure` - Securely import a VHD file in to the managed disk (VHD specified with `source_uri`). * `Empty` - Create an empty managed disk. * `Copy` - Copy an existing managed disk or snapshot (specified with `source_resource_id`). * `FromImage` - Copy a Platform Image (specified with `image_reference_id`) * `Restore` - Set by Azure Backup or Site Recovery on a restored disk (specified with `source_resource_id`). * `Upload` - Upload a VHD disk with the help of SAS URL (to be used with `upload_size_bytes`). | 
+| **var.disk_encryption_set_id** | string | False | -  |  -  | The ID of a Disk Encryption Set which should be used to encrypt this Managed Disk. Conflicts with `secure_vm_disk_encryption_set_id`. | 
+| **var.disk_iops_read_write** | int | False | -  |  -  | The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes. | 
+| **var.disk_mbps_read_write** | int | False | -  |  -  | The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second. | 
+| **var.disk_iops_read_only** | int | False | -  |  -  | The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes. | 
+| **var.disk_mbps_read_only** | int | False | -  |  -  | The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second. | 
+| **var.upload_size_bytes** | string | False | -  |  -  | Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created. | 
+| **var.disk_size_gb** | int | False | -  |  -  | (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased. | 
+| **var.edge_zone** | string | False | -  |  -  | Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created. | 
+| **var.encryption_settings** | block | False | -  |  -  | A `encryption_settings` block. | 
+| **var.hyper_v_generation** | string | False | -  |  `V1`, `V2`  | The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created. | 
+| **var.image_reference_id** | string | False | -  |  -  | ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created. | 
+| **var.gallery_image_reference_id** | string | False | -  |  -  | ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created. | 
+| **var.logical_sector_size** | string | False | `4096`  |  `512`, `4096`  | Logical Sector Size. Possible values are: `512` and `4096`. Defaults to `4096`. Changing this forces a new resource to be created. | 
+| **var.optimized_frequent_attach_enabled** | bool | False | `False`  |  -  | Specifies whether this Managed Disk should be optimized for frequent disk attachments (where a disk is attached/detached more than 5 times in a day). Defaults to `false`. | 
+| **var.performance_plus_enabled** | bool | False | `False`  |  -  | Specifies whether Performance Plus is enabled for this Managed Disk. Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.os_type** | string | False | -  |  `Linux`, `Windows`  | Specify a value when the source of an `Import`, `ImportSecure` or `Copy` operation targets a source that contains an operating system. Valid values are `Linux` or `Windows`. | 
+| **var.source_resource_id** | string | False | -  |  -  | The ID of an existing Managed Disk or Snapshot to copy when `create_option` is `Copy` or the recovery point to restore when `create_option` is `Restore`. Changing this forces a new resource to be created. | 
+| **var.source_uri** | string | False | -  |  -  | URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string | False | -  |  -  | The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created. | 
+| **var.tier** | string | False | -  |  -  | The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs. | 
+| **var.max_shares** | int | False | -  |  -  | The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time. | 
+| **var.trusted_launch_enabled** | bool | False | -  |  -  | Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created. | 
+| **var.security_type** | string | False | -  |  `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithCustomerKey`  | Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created. | 
+| **var.secure_vm_disk_encryption_set_id** | string | False | -  |  -  | The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created. | 
+| **var.on_demand_bursting_enabled** | bool | False | -  |  -  | Specifies if On-Demand Bursting is enabled for the Managed Disk. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| **var.zone** | string | False | -  |  -  | Specifies the Availability Zone in which this Managed Disk should be located. Changing this property forces a new resource to be created. | 
+| **var.network_access_policy** | string | False | -  |  `AllowAll`, `AllowPrivate`, `DenyAll`  | Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. | 
+| **var.disk_access_id** | string | False | -  |  -  | The ID of the disk access resource for using private endpoints on disks. | 
+| **var.public_network_access_enabled** | bool | False | `True`  |  -  | Whether it is allowed to access the disk via public network. Defaults to `true`. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **location** | string  | - | 
+| **storage_account_type** | string  | - | 
+| **create_option** | string  | - | 
+| **disk_encryption_set_id** | string  | - | 
+| **disk_iops_read_write** | int  | - | 
+| **disk_mbps_read_write** | int  | - | 
+| **disk_iops_read_only** | int  | - | 
+| **disk_mbps_read_only** | int  | - | 
+| **upload_size_bytes** | string  | - | 
+| **disk_size_gb** | int  | - | 
+| **edge_zone** | string  | - | 
+| **encryption_settings** | block  | - | 
+| **hyper_v_generation** | string  | - | 
+| **image_reference_id** | string  | - | 
+| **gallery_image_reference_id** | string  | - | 
+| **logical_sector_size** | string  | - | 
+| **optimized_frequent_attach_enabled** | bool  | - | 
+| **performance_plus_enabled** | bool  | - | 
+| **os_type** | string  | - | 
+| **source_resource_id** | string  | - | 
+| **source_uri** | string  | - | 
+| **storage_account_id** | string  | - | 
+| **tier** | string  | - | 
+| **max_shares** | int  | - | 
+| **trusted_launch_enabled** | bool  | - | 
+| **security_type** | string  | - | 
+| **secure_vm_disk_encryption_set_id** | string  | - | 
+| **on_demand_bursting_enabled** | bool  | - | 
+| **tags** | map  | - | 
+| **zone** | string  | - | 
+| **network_access_policy** | string  | - | 
+| **disk_access_id** | string  | - | 
+| **public_network_access_enabled** | bool  | - | 
+| **id** | string  | The ID of the Managed Disk. | 

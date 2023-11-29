@@ -2,14 +2,32 @@
 
 ~> **Note:** Log Analytics Clusters are subject to 14-day soft delete policy. Clusters created with the same resource group & name as a previously deleted cluster will be recovered rather than creating anew.Manages a Log Analytics Cluster.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
-| **location** | string | True | -  |  -  | The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
-| **identity** | block | True | -  |  -  | An `identity` block. Changing this forces a new Log Analytics Cluster to be created. | 
-| **size_gb** | string | False | `1000`  |  `500`, `1000`, `2000`, `5000`  | The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`. | 
-| **tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Log Analytics Cluster. | 
+| **var.name** | string | True | -  |  -  | The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
+| **var.location** | string | True | -  |  -  | The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
+| **var.identity** | block | True | -  |  -  | An `identity` block. Changing this forces a new Log Analytics Cluster to be created. | 
+| **var.size_gb** | string | False | `1000`  |  `500`, `1000`, `2000`, `5000`  | The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Log Analytics Cluster. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **location** | string  | - | 
+| **identity** | block  | - | 
+| **size_gb** | string  | - | 
+| **tags** | map  | - | 
+| **id** | string  | The ID of the Log Analytics Cluster. | 
+| **identity** | block  | A `identity` block. | 
+| **cluster_id** | string  | The GUID of the cluster. | 
+| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| **type** | string  | The identity type of this Managed Service Identity. | 

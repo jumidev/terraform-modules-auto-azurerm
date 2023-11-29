@@ -2,12 +2,23 @@
 
 Manages a Automation DSC Node Configuration.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created. | 
-| **automation_account_name** | string | True | -  |  -  | The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created. | 
-| **content_embedded** | string | True | -  |  -  | The PowerShell DSC Node Configuration (mof content). | 
+| **var.name** | string | True | -  |  -  | Specifies the name of the DSC Node Configuration. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the resource group in which the DSC Node Configuration is created. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string | True | -  |  -  | The name of the automation account in which the DSC Node Configuration is created. Changing this forces a new resource to be created. | 
+| **var.content_embedded** | string | True | -  |  -  | The PowerShell DSC Node Configuration (mof content). | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **automation_account_name** | string  | - | 
+| **content_embedded** | string  | - | 
+| **id** | string  | The DSC Node Configuration ID. | 

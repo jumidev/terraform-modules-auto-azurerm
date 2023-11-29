@@ -2,13 +2,25 @@
 
 Manages a Mobile Network Data Network.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created. | 
-| **mobile_network_id** | string | True | -  |  -  | Specifies the ID of the Mobile Network. Changing this forces a new Mobile Network Data Network to be created. | 
-| **location** | string | True | -  |  -  | Specifies the Azure Region where the Mobile Network Data Network should exist. Changing this forces a new Mobile Network Data Network to be created. | 
-| **description** | string | False | -  |  -  | A description of this Mobile Network Data Network. | 
-| **tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Mobile Network Data Network. | 
+| **var.name** | string | True | -  |  -  | Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created. | 
+| **var.mobile_network_id** | string | True | -  |  -  | Specifies the ID of the Mobile Network. Changing this forces a new Mobile Network Data Network to be created. | 
+| **var.location** | string | True | -  |  -  | Specifies the Azure Region where the Mobile Network Data Network should exist. Changing this forces a new Mobile Network Data Network to be created. | 
+| **var.description** | string | False | -  |  -  | A description of this Mobile Network Data Network. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Mobile Network Data Network. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **mobile_network_id** | string  | - | 
+| **location** | string  | - | 
+| **description** | string  | - | 
+| **tags** | map  | - | 
+| **id** | string  | The ID of the Mobile Network Data Network. | 

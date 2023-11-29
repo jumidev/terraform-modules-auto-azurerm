@@ -2,12 +2,25 @@
 
 Manages a Network Function Azure Traffic Collector.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created. | 
-| **resource_group_name** | string | True | -  |  -  | Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created. | 
-| **location** | string | True | -  |  -  | Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created. | 
-| **tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Network Function Azure Traffic Collector. | 
+| **var.name** | string | True | -  |  -  | Specifies the name which should be used for this Network Function Azure Traffic Collector. Changing this forces a new Network Function Azure Traffic Collector to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | Specifies the name of the Resource Group where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created. | 
+| **var.location** | string | True | -  |  -  | Specifies the Azure Region where the Network Function Azure Traffic Collector should exist. Changing this forces a new Network Function Azure Traffic Collector to be created. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Network Function Azure Traffic Collector. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **location** | string  | - | 
+| **tags** | map  | - | 
+| **id** | string  | The ID of the Network Function Azure Traffic Collector. | 
+| **collector_policy_ids** | string  | The list of Resource IDs of collector policies. | 
+| **virtual_hub_id** | string  | The Resource ID of virtual hub. | 

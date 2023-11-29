@@ -79,12 +79,6 @@ variable "default_node_pool" {
 # upgrade_settings block structure:
 #   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 #
-# linux_os_config block structure       :
-#   swap_file_size_mb (int)               : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
-#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
-#
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created.
 #   fs_file_max (string)                       : The sysctl setting fs.file-max. Must be between '8192' and '12000500'. Changing this forces a new resource to be created.
@@ -115,6 +109,12 @@ variable "default_node_pool" {
 #   vm_max_map_count (int)                     : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
+#
+# linux_os_config block structure       :
+#   swap_file_size_mb (int)               : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
+#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 
 
 

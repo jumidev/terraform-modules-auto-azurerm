@@ -2,9 +2,17 @@
 
 Runs a Container Registry Task Schedule.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **container_registry_task_id** | string | True | -  |  -  | The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created. | 
+| **var.container_registry_task_id** | string | True | -  |  -  | The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **container_registry_task_id** | string  | - | 
+| **id** | string  | The ID of the Container Registry Task Schedule. | 

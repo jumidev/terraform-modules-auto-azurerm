@@ -2,19 +2,37 @@
 
 Manages a Synapse SQL Pool.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created. | 
-| **synapse_workspace_id** | string | True | -  |  -  | The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created. | 
-| **sku_name** | string | True | -  |  `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c`, `DW30000c`  | Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`. | 
-| **create_mode** | string | False | `Default`  |  `Default`, `Recovery`, `PointInTimeRestore`  | Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created. | 
-| **collation** | string | False | `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  | The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created. | 
-| **data_encrypted** | string | False | -  |  -  | Is transparent data encryption enabled? | 
-| **recovery_database_id** | string | False | -  |  -  | The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created. | 
-| **restore** | block | False | -  |  -  | A `restore` block. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created. | 
-| **geo_backup_policy_enabled** | bool | False | `True`  |  `true`, `false`  | Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`. | 
-| **storage_account_type** | string | False | `GRS`  |  `LRS`, `GRS`  | The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`. | 
-| **tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Synapse SQL Pool. | 
+| **var.name** | string | True | -  |  -  | The name which should be used for this Synapse SQL Pool. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.synapse_workspace_id** | string | True | -  |  -  | The ID of Synapse Workspace within which this SQL Pool should be created. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.sku_name** | string | True | -  |  `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c`, `DW30000c`  | Specifies the SKU Name for this Synapse SQL Pool. Possible values are `DW100c`, `DW200c`, `DW300c`, `DW400c`, `DW500c`, `DW1000c`, `DW1500c`, `DW2000c`, `DW2500c`, `DW3000c`, `DW5000c`, `DW6000c`, `DW7500c`, `DW10000c`, `DW15000c` or `DW30000c`. | 
+| **var.create_mode** | string | False | `Default`  |  `Default`, `Recovery`, `PointInTimeRestore`  | Specifies how to create the SQL Pool. Valid values are: `Default`, `Recovery` or `PointInTimeRestore`. Must be `Default` to create a new database. Defaults to `Default`. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.collation** | string | False | `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  | The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.data_encrypted** | string | False | -  |  -  | Is transparent data encryption enabled? | 
+| **var.recovery_database_id** | string | False | -  |  -  | The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.restore** | block | False | -  |  -  | A `restore` block. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.geo_backup_policy_enabled** | bool | False | `True`  |  `true`, `false`  | Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`. | 
+| **var.storage_account_type** | string | False | `GRS`  |  `LRS`, `GRS`  | The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags which should be assigned to the Synapse SQL Pool. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **synapse_workspace_id** | string  | - | 
+| **sku_name** | string  | - | 
+| **create_mode** | string  | - | 
+| **collation** | string  | - | 
+| **data_encrypted** | string  | - | 
+| **recovery_database_id** | string  | - | 
+| **restore** | block  | - | 
+| **geo_backup_policy_enabled** | bool  | - | 
+| **storage_account_type** | string  | - | 
+| **tags** | map  | - | 
+| **id** | string  | The ID of the Synapse SQL Pool. | 

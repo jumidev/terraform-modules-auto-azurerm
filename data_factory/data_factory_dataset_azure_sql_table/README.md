@@ -2,19 +2,37 @@
 
 Manages an Azure SQL Table Dataset inside an Azure Data Factory.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **data_factory_id** | string | True | -  |  -  | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **linked_service_id** | string | True | -  |  -  | The Data Factory Linked Service ID in which to associate the Dataset with. | 
-| **schema** | string | False | -  |  -  | The schema name of the table in the Azure SQL Database. | 
-| **table** | string | False | -  |  -  | The table name of the table in the Azure SQL Database. | 
-| **folder** | string | False | -  |  -  | The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **schema_column** | block | False | -  |  -  | A `schema_column` block. | 
-| **description** | string | False | -  |  -  | The description for the Data Factory Dataset Azure SQL Table. | 
-| **annotations** | string | False | -  |  -  | List of tags that can be used for describing the Data Factory Dataset Azure SQL Table. | 
-| **parameters** | string | False | -  |  -  | A map of parameters to associate with the Data Factory Dataset Azure SQL Table. | 
-| **additional_properties** | string | False | -  |  -  | A map of additional properties to associate with the Data Factory Dataset Azure SQL Table. | 
+| **var.name** | string | True | -  |  -  | Specifies the name of the Data Factory Dataset Azure SQL Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.data_factory_id** | string | True | -  |  -  | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **var.linked_service_id** | string | True | -  |  -  | The Data Factory Linked Service ID in which to associate the Dataset with. | 
+| **var.schema** | string | False | -  |  -  | The schema name of the table in the Azure SQL Database. | 
+| **var.table** | string | False | -  |  -  | The table name of the table in the Azure SQL Database. | 
+| **var.folder** | string | False | -  |  -  | The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
+| **var.schema_column** | block | False | -  |  -  | A `schema_column` block. | 
+| **var.description** | string | False | -  |  -  | The description for the Data Factory Dataset Azure SQL Table. | 
+| **var.annotations** | string | False | -  |  -  | List of tags that can be used for describing the Data Factory Dataset Azure SQL Table. | 
+| **var.parameters** | string | False | -  |  -  | A map of parameters to associate with the Data Factory Dataset Azure SQL Table. | 
+| **var.additional_properties** | string | False | -  |  -  | A map of additional properties to associate with the Data Factory Dataset Azure SQL Table. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **data_factory_id** | string  | - | 
+| **linked_service_id** | string  | - | 
+| **schema** | string  | - | 
+| **table** | string  | - | 
+| **folder** | string  | - | 
+| **schema_column** | block  | - | 
+| **description** | string  | - | 
+| **annotations** | string  | - | 
+| **parameters** | string  | - | 
+| **additional_properties** | string  | - | 
+| **id** | string  | The ID of the Data Factory Azure SQL Table Dataset. | 

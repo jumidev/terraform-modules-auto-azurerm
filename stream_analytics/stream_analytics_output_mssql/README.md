@@ -2,19 +2,37 @@
 
 Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | The name of the Stream Output. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **stream_analytics_job_name** | string | True | -  |  -  | The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **server** | string | True | -  |  -  | The SQL server url. Changing this forces a new resource to be created. | 
-| **user** | string | False | -  |  -  | Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`. | 
-| **database** | string | True | -  |  -  | The MS SQL database name where the reference table exists. Changing this forces a new resource to be created. | 
-| **password** | string | False | -  |  -  | Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`. | 
-| **table** | string | True | -  |  -  | Table in the database that the output points to. Changing this forces a new resource to be created. | 
-| **max_batch_count** | string | False | `10000`  |  `1`, `1073741824`  | The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`. | 
-| **max_writer_count** | string | False | `1`  |  `0`, `1`  | The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer. | 
-| **authentication_mode** | string | False | `ConnectionString`  |  `Msi`, `ConnectionString`  | The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
+| **var.name** | string | True | -  |  -  | The name of the Stream Output. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **var.stream_analytics_job_name** | string | True | -  |  -  | The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **var.server** | string | True | -  |  -  | The SQL server url. Changing this forces a new resource to be created. | 
+| **var.user** | string | False | -  |  -  | Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`. | 
+| **var.database** | string | True | -  |  -  | The MS SQL database name where the reference table exists. Changing this forces a new resource to be created. | 
+| **var.password** | string | False | -  |  -  | Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`. | 
+| **var.table** | string | True | -  |  -  | Table in the database that the output points to. Changing this forces a new resource to be created. | 
+| **var.max_batch_count** | string | False | `10000`  |  `1`, `1073741824`  | The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`. | 
+| **var.max_writer_count** | string | False | `1`  |  `0`, `1`  | The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer. | 
+| **var.authentication_mode** | string | False | `ConnectionString`  |  `Msi`, `ConnectionString`  | The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **stream_analytics_job_name** | string  | - | 
+| **server** | string  | - | 
+| **user** | string  | - | 
+| **database** | string  | - | 
+| **password** | string  | - | 
+| **table** | string  | - | 
+| **max_batch_count** | string  | - | 
+| **max_writer_count** | string  | - | 
+| **authentication_mode** | string  | - | 
+| **id** | string  | The ID of the Stream Analytics Output Microsoft SQL Server Database. | 

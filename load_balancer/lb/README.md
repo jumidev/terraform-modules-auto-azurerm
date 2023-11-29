@@ -2,16 +2,42 @@
 
 Manages a Load Balancer Resource.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **name** | string | True | -  |  -  | Specifies the name of the Load Balancer. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created. | 
-| **location** | string | True | -  |  -  | Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created. | 
-| **edge_zone** | string | False | -  |  -  | Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created. | 
-| **frontend_ip_configuration** | list | False | -  |  -  | One or more `frontend_ip_configuration` blocks. | 
-| **sku** | string | False | `Basic`  |  -  | The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created. | 
-| **sku_tier** | string | False | `Regional`  |  `Global`, `Regional`  | `sku_tier` -  The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created. | 
-| **tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+| **var.name** | string | True | -  |  -  | Specifies the name of the Load Balancer. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  -  | The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  -  | Specifies the supported Azure Region where the Load Balancer should be created. Changing this forces a new resource to be created. | 
+| **var.edge_zone** | string | False | -  |  -  | Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created. | 
+| **var.frontend_ip_configuration** | list | False | -  |  -  | One or more `frontend_ip_configuration` blocks. | 
+| **var.sku** | string | False | `Basic`  |  -  | The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created. | 
+| **var.sku_tier** | string | False | `Regional`  |  `Global`, `Regional`  | `sku_tier` -  The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created. | 
+| **var.tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **name** | string  | - | 
+| **resource_group_name** | string  | - | 
+| **location** | string  | - | 
+| **edge_zone** | string  | - | 
+| **frontend_ip_configuration** | list  | - | 
+| **sku** | string  | - | 
+| **sku_tier** | string  | - | 
+| **tags** | map  | - | 
+| **id** | string  | The id of the Frontend IP Configuration. | 
+| **frontend_ip_configuration** | block  | A `frontend_ip_configuration` block. | 
+| **private_ip_address** | string  | Private IP Address to assign to the Load Balancer. | 
+| **private_ip_addresses** | string  | The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any. | 
+| **gateway_load_balancer_frontend_ip_configuration_id** | string  | The id of the Frontend IP Configuration of a Gateway Load Balancer that this Load Balancer points to. | 
+| **inbound_nat_rules** | string  | The list of IDs of inbound rules that use this frontend IP. | 
+| **load_balancer_rules** | string  | The list of IDs of load balancing rules that use this frontend IP. | 
+| **outbound_rules** | string  | The list of IDs outbound rules that use this frontend IP. | 
+| **private_ip_address_allocation** | string  | The allocation method for the Private IP Address used by this Load Balancer. Possible values are `Dynamic` and `Static`. | 
+| **public_ip_address_id** | string  | The ID of a Public IP Address which is associated with this Load Balancer. | 
+| **public_ip_prefix_id** | string  | The ID of a Public IP Prefix which is associated with the Load Balancer. | 
+| **subnet_id** | string  | The ID of the Subnet which is associated with the IP Configuration. | 

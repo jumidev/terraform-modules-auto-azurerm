@@ -2,10 +2,19 @@
 
 Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **workspace_id** | string | True | -  |  -  | The resource ID of the Databricks Workspace. | 
-| **key_vault_key_id** | string | True | -  |  -  | The resource ID of the Key Vault Key to be used. | 
+| **var.workspace_id** | string | True | -  |  -  | The resource ID of the Databricks Workspace. | 
+| **var.key_vault_key_id** | string | True | -  |  -  | The resource ID of the Key Vault Key to be used. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **workspace_id** | string  | - | 
+| **key_vault_key_id** | string  | - | 
+| **id** | string  | The ID of the Databricks Workspace. | 

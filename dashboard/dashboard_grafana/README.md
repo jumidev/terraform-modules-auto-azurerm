@@ -2,8 +2,14 @@
 
 Manages a Dashboard Grafana.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 

@@ -2,12 +2,23 @@
 
 Manages the Security Center Assessment for Azure Security Center.
 
-## Attributes
+## Variables
 
 | Name | Type | Required? | Default  | possible values | Description |
 | ---- | ---- | --------- | -------- | ----------- | ----------- |
-| **assessment_policy_id** | string | True | -  |  -  | The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
-| **target_resource_id** | string | True | -  |  -  | The ID of the target resource. Changing this forces a new security Assessment to be created. | 
-| **status** | block | True | -  |  -  | A `status` block. | 
-| **additional_data** | string | False | -  |  -  | A map of additional data to associate with the assessment. | 
+| **var.assessment_policy_id** | string | True | -  |  -  | The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
+| **var.target_resource_id** | string | True | -  |  -  | The ID of the target resource. Changing this forces a new security Assessment to be created. | 
+| **var.status** | block | True | -  |  -  | A `status` block. | 
+| **var.additional_data** | string | False | -  |  -  | A map of additional data to associate with the assessment. | 
 
+
+
+## Outputs
+
+| Name | Type | Description |
+| ---- | ---- | --------- | 
+| **assessment_policy_id** | string  | - | 
+| **target_resource_id** | string  | - | 
+| **status** | block  | - | 
+| **additional_data** | string  | - | 
+| **id** | string  | The ID of the Security Center Assessment. | 
