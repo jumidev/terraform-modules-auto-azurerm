@@ -1,0 +1,14 @@
+# azurerm_logic_app_integration_account_partner
+
+Manages a Logic App Integration Account Partner.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created. | 
+| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created. | 
+| **integration_account_name** | string | True | -  |  -  | The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created. | 
+| **business_identity** | block | True | -  |  -  | A `business_identity` block. | 
+| **metadata** | string | False | -  |  -  | A JSON mapping of any Metadata for this Logic App Integration Account Partner. | 
+

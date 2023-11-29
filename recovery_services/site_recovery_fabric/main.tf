@@ -1,0 +1,15 @@
+data "azurerm_resource_group" "this" {
+  name = var.resource_group_name
+}
+
+
+resource "azurerm_site_recovery_fabric" "this" {
+
+  ########################################
+  # required vars
+  ########################################
+  name                = var.name
+  resource_group_name = data.azurerm_resource_group.this.name
+  recovery_vault_name = var.recovery_vault_name
+  location            = var.location
+}

@@ -1,0 +1,14 @@
+# azurerm_storage_mover_target_endpoint
+
+Manages a Storage Mover Target Endpoint.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **storage_mover_id** | string | True | -  |  -  | Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **storage_account_id** | string | True | -  |  -  | Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **storage_container_name** | string | True | -  |  -  | Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **description** | string | False | -  |  -  | Specifies a description for the Storage Mover Target Endpoint. | 
+

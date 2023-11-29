@@ -1,0 +1,25 @@
+data "azurerm_api_management" "this" {
+  name                = var.api_management_name
+  resource_group_name = var.api_management_resource_group_name == null ? null : var.api_management_resource_group_name
+}
+data "azurerm_resource_group" "this" {
+  name = var.resource_group_name
+}
+
+
+resource "azurerm_api_management_api_operation_policy" "this" {
+
+  ########################################
+  # required vars
+  ########################################
+  api_name            = var.api_name
+  api_management_name = data.azurerm_api_management.this.name
+  resource_group_name = data.azurerm_resource_group.this.name
+  operation_id        = var.operation_id
+
+  ########################################
+  # optional vars
+  ########################################
+  xml_content = var.xml_content
+  xml_link    = var.xml_link
+}

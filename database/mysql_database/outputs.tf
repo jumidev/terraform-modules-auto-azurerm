@@ -1,0 +1,25 @@
+output "name" {
+  value = azurerm_mysql_database.this.name
+}
+
+output "server_name" {
+  value = azurerm_mysql_database.this.server_name
+}
+
+output "resource_group_name" {
+  value = azurerm_mysql_database.this.resource_group_name
+}
+
+output "charset" {
+  value = azurerm_mysql_database.this.charset
+}
+
+output "collation" {
+  value = azurerm_mysql_database.this.collation
+}
+
+output "id" {
+  description = "The ID of the MySQL Database."
+  value       = azurerm_mysql_database.this.id
+}
+

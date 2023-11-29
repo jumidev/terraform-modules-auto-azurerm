@@ -1,0 +1,17 @@
+# azurerm_stream_analytics_output_powerbi
+
+Manages a Stream Analytics Output powerBI.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | The name of the Stream Output. Changing this forces a new resource to be created. | 
+| **stream_analytics_job_id** | string | True | -  |  -  | The ID of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **dataset** | string | True | -  |  -  | The name of the Power BI dataset. | 
+| **table** | string | True | -  |  -  | The name of the Power BI table under the specified dataset. | 
+| **group_id** | string | True | -  |  -  | The ID of the Power BI group, this must be a valid UUID. | 
+| **group_name** | string | True | -  |  -  | The name of the Power BI group. Use this property to help remember which specific Power BI group id was used. | 
+| **token_user_principal_name** | string | False | -  |  -  | The user principal name (UPN) of the user that was used to obtain the refresh token. | 
+| **token_user_display_name** | string | False | -  |  -  | The user display name of the user that was used to obtain the refresh token. | 
+

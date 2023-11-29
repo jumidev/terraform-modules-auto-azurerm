@@ -1,0 +1,24 @@
+# azurerm_sql_database
+
+Allows you to manage an Azure SQL Database-> **Note:** The `azurerm_sql_database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the [`azurerm_mssql_database`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database) resource instead.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | The name of the database. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string | True | -  |  -  | The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created. | 
+| **location** | string | True | -  |  -  | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **server_name** | string | True | -  |  -  | The name of the SQL Server on which to create the database. Changing this forces a new resource to be created. | 
+| **create_mode** | string | False | `Default`  |  `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreLongTermRetentionBackup`  | Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode) | 
+| **import** | block | False | -  |  -  | A `import` block. `create_mode` must be set to `Default`. | 
+| **source_database_id** | string | False | -  |  -  | The URI of the source database if `create_mode` value is not `Default`. | 
+| **restore_point_in_time** | string | False | -  |  -  | The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`. | 
+| **edition** | string | False | -  |  `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `PremiumRS`, `Stretch`, `System`, `System2`, `Web`  | The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
+| **collation** | string | False | `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  | The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. | 
+| **max_size_bytes** | int | False | -  |  -  | The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
+| **requested_service_objective_id** | string | False | -  |  -  | A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level. . | 
+| **requested_service_objective_name** | string | False | -  |  `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11`, `ElasticPool`  | The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions). | 
+| **source_database_deletion_date** | datetime | False | -  |  -  | The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`. | 
+| **elastic_pool_name** | string | False | -  |  -  | The name of the elastic database pool. | 
+

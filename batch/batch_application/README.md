@@ -1,0 +1,15 @@
+# azurerm_batch_application
+
+Manages Azure Batch Application instance.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | The name of the application. This must be unique within the account. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string | True | -  |  -  | The name of the resource group that contains the Batch account. Changing this forces a new resource to be created. | 
+| **account_name** | string | True | -  |  -  | The name of the Batch account. Changing this forces a new resource to be created. | 
+| **allow_updates** | bool | False | `True`  |  -  | A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`. | 
+| **default_version** | string | False | -  |  -  | The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package. | 
+| **display_name** | string | False | -  |  -  | The display name for the application. | 
+

@@ -1,0 +1,15 @@
+# azurerm_private_dns_srv_record
+
+Enables you to manage DNS SRV Records within Azure Private DNS.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | The name of the DNS SRV Record. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string | True | -  |  -  | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
+| **zone_name** | string | True | -  |  -  | Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **record** | block | True | -  |  -  | One or more `record` blocks. | 
+| **ttl** | int | True | -  |  -  | The Time To Live (TTL) of the DNS record in seconds. | 
+| **tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+

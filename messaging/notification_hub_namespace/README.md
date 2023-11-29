@@ -1,0 +1,16 @@
+# azurerm_notification_hub_namespace
+
+Manages a Notification Hub Namespace.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string | True | -  |  -  | The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created. | 
+| **location** | string | True | -  |  -  | The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created. | 
+| **namespace_type** | string | True | -  |  `Messaging`, `NotificationHub`  | The Type of Namespace - possible values are `Messaging` or `NotificationHub`. | 
+| **sku_name** | string | True | -  |  `Free`, `Basic`, `Standard`  | The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. | 
+| **enabled** | bool | False | `True`  |  -  | Is this Notification Hub Namespace enabled? Defaults to `true`. | 
+| **tags** | map | False | -  |  -  | A mapping of tags to assign to the resource. | 
+

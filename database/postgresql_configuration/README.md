@@ -1,0 +1,13 @@
+# azurerm_postgresql_configuration
+
+Sets a PostgreSQL Configuration value on a PostgreSQL Server.## Disclaimers~> **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+
+## Attributes
+
+| Name | Type | Required? | Default  | possible values | Description |
+| ---- | ---- | --------- | -------- | ----------- | ----------- |
+| **name** | string | True | -  |  -  | Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created. | 
+| **server_name** | string | True | -  |  -  | Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string | True | -  |  -  | The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created. | 
+| **value** | string | True | -  |  -  | Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values. Changing this forces a new resource to be created. | 
+
