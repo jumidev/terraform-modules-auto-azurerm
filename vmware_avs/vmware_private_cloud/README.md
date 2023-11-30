@@ -35,14 +35,16 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.location** | string | True | -  |  The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.management_cluster** | block | True | -  |  A `management_cluster` block. ~> **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time. | 
-| `management_cluster` block structure: || 
-|   size (string): (REQUIRED) The size of the management cluster. This field can not updated with 'internet_connection_enabled' together. ||
 | **var.network_subnet_cidr** | string | True | -  |  The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.sku_name** | string | True | `av20`, `av36`, `av36t`, `av36p`, `av52`  |  The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.internet_connection_enabled** | bool | False | -  |  Is the Private Cluster connected to the internet? This field can not updated with `management_cluster.0.size` together. ~> **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time. | 
 | **var.nsxt_password** | string | False | -  |  The password of the NSX-T Manager. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.vcenter_password** | string | False | -  |  The password of the vCenter admin. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the VMware Private Cloud. | 
+
+### `management_cluster` block structure
+
+>`size` (string): (REQUIRED) The size of the management cluster. This field can not updated with 'internet_connection_enabled' together.
 
 
 

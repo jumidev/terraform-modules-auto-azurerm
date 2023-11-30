@@ -52,14 +52,14 @@ variable "eligible_authorization" {
 #   just_in_time_access_policy (block)    : A 'just_in_time_access_policy' block.
 #   principal_display_name (string)       : The display name of the Azure Active Directory Principal.
 #
-# approver block structure       :
-#   principal_id (string)          : (REQUIRED) The Principal ID of the Azure Active Directory principal for the approver.
-#   principal_display_name (string): The display name of the Azure Active Directory Principal for the approver.
-#
 # just_in_time_access_policy block structure:
 #   multi_factor_auth_provider (string)       : The multi-factor authorization provider to be used for just-in-time access requests. Possible value is 'Azure'.
 #   maximum_activation_duration (int)         : The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to 'PT8H'.
 #   approver (block)                          : An 'approver' block.
+#
+# approver block structure       :
+#   principal_id (string)          : (REQUIRED) The Principal ID of the Azure Active Directory principal for the approver.
+#   principal_display_name (string): The display name of the Azure Active Directory Principal for the approver.
 
 
 variable "plan" {

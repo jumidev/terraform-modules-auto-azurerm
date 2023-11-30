@@ -32,12 +32,14 @@ tfstate_store = {
 | **var.name** | string | True | The Name which should be used for this Route Filter. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created. | 
 | **var.rule** | block | False | A `rule` block. | 
-| `rule` block structure: || 
-|   access (string): (REQUIRED) The access type of the rule. The only possible value is 'Allow'. ||
-|   communities (string): (REQUIRED) The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']. ||
-|   name (string): (REQUIRED) The name of the route filter rule. ||
-|   rule_type (string): (REQUIRED) The rule type of the rule. The only possible value is 'Community'. ||
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Route Filter. | 
+
+### `rule` block structure
+
+>`access` (string): (REQUIRED) The access type of the rule. The only possible value is 'Allow'.
+>`communities` (string): (REQUIRED) The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+>`name` (string): (REQUIRED) The name of the route filter rule.
+>`rule_type` (string): (REQUIRED) The rule type of the rule. The only possible value is 'Community'.
 
 
 

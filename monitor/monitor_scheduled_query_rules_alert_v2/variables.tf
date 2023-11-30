@@ -30,14 +30,14 @@ variable "criteria" {
 #   metric_measure_column (string)  : Specifies the column containing the metric measure number.
 #   resource_id_column (string)     : Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 #
+# failing_periods block structure               :
+#   minimum_failing_periods_to_trigger_alert (int): (REQUIRED) Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6.
+#   number_of_evaluation_periods (int)            : (REQUIRED) Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6.
+#
 # dimension block structure:
 #   name (string)            : (REQUIRED) Name of the dimension.
 #   operator (string)        : (REQUIRED) Operator for dimension values. Possible values are 'Exclude',and 'Include'.
 #   values (string)          : (REQUIRED) List of dimension values. Use a wildcard '*' to collect all.
-#
-# failing_periods block structure               :
-#   minimum_failing_periods_to_trigger_alert (int): (REQUIRED) Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6.
-#   number_of_evaluation_periods (int)            : (REQUIRED) Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6.
 
 
 variable "scopes" {

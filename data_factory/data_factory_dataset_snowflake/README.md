@@ -35,15 +35,17 @@ tfstate_store = {
 | **var.table_name** | string | False | The table name of the Data Factory Dataset Snowflake. | 
 | **var.folder** | string | False | The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
 | **var.schema_column** | block | False | A `schema_column` block. | 
-| `schema_column` block structure: || 
-|   name (string): (REQUIRED) The name of the column. ||
-|   type (string): Type of the column. Valid values are 'NUMBER', 'DECIMAL', 'NUMERIC', 'INT', 'INTEGER', 'BIGINT', 'SMALLINT', 'FLOAT''FLOAT4', 'FLOAT8', 'DOUBLE', 'DOUBLE PRECISION', 'REAL', 'VARCHAR', 'CHAR', 'CHARACTER', 'STRING', 'TEXT', 'BINARY', 'VARBINARY', 'BOOLEAN', 'DATE', 'DATETIME', 'TIME', 'TIMESTAMP', 'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ', 'TIMESTAMP_TZ', 'VARIANT', 'OBJECT', 'ARRAY', 'GEOGRAPHY'. Please note these values are case sensitive. ||
-|   precision (int): The total number of digits allowed. ||
-|   scale (int): The number of digits allowed to the right of the decimal point. ||
 | **var.description** | string | False | The description for the Data Factory Dataset Snowflake. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Dataset Snowflake. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Dataset Snowflake. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Dataset Snowflake. | 
+
+### `schema_column` block structure
+
+>`name` (string): (REQUIRED) The name of the column.
+>`type` (string): Type of the column. Valid values are 'NUMBER', 'DECIMAL', 'NUMERIC', 'INT', 'INTEGER', 'BIGINT', 'SMALLINT', 'FLOAT''FLOAT4', 'FLOAT8', 'DOUBLE', 'DOUBLE PRECISION', 'REAL', 'VARCHAR', 'CHAR', 'CHARACTER', 'STRING', 'TEXT', 'BINARY', 'VARBINARY', 'BOOLEAN', 'DATE', 'DATETIME', 'TIME', 'TIMESTAMP', 'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ', 'TIMESTAMP_TZ', 'VARIANT', 'OBJECT', 'ARRAY', 'GEOGRAPHY'. Please note these values are case sensitive.
+>`precision` (int): The total number of digits allowed.
+>`scale` (int): The number of digits allowed to the right of the decimal point.
 
 
 

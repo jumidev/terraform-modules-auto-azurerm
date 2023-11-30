@@ -35,14 +35,16 @@ tfstate_store = {
 | **var.table** | string | False | The table name of the table in the Azure SQL Database. | 
 | **var.folder** | string | False | The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
 | **var.schema_column** | block | False | A `schema_column` block. | 
-| `schema_column` block structure: || 
-|   name (string): (REQUIRED) The name of the column. ||
-|   type (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. ||
-|   description (string): The description of the column. ||
 | **var.description** | string | False | The description for the Data Factory Dataset Azure SQL Table. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Dataset Azure SQL Table. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Dataset Azure SQL Table. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Dataset Azure SQL Table. | 
+
+### `schema_column` block structure
+
+>`name` (string): (REQUIRED) The name of the column.
+>`type` (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive.
+>`description` (string): The description of the column.
 
 
 

@@ -35,22 +35,28 @@ tfstate_store = {
 | **var.location** | string | True | The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
 | **var.panorama_base64_config** | string | True | The Base64 Encoded configuration value for connecting to the Panorama Configuration server. | 
 | **var.network_profile** | block | True | A `network_profile` block. | 
-| `network_profile` block structure: || 
-|   network_virtual_appliance_id (string): (REQUIRED) The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. ||
-|   public_ip_address_ids (string): (REQUIRED) Specifies a list of Public IP IDs to use for this Next Generation Firewall. ||
-|   virtual_hub_id (string): (REQUIRED) The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. ||
-|   egress_nat_ip_address_ids (string): Specifies a list of Public IP IDs to use for Egress NAT. ||
 | **var.destination_nat** | block | False | One or more `destination_nat` blocks. | 
-| `destination_nat` block structure: || 
-|   name (string): (REQUIRED) The name which should be used for this NAT. ||
-|   protocol (string): (REQUIRED) The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. ||
-|   backend_config (block): A 'backend_config' block. ||
-|   frontend_config (block): A 'frontend_config' block. ||
 | **var.dns_settings** | block | False | A `dns_settings` block. | 
-| `dns_settings` block structure: || 
-|   dns_servers (string): Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'. ||
-|   use_azure_dns (bool): Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. ||
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama. | 
+
+### `network_profile` block structure
+
+>`network_virtual_appliance_id` (string): (REQUIRED) The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created.
+>`public_ip_address_ids` (string): (REQUIRED) Specifies a list of Public IP IDs to use for this Next Generation Firewall.
+>`virtual_hub_id` (string): (REQUIRED) The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created.
+>`egress_nat_ip_address_ids` (string): Specifies a list of Public IP IDs to use for Egress NAT.
+
+### `destination_nat` block structure
+
+>`name` (string): (REQUIRED) The name which should be used for this NAT.
+>`protocol` (string): (REQUIRED) The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'.
+>`backend_config` (block): A 'backend_config' block.
+>`frontend_config` (block): A 'frontend_config' block.
+
+### `dns_settings` block structure
+
+>`dns_servers` (string): Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'.
+>`use_azure_dns` (bool): Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'.
 
 
 

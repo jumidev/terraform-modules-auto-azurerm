@@ -31,13 +31,17 @@ tfstate_store = {
 | **var.signalr_service_id** | string | True | -  |  The ID of the SignalR service. Changing this forces a new resource to be created. | 
 | **var.default_action** | string | True | `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. | 
 | **var.public_network** | block | True | -  |  A `public_network` block. | 
-| `public_network` block structure: || 
-|   allowed_request_types (string): The allowed request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. ||
-|   denied_request_types (string): The denied request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. ||
 | **var.private_endpoint** | block | False | -  |  A `private_endpoint` block. | 
-| `private_endpoint` block structure: || 
-|   allowed_request_types (string): The allowed request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. ||
-|   denied_request_types (string): The denied request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. ||
+
+### `public_network` block structure
+
+>`allowed_request_types` (string): The allowed request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'.
+>`denied_request_types` (string): The denied request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'.
+
+### `private_endpoint` block structure
+
+>`allowed_request_types` (string): The allowed request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'.
+>`denied_request_types` (string): The denied request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'.
 
 
 

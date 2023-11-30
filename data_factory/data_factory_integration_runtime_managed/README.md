@@ -38,20 +38,26 @@ tfstate_store = {
 | **var.edition** | string | False | `Standard`  |  `Standard`, `Enterprise`  |  The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`. | 
 | **var.license_type** | string | False | `LicenseIncluded`  |  `LicenseIncluded`, `BasePrice`  |  The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`. | 
 | **var.catalog_info** | block | False | -  |  -  |  A `catalog_info` block. | 
-| `catalog_info` block structure: || 
-|   server_endpoint (string): (REQUIRED) The endpoint of an Azure SQL Server that will be used to host the SSIS catalog. ||
-|   administrator_login (string): Administrator login name for the SQL Server. ||
-|   administrator_password (string): Administrator login password for the SQL Server. ||
-|   pricing_tier (string): Pricing tier for the database that will be created for the SSIS catalog. Valid values are: 'Basic', 'Standard', 'Premium' and 'PremiumRS'. Defaults to 'Basic'. ||
 | **var.custom_setup_script** | block | False | -  |  -  |  A `custom_setup_script` block. | 
-| `custom_setup_script` block structure: || 
-|   blob_container_uri (string): (REQUIRED) The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. ||
-|   sas_token (string): (REQUIRED) A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. ||
 | **var.vnet_integration** | block | False | -  |  -  |  A `vnet_integration` block. | 
-| `vnet_integration` block structure: || 
-|   vnet_id (string): (REQUIRED) ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. ||
-|   subnet_name (string): (REQUIRED) Name of the subnet to which the nodes of the Managed Integration Runtime will be added. ||
 | **var.description** | string | False | -  |  -  |  Integration runtime description. | 
+
+### `catalog_info` block structure
+
+>`server_endpoint` (string): (REQUIRED) The endpoint of an Azure SQL Server that will be used to host the SSIS catalog.
+>`administrator_login` (string): Administrator login name for the SQL Server.
+>`administrator_password` (string): Administrator login password for the SQL Server.
+>`pricing_tier` (string): Pricing tier for the database that will be created for the SSIS catalog. Valid values are: 'Basic', 'Standard', 'Premium' and 'PremiumRS'. Defaults to 'Basic'.
+
+### `custom_setup_script` block structure
+
+>`blob_container_uri` (string): (REQUIRED) The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+>`sas_token` (string): (REQUIRED) A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
+
+### `vnet_integration` block structure
+
+>`vnet_id` (string): (REQUIRED) ID of the virtual network to which the nodes of the Managed Integration Runtime will be added.
+>`subnet_name` (string): (REQUIRED) Name of the subnet to which the nodes of the Managed Integration Runtime will be added.
 
 
 

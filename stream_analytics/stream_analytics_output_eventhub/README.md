@@ -39,14 +39,16 @@ tfstate_store = {
 | **var.shared_access_policy_key** | string | False | -  |  -  |  The shared access policy key for the specified shared access policy. Required when `authentication_mode` is set to `ConnectionString`. | 
 | **var.shared_access_policy_name** | string | False | -  |  -  |  The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required when `authentication_mode` is set to `ConnectionString`. | 
 | **var.serialization** | block | True | -  |  -  |  A `serialization` block. | 
-| `serialization` block structure: || 
-|   type (string): (REQUIRED) The serialization format used for outgoing data streams. Possible values are 'Avro', 'Csv', 'Json' and 'Parquet'. ||
-|   encoding (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'. ||
-|   field_delimiter (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'. ||
-|   format (string): Specifies the format of the JSON the output will be written in. Possible values are 'Array' and 'LineSeparated'. ||
 | **var.property_columns** | list | False | -  |  -  |  A list of property columns to add to the Event Hub output. | 
 | **var.authentication_mode** | string | False | `ConnectionString`  |  `Msi`, `ConnectionString`  |  The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
 | **var.partition_key** | string | False | -  |  -  |  The column that is used for the Event Hub partition key. | 
+
+### `serialization` block structure
+
+>`type` (string): (REQUIRED) The serialization format used for outgoing data streams. Possible values are 'Avro', 'Csv', 'Json' and 'Parquet'.
+>`encoding` (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'.
+>`field_delimiter` (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'.
+>`format` (string): Specifies the format of the JSON the output will be written in. Possible values are 'Array' and 'LineSeparated'.
 
 
 

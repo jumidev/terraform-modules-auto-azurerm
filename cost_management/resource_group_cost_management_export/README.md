@@ -38,14 +38,18 @@ tfstate_store = {
 | **var.recurrence_period_start_date** | datetime | True | -  |  -  |  The date the export will start capturing information. | 
 | **var.recurrence_period_end_date** | datetime | True | -  |  -  |  The date the export will stop capturing information. | 
 | **var.export_data_storage_location** | block | True | -  |  -  |  A `export_data_storage_location` block. | 
-| `export_data_storage_location` block structure: || 
-|   container_id (string): (REQUIRED) The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created. ||
-|   root_folder_path (string): (REQUIRED) The path of the directory where exports will be uploaded. Changing this forces a new resource to be created. ||
 | **var.export_data_options** | block | True | -  |  -  |  A `export_data_options` block. | 
-| `export_data_options` block structure: || 
-|   type (string): (REQUIRED) The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'. ||
-|   time_frame (string): (REQUIRED) The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'. ||
 | **var.active** | bool | False | `True`  |  -  |  Is the cost management export active? Default is `true`. | 
+
+### `export_data_storage_location` block structure
+
+>`container_id` (string): (REQUIRED) The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
+>`root_folder_path` (string): (REQUIRED) The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+
+### `export_data_options` block structure
+
+>`type` (string): (REQUIRED) The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'.
+>`time_frame` (string): (REQUIRED) The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'.
 
 
 

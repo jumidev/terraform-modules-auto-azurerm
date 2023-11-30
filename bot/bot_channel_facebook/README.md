@@ -37,8 +37,10 @@ tfstate_store = {
 | **var.facebook_application_id** | string | True | The Facebook Application ID for the Facebook Channel. | 
 | **var.facebook_application_secret** | string | True | The Facebook Application Secret for the Facebook Channel. | 
 | **var.page** | block | True | One or more `page` blocks. | 
-| `page` block structure: || 
-|   access_token (string): (REQUIRED) The Facebook Page Access Token for the Facebook Channel. ||
+
+### `page` block structure
+
+>`access_token` (string): (REQUIRED) The Facebook Page Access Token for the Facebook Channel.
 
 
 

@@ -33,11 +33,13 @@ tfstate_store = {
 | **var.mobile_network_id** | string | True | The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created. | 
 | **var.location** | string | True | Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created. | 
 | **var.single_network_slice_selection_assistance_information** | block | True | A `single_network_slice_selection_assistance_information` block. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network. | 
-| `single_network_slice_selection_assistance_information` block structure: || 
-|   slice_differentiator (string): Slice differentiator (SD). Must be a 6 digit hex string. ||
-|   slice_service_type (string): (REQUIRED) Slice/service type (SST). Must be between '0' and '255'. ||
 | **var.description** | string | False | A description for this Mobile Network Slice. | 
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Mobile Network Slice. | 
+
+### `single_network_slice_selection_assistance_information` block structure
+
+>`slice_differentiator` (string): Slice differentiator (SD). Must be a 6 digit hex string.
+>`slice_service_type` (string): (REQUIRED) Slice/service type (SST). Must be between '0' and '255'.
 
 
 

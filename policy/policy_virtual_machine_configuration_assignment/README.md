@@ -33,12 +33,14 @@ tfstate_store = {
 | **var.location** | string | True | The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created. | 
 | **var.virtual_machine_id** | string | True | The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created. | 
 | **var.configuration** | block | True | A `configuration` block. | 
-| `configuration` block structure: || 
-|   assignment_type (string): The assignment type for the Guest Configuration Assignment. Possible values are 'Audit', 'ApplyAndAutoCorrect', 'ApplyAndMonitor' and 'DeployAndAutoCorrect'. ||
-|   content_hash (string): The content hash for the Guest Configuration package. ||
-|   content_uri (string): The content URI where the Guest Configuration package is stored. ||
-|   parameter (block): One or more 'parameter' blocks which define what configuration parameters and values against. ||
-|   version (string): The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment. ||
+
+### `configuration` block structure
+
+>`assignment_type` (string): The assignment type for the Guest Configuration Assignment. Possible values are 'Audit', 'ApplyAndAutoCorrect', 'ApplyAndMonitor' and 'DeployAndAutoCorrect'.
+>`content_hash` (string): The content hash for the Guest Configuration package.
+>`content_uri` (string): The content URI where the Guest Configuration package is stored.
+>`parameter` (block): One or more 'parameter' blocks which define what configuration parameters and values against.
+>`version` (string): The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 
 
 

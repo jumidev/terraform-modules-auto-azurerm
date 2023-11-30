@@ -30,14 +30,16 @@ tfstate_store = {
 | **var.branch** | string | False | -  |  The branch name to use for deployments. Changing this forces a new resource to be created. | 
 | **var.repo_url** | string | False | -  |  The URL for the repository. Changing this forces a new resource to be created. | 
 | **var.github_action_configuration** | block | False | -  |  A `github_action_configuration` block. Changing this forces a new resource to be created. | 
-| `github_action_configuration` block structure: || 
-|   code_configuration (block): A 'code_configuration' block. Changing this forces a new resource to be created. ||
-|   container_configuration (block): A 'container_configuration' block. ||
-|   generate_workflow_file (bool): Whether to generate the GitHub work flow file. Defaults to 'true'. Changing this forces a new resource to be created. ||
 | **var.use_manual_integration** | bool | False | `False`  |  Should code be deployed manually. Set to `false` to enable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **var.rollback_enabled** | bool | False | `False`  |  Should the Deployment Rollback be enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **var.use_local_git** | bool | False | -  |  Should the App use local Git configuration. Changing this forces a new resource to be created. | 
 | **var.use_mercurial** | bool | False | `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
+
+### `github_action_configuration` block structure
+
+>`code_configuration` (block): A 'code_configuration' block. Changing this forces a new resource to be created.
+>`container_configuration` (block): A 'container_configuration' block.
+>`generate_workflow_file` (bool): Whether to generate the GitHub work flow file. Defaults to 'true'. Changing this forces a new resource to be created.
 
 
 

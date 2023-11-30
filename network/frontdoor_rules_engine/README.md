@@ -33,11 +33,13 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  The name of the resource group. Changing this forces a new resource to be created. | 
 | **var.enabled** | bool | False | `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **var.rule** | block | False | -  |  A `rule` block. | 
-| `rule` block structure: || 
-|   name (string): (REQUIRED) The name of the rule. ||
-|   priority (string): (REQUIRED) Priority of the rule, must be unique per rules engine definition. ||
-|   action (block): An 'action' block. ||
-|   match_condition (block): One or more 'match_condition' block. ||
+
+### `rule` block structure
+
+>`name` (string): (REQUIRED) The name of the rule.
+>`priority` (string): (REQUIRED) Priority of the rule, must be unique per rules engine definition.
+>`action` (block): An 'action' block.
+>`match_condition` (block): One or more 'match_condition' block.
 
 
 

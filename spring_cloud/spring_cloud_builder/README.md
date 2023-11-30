@@ -32,12 +32,16 @@ tfstate_store = {
 | **var.name** | string | True | The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created. | 
 | **var.spring_cloud_service_id** | string | True | The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created. | 
 | **var.build_pack_group** | block | True | One or more `build_pack_group` blocks. | 
-| `build_pack_group` block structure: || 
-|   name (string): (REQUIRED) The name which should be used for this build pack group. ||
-|   build_pack_ids (string): Specifies a list of the build pack's ID. ||
 | **var.stack** | block | True | A `stack` block. | 
-| `stack` block structure: || 
-|   version (string): (REQUIRED) Specifies the version of the ClusterStack ||
+
+### `build_pack_group` block structure
+
+>`name` (string): (REQUIRED) The name which should be used for this build pack group.
+>`build_pack_ids` (string): Specifies a list of the build pack's ID.
+
+### `stack` block structure
+
+>`version` (string): (REQUIRED) Specifies the version of the ClusterStack
 
 
 

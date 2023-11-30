@@ -33,9 +33,11 @@ tfstate_store = {
 | **var.ip_rules** | string | False | -  |  List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed. | 
 | **var.virtual_network_subnet_ids** | list | False | -  |  A list of virtual network subnet ids to secure the storage account. | 
 | **var.private_link_access** | block | False | -  |  One or more `private_link_access` block. | 
-| `private_link_access` block structure: || 
-|   endpoint_resource_id (string): (REQUIRED) The resource id of the resource access rule to be granted access. ||
-|   endpoint_tenant_id (string): The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id. ||
+
+### `private_link_access` block structure
+
+>`endpoint_resource_id` (string): (REQUIRED) The resource id of the resource access rule to be granted access.
+>`endpoint_tenant_id` (string): The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 
 
 

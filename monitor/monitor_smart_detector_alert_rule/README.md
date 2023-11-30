@@ -37,16 +37,18 @@ tfstate_store = {
 | **var.detector_type** | string | True | -  |  `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`  |  Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`. | 
 | **var.scope_resource_ids** | string | True | -  |  -  |  Specifies the scopes of this Smart Detector Alert Rule. | 
 | **var.action_group** | block | True | -  |  -  |  An `action_group` block. | 
-| `action_group` block structure: || 
-|   ids (string): (REQUIRED) Specifies the action group ids. ||
-|   email_subject (string): Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource. ||
-|   webhook_payload (string): A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource. ||
 | **var.severity** | string | True | -  |  `Sev0`, `Sev1`, `Sev2`, `Sev3`, `Sev4`  |  Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`. | 
 | **var.frequency** | string | True | -  |  -  |  Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format. | 
 | **var.description** | string | False | -  |  -  |  Specifies a description for the Smart Detector Alert Rule. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Is the Smart Detector Alert Rule enabled? Defaults to `true`. | 
 | **var.throttling_duration** | string | False | -  |  -  |  Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+
+### `action_group` block structure
+
+>`ids` (string): (REQUIRED) Specifies the action group ids.
+>`email_subject` (string): Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+>`webhook_payload` (string): A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
 
 
 

@@ -34,16 +34,20 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | The Azure Region in which this Notification Hub Namespace exists. Changing this forces a new resource to be created. | 
 | **var.apns_credential** | block | False | A `apns_credential` block. | 
-| `apns_credential` block structure: || 
-|   application_mode (string): (REQUIRED) The Application Mode which defines which server the APNS Messages should be sent to. Possible values are 'Production' and 'Sandbox'. ||
-|   bundle_id (string): (REQUIRED) The Bundle ID of the iOS/macOS application to send push notifications for, such as 'com.hashicorp.example'. ||
-|   key_id (string): (REQUIRED) The Apple Push Notifications Service (APNS) Key. ||
-|   team_id (string): (REQUIRED) The ID of the team the Token. ||
-|   token (string): (REQUIRED) The Push Token associated with the Apple Developer Account. This is the contents of the 'key' downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the '-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----' blocks. ||
 | **var.gcm_credential** | block | False | A `gcm_credential` block. | 
-| `gcm_credential` block structure: || 
-|   api_key (string): (REQUIRED) The API Key associated with the Google Cloud Messaging service. ||
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+
+### `apns_credential` block structure
+
+>`application_mode` (string): (REQUIRED) The Application Mode which defines which server the APNS Messages should be sent to. Possible values are 'Production' and 'Sandbox'.
+>`bundle_id` (string): (REQUIRED) The Bundle ID of the iOS/macOS application to send push notifications for, such as 'com.hashicorp.example'.
+>`key_id` (string): (REQUIRED) The Apple Push Notifications Service (APNS) Key.
+>`team_id` (string): (REQUIRED) The ID of the team the Token.
+>`token` (string): (REQUIRED) The Push Token associated with the Apple Developer Account. This is the contents of the 'key' downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the '-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----' blocks.
+
+### `gcm_credential` block structure
+
+>`api_key` (string): (REQUIRED) The API Key associated with the Google Cloud Messaging service.
 
 
 

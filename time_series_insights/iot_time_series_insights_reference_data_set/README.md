@@ -34,10 +34,12 @@ tfstate_store = {
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.data_string_comparison_behavior** | string | False | `Ordinal`  |  `Ordinal`, `OrdinalIgnoreCase`  |  The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created. | 
 | **var.key_property** | block | True | -  |  -  |  A `key_property` block. Changing this forces a new resource to be created. | 
-| `key_property` block structure: || 
-|   name (string): (REQUIRED) The name of the key property. Changing this forces a new resource to be created. ||
-|   type (string): (REQUIRED) The data type of the key property. Valid values include 'Bool', 'DateTime', 'Double', 'String'. Changing this forces a new resource to be created. ||
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+
+### `key_property` block structure
+
+>`name` (string): (REQUIRED) The name of the key property. Changing this forces a new resource to be created.
+>`type` (string): (REQUIRED) The data type of the key property. Valid values include 'Bool', 'DateTime', 'Double', 'String'. Changing this forces a new resource to be created.
 
 
 

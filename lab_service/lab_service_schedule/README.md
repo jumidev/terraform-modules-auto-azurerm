@@ -35,12 +35,14 @@ tfstate_store = {
 | **var.time_zone** | string | True | The IANA Time Zone ID for the Schedule. | 
 | **var.notes** | string | False | The notes for the Schedule. | 
 | **var.recurrence** | block | False | A `recurrence` block. | 
-| `recurrence` block structure: || 
-|   expiration_date (datetime): (REQUIRED) When the recurrence will expire in RFC-3339 format. ||
-|   frequency (string): (REQUIRED) The frequency of the recurrence. Possible values are 'Daily' and 'Weekly'. ||
-|   interval (string): The interval to invoke the schedule on. Possible values are between '1' and '365'. ||
-|   week_days (string): The interval to invoke the schedule on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. ||
 | **var.start_time** | string | False | When Lab User Virtual Machines will be started in RFC-3339 format. | 
+
+### `recurrence` block structure
+
+>`expiration_date` (datetime): (REQUIRED) When the recurrence will expire in RFC-3339 format.
+>`frequency` (string): (REQUIRED) The frequency of the recurrence. Possible values are 'Daily' and 'Weekly'.
+>`interval` (string): The interval to invoke the schedule on. Possible values are between '1' and '365'.
+>`week_days` (string): The interval to invoke the schedule on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
 
 
 

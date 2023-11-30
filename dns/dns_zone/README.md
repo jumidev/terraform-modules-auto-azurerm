@@ -30,17 +30,19 @@ tfstate_store = {
 | **var.name** | string | True | The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 | **var.soa_record** | block | False | An `soa_record` block. | 
-| `soa_record` block structure: || 
-|   email (string): (REQUIRED) The email contact for the SOA record. ||
-|   host_name (string): The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used. ||
-|   expire_time (string): The expire time for the SOA record. Defaults to '2419200'. ||
-|   minimum_ttl (string): The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '300'. ||
-|   refresh_time (string): The refresh time for the SOA record. Defaults to '3600'. ||
-|   retry_time (string): The retry time for the SOA record. Defaults to '300'. ||
-|   serial_number (string): The serial number for the SOA record. Defaults to '1'. ||
-|   ttl (int): The Time To Live of the SOA Record in seconds. Defaults to '3600'. ||
-|   tags (map): A mapping of tags to assign to the Record Set. ||
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+
+### `soa_record` block structure
+
+>`email` (string): (REQUIRED) The email contact for the SOA record.
+>`host_name` (string): The domain name of the authoritative name server for the SOA record. If not set, computed value from Azure will be used.
+>`expire_time` (string): The expire time for the SOA record. Defaults to '2419200'.
+>`minimum_ttl` (string): The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '300'.
+>`refresh_time` (string): The refresh time for the SOA record. Defaults to '3600'.
+>`retry_time` (string): The retry time for the SOA record. Defaults to '300'.
+>`serial_number` (string): The serial number for the SOA record. Defaults to '1'.
+>`ttl` (int): The Time To Live of the SOA Record in seconds. Defaults to '3600'.
+>`tags` (map): A mapping of tags to assign to the Record Set.
 
 
 

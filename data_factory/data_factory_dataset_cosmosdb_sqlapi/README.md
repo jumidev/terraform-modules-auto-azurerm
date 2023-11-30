@@ -33,15 +33,17 @@ tfstate_store = {
 | **var.linked_service_name** | string | True | The Data Factory Linked Service name in which to associate the Dataset with. | 
 | **var.folder** | string | False | The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
 | **var.schema_column** | block | False | A `schema_column` block. | 
-| `schema_column` block structure: || 
-|   name (string): (REQUIRED) The name of the column. ||
-|   type (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. ||
-|   description (string): The description of the column. ||
 | **var.description** | string | False | The description for the Data Factory Dataset. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Dataset. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Dataset. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Dataset. | 
 | **var.collection_name** | string | False | The collection name of the Data Factory Dataset Azure Cosmos DB SQL API. | 
+
+### `schema_column` block structure
+
+>`name` (string): (REQUIRED) The name of the column.
+>`type` (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive.
+>`description` (string): The description of the column.
 
 
 

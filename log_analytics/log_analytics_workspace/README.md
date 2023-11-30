@@ -38,14 +38,16 @@ tfstate_store = {
 | **var.daily_quota_gb** | int | False | -  |  -  |  The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted. | 
 | **var.cmk_for_query_forced** | string | False | -  |  -  |  Is Customer Managed Storage mandatory for query management? | 
 | **var.identity** | block | False | -  |  -  |  An `identity` block. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the identity type of the Log Analytics Workspace. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you) and 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. ||
-|   identity_ids (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. ||
 | **var.internet_ingestion_enabled** | bool | False | `True`  |  -  |  Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`. | 
 | **var.internet_query_enabled** | bool | False | `True`  |  -  |  Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`. | 
 | **var.reservation_capacity_in_gb_per_day** | string | False | -  |  `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`  |  The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`. | 
 | **var.data_collection_rule_id** | string | False | -  |  -  |  The ID of the Data Collection Rule to use for this workspace. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the identity type of the Log Analytics Workspace. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you) and 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field.
+>`identity_ids` (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'.
 
 
 ### 1 optional associated resource

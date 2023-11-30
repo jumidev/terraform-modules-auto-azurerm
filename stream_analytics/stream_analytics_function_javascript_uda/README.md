@@ -33,13 +33,17 @@ tfstate_store = {
 | **var.name** | string | True | The name of the JavaScript UDA Function. Changing this forces a new resource to be created. | 
 | **var.stream_analytics_job_id** | string | True | The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
 | **var.input** | block | True | One or more `input` blocks. | 
-| `input` block structure: || 
-|   type (string): (REQUIRED) The input data type of this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. ||
-|   configuration_parameter (bool): Is this input parameter a configuration parameter? Defaults to 'false'. ||
 | **var.output** | block | True | An `output` block. | 
-| `output` block structure: || 
-|   type (string): (REQUIRED) The output data type from this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. ||
 | **var.script** | string | True | The JavaScript of this UDA Function. | 
+
+### `input` block structure
+
+>`type` (string): (REQUIRED) The input data type of this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'.
+>`configuration_parameter` (bool): Is this input parameter a configuration parameter? Defaults to 'false'.
+
+### `output` block structure
+
+>`type` (string): (REQUIRED) The output data type from this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'.
 
 
 

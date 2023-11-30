@@ -41,10 +41,6 @@ tfstate_store = {
 | **var.coordinator_vcore_count** | string | False | -  |  `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96`  |  The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`. | 
 | **var.ha_enabled** | bool | False | `False`  |  -  |  Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`. | 
 | **var.maintenance_window** | block | False | -  |  -  |  A `maintenance_window` block. | 
-| `maintenance_window` block structure: || 
-|   day_of_week (string): The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'. ||
-|   start_hour (string): The start hour for maintenance window. Defaults to '0'. ||
-|   start_minute (string): The start minute for maintenance window. Defaults to '0'. ||
 | **var.node_public_ip_access_enabled** | bool | False | `False`  |  -  |  Is public access enabled on worker nodes. Defaults to `false`. | 
 | **var.node_server_edition** | string | False | `MemoryOptimized`  |  `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, `MemoryOptimized`  |  The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`. | 
 | **var.node_storage_quota_in_mb** | string | False | -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`  |  The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`. | 
@@ -56,6 +52,12 @@ tfstate_store = {
 | **var.source_resource_id** | string | False | -  |  -  |  The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created. | 
 | **var.sql_version** | string | False | -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster. | 
+
+### `maintenance_window` block structure
+
+>`day_of_week` (string): The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'.
+>`start_hour` (string): The start hour for maintenance window. Defaults to '0'.
+>`start_minute` (string): The start minute for maintenance window. Defaults to '0'.
 
 
 

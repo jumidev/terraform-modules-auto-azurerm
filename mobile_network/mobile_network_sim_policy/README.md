@@ -38,15 +38,19 @@ tfstate_store = {
 | **var.registration_timer_in_seconds** | int | False | `3240`  |  Interval for the user equipment periodic registration update procedure. Defaults to `3240`. | 
 | **var.rat_frequency_selection_priority_index** | string | False | -  |  RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. | 
 | **var.user_equipment_aggregate_maximum_bit_rate** | block | True | -  |  A `user_equipment_aggregate_maximum_bit_rate` block. | 
-| `user_equipment_aggregate_maximum_bit_rate` block structure: || 
-|   downlink (string): (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. ||
-|   uplink (string): (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. ||
 | **var.slice** | block | True | -  |  An array of `slice` block. The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item. | 
-| `slice` block structure: || 
-|   data_network (block): (REQUIRED) An array of 'data_network' block. ||
-|   default_data_network_id (string): (REQUIRED) The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block. ||
-|   slice_id (string): (REQUIRED) The ID of the slice that these settings apply to. ||
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Mobile Network Sim Policies. | 
+
+### `user_equipment_aggregate_maximum_bit_rate` block structure
+
+>`downlink` (string): (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+>`uplink` (string): (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+
+### `slice` block structure
+
+>`data_network` (block): (REQUIRED) An array of 'data_network' block.
+>`default_data_network_id` (string): (REQUIRED) The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block.
+>`slice_id` (string): (REQUIRED) The ID of the slice that these settings apply to.
 
 
 

@@ -36,11 +36,13 @@ tfstate_store = {
 | **var.location** | string | True | -  |  The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created. | 
 | **var.distro** | string | True | -  |  Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`. | 
 | **var.identity** | block | True | -  |  An `identity` block. Changing this forces a new resource to be created. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. ||
 | **var.infrastructure_provider** | string | True | `HCI`, `SCVMM`, `VMWare`  |  The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created. | 
 | **var.public_key_base64** | string | False | -  |  The `public_key_base64` is an RSA public key in PKCS1 format encoded in base64. Changing this forces a new resource to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Arc Resource Bridge Appliance. | 
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created.
 
 
 

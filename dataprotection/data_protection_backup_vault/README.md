@@ -36,9 +36,11 @@ tfstate_store = {
 | **var.datastore_type** | string | True | `ArchiveStore`, `SnapshotStore`, `VaultStore`  |  Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created. | 
 | **var.redundancy** | string | True | `GeoRedundant`, `LocallyRedundant`  |  Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created. | 
 | **var.identity** | block | False | -  |  An `identity` block. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is 'SystemAssigned'. ||
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Backup Vault. | 
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Backup Vault. The only possible value is 'SystemAssigned'.
 
 
 

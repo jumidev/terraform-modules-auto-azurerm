@@ -33,11 +33,13 @@ tfstate_store = {
 | **var.application_live_view_enabled** | bool | False | Should the Application Live View be enabled? | 
 | **var.public_network_access_enabled** | bool | False | Is public network access enabled? | 
 | **var.sso** | block | False | A `sso` block. | 
-| `sso` block structure: || 
-|   client_id (string): Specifies the public identifier for the application. ||
-|   client_secret (string): Specifies the secret known only to the application and the authorization server. ||
-|   metadata_url (string): Specifies the URI of a JSON file with generic OIDC provider configuration. ||
-|   scope (string): Specifies a list of specific actions applications can be allowed to do on a user's behalf. ||
+
+### `sso` block structure
+
+>`client_id` (string): Specifies the public identifier for the application.
+>`client_secret` (string): Specifies the secret known only to the application and the authorization server.
+>`metadata_url` (string): Specifies the URI of a JSON file with generic OIDC provider configuration.
+>`scope` (string): Specifies a list of specific actions applications can be allowed to do on a user's behalf.
 
 
 

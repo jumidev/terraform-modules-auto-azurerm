@@ -31,10 +31,12 @@ tfstate_store = {
 | **var.root_file** | string | True | Specify the root file path of this Nginx Configuration. | 
 | **var.package_data** | string | False | Specify the package data for this configuration. | 
 | **var.config_file** | block | False | One or more `config_file` blocks. | 
-| `config_file` block structure: || 
-|   content (string): (REQUIRED) Specifies the base-64 encoded contents of this config file. ||
-|   virtual_path (string): (REQUIRED) Specify the path of this config file. ||
 | **var.protected_file** | list | False | One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified. | 
+
+### `config_file` block structure
+
+>`content` (string): (REQUIRED) Specifies the base-64 encoded contents of this config file.
+>`virtual_path` (string): (REQUIRED) Specify the path of this config file.
 
 
 

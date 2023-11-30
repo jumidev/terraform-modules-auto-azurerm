@@ -31,14 +31,16 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- |
 | **var.location** | string | True | -  |  The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
 | **var.identity** | block | True | -  |  An `identity` block. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are 'UserAssigned' and 'SystemAssigned'. ||
-|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account. ||
 | **var.name** | string | True | -  |  The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
 | **var.public_network_enabled** | bool | False | `True`  |  Should the Purview Account be visible to the public network? Defaults to `true`. | 
 | **var.managed_resource_group_name** | string | False | -  |  The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Purview Account. | 
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Purview Account. Possible values are 'UserAssigned' and 'SystemAssigned'.
+>`identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
 
 
 

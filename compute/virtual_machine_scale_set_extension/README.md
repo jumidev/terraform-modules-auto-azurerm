@@ -41,11 +41,13 @@ tfstate_store = {
 | **var.force_update_tag** | string | False | -  |  -  |  A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. | 
 | **var.protected_settings** | string | False | -  |  -  |  A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. | 
 | **var.protected_settings_from_key_vault** | block | False | -  |  -  |  A `protected_settings_from_key_vault` block. | 
-| `protected_settings_from_key_vault` block structure: || 
-|   secret_url (string): (REQUIRED) The URL to the Key Vault Secret which stores the protected settings. ||
-|   source_vault_id (string): (REQUIRED) The ID of the source Key Vault. ||
 | **var.provision_after_extensions** | string | False | -  |  -  |  An ordered list of Extension names which this should be provisioned after. | 
 | **var.settings** | string | False | -  |  -  |  A JSON String which specifies Settings for the Extension. | 
+
+### `protected_settings_from_key_vault` block structure
+
+>`secret_url` (string): (REQUIRED) The URL to the Key Vault Secret which stores the protected settings.
+>`source_vault_id` (string): (REQUIRED) The ID of the source Key Vault.
 
 
 

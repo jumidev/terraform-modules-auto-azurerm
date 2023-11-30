@@ -98,12 +98,6 @@ variable "config_server_git_setting" {
 #   ssh_auth (block)                         : A 'ssh_auth' block.
 #   repository (block)                       : One or more 'repository' blocks.
 #
-# ssh_auth block structure               :
-#   private_key (string)                   : (REQUIRED) The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'.
-#   host_key (string)                      : The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'.
-#   host_key_algorithm (string)            : The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists.
-#   strict_host_key_checking_enabled (bool): Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'.
-#
 # repository block structure:
 #   name (string)             : (REQUIRED) A name to identify on the Git repository, required only if repos exists.
 #   uri (string)              : (REQUIRED) The URI of the Git repository that's used as the Config Server back end should be started with 'http://', 'https://', 'git@', or 'ssh://'.
@@ -112,6 +106,12 @@ variable "config_server_git_setting" {
 #   search_paths (string)     : An array of strings used to search subdirectories of the Git repository.
 #   http_basic_auth (block)   : A 'http_basic_auth' block.
 #   ssh_auth (block)          : A 'ssh_auth' block.
+#
+# ssh_auth block structure               :
+#   private_key (string)                   : (REQUIRED) The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'.
+#   host_key (string)                      : The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'.
+#   host_key_algorithm (string)            : The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists.
+#   strict_host_key_checking_enabled (bool): Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'.
 #
 # http_basic_auth block structure:
 #   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.

@@ -36,11 +36,13 @@ tfstate_store = {
 | **var.location** | string | True | -  |  The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created. | 
 | **var.partner_managed_instance_id** | string | True | -  |  ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created. | 
 | **var.read_write_endpoint_failover_policy** | block | True | -  |  A `read_write_endpoint_failover_policy` block. | 
-| `read_write_endpoint_failover_policy` block structure: || 
-|   mode (string): (REQUIRED) The failover mode. Possible values are 'Manual', 'Automatic' ||
-|   grace_minutes (int): Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted. ||
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created. | 
 | **var.readonly_endpoint_failover_policy_enabled** | bool | False | `True`  |  Failover policy for the read-only endpoint. Defaults to `true`. | 
+
+### `read_write_endpoint_failover_policy` block structure
+
+>`mode` (string): (REQUIRED) The failover mode. Possible values are 'Manual', 'Automatic'
+>`grace_minutes` (int): Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted.
 
 
 

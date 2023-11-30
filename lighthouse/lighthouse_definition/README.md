@@ -34,24 +34,30 @@ tfstate_store = {
 | **var.managing_tenant_id** | string | True | The ID of the managing tenant. Changing this forces a new resource to be created. | 
 | **var.scope** | string | True | The ID of the managed subscription. Changing this forces a new resource to be created. | 
 | **var.authorization** | block | True | An `authorization` block. | 
-| `authorization` block structure: || 
-|   principal_id (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. ||
-|   role_definition_id (string): (REQUIRED) The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role. ||
-|   delegated_role_definition_ids (string): The set of role definition ids which define all the permissions that the principal id can assign. ||
-|   principal_display_name (string): The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. ||
 | **var.description** | string | False | A description of the Lighthouse Definition. | 
 | **var.eligible_authorization** | block | False | An `eligible_authorization` block. | 
-| `eligible_authorization` block structure: || 
-|   principal_id (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. ||
-|   role_definition_id (string): (REQUIRED) The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope. ||
-|   just_in_time_access_policy (block): A 'just_in_time_access_policy' block. ||
-|   principal_display_name (string): The display name of the Azure Active Directory Principal. ||
 | **var.plan** | block | False | A `plan` block. | 
-| `plan` block structure: || 
-|   name (string): (REQUIRED) The plan name of the marketplace offer. ||
-|   publisher (string): (REQUIRED) The publisher ID of the plan. ||
-|   product (string): (REQUIRED) The product code of the plan. ||
-|   version (string): (REQUIRED) The version of the plan. ||
+
+### `authorization` block structure
+
+>`principal_id` (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+>`role_definition_id` (string): (REQUIRED) The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role.
+>`delegated_role_definition_ids` (string): The set of role definition ids which define all the permissions that the principal id can assign.
+>`principal_display_name` (string): The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+
+### `eligible_authorization` block structure
+
+>`principal_id` (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+>`role_definition_id` (string): (REQUIRED) The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+>`just_in_time_access_policy` (block): A 'just_in_time_access_policy' block.
+>`principal_display_name` (string): The display name of the Azure Active Directory Principal.
+
+### `plan` block structure
+
+>`name` (string): (REQUIRED) The plan name of the marketplace offer.
+>`publisher` (string): (REQUIRED) The publisher ID of the plan.
+>`product` (string): (REQUIRED) The product code of the plan.
+>`version` (string): (REQUIRED) The version of the plan.
 
 
 

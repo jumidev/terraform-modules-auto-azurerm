@@ -39,19 +39,23 @@ tfstate_store = {
 | **var.storage_account_id** | string | True | -  |  -  |  The ID of the Storage Account where flow logs are stored. | 
 | **var.enabled** | bool | True | -  |  -  |  Should Network Flow Logging be Enabled? | 
 | **var.retention_policy** | block | True | -  |  -  |  A `retention_policy` block. | 
-| `retention_policy` block structure: || 
-|   enabled (bool): (REQUIRED) Boolean flag to enable/disable retention. ||
-|   days (int): (REQUIRED) The number of days to retain flow log records. ||
 | **var.location** | string | False | `location`  |  -  |  The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher. | 
 | **var.traffic_analytics** | block | False | -  |  -  |  A `traffic_analytics` block. | 
-| `traffic_analytics` block structure: || 
-|   enabled (bool): (REQUIRED) Boolean flag to enable/disable traffic analytics. ||
-|   workspace_id (string): (REQUIRED) The resource GUID of the attached workspace. ||
-|   workspace_region (string): (REQUIRED) The location of the attached workspace. ||
-|   workspace_resource_id (string): (REQUIRED) The resource ID of the attached workspace. ||
-|   interval_in_minutes (int): How frequently service should do flow analytics in minutes. Defaults to '60'. ||
 | **var.version** | string | False | -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
+
+### `retention_policy` block structure
+
+>`enabled` (bool): (REQUIRED) Boolean flag to enable/disable retention.
+>`days` (int): (REQUIRED) The number of days to retain flow log records.
+
+### `traffic_analytics` block structure
+
+>`enabled` (bool): (REQUIRED) Boolean flag to enable/disable traffic analytics.
+>`workspace_id` (string): (REQUIRED) The resource GUID of the attached workspace.
+>`workspace_region` (string): (REQUIRED) The location of the attached workspace.
+>`workspace_resource_id` (string): (REQUIRED) The resource ID of the attached workspace.
+>`interval_in_minutes` (int): How frequently service should do flow analytics in minutes. Defaults to '60'.
 
 
 

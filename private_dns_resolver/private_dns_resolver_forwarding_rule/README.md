@@ -33,11 +33,13 @@ tfstate_store = {
 | **var.dns_forwarding_ruleset_id** | string | True | -  |  Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created. | 
 | **var.domain_name** | string | True | -  |  Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created. | 
 | **var.target_dns_servers** | block | True | -  |  Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block. | 
-| `target_dns_servers` block structure: || 
-|   ip_address (string): (REQUIRED) DNS server IP address. ||
-|   port (string): DNS server port. ||
 | **var.enabled** | bool | False | `True`  |  Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`. | 
 | **var.metadata** | string | False | -  |  Metadata attached to the Private DNS Resolver Forwarding Rule. | 
+
+### `target_dns_servers` block structure
+
+>`ip_address` (string): (REQUIRED) DNS server IP address.
+>`port` (string): DNS server port.
 
 
 

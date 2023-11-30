@@ -33,9 +33,11 @@ tfstate_store = {
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
 | **var.line_channel** | block | True | One or more `line_channel` blocks. | 
-| `line_channel` block structure: || 
-|   access_token (string): (REQUIRED) The access token which is used to call the Line Channel API. ||
-|   secret (string): (REQUIRED) The secret which is used to access the Line Channel. ||
+
+### `line_channel` block structure
+
+>`access_token` (string): (REQUIRED) The access token which is used to call the Line Channel API.
+>`secret` (string): (REQUIRED) The secret which is used to access the Line Channel.
 
 
 

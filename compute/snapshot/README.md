@@ -38,11 +38,13 @@ tfstate_store = {
 | **var.storage_account_id** | string | False | -  |  Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created. | 
 | **var.disk_size_gb** | int | False | -  |  The size of the Snapshotted Disk in GB. | 
 | **var.encryption_settings** | block | False | -  |  A `encryption_settings` block. | 
-| `encryption_settings` block structure: || 
-|   disk_encryption_key (block): A 'disk_encryption_key' block. ||
-|   key_encryption_key (block): A 'key_encryption_key' block. ||
 | **var.incremental_enabled** | bool | False | -  |  Specifies if the Snapshot is incremental. Changing this forces a new resource to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
+
+### `encryption_settings` block structure
+
+>`disk_encryption_key` (block): A 'disk_encryption_key' block.
+>`key_encryption_key` (block): A 'key_encryption_key' block.
 
 
 

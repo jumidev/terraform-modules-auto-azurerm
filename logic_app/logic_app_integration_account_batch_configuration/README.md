@@ -35,11 +35,13 @@ tfstate_store = {
 | **var.integration_account_name** | string | True | The name of the Logic App Integration Account. Changing this forces a new resource to be created. | 
 | **var.batch_group_name** | string | True | The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created. | 
 | **var.release_criteria** | block | True | A `release_criteria` block, which is used to select the criteria to meet before processing each batch. | 
-| `release_criteria` block structure: || 
-|   batch_size (string): The batch size in bytes for the Logic App Integration Batch Configuration. ||
-|   message_count (int): The message count for the Logic App Integration Batch Configuration. ||
-|   recurrence (block): A 'recurrence' block. ||
 | **var.metadata** | string | False | A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration. | 
+
+### `release_criteria` block structure
+
+>`batch_size` (string): The batch size in bytes for the Logic App Integration Batch Configuration.
+>`message_count` (int): The message count for the Logic App Integration Batch Configuration.
+>`recurrence` (block): A 'recurrence' block.
 
 
 

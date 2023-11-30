@@ -41,9 +41,11 @@ tfstate_store = {
 | **var.instance_count** | int | False | `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **var.language_framework** | string | False | -  |  Specifies the language framework of the container image. The only possible value is `springboot`. | 
 | **var.quota** | block | False | -  |  A `quota` block. | 
-| `quota` block structure: || 
-|   cpu (string): Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. ||
-|   memory (string): Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '1Gi' if not specified. ||
+
+### `quota` block structure
+
+>`cpu` (string): Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified.
+>`memory` (string): Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '1Gi' if not specified.
 
 
 

@@ -36,15 +36,17 @@ tfstate_store = {
 | **var.log_level** | string | False | `None`  |  `None`, `Debug`, `Information`, `Warning`, `Error`  |  The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`. | 
 | **var.mode** | string | False | `ReadWrite`  |  `Mirror`, `ReadOnly`, `ReadWrite`, `Registry`  |  The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`. | 
 | **var.notification** | block | False | -  |  -  |  One or more `notification` blocks. | 
-| `notification` block structure: || 
-|   name (string): (REQUIRED) The name of the artifact that wants to be subscribed for the Connected Registry. ||
-|   action (string): (REQUIRED) The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are 'push', 'delete' and '*' (i.e. any). ||
-|   tag (string): The tag of the artifact that wants to be subscribed for the Connected Registry. ||
-|   digest (string): The digest of the artifact that wants to be subscribed for the Connected Registry. ||
 | **var.parent_registry_id** | string | False | -  |  -  |  The ID of the parent registry. This can be either a Container Registry ID or a Connected Registry ID. Changing this forces a new Container Connected Registry to be created. | 
 | **var.sync_message_ttl** | string | False | `P1D`  |  -  |  The period of time (in form of ISO8601) for which a message is available to sync before it is expired. Allowed range is from `P1D` to `P90D`. Defaults to `P1D`. | 
 | **var.sync_schedule** | string | False | `* * * * *`  |  -  |  The cron expression indicating the schedule that the Connected Registry will sync with its parent. Defaults to `* * * * *`. | 
 | **var.sync_window** | string | False | -  |  -  |  The time window (in form of ISO8601) during which sync is enabled for each schedule occurrence. Allowed range is from `PT3H` to `P7D`. | 
+
+### `notification` block structure
+
+>`name` (string): (REQUIRED) The name of the artifact that wants to be subscribed for the Connected Registry.
+>`action` (string): (REQUIRED) The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are 'push', 'delete' and '*' (i.e. any).
+>`tag` (string): The tag of the artifact that wants to be subscribed for the Connected Registry.
+>`digest` (string): The digest of the artifact that wants to be subscribed for the Connected Registry.
 
 
 

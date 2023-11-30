@@ -36,16 +36,8 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
 | **var.identifier** | block | True | -  |  -  |  An `identifier` block. | 
-| `identifier` block structure: || 
-|   offer (string): (REQUIRED) The Offer Name for this Shared Image. Changing this forces a new resource to be created. ||
-|   publisher (string): (REQUIRED) The Publisher Name for this Gallery Image. Changing this forces a new resource to be created. ||
-|   sku (string): (REQUIRED) The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created. ||
 | **var.os_type** | string | True | -  |  `Linux`, `Windows`  |  The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created. | 
 | **var.purchase_plan** | block | False | -  |  -  |  A `purchase_plan` block. | 
-| `purchase_plan` block structure: || 
-|   name (string): (REQUIRED) The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created. ||
-|   publisher (string): The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created. ||
-|   product (string): The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. ||
 | **var.description** | string | False | -  |  -  |  A description of this Shared Image. | 
 | **var.disk_types_not_allowed** | string | False | -  |  `Standard_LRS`, `Premium_LRS`  |  One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`. | 
 | **var.end_of_life_date** | datetime | False | -  |  -  |  The end of life date in RFC3339 format of the Image. | 
@@ -65,6 +57,18 @@ tfstate_store = {
 | **var.confidential_vm_enabled** | bool | False | -  |  -  |  Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created. | 
 | **var.accelerated_network_support_enabled** | bool | False | -  |  -  |  Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the Shared Image. | 
+
+### `identifier` block structure
+
+>`offer` (string): (REQUIRED) The Offer Name for this Shared Image. Changing this forces a new resource to be created.
+>`publisher` (string): (REQUIRED) The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
+>`sku` (string): (REQUIRED) The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
+
+### `purchase_plan` block structure
+
+>`name` (string): (REQUIRED) The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
+>`publisher` (string): The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
+>`product` (string): The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
 
 
 

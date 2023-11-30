@@ -37,11 +37,13 @@ tfstate_store = {
 | **var.workspace_resource_id** | string | True | The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
 | **var.workspace_name** | string | True | The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
 | **var.plan** | block | True | A `plan` block. | 
-| `plan` block structure: || 
-|   publisher (string): (REQUIRED) The publisher of the solution. For example 'Microsoft'. Changing this forces a new resource to be created. ||
-|   product (string): (REQUIRED) The product name of the solution. For example 'OMSGallery/Containers'. Changing this forces a new resource to be created. ||
-|   promotion_code (string): A promotion code to be used with the solution. Changing this forces a new resource to be created. ||
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+
+### `plan` block structure
+
+>`publisher` (string): (REQUIRED) The publisher of the solution. For example 'Microsoft'. Changing this forces a new resource to be created.
+>`product` (string): (REQUIRED) The product name of the solution. For example 'OMSGallery/Containers'. Changing this forces a new resource to be created.
+>`promotion_code` (string): A promotion code to be used with the solution. Changing this forces a new resource to be created.
 
 
 

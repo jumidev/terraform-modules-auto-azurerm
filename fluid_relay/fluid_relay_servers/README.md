@@ -33,10 +33,12 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Fluid Relay Server. | 
 | **var.identity** | block | False | -  |  An `identity` block. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Fluid Relay Service. Possible values are 'SystemAssigned','UserAssigned' and 'SystemAssigned, UserAssigned'. ||
-|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service. ||
 | **var.storage_sku** | string | False | `standard`, `basic`  |  Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created. | 
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Fluid Relay Service. Possible values are 'SystemAssigned','UserAssigned' and 'SystemAssigned, UserAssigned'.
+>`identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Fluid Relay Service.
 
 
 

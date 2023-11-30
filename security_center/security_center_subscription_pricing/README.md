@@ -30,9 +30,11 @@ tfstate_store = {
 | **var.resource_type** | string | False | `VirtualMachines`  |  `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs`, `CloudPosture`  |  The resource type this setting affects. Possible values are `Api`, `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `Dns`, `OpenSourceRelationalDatabases`, `Containers`, `CosmosDbs` and `CloudPosture`. Defaults to `VirtualMachines` | 
 | **var.subplan** | string | False | -  |  -  |  Resource type pricing subplan. Contact your MSFT representative for possible values. | 
 | **var.extension** | block | False | -  |  -  |  One or more `extension` blocks. | 
-| `extension` block structure: || 
-|   name (string): (REQUIRED) The name of extension. ||
-|   additional_extension_properties (string): Key/Value pairs that are required for some extensions. ||
+
+### `extension` block structure
+
+>`name` (string): (REQUIRED) The name of extension.
+>`additional_extension_properties` (string): Key/Value pairs that are required for some extensions.
 
 
 

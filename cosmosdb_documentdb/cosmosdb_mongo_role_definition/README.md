@@ -31,9 +31,11 @@ tfstate_store = {
 | **var.role_name** | string | True | The user-friendly name for the Mongo Role Definition. It must be unique for the database account. Changing this forces a new resource to be created. | 
 | **var.inherited_role_names** | list | False | A list of Mongo Roles which are inherited to the Mongo Role Definition. | 
 | **var.privilege** | block | False | A `privilege` block. | 
-| `privilege` block structure: || 
-|   actions (list): (REQUIRED) A list of actions that are allowed. ||
-|   resource (block): (REQUIRED) A 'resource' block. ||
+
+### `privilege` block structure
+
+>`actions` (list): (REQUIRED) A list of actions that are allowed.
+>`resource` (block): (REQUIRED) A 'resource' block.
 
 
 

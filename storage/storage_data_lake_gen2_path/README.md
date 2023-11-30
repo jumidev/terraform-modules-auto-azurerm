@@ -36,10 +36,12 @@ tfstate_store = {
 | **var.owner** | string | False | `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`. | 
 | **var.group** | string | False | `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`. | 
 | **var.ace** | block | False | -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
-| `ace` block structure: || 
-|   scope (bool): Specifies whether the ACE represents an 'access' entry or a 'default' entry. Default value is 'access'. ||
-|   type (string): (REQUIRED) Specifies the type of entry. Can be 'user', 'group', 'mask' or 'other'. ||
-|   permissions (string): (REQUIRED) Specifies the permissions for the entry in 'rwx' form. For example, 'rwx' gives full permissions but 'r--' only gives read permissions. ||
+
+### `ace` block structure
+
+>`scope` (bool): Specifies whether the ACE represents an 'access' entry or a 'default' entry. Default value is 'access'.
+>`type` (string): (REQUIRED) Specifies the type of entry. Can be 'user', 'group', 'mask' or 'other'.
+>`permissions` (string): (REQUIRED) Specifies the permissions for the entry in 'rwx' form. For example, 'rwx' gives full permissions but 'r--' only gives read permissions.
 
 
 

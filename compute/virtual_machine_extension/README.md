@@ -41,11 +41,13 @@ tfstate_store = {
 | **var.failure_suppression_enabled** | bool | False | `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
 | **var.protected_settings** | string | False | -  |  -  |  The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string. | 
 | **var.protected_settings_from_key_vault** | block | False | -  |  -  |  A `protected_settings_from_key_vault` block. | 
-| `protected_settings_from_key_vault` block structure: || 
-|   secret_url (string): (REQUIRED) The URL to the Key Vault Secret which stores the protected settings. ||
-|   source_vault_id (string): (REQUIRED) The ID of the source Key Vault. ||
 | **var.provision_after_extensions** | string | False | -  |  -  |  Specifies the collection of extension names after which this extension needs to be provisioned. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+
+### `protected_settings_from_key_vault` block structure
+
+>`secret_url` (string): (REQUIRED) The URL to the Key Vault Secret which stores the protected settings.
+>`source_vault_id` (string): (REQUIRED) The ID of the source Key Vault.
 
 
 

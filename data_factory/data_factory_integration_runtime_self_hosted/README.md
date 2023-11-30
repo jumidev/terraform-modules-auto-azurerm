@@ -31,8 +31,10 @@ tfstate_store = {
 | **var.name** | string | True | The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created. | 
 | **var.description** | string | False | Integration runtime description. | 
 | **var.rbac_authorization** | block | False | A `rbac_authorization` block. Changing this forces a new resource to be created. | 
-| `rbac_authorization` block structure: || 
-|   resource_id (string): (REQUIRED) The resource identifier of the integration runtime to be shared. ||
+
+### `rbac_authorization` block structure
+
+>`resource_id` (string): (REQUIRED) The resource identifier of the integration runtime to be shared.
 
 
 

@@ -36,12 +36,14 @@ tfstate_store = {
 | **var.data_encrypted** | string | False | -  |  -  |  Is transparent data encryption enabled? | 
 | **var.recovery_database_id** | string | False | -  |  -  |  The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created. | 
 | **var.restore** | block | False | -  |  -  |  A `restore` block. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created. | 
-| `restore` block structure: || 
-|   source_database_id (string): (REQUIRED) The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created. ||
-|   point_in_time (string): (REQUIRED) Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created. ||
 | **var.geo_backup_policy_enabled** | bool | False | `True`  |  `true`, `false`  |  Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`. | 
 | **var.storage_account_type** | string | False | `GRS`  |  `LRS`, `GRS`  |  The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Synapse SQL Pool. | 
+
+### `restore` block structure
+
+>`source_database_id` (string): (REQUIRED) The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
+>`point_in_time` (string): (REQUIRED) Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
 
 
 

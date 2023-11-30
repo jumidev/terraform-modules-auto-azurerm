@@ -35,9 +35,11 @@ tfstate_store = {
 | **var.storage_account_id** | string | False | The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
 | **var.servicebus_rule_id** | string | False | The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
 | **var.retention_policy** | block | True | A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
-| `retention_policy` block structure: || 
-|   enabled (bool): (REQUIRED) A boolean value to indicate whether the retention policy is enabled. ||
-|   days (int): The number of days for the retention policy. Defaults to '0'. ||
+
+### `retention_policy` block structure
+
+>`enabled` (bool): (REQUIRED) A boolean value to indicate whether the retention policy is enabled.
+>`days` (int): The number of days for the retention policy. Defaults to '0'.
 
 
 

@@ -33,11 +33,13 @@ tfstate_store = {
 | **var.config_json** | string | True | -  |  -  |  The config for this Function in JSON format. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Should this function be enabled. Defaults to `true`. | 
 | **var.file** | block | False | -  |  -  |  A `file` block as detailed below. Changing this forces a new resource to be created. | 
-| `file` block structure: || 
-|   name (string): (REQUIRED) The filename of the file to be uploaded. Changing this forces a new resource to be created. ||
-|   content (string): (REQUIRED) The content of the file. Changing this forces a new resource to be created. ||
 | **var.language** | string | False | -  |  `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, `TypeScript`  |  The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`. | 
 | **var.test_data** | string | False | -  |  -  |  The test data for the function. | 
+
+### `file` block structure
+
+>`name` (string): (REQUIRED) The filename of the file to be uploaded. Changing this forces a new resource to be created.
+>`content` (string): (REQUIRED) The content of the file. Changing this forces a new resource to be created.
 
 
 

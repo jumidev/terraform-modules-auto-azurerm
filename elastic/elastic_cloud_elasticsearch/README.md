@@ -36,13 +36,15 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
 | **var.sku_name** | string | True | -  |  Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created. | 
 | **var.logs** | block | False | -  |  A `logs` block. | 
-| `logs` block structure: || 
-|   filtering_tag (block): A list of 'filtering_tag' blocks. ||
-|   send_activity_logs (bool): Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. ||
-|   send_azuread_logs (bool): Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. ||
-|   send_subscription_logs (bool): Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. ||
 | **var.monitoring_enabled** | bool | False | `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
+
+### `logs` block structure
+
+>`filtering_tag` (block): A list of 'filtering_tag' blocks.
+>`send_activity_logs` (bool): Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.
+>`send_azuread_logs` (bool): Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.
+>`send_subscription_logs` (bool): Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.
 
 
 

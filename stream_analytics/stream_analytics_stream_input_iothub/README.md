@@ -41,12 +41,14 @@ tfstate_store = {
 | **var.endpoint** | string | True | The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.). | 
 | **var.iothub_namespace** | string | True | The name or the URI of the IoT Hub. | 
 | **var.serialization** | block | True | A `serialization` block. | 
-| `serialization` block structure: || 
-|   type (string): (REQUIRED) The serialization format used for incoming data streams. Possible values are 'Avro', 'Csv' and 'Json'. ||
-|   encoding (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'. ||
-|   field_delimiter (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'. ||
 | **var.shared_access_policy_key** | string | True | The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created. | 
 | **var.shared_access_policy_name** | string | True | The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. | 
+
+### `serialization` block structure
+
+>`type` (string): (REQUIRED) The serialization format used for incoming data streams. Possible values are 'Avro', 'Csv' and 'Json'.
+>`encoding` (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'.
+>`field_delimiter` (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'.
 
 
 

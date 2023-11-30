@@ -30,8 +30,10 @@ tfstate_store = {
 | **var.name** | string | True | The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created. | 
 | **var.storage_account_name** | string | True | Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created. | 
 | **var.acl** | block | False | One or more `acl` blocks. | 
-| `acl` block structure: || 
-|   access_policy (block): An 'access_policy' block. ||
+
+### `acl` block structure
+
+>`access_policy` (block): An 'access_policy' block.
 
 
 

@@ -38,14 +38,16 @@ tfstate_store = {
 | **var.customer_managed_key_enforcement_enabled** | bool | False | `False`  |  -  |  Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`. | 
 | **var.hosting_mode** | string | False | `default`  |  `highDensity`, `default`  |  Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created. | 
 | **var.identity** | block | False | -  |  -  |  An `identity` block. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is 'SystemAssigned'. ||
 | **var.local_authentication_enabled** | bool | False | `True`  |  -  |  Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`. | 
 | **var.partition_count** | string | False | `1`  |  `1`, `2`, `3`, `4`, `6`, `12`  |  Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Specifies whether Public Network Access is allowed for this resource. Defaults to `true`. | 
 | **var.replica_count** | int | False | -  |  -  |  Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a `free` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). | 
 | **var.semantic_search_sku** | string | False | -  |  `free`, `standard`  |  Specifies the Semantic Search SKU which should be used for this Search Service. Possible values include `free` and `standard`. | 
 | **var.tags** | map | False | -  |  -  |  Specifies a mapping of tags which should be assigned to this Search Service. | 
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is 'SystemAssigned'.
 
 
 

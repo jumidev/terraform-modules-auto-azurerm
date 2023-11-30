@@ -44,9 +44,6 @@ tfstate_store = {
 | **var.disk_size_gb** | int | False | -  |  -  |  (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased. | 
 | **var.edge_zone** | string | False | -  |  -  |  Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created. | 
 | **var.encryption_settings** | block | False | -  |  -  |  A `encryption_settings` block. | 
-| `encryption_settings` block structure: || 
-|   disk_encryption_key (block): A 'disk_encryption_key' block. ||
-|   key_encryption_key (block): A 'key_encryption_key' block. ||
 | **var.hyper_v_generation** | string | False | -  |  `V1`, `V2`  |  The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created. | 
 | **var.image_reference_id** | string | False | -  |  -  |  ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created. | 
 | **var.gallery_image_reference_id** | string | False | -  |  -  |  ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created. | 
@@ -68,6 +65,11 @@ tfstate_store = {
 | **var.network_access_policy** | string | False | -  |  `AllowAll`, `AllowPrivate`, `DenyAll`  |  Policy for accessing the disk via network. Allowed values are `AllowAll`, `AllowPrivate`, and `DenyAll`. | 
 | **var.disk_access_id** | string | False | -  |  -  |  The ID of the disk access resource for using private endpoints on disks. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether it is allowed to access the disk via public network. Defaults to `true`. | 
+
+### `encryption_settings` block structure
+
+>`disk_encryption_key` (block): A 'disk_encryption_key' block.
+>`key_encryption_key` (block): A 'key_encryption_key' block.
 
 
 

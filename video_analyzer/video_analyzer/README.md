@@ -34,13 +34,17 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.storage_account** | block | True | A `storage_account` block. | 
-| `storage_account` block structure: || 
-|   user_assigned_identity_id (string): (REQUIRED) Specifies the User Assigned Identity ID which should be assigned to access this Storage Account. ||
 | **var.identity** | block | True | An `identity` block. | 
-| `identity` block structure: || 
-|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is 'UserAssigned'. ||
-|   identity_ids (string): (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance. ||
 | **var.tags** | map | False | A mapping of tags assigned to the resource. | 
+
+### `storage_account` block structure
+
+>`user_assigned_identity_id` (string): (REQUIRED) Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
+
+### `identity` block structure
+
+>`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is 'UserAssigned'.
+>`identity_ids` (string): (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance.
 
 
 

@@ -32,14 +32,16 @@ tfstate_store = {
 | **var.data_factory_id** | string | True | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 | **var.url** | string | True | The URL of the OData service endpoint. | 
 | **var.basic_authentication** | block | False | A `basic_authentication` block. | 
-| `basic_authentication` block structure: || 
-|   username (string): (REQUIRED) The username which can be used to authenticate to the OData endpoint. ||
-|   password (string): (REQUIRED) The password associated with the username, which can be used to authenticate to the OData endpoint. ||
 | **var.description** | string | False | The description for the Data Factory Linked Service OData. | 
 | **var.integration_runtime_name** | string | False | The integration runtime reference to associate with the Data Factory Linked Service OData. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Linked Service OData. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Linked Service OData. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Linked Service OData. | 
+
+### `basic_authentication` block structure
+
+>`username` (string): (REQUIRED) The username which can be used to authenticate to the OData endpoint.
+>`password` (string): (REQUIRED) The password associated with the username, which can be used to authenticate to the OData endpoint.
 
 
 

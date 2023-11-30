@@ -42,19 +42,8 @@ tfstate_store = {
 | **var.description** | string | False | -  |  The description of the Threat Intelligence Indicator. | 
 | **var.extension** | string | False | -  |  The extension config of the Threat Intelligence Indicator in JSON format. | 
 | **var.external_reference** | block | False | -  |  One or more `external_reference` blocks. | 
-| `external_reference` block structure: || 
-|   description (string): The description of the external reference of the Threat Intelligence Indicator. ||
-|   hashes (string): The list of hashes of the external reference of the Threat Intelligence Indicator. ||
-|   source_name (string): The source name of the external reference of the Threat Intelligence Indicator. ||
-|   url (string): The url of the external reference of the Threat Intelligence Indicator. ||
 | **var.granular_marking** | block | False | -  |  One or more `granular_marking` blocks. | 
-| `granular_marking` block structure: || 
-|   language (string): The language of granular marking of the Threat Intelligence Indicator. ||
-|   marking_ref (string): The reference of the granular marking of the Threat Intelligence Indicator. ||
-|   selectors (list): A list of selectors of the granular marking of the Threat Intelligence Indicator. ||
 | **var.kill_chain_phase** | block | False | -  |  One or more `kill_chain_phase` blocks. | 
-| `kill_chain_phase` block structure: || 
-|   name (string): The name which should be used for the Lockheed Martin cyber kill chain phase. ||
 | **var.tags** | map | False | -  |  Specifies a list of tags of the Threat Intelligence Indicator. | 
 | **var.language** | string | False | -  |  The language of the Threat Intelligence Indicator. | 
 | **var.object_marking_refs** | string | False | -  |  Specifies a list of Threat Intelligence marking references. | 
@@ -62,6 +51,23 @@ tfstate_store = {
 | **var.revoked** | bool | False | -  |  Whether the Threat Intelligence entity revoked. | 
 | **var.threat_types** | string | False | -  |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
 | **var.validate_until_utc** | string | False | -  |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
+
+### `external_reference` block structure
+
+>`description` (string): The description of the external reference of the Threat Intelligence Indicator.
+>`hashes` (string): The list of hashes of the external reference of the Threat Intelligence Indicator.
+>`source_name` (string): The source name of the external reference of the Threat Intelligence Indicator.
+>`url` (string): The url of the external reference of the Threat Intelligence Indicator.
+
+### `granular_marking` block structure
+
+>`language` (string): The language of granular marking of the Threat Intelligence Indicator.
+>`marking_ref` (string): The reference of the granular marking of the Threat Intelligence Indicator.
+>`selectors` (list): A list of selectors of the granular marking of the Threat Intelligence Indicator.
+
+### `kill_chain_phase` block structure
+
+>`name` (string): The name which should be used for the Lockheed Martin cyber kill chain phase.
 
 
 

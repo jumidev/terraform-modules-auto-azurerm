@@ -32,9 +32,11 @@ tfstate_store = {
 | **var.trusted_services_allowed** | bool | False | -  |  -  |  If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) | 
 | **var.ip_rules** | list | False | -  |  -  |  One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. | 
 | **var.network_rules** | block | False | -  |  -  |  One or more `network_rules` blocks. | 
-| `network_rules` block structure: || 
-|   subnet_id (string): (REQUIRED) The Subnet ID which should be able to access this ServiceBus Namespace. ||
-|   ignore_missing_vnet_service_endpoint (bool): Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. ||
+
+### `network_rules` block structure
+
+>`subnet_id` (string): (REQUIRED) The Subnet ID which should be able to access this ServiceBus Namespace.
+>`ignore_missing_vnet_service_endpoint` (bool): Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'.
 
 
 

@@ -29,14 +29,18 @@ tfstate_store = {
 | **var.datadog_monitor_id** | string | True | -  |  The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created. | 
 | **var.name** | string | False | `default`  |  The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`. | 
 | **var.log** | block | False | -  |  A `log` block. | 
-| `log` block structure: || 
-|   aad_log_enabled (bool): Whether AAD logs should be sent for the Monitor resource? ||
-|   subscription_log_enabled (bool): Whether Azure subscription logs should be sent for the Monitor resource? ||
-|   resource_log_enabled (bool): Whether Azure resource logs should be sent for the Monitor resource? ||
-|   filter (block): A 'filter' block. ||
 | **var.metric** | block | False | -  |  A `metric` block. | 
-| `metric` block structure: || 
-|   filter (block): A 'filter' block. ||
+
+### `log` block structure
+
+>`aad_log_enabled` (bool): Whether AAD logs should be sent for the Monitor resource?
+>`subscription_log_enabled` (bool): Whether Azure subscription logs should be sent for the Monitor resource?
+>`resource_log_enabled` (bool): Whether Azure resource logs should be sent for the Monitor resource?
+>`filter` (block): A 'filter' block.
+
+### `metric` block structure
+
+>`filter` (block): A 'filter' block.
 
 
 

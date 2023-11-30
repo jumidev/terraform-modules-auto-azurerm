@@ -32,14 +32,6 @@ tfstate_store = {
 | **var.auto_pause_delay_in_minutes** | int | False | -  |  -  |  Time in minutes after which database is automatically paused. A value of `-1` means that automatic pause is disabled. This property is only settable for Serverless databases. | 
 | **var.create_mode** | string | False | `Default`  |  `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup`, `Secondary`  |  The create mode of the database. Possible values are `Copy`, `Default`, `OnlineSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreExternalBackup`, `RestoreExternalBackupSecondary`, `RestoreLongTermRetentionBackup` and `Secondary`. Mutually exclusive with `import`. Changing this forces a new resource to be created. Defaults to `Default`. | 
 | **var.import** | block | False | -  |  -  |  A `import` block. Mutually exclusive with `create_mode`. | 
-| `import` block structure: || 
-|   storage_uri (string): (REQUIRED) Specifies the blob URI of the .bacpac file. ||
-|   storage_key (string): (REQUIRED) Specifies the access key for the storage account. ||
-|   storage_key_type (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'. ||
-|   administrator_login (string): (REQUIRED) Specifies the name of the SQL administrator. ||
-|   administrator_login_password (string): (REQUIRED) Specifies the password of the SQL administrator. ||
-|   authentication_type (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'. ||
-|   storage_account_id (string): The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter. ||
 | **var.creation_source_database_id** | string | False | -  |  -  |  The ID of the source database from which to create the new database. This should only be used for databases with `create_mode` values that use another database as reference. Changing this forces a new resource to be created. | 
 | **var.collation** | string | False | -  |  -  |  Specifies the collation of the database. Changing this forces a new resource to be created. | 
 | **var.elastic_pool_id** | string | False | -  |  -  |  Specifies the ID of the elastic pool containing this database. | 
@@ -48,11 +40,6 @@ tfstate_store = {
 | **var.ledger_enabled** | bool | False | `False`  |  -  |  A boolean that specifies if this is a ledger database. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **var.license_type** | string | False | -  |  `LicenseIncluded`, `BasePrice`  |  Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`. | 
 | **var.long_term_retention_policy** | block | False | -  |  -  |  A `long_term_retention_policy` block. | 
-| `long_term_retention_policy` block structure: || 
-|   weekly_retention (string): The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'. ||
-|   monthly_retention (string): The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'. ||
-|   yearly_retention (string): The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'. ||
-|   week_of_year (string): The week of year to take the yearly backup. Value has to be between '1' and '52'. ||
 | **var.max_size_gb** | int | False | -  |  -  |  The max size of the database in gigabytes. | 
 | **var.min_capacity** | string | False | -  |  -  |  Minimal capacity that database will always have allocated, if not paused. This property is only settable for Serverless databases. | 
 | **var.restore_point_in_time** | string | False | -  |  -  |  Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. This property is only settable for `create_mode`= `PointInTimeRestore` databases. | 
@@ -62,11 +49,30 @@ tfstate_store = {
 | **var.read_scale** | string | False | -  |  -  |  If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica. This property is only settable for Premium and Business Critical databases. | 
 | **var.sample_name** | string | False | -  |  -  |  Specifies the name of the sample schema to apply when creating this database. Possible value is `AdventureWorksLT`. | 
 | **var.short_term_retention_policy** | block | False | -  |  -  |  A `short_term_retention_policy` block. | 
-| `short_term_retention_policy` block structure: || 
-|   retention_days (int): (REQUIRED) Point In Time Restore configuration. Value has to be between '1' and '35'. ||
-|   backup_interval_in_hours (string): The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours. ||
 | **var.sku_name** | string | False | -  |  -  |  Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource. | 
 | **var.storage_account_type** | string | False | `Geo`  |  `Geo`, `Local`, `Zone`  |  Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`. | 
+
+### `import` block structure
+
+>`storage_uri` (string): (REQUIRED) Specifies the blob URI of the .bacpac file.
+>`storage_key` (string): (REQUIRED) Specifies the access key for the storage account.
+>`storage_key_type` (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'.
+>`administrator_login` (string): (REQUIRED) Specifies the name of the SQL administrator.
+>`administrator_login_password` (string): (REQUIRED) Specifies the password of the SQL administrator.
+>`authentication_type` (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'.
+>`storage_account_id` (string): The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+
+### `long_term_retention_policy` block structure
+
+>`weekly_retention` (string): The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'.
+>`monthly_retention` (string): The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'.
+>`yearly_retention` (string): The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'.
+>`week_of_year` (string): The week of year to take the yearly backup. Value has to be between '1' and '52'.
+
+### `short_term_retention_policy` block structure
+
+>`retention_days` (int): (REQUIRED) Point In Time Restore configuration. Value has to be between '1' and '35'.
+>`backup_interval_in_hours` (string): The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours.
 
 
 

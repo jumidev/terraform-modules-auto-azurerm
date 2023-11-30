@@ -34,13 +34,15 @@ tfstate_store = {
 | **var.virtual_network_name** | string | True | -  |  -  |  The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created. | 
 | **var.address_prefixes** | string | True | -  |  -  |  The address prefixes to use for the subnet. | 
 | **var.delegation** | block | False | -  |  -  |  One or more `delegation` blocks. | 
-| `delegation` block structure: || 
-|   name (string): (REQUIRED) A name for this delegation. ||
-|   service_delegation (block): (REQUIRED) A 'service_delegation' block. ||
 | **var.private_endpoint_network_policies_enabled** | bool | False | `True`  |  -  |  Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`. | 
 | **var.private_link_service_network_policies_enabled** | bool | False | `True`  |  -  |  Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`. | 
 | **var.service_endpoints** | string | False | -  |  `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, `Microsoft.Web`  |  The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`. | 
 | **var.service_endpoint_policy_ids** | string | False | -  |  -  |  The list of IDs of Service Endpoint Policies to associate with the subnet. | 
+
+### `delegation` block structure
+
+>`name` (string): (REQUIRED) A name for this delegation.
+>`service_delegation` (block): (REQUIRED) A 'service_delegation' block.
 
 
 

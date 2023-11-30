@@ -37,13 +37,17 @@ tfstate_store = {
 | **var.percentage_filter_value** | string | False | A number representing the value of the percentage required to enable this feature. | 
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 | **var.targeting_filter** | block | False | A `targeting_filter` block. | 
-| `targeting_filter` block structure: || 
-|   name (string): (REQUIRED) The name of the group. ||
-|   rollout_percentage (string): (REQUIRED) Rollout percentage of the group. ||
 | **var.timewindow_filter** | block | False | A `timewindow_filter` block. | 
-| `timewindow_filter` block structure: || 
-|   start (string): The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format. ||
-|   end (string): The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format. ||
+
+### `targeting_filter` block structure
+
+>`name` (string): (REQUIRED) The name of the group.
+>`rollout_percentage` (string): (REQUIRED) Rollout percentage of the group.
+
+### `timewindow_filter` block structure
+
+>`start` (string): The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
+>`end` (string): The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
 
 
 
