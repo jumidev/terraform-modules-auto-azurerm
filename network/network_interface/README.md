@@ -2,6 +2,30 @@
 
 Manages a Network Interface.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_interface" 
+}
+
+inputs = {
+   ip_configuration = "ip_configuration of network_interface" 
+   location = "${location}" 
+   name = "name of network_interface" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -29,48 +53,14 @@ Manages a Network Interface.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **ip_configuration** | block  | - | 
-| **location** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **auxiliary_mode** | string  | - | 
-| **auxiliary_sku** | string  | - | 
-| **dns_servers** | list  | - | 
-| **edge_zone** | string  | - | 
-| **enable_ip_forwarding** | bool  | - | 
-| **enable_accelerated_networking** | bool  | - | 
-| **internal_dns_name_label** | string  | - | 
-| **tags** | map  | - | 
-| **applied_dns_servers** | string  | If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set. | 
-| **id** | string  | The ID of the Network Interface. | 
-| **internal_domain_name_suffix** | string  | Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`. | 
-| **mac_address** | string  | The Media Access Control (MAC) Address of the Network Interface. | 
-| **private_ip_address** | string  | The first private IP address of the network interface. | 
-| **private_ip_addresses** | string  | The private IP addresses of the network interface. | 
-| **virtual_machine_id** | string  | The ID of the Virtual Machine which this Network Interface is connected to. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **applied_dns_servers** | string | No  | If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set. | 
+| **id** | string | No  | The ID of the Network Interface. | 
+| **internal_domain_name_suffix** | string | No  | Even if `internal_dns_name_label` is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of `internal_domain_name_suffix`. | 
+| **mac_address** | string | No  | The Media Access Control (MAC) Address of the Network Interface. | 
+| **private_ip_address** | string | No  | The first private IP address of the network interface. | 
+| **private_ip_addresses** | string | No  | The private IP addresses of the network interface. | 
+| **virtual_machine_id** | string | No  | The ID of the Virtual Machine which this Network Interface is connected to. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_interface" 
-}
-
-inputs = {
-   ip_configuration = "ip_configuration of network_interface" 
-   location = "${location}" 
-   name = "name of network_interface" 
-   resource_group_name = "${resource_group}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,31 @@
 
 Manages as an Azure Container Group instance.~> **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azurerm_container_group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_group" 
+}
+
+inputs = {
+   name = "name of container_group" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   container = "container of container_group" 
+   os_type = "os_type of container_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -32,57 +57,13 @@ Manages as an Azure Container Group instance.~> **Note** `network_profile_id` is
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | string  | - | 
-| **identity** | block  | - | 
-| **init_container** | string  | - | 
-| **container** | string  | - | 
-| **os_type** | string  | - | 
-| **dns_config** | block  | - | 
-| **diagnostics** | block  | - | 
-| **dns_name_label** | string  | - | 
-| **dns_name_label_reuse_policy** | string  | - | 
-| **exposed_port** | block  | - | 
-| **ip_address_type** | string  | - | 
-| **key_vault_key_id** | string  | - | 
-| **key_vault_user_assigned_identity_id** | string  | - | 
-| **subnet_ids** | string  | - | 
-| **image_registry_credential** | block  | - | 
-| **restart_policy** | string  | - | 
-| **zones** | list  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Container Group. | 
-| **identity** | block  | An `identity` block. | 
-| **ip_address** | string  | The IP address allocated to the container group. | 
-| **fqdn** | string  | The FQDN of the container group derived from `dns_name_label`. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Container Group. | 
+| **identity** | block | No  | An `identity` block. | 
+| **ip_address** | string | No  | The IP address allocated to the container group. | 
+| **fqdn** | string | No  | The FQDN of the container group derived from `dns_name_label`. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_group" 
-}
-
-inputs = {
-   name = "name of container_group" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   container = "container of container_group" 
-   os_type = "os_type of container_group" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

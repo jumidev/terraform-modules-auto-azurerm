@@ -2,6 +2,28 @@
 
 Manages an EventGrid Event Subscription
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventgrid_event_subscription" 
+}
+
+inputs = {
+   name = "name of eventgrid_event_subscription" 
+   scope = "scope of eventgrid_event_subscription" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -32,49 +54,8 @@ Manages an EventGrid Event Subscription
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **scope** | string  | - | 
-| **expiration_time_utc** | string  | - | 
-| **event_delivery_schema** | string  | - | 
-| **azure_function_endpoint** | block  | - | 
-| **eventhub_endpoint_id** | string  | - | 
-| **hybrid_connection_endpoint_id** | string  | - | 
-| **service_bus_queue_endpoint_id** | string  | - | 
-| **service_bus_topic_endpoint_id** | string  | - | 
-| **storage_queue_endpoint** | block  | - | 
-| **webhook_endpoint** | block  | - | 
-| **included_event_types** | list  | - | 
-| **subject_filter** | block  | - | 
-| **advanced_filter** | block  | - | 
-| **delivery_identity** | block  | - | 
-| **delivery_property** | block  | - | 
-| **dead_letter_identity** | block  | - | 
-| **storage_blob_dead_letter_destination** | block  | - | 
-| **retry_policy** | block  | - | 
-| **labels** | list  | - | 
-| **advanced_filtering_on_arrays_enabled** | bool  | - | 
-| **id** | string  | The ID of the EventGrid Event Subscription. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the EventGrid Event Subscription. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventgrid_event_subscription" 
-}
-
-inputs = {
-   name = "name of eventgrid_event_subscription" 
-   scope = "scope of eventgrid_event_subscription" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,29 @@
 
 Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_azure_databricks" 
+}
+
+inputs = {
+   adb_domain = "adb_domain of data_factory_linked_service_azure_databricks" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_azure_databricks" 
+   name = "name of data_factory_linked_service_azure_databricks" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Description |
@@ -25,43 +48,8 @@ Manages a Linked Service (connection) between Azure Databricks and Azure Data Fa
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **adb_domain** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **name** | string  | - | 
-| **access_token** | string  | - | 
-| **key_vault_password** | block  | - | 
-| **msi_work_space_resource_id** | string  | - | 
-| **existing_cluster_id** | string  | - | 
-| **instance_pool** | string  | - | 
-| **new_cluster_config** | string  | - | 
-| **additional_properties** | string  | - | 
-| **annotations** | string  | - | 
-| **description** | string  | - | 
-| **integration_runtime_name** | string  | - | 
-| **parameters** | string  | - | 
-| **id** | string  | The ID of the Data Factory Linked Service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Linked Service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_azure_databricks" 
-}
-
-inputs = {
-   adb_domain = "adb_domain of data_factory_linked_service_azure_databricks" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_azure_databricks" 
-   name = "name of data_factory_linked_service_azure_databricks" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

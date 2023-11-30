@@ -2,6 +2,33 @@
 
 Manages a Linux Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode. For Virtual Machine Scale Sets with **Flexible** orchestration mode, use [`azurerm_orchestrated_virtual_machine_scale_set`](orchestrated_virtual_machine_scale_set.html). Flexible orchestration mode is recommended for workloads on Azure.-> **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).-> **NOTE:** Terraform will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/linux_virtual_machine_scale_set" 
+}
+
+inputs = {
+   name = "name of linux_virtual_machine_scale_set" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   admin_username = "admin_username of linux_virtual_machine_scale_set" 
+   sku = "sku of linux_virtual_machine_scale_set" 
+   network_interface = "network_interface of linux_virtual_machine_scale_set" 
+   os_disk = "os_disk of linux_virtual_machine_scale_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -64,90 +91,12 @@ Manages a Linux Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As of the *
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **admin_username** | string  | - | 
-| **instances** | int  | - | 
-| **sku** | string  | - | 
-| **network_interface** | block  | - | 
-| **os_disk** | block  | - | 
-| **additional_capabilities** | block  | - | 
-| **admin_password** | string  | - | 
-| **admin_ssh_key** | block  | - | 
-| **automatic_os_upgrade_policy** | block  | - | 
-| **automatic_instance_repair** | block  | - | 
-| **boot_diagnostics** | block  | - | 
-| **capacity_reservation_group_id** | string  | - | 
-| **computer_name_prefix** | string  | - | 
-| **custom_data** | string  | - | 
-| **data_disk** | block  | - | 
-| **disable_password_authentication** | bool  | - | 
-| **do_not_run_extensions_on_overprovisioned_machines** | bool  | - | 
-| **edge_zone** | string  | - | 
-| **encryption_at_host_enabled** | bool  | - | 
-| **extension** | block  | - | 
-| **extension_operations_enabled** | bool  | - | 
-| **extensions_time_budget** | string  | - | 
-| **eviction_policy** | string  | - | 
-| **gallery_application** | block  | - | 
-| **health_probe_id** | string  | - | 
-| **host_group_id** | string  | - | 
-| **identity** | block  | - | 
-| **max_bid_price** | string  | - | 
-| **overprovision** | bool  | - | 
-| **plan** | block  | - | 
-| **platform_fault_domain_count** | int  | - | 
-| **priority** | string  | - | 
-| **provision_vm_agent** | bool  | - | 
-| **proximity_placement_group_id** | string  | - | 
-| **rolling_upgrade_policy** | block  | - | 
-| **scale_in** | block  | - | 
-| **secret** | block  | - | 
-| **secure_boot_enabled** | bool  | - | 
-| **single_placement_group** | bool  | - | 
-| **source_image_id** | string  | - | 
-| **source_image_reference** | block  | - | 
-| **spot_restore** | block  | - | 
-| **tags** | map  | - | 
-| **terminate_notification** | block  | - | 
-| **termination_notification** | block  | - | 
-| **upgrade_mode** | string  | - | 
-| **user_data** | string  | - | 
-| **vtpm_enabled** | bool  | - | 
-| **zone_balance** | bool  | - | 
-| **zones** | string  | - | 
-| **id** | string  | The ID of the Linux Virtual Machine Scale Set. | 
-| **identity** | block  | A `identity` block. | 
-| **unique_id** | string  | The Unique ID for this Linux Virtual Machine Scale Set. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Linux Virtual Machine Scale Set. | 
+| **identity** | block | No  | A `identity` block. | 
+| **unique_id** | string | No  | The Unique ID for this Linux Virtual Machine Scale Set. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/linux_virtual_machine_scale_set" 
-}
-
-inputs = {
-   name = "name of linux_virtual_machine_scale_set" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   admin_username = "admin_username of linux_virtual_machine_scale_set" 
-   sku = "sku of linux_virtual_machine_scale_set" 
-   network_interface = "network_interface of linux_virtual_machine_scale_set" 
-   os_disk = "os_disk of linux_virtual_machine_scale_set" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

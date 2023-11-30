@@ -2,46 +2,7 @@
 
 Manages a Automation Runbook.
 
-## Variables
-
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Runbook. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string | True | -  |  The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created. | 
-| **var.runbook_type** | string | True | -  |  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
-| **var.log_progress** | string | True | -  |  Progress log option. | 
-| **var.log_verbose** | string | True | -  |  Verbose log option. | 
-| **var.publish_content_link** | block | False | -  |  One `publish_content_link` block. | 
-| **var.description** | string | False | -  |  A description for this credential. | 
-| **var.content** | string | False | -  |  The desired content of the runbook. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
-| **var.log_activity_trace_level** | string | False | `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
-| **var.draft** | block | False | -  |  A `draft` block . | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **automation_account_name** | string  | - | 
-| **runbook_type** | string  | - | 
-| **log_progress** | string  | - | 
-| **log_verbose** | string  | - | 
-| **publish_content_link** | block  | - | 
-| **description** | string  | - | 
-| **content** | string  | - | 
-| **tags** | map  | - | 
-| **log_activity_trace_level** | string  | - | 
-| **draft** | block  | - | 
-| **id** | string  | The Automation Runbook ID. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -67,3 +28,31 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Runbook. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string | True | -  |  The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created. | 
+| **var.runbook_type** | string | True | -  |  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
+| **var.log_progress** | string | True | -  |  Progress log option. | 
+| **var.log_verbose** | string | True | -  |  Verbose log option. | 
+| **var.publish_content_link** | block | False | -  |  One `publish_content_link` block. | 
+| **var.description** | string | False | -  |  A description for this credential. | 
+| **var.content** | string | False | -  |  The desired content of the runbook. | 
+| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
+| **var.log_activity_trace_level** | string | False | `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
+| **var.draft** | block | False | -  |  A `draft` block . | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Automation Runbook ID. | 
+
+Additionally, all variables are provided as outputs.

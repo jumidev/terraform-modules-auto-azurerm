@@ -2,6 +2,32 @@
 
 Manages a CosmosDB (formally DocumentDB) Account.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_account" 
+}
+
+inputs = {
+   name = "name of cosmosdb_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   offer_type = "offer_type of cosmosdb_account" 
+   consistency_policy = "consistency_policy of cosmosdb_account" 
+   geo_location = "geo_location of cosmosdb_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -42,81 +68,26 @@ Manages a CosmosDB (formally DocumentDB) Account.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **tags** | map  | - | 
-| **offer_type** | string  | - | 
-| **analytical_storage** | block  | - | 
-| **capacity** | block  | - | 
-| **create_mode** | string  | - | 
-| **default_identity_type** | string  | - | 
-| **kind** | string  | - | 
-| **consistency_policy** | block  | - | 
-| **geo_location** | block  | - | 
-| **ip_range_filter** | string  | - | 
-| **enable_free_tier** | bool  | - | 
-| **analytical_storage_enabled** | bool  | - | 
-| **enable_automatic_failover** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **capabilities** | block  | - | 
-| **is_virtual_network_filter_enabled** | bool  | - | 
-| **key_vault_key_id** | string  | - | 
-| **virtual_network_rule** | block  | - | 
-| **enable_multiple_write_locations** | bool  | - | 
-| **access_key_metadata_writes_enabled** | bool  | - | 
-| **mongo_server_version** | string  | - | 
-| **network_acl_bypass_for_azure_services** | bool  | - | 
-| **network_acl_bypass_ids** | string  | - | 
-| **local_authentication_disabled** | bool  | - | 
-| **backup** | block  | - | 
-| **cors_rule** | block  | - | 
-| **identity** | block  | - | 
-| **restore** | block  | - | 
-| **id** | string  | The CosmosDB Account ID. | 
-| **endpoint** | string  | The endpoint used to connect to the CosmosDB account. | 
-| **read_endpoints** | list  | A list of read endpoints available for this CosmosDB account. | 
-| **write_endpoints** | list  | A list of write endpoints available for this CosmosDB account. | 
-| **primary_key** | string  | The Primary key for the CosmosDB Account. | 
-| **secondary_key** | string  | The Secondary key for the CosmosDB Account. | 
-| **primary_readonly_key** | string  | The Primary read-only Key for the CosmosDB Account. | 
-| **secondary_readonly_key** | string  | The Secondary read-only key for the CosmosDB Account. | 
-| **connection_strings** | list  | A list of connection strings available for this CosmosDB account. | 
-| **primary_sql_connection_string** | string  | Primary SQL connection string for the CosmosDB Account. | 
-| **secondary_sql_connection_string** | string  | Secondary SQL connection string for the CosmosDB Account. | 
-| **primary_readonly_sql_connection_string** | string  | Primary readonly SQL connection string for the CosmosDB Account. | 
-| **secondary_readonly_sql_connection_string** | string  | Secondary readonly SQL connection string for the CosmosDB Account. | 
-| **primary_mongodb_connection_string** | string  | Primary Mongodb connection string for the CosmosDB Account. | 
-| **secondary_mongodb_connection_string** | string  | Secondary Mongodb connection string for the CosmosDB Account. | 
-| **primary_readonly_mongodb_connection_string** | string  | Primary readonly Mongodb connection string for the CosmosDB Account. | 
-| **secondary_readonly_mongodb_connection_string** | string  | Secondary readonly Mongodb connection string for the CosmosDB Account. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The CosmosDB Account ID. | 
+| **endpoint** | string | No  | The endpoint used to connect to the CosmosDB account. | 
+| **read_endpoints** | list | No  | A list of read endpoints available for this CosmosDB account. | 
+| **write_endpoints** | list | No  | A list of write endpoints available for this CosmosDB account. | 
+| **primary_key** | string | No  | The Primary key for the CosmosDB Account. | 
+| **secondary_key** | string | No  | The Secondary key for the CosmosDB Account. | 
+| **primary_readonly_key** | string | No  | The Primary read-only Key for the CosmosDB Account. | 
+| **secondary_readonly_key** | string | No  | The Secondary read-only key for the CosmosDB Account. | 
+| **connection_strings** | list | No  | A list of connection strings available for this CosmosDB account. | 
+| **primary_sql_connection_string** | string | No  | Primary SQL connection string for the CosmosDB Account. | 
+| **secondary_sql_connection_string** | string | No  | Secondary SQL connection string for the CosmosDB Account. | 
+| **primary_readonly_sql_connection_string** | string | No  | Primary readonly SQL connection string for the CosmosDB Account. | 
+| **secondary_readonly_sql_connection_string** | string | No  | Secondary readonly SQL connection string for the CosmosDB Account. | 
+| **primary_mongodb_connection_string** | string | No  | Primary Mongodb connection string for the CosmosDB Account. | 
+| **secondary_mongodb_connection_string** | string | No  | Secondary Mongodb connection string for the CosmosDB Account. | 
+| **primary_readonly_mongodb_connection_string** | string | No  | Primary readonly Mongodb connection string for the CosmosDB Account. | 
+| **secondary_readonly_mongodb_connection_string** | string | No  | Secondary readonly Mongodb connection string for the CosmosDB Account. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_account" 
-}
-
-inputs = {
-   name = "name of cosmosdb_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   offer_type = "offer_type of cosmosdb_account" 
-   consistency_policy = "consistency_policy of cosmosdb_account" 
-   geo_location = "geo_location of cosmosdb_account" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

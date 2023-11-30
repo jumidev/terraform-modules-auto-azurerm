@@ -2,6 +2,29 @@
 
 Manages a ServiceBus Subscription.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_subscription" 
+}
+
+inputs = {
+   name = "name of servicebus_subscription" 
+   topic_id = "topic_id of servicebus_subscription" 
+   max_delivery_count = "max_delivery_count of servicebus_subscription" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,44 +49,8 @@ Manages a ServiceBus Subscription.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **topic_id** | string  | - | 
-| **max_delivery_count** | int  | - | 
-| **auto_delete_on_idle** | string  | - | 
-| **default_message_ttl** | string  | - | 
-| **lock_duration** | string  | - | 
-| **dead_lettering_on_message_expiration** | bool  | - | 
-| **dead_lettering_on_filter_evaluation_error** | bool  | - | 
-| **enable_batched_operations** | bool  | - | 
-| **requires_session** | string  | - | 
-| **forward_to** | string  | - | 
-| **forward_dead_lettered_messages_to** | string  | - | 
-| **status** | string  | - | 
-| **client_scoped_subscription_enabled** | bool  | - | 
-| **client_scoped_subscription** | block  | - | 
-| **id** | string  | The ServiceBus Subscription ID. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ServiceBus Subscription ID. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_subscription" 
-}
-
-inputs = {
-   name = "name of servicebus_subscription" 
-   topic_id = "topic_id of servicebus_subscription" 
-   max_delivery_count = "max_delivery_count of servicebus_subscription" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

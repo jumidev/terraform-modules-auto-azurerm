@@ -2,6 +2,29 @@
 
 Manages a Firewall Policy.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/firewall_policy" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of firewall_policy" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,49 +51,11 @@ Manages a Firewall Policy.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **location** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **base_policy_id** | string  | - | 
-| **dns** | block  | - | 
-| **identity** | block  | - | 
-| **insights** | block  | - | 
-| **intrusion_detection** | block  | - | 
-| **private_ip_ranges** | list  | - | 
-| **auto_learn_private_ranges_enabled** | bool  | - | 
-| **sku** | string  | - | 
-| **tags** | map  | - | 
-| **threat_intelligence_allowlist** | block  | - | 
-| **threat_intelligence_mode** | string  | - | 
-| **tls_certificate** | block  | - | 
-| **sql_redirect_allowed** | bool  | - | 
-| **explicit_proxy** | block  | - | 
-| **id** | string  | The ID of the Firewall Policy. | 
-| **child_policies** | list  | A list of reference to child Firewall Policies of this Firewall Policy. | 
-| **firewalls** | list  | A list of references to Azure Firewalls that this Firewall Policy is associated with. | 
-| **rule_collection_groups** | list  | A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Firewall Policy. | 
+| **child_policies** | list | No  | A list of reference to child Firewall Policies of this Firewall Policy. | 
+| **firewalls** | list | No  | A list of references to Azure Firewalls that this Firewall Policy is associated with. | 
+| **rule_collection_groups** | list | No  | A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/firewall_policy" 
-}
-
-inputs = {
-   location = "${location}" 
-   name = "name of firewall_policy" 
-   resource_group_name = "${resource_group}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

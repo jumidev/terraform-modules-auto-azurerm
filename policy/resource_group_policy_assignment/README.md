@@ -2,6 +2,29 @@
 
 Manages a Resource Group Policy Assignment.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/resource_group_policy_assignment" 
+}
+
+inputs = {
+   name = "name of resource_group_policy_assignment" 
+   policy_definition_id = "policy_definition_id of resource_group_policy_assignment" 
+   resource_group_id = "resource_group_id of resource_group_policy_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -25,45 +48,10 @@ Manages a Resource Group Policy Assignment.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **policy_definition_id** | string  | - | 
-| **resource_group_id** | string  | - | 
-| **description** | string  | - | 
-| **display_name** | string  | - | 
-| **enforce** | bool  | - | 
-| **identity** | block  | - | 
-| **location** | string  | - | 
-| **metadata** | string  | - | 
-| **non_compliance_message** | block  | - | 
-| **not_scopes** | string  | - | 
-| **parameters** | string  | - | 
-| **overrides** | block  | - | 
-| **resource_selectors** | block  | - | 
-| **id** | string  | The ID of the Resource Group Policy Assignment. | 
-| **principal_id** | string  | The Principal ID of the Policy Assignment for this Resource Group. | 
-| **tenant_id** | string  | The Tenant ID of the Policy Assignment for this Resource Group. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Resource Group Policy Assignment. | 
+| **principal_id** | string | No  | The Principal ID of the Policy Assignment for this Resource Group. | 
+| **tenant_id** | string | No  | The Tenant ID of the Policy Assignment for this Resource Group. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/resource_group_policy_assignment" 
-}
-
-inputs = {
-   name = "name of resource_group_policy_assignment" 
-   policy_definition_id = "policy_definition_id of resource_group_policy_assignment" 
-   resource_group_id = "resource_group_id of resource_group_policy_assignment" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

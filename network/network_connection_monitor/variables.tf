@@ -30,13 +30,13 @@ variable "endpoint" {
 #   filter (block)               : A 'filter' block.
 #   target_resource_type (string): The endpoint type of the Network Connection Monitor. Possible values are 'AzureSubnet', 'AzureVM', 'AzureVNet', 'ExternalAddress', 'MMAWorkspaceMachine' and 'MMAWorkspaceNetwork'.
 #
-# filter block structure:
-#   type (string)         : The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'.
-#   item (block)          : A 'item' block.
-#
 # item block structure:
 #   type (string)       : The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'.
 #   address (string)    : The address of the filter item.
+#
+# filter block structure:
+#   type (string)         : The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'.
+#   item (block)          : A 'item' block.
 
 
 variable "test_configuration" {
@@ -54,21 +54,8 @@ variable "test_configuration" {
 #   success_threshold (block)         : A 'success_threshold' block.
 #   tcp_configuration (block)         : A 'tcp_configuration' block.
 #
-# tcp_configuration block structure :
-#   port (string)                     : (REQUIRED) The port for the TCP connection.
-#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
-#   destination_port_behavior (string): The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'.
-#
 # icmp_configuration block structure:
 #   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
-#
-# request_header block structure:
-#   name (string)                 : (REQUIRED) The name of the HTTP header.
-#   value (string)                : (REQUIRED) The value of the HTTP header.
-#
-# success_threshold block structure:
-#   checks_failed_percent (string)   : The maximum percentage of failed checks permitted for a test to be successful.
-#   round_trip_time_ms (string)      : The maximum round-trip time in milliseconds permitted for a test to be successful.
 #
 # http_configuration block structure:
 #   method (string)                   : The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'.
@@ -77,6 +64,19 @@ variable "test_configuration" {
 #   prefer_https (bool)               : Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'.
 #   request_header (block)            : A 'request_header' block.
 #   valid_status_code_ranges (string) : The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'.
+#
+# tcp_configuration block structure :
+#   port (string)                     : (REQUIRED) The port for the TCP connection.
+#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
+#   destination_port_behavior (string): The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'.
+#
+# request_header block structure:
+#   name (string)                 : (REQUIRED) The name of the HTTP header.
+#   value (string)                : (REQUIRED) The value of the HTTP header.
+#
+# success_threshold block structure:
+#   checks_failed_percent (string)   : The maximum percentage of failed checks permitted for a test to be successful.
+#   round_trip_time_ms (string)      : The maximum round-trip time in milliseconds permitted for a test to be successful.
 
 
 variable "test_group" {

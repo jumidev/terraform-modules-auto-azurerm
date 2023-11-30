@@ -2,6 +2,30 @@
 
 Manages a Nginx Deployment.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "nginx/nginx_deployment" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   name = "name of nginx_deployment" 
+   location = "${location}" 
+   sku = "sku of nginx_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -25,46 +49,10 @@ Manages a Nginx Deployment.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **resource_group_name** | string  | - | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | string  | - | 
-| **managed_resource_group** | string  | - | 
-| **capacity** | int  | - | 
-| **diagnose_support_enabled** | bool  | - | 
-| **email** | string  | - | 
-| **identity** | block  | - | 
-| **frontend_private** | block  | - | 
-| **frontend_public** | block  | - | 
-| **logging_storage_account** | block  | - | 
-| **network_interface** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Nginx Deployment. | 
-| **ip_address** | string  | The IP address of the deployment. | 
-| **nginx_version** | string  | The version of deployed nginx. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Nginx Deployment. | 
+| **ip_address** | string | No  | The IP address of the deployment. | 
+| **nginx_version** | string | No  | The version of deployed nginx. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "nginx/nginx_deployment" 
-}
-
-inputs = {
-   resource_group_name = "${resource_group}" 
-   name = "name of nginx_deployment" 
-   location = "${location}" 
-   sku = "sku of nginx_deployment" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,33 @@
 
 Manages a Network Security Rule.~> **NOTE on Network Security Groups and Network Security Rules:** Terraform currentlyprovides both a standalone [Network Security Rule resource](network_security_rule.html), and allows for Network Security Rules to be defined in-line within the [Network Security Group resource](network_security_group.html).At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_security_rule" 
+}
+
+inputs = {
+   name = "name of network_security_rule" 
+   resource_group_name = "${resource_group}" 
+   network_security_group_name = "network_security_group_name of network_security_rule" 
+   protocol = "protocol of network_security_rule" 
+   access = "access of network_security_rule" 
+   priority = "priority of network_security_rule" 
+   direction = "direction of network_security_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -29,51 +56,8 @@ Manages a Network Security Rule.~> **NOTE on Network Security Groups and Network
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **network_security_group_name** | string  | - | 
-| **description** | string  | - | 
-| **protocol** | string  | - | 
-| **source_port_range** | string  | - | 
-| **source_port_ranges** | string  | - | 
-| **destination_port_range** | string  | - | 
-| **destination_port_ranges** | string  | - | 
-| **source_address_prefix** | string  | - | 
-| **source_address_prefixes** | string  | - | 
-| **source_application_security_group_ids** | list  | - | 
-| **destination_address_prefix** | string  | - | 
-| **destination_address_prefixes** | string  | - | 
-| **destination_application_security_group_ids** | list  | - | 
-| **access** | string  | - | 
-| **priority** | string  | - | 
-| **direction** | string  | - | 
-| **id** | string  | The ID of the Network Security Rule. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Network Security Rule. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_security_rule" 
-}
-
-inputs = {
-   name = "name of network_security_rule" 
-   resource_group_name = "${resource_group}" 
-   network_security_group_name = "network_security_group_name of network_security_rule" 
-   protocol = "protocol of network_security_rule" 
-   access = "access of network_security_rule" 
-   priority = "priority of network_security_rule" 
-   direction = "direction of network_security_rule" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

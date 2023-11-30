@@ -2,28 +2,7 @@
 
 Manages a Cosmos DB Mongo User Definition.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.cosmos_mongo_database_id** | string | True | The resource ID of the Mongo DB. Changing this forces a new resource to be created. | 
-| **var.username** | string | True | The username for the Mongo User Definition. Changing this forces a new resource to be created. | 
-| **var.password** | string | True | The password for the Mongo User Definition. | 
-| **var.inherited_role_names** | list | False | A list of Mongo Roles that are inherited to the Mongo User Definition. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **cosmos_mongo_database_id** | string  | - | 
-| **username** | string  | - | 
-| **password** | string  | - | 
-| **inherited_role_names** | list  | - | 
-| **id** | string  | The ID of the Cosmos DB Mongo User Definition. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -45,3 +24,22 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.cosmos_mongo_database_id** | string | True | The resource ID of the Mongo DB. Changing this forces a new resource to be created. | 
+| **var.username** | string | True | The username for the Mongo User Definition. Changing this forces a new resource to be created. | 
+| **var.password** | string | True | The password for the Mongo User Definition. | 
+| **var.inherited_role_names** | list | False | A list of Mongo Roles that are inherited to the Mongo User Definition. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Cosmos DB Mongo User Definition. | 
+
+Additionally, all variables are provided as outputs.

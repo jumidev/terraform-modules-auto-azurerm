@@ -2,36 +2,7 @@
 
 Manages a Cost Management Export for a Resource Group.
 
-## Variables
-
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Cost Management Export. Changing this forces a new resource to be created. | 
-| **var.resource_group_id** | string | True | -  |  -  |  The id of the resource group on which to create an export. Changing this forces a new resource to be created. | 
-| **var.recurrence_type** | string | True | -  |  `Annually`, `Daily`, `Monthly`, `Weekly`  |  How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`. | 
-| **var.recurrence_period_start_date** | datetime | True | -  |  -  |  The date the export will start capturing information. | 
-| **var.recurrence_period_end_date** | datetime | True | -  |  -  |  The date the export will stop capturing information. | 
-| **var.export_data_storage_location** | block | True | -  |  -  |  A `export_data_storage_location` block. | 
-| **var.export_data_options** | block | True | -  |  -  |  A `export_data_options` block. | 
-| **var.active** | bool | False | `True`  |  -  |  Is the cost management export active? Default is `true`. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_id** | string  | - | 
-| **recurrence_type** | string  | - | 
-| **recurrence_period_start_date** | datetime  | - | 
-| **recurrence_period_end_date** | datetime  | - | 
-| **export_data_storage_location** | block  | - | 
-| **export_data_options** | block  | - | 
-| **active** | bool  | - | 
-| **id** | string  | The ID of the Cost Management Export for this Resource Group. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -57,3 +28,26 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  Specifies the name of the Cost Management Export. Changing this forces a new resource to be created. | 
+| **var.resource_group_id** | string | True | -  |  -  |  The id of the resource group on which to create an export. Changing this forces a new resource to be created. | 
+| **var.recurrence_type** | string | True | -  |  `Annually`, `Daily`, `Monthly`, `Weekly`  |  How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`. | 
+| **var.recurrence_period_start_date** | datetime | True | -  |  -  |  The date the export will start capturing information. | 
+| **var.recurrence_period_end_date** | datetime | True | -  |  -  |  The date the export will stop capturing information. | 
+| **var.export_data_storage_location** | block | True | -  |  -  |  A `export_data_storage_location` block. | 
+| **var.export_data_options** | block | True | -  |  -  |  A `export_data_options` block. | 
+| **var.active** | bool | False | `True`  |  -  |  Is the cost management export active? Default is `true`. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Cost Management Export for this Resource Group. | 
+
+Additionally, all variables are provided as outputs.

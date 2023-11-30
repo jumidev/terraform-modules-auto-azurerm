@@ -2,26 +2,7 @@
 
 Manages a Azure Security Center Data Connector.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace that this Azure Security Center Data Connector resides in. Changing this forces a new Azure Security Center Data Connector to be created. | 
-| **var.name** | string | True | The name which should be used for this Azure Security Center Data Connector. Changing this forces a new Azure Security Center Data Connector to be created. | 
-| **var.subscription_id** | string | False | The ID of the subscription that this Azure Security Center Data Connector connects to. Changing this forces a new Azure Security Center Data Connector to be created. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **log_analytics_workspace_id** | string  | - | 
-| **name** | string  | - | 
-| **subscription_id** | string  | - | 
-| **id** | string  | The ID of the Azure Security Center Data Connector. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -42,3 +23,21 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace that this Azure Security Center Data Connector resides in. Changing this forces a new Azure Security Center Data Connector to be created. | 
+| **var.name** | string | True | The name which should be used for this Azure Security Center Data Connector. Changing this forces a new Azure Security Center Data Connector to be created. | 
+| **var.subscription_id** | string | False | The ID of the subscription that this Azure Security Center Data Connector connects to. Changing this forces a new Azure Security Center Data Connector to be created. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Azure Security Center Data Connector. | 
+
+Additionally, all variables are provided as outputs.

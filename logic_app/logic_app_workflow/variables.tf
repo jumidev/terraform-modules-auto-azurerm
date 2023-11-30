@@ -30,25 +30,25 @@ variable "access_control" {
 #   trigger (block)               : A 'trigger' block.
 #   workflow_management (block)   : A 'workflow_management' block.
 #
-# claim block structure:
-#   name (string)        : (REQUIRED) The name of the OAuth policy claim for the Logic App Workflow.
-#   value (string)       : (REQUIRED) The value of the OAuth policy claim for the Logic App Workflow.
-#
 # open_authentication_policy block structure:
 #   name (string)                             : (REQUIRED) The OAuth policy name for the Logic App Workflow.
 #   claim (block)                             : (REQUIRED) A 'claim' block.
 #
-# content block structure               :
-#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
+# claim block structure:
+#   name (string)        : (REQUIRED) The name of the OAuth policy claim for the Logic App Workflow.
+#   value (string)       : (REQUIRED) The value of the OAuth policy claim for the Logic App Workflow.
 #
-# workflow_management block structure   :
+# action block structure                :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #
 # trigger block structure               :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #   open_authentication_policy (block)    : A 'open_authentication_policy' block.
 #
-# action block structure                :
+# workflow_management block structure   :
+#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
+#
+# content block structure               :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 
 

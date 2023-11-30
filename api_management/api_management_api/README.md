@@ -2,6 +2,30 @@
 
 Manages an API within an API Management Service.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_api" 
+}
+
+inputs = {
+   name = "name of api_management_api" 
+   api_management_name = "api_management_name of api_management_api" 
+   resource_group_name = "${resource_group}" 
+   revision = "revision of api_management_api" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -35,58 +59,12 @@ Manages an API within an API Management Service.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **api_management_name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **revision** | string  | - | 
-| **api_type** | string  | - | 
-| **display_name** | string  | - | 
-| **path** | string  | - | 
-| **protocols** | string  | - | 
-| **contact** | block  | - | 
-| **description** | string  | - | 
-| **import** | block  | - | 
-| **license** | block  | - | 
-| **oauth2_authorization** | block  | - | 
-| **openid_authentication** | block  | - | 
-| **service_url** | string  | - | 
-| **soap_pass_through** | bool  | - | 
-| **subscription_key_parameter_names** | block  | - | 
-| **subscription_required** | bool  | - | 
-| **terms_of_service_url** | string  | - | 
-| **version** | int  | - | 
-| **version_set_id** | string  | - | 
-| **revision_description** | string  | - | 
-| **version_description** | string  | - | 
-| **source_api_id** | string  | - | 
-| **id** | string  | The ID of the API Management API. | 
-| **is_current** | bool  | Is this the current API Revision? | 
-| **is_online** | bool  | Is this API Revision online/accessible via the Gateway? | 
-| **version** | int  | The Version number of this API, if this API is versioned. | 
-| **version_set_id** | string  | The ID of the Version Set which this API is associated with. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the API Management API. | 
+| **is_current** | bool | No  | Is this the current API Revision? | 
+| **is_online** | bool | No  | Is this API Revision online/accessible via the Gateway? | 
+| **version** | int | No  | The Version number of this API, if this API is versioned. | 
+| **version_set_id** | string | No  | The ID of the Version Set which this API is associated with. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_api" 
-}
-
-inputs = {
-   name = "name of api_management_api" 
-   api_management_name = "api_management_name of api_management_api" 
-   resource_group_name = "${resource_group}" 
-   revision = "revision of api_management_api" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

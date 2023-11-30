@@ -2,6 +2,30 @@
 
 Manages an Azure Container Registry.~> **Note:** All arguments including the access key will be stored in the raw state as plain-text.[Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_registry" 
+}
+
+inputs = {
+   name = "name of container_registry" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of container_registry" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,55 +54,14 @@ Manages an Azure Container Registry.~> **Note:** All arguments including the acc
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | string  | - | 
-| **admin_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **georeplications** | block  | - | 
-| **network_rule_set** | block  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **quarantine_policy_enabled** | bool  | - | 
-| **retention_policy** | block  | - | 
-| **trust_policy** | block  | - | 
-| **zone_redundancy_enabled** | bool  | - | 
-| **export_policy_enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **encryption** | block  | - | 
-| **anonymous_pull_enabled** | bool  | - | 
-| **data_endpoint_enabled** | bool  | - | 
-| **network_rule_bypass_option** | string  | - | 
-| **id** | string  | The ID of the Container Registry. | 
-| **login_server** | string  | The URL that can be used to log into the container registry. | 
-| **admin_username** | string  | The Username associated with the Container Registry Admin account - if the admin account is enabled. | 
-| **admin_password** | string  | The Password associated with the Container Registry Admin account - if the admin account is enabled. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Container Registry. | 
+| **login_server** | string | No  | The URL that can be used to log into the container registry. | 
+| **admin_username** | string | No  | The Username associated with the Container Registry Admin account - if the admin account is enabled. | 
+| **admin_password** | string | No  | The Password associated with the Container Registry Admin account - if the admin account is enabled. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry" 
-}
-
-inputs = {
-   name = "name of container_registry" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of container_registry" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

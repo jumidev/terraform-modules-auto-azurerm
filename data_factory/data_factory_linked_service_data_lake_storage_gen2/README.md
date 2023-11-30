@@ -2,6 +2,29 @@
 
 Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.~> **Note:** All arguments including the `service_principal_key` will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_data_lake_storage_gen2" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_data_lake_storage_gen2" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_data_lake_storage_gen2" 
+   url = "url of data_factory_linked_service_data_lake_storage_gen2" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Description |
@@ -24,42 +47,8 @@ Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure D
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **description** | string  | - | 
-| **integration_runtime_name** | string  | - | 
-| **annotations** | string  | - | 
-| **parameters** | string  | - | 
-| **additional_properties** | string  | - | 
-| **url** | string  | - | 
-| **storage_account_key** | string  | - | 
-| **use_managed_identity** | bool  | - | 
-| **service_principal_id** | string  | - | 
-| **service_principal_key** | string  | - | 
-| **tenant** | string  | - | 
-| **id** | string  | The ID of the Data Factory Data Lake Storage Gen2 Linked Service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Data Lake Storage Gen2 Linked Service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_data_lake_storage_gen2" 
-}
-
-inputs = {
-   name = "name of data_factory_linked_service_data_lake_storage_gen2" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_data_lake_storage_gen2" 
-   url = "url of data_factory_linked_service_data_lake_storage_gen2" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

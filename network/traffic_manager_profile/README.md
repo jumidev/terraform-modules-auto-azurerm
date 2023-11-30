@@ -2,6 +2,31 @@
 
 Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/traffic_manager_profile" 
+}
+
+inputs = {
+   name = "name of traffic_manager_profile" 
+   resource_group_name = "${resource_group}" 
+   traffic_routing_method = "traffic_routing_method of traffic_manager_profile" 
+   dns_config = "dns_config of traffic_manager_profile" 
+   monitor_config = "monitor_config of traffic_manager_profile" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,47 +51,9 @@ Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **profile_status** | string  | - | 
-| **traffic_routing_method** | string  | - | 
-| **Geographic** | string  | - | 
-| **MultiValue** | string  | - | 
-| **Performance** | string  | - | 
-| **Priority** | string  | - | 
-| **Subnet** | string  | - | 
-| **Weighted** | string  | - | 
-| **traffic_view_enabled** | bool  | - | 
-| **dns_config** | block  | - | 
-| **monitor_config** | block  | - | 
-| **max_return** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Traffic Manager Profile. | 
-| **fqdn** | string  | The FQDN of the created Profile. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Traffic Manager Profile. | 
+| **fqdn** | string | No  | The FQDN of the created Profile. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/traffic_manager_profile" 
-}
-
-inputs = {
-   name = "name of traffic_manager_profile" 
-   resource_group_name = "${resource_group}" 
-   traffic_routing_method = "traffic_routing_method of traffic_manager_profile" 
-   dns_config = "dns_config of traffic_manager_profile" 
-   monitor_config = "monitor_config of traffic_manager_profile" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

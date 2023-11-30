@@ -2,6 +2,28 @@
 
 Manages a ServiceBus Topic.**Note** Topics can only be created in Namespaces with an SKU of `standard` or higher.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_topic" 
+}
+
+inputs = {
+   name = "name of servicebus_topic" 
+   namespace_id = "namespace_id of servicebus_topic" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -24,41 +46,8 @@ Manages a ServiceBus Topic.**Note** Topics can only be created in Namespaces wit
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **namespace_id** | string  | - | 
-| **status** | string  | - | 
-| **auto_delete_on_idle** | string  | - | 
-| **default_message_ttl** | string  | - | 
-| **duplicate_detection_history_time_window** | string  | - | 
-| **enable_batched_operations** | bool  | - | 
-| **enable_express** | bool  | - | 
-| **enable_partitioning** | bool  | - | 
-| **max_message_size_in_kilobytes** | int  | - | 
-| **max_size_in_megabytes** | int  | - | 
-| **requires_duplicate_detection** | string  | - | 
-| **support_ordering** | bool  | - | 
-| **id** | string  | The ServiceBus Topic ID. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ServiceBus Topic ID. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_topic" 
-}
-
-inputs = {
-   name = "name of servicebus_topic" 
-   namespace_id = "namespace_id of servicebus_topic" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

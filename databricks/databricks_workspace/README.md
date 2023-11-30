@@ -2,6 +2,30 @@
 
 Manages a Databricks Workspace
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databricks/databricks_workspace" 
+}
+
+inputs = {
+   name = "name of databricks_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of databricks_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,54 +50,17 @@ Manages a Databricks Workspace
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **load_balancer_backend_address_pool_id** | string  | - | 
-| **sku** | string  | - | 
-| **managed_services_cmk_key_vault_key_id** | string  | - | 
-| **managed_disk_cmk_key_vault_key_id** | string  | - | 
-| **managed_disk_cmk_rotation_to_latest_version_enabled** | bool  | - | 
-| **managed_resource_group_name** | string  | - | 
-| **customer_managed_key_enabled** | bool  | - | 
-| **infrastructure_encryption_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **network_security_group_rules_required** | string  | - | 
-| **custom_parameters** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Databricks Workspace in the Azure management plane. | 
-| **disk_encryption_set_id** | string  | The ID of Managed Disk Encryption Set created by the Databricks Workspace. | 
-| **managed_disk_identity** | block  | A `managed_disk_identity` block. | 
-| **managed_resource_group_id** | string  | The ID of the Managed Resource Group created by the Databricks Workspace. | 
-| **workspace_url** | string  | The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net' | 
-| **workspace_id** | string  | The unique identifier of the databricks workspace in Databricks control plane. | 
-| **storage_account_identity** | block  | A `storage_account_identity` block. | 
-| **principal_id** | string  | The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys. | 
-| **tenant_id** | string  | The UUID of the tenant where the internal databricks storage account was created. | 
-| **type** | string  | The type of the internal databricks storage account. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Databricks Workspace in the Azure management plane. | 
+| **disk_encryption_set_id** | string | No  | The ID of Managed Disk Encryption Set created by the Databricks Workspace. | 
+| **managed_disk_identity** | block | No  | A `managed_disk_identity` block. | 
+| **managed_resource_group_id** | string | No  | The ID of the Managed Resource Group created by the Databricks Workspace. | 
+| **workspace_url** | string | No  | The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net' | 
+| **workspace_id** | string | No  | The unique identifier of the databricks workspace in Databricks control plane. | 
+| **storage_account_identity** | block | No  | A `storage_account_identity` block. | 
+| **principal_id** | string | No  | The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys. | 
+| **tenant_id** | string | No  | The UUID of the tenant where the internal databricks storage account was created. | 
+| **type** | string | No  | The type of the internal databricks storage account. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "databricks/databricks_workspace" 
-}
-
-inputs = {
-   name = "name of databricks_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of databricks_workspace" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

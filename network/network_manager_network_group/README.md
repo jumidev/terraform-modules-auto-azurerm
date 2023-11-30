@@ -2,26 +2,7 @@
 
 Manages a Network Manager Network Group.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created. | 
-| **var.network_manager_id** | string | True | Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created. | 
-| **var.description** | string | False | A description of the Network Manager Network Group. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **network_manager_id** | string  | - | 
-| **description** | string  | - | 
-| **id** | string  | The ID of the Network Manager Network Group. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -42,3 +23,21 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created. | 
+| **var.network_manager_id** | string | True | Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created. | 
+| **var.description** | string | False | A description of the Network Manager Network Group. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Network Manager Network Group. | 
+
+Additionally, all variables are provided as outputs.

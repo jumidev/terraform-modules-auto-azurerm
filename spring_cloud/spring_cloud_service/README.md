@@ -2,6 +2,29 @@
 
 Manages an Azure Spring Cloud Service.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_service" 
+}
+
+inputs = {
+   name = "name of spring_cloud_service" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,52 +49,16 @@ Manages an Azure Spring Cloud Service.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **container_registry** | block  | - | 
-| **log_stream_public_endpoint_enabled** | bool  | - | 
-| **build_agent_pool_size** | string  | - | 
-| **default_build_service** | block  | - | 
-| **sku_name** | string  | - | 
-| **marketplace** | block  | - | 
-| **network** | block  | - | 
-| **config_server_git_setting** | block  | - | 
-| **service_registry_enabled** | bool  | - | 
-| **trace** | block  | - | 
-| **tags** | map  | - | 
-| **zone_redundant** | bool  | - | 
-| **id** | string  | The ID of the Spring Cloud Service. | 
-| **service_registry_id** | string  | The ID of the Spring Cloud Service Registry. | 
-| **outbound_public_ip_addresses** | list  | A list of the outbound Public IP Addresses used by this Spring Cloud Service. | 
-| **required_network_traffic_rules** | block  | A list of `required_network_traffic_rules` blocks. | 
-| **direction** | string  | The direction of required traffic. Possible values are `Inbound`, `Outbound`. | 
-| **fqdns** | string  | The FQDN list of required traffic. | 
-| **ip_addresses** | string  | The IP list of required traffic. | 
-| **port** | string  | The port of required traffic. | 
-| **protocol** | string  | The protocol of required traffic. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Spring Cloud Service. | 
+| **service_registry_id** | string | No  | The ID of the Spring Cloud Service Registry. | 
+| **outbound_public_ip_addresses** | list | No  | A list of the outbound Public IP Addresses used by this Spring Cloud Service. | 
+| **required_network_traffic_rules** | block | No  | A list of `required_network_traffic_rules` blocks. | 
+| **direction** | string | No  | The direction of required traffic. Possible values are `Inbound`, `Outbound`. | 
+| **fqdns** | string | No  | The FQDN list of required traffic. | 
+| **ip_addresses** | string | No  | The IP list of required traffic. | 
+| **port** | string | No  | The port of required traffic. | 
+| **protocol** | string | No  | The protocol of required traffic. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_service" 
-}
-
-inputs = {
-   name = "name of spring_cloud_service" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

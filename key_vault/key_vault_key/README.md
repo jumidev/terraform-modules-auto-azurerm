@@ -2,46 +2,7 @@
 
 Manages a Key Vault Key.
 
-## Variables
-
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Key Vault Key. Changing this forces a new resource to be created. | 
-| **var.key_vault_id** | string | True | -  |  -  |  The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created. | 
-| **var.key_type** | string | True | -  |  `EC`, `EC-HSM`, `RSA`, `RSA-HSM`  |  Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created. | 
-| **var.key_size** | string | False | -  |  -  |  Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created. | 
-| **var.curve** | string | False | `P-256`  |  `P-256`, `P-256K`, `P-384`, `P-521`  |  Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created. | 
-| **var.key_opts** | string | True | -  |  `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey`  |  A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive. | 
-| **var.not_before_date** | datetime | False | -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **var.expiration_date** | datetime | False | -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.rotation_policy** | block | False | -  |  -  |  A `rotation_policy` block. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **key_vault_id** | string  | - | 
-| **key_type** | string  | - | 
-| **key_size** | string  | - | 
-| **curve** | string  | - | 
-| **key_opts** | string  | - | 
-| **not_before_date** | datetime  | - | 
-| **expiration_date** | datetime  | - | 
-| **tags** | map  | - | 
-| **rotation_policy** | block  | - | 
-| **id** | string  | The Key Vault Key ID. | 
-| **resource_id** | string  | The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services. | 
-| **resource_versionless_id** | string  | The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated. | 
-| **version** | string  | The current version of the Key Vault Key. | 
-| **versionless_id** | string  | The Base ID of the Key Vault Key. | 
-| **public_key_pem** | string  | The PEM encoded public key of this Key Vault Key. | 
-| **public_key_openssh** | string  | The OpenSSH encoded public key of this Key Vault Key. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -64,3 +25,34 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.name** | string | True | -  |  -  |  Specifies the name of the Key Vault Key. Changing this forces a new resource to be created. | 
+| **var.key_vault_id** | string | True | -  |  -  |  The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created. | 
+| **var.key_type** | string | True | -  |  `EC`, `EC-HSM`, `RSA`, `RSA-HSM`  |  Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created. | 
+| **var.key_size** | string | False | -  |  -  |  Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created. | 
+| **var.curve** | string | False | `P-256`  |  `P-256`, `P-256K`, `P-384`, `P-521`  |  Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created. | 
+| **var.key_opts** | string | True | -  |  `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey`  |  A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive. | 
+| **var.not_before_date** | datetime | False | -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **var.expiration_date** | datetime | False | -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.rotation_policy** | block | False | -  |  -  |  A `rotation_policy` block. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Key Vault Key ID. | 
+| **resource_id** | string | No  | The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services. | 
+| **resource_versionless_id** | string | No  | The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated. | 
+| **version** | string | No  | The current version of the Key Vault Key. | 
+| **versionless_id** | string | No  | The Base ID of the Key Vault Key. | 
+| **public_key_pem** | string | No  | The PEM encoded public key of this Key Vault Key. | 
+| **public_key_openssh** | string | No  | The OpenSSH encoded public key of this Key Vault Key. | 
+
+Additionally, all variables are provided as outputs.

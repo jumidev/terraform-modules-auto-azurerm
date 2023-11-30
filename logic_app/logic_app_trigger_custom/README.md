@@ -2,26 +2,7 @@
 
 Manages a Custom Trigger within a Logic App Workflow
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.logic_app_id** | string | True | Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.body** | string | True | Specifies the JSON Blob defining the Body of this Custom Trigger. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **logic_app_id** | string  | - | 
-| **body** | string  | - | 
-| **id** | string  | The ID of the Trigger within the Logic App Workflow. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -43,3 +24,21 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | Specifies the name of the HTTP Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **var.logic_app_id** | string | True | Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **var.body** | string | True | Specifies the JSON Blob defining the Body of this Custom Trigger. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Trigger within the Logic App Workflow. | 
+
+Additionally, all variables are provided as outputs.

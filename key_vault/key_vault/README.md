@@ -2,6 +2,31 @@
 
 Manages a Key Vault.## Disclaimers~> **Note:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.~> **Note:** It's possible to define Key Vault Certificate Contacts both within [the `azurerm_key_vault` resource](key_vault.html) via the `contact` block and by using [the `azurerm_key_vault_certificate_contacts` resource](key_vault_certificate_contacts.html). However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.~> **Note:** Terraform will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` block within the Provider block.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault" 
+}
+
+inputs = {
+   name = "name of key_vault" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of key_vault" 
+   tenant_id = "tenant_id of key_vault" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -27,48 +52,9 @@ Manages a Key Vault.## Disclaimers~> **Note:** It's possible to define Key Vault
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **sku_name** | string  | - | 
-| **tenant_id** | string  | - | 
-| **access_policy** | block  | - | 
-| **enabled_for_deployment** | bool  | - | 
-| **enabled_for_disk_encryption** | bool  | - | 
-| **enabled_for_template_deployment** | bool  | - | 
-| **enable_rbac_authorization** | bool  | - | 
-| **network_acls** | block  | - | 
-| **purge_protection_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **soft_delete_retention_days** | int  | - | 
-| **contact** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Key Vault. | 
-| **vault_uri** | string  | The URI of the Key Vault, used for performing operations on keys and secrets. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Key Vault. | 
+| **vault_uri** | string | No  | The URI of the Key Vault, used for performing operations on keys and secrets. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault" 
-}
-
-inputs = {
-   name = "name of key_vault" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   sku_name = "sku_name of key_vault" 
-   tenant_id = "tenant_id of key_vault" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

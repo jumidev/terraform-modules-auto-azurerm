@@ -2,40 +2,7 @@
 
 Manages an Azure Cost Management View for a Subscription.
 
-## Variables
-
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.accumulated** | bool | True | -  |  Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created. | 
-| **var.chart_type** | string | True | `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  |  Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
-| **var.dataset** | block | True | -  |  A `dataset` block. | 
-| **var.display_name** | string | True | -  |  User visible input name of the Cost Management View. | 
-| **var.name** | string | True | -  |  The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created. | 
-| **var.report_type** | string | True | -  |  The type of the report. The only possible value is `Usage`. | 
-| **var.subscription_id** | string | True | -  |  The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created. | 
-| **var.timeframe** | string | True | `Custom`, `MonthToDate`, `WeekToDate`, `YearToDate`  |  The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`. | 
-| **var.kpi** | block | False | -  |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
-| **var.pivot** | block | False | -  |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **accumulated** | bool  | - | 
-| **chart_type** | string  | - | 
-| **dataset** | block  | - | 
-| **display_name** | string  | - | 
-| **name** | string  | - | 
-| **report_type** | string  | - | 
-| **subscription_id** | string  | - | 
-| **timeframe** | string  | - | 
-| **kpi** | block  | - | 
-| **pivot** | block  | - | 
-| **id** | string  | The ID of the Cost Management View for a Subscription. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -62,3 +29,28 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.accumulated** | bool | True | -  |  Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created. | 
+| **var.chart_type** | string | True | `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  |  Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
+| **var.dataset** | block | True | -  |  A `dataset` block. | 
+| **var.display_name** | string | True | -  |  User visible input name of the Cost Management View. | 
+| **var.name** | string | True | -  |  The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created. | 
+| **var.report_type** | string | True | -  |  The type of the report. The only possible value is `Usage`. | 
+| **var.subscription_id** | string | True | -  |  The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created. | 
+| **var.timeframe** | string | True | `Custom`, `MonthToDate`, `WeekToDate`, `YearToDate`  |  The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`. | 
+| **var.kpi** | block | False | -  |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
+| **var.pivot** | block | False | -  |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Cost Management View for a Subscription. | 
+
+Additionally, all variables are provided as outputs.

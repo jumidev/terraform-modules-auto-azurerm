@@ -2,6 +2,30 @@
 
 Manages a Synapse Workspace.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_workspace" 
+}
+
+inputs = {
+   name = "name of synapse_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_data_lake_gen2_filesystem_id = "storage_data_lake_gen2_filesystem_id of synapse_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -33,55 +57,11 @@ Manages a Synapse Workspace.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **identity** | block  | - | 
-| **storage_data_lake_gen2_filesystem_id** | string  | - | 
-| **sql_administrator_login** | string  | - | 
-| **sql_administrator_login_password** | string  | - | 
-| **azuread_authentication_only** | bool  | - | 
-| **aad_admin** | block  | - | 
-| **compute_subnet_id** | string  | - | 
-| **azure_devops_repo** | block  | - | 
-| **data_exfiltration_protection_enabled** | bool  | - | 
-| **customer_managed_key** | block  | - | 
-| **github_repo** | block  | - | 
-| **linking_allowed_for_aad_tenant_ids** | string  | - | 
-| **managed_resource_group_name** | string  | - | 
-| **managed_virtual_network_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **purview_id** | string  | - | 
-| **sql_aad_admin** | block  | - | 
-| **sql_identity_control_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the synapse Workspace. | 
-| **connectivity_endpoints** | list  | A list of Connectivity endpoints for this Synapse Workspace. | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the synapse Workspace. | 
+| **connectivity_endpoints** | list | No  | A list of Connectivity endpoints for this Synapse Workspace. | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_workspace" 
-}
-
-inputs = {
-   name = "name of synapse_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   storage_data_lake_gen2_filesystem_id = "storage_data_lake_gen2_filesystem_id of synapse_workspace" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

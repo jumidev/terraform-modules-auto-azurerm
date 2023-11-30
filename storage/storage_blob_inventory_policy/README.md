@@ -2,24 +2,7 @@
 
 Manages a Storage Blob Inventory Policy.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.storage_account_id** | string | True | The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created. | 
-| **var.rules** | block | True | One or more `rules` blocks. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **storage_account_id** | string  | - | 
-| **rules** | block  | - | 
-| **id** | string  | The ID of the Storage Blob Inventory Policy. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -40,3 +23,20 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.storage_account_id** | string | True | The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created. | 
+| **var.rules** | block | True | One or more `rules` blocks. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Storage Blob Inventory Policy. | 
+
+Additionally, all variables are provided as outputs.

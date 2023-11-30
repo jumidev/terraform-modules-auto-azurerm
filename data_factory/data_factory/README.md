@@ -2,6 +2,29 @@
 
 Manages an Azure Data Factory (Version 2).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory" 
+}
+
+inputs = {
+   name = "name of data_factory" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -24,45 +47,11 @@ Manages an Azure Data Factory (Version 2).
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **github_configuration** | block  | - | 
-| **global_parameter** | block  | - | 
-| **identity** | block  | - | 
-| **vsts_configuration** | block  | - | 
-| **managed_virtual_network_enabled** | bool  | - | 
-| **public_network_enabled** | bool  | - | 
-| **customer_managed_key_id** | string  | - | 
-| **customer_managed_key_identity_id** | string  | - | 
-| **purview_id** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Data Factory. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory" 
-}
-
-inputs = {
-   name = "name of data_factory" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

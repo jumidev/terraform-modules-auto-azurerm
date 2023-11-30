@@ -2,6 +2,30 @@
 
 Manages an App Service (within an App Service Plan).!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app) and [`azurerm_windows_web_app`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app) resources instead.-> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service" 
+}
+
+inputs = {
+   name = "name of app_service" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of app_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -31,65 +55,23 @@ Manages an App Service (within an App Service Plan).!> **NOTE:** This resource h
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **app_service_plan_id** | string  | - | 
-| **app_settings** | string  | - | 
-| **auth_settings** | block  | - | 
-| **backup** | block  | - | 
-| **connection_string** | block  | - | 
-| **client_affinity_enabled** | bool  | - | 
-| **client_cert_enabled** | bool  | - | 
-| **client_cert_mode** | string  | - | 
-| **enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **https_only** | bool  | - | 
-| **key_vault_reference_identity_id** | string  | - | 
-| **logs** | block  | - | 
-| **storage_account** | block  | - | 
-| **site_config** | block  | - | 
-| **source_control** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the App Service. | 
-| **custom_domain_verification_id** | string  | An identifier used by App Service to perform domain ownership verification via DNS TXT record. | 
-| **default_site_hostname** | string  | The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net` | 
-| **outbound_ip_addresses** | string  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12` | 
-| **outbound_ip_address_list** | list  | A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]` | 
-| **possible_outbound_ip_addresses** | string  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`. | 
-| **possible_outbound_ip_address_list** | list  | A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`. | 
-| **source_control** | block  | A `source_control` block, which contains the Source Control information when `scm_type` is set to `LocalGit`. | 
-| **site_credential** | block  | A `site_credential` block, which contains the site-level credentials used to publish to this App Service. | 
-| **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this App Service. | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
-| **username** | string  | The username which can be used to publish to this App Service | 
-| **password** | string  | The password associated with the username, which can be used to publish to this App Service. | 
-| **repo_url** | string  | URL of the Git repository for this App Service. | 
-| **branch** | string  | Branch name of the Git repository for this App Service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the App Service. | 
+| **custom_domain_verification_id** | string | No  | An identifier used by App Service to perform domain ownership verification via DNS TXT record. | 
+| **default_site_hostname** | string | No  | The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net` | 
+| **outbound_ip_addresses** | string | No  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12` | 
+| **outbound_ip_address_list** | list | No  | A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12"]` | 
+| **possible_outbound_ip_addresses** | string | No  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`. | 
+| **possible_outbound_ip_address_list** | list | No  | A list of outbound IP addresses - such as `["52.23.25.3", "52.143.43.12", "52.143.43.17"]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`. | 
+| **source_control** | block | No  | A `source_control` block, which contains the Source Control information when `scm_type` is set to `LocalGit`. | 
+| **site_credential** | block | No  | A `site_credential` block, which contains the site-level credentials used to publish to this App Service. | 
+| **identity** | block | No  | An `identity` block, which contains the Managed Service Identity information for this App Service. | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
+| **username** | string | No  | The username which can be used to publish to this App Service | 
+| **password** | string | No  | The password associated with the username, which can be used to publish to this App Service. | 
+| **repo_url** | string | No  | URL of the Git repository for this App Service. | 
+| **branch** | string | No  | Branch name of the Git repository for this App Service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service" 
-}
-
-inputs = {
-   name = "name of app_service" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   app_service_plan_id = "app_service_plan_id of app_service" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

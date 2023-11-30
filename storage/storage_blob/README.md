@@ -2,6 +2,30 @@
 
 Manages a Blob within a Storage Container.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_blob" 
+}
+
+inputs = {
+   name = "name of storage_blob" 
+   storage_account_name = "storage_account_name of storage_blob" 
+   storage_container_name = "storage_container_name of storage_blob" 
+   type = "type of storage_blob" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -25,45 +49,9 @@ Manages a Blob within a Storage Container.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **storage_account_name** | string  | - | 
-| **storage_container_name** | string  | - | 
-| **type** | string  | - | 
-| **size** | string  | - | 
-| **access_tier** | string  | - | 
-| **cache_control** | string  | - | 
-| **content_type** | string  | - | 
-| **content_md5** | string  | - | 
-| **source** | string  | - | 
-| **source_content** | string  | - | 
-| **source_uri** | string  | - | 
-| **parallelism** | int  | - | 
-| **metadata** | string  | - | 
-| **id** | string  | The ID of the Storage Blob. | 
-| **url** | string  | The URL of the blob | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Storage Blob. | 
+| **url** | string | No  | The URL of the blob | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_blob" 
-}
-
-inputs = {
-   name = "name of storage_blob" 
-   storage_account_name = "storage_account_name of storage_blob" 
-   storage_container_name = "storage_container_name of storage_blob" 
-   type = "type of storage_blob" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

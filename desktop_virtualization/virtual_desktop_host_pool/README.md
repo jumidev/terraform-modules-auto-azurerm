@@ -2,6 +2,31 @@
 
 Manages a Virtual Desktop Host Pool.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "desktop_virtualization/virtual_desktop_host_pool" 
+}
+
+inputs = {
+   name = "name of virtual_desktop_host_pool" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   type = "type of virtual_desktop_host_pool" 
+   load_balancer_type = "load_balancer_type of virtual_desktop_host_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,46 +51,8 @@ Manages a Virtual Desktop Host Pool.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **type** | string  | - | 
-| **load_balancer_type** | string  | - | 
-| **friendly_name** | string  | - | 
-| **description** | string  | - | 
-| **validate_environment** | bool  | - | 
-| **start_vm_on_connect** | bool  | - | 
-| **custom_rdp_properties** | string  | - | 
-| **personal_desktop_assignment_type** | string  | - | 
-| **maximum_sessions_allowed** | bool  | - | 
-| **preferred_app_group_type** | string  | - | 
-| **scheduled_agent_updates** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Virtual Desktop Host Pool. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Virtual Desktop Host Pool. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "desktop_virtualization/virtual_desktop_host_pool" 
-}
-
-inputs = {
-   name = "name of virtual_desktop_host_pool" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   type = "type of virtual_desktop_host_pool" 
-   load_balancer_type = "load_balancer_type of virtual_desktop_host_pool" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

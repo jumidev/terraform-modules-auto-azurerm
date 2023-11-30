@@ -2,6 +2,32 @@
 
 Manages a Virtual Machine.## Disclaimers-> **Note:** The `azurerm_virtual_machine` resource has been superseded by the [`azurerm_linux_virtual_machine`](linux_virtual_machine.html) and [`azurerm_windows_virtual_machine`](windows_virtual_machine.html) resources. The existing `azurerm_virtual_machine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources.~> **Note:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/virtual_machine" 
+}
+
+inputs = {
+   name = "name of virtual_machine" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   network_interface_ids = "network_interface_ids of virtual_machine" 
+   vm_size = "vm_size of virtual_machine" 
+   storage_os_disk = "storage_os_disk of virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -35,58 +61,10 @@ Manages a Virtual Machine.## Disclaimers-> **Note:** The `azurerm_virtual_machin
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **network_interface_ids** | list  | - | 
-| **os_profile_linux_config** | block  | - | 
-| **os_profile_windows_config** | block  | - | 
-| **vm_size** | string  | - | 
-| **availability_set_id** | string  | - | 
-| **boot_diagnostics** | block  | - | 
-| **additional_capabilities** | block  | - | 
-| **delete_os_disk_on_termination** | bool  | - | 
-| **delete_data_disks_on_termination** | bool  | - | 
-| **identity** | block  | - | 
-| **license_type** | string  | - | 
-| **os_profile** | block  | - | 
-| **os_profile_secrets** | block  | - | 
-| **plan** | block  | - | 
-| **primary_network_interface_id** | string  | - | 
-| **proximity_placement_group_id** | string  | - | 
-| **storage_data_disk** | block  | - | 
-| **storage_image_reference** | block  | - | 
-| **storage_os_disk** | block  | - | 
-| **tags** | map  | - | 
-| **zones** | list  | - | 
-| **id** | string  | The ID of the Virtual Machine. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Virtual Machine. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/virtual_machine" 
-}
-
-inputs = {
-   name = "name of virtual_machine" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   network_interface_ids = "network_interface_ids of virtual_machine" 
-   vm_size = "vm_size of virtual_machine" 
-   storage_os_disk = "storage_os_disk of virtual_machine" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

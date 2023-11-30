@@ -2,24 +2,7 @@
 
 Manages the Data Access Settings for Azure Security Center.~> **NOTE:** This resource requires the `Owner` permission on the Subscription.~> **NOTE:** Deletion of this resource disables the setting.
 
-## Variables
-
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.setting_name** | string | True | `MCAS`, `WDATP`, `SENTINEL`  |  The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool | True | -  |  Boolean flag to enable/disable data access. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **setting_name** | string  | - | 
-| **enabled** | bool  | - | 
-| **id** | string  | The subscription security center setting id. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -40,3 +23,20 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.setting_name** | string | True | `MCAS`, `WDATP`, `SENTINEL`  |  The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created. | 
+| **var.enabled** | bool | True | -  |  Boolean flag to enable/disable data access. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The subscription security center setting id. | 
+
+Additionally, all variables are provided as outputs.

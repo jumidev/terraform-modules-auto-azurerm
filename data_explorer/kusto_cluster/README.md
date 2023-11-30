@@ -2,6 +2,30 @@
 
 Manages a Kusto (also known as Azure Data Explorer) Cluster
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_cluster" 
+}
+
+inputs = {
+   name = "name of kusto_cluster" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of kusto_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -32,56 +56,13 @@ Manages a Kusto (also known as Azure Data Explorer) Cluster
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **sku** | block  | - | 
-| **allowed_fqdns** | string  | - | 
-| **allowed_ip_ranges** | string  | - | 
-| **double_encryption_enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **auto_stop_enabled** | bool  | - | 
-| **disk_encryption_enabled** | bool  | - | 
-| **streaming_ingestion_enabled** | bool  | - | 
-| **public_ip_type** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **outbound_network_access_restricted** | bool  | - | 
-| **purge_enabled** | bool  | - | 
-| **virtual_network_configuration** | block  | - | 
-| **language_extensions** | string  | - | 
-| **optimized_auto_scale** | block  | - | 
-| **tags** | map  | - | 
-| **trusted_external_tenants** | string  | - | 
-| **zones** | string  | - | 
-| **id** | string  | The Kusto Cluster ID. | 
-| **uri** | string  | The FQDN of the Azure Kusto Cluster. | 
-| **data_ingestion_uri** | string  | The Kusto Cluster URI to be used for data ingestion. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this System Assigned Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this System Assigned Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Kusto Cluster ID. | 
+| **uri** | string | No  | The FQDN of the Azure Kusto Cluster. | 
+| **data_ingestion_uri** | string | No  | The Kusto Cluster URI to be used for data ingestion. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this System Assigned Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this System Assigned Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_cluster" 
-}
-
-inputs = {
-   name = "name of kusto_cluster" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   sku = "sku of kusto_cluster" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

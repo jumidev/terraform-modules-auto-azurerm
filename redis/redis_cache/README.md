@@ -2,6 +2,32 @@
 
 Manages a Redis Cache.-> **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "redis/redis_cache" 
+}
+
+inputs = {
+   name = "name of redis_cache" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   capacity = "capacity of redis_cache" 
+   family = "family of redis_cache" 
+   sku_name = "sku_name of redis_cache" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -32,62 +58,17 @@ Manages a Redis Cache.-> **Note:** Redis version 4 is being retired and no longe
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **capacity** | string  | - | 
-| **family** | string  | - | 
-| **sku_name** | string  | - | 
-| **enable_non_ssl_port** | bool  | - | 
-| **identity** | block  | - | 
-| **minimum_tls_version** | string  | - | 
-| **patch_schedule** | block  | - | 
-| **private_static_ip_address** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **redis_configuration** | block  | - | 
-| **replicas_per_master** | int  | - | 
-| **replicas_per_primary** | int  | - | 
-| **redis_version** | string  | - | 
-| **tenant_settings** | string  | - | 
-| **shard_count** | int  | - | 
-| **subnet_id** | string  | - | 
-| **tags** | map  | - | 
-| **zones** | string  | - | 
-| **id** | string  | The Route ID. | 
-| **hostname** | string  | The Hostname of the Redis Instance | 
-| **ssl_port** | string  | The SSL Port of the Redis Instance | 
-| **port** | string  | The non-SSL Port of the Redis Instance | 
-| **primary_access_key** | string  | The Primary Access Key for the Redis Instance | 
-| **secondary_access_key** | string  | The Secondary Access Key for the Redis Instance | 
-| **primary_connection_string** | string  | The primary connection string of the Redis Instance. | 
-| **secondary_connection_string** | string  | The secondary connection string of the Redis Instance. | 
-| **redis_configuration** | block  | A `redis_configuration` block: | 
-| **maxclients** | int  | Returns the max number of connected clients at the same time. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Route ID. | 
+| **hostname** | string | No  | The Hostname of the Redis Instance | 
+| **ssl_port** | string | No  | The SSL Port of the Redis Instance | 
+| **port** | string | No  | The non-SSL Port of the Redis Instance | 
+| **primary_access_key** | string | No  | The Primary Access Key for the Redis Instance | 
+| **secondary_access_key** | string | No  | The Secondary Access Key for the Redis Instance | 
+| **primary_connection_string** | string | No  | The primary connection string of the Redis Instance. | 
+| **secondary_connection_string** | string | No  | The secondary connection string of the Redis Instance. | 
+| **redis_configuration** | block | No  | A `redis_configuration` block: | 
+| **maxclients** | int | No  | Returns the max number of connected clients at the same time. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "redis/redis_cache" 
-}
-
-inputs = {
-   name = "name of redis_cache" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   capacity = "capacity of redis_cache" 
-   family = "family of redis_cache" 
-   sku_name = "sku_name of redis_cache" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,28 @@
 
 Manages a Container Registry Task.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_registry_task" 
+}
+
+inputs = {
+   name = "name of container_registry_task" 
+   container_registry_id = "container_registry_id of container_registry_task" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -29,49 +51,11 @@ Manages a Container Registry Task.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **container_registry_id** | string  | - | 
-| **agent_pool_name** | string  | - | 
-| **agent_setting** | block  | - | 
-| **enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **platform** | block  | - | 
-| **docker_step** | block  | - | 
-| **encoded_step** | block  | - | 
-| **file_step** | block  | - | 
-| **base_image_trigger** | block  | - | 
-| **source_trigger** | block  | - | 
-| **timer_trigger** | block  | - | 
-| **is_system_task** | bool  | - | 
-| **log_template** | string  | - | 
-| **registry_credential** | block  | - | 
-| **tags** | map  | - | 
-| **timeout_in_seconds** | int  | - | 
-| **id** | string  | The ID of the Container Registry Task. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Container Registry Task. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_task" 
-}
-
-inputs = {
-   name = "name of container_registry_task" 
-   container_registry_id = "container_registry_id of container_registry_task" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

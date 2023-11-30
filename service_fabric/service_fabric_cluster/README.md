@@ -2,6 +2,34 @@
 
 Manages a Service Fabric Cluster.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "service_fabric/service_fabric_cluster" 
+}
+
+inputs = {
+   name = "name of service_fabric_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   reliability_level = "reliability_level of service_fabric_cluster" 
+   management_endpoint = "management_endpoint of service_fabric_cluster" 
+   node_type = "node_type of service_fabric_cluster" 
+   upgrade_mode = "upgrade_mode of service_fabric_cluster" 
+   vm_image = "vm_image of service_fabric_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -34,58 +62,9 @@ Manages a Service Fabric Cluster.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **reliability_level** | string  | - | 
-| **management_endpoint** | string  | - | 
-| **node_type** | block  | - | 
-| **upgrade_mode** | string  | - | 
-| **vm_image** | string  | - | 
-| **cluster_code_version** | string  | - | 
-| **add_on_features** | list  | - | 
-| **azure_active_directory** | block  | - | 
-| **certificate_common_names** | block  | - | 
-| **certificate** | block  | - | 
-| **reverse_proxy_certificate** | block  | - | 
-| **reverse_proxy_certificate_common_names** | block  | - | 
-| **client_certificate_thumbprint** | block  | - | 
-| **client_certificate_common_name** | block  | - | 
-| **diagnostics_config** | block  | - | 
-| **fabric_settings** | block  | - | 
-| **upgrade_policy** | block  | - | 
-| **service_fabric_zonal_upgrade_mode** | string  | - | 
-| **vmss_zonal_upgrade_mode** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Service Fabric Cluster. | 
-| **cluster_endpoint** | string  | The Cluster Endpoint for this Service Fabric Cluster. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Service Fabric Cluster. | 
+| **cluster_endpoint** | string | No  | The Cluster Endpoint for this Service Fabric Cluster. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "service_fabric/service_fabric_cluster" 
-}
-
-inputs = {
-   name = "name of service_fabric_cluster" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   reliability_level = "reliability_level of service_fabric_cluster" 
-   management_endpoint = "management_endpoint of service_fabric_cluster" 
-   node_type = "node_type of service_fabric_cluster" 
-   upgrade_mode = "upgrade_mode of service_fabric_cluster" 
-   vm_image = "vm_image of service_fabric_cluster" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

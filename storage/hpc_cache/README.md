@@ -2,6 +2,32 @@
 
 Manages a HPC Cache.~> **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/hpc_cache" 
+}
+
+inputs = {
+   name = "name of hpc_cache" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   cache_size_in_gb = "cache_size_in_gb of hpc_cache" 
+   subnet_id = "subnet_id of hpc_cache" 
+   sku_name = "sku_name of hpc_cache" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,53 +54,12 @@ Manages a HPC Cache.~> **Note:** By request of the service team the provider no 
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **cache_size_in_gb** | string  | - | 
-| **subnet_id** | string  | - | 
-| **sku_name** | string  | - | 
-| **mtu** | string  | - | 
-| **default_access_policy** | block  | - | 
-| **ntp_server** | string  | - | 
-| **dns** | block  | - | 
-| **directory_active_directory** | block  | - | 
-| **directory_flat_file** | block  | - | 
-| **directory_ldap** | block  | - | 
-| **identity** | block  | - | 
-| **key_vault_key_id** | string  | - | 
-| **automatically_rotate_key_to_latest_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The `id` of the HPC Cache. | 
-| **identity** | block  | An `identity` block. | 
-| **mount_addresses** | list  | A list of IP Addresses where the HPC Cache can be mounted. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The `id` of the HPC Cache. | 
+| **identity** | block | No  | An `identity` block. | 
+| **mount_addresses** | list | No  | A list of IP Addresses where the HPC Cache can be mounted. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/hpc_cache" 
-}
-
-inputs = {
-   name = "name of hpc_cache" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   cache_size_in_gb = "cache_size_in_gb of hpc_cache" 
-   subnet_id = "subnet_id of hpc_cache" 
-   sku_name = "sku_name of hpc_cache" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,29 @@
 
 Manages a Linux Function App Slot.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/linux_function_app_slot" 
+}
+
+inputs = {
+   name = "name of linux_function_app_slot" 
+   function_app_id = "function_app_id of linux_function_app_slot" 
+   site_config = "site_config of linux_function_app_slot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -41,73 +64,22 @@ Manages a Linux Function App Slot.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **function_app_id** | string  | - | 
-| **site_config** | block  | - | 
-| **app_settings** | string  | - | 
-| **auth_settings** | block  | - | 
-| **auth_settings_v2** | block  | - | 
-| **backup** | block  | - | 
-| **builtin_logging_enabled** | bool  | - | 
-| **client_certificate_enabled** | bool  | - | 
-| **client_certificate_mode** | string  | - | 
-| **client_certificate_exclusion_paths** | string  | - | 
-| **connection_string** | block  | - | 
-| **content_share_force_disabled** | bool  | - | 
-| **daily_memory_time_quota** | string  | - | 
-| **enabled** | bool  | - | 
-| **ftp_publish_basic_authentication_enabled** | bool  | - | 
-| **functions_extension_version** | string  | - | 
-| **https_only** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **key_vault_reference_identity_id** | string  | - | 
-| **service_plan_id** | string  | - | 
-| **storage_account_access_key** | string  | - | 
-| **storage_account_name** | string  | - | 
-| **storage_account** | block  | - | 
-| **storage_uses_managed_identity** | string  | - | 
-| **storage_key_vault_secret_id** | string  | - | 
-| **tags** | map  | - | 
-| **virtual_network_subnet_id** | string  | - | 
-| **webdeploy_publish_basic_authentication_enabled** | bool  | - | 
-| **id** | string  | The ID of the Linux Function App Slot | 
-| **custom_domain_verification_id** | string  | The identifier used by App Service to perform domain ownership verification via DNS TXT record. | 
-| **default_hostname** | string  | The default hostname of the Linux Function App Slot. | 
-| **hosting_environment_id** | string  | The ID of the App Service Environment used by Function App Slot. | 
-| **identity** | block  | An `identity` block. | 
-| **kind** | string  | The Kind value for this Linux Function App Slot. | 
-| **outbound_ip_address_list** | list  | A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]` | 
-| **outbound_ip_addresses** | string  | A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`. | 
-| **possible_outbound_ip_address_list** | list  | A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`. | 
-| **possible_outbound_ip_addresses** | string  | A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`. | 
-| **site_credential** | block  | A `site_credential` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
-| **name** | string  | The Site Credentials Username used for publishing. | 
-| **password** | string  | The Site Credentials Password used for publishing. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Linux Function App Slot | 
+| **custom_domain_verification_id** | string | No  | The identifier used by App Service to perform domain ownership verification via DNS TXT record. | 
+| **default_hostname** | string | No  | The default hostname of the Linux Function App Slot. | 
+| **hosting_environment_id** | string | No  | The ID of the App Service Environment used by Function App Slot. | 
+| **identity** | block | No  | An `identity` block. | 
+| **kind** | string | No  | The Kind value for this Linux Function App Slot. | 
+| **outbound_ip_address_list** | list | No  | A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]` | 
+| **outbound_ip_addresses** | string | No  | A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`. | 
+| **possible_outbound_ip_address_list** | list | No  | A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`. | 
+| **possible_outbound_ip_addresses** | string | No  | A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`. | 
+| **site_credential** | block | No  | A `site_credential` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
+| **name** | string | No  | The Site Credentials Username used for publishing. | 
+| **password** | string | No  | The Site Credentials Password used for publishing. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/linux_function_app_slot" 
-}
-
-inputs = {
-   name = "name of linux_function_app_slot" 
-   function_app_id = "function_app_id of linux_function_app_slot" 
-   site_config = "site_config of linux_function_app_slot" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

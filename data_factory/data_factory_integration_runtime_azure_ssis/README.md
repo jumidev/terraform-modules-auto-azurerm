@@ -2,6 +2,30 @@
 
 Manages a Data Factory Azure-SSIS Integration Runtime.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_integration_runtime_azure_ssis" 
+}
+
+inputs = {
+   name = "name of data_factory_integration_runtime_azure_ssis" 
+   data_factory_id = "data_factory_id of data_factory_integration_runtime_azure_ssis" 
+   location = "${location}" 
+   node_size = "node_size of data_factory_integration_runtime_azure_ssis" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -27,46 +51,8 @@ Manages a Data Factory Azure-SSIS Integration Runtime.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **location** | string  | - | 
-| **node_size** | string  | - | 
-| **number_of_nodes** | int  | - | 
-| **max_parallel_executions_per_node** | string  | - | 
-| **edition** | string  | - | 
-| **license_type** | string  | - | 
-| **catalog_info** | block  | - | 
-| **custom_setup_script** | block  | - | 
-| **express_custom_setup** | block  | - | 
-| **express_vnet_integration** | block  | - | 
-| **package_store** | block  | - | 
-| **proxy** | block  | - | 
-| **vnet_integration** | block  | - | 
-| **description** | string  | - | 
-| **id** | string  | The ID of the Data Factory Azure-SSIS Integration Runtime. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Azure-SSIS Integration Runtime. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_integration_runtime_azure_ssis" 
-}
-
-inputs = {
-   name = "name of data_factory_integration_runtime_azure_ssis" 
-   data_factory_id = "data_factory_id of data_factory_integration_runtime_azure_ssis" 
-   location = "${location}" 
-   node_size = "node_size of data_factory_integration_runtime_azure_ssis" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

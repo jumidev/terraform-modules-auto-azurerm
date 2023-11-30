@@ -2,6 +2,31 @@
 
 Manages an App Service Slot (within an App Service).!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot) and [`azurerm_windows_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app_slot) resources instead.-> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_slot" 
+}
+
+inputs = {
+   name = "name of app_service_slot" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of app_service_slot" 
+   app_service_name = "app_service_name of app_service_slot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -28,55 +53,15 @@ Manages an App Service Slot (within an App Service).!> **NOTE:** This resource h
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **app_service_plan_id** | string  | - | 
-| **app_service_name** | string  | - | 
-| **app_settings** | string  | - | 
-| **auth_settings** | block  | - | 
-| **connection_string** | block  | - | 
-| **client_affinity_enabled** | bool  | - | 
-| **enabled** | bool  | - | 
-| **https_only** | bool  | - | 
-| **site_config** | block  | - | 
-| **storage_account** | block  | - | 
-| **logs** | block  | - | 
-| **identity** | block  | - | 
-| **key_vault_reference_identity_id** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the App Service Slot. | 
-| **default_site_hostname** | string  | The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net` | 
-| **site_credential** | block  | A `site_credential` block, which contains the site-level credentials used to publish to this App Service slot. | 
-| **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this App Service slot. | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot. | 
-| **username** | string  | The username which can be used to publish to this App Service | 
-| **password** | string  | The password associated with the username, which can be used to publish to this App Service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the App Service Slot. | 
+| **default_site_hostname** | string | No  | The Default Hostname associated with the App Service Slot - such as `mysite.azurewebsites.net` | 
+| **site_credential** | block | No  | A `site_credential` block, which contains the site-level credentials used to publish to this App Service slot. | 
+| **identity** | block | No  | An `identity` block, which contains the Managed Service Identity information for this App Service slot. | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service slot. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot. | 
+| **username** | string | No  | The username which can be used to publish to this App Service | 
+| **password** | string | No  | The password associated with the username, which can be used to publish to this App Service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_slot" 
-}
-
-inputs = {
-   name = "name of app_service_slot" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   app_service_plan_id = "app_service_plan_id of app_service_slot" 
-   app_service_name = "app_service_name of app_service_slot" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

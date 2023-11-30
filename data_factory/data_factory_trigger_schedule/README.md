@@ -2,6 +2,28 @@
 
 Manages a Trigger Schedule inside a Azure Data Factory.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_trigger_schedule" 
+}
+
+inputs = {
+   name = "name of data_factory_trigger_schedule" 
+   data_factory_id = "data_factory_id of data_factory_trigger_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -25,42 +47,8 @@ Manages a Trigger Schedule inside a Azure Data Factory.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **description** | string  | - | 
-| **schedule** | block  | - | 
-| **start_time** | string  | - | 
-| **time_zone** | string  | - | 
-| **end_time** | string  | - | 
-| **interval** | string  | - | 
-| **frequency** | string  | - | 
-| **activated** | bool  | - | 
-| **pipeline** | block  | - | 
-| **pipeline_name** | string  | - | 
-| **pipeline_parameters** | string  | - | 
-| **annotations** | string  | - | 
-| **id** | string  | The ID of the Data Factory Schedule Trigger. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Schedule Trigger. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_trigger_schedule" 
-}
-
-inputs = {
-   name = "name of data_factory_trigger_schedule" 
-   data_factory_id = "data_factory_id of data_factory_trigger_schedule" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

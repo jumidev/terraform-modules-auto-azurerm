@@ -2,6 +2,32 @@
 
 Manages a PostgreSQL Server.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_server" 
+}
+
+inputs = {
+   name = "name of postgresql_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of postgresql_server" 
+   version = "version of postgresql_server" 
+   ssl_enforcement_enabled = "ssl_enforcement_enabled of postgresql_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,55 +56,12 @@ Manages a PostgreSQL Server.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku_name** | string  | - | 
-| **version** | string  | - | 
-| **administrator_login** | string  | - | 
-| **administrator_login_password** | string  | - | 
-| **auto_grow_enabled** | bool  | - | 
-| **backup_retention_days** | int  | - | 
-| **create_mode** | string  | - | 
-| **creation_source_server_id** | string  | - | 
-| **geo_redundant_backup_enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **infrastructure_encryption_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **restore_point_in_time** | string  | - | 
-| **ssl_enforcement_enabled** | string  | - | 
-| **ssl_minimal_tls_version_enforced** | string  | - | 
-| **storage_mb** | string  | - | 
-| **id** | string  | The ID of the PostgreSQL Server. | 
-| **fqdn** | string  | The FQDN of the PostgreSQL Server. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the PostgreSQL Server. | 
+| **fqdn** | string | No  | The FQDN of the PostgreSQL Server. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/postgresql_server" 
-}
-
-inputs = {
-   name = "name of postgresql_server" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku_name = "sku_name of postgresql_server" 
-   version = "version of postgresql_server" 
-   ssl_enforcement_enabled = "ssl_enforcement_enabled of postgresql_server" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

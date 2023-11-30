@@ -2,6 +2,29 @@
 
 Manages an Automanage Configuration.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automanage/automanage_configuration" 
+}
+
+inputs = {
+   name = "name of automanage_configuration" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -24,42 +47,8 @@ Manages an Automanage Configuration.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **antimalware** | block  | - | 
-| **azure_security_baseline** | block  | - | 
-| **backup** | block  | - | 
-| **automation_account_enabled** | bool  | - | 
-| **boot_diagnostics_enabled** | bool  | - | 
-| **defender_for_cloud_enabled** | bool  | - | 
-| **guest_configuration_enabled** | bool  | - | 
-| **log_analytics_enabled** | bool  | - | 
-| **status_change_alert_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Automanage Configuration. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Automanage Configuration. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automanage/automanage_configuration" 
-}
-
-inputs = {
-   name = "name of automanage_configuration" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

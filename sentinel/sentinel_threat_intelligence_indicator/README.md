@@ -2,6 +2,32 @@
 
 Manages a Sentinel Threat Intelligence Indicator.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_threat_intelligence_indicator" 
+}
+
+inputs = {
+   display_name = "display_name of sentinel_threat_intelligence_indicator" 
+   pattern_type = "pattern_type of sentinel_threat_intelligence_indicator" 
+   pattern = "pattern of sentinel_threat_intelligence_indicator" 
+   source = "source of sentinel_threat_intelligence_indicator" 
+   validate_from_utc = "validate_from_utc of sentinel_threat_intelligence_indicator" 
+   workspace_id = "workspace_id of sentinel_threat_intelligence_indicator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -31,64 +57,20 @@ Manages a Sentinel Threat Intelligence Indicator.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **display_name** | string  | - | 
-| **pattern_type** | string  | - | 
-| **pattern** | string  | - | 
-| **source** | string  | - | 
-| **validate_from_utc** | string  | - | 
-| **workspace_id** | string  | - | 
-| **confidence** | string  | - | 
-| **created_by** | string  | - | 
-| **description** | string  | - | 
-| **extension** | string  | - | 
-| **external_reference** | block  | - | 
-| **granular_marking** | block  | - | 
-| **kill_chain_phase** | block  | - | 
-| **tags** | map  | - | 
-| **language** | string  | - | 
-| **object_marking_refs** | string  | - | 
-| **pattern_version** | string  | - | 
-| **revoked** | bool  | - | 
-| **threat_types** | string  | - | 
-| **validate_until_utc** | string  | - | 
-| **id** | string  | The ID of the Sentinel Threat Intelligence Indicator. | 
-| **created_on** | string  | The date of this Threat Intelligence Indicator created. | 
-| **defanged** | bool  | Whether the Threat Intelligence entity is defanged? | 
-| **external_id** | string  | The external ID of the Threat Intelligence Indicator. | 
-| **external_last_updated_time_utc** | string  | the External last updated time in UTC. | 
-| **indicator_type** | list  | A list of indicator types of this Threat Intelligence Indicator. | 
-| **last_updated_time_utc** | string  | The last updated time of the Threat Intelligence Indicator in UTC. | 
-| **guid** | string  | The guid of this Sentinel Threat Intelligence Indicator. | 
-| **parsed_pattern** | block  | A `parsed_pattern` block. | 
-| **pattern_type_key** | string  | The type key of parsed pattern. | 
-| **pattern_type_values** | block  | A `pattern_type_values` block. | 
-| **value** | string  | The value of the parsed pattern type. | 
-| **value_type** | string  | The type of the value of the parsed pattern type value. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Sentinel Threat Intelligence Indicator. | 
+| **created_on** | string | No  | The date of this Threat Intelligence Indicator created. | 
+| **defanged** | bool | No  | Whether the Threat Intelligence entity is defanged? | 
+| **external_id** | string | No  | The external ID of the Threat Intelligence Indicator. | 
+| **external_last_updated_time_utc** | string | No  | the External last updated time in UTC. | 
+| **indicator_type** | list | No  | A list of indicator types of this Threat Intelligence Indicator. | 
+| **last_updated_time_utc** | string | No  | The last updated time of the Threat Intelligence Indicator in UTC. | 
+| **guid** | string | No  | The guid of this Sentinel Threat Intelligence Indicator. | 
+| **parsed_pattern** | block | No  | A `parsed_pattern` block. | 
+| **pattern_type_key** | string | No  | The type key of parsed pattern. | 
+| **pattern_type_values** | block | No  | A `pattern_type_values` block. | 
+| **value** | string | No  | The value of the parsed pattern type. | 
+| **value_type** | string | No  | The type of the value of the parsed pattern type value. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_threat_intelligence_indicator" 
-}
-
-inputs = {
-   display_name = "display_name of sentinel_threat_intelligence_indicator" 
-   pattern_type = "pattern_type of sentinel_threat_intelligence_indicator" 
-   pattern = "pattern of sentinel_threat_intelligence_indicator" 
-   source = "source of sentinel_threat_intelligence_indicator" 
-   validate_from_utc = "validate_from_utc of sentinel_threat_intelligence_indicator" 
-   workspace_id = "workspace_id of sentinel_threat_intelligence_indicator" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

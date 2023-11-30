@@ -2,6 +2,33 @@
 
 Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_scheduled_query_rules_alert_v2" 
+}
+
+inputs = {
+   name = "name of monitor_scheduled_query_rules_alert_v2" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   criteria = "criteria of monitor_scheduled_query_rules_alert_v2" 
+   scopes = "scopes of monitor_scheduled_query_rules_alert_v2" 
+   severity = "severity of monitor_scheduled_query_rules_alert_v2" 
+   window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,55 +57,11 @@ Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure 
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **criteria** | block  | - | 
-| **evaluation_frequency** | string  | - | 
-| **scopes** | string  | - | 
-| **severity** | string  | - | 
-| **window_duration** | string  | - | 
-| **action** | block  | - | 
-| **auto_mitigation_enabled** | bool  | - | 
-| **workspace_alerts_storage_enabled** | bool  | - | 
-| **description** | string  | - | 
-| **display_name** | string  | - | 
-| **enabled** | bool  | - | 
-| **mute_actions_after_alert_duration** | string  | - | 
-| **query_time_range_override** | string  | - | 
-| **skip_query_validation** | bool  | - | 
-| **tags** | map  | - | 
-| **target_resource_types** | string  | - | 
-| **id** | string  | The ID of the Monitor Scheduled Query Rule. | 
-| **created_with_api_version** | string  | The api-version used when creating this alert rule. | 
-| **is_a_legacy_log_analytics_rule** | string  | True if this alert rule is a legacy Log Analytic Rule. | 
-| **is_workspace_alerts_storage_configured** | string  | The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Monitor Scheduled Query Rule. | 
+| **created_with_api_version** | string | No  | The api-version used when creating this alert rule. | 
+| **is_a_legacy_log_analytics_rule** | string | No  | True if this alert rule is a legacy Log Analytic Rule. | 
+| **is_workspace_alerts_storage_configured** | string | No  | The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_scheduled_query_rules_alert_v2" 
-}
-
-inputs = {
-   name = "name of monitor_scheduled_query_rules_alert_v2" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   criteria = "criteria of monitor_scheduled_query_rules_alert_v2" 
-   scopes = "scopes of monitor_scheduled_query_rules_alert_v2" 
-   severity = "severity of monitor_scheduled_query_rules_alert_v2" 
-   window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,32 @@
 
 Manages an Azure Batch pool.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "batch/batch_pool" 
+}
+
+inputs = {
+   name = "name of batch_pool" 
+   resource_group_name = "${resource_group}" 
+   account_name = "account_name of batch_pool" 
+   node_agent_sku_id = "node_agent_sku_id of batch_pool" 
+   vm_size = "vm_size of batch_pool" 
+   storage_image_reference = "storage_image_reference of batch_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -40,61 +66,8 @@ Manages an Azure Batch pool.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **account_name** | string  | - | 
-| **node_agent_sku_id** | string  | - | 
-| **stop_pending_resize_operation** | string  | - | 
-| **vm_size** | string  | - | 
-| **storage_image_reference** | block  | - | 
-| **data_disks** | block  | - | 
-| **display_name** | string  | - | 
-| **disk_encryption** | block  | - | 
-| **extensions** | block  | - | 
-| **inter_node_communication** | bool  | - | 
-| **identity** | block  | - | 
-| **license_type** | string  | - | 
-| **max_tasks_per_node** | int  | - | 
-| **fixed_scale** | block  | - | 
-| **auto_scale** | block  | - | 
-| **start_task** | block  | - | 
-| **certificate** | list  | - | 
-| **container_configuration** | block  | - | 
-| **metadata** | string  | - | 
-| **mount** | block  | - | 
-| **network_configuration** | block  | - | 
-| **node_placement** | block  | - | 
-| **os_disk_placement** | string  | - | 
-| **target_node_communication_mode** | string  | - | 
-| **task_scheduling_policy** | block  | - | 
-| **user_accounts** | block  | - | 
-| **windows** | block  | - | 
-| **id** | string  | The ID of the Batch Pool. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Batch Pool. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "batch/batch_pool" 
-}
-
-inputs = {
-   name = "name of batch_pool" 
-   resource_group_name = "${resource_group}" 
-   account_name = "account_name of batch_pool" 
-   node_agent_sku_id = "node_agent_sku_id of batch_pool" 
-   vm_size = "vm_size of batch_pool" 
-   storage_image_reference = "storage_image_reference of batch_pool" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

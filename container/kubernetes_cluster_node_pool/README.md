@@ -2,6 +2,29 @@
 
 Manages a Node Pool within a Kubernetes Cluster-> **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS - you can find [the latest version of the Azure Provider here](https://registry.terraform.io/providers/hashicorp/azurerm/latest).~> **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/kubernetes_cluster_node_pool" 
+}
+
+inputs = {
+   name = "name of kubernetes_cluster_node_pool" 
+   kubernetes_cluster_id = "kubernetes_cluster_id of kubernetes_cluster_node_pool" 
+   vm_size = "vm_size of kubernetes_cluster_node_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -54,72 +77,8 @@ Manages a Node Pool within a Kubernetes Cluster-> **Note:** Due to the fast-movi
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **kubernetes_cluster_id** | string  | - | 
-| **vm_size** | string  | - | 
-| **capacity_reservation_group_id** | string  | - | 
-| **custom_ca_trust_enabled** | bool  | - | 
-| **enable_auto_scaling** | bool  | - | 
-| **enable_host_encryption** | bool  | - | 
-| **enable_node_public_ip** | bool  | - | 
-| **eviction_policy** | string  | - | 
-| **host_group_id** | string  | - | 
-| **kubelet_config** | block  | - | 
-| **linux_os_config** | block  | - | 
-| **fips_enabled** | bool  | - | 
-| **gpu_instance** | string  | - | 
-| **kubelet_disk_type** | string  | - | 
-| **max_pods** | int  | - | 
-| **message_of_the_day** | string  | - | 
-| **mode** | string  | - | 
-| **node_network_profile** | block  | - | 
-| **node_labels** | string  | - | 
-| **node_public_ip_prefix_id** | string  | - | 
-| **node_taints** | list  | - | 
-| **orchestrator_version** | string  | - | 
-| **os_disk_size_gb** | int  | - | 
-| **os_disk_type** | string  | - | 
-| **pod_subnet_id** | string  | - | 
-| **os_sku** | string  | - | 
-| **os_type** | string  | - | 
-| **priority** | string  | - | 
-| **proximity_placement_group_id** | string  | - | 
-| **spot_max_price** | string  | - | 
-| **snapshot_id** | string  | - | 
-| **tags** | map  | - | 
-| **scale_down_mode** | string  | - | 
-| **ultra_ssd_enabled** | bool  | - | 
-| **upgrade_settings** | block  | - | 
-| **vnet_subnet_id** | string  | - | 
-| **windows_profile** | block  | - | 
-| **workload_runtime** | string  | - | 
-| **zones** | string  | - | 
-| **max_count** | string  | - | 
-| **min_count** | string  | - | 
-| **node_count** | string  | - | 
-| **id** | string  | The ID of the Kubernetes Cluster Node Pool. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Kubernetes Cluster Node Pool. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/kubernetes_cluster_node_pool" 
-}
-
-inputs = {
-   name = "name of kubernetes_cluster_node_pool" 
-   kubernetes_cluster_id = "kubernetes_cluster_id of kubernetes_cluster_node_pool" 
-   vm_size = "vm_size of kubernetes_cluster_node_pool" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,29 @@
 
 Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_azure_file_storage" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_azure_file_storage" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_azure_file_storage" 
+   connection_string = "connection_string of data_factory_linked_service_azure_file_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Description |
@@ -24,42 +47,8 @@ Manages a Linked Service (connection) between a SFTP Server and Azure Data Facto
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **description** | string  | - | 
-| **host** | string  | - | 
-| **integration_runtime_name** | string  | - | 
-| **annotations** | string  | - | 
-| **parameters** | string  | - | 
-| **password** | string  | - | 
-| **user_id** | string  | - | 
-| **additional_properties** | string  | - | 
-| **connection_string** | string  | - | 
-| **file_share** | string  | - | 
-| **key_vault_password** | block  | - | 
-| **id** | string  | The ID of the Data Factory Linked Service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Linked Service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_azure_file_storage" 
-}
-
-inputs = {
-   name = "name of data_factory_linked_service_azure_file_storage" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_azure_file_storage" 
-   connection_string = "connection_string of data_factory_linked_service_azure_file_storage" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

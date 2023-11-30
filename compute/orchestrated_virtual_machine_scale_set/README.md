@@ -2,6 +2,30 @@
 
 Manages an Orchestrated Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Flexible** Orchestration Mode.-> **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/orchestrated_virtual_machine_scale_set" 
+}
+
+inputs = {
+   name = "name of orchestrated_virtual_machine_scale_set" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   platform_fault_domain_count = "platform_fault_domain_count of orchestrated_virtual_machine_scale_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -45,65 +69,9 @@ Manages an Orchestrated Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As 
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **platform_fault_domain_count** | int  | - | 
-| **sku_name** | string  | - | 
-| **additional_capabilities** | block  | - | 
-| **encryption_at_host_enabled** | bool  | - | 
-| **instances** | int  | - | 
-| **network_interface** | block  | - | 
-| **os_profile** | block  | - | 
-| **os_disk** | block  | - | 
-| **automatic_instance_repair** | block  | - | 
-| **boot_diagnostics** | block  | - | 
-| **capacity_reservation_group_id** | string  | - | 
-| **data_disk** | block  | - | 
-| **extension** | block  | - | 
-| **extension_operations_enabled** | bool  | - | 
-| **extensions_time_budget** | string  | - | 
-| **eviction_policy** | string  | - | 
-| **identity** | block  | - | 
-| **license_type** | string  | - | 
-| **max_bid_price** | string  | - | 
-| **plan** | block  | - | 
-| **priority** | string  | - | 
-| **single_placement_group** | string  | - | 
-| **source_image_id** | string  | - | 
-| **source_image_reference** | block  | - | 
-| **termination_notification** | block  | - | 
-| **user_data_base64** | string  | - | 
-| **proximity_placement_group_id** | string  | - | 
-| **zone_balance** | bool  | - | 
-| **zones** | string  | - | 
-| **tags** | map  | - | 
-| **priority_mix** | block  | - | 
-| **id** | string  | The ID of the Orchestrated Virtual Machine Scale Set. | 
-| **unique_id** | string  | The Unique ID for the Orchestrated Virtual Machine Scale Set. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Orchestrated Virtual Machine Scale Set. | 
+| **unique_id** | string | No  | The Unique ID for the Orchestrated Virtual Machine Scale Set. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/orchestrated_virtual_machine_scale_set" 
-}
-
-inputs = {
-   name = "name of orchestrated_virtual_machine_scale_set" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   platform_fault_domain_count = "platform_fault_domain_count of orchestrated_virtual_machine_scale_set" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

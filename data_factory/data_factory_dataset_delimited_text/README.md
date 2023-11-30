@@ -2,6 +2,29 @@
 
 Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_delimited_text" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_delimited_text" 
+   data_factory_id = "data_factory_id of data_factory_dataset_delimited_text" 
+   linked_service_name = "linked_service_name of data_factory_dataset_delimited_text" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -32,50 +55,8 @@ Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **linked_service_name** | string  | - | 
-| **folder** | string  | - | 
-| **schema_column** | block  | - | 
-| **description** | string  | - | 
-| **annotations** | string  | - | 
-| **parameters** | string  | - | 
-| **additional_properties** | string  | - | 
-| **azure_blob_fs_location** | block  | - | 
-| **azure_blob_storage_location** | block  | - | 
-| **http_server_location** | block  | - | 
-| **column_delimiter** | string  | - | 
-| **row_delimiter** | string  | - | 
-| **encoding** | string  | - | 
-| **quote_character** | string  | - | 
-| **escape_character** | string  | - | 
-| **first_row_as_header** | bool  | - | 
-| **null_value** | string  | - | 
-| **compression_codec** | string  | - | 
-| **compression_level** | string  | - | 
-| **id** | string  | The ID of the Data Factory Dataset. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Dataset. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_delimited_text" 
-}
-
-inputs = {
-   name = "name of data_factory_dataset_delimited_text" 
-   data_factory_id = "data_factory_id of data_factory_dataset_delimited_text" 
-   linked_service_name = "linked_service_name of data_factory_dataset_delimited_text" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

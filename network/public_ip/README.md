@@ -2,6 +2,30 @@
 
 Manages a Public IP Address.~> **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azurerm_network_interface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/public_ip" 
+}
+
+inputs = {
+   name = "name of public_ip" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   allocation_method = "allocation_method of public_ip" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,49 +52,10 @@ Manages a Public IP Address.~> **Note** If this resource is to be associated wit
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **allocation_method** | string  | - | 
-| **zones** | string  | - | 
-| **ddos_protection_mode** | string  | - | 
-| **ddos_protection_plan_id** | string  | - | 
-| **domain_name_label** | string  | - | 
-| **edge_zone** | string  | - | 
-| **idle_timeout_in_minutes** | int  | - | 
-| **ip_tags** | map  | - | 
-| **ip_version** | string  | - | 
-| **public_ip_prefix_id** | string  | - | 
-| **reverse_fqdn** | string  | - | 
-| **sku** | string  | - | 
-| **sku_tier** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of this Public IP. | 
-| **ip_address** | string  | The IP address value that was allocated. | 
-| **fqdn** | string  | Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of this Public IP. | 
+| **ip_address** | string | No  | The IP address value that was allocated. | 
+| **fqdn** | string | No  | Fully qualified domain name of the A DNS record associated with the public IP. `domain_name_label` must be specified to get the `fqdn`. This is the concatenation of the `domain_name_label` and the regionalized DNS zone | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/public_ip" 
-}
-
-inputs = {
-   name = "name of public_ip" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   allocation_method = "allocation_method of public_ip" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

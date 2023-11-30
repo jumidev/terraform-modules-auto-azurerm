@@ -2,6 +2,32 @@
 
 Manages a Logic App (Standard / Single Tenant)
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_standard" 
+}
+
+inputs = {
+   name = "name of logic_app_standard" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of logic_app_standard" 
+   storage_account_name = "storage_account_name of logic_app_standard" 
+   storage_account_access_key = "storage_account_access_key of logic_app_standard" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -31,64 +57,20 @@ Manages a Logic App (Standard / Single Tenant)
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **app_service_plan_id** | string  | - | 
-| **app_settings** | string  | - | 
-| **use_extension_bundle** | bool  | - | 
-| **bundle_version** | string  | - | 
-| **connection_string** | block  | - | 
-| **client_affinity_enabled** | bool  | - | 
-| **client_certificate_mode** | string  | - | 
-| **enabled** | bool  | - | 
-| **https_only** | bool  | - | 
-| **identity** | block  | - | 
-| **site_config** | block  | - | 
-| **storage_account_name** | string  | - | 
-| **storage_account_access_key** | string  | - | 
-| **storage_account_share_name** | string  | - | 
-| **version** | string  | - | 
-| **virtual_network_subnet_id** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Logic App | 
-| **custom_domain_verification_id** | string  | An identifier used by App Service to perform domain ownership verification via DNS TXT record. | 
-| **default_hostname** | string  | The default hostname associated with the Logic App - such as `mysite.azurewebsites.net` | 
-| **outbound_ip_addresses** | string  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12` | 
-| **possible_outbound_ip_addresses** | string  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`. | 
-| **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this App Service. | 
-| **site_credential** | block  | A `site_credential` block, which contains the site-level credentials used to publish to this App Service. | 
-| **kind** | string  | The Logic App kind - will be `functionapp,workflowapp` | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
-| **username** | string  | The username which can be used to publish to this App Service | 
-| **password** | string  | The password associated with the username, which can be used to publish to this App Service. | 
-| **auto_swap_slot_name** | string  | The Auto-swap slot name. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Logic App | 
+| **custom_domain_verification_id** | string | No  | An identifier used by App Service to perform domain ownership verification via DNS TXT record. | 
+| **default_hostname** | string | No  | The default hostname associated with the Logic App - such as `mysite.azurewebsites.net` | 
+| **outbound_ip_addresses** | string | No  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12` | 
+| **possible_outbound_ip_addresses** | string | No  | A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`. | 
+| **identity** | block | No  | An `identity` block, which contains the Managed Service Identity information for this App Service. | 
+| **site_credential** | block | No  | A `site_credential` block, which contains the site-level credentials used to publish to this App Service. | 
+| **kind** | string | No  | The Logic App kind - will be `functionapp,workflowapp` | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
+| **username** | string | No  | The username which can be used to publish to this App Service | 
+| **password** | string | No  | The password associated with the username, which can be used to publish to this App Service. | 
+| **auto_swap_slot_name** | string | No  | The Auto-swap slot name. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_standard" 
-}
-
-inputs = {
-   name = "name of logic_app_standard" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   app_service_plan_id = "app_service_plan_id of logic_app_standard" 
-   storage_account_name = "storage_account_name of logic_app_standard" 
-   storage_account_access_key = "storage_account_access_key of logic_app_standard" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

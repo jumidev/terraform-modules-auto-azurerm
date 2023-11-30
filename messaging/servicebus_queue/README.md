@@ -2,6 +2,28 @@
 
 Manages a ServiceBus Queue.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_queue" 
+}
+
+inputs = {
+   name = "name of servicebus_queue" 
+   namespace_id = "namespace_id of servicebus_queue" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -29,46 +51,8 @@ Manages a ServiceBus Queue.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **namespace_id** | string  | - | 
-| **lock_duration** | string  | - | 
-| **max_message_size_in_kilobytes** | int  | - | 
-| **max_size_in_megabytes** | int  | - | 
-| **requires_duplicate_detection** | bool  | - | 
-| **requires_session** | bool  | - | 
-| **default_message_ttl** | string  | - | 
-| **dead_lettering_on_message_expiration** | bool  | - | 
-| **duplicate_detection_history_time_window** | string  | - | 
-| **max_delivery_count** | int  | - | 
-| **status** | string  | - | 
-| **enable_batched_operations** | bool  | - | 
-| **auto_delete_on_idle** | string  | - | 
-| **enable_partitioning** | bool  | - | 
-| **enable_express** | bool  | - | 
-| **forward_to** | string  | - | 
-| **forward_dead_lettered_messages_to** | string  | - | 
-| **id** | string  | The ServiceBus Queue ID. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ServiceBus Queue ID. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_queue" 
-}
-
-inputs = {
-   name = "name of servicebus_queue" 
-   namespace_id = "namespace_id of servicebus_queue" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

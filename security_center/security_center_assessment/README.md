@@ -2,28 +2,7 @@
 
 Manages the Security Center Assessment for Azure Security Center.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.assessment_policy_id** | string | True | The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
-| **var.target_resource_id** | string | True | The ID of the target resource. Changing this forces a new security Assessment to be created. | 
-| **var.status** | block | True | A `status` block. | 
-| **var.additional_data** | string | False | A map of additional data to associate with the assessment. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **assessment_policy_id** | string  | - | 
-| **target_resource_id** | string  | - | 
-| **status** | block  | - | 
-| **additional_data** | string  | - | 
-| **id** | string  | The ID of the Security Center Assessment. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -45,3 +24,22 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.assessment_policy_id** | string | True | The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
+| **var.target_resource_id** | string | True | The ID of the target resource. Changing this forces a new security Assessment to be created. | 
+| **var.status** | block | True | A `status` block. | 
+| **var.additional_data** | string | False | A map of additional data to associate with the assessment. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Security Center Assessment. | 
+
+Additionally, all variables are provided as outputs.

@@ -2,28 +2,7 @@
 
 Manages the Network ACL for a Web Pubsub.
 
-## Variables
-
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.web_pubsub_id** | string | True | -  |  -  |  The ID of the Web Pubsub service. Changing this forces a new resource to be created. | 
-| **var.default_action** | string | False | `Deny`  |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`. | 
-| **var.public_network** | block | True | -  |  -  |  A `public_network` block. | 
-| **var.private_endpoint** | block | False | -  |  -  |  A `private_endpoint` block. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **web_pubsub_id** | string  | - | 
-| **default_action** | string  | - | 
-| **public_network** | block  | - | 
-| **private_endpoint** | block  | - | 
-| **id** | string  | The ID of the Web Pubsub service. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -44,3 +23,22 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Default  |  possible values |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.web_pubsub_id** | string | True | -  |  -  |  The ID of the Web Pubsub service. Changing this forces a new resource to be created. | 
+| **var.default_action** | string | False | `Deny`  |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`. | 
+| **var.public_network** | block | True | -  |  -  |  A `public_network` block. | 
+| **var.private_endpoint** | block | False | -  |  -  |  A `private_endpoint` block. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Web Pubsub service. | 
+
+Additionally, all variables are provided as outputs.

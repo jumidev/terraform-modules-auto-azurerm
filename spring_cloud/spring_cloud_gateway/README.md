@@ -2,6 +2,28 @@
 
 -> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.Manages a Spring Cloud Gateway.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_gateway" 
+}
+
+inputs = {
+   name = "name of spring_cloud_gateway" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -24,42 +46,9 @@
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **spring_cloud_service_id** | string  | - | 
-| **api_metadata** | block  | - | 
-| **application_performance_monitoring_types** | string  | - | 
-| **client_authorization** | block  | - | 
-| **cors** | block  | - | 
-| **environment_variables** | string  | - | 
-| **https_only** | string  | - | 
-| **instance_count** | int  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **quota** | block  | - | 
-| **sensitive_environment_variables** | string  | - | 
-| **sso** | block  | - | 
-| **id** | string  | The ID of the Spring Cloud Gateway. | 
-| **url** | string  | URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Spring Cloud Gateway. | 
+| **url** | string | No  | URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_gateway" 
-}
-
-inputs = {
-   name = "name of spring_cloud_gateway" 
-   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_gateway" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

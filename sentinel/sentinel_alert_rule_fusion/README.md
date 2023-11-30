@@ -2,30 +2,7 @@
 
 Manages a Sentinel Fusion Alert Rule.
 
-## Variables
-
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
-| **var.log_analytics_workspace_id** | string | True | -  |  The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
-| **var.alert_rule_template_guid** | string | True | -  |  The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
-| **var.enabled** | bool | False | `True`  |  Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`. | 
-| **var.source** | block | False | -  |  One or more `source` blocks. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **log_analytics_workspace_id** | string  | - | 
-| **alert_rule_template_guid** | string  | - | 
-| **enabled** | bool  | - | 
-| **source** | block  | - | 
-| **id** | string  | The ID of the Sentinel Fusion Alert Rule. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -47,3 +24,23 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
+| **var.log_analytics_workspace_id** | string | True | -  |  The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
+| **var.alert_rule_template_guid** | string | True | -  |  The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
+| **var.enabled** | bool | False | `True`  |  Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`. | 
+| **var.source** | block | False | -  |  One or more `source` blocks. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Sentinel Fusion Alert Rule. | 
+
+Additionally, all variables are provided as outputs.

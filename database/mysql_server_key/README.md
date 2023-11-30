@@ -2,24 +2,7 @@
 
 Manages a Customer Managed Key for a MySQL Server.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.server_id** | string | True | The ID of the MySQL Server. Changing this forces a new resource to be created. | 
-| **var.key_vault_key_id** | string | True | The URL to a Key Vault Key. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **server_id** | string  | - | 
-| **key_vault_key_id** | string  | - | 
-| **id** | string  | The ID of the MySQL Server Key. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -40,3 +23,20 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.server_id** | string | True | The ID of the MySQL Server. Changing this forces a new resource to be created. | 
+| **var.key_vault_key_id** | string | True | The URL to a Key Vault Key. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the MySQL Server Key. | 
+
+Additionally, all variables are provided as outputs.

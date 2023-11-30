@@ -2,6 +2,32 @@
 
 Manages a MariaDB Server.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mariadb_server" 
+}
+
+inputs = {
+   name = "name of mariadb_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of mariadb_server" 
+   version = "version of mariadb_server" 
+   ssl_enforcement_enabled = "ssl_enforcement_enabled of mariadb_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -29,51 +55,9 @@ Manages a MariaDB Server.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku_name** | string  | - | 
-| **version** | string  | - | 
-| **administrator_login** | string  | - | 
-| **administrator_login_password** | string  | - | 
-| **auto_grow_enabled** | bool  | - | 
-| **backup_retention_days** | int  | - | 
-| **create_mode** | string  | - | 
-| **creation_source_server_id** | string  | - | 
-| **geo_redundant_backup_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **restore_point_in_time** | string  | - | 
-| **ssl_enforcement_enabled** | string  | - | 
-| **ssl_minimal_tls_version_enforced** | string  | - | 
-| **storage_mb** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the MariaDB Server. | 
-| **fqdn** | string  | The FQDN of the MariaDB Server. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the MariaDB Server. | 
+| **fqdn** | string | No  | The FQDN of the MariaDB Server. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mariadb_server" 
-}
-
-inputs = {
-   name = "name of mariadb_server" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku_name = "sku_name of mariadb_server" 
-   version = "version of mariadb_server" 
-   ssl_enforcement_enabled = "ssl_enforcement_enabled of mariadb_server" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

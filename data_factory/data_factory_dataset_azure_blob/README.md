@@ -2,6 +2,29 @@
 
 Manages an Azure Blob Dataset inside an Azure Data Factory.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_azure_blob" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_azure_blob" 
+   data_factory_id = "data_factory_id of data_factory_dataset_azure_blob" 
+   linked_service_name = "linked_service_name of data_factory_dataset_azure_blob" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -24,42 +47,8 @@ Manages an Azure Blob Dataset inside an Azure Data Factory.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **data_factory_id** | string  | - | 
-| **linked_service_name** | string  | - | 
-| **folder** | string  | - | 
-| **schema_column** | block  | - | 
-| **description** | string  | - | 
-| **annotations** | string  | - | 
-| **parameters** | string  | - | 
-| **additional_properties** | string  | - | 
-| **path** | string  | - | 
-| **filename** | string  | - | 
-| **dynamic_path_enabled** | bool  | - | 
-| **dynamic_filename_enabled** | bool  | - | 
-| **id** | string  | The ID of the Data Factory Dataset. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Data Factory Dataset. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_azure_blob" 
-}
-
-inputs = {
-   name = "name of data_factory_dataset_azure_blob" 
-   data_factory_id = "data_factory_id of data_factory_dataset_azure_blob" 
-   linked_service_name = "linked_service_name of data_factory_dataset_azure_blob" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

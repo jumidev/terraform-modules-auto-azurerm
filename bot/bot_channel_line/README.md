@@ -2,28 +2,7 @@
 
 Manages a Line integration for a Bot Channel~> **Note** A bot can only have a single Line Channel associated with it.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string | True | The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.line_channel** | block | True | One or more `line_channel` blocks. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **bot_name** | string  | - | 
-| **line_channel** | block  | - | 
-| **id** | string  | The ID of the Line Integration for a Bot Channel. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -46,3 +25,22 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.resource_group_name** | string | True | The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.line_channel** | block | True | One or more `line_channel` blocks. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Line Integration for a Bot Channel. | 
+
+Additionally, all variables are provided as outputs.

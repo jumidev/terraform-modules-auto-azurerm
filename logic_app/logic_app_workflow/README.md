@@ -2,6 +2,29 @@
 
 Manages a Logic App Workflow.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_workflow" 
+}
+
+inputs = {
+   name = "name of logic_app_workflow" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -24,50 +47,16 @@ Manages a Logic App Workflow.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **access_control** | block  | - | 
-| **identity** | block  | - | 
-| **integration_service_environment_id** | string  | - | 
-| **logic_app_integration_account_id** | string  | - | 
-| **enabled** | bool  | - | 
-| **workflow_parameters** | string  | - | 
-| **workflow_schema** | string  | - | 
-| **workflow_version** | string  | - | 
-| **parameters** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The Logic App Workflow ID. | 
-| **access_endpoint** | string  | The Access Endpoint for the Logic App Workflow. | 
-| **connector_endpoint_ip_addresses** | string  | The list of access endpoint IP addresses of connector. | 
-| **connector_outbound_ip_addresses** | string  | The list of outgoing IP addresses of connector. | 
-| **identity** | block  | An `identity` block. | 
-| **workflow_endpoint_ip_addresses** | string  | The list of access endpoint IP addresses of workflow. | 
-| **workflow_outbound_ip_addresses** | string  | The list of outgoing IP addresses of workflow. | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Logic App Workflow ID. | 
+| **access_endpoint** | string | No  | The Access Endpoint for the Logic App Workflow. | 
+| **connector_endpoint_ip_addresses** | string | No  | The list of access endpoint IP addresses of connector. | 
+| **connector_outbound_ip_addresses** | string | No  | The list of outgoing IP addresses of connector. | 
+| **identity** | block | No  | An `identity` block. | 
+| **workflow_endpoint_ip_addresses** | string | No  | The list of access endpoint IP addresses of workflow. | 
+| **workflow_outbound_ip_addresses** | string | No  | The list of outgoing IP addresses of workflow. | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_workflow" 
-}
-
-inputs = {
-   name = "name of logic_app_workflow" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

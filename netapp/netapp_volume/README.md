@@ -2,6 +2,35 @@
 
 Manages a NetApp Volume.## NetApp Volume Usage```hclresource "azurerm_resource_group" "example" {name     = "example-resources"location = "West Europe"}resource "azurerm_virtual_network" "example" {name                = "example-virtualnetwork"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.nameaddress_space       = ["10.0.0.0/16"]}resource "azurerm_subnet" "example" {name                 = "example-subnet"resource_group_name  = azurerm_resource_group.example.namevirtual_network_name = azurerm_virtual_network.example.nameaddress_prefixes     = ["10.0.2.0/24"]delegation {name = "netapp"service_delegation {name    = "Microsoft.Netapp/volumes"actions = ["Microsoft.Network/networkinterfaces/*", "Microsoft.Network/virtualNetworks/subnets/join/action"]}}}resource "azurerm_netapp_account" "example" {name                = "example-netappaccount"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.name}resource "azurerm_netapp_pool" "example" {name                = "example-netapppool"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.nameaccount_name        = azurerm_netapp_account.example.nameservice_level       = "Premium"size_in_tb          = 4}resource "azurerm_netapp_volume" "example" {lifecycle {prevent_destroy = true}name                       = "example-netappvolume"location                   = azurerm_resource_group.example.locationzone                       = "1"resource_group_name        = azurerm_resource_group.example.nameaccount_name               = azurerm_netapp_account.example.namepool_name                  = azurerm_netapp_pool.example.namevolume_path                = "my-unique-file-path"service_level              = "Premium"subnet_id                  = azurerm_subnet.example.idnetwork_features           = "Basic"protocols                  = ["NFSv4.1"]security_style             = "unix"storage_quota_in_gb        = 100snapshot_directory_visible = false# When creating volume from a snapshotcreate_from_snapshot_resource_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1"# Following section is only required if deploying a data protection volume (secondary)# to enable Cross-Region Replication featuredata_protection_replication {endpoint_type             = "dst"remote_volume_location    = azurerm_resource_group.example.locationremote_volume_resource_id = azurerm_netapp_volume.example.idreplication_frequency     = "10minutes"}# Enabling Snapshot Policy for the volume# Note: this cannot be used in conjunction with data_protection_replication when endpoint_type is dstdata_protection_snapshot_policy {snapshot_policy_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotpolicy1"}}```
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "netapp/netapp_volume" 
+}
+
+inputs = {
+   name = "name of netapp_volume" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   account_name = "account_name of netapp_volume" 
+   volume_path = "volume_path of netapp_volume" 
+   pool_name = "pool_name of netapp_volume" 
+   service_level = "service_level of netapp_volume" 
+   subnet_id = "subnet_id of netapp_volume" 
+   storage_quota_in_gb = "storage_quota_in_gb of netapp_volume" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -32,57 +61,9 @@ Manages a NetApp Volume.## NetApp Volume Usage```hclresource "azurerm_resource_g
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **zone** | string  | - | 
-| **account_name** | string  | - | 
-| **volume_path** | string  | - | 
-| **pool_name** | string  | - | 
-| **service_level** | string  | - | 
-| **azure_vmware_data_store_enabled** | bool  | - | 
-| **protocols** | string  | - | 
-| **security_style** | string  | - | 
-| **subnet_id** | string  | - | 
-| **network_features** | string  | - | 
-| **storage_quota_in_gb** | int  | - | 
-| **snapshot_directory_visible** | bool  | - | 
-| **create_from_snapshot_resource_id** | string  | - | 
-| **data_protection_replication** | block  | - | 
-| **data_protection_snapshot_policy** | block  | - | 
-| **export_policy_rule** | list  | - | 
-| **throughput_in_mibps** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the NetApp Volume. | 
-| **mount_ip_addresses** | list  | A list of IPv4 Addresses which should be used to mount the volume. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the NetApp Volume. | 
+| **mount_ip_addresses** | list | No  | A list of IPv4 Addresses which should be used to mount the volume. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "netapp/netapp_volume" 
-}
-
-inputs = {
-   name = "name of netapp_volume" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   account_name = "account_name of netapp_volume" 
-   volume_path = "volume_path of netapp_volume" 
-   pool_name = "pool_name of netapp_volume" 
-   service_level = "service_level of netapp_volume" 
-   subnet_id = "subnet_id of netapp_volume" 
-   storage_quota_in_gb = "storage_quota_in_gb of netapp_volume" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,29 @@
 
 Manages an EventGrid Domain
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventgrid_domain" 
+}
+
+inputs = {
+   name = "name of eventgrid_domain" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -24,48 +47,14 @@ Manages an EventGrid Domain
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **identity** | block  | - | 
-| **input_schema** | string  | - | 
-| **input_mapping_fields** | block  | - | 
-| **input_mapping_default_values** | block  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **local_auth_enabled** | bool  | - | 
-| **auto_create_topic_with_first_subscription** | bool  | - | 
-| **auto_delete_topic_with_last_subscription** | bool  | - | 
-| **inbound_ip_rule** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the EventGrid Domain. | 
-| **endpoint** | string  | The Endpoint associated with the EventGrid Domain. | 
-| **primary_access_key** | string  | The Primary Shared Access Key associated with the EventGrid Domain. | 
-| **secondary_access_key** | string  | The Secondary Shared Access Key associated with the EventGrid Domain. | 
-| **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this Event Grid Domain. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the EventGrid Domain. | 
+| **endpoint** | string | No  | The Endpoint associated with the EventGrid Domain. | 
+| **primary_access_key** | string | No  | The Primary Shared Access Key associated with the EventGrid Domain. | 
+| **secondary_access_key** | string | No  | The Secondary Shared Access Key associated with the EventGrid Domain. | 
+| **identity** | block | No  | An `identity` block, which contains the Managed Service Identity information for this Event Grid Domain. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventgrid_domain" 
-}
-
-inputs = {
-   name = "name of eventgrid_domain" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

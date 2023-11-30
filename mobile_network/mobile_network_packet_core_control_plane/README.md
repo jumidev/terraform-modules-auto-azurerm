@@ -2,6 +2,32 @@
 
 Manages a Mobile Network Packet Core Control Plane.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_packet_core_control_plane" 
+}
+
+inputs = {
+   name = "name of mobile_network_packet_core_control_plane" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   site_ids = "site_ids of mobile_network_packet_core_control_plane" 
+   sku = "sku of mobile_network_packet_core_control_plane" 
+   local_diagnostics_access = "local_diagnostics_access of mobile_network_packet_core_control_plane" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -28,49 +54,8 @@ Manages a Mobile Network Packet Core Control Plane.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **site_ids** | list  | - | 
-| **sku** | string  | - | 
-| **local_diagnostics_access** | block  | - | 
-| **control_plane_access_name** | string  | - | 
-| **control_plane_access_ipv4_address** | string  | - | 
-| **control_plane_access_ipv4_subnet** | string  | - | 
-| **control_plane_access_ipv4_gateway** | string  | - | 
-| **user_equipment_mtu_in_bytes** | string  | - | 
-| **core_network_technology** | string  | - | 
-| **platform** | block  | - | 
-| **identity** | block  | - | 
-| **interoperability_settings_json** | string  | - | 
-| **tags** | map  | - | 
-| **software_version** | string  | - | 
-| **id** | string  | The ID of the Mobile Network Packet Core Control Plane. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Mobile Network Packet Core Control Plane. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network_packet_core_control_plane" 
-}
-
-inputs = {
-   name = "name of mobile_network_packet_core_control_plane" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   site_ids = "site_ids of mobile_network_packet_core_control_plane" 
-   sku = "sku of mobile_network_packet_core_control_plane" 
-   local_diagnostics_access = "local_diagnostics_access of mobile_network_packet_core_control_plane" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

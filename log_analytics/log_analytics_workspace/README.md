@@ -2,6 +2,29 @@
 
 Manages a Log Analytics (formally Operational Insights) Workspace.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_workspace" 
+}
+
+inputs = {
+   name = "name of log_analytics_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -31,47 +54,11 @@ Manages a Log Analytics (formally Operational Insights) Workspace.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **allow_resource_only_permissions** | bool  | - | 
-| **local_authentication_disabled** | bool  | - | 
-| **sku** | string  | - | 
-| **retention_in_days** | string  | - | 
-| **daily_quota_gb** | int  | - | 
-| **cmk_for_query_forced** | string  | - | 
-| **identity** | block  | - | 
-| **internet_ingestion_enabled** | bool  | - | 
-| **internet_query_enabled** | bool  | - | 
-| **reservation_capacity_in_gb_per_day** | string  | - | 
-| **data_collection_rule_id** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The Log Analytics Workspace ID. | 
-| **primary_shared_key** | string  | The Primary shared key for the Log Analytics Workspace. | 
-| **secondary_shared_key** | string  | The Secondary shared key for the Log Analytics Workspace. | 
-| **workspace_id** | string  | The Workspace (or Customer) ID for the Log Analytics Workspace. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Log Analytics Workspace ID. | 
+| **primary_shared_key** | string | No  | The Primary shared key for the Log Analytics Workspace. | 
+| **secondary_shared_key** | string | No  | The Secondary shared key for the Log Analytics Workspace. | 
+| **workspace_id** | string | No  | The Workspace (or Customer) ID for the Log Analytics Workspace. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_workspace" 
-}
-
-inputs = {
-   name = "name of log_analytics_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

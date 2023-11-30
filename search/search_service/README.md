@@ -2,6 +2,30 @@
 
 Manages a Search Service.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "search/search_service" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of search_service" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of search_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,52 +50,15 @@ Manages a Search Service.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **location** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **sku** | string  | - | 
-| **allowed_ips** | string  | - | 
-| **authentication_failure_mode** | string  | - | 
-| **customer_managed_key_enforcement_enabled** | bool  | - | 
-| **hosting_mode** | string  | - | 
-| **identity** | block  | - | 
-| **local_authentication_enabled** | bool  | - | 
-| **partition_count** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **replica_count** | int  | - | 
-| **semantic_search_sku** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Search Service. | 
-| **primary_key** | string  | The Primary Key used for Search Service Administration. | 
-| **query_keys** | block  | A `query_keys` block. | 
-| **secondary_key** | string  | The Secondary Key used for Search Service Administration. | 
-| **key** | string  | The value of this Query Key. | 
-| **name** | string  | The name of this Query Key. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Search Service. | 
+| **primary_key** | string | No  | The Primary Key used for Search Service Administration. | 
+| **query_keys** | block | No  | A `query_keys` block. | 
+| **secondary_key** | string | No  | The Secondary Key used for Search Service Administration. | 
+| **key** | string | No  | The value of this Query Key. | 
+| **name** | string | No  | The name of this Query Key. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "search/search_service" 
-}
-
-inputs = {
-   location = "${location}" 
-   name = "name of search_service" 
-   resource_group_name = "${resource_group}" 
-   sku = "sku of search_service" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

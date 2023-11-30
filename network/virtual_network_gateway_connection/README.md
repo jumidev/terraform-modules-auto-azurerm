@@ -2,6 +2,31 @@
 
 Manages a connection in an existing Virtual Network Gateway.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_network_gateway_connection" 
+}
+
+inputs = {
+   name = "name of virtual_network_gateway_connection" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   type = "type of virtual_network_gateway_connection" 
+   virtual_network_gateway_id = "virtual_network_gateway_id of virtual_network_gateway_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -35,55 +60,8 @@ Manages a connection in an existing Virtual Network Gateway.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **type** | string  | - | 
-| **virtual_network_gateway_id** | string  | - | 
-| **authorization_key** | string  | - | 
-| **dpd_timeout_seconds** | int  | - | 
-| **express_route_circuit_id** | string  | - | 
-| **peer_virtual_network_gateway_id** | string  | - | 
-| **local_azure_ip_address_enabled** | bool  | - | 
-| **local_network_gateway_id** | string  | - | 
-| **routing_weight** | string  | - | 
-| **shared_key** | string  | - | 
-| **connection_mode** | string  | - | 
-| **connection_protocol** | string  | - | 
-| **enable_bgp** | bool  | - | 
-| **custom_bgp_addresses** | block  | - | 
-| **express_route_gateway_bypass** | string  | - | 
-| **egress_nat_rule_ids** | list  | - | 
-| **ingress_nat_rule_ids** | list  | - | 
-| **use_policy_based_traffic_selectors** | bool  | - | 
-| **ipsec_policy** | block  | - | 
-| **traffic_selector_policy** | list  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Virtual Network Gateway Connection. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Virtual Network Gateway Connection. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_gateway_connection" 
-}
-
-inputs = {
-   name = "name of virtual_network_gateway_connection" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   type = "type of virtual_network_gateway_connection" 
-   virtual_network_gateway_id = "virtual_network_gateway_id of virtual_network_gateway_connection" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

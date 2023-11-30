@@ -2,6 +2,28 @@
 
 Manages a MS SQL Database.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_database" 
+}
+
+inputs = {
+   name = "name of mssql_database" 
+   server_id = "server_id of mssql_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -35,52 +57,8 @@ Manages a MS SQL Database.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **server_id** | string  | - | 
-| **auto_pause_delay_in_minutes** | int  | - | 
-| **create_mode** | string  | - | 
-| **import** | block  | - | 
-| **creation_source_database_id** | string  | - | 
-| **collation** | string  | - | 
-| **elastic_pool_id** | string  | - | 
-| **geo_backup_enabled** | bool  | - | 
-| **maintenance_configuration_name** | string  | - | 
-| **ledger_enabled** | bool  | - | 
-| **license_type** | string  | - | 
-| **long_term_retention_policy** | block  | - | 
-| **max_size_gb** | int  | - | 
-| **min_capacity** | string  | - | 
-| **restore_point_in_time** | string  | - | 
-| **recover_database_id** | string  | - | 
-| **restore_dropped_database_id** | string  | - | 
-| **read_replica_count** | int  | - | 
-| **read_scale** | string  | - | 
-| **sample_name** | string  | - | 
-| **short_term_retention_policy** | block  | - | 
-| **sku_name** | string  | - | 
-| **storage_account_type** | string  | - | 
-| **id** | string  | The ID of the MS SQL Database. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the MS SQL Database. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_database" 
-}
-
-inputs = {
-   name = "name of mssql_database" 
-   server_id = "server_id of mssql_database" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

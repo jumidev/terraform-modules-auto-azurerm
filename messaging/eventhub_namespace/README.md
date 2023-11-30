@@ -2,6 +2,30 @@
 
 Manages an EventHub Namespace.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventhub_namespace" 
+}
+
+inputs = {
+   name = "name of eventhub_namespace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of eventhub_namespace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,54 +50,17 @@ Manages an EventHub Namespace.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | string  | - | 
-| **capacity** | string  | - | 
-| **auto_inflate_enabled** | bool  | - | 
-| **dedicated_cluster_id** | string  | - | 
-| **identity** | block  | - | 
-| **maximum_throughput_units** | string  | - | 
-| **zone_redundant** | bool  | - | 
-| **tags** | map  | - | 
-| **network_rulesets** | block  | - | 
-| **local_authentication_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **minimum_tls_version** | string  | - | 
-| **id** | string  | The EventHub Namespace ID. | 
-| **identity** | block  | An `identity` block. | 
-| **default_primary_connection_string** | string  | The primary connection string for the authorization rule `RootManageSharedAccessKey`. | 
-| **default_primary_connection_string_alias** | string  | The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled. | 
-| **default_primary_key** | string  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
-| **default_secondary_connection_string** | string  | The secondary connection string for the authorization rule `RootManageSharedAccessKey`. | 
-| **default_secondary_connection_string_alias** | string  | The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled. | 
-| **default_secondary_key** | string  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The EventHub Namespace ID. | 
+| **identity** | block | No  | An `identity` block. | 
+| **default_primary_connection_string** | string | No  | The primary connection string for the authorization rule `RootManageSharedAccessKey`. | 
+| **default_primary_connection_string_alias** | string | No  | The alias of the primary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled. | 
+| **default_primary_key** | string | No  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
+| **default_secondary_connection_string** | string | No  | The secondary connection string for the authorization rule `RootManageSharedAccessKey`. | 
+| **default_secondary_connection_string_alias** | string | No  | The alias of the secondary connection string for the authorization rule `RootManageSharedAccessKey`, which is generated when disaster recovery is enabled. | 
+| **default_secondary_key** | string | No  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub_namespace" 
-}
-
-inputs = {
-   name = "name of eventhub_namespace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of eventhub_namespace" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

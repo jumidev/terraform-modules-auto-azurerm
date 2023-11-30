@@ -2,6 +2,29 @@
 
 Manages an Action Group within Azure Monitor.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_action_group" 
+}
+
+inputs = {
+   name = "name of monitor_action_group" 
+   resource_group_name = "${resource_group}" 
+   short_name = "short_name of monitor_action_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -28,46 +51,8 @@ Manages an Action Group within Azure Monitor.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **short_name** | string  | - | 
-| **enabled** | bool  | - | 
-| **arm_role_receiver** | block  | - | 
-| **automation_runbook_receiver** | block  | - | 
-| **azure_app_push_receiver** | block  | - | 
-| **azure_function_receiver** | block  | - | 
-| **email_receiver** | block  | - | 
-| **event_hub_receiver** | block  | - | 
-| **itsm_receiver** | block  | - | 
-| **location** | string  | - | 
-| **logic_app_receiver** | block  | - | 
-| **sms_receiver** | block  | - | 
-| **voice_receiver** | block  | - | 
-| **webhook_receiver** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Action Group. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Action Group. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_action_group" 
-}
-
-inputs = {
-   name = "name of monitor_action_group" 
-   resource_group_name = "${resource_group}" 
-   short_name = "short_name of monitor_action_group" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

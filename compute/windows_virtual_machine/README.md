@@ -2,6 +2,34 @@
 
 Manages a Windows Virtual Machine.## Disclaimers-> **Note** Terraform will automatically remove the OS Disk by default - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).~> **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).~> **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use [the `azurerm_virtual_machine` resource](virtual_machine.html) instead.~> **Note** This resource does not support attaching existing OS Disks. You can instead [capture an image of the OS Disk](image.html) or continue to use [the `azurerm_virtual_machine` resource](virtual_machine.html) instead.~> In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/windows_virtual_machine" 
+}
+
+inputs = {
+   admin_password = "admin_password of windows_virtual_machine" 
+   admin_username = "admin_username of windows_virtual_machine" 
+   location = "${location}" 
+   name = "name of windows_virtual_machine" 
+   network_interface_ids = "network_interface_ids of windows_virtual_machine" 
+   os_disk = "os_disk of windows_virtual_machine" 
+   resource_group_name = "${resource_group}" 
+   size = "size of windows_virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -60,91 +88,16 @@ Manages a Windows Virtual Machine.## Disclaimers-> **Note** Terraform will autom
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **admin_password** | string  | - | 
-| **admin_username** | string  | - | 
-| **location** | string  | - | 
-| **name** | string  | - | 
-| **network_interface_ids** | list  | - | 
-| **os_disk** | block  | - | 
-| **resource_group_name** | string  | - | 
-| **size** | string  | - | 
-| **additional_capabilities** | block  | - | 
-| **additional_unattend_content** | block  | - | 
-| **allow_extension_operations** | bool  | - | 
-| **availability_set_id** | string  | - | 
-| **boot_diagnostics** | block  | - | 
-| **bypass_platform_safety_checks_on_user_schedule_enabled** | bool  | - | 
-| **capacity_reservation_group_id** | string  | - | 
-| **computer_name** | string  | - | 
-| **custom_data** | string  | - | 
-| **dedicated_host_id** | string  | - | 
-| **dedicated_host_group_id** | string  | - | 
-| **edge_zone** | string  | - | 
-| **enable_automatic_updates** | bool  | - | 
-| **encryption_at_host_enabled** | bool  | - | 
-| **eviction_policy** | string  | - | 
-| **extensions_time_budget** | string  | - | 
-| **gallery_application** | block  | - | 
-| **hotpatching_enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **license_type** | string  | - | 
-| **max_bid_price** | string  | - | 
-| **patch_assessment_mode** | string  | - | 
-| **patch_mode** | string  | - | 
-| **plan** | block  | - | 
-| **platform_fault_domain** | string  | - | 
-| **priority** | string  | - | 
-| **provision_vm_agent** | bool  | - | 
-| **proximity_placement_group_id** | string  | - | 
-| **reboot_setting** | string  | - | 
-| **secret** | block  | - | 
-| **secure_boot_enabled** | bool  | - | 
-| **source_image_id** | string  | - | 
-| **source_image_reference** | block  | - | 
-| **tags** | map  | - | 
-| **termination_notification** | block  | - | 
-| **timezone** | string  | - | 
-| **user_data** | string  | - | 
-| **virtual_machine_scale_set_id** | string  | - | 
-| **vtpm_enabled** | bool  | - | 
-| **winrm_listener** | block  | - | 
-| **zone** | string  | - | 
-| **id** | string  | The ID of the Windows Virtual Machine. | 
-| **identity** | block  | An `identity` block. | 
-| **private_ip_address** | string  | The Primary Private IP Address assigned to this Virtual Machine. | 
-| **private_ip_addresses** | list  | A list of Private IP Addresses assigned to this Virtual Machine. | 
-| **public_ip_address** | string  | The Primary Public IP Address assigned to this Virtual Machine. | 
-| **public_ip_addresses** | list  | A list of the Public IP Addresses assigned to this Virtual Machine. | 
-| **virtual_machine_id** | string  | A 128-bit identifier which uniquely identifies this Virtual Machine. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Windows Virtual Machine. | 
+| **identity** | block | No  | An `identity` block. | 
+| **private_ip_address** | string | No  | The Primary Private IP Address assigned to this Virtual Machine. | 
+| **private_ip_addresses** | list | No  | A list of Private IP Addresses assigned to this Virtual Machine. | 
+| **public_ip_address** | string | No  | The Primary Public IP Address assigned to this Virtual Machine. | 
+| **public_ip_addresses** | list | No  | A list of the Public IP Addresses assigned to this Virtual Machine. | 
+| **virtual_machine_id** | string | No  | A 128-bit identifier which uniquely identifies this Virtual Machine. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/windows_virtual_machine" 
-}
-
-inputs = {
-   admin_password = "admin_password of windows_virtual_machine" 
-   admin_username = "admin_username of windows_virtual_machine" 
-   location = "${location}" 
-   name = "name of windows_virtual_machine" 
-   network_interface_ids = "network_interface_ids of windows_virtual_machine" 
-   os_disk = "os_disk of windows_virtual_machine" 
-   resource_group_name = "${resource_group}" 
-   size = "size of windows_virtual_machine" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

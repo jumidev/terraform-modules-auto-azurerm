@@ -2,24 +2,7 @@
 
 Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.workspace_id** | string | True | The resource ID of the Databricks Workspace. | 
-| **var.key_vault_key_id** | string | True | The resource ID of the Key Vault Key to be used. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **workspace_id** | string  | - | 
-| **key_vault_key_id** | string  | - | 
-| **id** | string  | The ID of the Databricks Workspace. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -40,3 +23,20 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.workspace_id** | string | True | The resource ID of the Databricks Workspace. | 
+| **var.key_vault_key_id** | string | True | The resource ID of the Key Vault Key to be used. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Databricks Workspace. | 
+
+Additionally, all variables are provided as outputs.

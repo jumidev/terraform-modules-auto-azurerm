@@ -2,6 +2,30 @@
 
 Manages an IotHub~> **NOTE:** Endpoints can be defined either directly on the `azurerm_iothub` resource, or using the `azurerm_iothub_endpoint_*` resources - but the two ways of defining the endpoints cannot be used together. If both are used against the same IoTHub, spurious changes will occur. Also, defining a `azurerm_iothub_endpoint_*` resource and another endpoint of a different type directly on the `azurerm_iothub` resource is not supported.~> **NOTE:** Routes can be defined either directly on the `azurerm_iothub` resource, or using the `azurerm_iothub_route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.~> **NOTE:** Enrichments can be defined either directly on the `azurerm_iothub` resource, or using the `azurerm_iothub_enrichment` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.~> **NOTE:** Fallback route can be defined either directly on the `azurerm_iothub` resource, or using the `azurerm_iothub_fallback_route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.~> **NOTE:** File upload can be defined either directly on the `azurerm_iothub` resource, or using the `azurerm_iothub_file_upload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub" 
+}
+
+inputs = {
+   name = "name of iothub" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of iothub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -29,62 +53,22 @@ Manages an IotHub~> **NOTE:** Endpoints can be defined either directly on the `a
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | block  | - | 
-| **local_authentication_enabled** | bool  | - | 
-| **event_hub_partition_count** | int  | - | 
-| **event_hub_retention_in_days** | int  | - | 
-| **endpoint** | block  | - | 
-| **fallback_route** | block  | - | 
-| **file_upload** | block  | - | 
-| **identity** | block  | - | 
-| **network_rule_set** | block  | - | 
-| **route** | block  | - | 
-| **enrichment** | block  | - | 
-| **cloud_to_device** | block  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **min_tls_version** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the IoTHub. | 
-| **event_hub_events_endpoint** | string  | The EventHub compatible endpoint for events data | 
-| **event_hub_events_namespace** | string  | The EventHub namespace for events data | 
-| **event_hub_events_path** | string  | The EventHub compatible path for events data | 
-| **event_hub_operations_endpoint** | string  | The EventHub compatible endpoint for operational data | 
-| **event_hub_operations_path** | string  | The EventHub compatible path for operational data | 
-| **hostname** | string  | The hostname of the IotHub Resource. | 
-| **identity** | block  | An `identity` block. | 
-| **shared_access_policy** | block  | One or more `shared_access_policy` blocks. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
-| **key_name** | string  | The name of the shared access policy. | 
-| **primary_key** | string  | The primary key. | 
-| **secondary_key** | string  | The secondary key. | 
-| **permissions** | string  | The permissions assigned to the shared access policy. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the IoTHub. | 
+| **event_hub_events_endpoint** | string | No  | The EventHub compatible endpoint for events data | 
+| **event_hub_events_namespace** | string | No  | The EventHub namespace for events data | 
+| **event_hub_events_path** | string | No  | The EventHub compatible path for events data | 
+| **event_hub_operations_endpoint** | string | No  | The EventHub compatible endpoint for operational data | 
+| **event_hub_operations_path** | string | No  | The EventHub compatible path for operational data | 
+| **hostname** | string | No  | The hostname of the IotHub Resource. | 
+| **identity** | block | No  | An `identity` block. | 
+| **shared_access_policy** | block | No  | One or more `shared_access_policy` blocks. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
+| **key_name** | string | No  | The name of the shared access policy. | 
+| **primary_key** | string | No  | The primary key. | 
+| **secondary_key** | string | No  | The secondary key. | 
+| **permissions** | string | No  | The permissions assigned to the shared access policy. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub" 
-}
-
-inputs = {
-   name = "name of iothub" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of iothub" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

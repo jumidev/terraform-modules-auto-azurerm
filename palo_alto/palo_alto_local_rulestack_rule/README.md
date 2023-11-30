@@ -2,6 +2,33 @@
 
 Manages a Palo Alto Local Rulestack Rule.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_local_rulestack_rule" 
+}
+
+inputs = {
+   applications = "applications of palo_alto_local_rulestack_rule" 
+   rulestack_id = "rulestack_id of palo_alto_local_rulestack_rule" 
+   priority = "priority of palo_alto_local_rulestack_rule" 
+   action = "action of palo_alto_local_rulestack_rule" 
+   name = "name of palo_alto_local_rulestack_rule" 
+   destination = "destination of palo_alto_local_rulestack_rule" 
+   source = "source of palo_alto_local_rulestack_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,52 +57,8 @@ Manages a Palo Alto Local Rulestack Rule.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **applications** | string  | - | 
-| **rulestack_id** | string  | - | 
-| **priority** | string  | - | 
-| **action** | string  | - | 
-| **name** | string  | - | 
-| **destination** | block  | - | 
-| **source** | block  | - | 
-| **audit_comment** | string  | - | 
-| **category** | block  | - | 
-| **decryption_rule_type** | string  | - | 
-| **description** | string  | - | 
-| **enabled** | bool  | - | 
-| **inspection_certificate_id** | string  | - | 
-| **logging_enabled** | bool  | - | 
-| **negate_destination** | bool  | - | 
-| **negate_source** | bool  | - | 
-| **protocol** | string  | - | 
-| **protocol_ports** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Palo Alto Local Rulestack Rule. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Palo Alto Local Rulestack Rule. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "palo_alto/palo_alto_local_rulestack_rule" 
-}
-
-inputs = {
-   applications = "applications of palo_alto_local_rulestack_rule" 
-   rulestack_id = "rulestack_id of palo_alto_local_rulestack_rule" 
-   priority = "priority of palo_alto_local_rulestack_rule" 
-   action = "action of palo_alto_local_rulestack_rule" 
-   name = "name of palo_alto_local_rulestack_rule" 
-   destination = "destination of palo_alto_local_rulestack_rule" 
-   source = "source of palo_alto_local_rulestack_rule" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

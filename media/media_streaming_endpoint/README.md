@@ -2,6 +2,31 @@
 
 Manages a Streaming Endpoint.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_streaming_endpoint" 
+}
+
+inputs = {
+   location = "${location}" 
+   media_services_account_name = "media_services_account_name of media_streaming_endpoint" 
+   name = "name of media_streaming_endpoint" 
+   resource_group_name = "${resource_group}" 
+   scale_units = "scale_units of media_streaming_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -26,50 +51,12 @@ Manages a Streaming Endpoint.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **location** | string  | - | 
-| **media_services_account_name** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **scale_units** | string  | - | 
-| **access_control** | block  | - | 
-| **auto_start_enabled** | bool  | - | 
-| **cdn_enabled** | bool  | - | 
-| **cdn_profile** | string  | - | 
-| **cdn_provider** | string  | - | 
-| **cross_site_access_policy** | block  | - | 
-| **custom_host_names** | string  | - | 
-| **description** | string  | - | 
-| **max_cache_age_seconds** | int  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Streaming Endpoint. | 
-| **host_name** | string  | The host name of the Streaming Endpoint. | 
-| **sku** | block  | A `sku` block defined as below. | 
-| **name** | string  | The sku name of Streaming Endpoint. | 
-| **capacity** | string  | The sku capacity of Streaming Endpoint. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Streaming Endpoint. | 
+| **host_name** | string | No  | The host name of the Streaming Endpoint. | 
+| **sku** | block | No  | A `sku` block defined as below. | 
+| **name** | string | No  | The sku name of Streaming Endpoint. | 
+| **capacity** | string | No  | The sku capacity of Streaming Endpoint. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_streaming_endpoint" 
-}
-
-inputs = {
-   location = "${location}" 
-   media_services_account_name = "media_services_account_name of media_streaming_endpoint" 
-   name = "name of media_streaming_endpoint" 
-   resource_group_name = "${resource_group}" 
-   scale_units = "scale_units of media_streaming_endpoint" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

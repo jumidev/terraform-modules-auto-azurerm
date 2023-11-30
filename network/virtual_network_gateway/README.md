@@ -2,6 +2,32 @@
 
 Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.-> **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_network_gateway" 
+}
+
+inputs = {
+   ip_configuration = "ip_configuration of virtual_network_gateway" 
+   location = "${location}" 
+   name = "name of virtual_network_gateway" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of virtual_network_gateway" 
+   type = "type of virtual_network_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,53 +54,12 @@ Manages a Virtual Network Gateway to establish secure, cross-premises connectivi
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **ip_configuration** | list  | - | 
-| **location** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **sku** | string  | - | 
-| **type** | string  | - | 
-| **active_active** | bool  | - | 
-| **default_local_network_gateway_id** | string  | - | 
-| **edge_zone** | string  | - | 
-| **enable_bgp** | bool  | - | 
-| **bgp_settings** | block  | - | 
-| **custom_route** | block  | - | 
-| **generation** | string  | - | 
-| **private_ip_address_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **vpn_client_configuration** | block  | - | 
-| **vpn_type** | string  | - | 
-| **id** | string  | The ID of the Virtual Network Gateway. | 
-| **bgp_settings** | string  | A block of `bgp_settings`. | 
-| **peering_addresses** | list  | A list of `peering_addresses` as defined below. | 
-| **default_addresses** | list  | A list of peering address assigned to the BGP peer of the Virtual Network Gateway. | 
-| **tunnel_ip_addresses** | list  | A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Virtual Network Gateway. | 
+| **bgp_settings** | string | No  | A block of `bgp_settings`. | 
+| **peering_addresses** | list | No  | A list of `peering_addresses` as defined below. | 
+| **default_addresses** | list | No  | A list of peering address assigned to the BGP peer of the Virtual Network Gateway. | 
+| **tunnel_ip_addresses** | list | No  | A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_gateway" 
-}
-
-inputs = {
-   ip_configuration = "ip_configuration of virtual_network_gateway" 
-   location = "${location}" 
-   name = "name of virtual_network_gateway" 
-   resource_group_name = "${resource_group}" 
-   sku = "sku of virtual_network_gateway" 
-   type = "type of virtual_network_gateway" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

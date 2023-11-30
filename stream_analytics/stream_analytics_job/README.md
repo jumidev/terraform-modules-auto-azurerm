@@ -2,6 +2,29 @@
 
 Manages a Stream Analytics Job.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_job" 
+}
+
+inputs = {
+   name = "name of stream_analytics_job" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,48 +49,12 @@ Manages a Stream Analytics Job.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **stream_analytics_cluster_id** | string  | - | 
-| **compatibility_level** | string  | - | 
-| **data_locale** | string  | - | 
-| **events_late_arrival_max_delay_in_seconds** | int  | - | 
-| **events_out_of_order_max_delay_in_seconds** | int  | - | 
-| **events_out_of_order_policy** | string  | - | 
-| **type** | string  | - | 
-| **identity** | block  | - | 
-| **output_error_policy** | string  | - | 
-| **streaming_units** | int  | - | 
-| **content_storage_policy** | string  | - | 
-| **job_storage_account** | block  | - | 
-| **id** | string  | The ID of the Stream Analytics Job. | 
-| **job_id** | string  | The Job ID assigned by the Stream Analytics Job. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Stream Analytics Job. | 
+| **job_id** | string | No  | The Job ID assigned by the Stream Analytics Job. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_job" 
-}
-
-inputs = {
-   name = "name of stream_analytics_job" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

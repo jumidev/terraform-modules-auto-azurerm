@@ -2,6 +2,31 @@
 
 Manages an Azure Storage Account.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_account" 
+}
+
+inputs = {
+   name = "name of storage_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   account_tier = "account_tier of storage_account" 
+   account_replication_type = "account_replication_type of storage_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -47,102 +72,43 @@ Manages an Azure Storage Account.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **account_kind** | string  | - | 
-| **account_tier** | string  | - | 
-| **account_replication_type** | string  | - | 
-| **cross_tenant_replication_enabled** | bool  | - | 
-| **access_tier** | string  | - | 
-| **edge_zone** | string  | - | 
-| **enable_https_traffic_only** | bool  | - | 
-| **min_tls_version** | string  | - | 
-| **allow_nested_items_to_be_public** | bool  | - | 
-| **shared_access_key_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **default_to_oauth_authentication** | bool  | - | 
-| **is_hns_enabled** | bool  | - | 
-| **nfsv3_enabled** | bool  | - | 
-| **custom_domain** | block  | - | 
-| **customer_managed_key** | block  | - | 
-| **identity** | block  | - | 
-| **blob_properties** | block  | - | 
-| **queue_properties** | block  | - | 
-| **static_website** | block  | - | 
-| **share_properties** | block  | - | 
-| **network_rules** | block  | - | 
-| **large_file_share_enabled** | bool  | - | 
-| **azure_files_authentication** | block  | - | 
-| **routing** | block  | - | 
-| **queue_encryption_key_type** | string  | - | 
-| **table_encryption_key_type** | string  | - | 
-| **infrastructure_encryption_enabled** | bool  | - | 
-| **immutability_policy** | block  | - | 
-| **sas_policy** | block  | - | 
-| **allowed_copy_scope** | string  | - | 
-| **sftp_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Storage Account. | 
-| **primary_location** | string  | The primary location of the storage account. | 
-| **secondary_location** | string  | The secondary location of the storage account. | 
-| **primary_blob_endpoint** | string  | The endpoint URL for blob storage in the primary location. | 
-| **primary_blob_host** | string  | The hostname with port if applicable for blob storage in the primary location. | 
-| **secondary_blob_endpoint** | string  | The endpoint URL for blob storage in the secondary location. | 
-| **secondary_blob_host** | string  | The hostname with port if applicable for blob storage in the secondary location. | 
-| **primary_queue_endpoint** | string  | The endpoint URL for queue storage in the primary location. | 
-| **primary_queue_host** | string  | The hostname with port if applicable for queue storage in the primary location. | 
-| **secondary_queue_endpoint** | string  | The endpoint URL for queue storage in the secondary location. | 
-| **secondary_queue_host** | string  | The hostname with port if applicable for queue storage in the secondary location. | 
-| **primary_table_endpoint** | string  | The endpoint URL for table storage in the primary location. | 
-| **primary_table_host** | string  | The hostname with port if applicable for table storage in the primary location. | 
-| **secondary_table_endpoint** | string  | The endpoint URL for table storage in the secondary location. | 
-| **secondary_table_host** | string  | The hostname with port if applicable for table storage in the secondary location. | 
-| **primary_file_endpoint** | string  | The endpoint URL for file storage in the primary location. | 
-| **primary_file_host** | string  | The hostname with port if applicable for file storage in the primary location. | 
-| **secondary_file_endpoint** | string  | The endpoint URL for file storage in the secondary location. | 
-| **secondary_file_host** | string  | The hostname with port if applicable for file storage in the secondary location. | 
-| **primary_dfs_endpoint** | string  | The endpoint URL for DFS storage in the primary location. | 
-| **primary_dfs_host** | string  | The hostname with port if applicable for DFS storage in the primary location. | 
-| **secondary_dfs_endpoint** | string  | The endpoint URL for DFS storage in the secondary location. | 
-| **secondary_dfs_host** | string  | The hostname with port if applicable for DFS storage in the secondary location. | 
-| **primary_web_endpoint** | string  | The endpoint URL for web storage in the primary location. | 
-| **primary_web_host** | string  | The hostname with port if applicable for web storage in the primary location. | 
-| **secondary_web_endpoint** | string  | The endpoint URL for web storage in the secondary location. | 
-| **secondary_web_host** | string  | The hostname with port if applicable for web storage in the secondary location. | 
-| **primary_access_key** | string  | The primary access key for the storage account. | 
-| **secondary_access_key** | string  | The secondary access key for the storage account. | 
-| **primary_connection_string** | string  | The connection string associated with the primary location. | 
-| **secondary_connection_string** | string  | The connection string associated with the secondary location. | 
-| **primary_blob_connection_string** | string  | The connection string associated with the primary blob location. | 
-| **secondary_blob_connection_string** | string  | The connection string associated with the secondary blob location. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this Storage Account. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this Storage Account. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Storage Account. | 
+| **primary_location** | string | No  | The primary location of the storage account. | 
+| **secondary_location** | string | No  | The secondary location of the storage account. | 
+| **primary_blob_endpoint** | string | No  | The endpoint URL for blob storage in the primary location. | 
+| **primary_blob_host** | string | No  | The hostname with port if applicable for blob storage in the primary location. | 
+| **secondary_blob_endpoint** | string | No  | The endpoint URL for blob storage in the secondary location. | 
+| **secondary_blob_host** | string | No  | The hostname with port if applicable for blob storage in the secondary location. | 
+| **primary_queue_endpoint** | string | No  | The endpoint URL for queue storage in the primary location. | 
+| **primary_queue_host** | string | No  | The hostname with port if applicable for queue storage in the primary location. | 
+| **secondary_queue_endpoint** | string | No  | The endpoint URL for queue storage in the secondary location. | 
+| **secondary_queue_host** | string | No  | The hostname with port if applicable for queue storage in the secondary location. | 
+| **primary_table_endpoint** | string | No  | The endpoint URL for table storage in the primary location. | 
+| **primary_table_host** | string | No  | The hostname with port if applicable for table storage in the primary location. | 
+| **secondary_table_endpoint** | string | No  | The endpoint URL for table storage in the secondary location. | 
+| **secondary_table_host** | string | No  | The hostname with port if applicable for table storage in the secondary location. | 
+| **primary_file_endpoint** | string | No  | The endpoint URL for file storage in the primary location. | 
+| **primary_file_host** | string | No  | The hostname with port if applicable for file storage in the primary location. | 
+| **secondary_file_endpoint** | string | No  | The endpoint URL for file storage in the secondary location. | 
+| **secondary_file_host** | string | No  | The hostname with port if applicable for file storage in the secondary location. | 
+| **primary_dfs_endpoint** | string | No  | The endpoint URL for DFS storage in the primary location. | 
+| **primary_dfs_host** | string | No  | The hostname with port if applicable for DFS storage in the primary location. | 
+| **secondary_dfs_endpoint** | string | No  | The endpoint URL for DFS storage in the secondary location. | 
+| **secondary_dfs_host** | string | No  | The hostname with port if applicable for DFS storage in the secondary location. | 
+| **primary_web_endpoint** | string | No  | The endpoint URL for web storage in the primary location. | 
+| **primary_web_host** | string | No  | The hostname with port if applicable for web storage in the primary location. | 
+| **secondary_web_endpoint** | string | No  | The endpoint URL for web storage in the secondary location. | 
+| **secondary_web_host** | string | No  | The hostname with port if applicable for web storage in the secondary location. | 
+| **primary_access_key** | string | No  | The primary access key for the storage account. | 
+| **secondary_access_key** | string | No  | The secondary access key for the storage account. | 
+| **primary_connection_string** | string | No  | The connection string associated with the primary location. | 
+| **secondary_connection_string** | string | No  | The connection string associated with the secondary location. | 
+| **primary_blob_connection_string** | string | No  | The connection string associated with the primary blob location. | 
+| **secondary_blob_connection_string** | string | No  | The connection string associated with the secondary blob location. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Identity of this Storage Account. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this Storage Account. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_account" 
-}
-
-inputs = {
-   name = "name of storage_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   account_tier = "account_tier of storage_account" 
-   account_replication_type = "account_replication_type of storage_account" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

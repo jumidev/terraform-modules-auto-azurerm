@@ -2,33 +2,7 @@
 
 Enables you to manage DNS NS Records within Azure DNS.~> **Note:** [The Azure DNS API has a throttle limit of 500 read (GET) operations per 5 minutes](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling#network-throttling) - whilst the default read timeouts will work for most cases - in larger configurations you may need to set a larger [read timeout](https://www.terraform.io/language/resources/syntax#operation-timeouts) then the default 5min. Although, we'd generally recommend that you split the resources out into smaller Terraform configurations to avoid the problem entirely.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the DNS NS Record. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
-| **var.records** | list | True | A list of values that make up the NS record. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **zone_name** | string  | - | 
-| **ttl** | int  | - | 
-| **records** | list  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The DNS NS Record ID. | 
-| **fqdn** | string  | The FQDN of the DNS NS Record. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -52,3 +26,25 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the DNS NS Record. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
+| **var.records** | list | True | A list of values that make up the NS record. | 
+| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The DNS NS Record ID. | 
+| **fqdn** | string | No  | The FQDN of the DNS NS Record. | 
+
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,29 @@
 
 Manages a Policy Assignment to a Resource.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/resource_policy_assignment" 
+}
+
+inputs = {
+   name = "name of resource_policy_assignment" 
+   policy_definition_id = "policy_definition_id of resource_policy_assignment" 
+   resource_id = "resource_id of resource_policy_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -25,45 +48,10 @@ Manages a Policy Assignment to a Resource.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **policy_definition_id** | string  | - | 
-| **resource_id** | string  | - | 
-| **description** | string  | - | 
-| **display_name** | string  | - | 
-| **enforce** | bool  | - | 
-| **identity** | block  | - | 
-| **location** | string  | - | 
-| **metadata** | string  | - | 
-| **non_compliance_message** | block  | - | 
-| **not_scopes** | string  | - | 
-| **parameters** | string  | - | 
-| **overrides** | block  | - | 
-| **resource_selectors** | block  | - | 
-| **id** | string  | The ID of the Resource Policy Assignment. | 
-| **principal_id** | string  | The Principal ID of the Policy Assignment for this Resource. | 
-| **tenant_id** | string  | The Tenant ID of the Policy Assignment for this Resource. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Resource Policy Assignment. | 
+| **principal_id** | string | No  | The Principal ID of the Policy Assignment for this Resource. | 
+| **tenant_id** | string | No  | The Tenant ID of the Policy Assignment for this Resource. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/resource_policy_assignment" 
-}
-
-inputs = {
-   name = "name of resource_policy_assignment" 
-   policy_definition_id = "policy_definition_id of resource_policy_assignment" 
-   resource_id = "resource_id of resource_policy_assignment" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

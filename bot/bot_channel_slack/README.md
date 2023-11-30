@@ -2,36 +2,7 @@
 
 Manages a Slack integration for a Bot Channel~> **Note** A bot can only have a single Slack Channel associated with it.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string | True | The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.client_id** | string | True | The Client ID that will be used to authenticate with Slack. | 
-| **var.client_secret** | string | True | The Client Secret that will be used to authenticate with Slack. | 
-| **var.verification_token** | string | True | The Verification Token that will be used to authenticate with Slack. | 
-| **var.landing_page_url** | string | False | The Slack Landing Page URL. | 
-| **var.signing_secret** | string | False | The Signing Secret that will be used to sign the requests. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **bot_name** | string  | - | 
-| **client_id** | string  | - | 
-| **client_secret** | string  | - | 
-| **verification_token** | string  | - | 
-| **landing_page_url** | string  | - | 
-| **signing_secret** | string  | - | 
-| **id** | string  | The ID of the Slack Integration for a Bot Channel. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -56,3 +27,26 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.resource_group_name** | string | True | The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.client_id** | string | True | The Client ID that will be used to authenticate with Slack. | 
+| **var.client_secret** | string | True | The Client Secret that will be used to authenticate with Slack. | 
+| **var.verification_token** | string | True | The Verification Token that will be used to authenticate with Slack. | 
+| **var.landing_page_url** | string | False | The Slack Landing Page URL. | 
+| **var.signing_secret** | string | False | The Signing Secret that will be used to sign the requests. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Slack Integration for a Bot Channel. | 
+
+Additionally, all variables are provided as outputs.

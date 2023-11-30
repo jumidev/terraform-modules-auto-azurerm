@@ -2,6 +2,30 @@
 
 Manages an Azure Cosmos DB for PostgreSQL Cluster.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_postgresql_cluster" 
+}
+
+inputs = {
+   name = "name of cosmosdb_postgresql_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   node_count = "node_count of cosmosdb_postgresql_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -34,54 +58,9 @@ Manages an Azure Cosmos DB for PostgreSQL Cluster.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **node_count** | int  | - | 
-| **administrator_login_password** | string  | - | 
-| **citus_version** | string  | - | 
-| **coordinator_public_ip_access_enabled** | bool  | - | 
-| **coordinator_server_edition** | string  | - | 
-| **coordinator_storage_quota_in_mb** | string  | - | 
-| **coordinator_vcore_count** | string  | - | 
-| **ha_enabled** | bool  | - | 
-| **maintenance_window** | block  | - | 
-| **node_public_ip_access_enabled** | bool  | - | 
-| **node_server_edition** | string  | - | 
-| **node_storage_quota_in_mb** | string  | - | 
-| **node_vcores** | string  | - | 
-| **point_in_time_in_utc** | string  | - | 
-| **preferred_primary_zone** | string  | - | 
-| **shards_on_coordinator_enabled** | bool  | - | 
-| **source_location** | string  | - | 
-| **source_resource_id** | string  | - | 
-| **sql_version** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Azure Cosmos DB for PostgreSQL Cluster. | 
-| **earliest_restore_time** | string  | The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Azure Cosmos DB for PostgreSQL Cluster. | 
+| **earliest_restore_time** | string | No  | The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_postgresql_cluster" 
-}
-
-inputs = {
-   name = "name of cosmosdb_postgresql_cluster" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   node_count = "node_count of cosmosdb_postgresql_cluster" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

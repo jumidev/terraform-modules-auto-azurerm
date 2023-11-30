@@ -2,36 +2,7 @@
 
 Manages an API Schema within an API Management Service.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.schema_id** | string | True | A unique identifier for this API Schema. Changing this forces a new resource to be created. | 
-| **var.api_name** | string | True | The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string | True | The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.content_type** | string | True | The content type of the API Schema. | 
-| **var.value** | string | False | The JSON escaped string defining the document representing the Schema. | 
-| **var.components** | string | False | Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only. | 
-| **var.definitions** | string | False | Types definitions. Used for Swagger/OpenAPI v1 schemas only. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **schema_id** | string  | - | 
-| **api_name** | string  | - | 
-| **api_management_name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **content_type** | string  | - | 
-| **value** | string  | - | 
-| **components** | string  | - | 
-| **definitions** | string  | - | 
-| **id** | string  | The ID of the API Management API Schema. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -55,3 +26,26 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.schema_id** | string | True | A unique identifier for this API Schema. Changing this forces a new resource to be created. | 
+| **var.api_name** | string | True | The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created. | 
+| **var.api_management_name** | string | True | The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.content_type** | string | True | The content type of the API Schema. | 
+| **var.value** | string | False | The JSON escaped string defining the document representing the Schema. | 
+| **var.components** | string | False | Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only. | 
+| **var.definitions** | string | False | Types definitions. Used for Swagger/OpenAPI v1 schemas only. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the API Management API Schema. | 
+
+Additionally, all variables are provided as outputs.

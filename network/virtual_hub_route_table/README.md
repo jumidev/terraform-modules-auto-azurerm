@@ -2,28 +2,7 @@
 
 Manages a Virtual Hub Route Table.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string | True | The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created. | 
-| **var.labels** | string | False | List of labels associated with this route table. | 
-| **var.route** | block | False | One or more `route` blocks. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **virtual_hub_id** | string  | - | 
-| **labels** | string  | - | 
-| **route** | block  | - | 
-| **id** | string  | The ID of the Virtual Hub Route Table. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -44,3 +23,22 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created. | 
+| **var.virtual_hub_id** | string | True | The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created. | 
+| **var.labels** | string | False | List of labels associated with this route table. | 
+| **var.route** | block | False | One or more `route` blocks. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Virtual Hub Route Table. | 
+
+Additionally, all variables are provided as outputs.

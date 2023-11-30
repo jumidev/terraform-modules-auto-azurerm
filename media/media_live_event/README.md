@@ -2,6 +2,31 @@
 
 Manages a Live Event.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_live_event" 
+}
+
+inputs = {
+   input = "input of media_live_event" 
+   location = "${location}" 
+   media_services_account_name = "media_services_account_name of media_live_event" 
+   name = "name of media_live_event" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -26,46 +51,8 @@ Manages a Live Event.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **input** | block  | - | 
-| **location** | string  | - | 
-| **media_services_account_name** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **auto_start_enabled** | bool  | - | 
-| **cross_site_access_policy** | block  | - | 
-| **description** | string  | - | 
-| **encoding** | block  | - | 
-| **hostname_prefix** | string  | - | 
-| **preview** | block  | - | 
-| **stream_options** | string  | - | 
-| **tags** | map  | - | 
-| **transcription_languages** | string  | - | 
-| **use_static_hostname** | bool  | - | 
-| **id** | string  | The ID of the Live Event. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Live Event. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_live_event" 
-}
-
-inputs = {
-   input = "input of media_live_event" 
-   location = "${location}" 
-   media_services_account_name = "media_services_account_name of media_live_event" 
-   name = "name of media_live_event" 
-   resource_group_name = "${resource_group}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

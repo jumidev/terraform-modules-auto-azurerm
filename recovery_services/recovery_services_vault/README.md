@@ -2,6 +2,30 @@
 
 Manages a Recovery Services Vault.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/recovery_services_vault" 
+}
+
+inputs = {
+   name = "name of recovery_services_vault" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of recovery_services_vault" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -25,47 +49,11 @@ Manages a Recovery Services Vault.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **tags** | map  | - | 
-| **identity** | block  | - | 
-| **sku** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **immutability** | string  | - | 
-| **storage_mode_type** | string  | - | 
-| **cross_region_restore_enabled** | bool  | - | 
-| **soft_delete_enabled** | bool  | - | 
-| **encryption** | block  | - | 
-| **classic_vmware_replication_enabled** | bool  | - | 
-| **monitoring** | block  | - | 
-| **id** | string  | The ID of the Recovery Services Vault. | 
-| **identity** | block  | An `identity` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Recovery Services Vault. | 
+| **identity** | block | No  | An `identity` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/recovery_services_vault" 
-}
-
-inputs = {
-   name = "name of recovery_services_vault" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of recovery_services_vault" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

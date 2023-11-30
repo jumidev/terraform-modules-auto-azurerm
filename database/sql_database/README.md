@@ -2,6 +2,30 @@
 
 Allows you to manage an Azure SQL Database-> **Note:** The `azurerm_sql_database` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the [`azurerm_mssql_database`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_database) resource instead.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/sql_database" 
+}
+
+inputs = {
+   name = "name of sql_database" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   server_name = "server_name of sql_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,47 +50,10 @@ Allows you to manage an Azure SQL Database-> **Note:** The `azurerm_sql_database
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **server_name** | string  | - | 
-| **create_mode** | string  | - | 
-| **import** | block  | - | 
-| **source_database_id** | string  | - | 
-| **restore_point_in_time** | string  | - | 
-| **edition** | string  | - | 
-| **collation** | string  | - | 
-| **max_size_bytes** | int  | - | 
-| **requested_service_objective_id** | string  | - | 
-| **requested_service_objective_name** | string  | - | 
-| **source_database_deletion_date** | datetime  | - | 
-| **elastic_pool_name** | string  | - | 
-| **id** | string  | The SQL Database ID. | 
-| **creation_date** | datetime  | The creation date of the SQL Database. | 
-| **default_secondary_location** | string  | The default secondary location of the SQL Database. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The SQL Database ID. | 
+| **creation_date** | datetime | No  | The creation date of the SQL Database. | 
+| **default_secondary_location** | string | No  | The default secondary location of the SQL Database. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/sql_database" 
-}
-
-inputs = {
-   name = "name of sql_database" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   server_name = "server_name of sql_database" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

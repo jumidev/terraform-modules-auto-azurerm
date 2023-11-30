@@ -2,26 +2,7 @@
 
 Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
-| **var.cluster_id** | string | True | The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created. | 
-| **var.value** | string | True | The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **cluster_id** | string  | - | 
-| **value** | string  | - | 
-| **id** | string  | The ID of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -43,3 +24,21 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
+| **var.cluster_id** | string | True | The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to change configuration. Changing this forces a new resource to be created. | 
+| **var.value** | string | True | The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. | 
+
+Additionally, all variables are provided as outputs.

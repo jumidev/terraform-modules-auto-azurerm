@@ -2,6 +2,33 @@
 
 Manages a Azure Machine Learning Workspace~> **NOTE:** For examples on how to set up the Azure Machine Learning workspace, together with compute and integrated services, see [Terraform Quickstart](https://github.com/Azure/terraform/tree/master/quickstart)
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_workspace" 
+}
+
+inputs = {
+   name = "name of machine_learning_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   application_insights_id = "application_insights_id of machine_learning_workspace" 
+   key_vault_id = "key_vault_id of machine_learning_workspace" 
+   storage_account_id = "storage_account_id of machine_learning_workspace" 
+   identity = "identity of machine_learning_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,60 +57,16 @@ Manages a Azure Machine Learning Workspace~> **NOTE:** For examples on how to se
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **application_insights_id** | string  | - | 
-| **key_vault_id** | string  | - | 
-| **storage_account_id** | string  | - | 
-| **identity** | block  | - | 
-| **container_registry_id** | string  | - | 
-| **public_access_behind_virtual_network_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **image_build_compute_name** | string  | - | 
-| **description** | string  | - | 
-| **encryption** | block  | - | 
-| **friendly_name** | string  | - | 
-| **high_business_impact** | string  | - | 
-| **primary_user_assigned_identity** | string  | - | 
-| **v1_legacy_mode_enabled** | bool  | - | 
-| **sku_name** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Machine Learning Workspace. | 
-| **discovery_url** | string  | The url for the discovery service to identify regional endpoints for machine learning experimentation services. | 
-| **workspace_id** | string  | The immutable id associated with this workspace. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
-| **create** | string  | (Defaults to 30 minutes) Used when creating the Machine Learning Workspace. | 
-| **update** | datetime  | (Defaults to 30 minutes) Used when updating the Machine Learning Workspace. | 
-| **read** | string  | (Defaults to 5 minutes) Used when retrieving the Machine Learning Workspace. | 
-| **delete** | string  | (Defaults to 30 minutes) Used when deleting the Machine Learning Workspace. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Machine Learning Workspace. | 
+| **discovery_url** | string | No  | The url for the discovery service to identify regional endpoints for machine learning experimentation services. | 
+| **workspace_id** | string | No  | The immutable id associated with this workspace. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
+| **create** | string | No  | (Defaults to 30 minutes) Used when creating the Machine Learning Workspace. | 
+| **update** | datetime | No  | (Defaults to 30 minutes) Used when updating the Machine Learning Workspace. | 
+| **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Machine Learning Workspace. | 
+| **delete** | string | No  | (Defaults to 30 minutes) Used when deleting the Machine Learning Workspace. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "machine_learning/machine_learning_workspace" 
-}
-
-inputs = {
-   name = "name of machine_learning_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   application_insights_id = "application_insights_id of machine_learning_workspace" 
-   key_vault_id = "key_vault_id of machine_learning_workspace" 
-   storage_account_id = "storage_account_id of machine_learning_workspace" 
-   identity = "identity of machine_learning_workspace" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

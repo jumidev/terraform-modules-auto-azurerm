@@ -2,6 +2,30 @@
 
 Manages an Azure SignalR service.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/signalr_service" 
+}
+
+inputs = {
+   name = "name of signalr_service" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of signalr_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,57 +54,16 @@ Manages an Azure SignalR service.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | block  | - | 
-| **cors** | block  | - | 
-| **connectivity_logs_enabled** | bool  | - | 
-| **messaging_logs_enabled** | bool  | - | 
-| **http_request_logs_enabled** | bool  | - | 
-| **live_trace_enabled** | bool  | - | 
-| **identity** | block  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **local_auth_enabled** | bool  | - | 
-| **aad_auth_enabled** | bool  | - | 
-| **tls_client_cert_enabled** | bool  | - | 
-| **serverless_connection_timeout_in_seconds** | int  | - | 
-| **service_mode** | string  | - | 
-| **upstream_endpoint** | block  | - | 
-| **live_trace** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the SignalR service. | 
-| **hostname** | string  | The FQDN of the SignalR service. | 
-| **ip_address** | string  | The publicly accessible IP of the SignalR service. | 
-| **public_port** | string  | The publicly accessible port of the SignalR service which is designed for browser/client use. | 
-| **server_port** | string  | The publicly accessible port of the SignalR service which is designed for customer server side use. | 
-| **primary_access_key** | string  | The primary access key for the SignalR service. | 
-| **primary_connection_string** | string  | The primary connection string for the SignalR service. | 
-| **secondary_access_key** | string  | The secondary access key for the SignalR service. | 
-| **secondary_connection_string** | string  | The secondary connection string for the SignalR service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the SignalR service. | 
+| **hostname** | string | No  | The FQDN of the SignalR service. | 
+| **ip_address** | string | No  | The publicly accessible IP of the SignalR service. | 
+| **public_port** | string | No  | The publicly accessible port of the SignalR service which is designed for browser/client use. | 
+| **server_port** | string | No  | The publicly accessible port of the SignalR service which is designed for customer server side use. | 
+| **primary_access_key** | string | No  | The primary access key for the SignalR service. | 
+| **primary_connection_string** | string | No  | The primary connection string for the SignalR service. | 
+| **secondary_access_key** | string | No  | The secondary access key for the SignalR service. | 
+| **secondary_connection_string** | string | No  | The secondary connection string for the SignalR service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/signalr_service" 
-}
-
-inputs = {
-   name = "name of signalr_service" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of signalr_service" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

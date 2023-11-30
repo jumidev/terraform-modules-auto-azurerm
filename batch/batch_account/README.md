@@ -2,6 +2,29 @@
 
 Manages an Azure Batch account.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "batch/batch_account" 
+}
+
+inputs = {
+   name = "name of batch_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -25,49 +48,14 @@ Manages an Azure Batch account.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **identity** | block  | - | 
-| **network_profile** | block  | - | 
-| **pool_allocation_mode** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **key_vault_reference** | block  | - | 
-| **storage_account_id** | string  | - | 
-| **storage_account_authentication_mode** | string  | - | 
-| **storage_account_node_identity** | string  | - | 
-| **allowed_authentication_modes** | string  | - | 
-| **encryption** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Batch Account. | 
-| **identity** | block  | An `identity` block. | 
-| **primary_access_key** | string  | The Batch account primary access key. | 
-| **secondary_access_key** | string  | The Batch account secondary access key. | 
-| **account_endpoint** | string  | The account endpoint used to interact with the Batch service. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Batch Account. | 
+| **identity** | block | No  | An `identity` block. | 
+| **primary_access_key** | string | No  | The Batch account primary access key. | 
+| **secondary_access_key** | string | No  | The Batch account secondary access key. | 
+| **account_endpoint** | string | No  | The account endpoint used to interact with the Batch service. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "batch/batch_account" 
-}
-
-inputs = {
-   name = "name of batch_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

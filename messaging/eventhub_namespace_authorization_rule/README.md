@@ -2,38 +2,7 @@
 
 Manages an Authorization Rule for an Event Hub Namespace.
 
-## Variables
-
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string | True | -  |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created. | 
-| **var.listen** | bool | False | `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
-| **var.send** | bool | False | `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
-| **var.manage** | bool | False | `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **namespace_name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **listen** | bool  | - | 
-| **send** | bool  | - | 
-| **manage** | bool  | - | 
-| **id** | string  | The EventHub Namespace Authorization Rule ID. | 
-| **primary_connection_string_alias** | string  | The alias of the Primary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled. | 
-| **secondary_connection_string_alias** | string  | The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled. | 
-| **primary_connection_string** | string  | The Primary Connection String for the Authorization Rule. | 
-| **primary_key** | string  | The Primary Key for the Authorization Rule. | 
-| **secondary_connection_string** | string  | The Secondary Connection String for the Authorization Rule. | 
-| **secondary_key** | string  | The Secondary Key for the Authorization Rule. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -55,3 +24,30 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
+| **var.namespace_name** | string | True | -  |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created. | 
+| **var.listen** | bool | False | `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
+| **var.send** | bool | False | `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
+| **var.manage** | bool | False | `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The EventHub Namespace Authorization Rule ID. | 
+| **primary_connection_string_alias** | string | No  | The alias of the Primary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled. | 
+| **secondary_connection_string_alias** | string | No  | The alias of the Secondary Connection String for the Authorization Rule, which is generated when disaster recovery is enabled. | 
+| **primary_connection_string** | string | No  | The Primary Connection String for the Authorization Rule. | 
+| **primary_key** | string | No  | The Primary Key for the Authorization Rule. | 
+| **secondary_connection_string** | string | No  | The Secondary Connection String for the Authorization Rule. | 
+| **secondary_key** | string | No  | The Secondary Key for the Authorization Rule. | 
+
+Additionally, all variables are provided as outputs.

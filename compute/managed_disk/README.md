@@ -2,6 +2,31 @@
 
 Manages a managed disk.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/managed_disk" 
+}
+
+inputs = {
+   name = "name of managed_disk" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_account_type = "storage_account_type of managed_disk" 
+   create_option = "create_option of managed_disk" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -46,66 +71,8 @@ Manages a managed disk.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **storage_account_type** | string  | - | 
-| **create_option** | string  | - | 
-| **disk_encryption_set_id** | string  | - | 
-| **disk_iops_read_write** | int  | - | 
-| **disk_mbps_read_write** | int  | - | 
-| **disk_iops_read_only** | int  | - | 
-| **disk_mbps_read_only** | int  | - | 
-| **upload_size_bytes** | string  | - | 
-| **disk_size_gb** | int  | - | 
-| **edge_zone** | string  | - | 
-| **encryption_settings** | block  | - | 
-| **hyper_v_generation** | string  | - | 
-| **image_reference_id** | string  | - | 
-| **gallery_image_reference_id** | string  | - | 
-| **logical_sector_size** | string  | - | 
-| **optimized_frequent_attach_enabled** | bool  | - | 
-| **performance_plus_enabled** | bool  | - | 
-| **os_type** | string  | - | 
-| **source_resource_id** | string  | - | 
-| **source_uri** | string  | - | 
-| **storage_account_id** | string  | - | 
-| **tier** | string  | - | 
-| **max_shares** | int  | - | 
-| **trusted_launch_enabled** | bool  | - | 
-| **security_type** | string  | - | 
-| **secure_vm_disk_encryption_set_id** | string  | - | 
-| **on_demand_bursting_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **zone** | string  | - | 
-| **network_access_policy** | string  | - | 
-| **disk_access_id** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **id** | string  | The ID of the Managed Disk. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Managed Disk. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/managed_disk" 
-}
-
-inputs = {
-   name = "name of managed_disk" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   storage_account_type = "storage_account_type of managed_disk" 
-   create_option = "create_option of managed_disk" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

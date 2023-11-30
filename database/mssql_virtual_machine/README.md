@@ -2,6 +2,27 @@
 
 Manages a Microsoft SQL Virtual Machine
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_virtual_machine" 
+}
+
+inputs = {
+   virtual_machine_id = "virtual_machine_id of mssql_virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -27,43 +48,8 @@ Manages a Microsoft SQL Virtual Machine
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **virtual_machine_id** | string  | - | 
-| **sql_license_type** | string  | - | 
-| **auto_backup** | block  | - | 
-| **auto_patching** | block  | - | 
-| **key_vault_credential** | block  | - | 
-| **r_services_enabled** | bool  | - | 
-| **sql_connectivity_port** | string  | - | 
-| **sql_connectivity_type** | string  | - | 
-| **sql_connectivity_update_password** | string  | - | 
-| **sql_connectivity_update_username** | string  | - | 
-| **sql_instance** | block  | - | 
-| **storage_configuration** | block  | - | 
-| **assessment** | block  | - | 
-| **sql_virtual_machine_group_id** | string  | - | 
-| **wsfc_domain_credential** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the SQL Virtual Machine. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the SQL Virtual Machine. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_virtual_machine" 
-}
-
-inputs = {
-   virtual_machine_id = "virtual_machine_id of mssql_virtual_machine" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

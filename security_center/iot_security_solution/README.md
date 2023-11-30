@@ -2,6 +2,31 @@
 
 Manages an iot security solution.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/iot_security_solution" 
+}
+
+inputs = {
+   name = "name of iot_security_solution" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   display_name = "display_name of iot_security_solution" 
+   iothub_ids = "iothub_ids of iot_security_solution" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,46 +51,8 @@ Manages an iot security solution.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **display_name** | string  | - | 
-| **iothub_ids** | string  | - | 
-| **additional_workspace** | block  | - | 
-| **disabled_data_sources** | bool  | - | 
-| **enabled** | bool  | - | 
-| **events_to_export** | string  | - | 
-| **log_analytics_workspace_id** | string  | - | 
-| **log_unmasked_ips_enabled** | bool  | - | 
-| **recommendations_enabled** | block  | - | 
-| **query_for_resources** | string  | - | 
-| **query_subscription_ids** | list  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Iot Security Solution resource. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Iot Security Solution resource. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/iot_security_solution" 
-}
-
-inputs = {
-   name = "name of iot_security_solution" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   display_name = "display_name of iot_security_solution" 
-   iothub_ids = "iothub_ids of iot_security_solution" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

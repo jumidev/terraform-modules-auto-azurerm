@@ -2,6 +2,31 @@
 
 Manages a Resource Deployment Script of Azure PowerShell.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "template/resource_deployment_script_azure_power_shell" 
+}
+
+inputs = {
+   name = "name of resource_deployment_script_azure_power_shell" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   version = "version of resource_deployment_script_azure_power_shell" 
+   retention_interval = "retention_interval of resource_deployment_script_azure_power_shell" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,49 +53,9 @@ Manages a Resource Deployment Script of Azure PowerShell.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **version** | string  | - | 
-| **retention_interval** | string  | - | 
-| **command_line** | string  | - | 
-| **cleanup_preference** | string  | - | 
-| **container** | block  | - | 
-| **environment_variable** | block  | - | 
-| **force_update_tag** | string  | - | 
-| **identity** | block  | - | 
-| **primary_script_uri** | string  | - | 
-| **script_content** | string  | - | 
-| **storage_account** | block  | - | 
-| **supporting_script_uris** | string  | - | 
-| **timeout** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Resource Deployment Script. | 
-| **outputs** | string  | List of script outputs. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Resource Deployment Script. | 
+| **outputs** | string | No  | List of script outputs. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "template/resource_deployment_script_azure_power_shell" 
-}
-
-inputs = {
-   name = "name of resource_deployment_script_azure_power_shell" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   version = "version of resource_deployment_script_azure_power_shell" 
-   retention_interval = "retention_interval of resource_deployment_script_azure_power_shell" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

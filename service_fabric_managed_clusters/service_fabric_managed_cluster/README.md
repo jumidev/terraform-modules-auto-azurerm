@@ -2,6 +2,32 @@
 
 Manages a Resource Group.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "service_fabric_managed_clusters/service_fabric_managed_cluster" 
+}
+
+inputs = {
+   client_connection_port = "client_connection_port of service_fabric_managed_cluster" 
+   http_gateway_port = "http_gateway_port of service_fabric_managed_cluster" 
+   lb_rule = "lb_rule of service_fabric_managed_cluster" 
+   location = "${location}" 
+   name = "name of service_fabric_managed_cluster" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,49 +54,8 @@ Manages a Resource Group.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **client_connection_port** | string  | - | 
-| **http_gateway_port** | string  | - | 
-| **lb_rule** | block  | - | 
-| **location** | string  | - | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **authentication** | block  | - | 
-| **backup_service_enabled** | bool  | - | 
-| **custom_fabric_setting** | block  | - | 
-| **dns_name** | string  | - | 
-| **dns_service_enabled** | bool  | - | 
-| **node_type** | block  | - | 
-| **password** | string  | - | 
-| **sku** | string  | - | 
-| **tags** | map  | - | 
-| **upgrade_wave** | string  | - | 
-| **username** | string  | - | 
-| **id** | string  | The ID of the Resource Group. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Resource Group. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "service_fabric_managed_clusters/service_fabric_managed_cluster" 
-}
-
-inputs = {
-   client_connection_port = "client_connection_port of service_fabric_managed_cluster" 
-   http_gateway_port = "http_gateway_port of service_fabric_managed_cluster" 
-   lb_rule = "lb_rule of service_fabric_managed_cluster" 
-   location = "${location}" 
-   name = "name of service_fabric_managed_cluster" 
-   resource_group_name = "${resource_group}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

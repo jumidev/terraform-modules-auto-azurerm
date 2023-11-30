@@ -2,6 +2,29 @@
 
 Manages an Azure NAT Gateway.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/nat_gateway" 
+}
+
+inputs = {
+   name = "name of nat_gateway" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  Description |
@@ -25,37 +48,9 @@ Manages an Azure NAT Gateway.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **idle_timeout_in_minutes** | int  | - | 
-| **sku_name** | string  | - | 
-| **tags** | map  | - | 
-| **zones** | list  | - | 
-| **id** | string  | The ID of the NAT Gateway. | 
-| **resource_guid** | string  | The resource GUID property of the NAT Gateway. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the NAT Gateway. | 
+| **resource_guid** | string | No  | The resource GUID property of the NAT Gateway. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/nat_gateway" 
-}
-
-inputs = {
-   name = "name of nat_gateway" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

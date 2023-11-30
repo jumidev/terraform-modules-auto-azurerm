@@ -2,6 +2,29 @@
 
 Manages a Metric Alert within Azure Monitor.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_metric_alert" 
+}
+
+inputs = {
+   name = "name of monitor_metric_alert" 
+   resource_group_name = "${resource_group}" 
+   scopes = "scopes of monitor_metric_alert" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -27,45 +50,8 @@ Manages a Metric Alert within Azure Monitor.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **scopes** | string  | - | 
-| **criteria** | block  | - | 
-| **dynamic_criteria** | block  | - | 
-| **application_insights_web_test_location_availability_criteria** | block  | - | 
-| **action** | block  | - | 
-| **enabled** | bool  | - | 
-| **auto_mitigate** | bool  | - | 
-| **description** | string  | - | 
-| **frequency** | string  | - | 
-| **severity** | string  | - | 
-| **target_resource_type** | string  | - | 
-| **target_resource_location** | string  | - | 
-| **window_size** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the metric alert. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the metric alert. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_metric_alert" 
-}
-
-inputs = {
-   name = "name of monitor_metric_alert" 
-   resource_group_name = "${resource_group}" 
-   scopes = "scopes of monitor_metric_alert" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,6 +2,31 @@
 
 Manages a Sentinel Metadata.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_metadata" 
+}
+
+inputs = {
+   content_id = "content_id of sentinel_metadata" 
+   kind = "kind of sentinel_metadata" 
+   name = "name of sentinel_metadata" 
+   parent_id = "parent_id of sentinel_metadata" 
+   workspace_id = "workspace_id of sentinel_metadata" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -32,52 +57,8 @@ Manages a Sentinel Metadata.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **content_id** | string  | - | 
-| **kind** | string  | - | 
-| **name** | string  | - | 
-| **parent_id** | string  | - | 
-| **workspace_id** | string  | - | 
-| **author** | block  | - | 
-| **category** | block  | - | 
-| **content_schema_version** | string  | - | 
-| **custom_version** | string  | - | 
-| **dependency** | block  | - | 
-| **first_publish_date** | datetime  | - | 
-| **icon_id** | string  | - | 
-| **last_publish_date** | datetime  | - | 
-| **preview_images** | string  | - | 
-| **preview_images_dark** | string  | - | 
-| **providers** | string  | - | 
-| **source** | block  | - | 
-| **support** | block  | - | 
-| **threat_analysis_tactics** | string  | - | 
-| **threat_analysis_techniques** | string  | - | 
-| **version** | string  | - | 
-| **id** | string  | The ID of the Sentinel Metadata. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Sentinel Metadata. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_metadata" 
-}
-
-inputs = {
-   content_id = "content_id of sentinel_metadata" 
-   kind = "kind of sentinel_metadata" 
-   name = "name of sentinel_metadata" 
-   parent_id = "parent_id of sentinel_metadata" 
-   workspace_id = "workspace_id of sentinel_metadata" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

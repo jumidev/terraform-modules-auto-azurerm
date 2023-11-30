@@ -2,6 +2,36 @@
 
 Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A replicated VM keeps a copiously updated image of the VM in another region in order to be able to start the VM in that region in case of a disaster.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/site_recovery_replicated_vm" 
+}
+
+inputs = {
+   name = "name of site_recovery_replicated_vm" 
+   resource_group_name = "${resource_group}" 
+   recovery_vault_name = "recovery_vault_name of site_recovery_replicated_vm" 
+   recovery_replication_policy_id = "recovery_replication_policy_id of site_recovery_replicated_vm" 
+   source_recovery_fabric_name = "source_recovery_fabric_name of site_recovery_replicated_vm" 
+   source_vm_id = "source_vm_id of site_recovery_replicated_vm" 
+   source_recovery_protection_container_name = "source_recovery_protection_container_name of site_recovery_replicated_vm" 
+   target_resource_group_id = "target_resource_group_id of site_recovery_replicated_vm" 
+   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replicated_vm" 
+   target_recovery_protection_container_id = "target_recovery_protection_container_id of site_recovery_replicated_vm" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Description |
@@ -34,59 +64,8 @@ Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A repli
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **recovery_vault_name** | string  | - | 
-| **recovery_replication_policy_id** | string  | - | 
-| **source_recovery_fabric_name** | string  | - | 
-| **source_vm_id** | string  | - | 
-| **source_recovery_protection_container_name** | string  | - | 
-| **target_resource_group_id** | string  | - | 
-| **target_recovery_fabric_id** | string  | - | 
-| **target_recovery_protection_container_id** | string  | - | 
-| **target_availability_set_id** | string  | - | 
-| **target_zone** | string  | - | 
-| **managed_disk** | block  | - | 
-| **unmanaged_disk** | block  | - | 
-| **target_edge_zone** | string  | - | 
-| **target_proximity_placement_group_id** | string  | - | 
-| **target_boot_diagnostic_storage_account_id** | string  | - | 
-| **target_capacity_reservation_group_id** | string  | - | 
-| **target_virtual_machine_scale_set_id** | string  | - | 
-| **target_network_id** | string  | - | 
-| **test_network_id** | string  | - | 
-| **network_interface** | block  | - | 
-| **multi_vm_group_name** | string  | - | 
-| **id** | string  | The ID of the Site Recovery Replicated VM. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Site Recovery Replicated VM. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/site_recovery_replicated_vm" 
-}
-
-inputs = {
-   name = "name of site_recovery_replicated_vm" 
-   resource_group_name = "${resource_group}" 
-   recovery_vault_name = "recovery_vault_name of site_recovery_replicated_vm" 
-   recovery_replication_policy_id = "recovery_replication_policy_id of site_recovery_replicated_vm" 
-   source_recovery_fabric_name = "source_recovery_fabric_name of site_recovery_replicated_vm" 
-   source_vm_id = "source_vm_id of site_recovery_replicated_vm" 
-   source_recovery_protection_container_name = "source_recovery_protection_container_name of site_recovery_replicated_vm" 
-   target_resource_group_id = "target_resource_group_id of site_recovery_replicated_vm" 
-   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replicated_vm" 
-   target_recovery_protection_container_id = "target_recovery_protection_container_id of site_recovery_replicated_vm" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

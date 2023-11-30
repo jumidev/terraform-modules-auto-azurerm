@@ -2,6 +2,31 @@
 
 Manages a Sentinel NRT Alert Rule.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_alert_rule_nrt" 
+}
+
+inputs = {
+   name = "name of sentinel_alert_rule_nrt" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_nrt" 
+   display_name = "display_name of sentinel_alert_rule_nrt" 
+   severity = "severity of sentinel_alert_rule_nrt" 
+   query = "query of sentinel_alert_rule_nrt" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,50 +55,8 @@ Manages a Sentinel NRT Alert Rule.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **log_analytics_workspace_id** | string  | - | 
-| **display_name** | string  | - | 
-| **severity** | string  | - | 
-| **query** | string  | - | 
-| **alert_details_override** | block  | - | 
-| **alert_rule_template_guid** | string  | - | 
-| **alert_rule_template_version** | string  | - | 
-| **custom_details** | string  | - | 
-| **description** | string  | - | 
-| **enabled** | bool  | - | 
-| **entity_mapping** | block  | - | 
-| **event_grouping** | block  | - | 
-| **sentinel_entity_mapping** | block  | - | 
-| **incident** | block  | - | 
-| **suppression_duration** | string  | - | 
-| **suppression_enabled** | bool  | - | 
-| **tactics** | string  | - | 
-| **techniques** | list  | - | 
-| **id** | string  | The ID of the Sentinel NRT Alert Rule. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Sentinel NRT Alert Rule. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_nrt" 
-}
-
-inputs = {
-   name = "name of sentinel_alert_rule_nrt" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_nrt" 
-   display_name = "display_name of sentinel_alert_rule_nrt" 
-   severity = "severity of sentinel_alert_rule_nrt" 
-   query = "query of sentinel_alert_rule_nrt" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,33 +2,7 @@
 
 Manages a Pim Active Role Assignment.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.principal_id** | string | True | The principal id. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.role_definition_id** | string | True | The role definition id. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.scope** | string | True | The scope. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.justification** | string | False | The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.schedule** | block | False | A `schedule` block. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.ticket** | block | False | A `ticket` block. Changing this forces a new Pim Active Role Assignment to be created. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **principal_id** | string  | - | 
-| **role_definition_id** | string  | - | 
-| **scope** | string  | - | 
-| **justification** | string  | - | 
-| **schedule** | block  | - | 
-| **ticket** | block  | - | 
-| **id** | string  | The ID of the Pim Active Role Assignment. | 
-| **principal_type** | string  | The type of principal. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -50,3 +24,25 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.principal_id** | string | True | The principal id. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.role_definition_id** | string | True | The role definition id. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.scope** | string | True | The scope. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.justification** | string | False | The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.schedule** | block | False | A `schedule` block. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.ticket** | block | False | A `ticket` block. Changing this forces a new Pim Active Role Assignment to be created. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Pim Active Role Assignment. | 
+| **principal_type** | string | No  | The type of principal. | 
+
+Additionally, all variables are provided as outputs.

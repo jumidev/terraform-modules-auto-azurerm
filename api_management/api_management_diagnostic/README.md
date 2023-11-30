@@ -2,6 +2,30 @@
 
 Manages an API Management Service Diagnostic.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_diagnostic" 
+}
+
+inputs = {
+   identifier = "identifier of api_management_diagnostic" 
+   api_management_name = "api_management_name of api_management_diagnostic" 
+   resource_group_name = "${resource_group}" 
+   api_management_logger_id = "api_management_logger_id of api_management_diagnostic" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -25,44 +49,8 @@ Manages an API Management Service Diagnostic.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **identifier** | string  | - | 
-| **api_management_name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **api_management_logger_id** | string  | - | 
-| **always_log_errors** | string  | - | 
-| **backend_request** | block  | - | 
-| **backend_response** | block  | - | 
-| **frontend_request** | block  | - | 
-| **frontend_response** | block  | - | 
-| **http_correlation_protocol** | string  | - | 
-| **log_client_ip** | string  | - | 
-| **sampling_percentage** | string  | - | 
-| **verbosity** | string  | - | 
-| **operation_name_format** | string  | - | 
-| **id** | string  | The ID of the API Management Diagnostic. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the API Management Diagnostic. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_diagnostic" 
-}
-
-inputs = {
-   identifier = "identifier of api_management_diagnostic" 
-   api_management_name = "api_management_name of api_management_diagnostic" 
-   resource_group_name = "${resource_group}" 
-   api_management_logger_id = "api_management_logger_id of api_management_diagnostic" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

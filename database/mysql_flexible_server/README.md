@@ -2,6 +2,29 @@
 
 Manages a MySQL Flexible Server.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mysql_flexible_server" 
+}
+
+inputs = {
+   name = "name of mysql_flexible_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -33,54 +56,11 @@ Manages a MySQL Flexible Server.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **administrator_login** | string  | - | 
-| **administrator_password** | string  | - | 
-| **backup_retention_days** | string  | - | 
-| **create_mode** | string  | - | 
-| **customer_managed_key** | block  | - | 
-| **delegated_subnet_id** | string  | - | 
-| **geo_redundant_backup_enabled** | bool  | - | 
-| **high_availability** | block  | - | 
-| **identity** | block  | - | 
-| **maintenance_window** | block  | - | 
-| **point_in_time_restore_time_in_utc** | string  | - | 
-| **private_dns_zone_id** | string  | - | 
-| **replication_role** | string  | - | 
-| **sku_name** | string  | - | 
-| **source_server_id** | string  | - | 
-| **storage** | block  | - | 
-| **version** | string  | - | 
-| **zone** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the MySQL Flexible Server. | 
-| **fqdn** | string  | The fully qualified domain name of the MySQL Flexible Server. | 
-| **public_network_access_enabled** | bool  | Is the public network access enabled? | 
-| **replica_capacity** | int  | The maximum number of replicas that a primary MySQL Flexible Server can have. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the MySQL Flexible Server. | 
+| **fqdn** | string | No  | The fully qualified domain name of the MySQL Flexible Server. | 
+| **public_network_access_enabled** | bool | No  | Is the public network access enabled? | 
+| **replica_capacity** | int | No  | The maximum number of replicas that a primary MySQL Flexible Server can have. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mysql_flexible_server" 
-}
-
-inputs = {
-   name = "name of mysql_flexible_server" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

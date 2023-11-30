@@ -2,6 +2,31 @@
 
 Manages a Bot Channels Registration.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channels_registration" 
+}
+
+inputs = {
+   name = "name of bot_channels_registration" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of bot_channels_registration" 
+   microsoft_app_id = "microsoft_app_id of bot_channels_registration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -28,48 +53,8 @@ Manages a Bot Channels Registration.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | string  | - | 
-| **microsoft_app_id** | string  | - | 
-| **cmk_key_vault_url** | string  | - | 
-| **display_name** | string  | - | 
-| **description** | string  | - | 
-| **endpoint** | string  | - | 
-| **developer_app_insights_key** | string  | - | 
-| **developer_app_insights_api_key** | string  | - | 
-| **developer_app_insights_application_id** | string  | - | 
-| **icon_url** | string  | - | 
-| **streaming_endpoint_enabled** | bool  | - | 
-| **isolated_network_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Bot Channels Registration. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Bot Channels Registration. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_channels_registration" 
-}
-
-inputs = {
-   name = "name of bot_channels_registration" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of bot_channels_registration" 
-   microsoft_app_id = "microsoft_app_id of bot_channels_registration" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

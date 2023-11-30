@@ -2,6 +2,30 @@
 
 Manages an Application Insights component.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "application_insights/application_insights" 
+}
+
+inputs = {
+   name = "name of application_insights" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   application_type = "application_type of application_insights" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,48 +50,11 @@ Manages an Application Insights component.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **application_type** | string  | - | 
-| **daily_data_cap_in_gb** | int  | - | 
-| **daily_data_cap_notifications_disabled** | bool  | - | 
-| **retention_in_days** | string  | - | 
-| **sampling_percentage** | string  | - | 
-| **disable_ip_masking** | bool  | - | 
-| **tags** | map  | - | 
-| **workspace_id** | string  | - | 
-| **local_authentication_disabled** | bool  | - | 
-| **internet_ingestion_enabled** | bool  | - | 
-| **internet_query_enabled** | bool  | - | 
-| **force_customer_storage_for_profiler** | bool  | - | 
-| **id** | string  | The ID of the Application Insights component. | 
-| **app_id** | string  | The App ID associated with this Application Insights component. | 
-| **instrumentation_key** | string  | The Instrumentation Key for this Application Insights component. (Sensitive) | 
-| **connection_string** | string  | The Connection String for this Application Insights component. (Sensitive) | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Application Insights component. | 
+| **app_id** | string | No  | The App ID associated with this Application Insights component. | 
+| **instrumentation_key** | string | No  | The Instrumentation Key for this Application Insights component. (Sensitive) | 
+| **connection_string** | string | No  | The Connection String for this Application Insights component. (Sensitive) | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights" 
-}
-
-inputs = {
-   name = "name of application_insights" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   application_type = "application_type of application_insights" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

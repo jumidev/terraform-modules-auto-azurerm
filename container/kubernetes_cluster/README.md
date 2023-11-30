@@ -2,6 +2,30 @@
 
 Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)-> **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS - you can find [the latest version of the Azure Provider here](https://registry.terraform.io/providers/hashicorp/azurerm/latest).~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/kubernetes_cluster" 
+}
+
+inputs = {
+   name = "name of kubernetes_cluster" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   default_node_pool = "default_node_pool of kubernetes_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -65,120 +89,44 @@ Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Servi
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **default_node_pool** | block  | - | 
-| **dns_prefix** | string  | - | 
-| **dns_prefix_private_cluster** | string  | - | 
-| **aci_connector_linux** | block  | - | 
-| **automatic_channel_upgrade** | string  | - | 
-| **api_server_access_profile** | block  | - | 
-| **auto_scaler_profile** | block  | - | 
-| **azure_active_directory_role_based_access_control** | block  | - | 
-| **azure_policy_enabled** | bool  | - | 
-| **confidential_computing** | block  | - | 
-| **custom_ca_trust_certificates_base64** | list  | - | 
-| **disk_encryption_set_id** | string  | - | 
-| **edge_zone** | string  | - | 
-| **http_application_routing_enabled** | bool  | - | 
-| **http_proxy_config** | block  | - | 
-| **identity** | block  | - | 
-| **image_cleaner_enabled** | bool  | - | 
-| **image_cleaner_interval_hours** | string  | - | 
-| **ingress_application_gateway** | block  | - | 
-| **key_management_service** | block  | - | 
-| **key_vault_secrets_provider** | block  | - | 
-| **kubelet_identity** | block  | - | 
-| **kubernetes_version** | string  | - | 
-| **linux_profile** | block  | - | 
-| **local_account_disabled** | bool  | - | 
-| **maintenance_window** | block  | - | 
-| **maintenance_window_auto_upgrade** | block  | - | 
-| **maintenance_window_node_os** | block  | - | 
-| **microsoft_defender** | block  | - | 
-| **monitor_metrics** | block  | - | 
-| **network_profile** | block  | - | 
-| **node_os_channel_upgrade** | string  | - | 
-| **node_resource_group** | string  | - | 
-| **oidc_issuer_enabled** | bool  | - | 
-| **oms_agent** | block  | - | 
-| **open_service_mesh_enabled** | bool  | - | 
-| **private_cluster_enabled** | bool  | - | 
-| **private_dns_zone_id** | string  | - | 
-| **private_cluster_public_fqdn_enabled** | bool  | - | 
-| **service_mesh_profile** | block  | - | 
-| **workload_autoscaler_profile** | block  | - | 
-| **workload_identity_enabled** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **role_based_access_control_enabled** | bool  | - | 
-| **run_command_enabled** | bool  | - | 
-| **service_principal** | block  | - | 
-| **sku_tier** | string  | - | 
-| **storage_profile** | block  | - | 
-| **tags** | map  | - | 
-| **web_app_routing** | block  | - | 
-| **windows_profile** | block  | - | 
-| **id** | string  | The Kubernetes Managed Cluster ID. | 
-| **fqdn** | string  | The FQDN of the Azure Kubernetes Managed Cluster. | 
-| **private_fqdn** | string  | The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster. | 
-| **portal_fqdn** | string  | The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster. | 
-| **kube_admin_config** | block  | A `kube_admin_config` block. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled. | 
-| **kube_admin_config_raw** | string  | Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled. | 
-| **kube_config** | block  | A `kube_config` block. | 
-| **kube_config_raw** | string  | Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. | 
-| **http_application_routing_zone_name** | string  | The Zone Name of the HTTP Application Routing. | 
-| **oidc_issuer_url** | string  | The OIDC issuer URL that is associated with the cluster. | 
-| **node_resource_group** | string  | The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster. | 
-| **node_resource_group_id** | string  | The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster. | 
-| **network_profile** | block  | A `network_profile` block. | 
-| **ingress_application_gateway** | block  | An `ingress_application_gateway` block. | 
-| **oms_agent** | block  | An `oms_agent` block. | 
-| **key_vault_secrets_provider** | block  | A `key_vault_secrets_provider` block. | 
-| **connector_identity** | block  | A `connector_identity` block is exported. The exported attributes are defined below. | 
-| **client_id** | string  | The Client ID of the user-defined Managed Identity used for Web App Routing. | 
-| **object_id** | string  | The Object ID of the user-defined Managed Identity used for Web App Routing | 
-| **user_assigned_identity_id** | string  | The ID of the User Assigned Identity used for Web App Routing. | 
-| **effective_outbound_ips** | string  | The outcome (resource IDs) of the specified arguments. | 
-| **nat_gateway_profile** | block  | A `nat_gateway_profile` block. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
-| **client_key** | string  | Base64 encoded private key used by clients to authenticate to the Kubernetes cluster. | 
-| **client_certificate** | string  | Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster. | 
-| **cluster_ca_certificate** | string  | Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster. | 
-| **host** | string  | The Kubernetes cluster server host. | 
-| **username** | string  | A username used to authenticate to the Kubernetes cluster. | 
-| **password** | string  | A password or token used to authenticate to the Kubernetes cluster. | 
-| **effective_gateway_id** | string  | The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster. | 
-| **ingress_application_gateway_identity** | block  | An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below. | 
-| **oms_agent_identity** | block  | An `oms_agent_identity` block is exported. The exported attributes are defined below. | 
-| **secret_identity** | block  | An `secret_identity` block is exported. The exported attributes are defined below. | 
-| **web_app_routing_identity** | block  | A `web_app_routing_identity` block is exported. The exported attributes are defined below. | 
-| **vertical_pod_autoscaler_controlled_values** | string  | Which resources values should be controlled. | 
-| **vertical_pod_autoscaler_update_mode** | string  | How the autoscaler applies changes to pod resources. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Kubernetes Managed Cluster ID. | 
+| **fqdn** | string | No  | The FQDN of the Azure Kubernetes Managed Cluster. | 
+| **private_fqdn** | string | No  | The FQDN for the Kubernetes Cluster when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster. | 
+| **portal_fqdn** | string | No  | The FQDN for the Azure Portal resources when private link has been enabled, which is only resolvable inside the Virtual Network used by the Kubernetes Cluster. | 
+| **kube_admin_config** | block | No  | A `kube_admin_config` block. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled. | 
+| **kube_admin_config_raw** | string | No  | Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled. | 
+| **kube_config** | block | No  | A `kube_config` block. | 
+| **kube_config_raw** | string | No  | Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. | 
+| **http_application_routing_zone_name** | string | No  | The Zone Name of the HTTP Application Routing. | 
+| **oidc_issuer_url** | string | No  | The OIDC issuer URL that is associated with the cluster. | 
+| **node_resource_group** | string | No  | The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster. | 
+| **node_resource_group_id** | string | No  | The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster. | 
+| **network_profile** | block | No  | A `network_profile` block. | 
+| **ingress_application_gateway** | block | No  | An `ingress_application_gateway` block. | 
+| **oms_agent** | block | No  | An `oms_agent` block. | 
+| **key_vault_secrets_provider** | block | No  | A `key_vault_secrets_provider` block. | 
+| **connector_identity** | block | No  | A `connector_identity` block is exported. The exported attributes are defined below. | 
+| **client_id** | string | No  | The Client ID of the user-defined Managed Identity used for Web App Routing. | 
+| **object_id** | string | No  | The Object ID of the user-defined Managed Identity used for Web App Routing | 
+| **user_assigned_identity_id** | string | No  | The ID of the User Assigned Identity used for Web App Routing. | 
+| **effective_outbound_ips** | string | No  | The outcome (resource IDs) of the specified arguments. | 
+| **nat_gateway_profile** | block | No  | A `nat_gateway_profile` block. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
+| **client_key** | string | No  | Base64 encoded private key used by clients to authenticate to the Kubernetes cluster. | 
+| **client_certificate** | string | No  | Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster. | 
+| **cluster_ca_certificate** | string | No  | Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster. | 
+| **host** | string | No  | The Kubernetes cluster server host. | 
+| **username** | string | No  | A username used to authenticate to the Kubernetes cluster. | 
+| **password** | string | No  | A password or token used to authenticate to the Kubernetes cluster. | 
+| **effective_gateway_id** | string | No  | The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster. | 
+| **ingress_application_gateway_identity** | block | No  | An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below. | 
+| **oms_agent_identity** | block | No  | An `oms_agent_identity` block is exported. The exported attributes are defined below. | 
+| **secret_identity** | block | No  | An `secret_identity` block is exported. The exported attributes are defined below. | 
+| **web_app_routing_identity** | block | No  | A `web_app_routing_identity` block is exported. The exported attributes are defined below. | 
+| **vertical_pod_autoscaler_controlled_values** | string | No  | Which resources values should be controlled. | 
+| **vertical_pod_autoscaler_update_mode** | string | No  | How the autoscaler applies changes to pod resources. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/kubernetes_cluster" 
-}
-
-inputs = {
-   name = "name of kubernetes_cluster" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   default_node_pool = "default_node_pool of kubernetes_cluster" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

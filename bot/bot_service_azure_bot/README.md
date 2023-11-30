@@ -2,6 +2,31 @@
 
 Manages an Azure Bot Service.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_service_azure_bot" 
+}
+
+inputs = {
+   name = "name of bot_service_azure_bot" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   microsoft_app_id = "microsoft_app_id of bot_service_azure_bot" 
+   sku = "sku of bot_service_azure_bot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,50 +55,8 @@ Manages an Azure Bot Service.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **microsoft_app_id** | string  | - | 
-| **sku** | string  | - | 
-| **developer_app_insights_api_key** | string  | - | 
-| **developer_app_insights_application_id** | string  | - | 
-| **developer_app_insights_key** | string  | - | 
-| **display_name** | string  | - | 
-| **endpoint** | string  | - | 
-| **icon_url** | string  | - | 
-| **microsoft_app_msi_id** | string  | - | 
-| **microsoft_app_tenant_id** | string  | - | 
-| **microsoft_app_type** | string  | - | 
-| **local_authentication_enabled** | bool  | - | 
-| **luis_app_ids** | list  | - | 
-| **luis_key** | string  | - | 
-| **streaming_endpoint_enabled** | bool  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Azure Bot Service. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Azure Bot Service. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_service_azure_bot" 
-}
-
-inputs = {
-   name = "name of bot_service_azure_bot" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   microsoft_app_id = "microsoft_app_id of bot_service_azure_bot" 
-   sku = "sku of bot_service_azure_bot" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

@@ -2,24 +2,7 @@
 
 Manages a HyperV Site in Recovery Service Vault.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Recovery Service. Changing this forces a new Site to be created. | 
-| **var.recovery_vault_id** | string | True | The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **recovery_vault_id** | string  | - | 
-| **id** | string  | The ID of the Recovery Service. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -40,3 +23,20 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Recovery Service. Changing this forces a new Site to be created. | 
+| **var.recovery_vault_id** | string | True | The ID of the Recovery Services Vault where the Site created. Changing this forces a new Site to be created. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Recovery Service. | 
+
+Additionally, all variables are provided as outputs.

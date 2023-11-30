@@ -2,6 +2,31 @@
 
 Manages a Cognitive Services Account.-> **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see [the provider documentation on the features block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) for more information.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cognitive_services/cognitive_account" 
+}
+
+inputs = {
+   name = "name of cognitive_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   kind = "kind of cognitive_account" 
+   sku_name = "sku_name of cognitive_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -34,60 +59,14 @@ Manages a Cognitive Services Account.-> **Note:** Version v2.65.0 of the Azure P
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **kind** | string  | - | 
-| **sku_name** | string  | - | 
-| **custom_subdomain_name** | string  | - | 
-| **dynamic_throttling_enabled** | bool  | - | 
-| **customer_managed_key** | block  | - | 
-| **fqdns** | string  | - | 
-| **identity** | block  | - | 
-| **local_auth_enabled** | bool  | - | 
-| **metrics_advisor_aad_client_id** | string  | - | 
-| **metrics_advisor_aad_tenant_id** | string  | - | 
-| **metrics_advisor_super_user_name** | string  | - | 
-| **metrics_advisor_website_name** | string  | - | 
-| **network_acls** | block  | - | 
-| **outbound_network_access_restricted** | bool  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **qna_runtime_endpoint** | string  | - | 
-| **custom_question_answering_search_service_id** | string  | - | 
-| **custom_question_answering_search_service_key** | string  | - | 
-| **storage** | block  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Cognitive Service Account. | 
-| **endpoint** | string  | The endpoint used to connect to the Cognitive Service Account. | 
-| **identity** | block  | An `identity` block. | 
-| **primary_access_key** | string  | A primary access key which can be used to connect to the Cognitive Service Account. | 
-| **secondary_access_key** | string  | The secondary access key which can be used to connect to the Cognitive Service Account. | 
-| **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Cognitive Service Account. | 
+| **endpoint** | string | No  | The endpoint used to connect to the Cognitive Service Account. | 
+| **identity** | block | No  | An `identity` block. | 
+| **primary_access_key** | string | No  | A primary access key which can be used to connect to the Cognitive Service Account. | 
+| **secondary_access_key** | string | No  | The secondary access key which can be used to connect to the Cognitive Service Account. | 
+| **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cognitive_services/cognitive_account" 
-}
-
-inputs = {
-   name = "name of cognitive_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   kind = "kind of cognitive_account" 
-   sku_name = "sku_name of cognitive_account" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

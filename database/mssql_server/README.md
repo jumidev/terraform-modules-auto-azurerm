@@ -2,6 +2,30 @@
 
 Manages a Microsoft SQL Azure Database Server.~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.[Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_server" 
+}
+
+inputs = {
+   name = "name of mssql_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   version = "version of mssql_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -26,53 +50,16 @@ Manages a Microsoft SQL Azure Database Server.~> **Note:** All arguments includi
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **version** | string  | - | 
-| **administrator_login** | string  | - | 
-| **administrator_login_password** | string  | - | 
-| **azuread_administrator** | block  | - | 
-| **connection_policy** | string  | - | 
-| **identity** | block  | - | 
-| **transparent_data_encryption_key_vault_key_id** | string  | - | 
-| **minimum_tls_version** | string  | - | 
-| **public_network_access_enabled** | bool  | - | 
-| **outbound_network_restriction_enabled** | bool  | - | 
-| **primary_user_assigned_identity_id** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | the Microsoft SQL Server ID. | 
-| **fully_qualified_domain_name** | string  | The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net) | 
-| **restorable_dropped_database_ids** | list  | A list of dropped restorable database IDs on the server. | 
-| **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this SQL Server. | 
-| **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. | 
-| **create** | string  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
-| **update** | datetime  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
-| **read** | string  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 
-| **delete** | string  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | the Microsoft SQL Server ID. | 
+| **fully_qualified_domain_name** | string | No  | The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net) | 
+| **restorable_dropped_database_ids** | list | No  | A list of dropped restorable database IDs on the server. | 
+| **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Identity of this SQL Server. | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. | 
+| **create** | string | No  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
+| **update** | datetime | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
+| **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 
+| **delete** | string | No  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_server" 
-}
-
-inputs = {
-   name = "name of mssql_server" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   version = "version of mssql_server" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

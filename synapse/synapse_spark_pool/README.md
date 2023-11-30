@@ -2,6 +2,30 @@
 
 Manages a Synapse Spark Pool.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_spark_pool" 
+}
+
+inputs = {
+   name = "name of synapse_spark_pool" 
+   synapse_workspace_id = "synapse_workspace_id of synapse_spark_pool" 
+   node_size_family = "node_size_family of synapse_spark_pool" 
+   node_size = "node_size of synapse_spark_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
@@ -30,49 +54,8 @@ Manages a Synapse Spark Pool.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **synapse_workspace_id** | string  | - | 
-| **node_size_family** | string  | - | 
-| **node_size** | string  | - | 
-| **node_count** | int  | - | 
-| **auto_scale** | block  | - | 
-| **auto_pause** | block  | - | 
-| **cache_size** | string  | - | 
-| **compute_isolation_enabled** | bool  | - | 
-| **dynamic_executor_allocation_enabled** | bool  | - | 
-| **min_executors** | int  | - | 
-| **max_executors** | int  | - | 
-| **library_requirement** | block  | - | 
-| **session_level_packages_enabled** | bool  | - | 
-| **spark_config** | block  | - | 
-| **spark_log_folder** | string  | - | 
-| **spark_events_folder** | string  | - | 
-| **spark_version** | string  | - | 
-| **tags** | map  | - | 
-| **id** | string  | The ID of the Synapse Spark Pool. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Synapse Spark Pool. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_spark_pool" 
-}
-
-inputs = {
-   name = "name of synapse_spark_pool" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_spark_pool" 
-   node_size_family = "node_size_family of synapse_spark_pool" 
-   node_size = "node_size of synapse_spark_pool" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.

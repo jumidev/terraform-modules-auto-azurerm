@@ -2,37 +2,7 @@
 
 Manages a Public IP Prefix.
 
-## Variables
-
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | string | False | `Standard`  |  The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. | 
-| **var.ip_version** | string | False | `IPv4`  |  The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`. | 
-| **var.prefix_length** | int | False | `28`  |  Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
-| **var.zones** | string | False | -  |  Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **sku** | string  | - | 
-| **ip_version** | string  | - | 
-| **prefix_length** | int  | - | 
-| **tags** | map  | - | 
-| **zones** | string  | - | 
-| **id** | string  | The Public IP Prefix ID. | 
-| **ip_prefix** | string  | The IP address prefix value that was allocated. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -54,3 +24,27 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Default  |  Description |
+| ---- | ---- | --------- |  ----------- | ----------- |
+| **var.name** | string | True | -  |  Specifies the name of the Public IP Prefix resource . Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the Public IP Prefix. Changing this forces a new resource to be created. | 
+| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.sku** | string | False | `Standard`  |  The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. | 
+| **var.ip_version** | string | False | `IPv4`  |  The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`. | 
+| **var.prefix_length** | int | False | `28`  |  Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created. | 
+| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
+| **var.zones** | string | False | -  |  Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The Public IP Prefix ID. | 
+| **ip_prefix** | string | No  | The IP address prefix value that was allocated. | 
+
+Additionally, all variables are provided as outputs.

@@ -2,30 +2,7 @@
 
 Manages a Backup Instance Blob Storage.
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.location** | string | True | The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.vault_id** | string | True | The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.storage_account_id** | string | True | The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.backup_policy_id** | string | True | The ID of the Backup Policy. | 
-
-
-
-## Outputs
-
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **location** | string  | - | 
-| **vault_id** | string  | - | 
-| **storage_account_id** | string  | - | 
-| **backup_policy_id** | string  | - | 
-| **id** | string  | The ID of the Backup Instance Blob Storage. | 
-
-## Example minimal hclt
+## Example minimal component.hclt
 
 ```hcl
 source = {
@@ -49,3 +26,23 @@ tfstate_store = {
 
 
 ```
+
+## Variables
+
+| Name | Type | Required? |  Description |
+| ---- | ---- | --------- |  ----------- |
+| **var.name** | string | True | The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **var.location** | string | True | The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **var.vault_id** | string | True | The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **var.storage_account_id** | string | True | The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **var.backup_policy_id** | string | True | The ID of the Backup Policy. | 
+
+
+
+## Outputs
+
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the Backup Instance Blob Storage. | 
+
+Additionally, all variables are provided as outputs.

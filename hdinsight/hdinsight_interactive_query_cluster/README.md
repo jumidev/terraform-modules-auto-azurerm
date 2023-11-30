@@ -2,6 +2,34 @@
 
 Manages a HDInsight Interactive Query Cluster.
 
+## Example minimal component.hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "hdinsight/hdinsight_interactive_query_cluster" 
+}
+
+inputs = {
+   name = "name of hdinsight_interactive_query_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   cluster_version = "cluster_version of hdinsight_interactive_query_cluster" 
+   component_version = "component_version of hdinsight_interactive_query_cluster" 
+   gateway = "gateway of hdinsight_interactive_query_cluster" 
+   roles = "roles of hdinsight_interactive_query_cluster" 
+   tier = "tier of hdinsight_interactive_query_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
+
 ## Variables
 
 | Name | Type | Required? |  possible values |  Description |
@@ -31,56 +59,10 @@ Manages a HDInsight Interactive Query Cluster.
 
 ## Outputs
 
-| Name | Type | Description |
-| ---- | ---- | --------- | 
-| **name** | string  | - | 
-| **resource_group_name** | string  | - | 
-| **location** | string  | - | 
-| **cluster_version** | string  | - | 
-| **component_version** | block  | - | 
-| **encryption_in_transit_enabled** | bool  | - | 
-| **disk_encryption** | block  | - | 
-| **gateway** | block  | - | 
-| **roles** | block  | - | 
-| **network** | block  | - | 
-| **compute_isolation** | block  | - | 
-| **storage_account** | block  | - | 
-| **storage_account_gen2** | block  | - | 
-| **tier** | string  | - | 
-| **tls_min_version** | string  | - | 
-| **tags** | map  | - | 
-| **metastores** | block  | - | 
-| **monitor** | block  | - | 
-| **extension** | block  | - | 
-| **security_profile** | block  | - | 
-| **id** | string  | The ID of the HDInsight Interactive Query Cluster. | 
-| **https_endpoint** | string  | The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster. | 
-| **ssh_endpoint** | string  | The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster. | 
+| Name | Type | Sensitive? | Description |
+| ---- | ---- | --------- | --------- |
+| **id** | string | No  | The ID of the HDInsight Interactive Query Cluster. | 
+| **https_endpoint** | string | No  | The HTTPS Connectivity Endpoint for this HDInsight Interactive Query Cluster. | 
+| **ssh_endpoint** | string | No  | The SSH Connectivity Endpoint for this HDInsight Interactive Query Cluster. | 
 
-## Example minimal hclt
-
-```hcl
-source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "hdinsight/hdinsight_interactive_query_cluster" 
-}
-
-inputs = {
-   name = "name of hdinsight_interactive_query_cluster" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   cluster_version = "cluster_version of hdinsight_interactive_query_cluster" 
-   component_version = "component_version of hdinsight_interactive_query_cluster" 
-   gateway = "gateway of hdinsight_interactive_query_cluster" 
-   roles = "roles of hdinsight_interactive_query_cluster" 
-   tier = "tier of hdinsight_interactive_query_cluster" 
-}
-
-tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
-}
-
-
-```
+Additionally, all variables are provided as outputs.
