@@ -65,3 +65,29 @@ Manages a Redis Cache.-> **Note:** Redis version 4 is being retired and no longe
 | **secondary_connection_string** | string  | The secondary connection string of the Redis Instance. | 
 | **redis_configuration** | block  | A `redis_configuration` block: | 
 | **maxclients** | int  | Returns the max number of connected clients at the same time. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "redis/redis_cache" 
+}
+
+inputs = {
+   name = "name of redis_cache" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   capacity = "capacity of redis_cache" 
+   family = "family of redis_cache" 
+   sku_name = "sku_name of redis_cache" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

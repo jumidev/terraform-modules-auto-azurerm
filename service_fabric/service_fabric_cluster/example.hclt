@@ -1,0 +1,22 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "service_fabric/service_fabric_cluster" 
+}
+
+inputs = {
+   name = "name of service_fabric_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   reliability_level = "reliability_level of service_fabric_cluster" 
+   management_endpoint = "management_endpoint of service_fabric_cluster" 
+   node_type = "node_type of service_fabric_cluster" 
+   upgrade_mode = "upgrade_mode of service_fabric_cluster" 
+   vm_image = "vm_image of service_fabric_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

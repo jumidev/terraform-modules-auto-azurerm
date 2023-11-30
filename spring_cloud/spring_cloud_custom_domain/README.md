@@ -22,3 +22,25 @@ Manages an Azure Spring Cloud Custom Domain.
 | **certificate_name** | string  | - | 
 | **thumbprint** | string  | - | 
 | **id** | string  | The ID of the Spring Cloud Custom Domain. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_custom_domain" 
+}
+
+inputs = {
+   name = "name of spring_cloud_custom_domain" 
+   spring_cloud_app_id = "spring_cloud_app_id of spring_cloud_custom_domain" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

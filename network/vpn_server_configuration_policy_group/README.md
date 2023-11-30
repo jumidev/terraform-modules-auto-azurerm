@@ -24,3 +24,26 @@ Manages a VPN Server Configuration Policy Group.
 | **is_default** | bool  | - | 
 | **priority** | string  | - | 
 | **id** | string  | The ID of the VPN Server Configuration Policy Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/vpn_server_configuration_policy_group" 
+}
+
+inputs = {
+   name = "name of vpn_server_configuration_policy_group" 
+   vpn_server_configuration_id = "vpn_server_configuration_id of vpn_server_configuration_policy_group" 
+   policy = "policy of vpn_server_configuration_policy_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

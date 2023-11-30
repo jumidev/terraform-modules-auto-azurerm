@@ -26,3 +26,27 @@ Manages a Security Partner Provider which could be associated to virtual hub.
 | **virtual_hub_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Security Partner Provider. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_hub_security_partner_provider" 
+}
+
+inputs = {
+   name = "name of virtual_hub_security_partner_provider" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   security_provider_name = "security_provider_name of virtual_hub_security_partner_provider" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

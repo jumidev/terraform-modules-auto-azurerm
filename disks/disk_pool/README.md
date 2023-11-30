@@ -28,3 +28,29 @@ Manages a Disk Pool.!> **Note:** Azure are officially [halting](https://learn.mi
 | **subnet_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Disk Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "disks/disk_pool" 
+}
+
+inputs = {
+   name = "name of disk_pool" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   zones = "zones of disk_pool" 
+   sku_name = "sku_name of disk_pool" 
+   subnet_id = "subnet_id of disk_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

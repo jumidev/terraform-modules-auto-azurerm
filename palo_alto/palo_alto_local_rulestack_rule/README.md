@@ -52,3 +52,30 @@ Manages a Palo Alto Local Rulestack Rule.
 | **protocol_ports** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Palo Alto Local Rulestack Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_local_rulestack_rule" 
+}
+
+inputs = {
+   applications = "applications of palo_alto_local_rulestack_rule" 
+   rulestack_id = "rulestack_id of palo_alto_local_rulestack_rule" 
+   priority = "priority of palo_alto_local_rulestack_rule" 
+   action = "action of palo_alto_local_rulestack_rule" 
+   name = "name of palo_alto_local_rulestack_rule" 
+   destination = "destination of palo_alto_local_rulestack_rule" 
+   source = "source of palo_alto_local_rulestack_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

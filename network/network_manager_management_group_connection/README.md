@@ -23,3 +23,26 @@ Manages a Network Manager Management Group Connection which may cross tenants.
 | **description** | string  | - | 
 | **id** | string  | The ID of the Network Manager Management Group Connection. | 
 | **connection_state** | string  | The Connection state of the Network Manager Management Group Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_management_group_connection" 
+}
+
+inputs = {
+   name = "name of network_manager_management_group_connection" 
+   management_group_id = "management_group_id of network_manager_management_group_connection" 
+   network_manager_id = "network_manager_id of network_manager_management_group_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

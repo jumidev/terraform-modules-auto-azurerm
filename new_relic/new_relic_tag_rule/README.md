@@ -28,3 +28,24 @@ Manages an Azure Native New Relic Tag Rule.
 | **metric_tag_filter** | block  | - | 
 | **subscription_log_enabled** | bool  | - | 
 | **id** | string  | The ID of the Azure Native New Relic Tag Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "new_relic/new_relic_tag_rule" 
+}
+
+inputs = {
+   monitor_id = "monitor_id of new_relic_tag_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

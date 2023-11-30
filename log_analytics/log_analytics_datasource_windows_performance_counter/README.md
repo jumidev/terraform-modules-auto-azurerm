@@ -28,3 +28,30 @@ Manages a Log Analytics (formally Operational Insights) Windows Performance Coun
 | **counter_name** | string  | - | 
 | **interval_seconds** | int  | - | 
 | **id** | string  | The ID of the Log Analytics Windows Performance Counter DataSource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_datasource_windows_performance_counter" 
+}
+
+inputs = {
+   name = "name of log_analytics_datasource_windows_performance_counter" 
+   resource_group_name = "${resource_group}" 
+   workspace_name = "workspace_name of log_analytics_datasource_windows_performance_counter" 
+   object_name = "object_name of log_analytics_datasource_windows_performance_counter" 
+   instance_name = "instance_name of log_analytics_datasource_windows_performance_counter" 
+   counter_name = "counter_name of log_analytics_datasource_windows_performance_counter" 
+   interval_seconds = "interval_seconds of log_analytics_datasource_windows_performance_counter" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

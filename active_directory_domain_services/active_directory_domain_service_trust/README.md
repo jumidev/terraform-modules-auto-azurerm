@@ -24,3 +24,28 @@ Manages a Active Directory Domain Service Trust.
 | **trusted_domain_dns_ips** | string  | - | 
 | **trusted_domain_fqdn** | string  | - | 
 | **id** | string  | The ID of the Active Directory Domain Service Trust. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "active_directory_domain_services/active_directory_domain_service_trust" 
+}
+
+inputs = {
+   domain_service_id = "domain_service_id of active_directory_domain_service_trust" 
+   name = "name of active_directory_domain_service_trust" 
+   password = "password of active_directory_domain_service_trust" 
+   trusted_domain_dns_ips = "trusted_domain_dns_ips of active_directory_domain_service_trust" 
+   trusted_domain_fqdn = "trusted_domain_fqdn of active_directory_domain_service_trust" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

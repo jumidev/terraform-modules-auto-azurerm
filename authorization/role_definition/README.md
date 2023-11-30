@@ -28,3 +28,25 @@ Manages a custom Role Definition, used to assign Roles to Users/Principals. See 
 | **id** | string  | This ID is specific to Terraform - and is of the format `{roleDefinitionId}|{scope}`. | 
 | **role_definition_id** | string  | The Role Definition ID. Changing this forces a new resource to be created. | 
 | **role_definition_resource_id** | string  | The Azure Resource Manager ID for the resource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "authorization/role_definition" 
+}
+
+inputs = {
+   name = "name of role_definition" 
+   scope = "scope of role_definition" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

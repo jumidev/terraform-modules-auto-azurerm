@@ -24,3 +24,24 @@ Manages the Defender for Storage.
 | **malware_scanning_on_upload_cap_gb_per_month** | int  | - | 
 | **sensitive_data_discovery_enabled** | bool  | - | 
 | **id** | string  | The Defender for Storage id. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/security_center_storage_defender" 
+}
+
+inputs = {
+   storage_account_id = "storage_account_id of security_center_storage_defender" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

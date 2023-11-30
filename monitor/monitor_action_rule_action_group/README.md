@@ -30,3 +30,26 @@ Manages a Monitor Action Rule which type is action group.!> **NOTE:** This resou
 | **condition** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Monitor Action Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_action_rule_action_group" 
+}
+
+inputs = {
+   name = "name of monitor_action_rule_action_group" 
+   resource_group_name = "${resource_group}" 
+   action_group_id = "action_group_id of monitor_action_rule_action_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

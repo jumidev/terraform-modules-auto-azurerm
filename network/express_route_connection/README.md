@@ -30,3 +30,26 @@ Manages an Express Route Connection.~> **NOTE:** The provider status of the Expr
 | **routing** | block  | - | 
 | **routing_weight** | string  | - | 
 | **id** | string  | The ID of the Express Route Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/express_route_connection" 
+}
+
+inputs = {
+   name = "name of express_route_connection" 
+   express_route_circuit_peering_id = "express_route_circuit_peering_id of express_route_connection" 
+   express_route_gateway_id = "express_route_gateway_id of express_route_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

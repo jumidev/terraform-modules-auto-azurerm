@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_job_credential" 
+}
+
+inputs = {
+   name = "name of mssql_job_credential" 
+   job_agent_id = "job_agent_id of mssql_job_credential" 
+   username = "username of mssql_job_credential" 
+   password = "password of mssql_job_credential" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

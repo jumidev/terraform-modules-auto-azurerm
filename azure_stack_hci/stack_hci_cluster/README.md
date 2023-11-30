@@ -28,3 +28,27 @@ Manages an Azure Stack HCI Cluster.
 | **tags** | map  | - | 
 | **automanage_configuration_id** | string  | - | 
 | **id** | string  | The ID of the Azure Stack HCI Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "azure_stack_hci/stack_hci_cluster" 
+}
+
+inputs = {
+   name = "name of stack_hci_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   client_id = "client_id of stack_hci_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

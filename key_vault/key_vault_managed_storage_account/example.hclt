@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_managed_storage_account" 
+}
+
+inputs = {
+   name = "name of key_vault_managed_storage_account" 
+   key_vault_id = "key_vault_id of key_vault_managed_storage_account" 
+   storage_account_id = "storage_account_id of key_vault_managed_storage_account" 
+   storage_account_key = "storage_account_key of key_vault_managed_storage_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

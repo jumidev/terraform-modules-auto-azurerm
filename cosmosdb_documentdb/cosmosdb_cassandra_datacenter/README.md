@@ -38,3 +38,27 @@ Manages a Cassandra Datacenter.~> **NOTE:** In order for the `Azure Managed Inst
 | **disk_count** | int  | - | 
 | **availability_zones_enabled** | bool  | - | 
 | **id** | string  | The ID of the Cassandra Datacenter. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_cassandra_datacenter" 
+}
+
+inputs = {
+   name = "name of cosmosdb_cassandra_datacenter" 
+   location = "${location}" 
+   cassandra_cluster_id = "cassandra_cluster_id of cosmosdb_cassandra_datacenter" 
+   delegated_management_subnet_id = "delegated_management_subnet_id of cosmosdb_cassandra_datacenter" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

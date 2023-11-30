@@ -34,3 +34,31 @@ Manages an Azure Cost Management View for a Resource Group.
 | **kpi** | block  | - | 
 | **pivot** | block  | - | 
 | **id** | string  | The ID of the Cost Management View for a Resource Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cost_management/resource_group_cost_management_view" 
+}
+
+inputs = {
+   accumulated = "accumulated of resource_group_cost_management_view" 
+   chart_type = "chart_type of resource_group_cost_management_view" 
+   dataset = "dataset of resource_group_cost_management_view" 
+   display_name = "display_name of resource_group_cost_management_view" 
+   name = "name of resource_group_cost_management_view" 
+   report_type = "report_type of resource_group_cost_management_view" 
+   resource_group_id = "resource_group_id of resource_group_cost_management_view" 
+   timeframe = "timeframe of resource_group_cost_management_view" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

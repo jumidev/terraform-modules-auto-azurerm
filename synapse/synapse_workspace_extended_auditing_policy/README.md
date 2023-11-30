@@ -26,3 +26,24 @@ Manages a Synapse Workspace Extended Auditing Policy.
 | **storage_account_access_key_is_secondary** | string  | - | 
 | **log_monitoring_enabled** | bool  | - | 
 | **id** | string  | The ID of the Synapse Workspace Extended Auditing Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_workspace_extended_auditing_policy" 
+}
+
+inputs = {
+   synapse_workspace_id = "synapse_workspace_id of synapse_workspace_extended_auditing_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

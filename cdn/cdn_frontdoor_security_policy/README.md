@@ -20,3 +20,26 @@ Manages a Front Door (standard/premium) Security Policy.
 | **cdn_frontdoor_profile_id** | string  | - | 
 | **security_policies** | block  | - | 
 | **id** | string  | The ID of the Front Door Security Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_security_policy" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_security_policy" 
+   cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_security_policy" 
+   security_policies = "security_policies of cdn_frontdoor_security_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

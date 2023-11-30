@@ -25,3 +25,29 @@ Manages a Network Rule Collection within an Azure Firewall.
 | **priority** | string  | - | 
 | **action** | string  | - | 
 | **rule** | block  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/firewall_network_rule_collection" 
+}
+
+inputs = {
+   name = "name of firewall_network_rule_collection" 
+   azure_firewall_name = "azure_firewall_name of firewall_network_rule_collection" 
+   resource_group_name = "${resource_group}" 
+   priority = "priority of firewall_network_rule_collection" 
+   action = "action of firewall_network_rule_collection" 
+   rule = "rule of firewall_network_rule_collection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/integration_service_environment" 
+}
+
+inputs = {
+   name = "name of integration_service_environment" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   access_endpoint_type = "access_endpoint_type of integration_service_environment" 
+   virtual_network_subnet_ids = "virtual_network_subnet_ids of integration_service_environment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

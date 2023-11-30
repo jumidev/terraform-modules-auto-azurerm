@@ -27,3 +27,27 @@ Manages a Data Share Blob Storage Dataset.
 | **folder_path** | string  | - | 
 | **id** | string  | The ID of the Data Share Blob Storage Dataset. | 
 | **display_name** | string  | The name of the Data Share Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_share/data_share_dataset_blob_storage" 
+}
+
+inputs = {
+   name = "name of data_share_dataset_blob_storage" 
+   data_share_id = "data_share_id of data_share_dataset_blob_storage" 
+   container_name = "container_name of data_share_dataset_blob_storage" 
+   storage_account = "storage_account of data_share_dataset_blob_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

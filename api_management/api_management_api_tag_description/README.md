@@ -22,3 +22,24 @@ Manages an API Tag Description within an API Management Service.
 | **external_documentation_url** | string  | - | 
 | **external_documentation_description** | string  | - | 
 | **id** | string  | The ID of the API Management API Schema. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_api_tag_description" 
+}
+
+inputs = {
+   api_tag_id = "api_tag_id of api_management_api_tag_description" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

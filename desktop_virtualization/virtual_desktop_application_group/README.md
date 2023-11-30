@@ -32,3 +32,28 @@ Manages a Virtual Desktop Application Group.
 | **description** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Virtual Desktop Application Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "desktop_virtualization/virtual_desktop_application_group" 
+}
+
+inputs = {
+   name = "name of virtual_desktop_application_group" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   type = "type of virtual_desktop_application_group" 
+   host_pool_id = "host_pool_id of virtual_desktop_application_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

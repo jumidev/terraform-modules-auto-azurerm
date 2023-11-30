@@ -30,3 +30,27 @@ Manages a Synapse SQL Pool Workload Group.
 | **min_resource_percent_per_request** | string  | - | 
 | **query_execution_timeout_in_seconds** | int  | - | 
 | **id** | string  | The ID of the Synapse SQL Pool Workload Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_sql_pool_workload_group" 
+}
+
+inputs = {
+   name = "name of synapse_sql_pool_workload_group" 
+   sql_pool_id = "sql_pool_id of synapse_sql_pool_workload_group" 
+   max_resource_percent = "max_resource_percent of synapse_sql_pool_workload_group" 
+   min_resource_percent = "min_resource_percent of synapse_sql_pool_workload_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

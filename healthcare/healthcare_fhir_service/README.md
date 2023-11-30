@@ -41,3 +41,28 @@ Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Healthcare FHIR Service. | 
 | **public_network_access_enabled** | bool  | Whether public networks access is enabled. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "healthcare/healthcare_fhir_service" 
+}
+
+inputs = {
+   name = "name of healthcare_fhir_service" 
+   resource_group_name = "${resource_group}" 
+   workspace_id = "workspace_id of healthcare_fhir_service" 
+   location = "${location}" 
+   authentication = "authentication of healthcare_fhir_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -50,3 +50,30 @@ Manages a Network Security Rule.~> **NOTE on Network Security Groups and Network
 | **priority** | string  | - | 
 | **direction** | string  | - | 
 | **id** | string  | The ID of the Network Security Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_security_rule" 
+}
+
+inputs = {
+   name = "name of network_security_rule" 
+   resource_group_name = "${resource_group}" 
+   network_security_group_name = "network_security_group_name of network_security_rule" 
+   protocol = "protocol of network_security_rule" 
+   access = "access of network_security_rule" 
+   priority = "priority of network_security_rule" 
+   direction = "direction of network_security_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

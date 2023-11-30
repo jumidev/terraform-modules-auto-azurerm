@@ -28,3 +28,29 @@ Manages an IotHub Route~> **NOTE:** Routes can be defined either directly on the
 | **endpoint_names** | string  | - | 
 | **enabled** | bool  | - | 
 | **id** | string  | The ID of the IoTHub Route. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_route" 
+}
+
+inputs = {
+   name = "name of iothub_route" 
+   resource_group_name = "${resource_group}" 
+   iothub_name = "iothub_name of iothub_route" 
+   source = "source of iothub_route" 
+   endpoint_names = "endpoint_names of iothub_route" 
+   enabled = "enabled of iothub_route" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

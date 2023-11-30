@@ -30,3 +30,28 @@ Manages a Confidential Ledger.
 | **id** | string  | The ID of this Confidential Ledger. | 
 | **identity_service_endpoint** | string  | The Identity Service Endpoint for this Confidential Ledger. | 
 | **ledger_endpoint** | string  | The Endpoint for this Confidential Ledger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "confidential_ledger/confidential_ledger" 
+}
+
+inputs = {
+   name = "name of confidential_ledger" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   azuread_based_service_principal = "azuread_based_service_principal of confidential_ledger" 
+   ledger_type = "ledger_type of confidential_ledger" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

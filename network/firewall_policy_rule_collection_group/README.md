@@ -26,3 +26,26 @@ Manages a Firewall Policy Rule Collection Group.
 | **nat_rule_collection** | block  | - | 
 | **network_rule_collection** | block  | - | 
 | **id** | string  | The ID of the Firewall Policy Rule Collection Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/firewall_policy_rule_collection_group" 
+}
+
+inputs = {
+   name = "name of firewall_policy_rule_collection_group" 
+   firewall_policy_id = "firewall_policy_id of firewall_policy_rule_collection_group" 
+   priority = "priority of firewall_policy_rule_collection_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

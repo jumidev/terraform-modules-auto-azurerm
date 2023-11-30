@@ -22,3 +22,25 @@ Manages the Network ACL for a Web Pubsub.
 | **public_network** | block  | - | 
 | **private_endpoint** | block  | - | 
 | **id** | string  | The ID of the Web Pubsub service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/web_pubsub_network_acl" 
+}
+
+inputs = {
+   web_pubsub_id = "web_pubsub_id of web_pubsub_network_acl" 
+   public_network = "public_network of web_pubsub_network_acl" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

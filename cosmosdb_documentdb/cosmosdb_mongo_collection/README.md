@@ -37,3 +37,27 @@ Manages a Mongo Collection within a Cosmos DB Account.
 | **system_indexes** | block  | One or more `system_indexes` blocks. | 
 | **keys** | string  | The list of system keys which are not settable for each Cosmos DB Mongo Collection. | 
 | **unique** | bool  | Identifies whether the table contains no duplicate values. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_mongo_collection" 
+}
+
+inputs = {
+   name = "name of cosmosdb_mongo_collection" 
+   resource_group_name = "${resource_group}" 
+   account_name = "account_name of cosmosdb_mongo_collection" 
+   database_name = "database_name of cosmosdb_mongo_collection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

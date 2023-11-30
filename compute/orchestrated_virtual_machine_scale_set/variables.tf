@@ -88,14 +88,6 @@ variable "os_profile" {
 #   timezone (string)                    : Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 #   winrm_listener (block)               : One or more 'winrm_listener' blocks. Changing this forces a new resource to be created.
 #
-# winrm_listener block structure:
-#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
-#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
-#
-# certificate block structure:
-#   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
-#   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
-#
 # admin_ssh_key block structure:
 #   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
 #   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
@@ -114,6 +106,14 @@ variable "os_profile" {
 # secret block structure:
 #   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
 #   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
+#
+# certificate block structure:
+#   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
+#   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
+#
+# winrm_listener block structure:
+#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
+#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
 
 
 variable "os_disk" {

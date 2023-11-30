@@ -31,3 +31,26 @@ Manages a Template Deployment at a Management Group Scope.~> **Note:** Deleting 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Management Group Template Deployment. | 
 | **output_content** | string  | The JSON Content of the Outputs of the ARM Template Deployment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "template/management_group_template_deployment" 
+}
+
+inputs = {
+   location = "${location}" 
+   management_group_id = "management_group_id of management_group_template_deployment" 
+   name = "name of management_group_template_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

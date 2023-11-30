@@ -22,3 +22,25 @@ Manages a Network Manager Security Admin Configuration.
 | **apply_on_network_intent_policy_based_services** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Network Manager Security Admin Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_security_admin_configuration" 
+}
+
+inputs = {
+   name = "name of network_manager_security_admin_configuration" 
+   network_manager_id = "network_manager_id of network_manager_security_admin_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

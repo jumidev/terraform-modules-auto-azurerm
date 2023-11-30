@@ -33,3 +33,27 @@ Manages a Automation Account.
 | **hybrid_service_url** | string  | The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_account" 
+}
+
+inputs = {
+   name = "name of automation_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of automation_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

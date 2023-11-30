@@ -36,3 +36,29 @@
 | **shared_access_policy_key** | string  | - | 
 | **shared_access_policy_name** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Stream Input EventHub. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_stream_input_eventhub" 
+}
+
+inputs = {
+   name = "name of stream_analytics_stream_input_eventhub" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_stream_input_eventhub" 
+   eventhub_name = "eventhub_name of stream_analytics_stream_input_eventhub" 
+   servicebus_namespace = "servicebus_namespace of stream_analytics_stream_input_eventhub" 
+   serialization = "serialization of stream_analytics_stream_input_eventhub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

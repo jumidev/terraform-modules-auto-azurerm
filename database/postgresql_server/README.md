@@ -56,3 +56,29 @@ Manages a PostgreSQL Server.
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_server" 
+}
+
+inputs = {
+   name = "name of postgresql_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of postgresql_server" 
+   version = "version of postgresql_server" 
+   ssl_enforcement_enabled = "ssl_enforcement_enabled of postgresql_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

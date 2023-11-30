@@ -24,3 +24,26 @@ Manages a Data Factory Managed Private Endpoint.
 | **subresource_name** | string  | - | 
 | **fqdns** | string  | - | 
 | **id** | string  | The ID of the Data Factory Managed Private Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_managed_private_endpoint" 
+}
+
+inputs = {
+   name = "name of data_factory_managed_private_endpoint" 
+   data_factory_id = "data_factory_id of data_factory_managed_private_endpoint" 
+   target_resource_id = "target_resource_id of data_factory_managed_private_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

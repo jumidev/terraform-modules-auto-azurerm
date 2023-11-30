@@ -30,3 +30,29 @@ Manages a Slack integration for a Bot Channel~> **Note** A bot can only have a s
 | **landing_page_url** | string  | - | 
 | **signing_secret** | string  | - | 
 | **id** | string  | The ID of the Slack Integration for a Bot Channel. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_slack" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_slack" 
+   client_id = "client_id of bot_channel_slack" 
+   client_secret = "client_secret of bot_channel_slack" 
+   verification_token = "verification_token of bot_channel_slack" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

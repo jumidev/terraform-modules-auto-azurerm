@@ -22,3 +22,25 @@ Manages a Spring Cloud Build Pack Binding.-> **NOTE:** This resource is applicab
 | **binding_type** | string  | - | 
 | **launch** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Build Pack Binding. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_build_pack_binding" 
+}
+
+inputs = {
+   name = "name of spring_cloud_build_pack_binding" 
+   spring_cloud_builder_id = "spring_cloud_builder_id of spring_cloud_build_pack_binding" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

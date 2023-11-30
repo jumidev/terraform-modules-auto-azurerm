@@ -29,3 +29,28 @@ Manages a Subscription Consumption Budget.
 | **filter** | block  | - | 
 | **id** | string  | The ID of the Subscription Consumption Budget. | 
 | **etag** | string  | The ETag of the Subscription Consumption Budget. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "consumption/consumption_budget_subscription" 
+}
+
+inputs = {
+   name = "name of consumption_budget_subscription" 
+   subscription_id = "subscription_id of consumption_budget_subscription" 
+   amount = "amount of consumption_budget_subscription" 
+   time_period = "time_period of consumption_budget_subscription" 
+   notification = "notification of consumption_budget_subscription" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

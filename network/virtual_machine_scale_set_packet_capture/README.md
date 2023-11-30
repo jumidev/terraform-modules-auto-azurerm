@@ -34,3 +34,27 @@ Configures Network Packet Capturing against a Virtual Machine Scale Set using a 
 | **id** | string  | The Virtual Machine Scale Set Packet Capture ID. | 
 | **storage_location** | block  | A `storage_location` block. | 
 | **storage_path** | string  | The URI of the storage path where the packet capture sessions are saved to. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_machine_scale_set_packet_capture" 
+}
+
+inputs = {
+   name = "name of virtual_machine_scale_set_packet_capture" 
+   network_watcher_id = "network_watcher_id of virtual_machine_scale_set_packet_capture" 
+   virtual_machine_scale_set_id = "virtual_machine_scale_set_id of virtual_machine_scale_set_packet_capture" 
+   storage_location = "storage_location of virtual_machine_scale_set_packet_capture" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

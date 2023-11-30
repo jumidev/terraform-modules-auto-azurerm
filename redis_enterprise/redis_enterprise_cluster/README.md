@@ -29,3 +29,27 @@ Manages a Redis Enterprise Cluster.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Redis Enterprise Cluster. | 
 | **hostname** | string  | DNS name of the cluster endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "redis_enterprise/redis_enterprise_cluster" 
+}
+
+inputs = {
+   name = "name of redis_enterprise_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of redis_enterprise_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

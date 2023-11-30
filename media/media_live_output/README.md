@@ -32,3 +32,27 @@ Manages a Azure Media Live Event Output.
 | **output_snap_time_in_seconds** | int  | - | 
 | **rewind_window_duration** | string  | - | 
 | **id** | string  | The ID of the Live Output. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_live_output" 
+}
+
+inputs = {
+   archive_window_duration = "archive_window_duration of media_live_output" 
+   asset_name = "asset_name of media_live_output" 
+   live_event_id = "live_event_id of media_live_output" 
+   name = "name of media_live_output" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

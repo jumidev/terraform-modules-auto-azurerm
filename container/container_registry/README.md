@@ -58,3 +58,27 @@ Manages an Azure Container Registry.~> **Note:** All arguments including the acc
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_registry" 
+}
+
+inputs = {
+   name = "name of container_registry" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of container_registry" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_registry" 
+}
+
+inputs = {
+   name = "name of container_registry" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of container_registry" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

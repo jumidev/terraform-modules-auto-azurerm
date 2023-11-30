@@ -45,3 +45,27 @@ Manages a Recovery Services Vault.
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/recovery_services_vault" 
+}
+
+inputs = {
+   name = "name of recovery_services_vault" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of recovery_services_vault" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

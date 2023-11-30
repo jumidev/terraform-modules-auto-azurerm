@@ -50,3 +50,25 @@ Manages a ServiceBus Queue.
 | **forward_to** | string  | - | 
 | **forward_dead_lettered_messages_to** | string  | - | 
 | **id** | string  | The ServiceBus Queue ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_queue" 
+}
+
+inputs = {
+   name = "name of servicebus_queue" 
+   namespace_id = "namespace_id of servicebus_queue" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

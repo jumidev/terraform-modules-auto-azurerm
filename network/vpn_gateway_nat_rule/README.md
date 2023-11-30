@@ -34,3 +34,26 @@ Manages a VPN Gateway NAT Rule.
 | **external_address_space_mappings** | string  | - | 
 | **internal_address_space_mappings** | string  | - | 
 | **id** | string  | The ID of the VPN Gateway NAT Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/vpn_gateway_nat_rule" 
+}
+
+inputs = {
+   name = "name of vpn_gateway_nat_rule" 
+   resource_group_name = "${resource_group}" 
+   vpn_gateway_id = "vpn_gateway_id of vpn_gateway_nat_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

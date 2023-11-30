@@ -44,3 +44,27 @@ Manages a Nginx Deployment.
 | **id** | string  | The ID of the Nginx Deployment. | 
 | **ip_address** | string  | The IP address of the deployment. | 
 | **nginx_version** | string  | The version of deployed nginx. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "nginx/nginx_deployment" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   name = "name of nginx_deployment" 
+   location = "${location}" 
+   sku = "sku of nginx_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

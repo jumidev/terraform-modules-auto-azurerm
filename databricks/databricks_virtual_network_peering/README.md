@@ -36,3 +36,29 @@ Manages a Databricks Virtual Network Peering
 | **use_remote_gateways** | bool  | - | 
 | **virtual_network_id** | string  | - | 
 | **id** | string  | The ID of the Databricks Virtual Network Peering. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databricks/databricks_virtual_network_peering" 
+}
+
+inputs = {
+   name = "name of databricks_virtual_network_peering" 
+   resource_group_name = "${resource_group}" 
+   workspace_id = "workspace_id of databricks_virtual_network_peering" 
+   address_space_prefixes = "address_space_prefixes of databricks_virtual_network_peering" 
+   remote_address_space_prefixes = "remote_address_space_prefixes of databricks_virtual_network_peering" 
+   remote_virtual_network_id = "remote_virtual_network_id of databricks_virtual_network_peering" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

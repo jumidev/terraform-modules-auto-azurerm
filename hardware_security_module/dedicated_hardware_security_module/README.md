@@ -32,3 +32,28 @@ Manages a Dedicated Hardware Security Module.-> **Note:** Before using this reso
 | **zones** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Dedicated Hardware Security Module. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "hardware_security_module/dedicated_hardware_security_module" 
+}
+
+inputs = {
+   name = "name of dedicated_hardware_security_module" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   network_profile = "network_profile of dedicated_hardware_security_module" 
+   sku_name = "sku_name of dedicated_hardware_security_module" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

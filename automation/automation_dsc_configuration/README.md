@@ -30,3 +30,28 @@ Manages a Automation DSC Configuration.
 | **description** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Automation DSC Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_dsc_configuration" 
+}
+
+inputs = {
+   name = "name of automation_dsc_configuration" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_dsc_configuration" 
+   content_embedded = "content_embedded of automation_dsc_configuration" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

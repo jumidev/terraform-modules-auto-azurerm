@@ -31,3 +31,27 @@ Manages a Front Door (standard/premium) Custom Domain.!>**IMPORTANT:** If you ar
 | **id** | string  | The ID of the Front Door Custom Domain. | 
 | **expiration_date** | datetime  | The date time that the token expires. | 
 | **validation_token** | string  | Challenge used for DNS TXT record or file based validation. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_custom_domain" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_custom_domain" 
+   cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_custom_domain" 
+   host_name = "host_name of cdn_frontdoor_custom_domain" 
+   tls = "tls of cdn_frontdoor_custom_domain" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

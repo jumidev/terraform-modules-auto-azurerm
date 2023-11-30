@@ -22,3 +22,25 @@ Manages a Resource Group.-> **Note:** Azure automatically deletes any Resources 
 | **managed_by** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Resource Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "base/resource_group" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of resource_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -22,3 +22,27 @@ Manages a VMWare Replication Policy.
 | **recovery_point_retention_in_minutes** | int  | - | 
 | **application_consistent_snapshot_frequency_in_minutes** | int  | - | 
 | **id** | string  | The ID of the Classic Replication Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/site_recovery_vmware_replication_policy" 
+}
+
+inputs = {
+   name = "name of site_recovery_vmware_replication_policy" 
+   recovery_vault_id = "recovery_vault_id of site_recovery_vmware_replication_policy" 
+   recovery_point_retention_in_minutes = "recovery_point_retention_in_minutes of site_recovery_vmware_replication_policy" 
+   application_consistent_snapshot_frequency_in_minutes = "application_consistent_snapshot_frequency_in_minutes of site_recovery_vmware_replication_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -36,3 +36,28 @@ Manages an Azure Native New Relic Monitor.
 | **org_creation_source** | string  | - | 
 | **user_id** | string  | - | 
 | **id** | string  | The ID of the Azure Native New Relic Monitor. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "new_relic/new_relic_monitor" 
+}
+
+inputs = {
+   name = "name of new_relic_monitor" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   plan = "plan of new_relic_monitor" 
+   user = "user of new_relic_monitor" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

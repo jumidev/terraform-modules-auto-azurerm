@@ -46,3 +46,27 @@ Manages a Machine Learning Compute Instance.
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Instance. | 
 | **username** | string  | The admin username of this Machine Learning Compute Instance. | 
 | **port** | string  | Describes the port for connecting through SSH. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_compute_instance" 
+}
+
+inputs = {
+   name = "name of machine_learning_compute_instance" 
+   location = "${location}" 
+   machine_learning_workspace_id = "machine_learning_workspace_id of machine_learning_compute_instance" 
+   virtual_machine_size = "virtual_machine_size of machine_learning_compute_instance" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

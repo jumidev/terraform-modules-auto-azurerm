@@ -36,3 +36,25 @@ Manages a Linked Service (connection) between an Azure Blob Storage Account and 
 | **sas_uri** | string  | - | 
 | **key_vault_sas_token** | block  | - | 
 | **id** | string  | The ID of the Data Factory Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_azure_blob_storage" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_azure_blob_storage" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_azure_blob_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

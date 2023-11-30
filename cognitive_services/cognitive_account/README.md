@@ -66,3 +66,28 @@ Manages a Cognitive Services Account.-> **Note:** Version v2.65.0 of the Azure P
 | **secondary_access_key** | string  | The secondary access key which can be used to connect to the Cognitive Service Account. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cognitive_services/cognitive_account" 
+}
+
+inputs = {
+   name = "name of cognitive_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   kind = "kind of cognitive_account" 
+   sku_name = "sku_name of cognitive_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

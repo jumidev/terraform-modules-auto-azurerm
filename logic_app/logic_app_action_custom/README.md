@@ -20,3 +20,26 @@ Manages a Custom Action within a Logic App Workflow
 | **logic_app_id** | string  | - | 
 | **body** | string  | - | 
 | **id** | string  | The ID of the Action within the Logic App Workflow. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_action_custom" 
+}
+
+inputs = {
+   name = "name of logic_app_action_custom" 
+   logic_app_id = "logic_app_id of logic_app_action_custom" 
+   body = "body of logic_app_action_custom" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

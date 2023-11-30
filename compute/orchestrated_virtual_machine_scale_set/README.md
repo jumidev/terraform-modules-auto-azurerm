@@ -83,3 +83,27 @@ Manages an Orchestrated Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As 
 | **priority_mix** | block  | - | 
 | **id** | string  | The ID of the Orchestrated Virtual Machine Scale Set. | 
 | **unique_id** | string  | The Unique ID for the Orchestrated Virtual Machine Scale Set. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/orchestrated_virtual_machine_scale_set" 
+}
+
+inputs = {
+   name = "name of orchestrated_virtual_machine_scale_set" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   platform_fault_domain_count = "platform_fault_domain_count of orchestrated_virtual_machine_scale_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

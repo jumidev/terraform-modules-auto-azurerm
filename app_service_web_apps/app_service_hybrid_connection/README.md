@@ -30,3 +30,28 @@ Manages an App Service Hybrid Connection for an existing App Service, Relay and 
 | **send_key_value** | string  | The value of the Service Bus Primary Access key. | 
 | **service_bus_namespace** | string  | The name of the Service Bus namespace. | 
 | **service_bus_suffix** | string  | The suffix for the service bus endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_hybrid_connection" 
+}
+
+inputs = {
+   app_service_name = "app_service_name of app_service_hybrid_connection" 
+   resource_group_name = "${resource_group}" 
+   relay_id = "relay_id of app_service_hybrid_connection" 
+   hostname = "hostname of app_service_hybrid_connection" 
+   port = "port of app_service_hybrid_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

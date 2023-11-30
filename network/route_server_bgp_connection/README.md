@@ -22,3 +22,27 @@ Manages a Bgp Connection for a Route Server
 | **peer_asn** | string  | - | 
 | **peer_ip** | string  | - | 
 | **id** | string  | The ID of the Route Server Bgp Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/route_server_bgp_connection" 
+}
+
+inputs = {
+   name = "name of route_server_bgp_connection" 
+   route_server_id = "route_server_id of route_server_bgp_connection" 
+   peer_asn = "peer_asn of route_server_bgp_connection" 
+   peer_ip = "peer_ip of route_server_bgp_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

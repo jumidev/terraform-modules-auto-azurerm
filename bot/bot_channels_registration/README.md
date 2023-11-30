@@ -48,3 +48,28 @@ Manages a Bot Channels Registration.
 | **public_network_access_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Bot Channels Registration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channels_registration" 
+}
+
+inputs = {
+   name = "name of bot_channels_registration" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of bot_channels_registration" 
+   microsoft_app_id = "microsoft_app_id of bot_channels_registration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

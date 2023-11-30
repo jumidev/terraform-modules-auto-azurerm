@@ -26,3 +26,27 @@ Manages attaching a Disk to a Virtual Machine.~> **NOTE:** Data Disks can be att
 | **create_option** | string  | - | 
 | **write_accelerator_enabled** | bool  | - | 
 | **id** | string  | The ID of the Virtual Machine Data Disk attachment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/virtual_machine_data_disk_attachment" 
+}
+
+inputs = {
+   virtual_machine_id = "virtual_machine_id of virtual_machine_data_disk_attachment" 
+   managed_disk_id = "managed_disk_id of virtual_machine_data_disk_attachment" 
+   lun = "lun of virtual_machine_data_disk_attachment" 
+   caching = "caching of virtual_machine_data_disk_attachment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

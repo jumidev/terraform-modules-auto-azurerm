@@ -25,3 +25,27 @@ Manages a Healthbot Service.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the resource. | 
 | **bot_management_portal_url** | string  | The management portal url. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_healthbot" 
+}
+
+inputs = {
+   name = "name of bot_healthbot" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of bot_healthbot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

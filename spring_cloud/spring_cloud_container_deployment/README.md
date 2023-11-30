@@ -38,3 +38,27 @@ Manages a Spring Cloud Container Deployment.
 | **language_framework** | string  | - | 
 | **quota** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Container Deployment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_container_deployment" 
+}
+
+inputs = {
+   name = "name of spring_cloud_container_deployment" 
+   spring_cloud_app_id = "spring_cloud_app_id of spring_cloud_container_deployment" 
+   image = "image of spring_cloud_container_deployment" 
+   server = "server of spring_cloud_container_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

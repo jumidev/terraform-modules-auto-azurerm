@@ -36,3 +36,28 @@ Manages an Arc Kubernetes Cluster.-> **Note:** Installing and configuring the Az
 | **total_node_count** | int  | Number of nodes present in the cluster resource. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "arckubernetes/arc_kubernetes_cluster" 
+}
+
+inputs = {
+   name = "name of arc_kubernetes_cluster" 
+   resource_group_name = "${resource_group}" 
+   agent_public_key_certificate = "agent_public_key_certificate of arc_kubernetes_cluster" 
+   identity = "identity of arc_kubernetes_cluster" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -88,3 +88,26 @@ Manages a Windows Function App Slot.
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
 | **name** | string  | The Site Credentials Username used for publishing. | 
 | **password** | string  | The Site Credentials Password used for publishing. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/windows_function_app_slot" 
+}
+
+inputs = {
+   name = "name of windows_function_app_slot" 
+   function_app_id = "function_app_id of windows_function_app_slot" 
+   site_config = "site_config of windows_function_app_slot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

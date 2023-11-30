@@ -18,3 +18,25 @@ Manages the subscription's Security Center Workspace.~> **NOTE:** Owner access p
 | **scope** | string  | - | 
 | **workspace_id** | string  | - | 
 | **id** | string  | The Security Center Workspace ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/security_center_workspace" 
+}
+
+inputs = {
+   scope = "scope of security_center_workspace" 
+   workspace_id = "workspace_id of security_center_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

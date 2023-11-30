@@ -26,3 +26,26 @@ Manages a Disaster Recovery Config for a Service Bus Namespace.~> **NOTE:** Disa
 | **secondary_connection_string_alias** | string  | The alias Secondary Connection String for the ServiceBus Namespace | 
 | **default_primary_key** | string  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
 | **default_secondary_key** | string  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_namespace_disaster_recovery_config" 
+}
+
+inputs = {
+   name = "name of servicebus_namespace_disaster_recovery_config" 
+   primary_namespace_id = "primary_namespace_id of servicebus_namespace_disaster_recovery_config" 
+   partner_namespace_id = "partner_namespace_id of servicebus_namespace_disaster_recovery_config" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

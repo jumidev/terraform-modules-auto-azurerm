@@ -46,3 +46,26 @@ Manages an App Service Certificate Order.
 | **key_vault_id** | string  | Key Vault resource Id. | 
 | **key_vault_secret_name** | string  | Key Vault secret name. | 
 | **provisioning_state** | string  | Status of the Key Vault secret. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_certificate_order" 
+}
+
+inputs = {
+   name = "name of app_service_certificate_order" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,29 @@ Allows you to set a user or group as the AD administrator for a PostgreSQL Flexi
 | **principal_name** | string  | - | 
 | **principal_type** | string  | - | 
 | **id** | string  | The ID of the PostgreSQL Flexible Server Active Directory Administrator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_flexible_server_active_directory_administrator" 
+}
+
+inputs = {
+   server_name = "server_name of postgresql_flexible_server_active_directory_administrator" 
+   resource_group_name = "${resource_group}" 
+   object_id = "object_id of postgresql_flexible_server_active_directory_administrator" 
+   tenant_id = "tenant_id of postgresql_flexible_server_active_directory_administrator" 
+   principal_name = "principal_name of postgresql_flexible_server_active_directory_administrator" 
+   principal_type = "principal_type of postgresql_flexible_server_active_directory_administrator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -28,3 +28,25 @@ Manages a Backend Address within a Backend Address Pool.-> **Note:** Backend Add
 | **inbound_nat_rule_name** | string  | The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address. | 
 | **frontend_port** | string  | The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address. | 
 | **backend_port** | string  | The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_backend_address_pool_address" 
+}
+
+inputs = {
+   backend_address_pool_id = "backend_address_pool_id of lb_backend_address_pool_address" 
+   name = "name of lb_backend_address_pool_address" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

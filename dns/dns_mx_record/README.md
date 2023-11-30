@@ -23,3 +23,26 @@ Enables you to manage DNS MX Records within Azure DNS.~> **Note:** [The Azure DN
 | **ttl** | int  | - | 
 | **id** | string  | The DNS MX Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS MX Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dns/dns_mx_record" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of dns_mx_record" 
+   ttl = "ttl of dns_mx_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

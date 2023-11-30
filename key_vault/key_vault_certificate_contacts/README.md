@@ -18,3 +18,25 @@ Manages Key Vault Certificate Contacts.## Disclaimers~> **Note:** It's possible 
 | **key_vault_id** | string  | - | 
 | **contact** | block  | - | 
 | **id** | string  | The ID of the Key Vault Certificate Contacts. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_certificate_contacts" 
+}
+
+inputs = {
+   key_vault_id = "key_vault_id of key_vault_certificate_contacts" 
+   contact = "contact of key_vault_certificate_contacts" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

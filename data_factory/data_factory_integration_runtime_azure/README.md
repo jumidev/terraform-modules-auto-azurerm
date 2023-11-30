@@ -31,3 +31,26 @@ Manages a Data Factory Azure Integration Runtime.
 | **core_count** | string  | - | 
 | **time_to_live_min** | string  | - | 
 | **virtual_network_enabled** | bool  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_integration_runtime_azure" 
+}
+
+inputs = {
+   name = "name of data_factory_integration_runtime_azure" 
+   data_factory_id = "data_factory_id of data_factory_integration_runtime_azure" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

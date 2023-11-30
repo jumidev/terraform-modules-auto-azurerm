@@ -45,3 +45,29 @@ Manages a Lab Service Lab.
 | **registration_code** | string  | The registration code for the Lab Service Lab. | 
 | **load_balancer_id** | string  | The resource ID of the Load Balancer for the network profile of the Lab Service Lab. | 
 | **public_ip_id** | string  | The resource ID of the Public IP for the network profile of the Lab Service Lab. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lab_service/lab_service_lab" 
+}
+
+inputs = {
+   name = "name of lab_service_lab" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   security = "security of lab_service_lab" 
+   title = "title of lab_service_lab" 
+   virtual_machine = "virtual_machine of lab_service_lab" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -22,3 +22,26 @@ Manages a Sentinel Threat Intelligence Alert Rule.
 | **alert_rule_template_guid** | string  | - | 
 | **enabled** | bool  | - | 
 | **id** | string  | The ID of the Sentinel NRT Alert Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_alert_rule_threat_intelligence" 
+}
+
+inputs = {
+   name = "name of sentinel_alert_rule_threat_intelligence" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_threat_intelligence" 
+   alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_threat_intelligence" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

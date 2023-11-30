@@ -24,3 +24,26 @@ Manages a Connection for a Virtual Hub.
 | **internet_security_enabled** | bool  | - | 
 | **routing** | block  | - | 
 | **id** | string  | The ID of the Virtual Hub Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_hub_connection" 
+}
+
+inputs = {
+   name = "name of virtual_hub_connection" 
+   virtual_hub_id = "virtual_hub_id of virtual_hub_connection" 
+   remote_virtual_network_id = "remote_virtual_network_id of virtual_hub_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

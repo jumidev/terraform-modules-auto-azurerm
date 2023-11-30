@@ -24,3 +24,28 @@ Manages a Firewall Rule for a MariaDB Server
 | **start_ip_address** | string  | - | 
 | **end_ip_address** | string  | - | 
 | **id** | string  | The ID of the MariaDB Firewall Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mariadb_firewall_rule" 
+}
+
+inputs = {
+   name = "name of mariadb_firewall_rule" 
+   server_name = "server_name of mariadb_firewall_rule" 
+   resource_group_name = "${resource_group}" 
+   start_ip_address = "start_ip_address of mariadb_firewall_rule" 
+   end_ip_address = "end_ip_address of mariadb_firewall_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

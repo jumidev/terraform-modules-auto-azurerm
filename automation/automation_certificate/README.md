@@ -27,3 +27,27 @@ Manages an Automation Certificate.
 | **exportable** | string  | - | 
 | **id** | string  | The Automation Certificate ID. | 
 | **thumbprint** | string  | The thumbprint for the certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_certificate" 
+}
+
+inputs = {
+   name = "name of automation_certificate" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_certificate" 
+   base64 = "base64 of automation_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

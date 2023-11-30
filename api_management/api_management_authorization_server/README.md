@@ -52,3 +52,32 @@ Manages an Authorization Server within an API Management Service.
 | **token_body_parameter** | block  | - | 
 | **token_endpoint** | string  | - | 
 | **id** | string  | The ID of the API Management Authorization Server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_authorization_server" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_authorization_server" 
+   authorization_methods = "authorization_methods of api_management_authorization_server" 
+   authorization_endpoint = "authorization_endpoint of api_management_authorization_server" 
+   client_id = "client_id of api_management_authorization_server" 
+   client_registration_endpoint = "client_registration_endpoint of api_management_authorization_server" 
+   display_name = "display_name of api_management_authorization_server" 
+   grant_types = "grant_types of api_management_authorization_server" 
+   name = "name of api_management_authorization_server" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

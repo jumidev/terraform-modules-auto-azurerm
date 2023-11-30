@@ -1,0 +1,23 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_scheduled_query_rules_alert" 
+}
+
+inputs = {
+   name = "name of monitor_scheduled_query_rules_alert" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   data_source_id = "data_source_id of monitor_scheduled_query_rules_alert" 
+   frequency = "frequency of monitor_scheduled_query_rules_alert" 
+   query = "query of monitor_scheduled_query_rules_alert" 
+   time_window = "time_window of monitor_scheduled_query_rules_alert" 
+   trigger = "trigger of monitor_scheduled_query_rules_alert" 
+   action = "action of monitor_scheduled_query_rules_alert" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

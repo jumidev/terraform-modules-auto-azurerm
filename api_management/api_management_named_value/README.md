@@ -30,3 +30,27 @@ Manages an API Management Named Value.
 | **secret** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the API Management Named Value. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_named_value" 
+}
+
+inputs = {
+   name = "name of api_management_named_value" 
+   resource_group_name = "${resource_group}" 
+   api_management_name = "api_management_name of api_management_named_value" 
+   display_name = "display_name of api_management_named_value" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

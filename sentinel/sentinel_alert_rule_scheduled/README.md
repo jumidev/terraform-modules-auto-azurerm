@@ -60,3 +60,28 @@ Manages a Sentinel Scheduled Alert Rule.
 | **trigger_operator** | string  | - | 
 | **trigger_threshold** | int  | - | 
 | **id** | string  | The ID of the Sentinel Scheduled Alert Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_alert_rule_scheduled" 
+}
+
+inputs = {
+   name = "name of sentinel_alert_rule_scheduled" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_scheduled" 
+   display_name = "display_name of sentinel_alert_rule_scheduled" 
+   severity = "severity of sentinel_alert_rule_scheduled" 
+   query = "query of sentinel_alert_rule_scheduled" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

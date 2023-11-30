@@ -20,3 +20,26 @@ Allows accepting the Legal Terms for a Marketplace Image.
 | **plan** | string  | - | 
 | **publisher** | string  | - | 
 | **id** | string  | The ID of the Marketplace Agreement. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/marketplace_agreement" 
+}
+
+inputs = {
+   offer = "offer of marketplace_agreement" 
+   plan = "plan of marketplace_agreement" 
+   publisher = "publisher of marketplace_agreement" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

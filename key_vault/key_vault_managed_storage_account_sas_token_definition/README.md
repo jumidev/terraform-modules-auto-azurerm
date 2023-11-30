@@ -27,3 +27,28 @@ Manages a Key Vault Managed Storage Account SAS Definition.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Managed Storage Account SAS Definition. | 
 | **secret_id** | string  | The ID of the Secret that is created by Managed Storage Account SAS Definition. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_managed_storage_account_sas_token_definition" 
+}
+
+inputs = {
+   name = "name of key_vault_managed_storage_account_sas_token_definition" 
+   managed_storage_account_id = "managed_storage_account_id of key_vault_managed_storage_account_sas_token_definition" 
+   sas_template_uri = "sas_template_uri of key_vault_managed_storage_account_sas_token_definition" 
+   sas_type = "sas_type of key_vault_managed_storage_account_sas_token_definition" 
+   validity_period = "validity_period of key_vault_managed_storage_account_sas_token_definition" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

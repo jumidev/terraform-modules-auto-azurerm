@@ -24,3 +24,27 @@ Manages a Content Key Policy.
 | **resource_group_name** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Content Key Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_content_key_policy" 
+}
+
+inputs = {
+   media_services_account_name = "media_services_account_name of media_content_key_policy" 
+   name = "name of media_content_key_policy" 
+   policy_option = "policy_option of media_content_key_policy" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -36,3 +36,29 @@ Manages a VPN Server Configuration.
 | **client_revoked_certificate** | block  | - | 
 | **radius** | block  | - | 
 | **id** | string  | The ID of the VPN Server Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/vpn_server_configuration" 
+}
+
+inputs = {
+   name = "name of vpn_server_configuration" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   vpn_authentication_types = "vpn_authentication_types of vpn_server_configuration" 
+   azure_active_directory_authentication = "azure_active_directory_authentication of vpn_server_configuration" 
+   client_root_certificate = "client_root_certificate of vpn_server_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

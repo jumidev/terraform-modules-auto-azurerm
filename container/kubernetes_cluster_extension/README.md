@@ -39,3 +39,26 @@ Manages a Kubernetes Cluster Extension.
 | **type** | string  | The identity type. | 
 | **principal_id** | string  | The principal ID of resource identity. | 
 | **tenant_id** | string  | The tenant ID of resource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/kubernetes_cluster_extension" 
+}
+
+inputs = {
+   name = "name of kubernetes_cluster_extension" 
+   cluster_id = "cluster_id of kubernetes_cluster_extension" 
+   extension_type = "extension_type of kubernetes_cluster_extension" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

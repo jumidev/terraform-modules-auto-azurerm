@@ -32,3 +32,27 @@ Manages an Arc Kubernetes Flux Configuration.
 | **scope** | string  | - | 
 | **continuous_reconciliation_enabled** | bool  | - | 
 | **id** | string  | The ID of the Arc Kubernetes Flux Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "arckubernetes/arc_kubernetes_flux_configuration" 
+}
+
+inputs = {
+   name = "name of arc_kubernetes_flux_configuration" 
+   cluster_id = "cluster_id of arc_kubernetes_flux_configuration" 
+   kustomizations = "kustomizations of arc_kubernetes_flux_configuration" 
+   namespace = "namespace of arc_kubernetes_flux_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

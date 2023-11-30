@@ -31,3 +31,28 @@ Manages a Backup Vault.
 | **identity** | block  | An `identity` block, which contains the Identity information for this Backup Vault. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this Backup Vault. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this Backup Vault. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_vault" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_vault" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   datastore_type = "datastore_type of data_protection_backup_vault" 
+   redundancy = "redundancy of data_protection_backup_vault" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

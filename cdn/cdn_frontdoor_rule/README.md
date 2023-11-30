@@ -27,3 +27,27 @@ Manages a Front Door (standard/premium) Rule.!>**IMPORTANT:** The Rules resource
 | **conditions** | block  | - | 
 | **id** | string  | The ID of the Front Door Rule. | 
 | **cdn_frontdoor_rule_set_name** | string  | The name of the Front Door Rule Set containing this Front Door Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_rule" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_rule" 
+   cdn_frontdoor_rule_set_id = "cdn_frontdoor_rule_set_id of cdn_frontdoor_rule" 
+   order = "order of cdn_frontdoor_rule" 
+   actions = "actions of cdn_frontdoor_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

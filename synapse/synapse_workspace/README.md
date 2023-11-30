@@ -61,3 +61,27 @@ Manages a Synapse Workspace.
 | **connectivity_endpoints** | list  | A list of Connectivity endpoints for this Synapse Workspace. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_workspace" 
+}
+
+inputs = {
+   name = "name of synapse_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_data_lake_gen2_filesystem_id = "storage_data_lake_gen2_filesystem_id of synapse_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

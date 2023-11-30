@@ -100,3 +100,26 @@ Manages a Node Pool within a Kubernetes Cluster-> **Note:** Due to the fast-movi
 | **min_count** | string  | - | 
 | **node_count** | string  | - | 
 | **id** | string  | The ID of the Kubernetes Cluster Node Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/kubernetes_cluster_node_pool" 
+}
+
+inputs = {
+   name = "name of kubernetes_cluster_node_pool" 
+   kubernetes_cluster_id = "kubernetes_cluster_id of kubernetes_cluster_node_pool" 
+   vm_size = "vm_size of kubernetes_cluster_node_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

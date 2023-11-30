@@ -64,3 +64,27 @@ Manages an IotHub~> **NOTE:** Endpoints can be defined either directly on the `a
 | **primary_key** | string  | The primary key. | 
 | **secondary_key** | string  | The secondary key. | 
 | **permissions** | string  | The permissions assigned to the shared access policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub" 
+}
+
+inputs = {
+   name = "name of iothub" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of iothub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

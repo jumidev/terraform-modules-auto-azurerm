@@ -38,3 +38,26 @@ Manages an App Service certificate.
 | **expiration_date** | datetime  | The expiration date for the certificate. | 
 | **thumbprint** | string  | The thumbprint for the certificate. | 
 | **hosting_environment_profile_id** | string  | The ID of the App Service Environment where the certificate is in use. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_certificate" 
+}
+
+inputs = {
+   name = "name of app_service_certificate" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

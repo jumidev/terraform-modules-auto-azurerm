@@ -44,3 +44,29 @@ Manages a Version of a Shared Image within a Shared Image Gallery.
 | **storage_account_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Shared Image Version. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/shared_image_version" 
+}
+
+inputs = {
+   name = "name of shared_image_version" 
+   gallery_name = "gallery_name of shared_image_version" 
+   image_name = "image_name of shared_image_version" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   target_region = "target_region of shared_image_version" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -28,3 +28,26 @@ Manages an Azure Custom Provider.
 | **validation** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Custom Provider. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "custom_providers/custom_provider" 
+}
+
+inputs = {
+   name = "name of custom_provider" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

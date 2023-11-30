@@ -25,3 +25,27 @@ Manages a Network Profile.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Network Profile. | 
 | **container_network_interface_ids** | list  | A list of Container Network Interface IDs. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_profile" 
+}
+
+inputs = {
+   name = "name of network_profile" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   container_network_interface = "container_network_interface of network_profile" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

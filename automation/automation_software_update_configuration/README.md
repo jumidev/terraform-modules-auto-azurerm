@@ -38,3 +38,26 @@ Manages an Automation Software Update Configuraion.
 | **id** | string  | The ID of the Automation Software Update Configuration. | 
 | **error_code** | string  | The Error code when failed. | 
 | **error_meesage** | string  | The Error message indicating why the operation failed. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_software_update_configuration" 
+}
+
+inputs = {
+   name = "name of automation_software_update_configuration" 
+   automation_account_id = "automation_account_id of automation_software_update_configuration" 
+   schedule = "schedule of automation_software_update_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

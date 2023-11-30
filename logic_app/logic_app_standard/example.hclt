@@ -1,0 +1,20 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_standard" 
+}
+
+inputs = {
+   name = "name of logic_app_standard" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of logic_app_standard" 
+   storage_account_name = "storage_account_name of logic_app_standard" 
+   storage_account_access_key = "storage_account_access_key of logic_app_standard" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

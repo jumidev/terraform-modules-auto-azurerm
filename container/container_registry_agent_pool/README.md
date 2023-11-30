@@ -30,3 +30,27 @@ Manages an Azure Container Registry Agent Pool.
 | **virtual_network_subnet_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Azure Container Registry Agent Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_registry_agent_pool" 
+}
+
+inputs = {
+   container_registry_name = "container_registry_name of container_registry_agent_pool" 
+   location = "${location}" 
+   name = "name of container_registry_agent_pool" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

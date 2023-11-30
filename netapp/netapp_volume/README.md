@@ -57,3 +57,32 @@ Manages a NetApp Volume.## NetApp Volume Usage```hclresource "azurerm_resource_g
 | **tags** | map  | - | 
 | **id** | string  | The ID of the NetApp Volume. | 
 | **mount_ip_addresses** | list  | A list of IPv4 Addresses which should be used to mount the volume. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "netapp/netapp_volume" 
+}
+
+inputs = {
+   name = "name of netapp_volume" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   account_name = "account_name of netapp_volume" 
+   volume_path = "volume_path of netapp_volume" 
+   pool_name = "pool_name of netapp_volume" 
+   service_level = "service_level of netapp_volume" 
+   subnet_id = "subnet_id of netapp_volume" 
+   storage_quota_in_gb = "storage_quota_in_gb of netapp_volume" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

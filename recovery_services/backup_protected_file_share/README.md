@@ -24,3 +24,28 @@ Manages an Azure Backup Protected File Share to enable backups for file shares w
 | **source_file_share_name** | string  | - | 
 | **backup_policy_id** | string  | - | 
 | **id** | string  | The ID of the Backup File Share. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/backup_protected_file_share" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   recovery_vault_name = "recovery_vault_name of backup_protected_file_share" 
+   source_storage_account_id = "source_storage_account_id of backup_protected_file_share" 
+   source_file_share_name = "source_file_share_name of backup_protected_file_share" 
+   backup_policy_id = "backup_policy_id of backup_protected_file_share" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

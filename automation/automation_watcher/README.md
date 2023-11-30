@@ -35,3 +35,29 @@ Manages an Automation Wacher.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Automation Watcher. | 
 | **status** | string  | The current status of the Automation Watcher. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_watcher" 
+}
+
+inputs = {
+   automation_account_id = "automation_account_id of automation_watcher" 
+   name = "name of automation_watcher" 
+   execution_frequency_in_seconds = "execution_frequency_in_seconds of automation_watcher" 
+   location = "${location}" 
+   script_name = "script_name of automation_watcher" 
+   script_run_on = "script_run_on of automation_watcher" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

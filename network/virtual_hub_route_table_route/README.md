@@ -26,3 +26,28 @@ Manages a Route in a Virtual Hub Route Table.~> **Note:** Route table routes can
 | **next_hop** | string  | - | 
 | **next_hop_type** | string  | - | 
 | **id** | string  | The ID of the Virtual Hub Route Table. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_hub_route_table_route" 
+}
+
+inputs = {
+   route_table_id = "route_table_id of virtual_hub_route_table_route" 
+   name = "name of virtual_hub_route_table_route" 
+   destinations = "destinations of virtual_hub_route_table_route" 
+   destinations_type = "destinations_type of virtual_hub_route_table_route" 
+   next_hop = "next_hop of virtual_hub_route_table_route" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

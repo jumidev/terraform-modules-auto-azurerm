@@ -35,3 +35,28 @@ Create a failover group of databases on a collection of Azure SQL servers.-> **N
 | **role** | string  | local replication role of the failover group instance. | 
 | **databases** | string  | list of databases in the failover group. | 
 | **partner_servers** | string  | list of partner server information for the failover group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/sql_failover_group" 
+}
+
+inputs = {
+   name = "name of sql_failover_group" 
+   resource_group_name = "${resource_group}" 
+   server_name = "server_name of sql_failover_group" 
+   partner_servers = "partner_servers of sql_failover_group" 
+   read_write_endpoint_failover_policy = "read_write_endpoint_failover_policy of sql_failover_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

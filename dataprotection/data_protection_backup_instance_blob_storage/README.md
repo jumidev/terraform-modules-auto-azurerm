@@ -24,3 +24,28 @@ Manages a Backup Instance Blob Storage.
 | **storage_account_id** | string  | - | 
 | **backup_policy_id** | string  | - | 
 | **id** | string  | The ID of the Backup Instance Blob Storage. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_instance_blob_storage" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_instance_blob_storage" 
+   location = "${location}" 
+   vault_id = "vault_id of data_protection_backup_instance_blob_storage" 
+   storage_account_id = "storage_account_id of data_protection_backup_instance_blob_storage" 
+   backup_policy_id = "backup_policy_id of data_protection_backup_instance_blob_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

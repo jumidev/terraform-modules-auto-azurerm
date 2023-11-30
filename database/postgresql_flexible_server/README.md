@@ -64,3 +64,26 @@ Manages a PostgreSQL Flexible Server.
 | **id** | string  | The ID of the PostgreSQL Flexible Server. | 
 | **fqdn** | string  | The FQDN of the PostgreSQL Flexible Server. | 
 | **public_network_access_enabled** | bool  | Is public network access enabled? | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_flexible_server" 
+}
+
+inputs = {
+   name = "name of postgresql_flexible_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

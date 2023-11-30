@@ -42,3 +42,26 @@ Manages an Azure Parquet Dataset inside an Azure Data Factory.
 | **compression_codec** | string  | - | 
 | **compression_level** | string  | - | 
 | **id** | string  | The ID of the Data Factory Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_parquet" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_parquet" 
+   data_factory_id = "data_factory_id of data_factory_dataset_parquet" 
+   linked_service_name = "linked_service_name of data_factory_dataset_parquet" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

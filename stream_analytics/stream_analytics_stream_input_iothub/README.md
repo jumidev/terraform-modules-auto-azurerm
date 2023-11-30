@@ -32,3 +32,32 @@ Manages a Stream Analytics Stream Input IoTHub.
 | **shared_access_policy_key** | string  | - | 
 | **shared_access_policy_name** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Stream Input IoTHub. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_stream_input_iothub" 
+}
+
+inputs = {
+   name = "name of stream_analytics_stream_input_iothub" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_stream_input_iothub" 
+   eventhub_consumer_group_name = "eventhub_consumer_group_name of stream_analytics_stream_input_iothub" 
+   endpoint = "endpoint of stream_analytics_stream_input_iothub" 
+   iothub_namespace = "iothub_namespace of stream_analytics_stream_input_iothub" 
+   serialization = "serialization of stream_analytics_stream_input_iothub" 
+   shared_access_policy_key = "shared_access_policy_key of stream_analytics_stream_input_iothub" 
+   shared_access_policy_name = "shared_access_policy_name of stream_analytics_stream_input_iothub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

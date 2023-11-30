@@ -36,3 +36,26 @@ Manages a Subscription within a API Management Service.
 | **subscription_id** | string  | - | 
 | **allow_tracing** | bool  | - | 
 | **id** | string  | The ID of the API Management Subscription. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_subscription" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_subscription" 
+   display_name = "display_name of api_management_subscription" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

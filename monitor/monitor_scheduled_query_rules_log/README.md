@@ -32,3 +32,28 @@ Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
 | **enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the scheduled query rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_scheduled_query_rules_log" 
+}
+
+inputs = {
+   name = "name of monitor_scheduled_query_rules_log" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   criteria = "criteria of monitor_scheduled_query_rules_log" 
+   data_source_id = "data_source_id of monitor_scheduled_query_rules_log" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

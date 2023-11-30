@@ -37,3 +37,27 @@ Manages a Front Door (standard/premium) Firewall Policy instance.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Front Door Firewall Policy. | 
 | **frontend_endpoint_ids** | string  | The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_firewall_policy" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_firewall_policy" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of cdn_frontdoor_firewall_policy" 
+   mode = "mode of cdn_frontdoor_firewall_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

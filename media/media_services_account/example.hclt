@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_services_account" 
+}
+
+inputs = {
+   name = "name of media_services_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_account = "storage_account of media_services_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

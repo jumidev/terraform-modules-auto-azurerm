@@ -34,3 +34,28 @@ Manages a Sentinel MS Security Incident Alert Rule.
 | **display_name_filter** | string  | - | 
 | **display_name_exclude_filter** | string  | - | 
 | **id** | string  | The ID of the Sentinel MS Security Incident Alert Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_alert_rule_ms_security_incident" 
+}
+
+inputs = {
+   name = "name of sentinel_alert_rule_ms_security_incident" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_ms_security_incident" 
+   display_name = "display_name of sentinel_alert_rule_ms_security_incident" 
+   product_filter = "product_filter of sentinel_alert_rule_ms_security_incident" 
+   severity_filter = "severity_filter of sentinel_alert_rule_ms_security_incident" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

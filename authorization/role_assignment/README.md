@@ -35,3 +35,25 @@ Assigns a given Principal (User or Group) to a given Role.
 | **skip_service_principal_aad_check** | bool  | - | 
 | **id** | string  | The Role Assignment ID. | 
 | **principal_type** | string  | The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "authorization/role_assignment" 
+}
+
+inputs = {
+   scope = "scope of role_assignment" 
+   principal_id = "principal_id of role_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

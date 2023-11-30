@@ -22,3 +22,27 @@ Manages an Azure Monitor Private Link Scoped Service.
 | **scope_name** | string  | - | 
 | **linked_resource_id** | string  | - | 
 | **id** | string  | The ID of the Azure Monitor Private Link Scoped Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_private_link_scoped_service" 
+}
+
+inputs = {
+   name = "name of monitor_private_link_scoped_service" 
+   resource_group_name = "${resource_group}" 
+   scope_name = "scope_name of monitor_private_link_scoped_service" 
+   linked_resource_id = "linked_resource_id of monitor_private_link_scoped_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

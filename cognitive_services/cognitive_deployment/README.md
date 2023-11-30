@@ -26,3 +26,27 @@ Manages a Cognitive Services Account Deployment.
 | **rai_policy_name** | string  | - | 
 | **version_upgrade_option** | string  | - | 
 | **id** | string  | The ID of the Deployment for Azure Cognitive Services Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cognitive_services/cognitive_deployment" 
+}
+
+inputs = {
+   name = "name of cognitive_deployment" 
+   cognitive_account_id = "cognitive_account_id of cognitive_deployment" 
+   model = "model of cognitive_deployment" 
+   scale = "scale of cognitive_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

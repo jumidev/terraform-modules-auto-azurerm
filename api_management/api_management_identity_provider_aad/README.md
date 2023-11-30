@@ -26,3 +26,28 @@ Manages an API Management AAD Identity Provider.
 | **allowed_tenants** | string  | - | 
 | **signin_tenant** | string  | - | 
 | **id** | string  | The ID of the API Management AAD Identity Provider. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_identity_provider_aad" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_identity_provider_aad" 
+   resource_group_name = "${resource_group}" 
+   client_id = "client_id of api_management_identity_provider_aad" 
+   client_secret = "client_secret of api_management_identity_provider_aad" 
+   allowed_tenants = "allowed_tenants of api_management_identity_provider_aad" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

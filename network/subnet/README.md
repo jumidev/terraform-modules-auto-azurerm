@@ -36,3 +36,27 @@ Manages a subnet. Subnets represent network segments within the IP space defined
 | **resource_group_name** | string  | The name of the resource group in which the subnet is created in. | 
 | **virtual_network_name** | string  | The name of the virtual network in which the subnet is created in. Changing this forces a new resource to be created. | 
 | **address_prefixes** | string  | The address prefixes for the subnet | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/subnet" 
+}
+
+inputs = {
+   name = "name of subnet" 
+   resource_group_name = "${resource_group}" 
+   virtual_network_name = "virtual_network_name of subnet" 
+   address_prefixes = "address_prefixes of subnet" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

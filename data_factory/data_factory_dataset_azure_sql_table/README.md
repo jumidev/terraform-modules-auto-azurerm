@@ -36,3 +36,26 @@ Manages an Azure SQL Table Dataset inside an Azure Data Factory.
 | **parameters** | string  | - | 
 | **additional_properties** | string  | - | 
 | **id** | string  | The ID of the Data Factory Azure SQL Table Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_azure_sql_table" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_azure_sql_table" 
+   data_factory_id = "data_factory_id of data_factory_dataset_azure_sql_table" 
+   linked_service_id = "linked_service_id of data_factory_dataset_azure_sql_table" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

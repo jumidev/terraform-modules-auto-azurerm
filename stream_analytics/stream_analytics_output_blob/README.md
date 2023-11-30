@@ -40,3 +40,32 @@ Manages a Stream Analytics Output to Blob Storage.
 | **batch_min_rows** | int  | - | 
 | **storage_account_key** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Output Blob Storage. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_output_blob" 
+}
+
+inputs = {
+   name = "name of stream_analytics_output_blob" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_blob" 
+   date_format = "date_format of stream_analytics_output_blob" 
+   path_pattern = "path_pattern of stream_analytics_output_blob" 
+   storage_account_name = "storage_account_name of stream_analytics_output_blob" 
+   storage_container_name = "storage_container_name of stream_analytics_output_blob" 
+   time_format = "time_format of stream_analytics_output_blob" 
+   serialization = "serialization of stream_analytics_output_blob" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

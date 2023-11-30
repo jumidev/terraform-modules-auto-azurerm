@@ -24,3 +24,28 @@ Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
 | **output** | block  | - | 
 | **script** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics JavaScript UDA Function. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_function_javascript_uda" 
+}
+
+inputs = {
+   name = "name of stream_analytics_function_javascript_uda" 
+   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_function_javascript_uda" 
+   input = "input of stream_analytics_function_javascript_uda" 
+   output = "output of stream_analytics_function_javascript_uda" 
+   script = "script of stream_analytics_function_javascript_uda" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

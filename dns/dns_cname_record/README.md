@@ -29,3 +29,27 @@ Enables you to manage DNS CNAME Records within Azure DNS.~> **Note:** [The Azure
 | **tags** | map  | - | 
 | **id** | string  | The DNS CName Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS CName Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dns/dns_cname_record" 
+}
+
+inputs = {
+   name = "name of dns_cname_record" 
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of dns_cname_record" 
+   ttl = "ttl of dns_cname_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

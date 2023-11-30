@@ -38,3 +38,27 @@ Manages a Disk Snapshot.
 | **id** | string  | The Snapshot ID. | 
 | **disk_size_gb** | int  | The Size of the Snapshotted Disk in GB. | 
 | **trusted_launch_enabled** | bool  | Whether Trusted Launch is enabled for the Snapshot. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/snapshot" 
+}
+
+inputs = {
+   name = "name of snapshot" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   create_option = "create_option of snapshot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

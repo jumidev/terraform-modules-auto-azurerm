@@ -29,3 +29,26 @@ Manages a network security group that contains a list of network security rules.
 | **security_rule** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Network Security Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_security_group" 
+}
+
+inputs = {
+   name = "name of network_security_group" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

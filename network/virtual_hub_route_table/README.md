@@ -22,3 +22,25 @@ Manages a Virtual Hub Route Table.
 | **labels** | string  | - | 
 | **route** | block  | - | 
 | **id** | string  | The ID of the Virtual Hub Route Table. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_hub_route_table" 
+}
+
+inputs = {
+   name = "name of virtual_hub_route_table" 
+   virtual_hub_id = "virtual_hub_id of virtual_hub_route_table" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

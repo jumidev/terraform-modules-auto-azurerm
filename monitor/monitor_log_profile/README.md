@@ -26,3 +26,27 @@ Manages a [Log Profile](https://docs.microsoft.com/azure/monitoring-and-diagnost
 | **servicebus_rule_id** | string  | - | 
 | **retention_policy** | block  | - | 
 | **id** | string  | The ID of the Log Profile. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_log_profile" 
+}
+
+inputs = {
+   name = "name of monitor_log_profile" 
+   categories = "categories of monitor_log_profile" 
+   locations = "locations of monitor_log_profile" 
+   retention_policy = "retention_policy of monitor_log_profile" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

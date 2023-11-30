@@ -1,0 +1,16 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_backend_address_pool" 
+}
+
+inputs = {
+   name = "name of lb_backend_address_pool" 
+   loadbalancer_id = "loadbalancer_id of lb_backend_address_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

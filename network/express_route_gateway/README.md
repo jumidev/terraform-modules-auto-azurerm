@@ -32,3 +32,28 @@ Manages an ExpressRoute gateway.
 | **update** | datetime  | (Defaults to 90 minutes) Used when updating the ExpressRoute Gateway. | 
 | **read** | string  | (Defaults to 5 minutes) Used when retrieving the ExpressRoute Gateway. | 
 | **delete** | string  | (Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/express_route_gateway" 
+}
+
+inputs = {
+   name = "name of express_route_gateway" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   virtual_hub_id = "virtual_hub_id of express_route_gateway" 
+   scale_units = "scale_units of express_route_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

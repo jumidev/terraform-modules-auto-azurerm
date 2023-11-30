@@ -34,3 +34,25 @@ Manages a Pipeline inside a Azure Data Factory.
 | **variables** | string  | - | 
 | **activities_json** | string  | - | 
 | **id** | string  | The ID of the Data Factory Pipeline. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_pipeline" 
+}
+
+inputs = {
+   name = "name of data_factory_pipeline" 
+   data_factory_id = "data_factory_id of data_factory_pipeline" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

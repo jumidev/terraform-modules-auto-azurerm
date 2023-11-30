@@ -24,3 +24,28 @@ Manages an SQL Trigger.
 | **operation** | string  | - | 
 | **type** | string  | - | 
 | **id** | string  | The ID of the SQL Trigger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_sql_trigger" 
+}
+
+inputs = {
+   name = "name of cosmosdb_sql_trigger" 
+   container_id = "container_id of cosmosdb_sql_trigger" 
+   body = "body of cosmosdb_sql_trigger" 
+   operation = "operation of cosmosdb_sql_trigger" 
+   type = "type of cosmosdb_sql_trigger" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

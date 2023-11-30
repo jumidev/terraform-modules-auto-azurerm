@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/windows_function_app" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of windows_function_app" 
+   resource_group_name = "${resource_group}" 
+   service_plan_id = "service_plan_id of windows_function_app" 
+   site_config = "site_config of windows_function_app" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

@@ -18,3 +18,24 @@ Manages an Azure Storage Account Management Policy.
 | **storage_account_id** | string  | - | 
 | **rule** | block  | - | 
 | **id** | string  | The ID of the Storage Account Management Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_management_policy" 
+}
+
+inputs = {
+   storage_account_id = "storage_account_id of storage_management_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

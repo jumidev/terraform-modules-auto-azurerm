@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/private_endpoint" 
+}
+
+inputs = {
+   name = "name of private_endpoint" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   subnet_id = "subnet_id of private_endpoint" 
+   private_service_connection = "private_service_connection of private_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

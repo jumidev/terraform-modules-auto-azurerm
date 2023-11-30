@@ -27,3 +27,27 @@ Links an Automation Runbook and Schedule.
 | **run_on** | string  | - | 
 | **id** | string  | The ID of the Automation Job Schedule. | 
 | **job_schedule_id** | string  | The UUID identifying the Automation Job Schedule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_job_schedule" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_job_schedule" 
+   runbook_name = "runbook_name of automation_job_schedule" 
+   schedule_name = "schedule_name of automation_job_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

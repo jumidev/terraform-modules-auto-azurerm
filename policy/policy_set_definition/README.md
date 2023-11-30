@@ -32,3 +32,27 @@ Manages a policy set definition.-> **NOTE:**  Policy set definitions (also known
 | **metadata** | string  | - | 
 | **parameters** | string  | - | 
 | **id** | string  | The ID of the Policy Set Definition. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/policy_set_definition" 
+}
+
+inputs = {
+   name = "name of policy_set_definition" 
+   policy_type = "policy_type of policy_set_definition" 
+   display_name = "display_name of policy_set_definition" 
+   policy_definition_reference = "policy_definition_reference of policy_set_definition" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

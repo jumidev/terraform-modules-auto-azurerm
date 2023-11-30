@@ -24,3 +24,26 @@ Manages a Palo Alto Local Rulestack Prefix List.
 | **audit_comment** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Palo Alto Local Rulestack Prefix List. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_local_rulestack_prefix_list" 
+}
+
+inputs = {
+   name = "name of palo_alto_local_rulestack_prefix_list" 
+   rulestack_id = "rulestack_id of palo_alto_local_rulestack_prefix_list" 
+   prefix_list = "prefix_list of palo_alto_local_rulestack_prefix_list" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

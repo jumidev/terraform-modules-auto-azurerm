@@ -24,3 +24,24 @@ Manages a Logz Sub Account Tag Rule.
 | **send_activity_logs** | string  | - | 
 | **send_subscription_logs** | string  | - | 
 | **id** | string  | The ID of the Logz Sub Account Tag Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logz/logz_sub_account_tag_rule" 
+}
+
+inputs = {
+   logz_sub_account_id = "logz_sub_account_id of logz_sub_account_tag_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

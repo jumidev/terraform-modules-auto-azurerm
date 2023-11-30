@@ -42,3 +42,26 @@ Manages a Linked Service (connection) between Azure Databricks and Azure Data Fa
 | **integration_runtime_name** | string  | - | 
 | **parameters** | string  | - | 
 | **id** | string  | The ID of the Data Factory Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_azure_databricks" 
+}
+
+inputs = {
+   adb_domain = "adb_domain of data_factory_linked_service_azure_databricks" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_azure_databricks" 
+   name = "name of data_factory_linked_service_azure_databricks" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

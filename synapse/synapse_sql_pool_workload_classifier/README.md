@@ -30,3 +30,26 @@ Manages a Synapse SQL Pool Workload Classifier.
 | **label** | string  | - | 
 | **start_time** | string  | - | 
 | **id** | string  | The ID of the Synapse SQL Pool Workload Classifier. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_sql_pool_workload_classifier" 
+}
+
+inputs = {
+   name = "name of synapse_sql_pool_workload_classifier" 
+   workload_group_id = "workload_group_id of synapse_sql_pool_workload_classifier" 
+   member_name = "member_name of synapse_sql_pool_workload_classifier" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

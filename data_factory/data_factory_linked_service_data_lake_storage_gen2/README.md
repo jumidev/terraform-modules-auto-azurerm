@@ -40,3 +40,26 @@ Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure D
 | **service_principal_key** | string  | - | 
 | **tenant** | string  | - | 
 | **id** | string  | The ID of the Data Factory Data Lake Storage Gen2 Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_data_lake_storage_gen2" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_data_lake_storage_gen2" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_data_lake_storage_gen2" 
+   url = "url of data_factory_linked_service_data_lake_storage_gen2" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -29,3 +29,25 @@ Manages a Subscription Template Deployment.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Subscription Template Deployment. | 
 | **output_content** | string  | The JSON Content of the Outputs of the ARM Template Deployment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "template/subscription_template_deployment" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of subscription_template_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

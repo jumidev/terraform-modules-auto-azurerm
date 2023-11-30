@@ -25,3 +25,27 @@ Manages the Shared Private Link Resource for a Signalr service.
 | **request_message** | string  | - | 
 | **id** | string  | The ID of the Signalr Shared Private Link resource. | 
 | **status** | string  | The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/signalr_shared_private_link" 
+}
+
+inputs = {
+   name = "name of signalr_shared_private_link" 
+   signalr_service_id = "signalr_service_id of signalr_shared_private_link" 
+   sub_resource_name = "sub_resource_name of signalr_shared_private_link" 
+   target_resource_id = "target_resource_id of signalr_shared_private_link" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

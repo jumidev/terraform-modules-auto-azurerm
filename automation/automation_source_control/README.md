@@ -34,3 +34,29 @@ Manages an Automation Source Control.
 | **description** | string  | - | 
 | **publish_runbook_enabled** | bool  | - | 
 | **id** | string  | The ID of the Automation Source Control. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_source_control" 
+}
+
+inputs = {
+   name = "name of automation_source_control" 
+   automation_account_id = "automation_account_id of automation_source_control" 
+   folder_path = "folder_path of automation_source_control" 
+   repository_url = "repository_url of automation_source_control" 
+   security = "security of automation_source_control" 
+   source_control_type = "source_control_type of automation_source_control" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -28,3 +28,25 @@ Manages Azure Backup for an Azure VM
 | **include_disk_luns** | list  | - | 
 | **protection_state** | string  | - | 
 | **id** | string  | The ID of the Backup Protected Virtual Machine. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/backup_protected_vm" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   recovery_vault_name = "recovery_vault_name of backup_protected_vm" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

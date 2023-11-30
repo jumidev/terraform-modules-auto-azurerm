@@ -31,3 +31,26 @@ Manages a Machine Learning File Share DataStore.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Machine Learning DataStore. | 
 | **is_default** | string  | Indicate whether this Machines Learning DataStore is the default for the Workspace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_datastore_fileshare" 
+}
+
+inputs = {
+   name = "name of machine_learning_datastore_fileshare" 
+   workspace_id = "workspace_id of machine_learning_datastore_fileshare" 
+   storage_fileshare_id = "storage_fileshare_id of machine_learning_datastore_fileshare" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

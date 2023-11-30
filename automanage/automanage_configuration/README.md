@@ -40,3 +40,26 @@ Manages an Automanage Configuration.
 | **status_change_alert_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Automanage Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automanage/automanage_configuration" 
+}
+
+inputs = {
+   name = "name of automanage_configuration" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

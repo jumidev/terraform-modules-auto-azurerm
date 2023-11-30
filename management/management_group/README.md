@@ -27,3 +27,23 @@ Manages a Management Group.!> **Note:** Configuring `subscription_ids` is not su
 | **parent_management_group_id** | string  | - | 
 | **subscription_ids** | list  | - | 
 | **id** | string  | The ID of the Management Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "management/management_group" 
+}
+
+inputs = {
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

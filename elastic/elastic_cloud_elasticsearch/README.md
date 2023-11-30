@@ -36,3 +36,28 @@ Manages an Elasticsearch in Elastic Cloud.
 | **elasticsearch_service_url** | string  | The URL to the Elasticsearch Service associated with this Elasticsearch. | 
 | **kibana_service_url** | string  | The URL to the Kibana Dashboard associated with this Elasticsearch. | 
 | **kibana_sso_uri** | string  | The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "elastic/elastic_cloud_elasticsearch" 
+}
+
+inputs = {
+   elastic_cloud_email_address = "elastic_cloud_email_address of elastic_cloud_elasticsearch" 
+   location = "${location}" 
+   name = "name of elastic_cloud_elasticsearch" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of elastic_cloud_elasticsearch" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,27 @@ Manages a Mobile Network Slice.
 | **description** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Mobile Network Slice. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_slice" 
+}
+
+inputs = {
+   name = "name of mobile_network_slice" 
+   mobile_network_id = "mobile_network_id of mobile_network_slice" 
+   location = "${location}" 
+   single_network_slice_selection_assistance_information = "single_network_slice_selection_assistance_information of mobile_network_slice" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

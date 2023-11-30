@@ -24,3 +24,27 @@ Manages an Azure Container Registry token. Tokens are a preview feature only ava
 | **scope_map_id** | string  | - | 
 | **enabled** | bool  | - | 
 | **id** | string  | The ID of the Container Registry token. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_registry_token" 
+}
+
+inputs = {
+   name = "name of container_registry_token" 
+   resource_group_name = "${resource_group}" 
+   container_registry_name = "container_registry_name of container_registry_token" 
+   scope_map_id = "scope_map_id of container_registry_token" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

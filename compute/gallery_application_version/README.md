@@ -38,3 +38,29 @@ Manages a Gallery Application Version.
 | **package_file** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Gallery Application Version. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/gallery_application_version" 
+}
+
+inputs = {
+   name = "name of gallery_application_version" 
+   gallery_application_id = "gallery_application_id of gallery_application_version" 
+   location = "${location}" 
+   manage_action = "manage_action of gallery_application_version" 
+   source = "source of gallery_application_version" 
+   target_region = "target_region of gallery_application_version" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -24,3 +24,24 @@ Manages a logz Tag Rule.
 | **send_activity_logs** | string  | - | 
 | **send_subscription_logs** | string  | - | 
 | **id** | string  | The ID of the logz Tag Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logz/logz_tag_rule" 
+}
+
+inputs = {
+   logz_monitor_id = "logz_monitor_id of logz_tag_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

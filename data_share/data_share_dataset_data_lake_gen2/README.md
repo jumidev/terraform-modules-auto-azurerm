@@ -27,3 +27,27 @@ Manages a Data Share Data Lake Gen2 Dataset.
 | **folder_path** | string  | - | 
 | **id** | string  | The resource ID of the Data Share Data Lake Gen2 Dataset. | 
 | **display_name** | string  | The name of the Data Share Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_share/data_share_dataset_data_lake_gen2" 
+}
+
+inputs = {
+   name = "name of data_share_dataset_data_lake_gen2" 
+   share_id = "share_id of data_share_dataset_data_lake_gen2" 
+   file_system_name = "file_system_name of data_share_dataset_data_lake_gen2" 
+   storage_account_id = "storage_account_id of data_share_dataset_data_lake_gen2" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

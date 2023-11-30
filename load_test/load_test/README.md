@@ -27,3 +27,26 @@ Manages a Load Test Service.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Load Test. | 
 | **data_plane_uri** | string  | Resource data plane URI. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_test/load_test" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of load_test" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

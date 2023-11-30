@@ -52,3 +52,27 @@ Manages a Microsoft SQL Azure Database Server.~> **Note:** All arguments includi
 | **update** | datetime  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
 | **read** | string  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 
 | **delete** | string  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_server" 
+}
+
+inputs = {
+   name = "name of mssql_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   version = "version of mssql_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

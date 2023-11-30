@@ -34,3 +34,30 @@ Manages a Point-to-Site VPN Gateway.
 | **routing_preference_internet_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Point-to-Site VPN Gateway. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/point_to_site_vpn_gateway" 
+}
+
+inputs = {
+   name = "name of point_to_site_vpn_gateway" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   connection_configuration = "connection_configuration of point_to_site_vpn_gateway" 
+   scale_unit = "scale_unit of point_to_site_vpn_gateway" 
+   virtual_hub_id = "virtual_hub_id of point_to_site_vpn_gateway" 
+   vpn_server_configuration_id = "vpn_server_configuration_id of point_to_site_vpn_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

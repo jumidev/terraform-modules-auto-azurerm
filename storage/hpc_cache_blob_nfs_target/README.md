@@ -28,3 +28,29 @@ Manages a Blob NFSv3 Target within a HPC Cache.~> **NOTE:**: By request of the s
 | **usage_model** | string  | - | 
 | **access_policy_name** | string  | - | 
 | **id** | string  | The ID of the HPC Cache Blob NFS Target. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/hpc_cache_blob_nfs_target" 
+}
+
+inputs = {
+   cache_name = "cache_name of hpc_cache_blob_nfs_target" 
+   name = "name of hpc_cache_blob_nfs_target" 
+   namespace_path = "namespace_path of hpc_cache_blob_nfs_target" 
+   resource_group_name = "${resource_group}" 
+   storage_container_id = "storage_container_id of hpc_cache_blob_nfs_target" 
+   usage_model = "usage_model of hpc_cache_blob_nfs_target" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

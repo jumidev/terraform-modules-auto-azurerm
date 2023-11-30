@@ -36,3 +36,28 @@ Manages a Dataset inside an Azure Data Factory. This is a generic resource that 
 | **parameters** | string  | - | 
 | **schema_json** | string  | - | 
 | **id** | string  | The ID of the Data Factory Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_custom_dataset" 
+}
+
+inputs = {
+   name = "name of data_factory_custom_dataset" 
+   data_factory_id = "data_factory_id of data_factory_custom_dataset" 
+   linked_service = "linked_service of data_factory_custom_dataset" 
+   type = "type of data_factory_custom_dataset" 
+   type_properties_json = "type_properties_json of data_factory_custom_dataset" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

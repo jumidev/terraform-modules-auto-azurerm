@@ -40,3 +40,29 @@ Manages a Load Balancer Rule.~> **NOTE** When using this resource, the Load Bala
 | **disable_outbound_snat** | bool  | - | 
 | **enable_tcp_reset** | bool  | - | 
 | **id** | string  | The ID of the Load Balancer Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_rule" 
+}
+
+inputs = {
+   name = "name of lb_rule" 
+   loadbalancer_id = "loadbalancer_id of lb_rule" 
+   frontend_ip_configuration_name = "frontend_ip_configuration_name of lb_rule" 
+   protocol = "protocol of lb_rule" 
+   frontend_port = "frontend_port of lb_rule" 
+   backend_port = "backend_port of lb_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

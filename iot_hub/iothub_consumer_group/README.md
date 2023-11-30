@@ -22,3 +22,27 @@ Manages a Consumer Group within an IotHub
 | **eventhub_endpoint_name** | string  | - | 
 | **resource_group_name** | string  | - | 
 | **id** | string  | The ID of the IoTHub Consumer Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_consumer_group" 
+}
+
+inputs = {
+   name = "name of iothub_consumer_group" 
+   iothub_name = "iothub_name of iothub_consumer_group" 
+   eventhub_endpoint_name = "eventhub_endpoint_name of iothub_consumer_group" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

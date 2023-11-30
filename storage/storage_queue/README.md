@@ -21,3 +21,25 @@ Manages a Queue within an Azure Storage Account.
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the Storage Queue. | 
 | **resource_manager_id** | string  | The Resource Manager ID of this Storage Queue. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_queue" 
+}
+
+inputs = {
+   name = "name of storage_queue" 
+   storage_account_name = "storage_account_name of storage_queue" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

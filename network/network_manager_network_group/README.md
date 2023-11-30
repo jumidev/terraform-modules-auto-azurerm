@@ -20,3 +20,25 @@ Manages a Network Manager Network Group.
 | **network_manager_id** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Network Manager Network Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_network_group" 
+}
+
+inputs = {
+   name = "name of network_manager_network_group" 
+   network_manager_id = "network_manager_id of network_manager_network_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

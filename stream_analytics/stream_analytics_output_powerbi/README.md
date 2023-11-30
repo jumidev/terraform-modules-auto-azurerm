@@ -29,3 +29,29 @@ Manages a Stream Analytics Output powerBI.
 | **group_name** | string  | - | 
 | **token_user_principal_name** | string  | - | 
 | **token_user_display_name** | string  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_output_powerbi" 
+}
+
+inputs = {
+   name = "name of stream_analytics_output_powerbi" 
+   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_output_powerbi" 
+   dataset = "dataset of stream_analytics_output_powerbi" 
+   table = "table of stream_analytics_output_powerbi" 
+   group_id = "group_id of stream_analytics_output_powerbi" 
+   group_name = "group_name of stream_analytics_output_powerbi" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

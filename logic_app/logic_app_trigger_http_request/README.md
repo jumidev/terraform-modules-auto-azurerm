@@ -25,3 +25,26 @@ Manages a HTTP Request Trigger within a Logic App Workflow
 | **relative_path** | string  | - | 
 | **id** | string  | The ID of the HTTP Request Trigger within the Logic App Workflow. | 
 | **callback_url** | string  | The URL for the workflow trigger | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_trigger_http_request" 
+}
+
+inputs = {
+   name = "name of logic_app_trigger_http_request" 
+   logic_app_id = "logic_app_id of logic_app_trigger_http_request" 
+   schema = "schema of logic_app_trigger_http_request" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

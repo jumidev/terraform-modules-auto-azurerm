@@ -18,3 +18,25 @@ Manages a Disk Pool Managed Disk Attachment.!> **Note:** Azure are officially [h
 | **disk_pool_id** | string  | - | 
 | **managed_disk_id** | string  | - | 
 | **id** | string  | The ID of the Disk Pool Managed Disk Attachment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "disks/disk_pool_managed_disk_attachment" 
+}
+
+inputs = {
+   disk_pool_id = "disk_pool_id of disk_pool_managed_disk_attachment" 
+   managed_disk_id = "managed_disk_id of disk_pool_managed_disk_attachment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

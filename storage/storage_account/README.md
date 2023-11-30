@@ -121,3 +121,28 @@ Manages an Azure Storage Account.
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this Storage Account. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this Storage Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_account" 
+}
+
+inputs = {
+   name = "name of storage_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   account_tier = "account_tier of storage_account" 
+   account_replication_type = "account_replication_type of storage_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

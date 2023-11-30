@@ -21,3 +21,24 @@ Manages TagRules on the datadog Monitor.
 | **name** | string  | - | 
 | **log** | block  | - | 
 | **metric** | block  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "datadog/datadog_monitor_tag_rule" 
+}
+
+inputs = {
+   datadog_monitor_id = "datadog_monitor_id of datadog_monitor_tag_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

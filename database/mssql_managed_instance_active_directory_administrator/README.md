@@ -24,3 +24,27 @@ Allows you to set a user, group or service principal as the AAD Administrator fo
 | **tenant_id** | string  | - | 
 | **azuread_authentication_only** | string  | - | 
 | **id** | string  | The ID of the SQL Managed Instance Active Directory Administrator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_managed_instance_active_directory_administrator" 
+}
+
+inputs = {
+   managed_instance_id = "managed_instance_id of mssql_managed_instance_active_directory_administrator" 
+   login_username = "login_username of mssql_managed_instance_active_directory_administrator" 
+   object_id = "object_id of mssql_managed_instance_active_directory_administrator" 
+   tenant_id = "tenant_id of mssql_managed_instance_active_directory_administrator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

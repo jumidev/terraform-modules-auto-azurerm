@@ -66,3 +66,27 @@ Manages an API within an API Management Service.
 | **is_online** | bool  | Is this API Revision online/accessible via the Gateway? | 
 | **version** | int  | The Version number of this API, if this API is versioned. | 
 | **version_set_id** | string  | The ID of the Version Set which this API is associated with. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_api" 
+}
+
+inputs = {
+   name = "name of api_management_api" 
+   api_management_name = "api_management_name of api_management_api" 
+   resource_group_name = "${resource_group}" 
+   revision = "revision of api_management_api" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

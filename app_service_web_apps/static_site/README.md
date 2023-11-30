@@ -35,3 +35,26 @@ Manages an App Service Static Site.->**NOTE:** After the Static Site is provisio
 | **identity** | block  | An `identity` block which contains the Managed Service Identity information for this resource. | 
 | **type** | string  | The Type of Managed Identity assigned to this resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/static_site" 
+}
+
+inputs = {
+   name = "name of static_site" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

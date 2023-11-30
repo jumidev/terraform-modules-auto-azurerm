@@ -30,3 +30,26 @@ Manages an Azure Relay Namespace Authorization Rule.
 | **primary_connection_string** | string  | The Primary Connection String for the Azure Relay Namespace Authorization Rule. | 
 | **secondary_key** | string  | The Secondary Key for the Azure Relay Namespace Authorization Rule. | 
 | **secondary_connection_string** | string  | The Secondary Connection String for the Azure Relay Namespace Authorization Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/relay_namespace_authorization_rule" 
+}
+
+inputs = {
+   name = "name of relay_namespace_authorization_rule" 
+   namespace_name = "namespace_name of relay_namespace_authorization_rule" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

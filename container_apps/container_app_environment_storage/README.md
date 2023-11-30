@@ -26,3 +26,29 @@ Manages a Container App Environment Storage.
 | **share_name** | string  | - | 
 | **access_mode** | string  | - | 
 | **id** | string  | The ID of the Container App Environment Storage | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container_apps/container_app_environment_storage" 
+}
+
+inputs = {
+   name = "name of container_app_environment_storage" 
+   container_app_environment_id = "container_app_environment_id of container_app_environment_storage" 
+   account_name = "account_name of container_app_environment_storage" 
+   access_key = "access_key of container_app_environment_storage" 
+   share_name = "share_name of container_app_environment_storage" 
+   access_mode = "access_mode of container_app_environment_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

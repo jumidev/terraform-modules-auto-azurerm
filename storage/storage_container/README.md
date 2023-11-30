@@ -25,3 +25,25 @@ Manages a Container within an Azure Storage Account.
 | **has_immutability_policy** | string  | Is there an Immutability Policy configured on this Storage Container? | 
 | **has_legal_hold** | string  | Is there a Legal Hold configured on this Storage Container? | 
 | **resource_manager_id** | string  | The Resource Manager ID of this Storage Container. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_container" 
+}
+
+inputs = {
+   name = "name of storage_container" 
+   storage_account_name = "storage_account_name of storage_container" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

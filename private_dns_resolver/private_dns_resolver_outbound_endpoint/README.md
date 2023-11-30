@@ -24,3 +24,27 @@ Manages a Private DNS Resolver Outbound Endpoint.
 | **subnet_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Private DNS Resolver Outbound Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns_resolver/private_dns_resolver_outbound_endpoint" 
+}
+
+inputs = {
+   name = "name of private_dns_resolver_outbound_endpoint" 
+   private_dns_resolver_id = "private_dns_resolver_id of private_dns_resolver_outbound_endpoint" 
+   location = "${location}" 
+   subnet_id = "subnet_id of private_dns_resolver_outbound_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

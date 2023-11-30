@@ -24,3 +24,26 @@ Manages a Customer Managed Key for a Kusto Cluster.
 | **key_version** | string  | - | 
 | **user_identity** | string  | - | 
 | **id** | string  | The ID of the Kusto Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_cluster_customer_managed_key" 
+}
+
+inputs = {
+   cluster_id = "cluster_id of kusto_cluster_customer_managed_key" 
+   key_vault_id = "key_vault_id of kusto_cluster_customer_managed_key" 
+   key_name = "key_name of kusto_cluster_customer_managed_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -38,3 +38,32 @@ Manages a Stream Analytics Reference Input from MS SQL. Reference data (also kno
 | **delta_snapshot_query** | string  | - | 
 | **table** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_reference_input_mssql" 
+}
+
+inputs = {
+   name = "name of stream_analytics_reference_input_mssql" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_reference_input_mssql" 
+   server = "server of stream_analytics_reference_input_mssql" 
+   database = "database of stream_analytics_reference_input_mssql" 
+   username = "username of stream_analytics_reference_input_mssql" 
+   password = "password of stream_analytics_reference_input_mssql" 
+   refresh_type = "refresh_type of stream_analytics_reference_input_mssql" 
+   full_snapshot_query = "full_snapshot_query of stream_analytics_reference_input_mssql" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

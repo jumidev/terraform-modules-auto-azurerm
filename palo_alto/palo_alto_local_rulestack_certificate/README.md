@@ -26,3 +26,25 @@ Manages a Palo Alto Networks Rulestack Certificate.
 | **audit_comment** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Palo Alto Networks Rulestack Certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_local_rulestack_certificate" 
+}
+
+inputs = {
+   name = "name of palo_alto_local_rulestack_certificate" 
+   rulestack_id = "rulestack_id of palo_alto_local_rulestack_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

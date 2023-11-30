@@ -46,3 +46,27 @@ Manages a Data Factory Azure-SSIS Integration Runtime.
 | **vnet_integration** | block  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Data Factory Azure-SSIS Integration Runtime. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_integration_runtime_azure_ssis" 
+}
+
+inputs = {
+   name = "name of data_factory_integration_runtime_azure_ssis" 
+   data_factory_id = "data_factory_id of data_factory_integration_runtime_azure_ssis" 
+   location = "${location}" 
+   node_size = "node_size of data_factory_integration_runtime_azure_ssis" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -55,3 +55,28 @@ Manages an App Service Slot (within an App Service).!> **NOTE:** This resource h
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service slot. | 
 | **username** | string  | The username which can be used to publish to this App Service | 
 | **password** | string  | The password associated with the username, which can be used to publish to this App Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_slot" 
+}
+
+inputs = {
+   name = "name of app_service_slot" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of app_service_slot" 
+   app_service_name = "app_service_name of app_service_slot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

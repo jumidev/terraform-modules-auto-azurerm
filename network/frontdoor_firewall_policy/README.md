@@ -36,3 +36,25 @@
 | **id** | string  | The ID of the Front Door Firewall Policy. | 
 | **location** | string  | The Azure Region where this Front Door Firewall Policy exists. | 
 | **frontend_endpoint_ids** | string  | The Frontend Endpoints associated with this Front Door Web Application Firewall policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/frontdoor_firewall_policy" 
+}
+
+inputs = {
+   name = "name of frontdoor_firewall_policy" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

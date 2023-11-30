@@ -32,3 +32,25 @@ Manages a Spring Cloud Gateway Route Config.-> **NOTE:** This resource is applic
 | **protocol** | string  | - | 
 | **spring_cloud_app_id** | string  | - | 
 | **id** | string  | The ID of the Spring Cloud Gateway Route Config. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_gateway_route_config" 
+}
+
+inputs = {
+   name = "name of spring_cloud_gateway_route_config" 
+   spring_cloud_gateway_id = "spring_cloud_gateway_id of spring_cloud_gateway_route_config" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

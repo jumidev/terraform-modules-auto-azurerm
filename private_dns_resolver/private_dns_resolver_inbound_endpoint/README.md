@@ -25,3 +25,27 @@ Manages a Private DNS Resolver Inbound Endpoint.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Private DNS Resolver Inbound Endpoint. | 
 | **private_ip_address** | string  | Private IP address of the IP configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns_resolver/private_dns_resolver_inbound_endpoint" 
+}
+
+inputs = {
+   name = "name of private_dns_resolver_inbound_endpoint" 
+   private_dns_resolver_id = "private_dns_resolver_id of private_dns_resolver_inbound_endpoint" 
+   ip_configurations = "ip_configurations of private_dns_resolver_inbound_endpoint" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

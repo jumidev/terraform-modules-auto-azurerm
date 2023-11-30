@@ -24,3 +24,26 @@ Manages a Capacity Reservation within a Capacity Reservation Group.
 | **zone** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Capacity Reservation. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/capacity_reservation" 
+}
+
+inputs = {
+   name = "name of capacity_reservation" 
+   capacity_reservation_group_id = "capacity_reservation_group_id of capacity_reservation" 
+   sku = "sku of capacity_reservation" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

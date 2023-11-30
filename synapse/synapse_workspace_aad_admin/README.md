@@ -21,3 +21,27 @@ Manages an Azure Active Directory Administrator setting for a Synapse Workspace
 | **login** | string  | - | 
 | **object_id** | string  | - | 
 | **tenant_id** | string  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_workspace_aad_admin" 
+}
+
+inputs = {
+   synapse_workspace_id = "synapse_workspace_id of synapse_workspace_aad_admin" 
+   login = "login of synapse_workspace_aad_admin" 
+   object_id = "object_id of synapse_workspace_aad_admin" 
+   tenant_id = "tenant_id of synapse_workspace_aad_admin" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -48,3 +48,26 @@ Manages an Action Group within Azure Monitor.
 | **webhook_receiver** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Action Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_action_group" 
+}
+
+inputs = {
+   name = "name of monitor_action_group" 
+   resource_group_name = "${resource_group}" 
+   short_name = "short_name of monitor_action_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

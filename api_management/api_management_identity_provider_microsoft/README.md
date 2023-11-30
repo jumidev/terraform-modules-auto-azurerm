@@ -22,3 +22,27 @@ Manages an API Management Microsoft Identity Provider.
 | **client_id** | string  | - | 
 | **client_secret** | string  | - | 
 | **id** | string  | The ID of the API Management Microsoft Identity Provider. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_identity_provider_microsoft" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_identity_provider_microsoft" 
+   resource_group_name = "${resource_group}" 
+   client_id = "client_id of api_management_identity_provider_microsoft" 
+   client_secret = "client_secret of api_management_identity_provider_microsoft" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

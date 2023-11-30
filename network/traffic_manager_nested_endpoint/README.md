@@ -40,3 +40,27 @@ Manages a Nested Endpoint within a Traffic Manager Profile.
 | **geo_mappings** | list  | - | 
 | **subnet** | block  | - | 
 | **id** | string  | The ID of the Nested Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/traffic_manager_nested_endpoint" 
+}
+
+inputs = {
+   minimum_child_endpoints = "minimum_child_endpoints of traffic_manager_nested_endpoint" 
+   name = "name of traffic_manager_nested_endpoint" 
+   profile_id = "profile_id of traffic_manager_nested_endpoint" 
+   target_resource_id = "target_resource_id of traffic_manager_nested_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

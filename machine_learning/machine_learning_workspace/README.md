@@ -60,3 +60,30 @@ Manages a Azure Machine Learning Workspace~> **NOTE:** For examples on how to se
 | **update** | datetime  | (Defaults to 30 minutes) Used when updating the Machine Learning Workspace. | 
 | **read** | string  | (Defaults to 5 minutes) Used when retrieving the Machine Learning Workspace. | 
 | **delete** | string  | (Defaults to 30 minutes) Used when deleting the Machine Learning Workspace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_workspace" 
+}
+
+inputs = {
+   name = "name of machine_learning_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   application_insights_id = "application_insights_id of machine_learning_workspace" 
+   key_vault_id = "key_vault_id of machine_learning_workspace" 
+   storage_account_id = "storage_account_id of machine_learning_workspace" 
+   identity = "identity of machine_learning_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

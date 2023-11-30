@@ -26,3 +26,25 @@
 | **public_network_access_enabled** | bool  | - | 
 | **sso** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Dev Tool Portal. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_dev_tool_portal" 
+}
+
+inputs = {
+   name = "name of spring_cloud_dev_tool_portal" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_dev_tool_portal" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

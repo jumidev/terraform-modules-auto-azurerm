@@ -30,3 +30,25 @@ Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 | **secondary_connection_string** | string  | The Secondary Connection String for the ServiceBus Topic authorization Rule. | 
 | **primary_connection_string_alias** | string  | The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired. | 
 | **secondary_connection_string_alias** | string  | The alias Secondary Connection String for the ServiceBus Namespace | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_topic_authorization_rule" 
+}
+
+inputs = {
+   name = "name of servicebus_topic_authorization_rule" 
+   topic_id = "topic_id of servicebus_topic_authorization_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

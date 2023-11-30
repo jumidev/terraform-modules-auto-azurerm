@@ -1,0 +1,17 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logz/logz_sub_account" 
+}
+
+inputs = {
+   name = "name of logz_sub_account" 
+   logz_monitor_id = "logz_monitor_id of logz_sub_account" 
+   user = "user of logz_sub_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

@@ -21,3 +21,26 @@ Manages an SQL Notebook Workspace.!> **Note:** CosmosDb Notebook Workspace is no
 | **account_name** | string  | - | 
 | **id** | string  | The ID of the SQL Notebook Workspace. | 
 | **server_endpoint** | string  | Specifies the endpoint of Notebook server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_notebook_workspace" 
+}
+
+inputs = {
+   name = "name of cosmosdb_notebook_workspace" 
+   resource_group_name = "${resource_group}" 
+   account_name = "account_name of cosmosdb_notebook_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -27,3 +27,26 @@ Manages a template deployment of resources~> **Note:** The `azurerm_template_dep
 | **parameters_body** | string  | - | 
 | **id** | string  | The Template Deployment ID. | 
 | **outputs** | string  | A map of supported scalar output types returned from the deployment (currently, Azure Template Deployment outputs of type String, Int and Bool are supported, and are converted to strings - others will be ignored) and can be accessed using `.outputs["name"]`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "template/template_deployment" 
+}
+
+inputs = {
+   name = "name of template_deployment" 
+   resource_group_name = "${resource_group}" 
+   deployment_mode = "deployment_mode of template_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

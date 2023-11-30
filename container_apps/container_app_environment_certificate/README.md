@@ -29,3 +29,27 @@ Manages a Container App Environment Certificate.
 | **issuer** | string  | The Certificate Issuer. | 
 | **subject_name** | string  | The Subject Name for the Certificate. | 
 | **thumbprint** | string  | The Thumbprint of the Certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container_apps/container_app_environment_certificate" 
+}
+
+inputs = {
+   name = "name of container_app_environment_certificate" 
+   container_app_environment_id = "container_app_environment_id of container_app_environment_certificate" 
+   certificate_blob_base64 = "certificate_blob_base64 of container_app_environment_certificate" 
+   certificate_password = "certificate_password of container_app_environment_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

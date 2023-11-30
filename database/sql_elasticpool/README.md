@@ -35,3 +35,29 @@ Allows you to manage an Azure SQL Elastic Pool.-> **Note:** The `azurerm_sql_ela
 | **tags** | map  | - | 
 | **id** | string  | The SQL Elastic Pool ID. | 
 | **creation_date** | datetime  | The creation date of the SQL Elastic Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/sql_elasticpool" 
+}
+
+inputs = {
+   name = "name of sql_elasticpool" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   server_name = "server_name of sql_elasticpool" 
+   edition = "edition of sql_elasticpool" 
+   dtu = "dtu of sql_elasticpool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

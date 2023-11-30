@@ -34,3 +34,26 @@ Manages a Fluid Relay Server.
 | **service_endpoints** | string  | An array of service endpoints for this Fluid Relay Server. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this Fluid Relay Server. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this Fluid Relay Server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "fluid_relay/fluid_relay_servers" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of fluid_relay_servers" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -31,3 +31,26 @@ Manages a Public IP Prefix.
 | **zones** | string  | - | 
 | **id** | string  | The Public IP Prefix ID. | 
 | **ip_prefix** | string  | The IP address prefix value that was allocated. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/public_ip_prefix" 
+}
+
+inputs = {
+   name = "name of public_ip_prefix" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

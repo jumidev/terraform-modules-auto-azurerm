@@ -48,3 +48,26 @@ Manages an Azure App Configuration.## Disclaimers-> **Note:** Version 3.27.0 and
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
 | **connection_string** | string  | The Connection String for this Access Key - comprising of the Endpoint, ID and Secret. | 
 | **secret** | string  | The Secret of the Access Key. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_configuration/app_configuration" 
+}
+
+inputs = {
+   name = "name of app_configuration" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

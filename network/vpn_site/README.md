@@ -35,3 +35,27 @@ Manages a VPN Site.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the VPN Site Link. | 
 | **link** | block  | One or more `link` blocks. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/vpn_site" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of vpn_site" 
+   resource_group_name = "${resource_group}" 
+   virtual_wan_id = "virtual_wan_id of vpn_site" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

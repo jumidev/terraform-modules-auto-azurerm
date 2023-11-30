@@ -24,3 +24,28 @@ Manages a PostgreSQL Database within a PostgreSQL Server
 | **charset** | string  | - | 
 | **collation** | string  | - | 
 | **id** | string  | The ID of the PostgreSQL Database. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_database" 
+}
+
+inputs = {
+   name = "name of postgresql_database" 
+   server_name = "server_name of postgresql_database" 
+   resource_group_name = "${resource_group}" 
+   charset = "charset of postgresql_database" 
+   collation = "collation of postgresql_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

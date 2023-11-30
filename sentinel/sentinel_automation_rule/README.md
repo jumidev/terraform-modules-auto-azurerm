@@ -38,3 +38,27 @@ Manages a Sentinel Automation Rule.
 | **triggers_on** | string  | - | 
 | **triggers_when** | string  | - | 
 | **id** | string  | The ID of the Sentinel Automation Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_automation_rule" 
+}
+
+inputs = {
+   name = "name of sentinel_automation_rule" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_automation_rule" 
+   display_name = "display_name of sentinel_automation_rule" 
+   order = "order of sentinel_automation_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

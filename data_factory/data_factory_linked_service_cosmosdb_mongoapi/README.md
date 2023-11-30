@@ -34,3 +34,25 @@ Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory 
 | **connection_string** | string  | - | 
 | **server_version_is_32_or_higher** | bool  | - | 
 | **id** | string  | The ID of the Data Factory Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_cosmosdb_mongoapi" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_cosmosdb_mongoapi" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_cosmosdb_mongoapi" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -62,3 +62,28 @@ Manages a connection in an existing Virtual Network Gateway.
 | **traffic_selector_policy** | list  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Virtual Network Gateway Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_network_gateway_connection" 
+}
+
+inputs = {
+   name = "name of virtual_network_gateway_connection" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   type = "type of virtual_network_gateway_connection" 
+   virtual_network_gateway_id = "virtual_network_gateway_id of virtual_network_gateway_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

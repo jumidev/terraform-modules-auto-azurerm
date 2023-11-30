@@ -30,3 +30,26 @@ Manages a Data Collection Endpoint.
 | **id** | string  | The ID of the Data Collection Endpoint. | 
 | **configuration_access_endpoint** | string  | The endpoint used for accessing configuration, e.g., `https://mydce-abcd.eastus-1.control.monitor.azure.com`. | 
 | **logs_ingestion_endpoint** | string  | The endpoint used for ingesting logs, e.g., `https://mydce-abcd.eastus-1.ingest.monitor.azure.com`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_data_collection_endpoint" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of monitor_data_collection_endpoint" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

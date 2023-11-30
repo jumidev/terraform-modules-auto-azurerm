@@ -20,3 +20,26 @@ Manages a Resource Management Private Link to restrict access for managing resou
 | **resource_group_name** | string  | - | 
 | **location** | string  | - | 
 | **id** | string  | The ID of the Resource Management Private Link. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "management/resource_management_private_link" 
+}
+
+inputs = {
+   name = "name of resource_management_private_link" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -36,3 +36,31 @@ Manages a Load Balancer NAT pool.-> **NOTE:** This resource cannot be used with 
 | **floating_ip_enabled** | bool  | - | 
 | **tcp_reset_enabled** | bool  | - | 
 | **id** | string  | The ID of the Load Balancer NAT pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_nat_pool" 
+}
+
+inputs = {
+   name = "name of lb_nat_pool" 
+   resource_group_name = "${resource_group}" 
+   loadbalancer_id = "loadbalancer_id of lb_nat_pool" 
+   frontend_ip_configuration_name = "frontend_ip_configuration_name of lb_nat_pool" 
+   protocol = "protocol of lb_nat_pool" 
+   frontend_port_start = "frontend_port_start of lb_nat_pool" 
+   frontend_port_end = "frontend_port_end of lb_nat_pool" 
+   backend_port = "backend_port of lb_nat_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

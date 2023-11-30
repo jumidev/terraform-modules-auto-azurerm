@@ -18,3 +18,25 @@ Manages the Data Access Settings for Azure Security Center.~> **NOTE:** This res
 | **setting_name** | string  | - | 
 | **enabled** | bool  | - | 
 | **id** | string  | The subscription security center setting id. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/security_center_setting" 
+}
+
+inputs = {
+   setting_name = "setting_name of security_center_setting" 
+   enabled = "enabled of security_center_setting" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

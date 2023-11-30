@@ -28,3 +28,27 @@ Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and c
 | **dns_settings** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Palo Alto Next Generation Firewall Virtual Network Local Rulestack. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
+}
+
+inputs = {
+   name = "name of palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
+   network_profile = "network_profile of palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
+   resource_group_name = "${resource_group}" 
+   rulestack_id = "rulestack_id of palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

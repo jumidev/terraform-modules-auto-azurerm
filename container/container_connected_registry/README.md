@@ -38,3 +38,26 @@ Manages a Container Connected Registry.
 | **sync_schedule** | string  | - | 
 | **sync_window** | string  | - | 
 | **id** | string  | The ID of the Container Connected Registry. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_connected_registry" 
+}
+
+inputs = {
+   container_registry_id = "container_registry_id of container_connected_registry" 
+   name = "name of container_connected_registry" 
+   sync_token_id = "sync_token_id of container_connected_registry" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

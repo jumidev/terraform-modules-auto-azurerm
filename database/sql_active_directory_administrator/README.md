@@ -26,3 +26,28 @@ Allows you to set a user or group as the AD administrator for an Azure SQL serve
 | **tenant_id** | string  | - | 
 | **azuread_authentication_only** | string  | - | 
 | **id** | string  | The ID of the SQL Active Directory Administrator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/sql_active_directory_administrator" 
+}
+
+inputs = {
+   server_name = "server_name of sql_active_directory_administrator" 
+   resource_group_name = "${resource_group}" 
+   login = "login of sql_active_directory_administrator" 
+   object_id = "object_id of sql_active_directory_administrator" 
+   tenant_id = "tenant_id of sql_active_directory_administrator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

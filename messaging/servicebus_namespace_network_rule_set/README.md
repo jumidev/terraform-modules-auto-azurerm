@@ -26,3 +26,24 @@ Manages a ServiceBus Namespace Network Rule Set.> The `azurerm_servicebus_namesp
 | **ip_rules** | list  | - | 
 | **network_rules** | block  | - | 
 | **id** | string  | The ID of the ServiceBus Namespace Network Rule Set. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_namespace_network_rule_set" 
+}
+
+inputs = {
+   namespace_id = "namespace_id of servicebus_namespace_network_rule_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

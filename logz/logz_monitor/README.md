@@ -34,3 +34,28 @@ Manages a logz Monitor.
 | **id** | string  | The ID of the logz Monitor. | 
 | **single_sign_on_url** | string  | The single sign on url associated with the logz organization of this logz Monitor. | 
 | **logz_organization_id** | string  | The ID associated with the logz organization of this logz Monitor. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logz/logz_monitor" 
+}
+
+inputs = {
+   name = "name of logz_monitor" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   plan = "plan of logz_monitor" 
+   user = "user of logz_monitor" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

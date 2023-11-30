@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_outbound_rule" 
+}
+
+inputs = {
+   name = "name of lb_outbound_rule" 
+   loadbalancer_id = "loadbalancer_id of lb_outbound_rule" 
+   backend_address_pool_id = "backend_address_pool_id of lb_outbound_rule" 
+   protocol = "protocol of lb_outbound_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

@@ -26,3 +26,26 @@ Manages Azure Batch Application instance.
 | **default_version** | string  | - | 
 | **display_name** | string  | - | 
 | **id** | string  | The ID of the Batch Application. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "batch/batch_application" 
+}
+
+inputs = {
+   name = "name of batch_application" 
+   resource_group_name = "${resource_group}" 
+   account_name = "account_name of batch_application" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

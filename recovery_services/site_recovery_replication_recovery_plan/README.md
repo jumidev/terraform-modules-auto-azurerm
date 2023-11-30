@@ -32,3 +32,27 @@ Manages a Site Recovery Replication Recovery Plan within a Recovery Services vau
 | **boot_recovery_group** | block  | - | 
 | **azure_to_azure_settings** | block  | - | 
 | **id** | string  | The ID of the Site Recovery Fabric. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/site_recovery_replication_recovery_plan" 
+}
+
+inputs = {
+   name = "name of site_recovery_replication_recovery_plan" 
+   recovery_vault_id = "recovery_vault_id of site_recovery_replication_recovery_plan" 
+   source_recovery_fabric_id = "source_recovery_fabric_id of site_recovery_replication_recovery_plan" 
+   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replication_recovery_plan" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

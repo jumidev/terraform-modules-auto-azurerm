@@ -30,3 +30,26 @@ Manages a Spring Cloud Customized Accelerator.
 | **display_name** | string  | - | 
 | **icon_url** | string  | - | 
 | **id** | string  | The ID of the Spring Cloud Customized Accelerator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_customized_accelerator" 
+}
+
+inputs = {
+   git_repository = "git_repository of spring_cloud_customized_accelerator" 
+   name = "name of spring_cloud_customized_accelerator" 
+   spring_cloud_accelerator_id = "spring_cloud_accelerator_id of spring_cloud_customized_accelerator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

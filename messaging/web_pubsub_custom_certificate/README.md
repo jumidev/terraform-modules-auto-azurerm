@@ -21,3 +21,26 @@ Manages an Azure Web PubSub Custom Certificate.
 | **custom_certificate_id** | string  | - | 
 | **id** | string  | The ID of the Web PubSub Custom Certificate. | 
 | **certificate_version** | string  | The certificate version of the Web PubSub Custom Certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/web_pubsub_custom_certificate" 
+}
+
+inputs = {
+   name = "name of web_pubsub_custom_certificate" 
+   web_pubsub_id = "web_pubsub_id of web_pubsub_custom_certificate" 
+   custom_certificate_id = "custom_certificate_id of web_pubsub_custom_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

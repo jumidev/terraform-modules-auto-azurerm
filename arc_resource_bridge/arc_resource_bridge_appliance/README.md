@@ -30,3 +30,29 @@ Manages an Arc Resource Bridge Appliance.
 | **public_key_base64** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Arc Resource Bridge Appliance. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "arc_resource_bridge/arc_resource_bridge_appliance" 
+}
+
+inputs = {
+   name = "name of arc_resource_bridge_appliance" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   distro = "distro of arc_resource_bridge_appliance" 
+   identity = "identity of arc_resource_bridge_appliance" 
+   infrastructure_provider = "infrastructure_provider of arc_resource_bridge_appliance" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

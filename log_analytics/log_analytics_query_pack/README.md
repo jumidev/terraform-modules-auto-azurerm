@@ -22,3 +22,26 @@ Manages a Log Analytics Query Pack.
 | **resource_group_name** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Log Analytics Query Pack. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_query_pack" 
+}
+
+inputs = {
+   name = "name of log_analytics_query_pack" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

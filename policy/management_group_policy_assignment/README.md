@@ -44,3 +44,26 @@ Manages a Policy Assignment to a Management Group.
 | **id** | string  | The ID of the Management Group Policy Assignment. | 
 | **principal_id** | string  | The Principal ID of the Policy Assignment for this Management Group. | 
 | **tenant_id** | string  | The Tenant ID of the Policy Assignment for this Management Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/management_group_policy_assignment" 
+}
+
+inputs = {
+   management_group_id = "management_group_id of management_group_policy_assignment" 
+   name = "name of management_group_policy_assignment" 
+   policy_definition_id = "policy_definition_id of management_group_policy_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

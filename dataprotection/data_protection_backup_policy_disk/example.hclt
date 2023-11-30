@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_policy_disk" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_policy_disk" 
+   vault_id = "vault_id of data_protection_backup_policy_disk" 
+   backup_repeating_time_intervals = "backup_repeating_time_intervals of data_protection_backup_policy_disk" 
+   default_retention_duration = "default_retention_duration of data_protection_backup_policy_disk" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

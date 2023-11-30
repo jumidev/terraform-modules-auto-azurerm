@@ -1,0 +1,22 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_output_synapse" 
+}
+
+inputs = {
+   name = "name of stream_analytics_output_synapse" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_synapse" 
+   server = "server of stream_analytics_output_synapse" 
+   database = "database of stream_analytics_output_synapse" 
+   user = "user of stream_analytics_output_synapse" 
+   password = "password of stream_analytics_output_synapse" 
+   table = "table of stream_analytics_output_synapse" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

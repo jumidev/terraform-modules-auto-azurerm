@@ -26,3 +26,29 @@ Manages a Backup Instance to back up Disk.
 | **snapshot_resource_group_name** | string  | - | 
 | **backup_policy_id** | string  | - | 
 | **id** | string  | The ID of the Backup Instance Disk. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_instance_disk" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_instance_disk" 
+   location = "${location}" 
+   vault_id = "vault_id of data_protection_backup_instance_disk" 
+   disk_id = "disk_id of data_protection_backup_instance_disk" 
+   snapshot_resource_group_name = "snapshot_resource_group_name of data_protection_backup_instance_disk" 
+   backup_policy_id = "backup_policy_id of data_protection_backup_instance_disk" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

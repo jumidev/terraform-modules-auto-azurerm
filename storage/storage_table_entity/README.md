@@ -24,3 +24,28 @@ Manages an Entity within a Table in an Azure Storage Account.
 | **row_key** | string  | - | 
 | **entity** | string  | - | 
 | **id** | string  | The ID of the Entity within the Table in the Storage Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_table_entity" 
+}
+
+inputs = {
+   storage_account_name = "storage_account_name of storage_table_entity" 
+   table_name = "table_name of storage_table_entity" 
+   partition_key = "partition_key of storage_table_entity" 
+   row_key = "row_key of storage_table_entity" 
+   entity = "entity of storage_table_entity" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -30,3 +30,26 @@ Manages a Logger within an API Management Service.
 | **eventhub** | block  | - | 
 | **resource_id** | string  | - | 
 | **id** | string  | The ID of the API Management Logger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_logger" 
+}
+
+inputs = {
+   name = "name of api_management_logger" 
+   resource_group_name = "${resource_group}" 
+   api_management_name = "api_management_name of api_management_logger" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -23,3 +23,26 @@ Manages an AzureNetwork DDoS Protection Plan.-> **NOTE** Azure only allows `one`
 | **tags** | map  | - | 
 | **id** | string  | The ID of the DDoS Protection Plan | 
 | **virtual_network_ids** | list  | A list of Virtual Network IDs associated with the DDoS Protection Plan. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_ddos_protection_plan" 
+}
+
+inputs = {
+   name = "name of network_ddos_protection_plan" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

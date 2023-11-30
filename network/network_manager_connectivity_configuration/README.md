@@ -30,3 +30,27 @@ Manages a Network Manager Connectivity Configuration.-> **Note:** The `azurerm_n
 | **global_mesh_enabled** | string  | - | 
 | **hub** | block  | - | 
 | **id** | string  | The ID of the Network Manager Connectivity Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_connectivity_configuration" 
+}
+
+inputs = {
+   name = "name of network_manager_connectivity_configuration" 
+   network_manager_id = "network_manager_id of network_manager_connectivity_configuration" 
+   applies_to_group = "applies_to_group of network_manager_connectivity_configuration" 
+   connectivity_topology = "connectivity_topology of network_manager_connectivity_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -130,3 +130,32 @@ Manages a Windows Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As of the
 | **unique_id** | string  | The Unique ID for this Windows Virtual Machine Scale Set. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/windows_virtual_machine_scale_set" 
+}
+
+inputs = {
+   name = "name of windows_virtual_machine_scale_set" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   admin_password = "admin_password of windows_virtual_machine_scale_set" 
+   admin_username = "admin_username of windows_virtual_machine_scale_set" 
+   instances = "instances of windows_virtual_machine_scale_set" 
+   sku = "sku of windows_virtual_machine_scale_set" 
+   network_interface = "network_interface of windows_virtual_machine_scale_set" 
+   os_disk = "os_disk of windows_virtual_machine_scale_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

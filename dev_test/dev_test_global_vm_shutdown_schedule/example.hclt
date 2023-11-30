@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dev_test/dev_test_global_vm_shutdown_schedule" 
+}
+
+inputs = {
+   location = "${location}" 
+   virtual_machine_id = "virtual_machine_id of dev_test_global_vm_shutdown_schedule" 
+   timezone = "timezone of dev_test_global_vm_shutdown_schedule" 
+   daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule" 
+   notification_settings = "notification_settings of dev_test_global_vm_shutdown_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

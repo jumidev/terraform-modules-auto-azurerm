@@ -20,3 +20,24 @@ Manages a API Management service Policy.~> **NOTE:** This resource will, upon cr
 | **xml_content** | string  | - | 
 | **xml_link** | string  | - | 
 | **id** | string  | The ID of the API Management service Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_policy" 
+}
+
+inputs = {
+   api_management_id = "api_management_id of api_management_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

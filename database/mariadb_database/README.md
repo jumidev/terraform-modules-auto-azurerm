@@ -24,3 +24,28 @@ Manages a MariaDB Database within a MariaDB Server
 | **charset** | string  | - | 
 | **collation** | string  | - | 
 | **id** | string  | The ID of the MariaDB Database. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mariadb_database" 
+}
+
+inputs = {
+   name = "name of mariadb_database" 
+   server_name = "server_name of mariadb_database" 
+   resource_group_name = "${resource_group}" 
+   charset = "charset of mariadb_database" 
+   collation = "collation of mariadb_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -30,3 +30,26 @@ Manages a LoadBalancer Probe Resource.~> **NOTE** When using this resource, the 
 | **interval_in_seconds** | int  | - | 
 | **number_of_probes** | int  | - | 
 | **id** | string  | The ID of the Load Balancer Probe. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_probe" 
+}
+
+inputs = {
+   name = "name of lb_probe" 
+   loadbalancer_id = "loadbalancer_id of lb_probe" 
+   port = "port of lb_probe" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

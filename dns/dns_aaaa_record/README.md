@@ -29,3 +29,27 @@ Enables you to manage DNS AAAA Records within Azure DNS.~> **Note:** [The Azure 
 | **tags** | map  | - | 
 | **id** | string  | The DNS AAAA Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS AAAA Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dns/dns_aaaa_record" 
+}
+
+inputs = {
+   name = "name of dns_aaaa_record" 
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of dns_aaaa_record" 
+   ttl = "ttl of dns_aaaa_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

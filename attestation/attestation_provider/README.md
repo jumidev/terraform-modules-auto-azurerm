@@ -34,3 +34,26 @@ Manages an Attestation Provider.
 | **id** | string  | The ID of the Attestation Provider. | 
 | **attestation_uri** | string  | The URI of the Attestation Service. | 
 | **trust_model** | string  | Trust model used for the Attestation Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "attestation/attestation_provider" 
+}
+
+inputs = {
+   name = "name of attestation_provider" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

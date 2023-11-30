@@ -29,3 +29,28 @@ Manages a Automation Hybrid Runbook Worker.
 | **registration_date_time** | string  | The registration time of the worker machine. | 
 | **worker_name** | string  | The name of HybridWorker. | 
 | **worker_type** | string  | The type of the HybridWorker, the possible values are `HybridV1` and `HybridV2`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_hybrid_runbook_worker" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_hybrid_runbook_worker" 
+   worker_group_name = "worker_group_name of automation_hybrid_runbook_worker" 
+   worker_id = "worker_id of automation_hybrid_runbook_worker" 
+   vm_resource_id = "vm_resource_id of automation_hybrid_runbook_worker" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

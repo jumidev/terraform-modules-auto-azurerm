@@ -26,3 +26,25 @@ Manages network rules inside of a Azure Storage Account.~> **NOTE:** Network Rul
 | **virtual_network_subnet_ids** | list  | - | 
 | **private_link_access** | block  | - | 
 | **id** | string  | The ID of the Storage Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_account_network_rules" 
+}
+
+inputs = {
+   storage_account_id = "storage_account_id of storage_account_network_rules" 
+   default_action = "default_action of storage_account_network_rules" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

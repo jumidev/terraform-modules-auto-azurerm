@@ -22,3 +22,26 @@ Manages a Data Share Kusto Database Dataset.
 | **id** | string  | The resource ID of the Data Share Kusto Database Dataset. | 
 | **display_name** | string  | The name of the Data Share Dataset. | 
 | **kusto_cluster_location** | string  | The location of the Kusto Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_share/data_share_dataset_kusto_database" 
+}
+
+inputs = {
+   name = "name of data_share_dataset_kusto_database" 
+   share_id = "share_id of data_share_dataset_kusto_database" 
+   kusto_database_id = "kusto_database_id of data_share_dataset_kusto_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

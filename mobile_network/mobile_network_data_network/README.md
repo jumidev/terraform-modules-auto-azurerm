@@ -24,3 +24,26 @@ Manages a Mobile Network Data Network.
 | **description** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Mobile Network Data Network. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_data_network" 
+}
+
+inputs = {
+   name = "name of mobile_network_data_network" 
+   mobile_network_id = "mobile_network_id of mobile_network_data_network" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

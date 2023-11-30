@@ -40,3 +40,27 @@ Manages an ExpressRoute circuit.
 | **id** | string  | The ID of the ExpressRoute circuit. | 
 | **service_provider_provisioning_state** | string  | The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`. | 
 | **service_key** | string  | The string needed by the service provider to provision the ExpressRoute circuit. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/express_route_circuit" 
+}
+
+inputs = {
+   name = "name of express_route_circuit" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of express_route_circuit" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

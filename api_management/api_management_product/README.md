@@ -34,3 +34,28 @@ Manages an API Management Product.
 | **subscriptions_limit** | int  | - | 
 | **terms** | string  | - | 
 | **id** | string  | The ID of the API Management Product. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_product" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_product" 
+   display_name = "display_name of api_management_product" 
+   product_id = "product_id of api_management_product" 
+   published = "published of api_management_product" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

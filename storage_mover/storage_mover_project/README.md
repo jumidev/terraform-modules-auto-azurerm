@@ -20,3 +20,25 @@ Manages a Storage Mover Project.
 | **storage_mover_id** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Storage Mover Project. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage_mover/storage_mover_project" 
+}
+
+inputs = {
+   name = "name of storage_mover_project" 
+   storage_mover_id = "storage_mover_id of storage_mover_project" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

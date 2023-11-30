@@ -41,3 +41,28 @@ Manages a Container App.
 | **latest_revision_name** | string  | The name of the latest Container Revision. | 
 | **location** | string  | The location this Container App is deployed in. This is the same as the Environment in which it is deployed. | 
 | **outbound_ip_addresses** | list  | A list of the Public IP Addresses which the Container App uses for outbound network access. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container_apps/container_app" 
+}
+
+inputs = {
+   container_app_environment_id = "container_app_environment_id of container_app" 
+   name = "name of container_app" 
+   resource_group_name = "${resource_group}" 
+   revision_mode = "revision_mode of container_app" 
+   template = "template of container_app" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

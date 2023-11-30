@@ -22,3 +22,26 @@ Manages a Network Manager Admin Rule Collection.
 | **network_group_ids** | list  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Network Manager Admin Rule Collection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_admin_rule_collection" 
+}
+
+inputs = {
+   name = "name of network_manager_admin_rule_collection" 
+   security_admin_configuration_id = "security_admin_configuration_id of network_manager_admin_rule_collection" 
+   network_group_ids = "network_group_ids of network_manager_admin_rule_collection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -20,3 +20,25 @@ Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment t
 | **scope** | string  | - | 
 | **lighthouse_definition_id** | string  | - | 
 | **id** | string  | the fully qualified ID of the Lighthouse Assignment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lighthouse/lighthouse_assignment" 
+}
+
+inputs = {
+   scope = "scope of lighthouse_assignment" 
+   lighthouse_definition_id = "lighthouse_definition_id of lighthouse_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

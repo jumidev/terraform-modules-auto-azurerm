@@ -30,3 +30,26 @@ Manages a Dev Test Lab.
 | **key_vault_id** | string  | The ID of the Key used for this Dev Test Lab. | 
 | **premium_data_disk_storage_account_id** | string  | The ID of the Storage Account used for Storage of Premium Data Disk. | 
 | **unique_identifier** | string  | The unique immutable identifier of the Dev Test Lab. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dev_test/dev_test_lab" 
+}
+
+inputs = {
+   name = "name of dev_test_lab" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

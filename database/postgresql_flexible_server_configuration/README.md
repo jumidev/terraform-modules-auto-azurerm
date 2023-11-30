@@ -20,3 +20,26 @@ Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
 | **server_id** | string  | - | 
 | **value** | string  | - | 
 | **id** | string  | The ID of the PostgreSQL Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_flexible_server_configuration" 
+}
+
+inputs = {
+   name = "name of postgresql_flexible_server_configuration" 
+   server_id = "server_id of postgresql_flexible_server_configuration" 
+   value = "value of postgresql_flexible_server_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

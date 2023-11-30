@@ -62,3 +62,25 @@ Manages a MS SQL Database.
 | **sku_name** | string  | - | 
 | **storage_account_type** | string  | - | 
 | **id** | string  | The ID of the MS SQL Database. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_database" 
+}
+
+inputs = {
+   name = "name of mssql_database" 
+   server_id = "server_id of mssql_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

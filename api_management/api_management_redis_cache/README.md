@@ -26,3 +26,26 @@ Manages a API Management Redis Cache.
 | **redis_cache_id** | string  | - | 
 | **cache_location** | string  | - | 
 | **id** | string  | The ID of the API Management Redis Cache. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_redis_cache" 
+}
+
+inputs = {
+   name = "name of api_management_redis_cache" 
+   api_management_id = "api_management_id of api_management_redis_cache" 
+   connection_string = "connection_string of api_management_redis_cache" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

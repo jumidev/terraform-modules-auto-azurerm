@@ -40,3 +40,31 @@ Manages a Kusto (also known as Azure Data Explorer) IotHub Data Connection
 | **data_format** | string  | - | 
 | **database_routing_type** | string  | - | 
 | **id** | string  | The ID of the Kusto IotHub Data Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_iothub_data_connection" 
+}
+
+inputs = {
+   name = "name of kusto_iothub_data_connection" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   cluster_name = "cluster_name of kusto_iothub_data_connection" 
+   database_name = "database_name of kusto_iothub_data_connection" 
+   iothub_id = "iothub_id of kusto_iothub_data_connection" 
+   consumer_group = "consumer_group of kusto_iothub_data_connection" 
+   shared_access_policy_name = "shared_access_policy_name of kusto_iothub_data_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

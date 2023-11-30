@@ -35,3 +35,29 @@ Manages a Mobile Network Sim.
 | **sim_state** | string  | The state of the SIM resource. | 
 | **vendor_key_fingerprint** | string  | The public key fingerprint of the SIM vendor who provided this SIM, if any. | 
 | **vendor_name** | string  | The name of the SIM vendor who provided this SIM, if any. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_sim" 
+}
+
+inputs = {
+   name = "name of mobile_network_sim" 
+   mobile_network_sim_group_id = "mobile_network_sim_group_id of mobile_network_sim" 
+   authentication_key = "authentication_key of mobile_network_sim" 
+   international_mobile_subscriber_identity = "international_mobile_subscriber_identity of mobile_network_sim" 
+   integrated_circuit_card_identifier = "integrated_circuit_card_identifier of mobile_network_sim" 
+   operator_key_code = "operator_key_code of mobile_network_sim" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

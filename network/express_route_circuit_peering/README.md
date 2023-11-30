@@ -41,3 +41,27 @@ Manages an ExpressRoute Circuit Peering.
 | **azure_asn** | string  | The ASN used by Azure. | 
 | **primary_azure_port** | string  | The Primary Port used by Azure for this Peering. | 
 | **secondary_azure_port** | string  | The Secondary Port used by Azure for this Peering. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/express_route_circuit_peering" 
+}
+
+inputs = {
+   peering_type = "peering_type of express_route_circuit_peering" 
+   express_route_circuit_name = "express_route_circuit_name of express_route_circuit_peering" 
+   resource_group_name = "${resource_group}" 
+   vlan_id = "vlan_id of express_route_circuit_peering" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

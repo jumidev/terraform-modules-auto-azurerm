@@ -30,3 +30,27 @@ Manages a Azure Web Application Firewall Policy instance.
 | **id** | string  | The ID of the Web Application Firewall Policy. | 
 | **http_listener_ids** | list  | A list of HTTP Listener IDs from an `azurerm_application_gateway`. | 
 | **path_based_rule_ids** | list  | A list of URL Path Map Path Rule IDs from an `azurerm_application_gateway`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/web_application_firewall_policy" 
+}
+
+inputs = {
+   name = "name of web_application_firewall_policy" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   managed_rules = "managed_rules of web_application_firewall_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

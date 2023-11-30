@@ -20,3 +20,26 @@ Manages a API Management API Operation Tag.
 | **name** | string  | - | 
 | **display_name** | string  | - | 
 | **id** | string  | The ID of the API Management API Operation Tag. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_api_operation_tag" 
+}
+
+inputs = {
+   api_operation_id = "api_operation_id of api_management_api_operation_tag" 
+   name = "name of api_management_api_operation_tag" 
+   display_name = "display_name of api_management_api_operation_tag" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

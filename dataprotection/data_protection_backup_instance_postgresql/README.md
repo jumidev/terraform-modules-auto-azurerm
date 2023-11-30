@@ -26,3 +26,28 @@ Manages a Backup Instance to back up PostgreSQL.-> **Note:** Before using this r
 | **backup_policy_id** | string  | - | 
 | **database_credential_key_vault_secret_id** | string  | - | 
 | **id** | string  | The ID of the Backup Instance PostgreSQL. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_instance_postgresql" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_instance_postgresql" 
+   location = "${location}" 
+   vault_id = "vault_id of data_protection_backup_instance_postgresql" 
+   database_id = "database_id of data_protection_backup_instance_postgresql" 
+   backup_policy_id = "backup_policy_id of data_protection_backup_instance_postgresql" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

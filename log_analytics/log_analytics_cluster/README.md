@@ -31,3 +31,27 @@
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
 | **type** | string  | The identity type of this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_cluster" 
+}
+
+inputs = {
+   name = "name of log_analytics_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   identity = "identity of log_analytics_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

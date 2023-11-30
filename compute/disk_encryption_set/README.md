@@ -35,3 +35,28 @@ Manages a Disk Encryption Set.
 | **key_vault_key_url** | string  | The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service. | 
 | **principal_id** | string  | The (Client) ID of the Service Principal. | 
 | **tenant_id** | string  | The ID of the Tenant the Service Principal is assigned in. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/disk_encryption_set" 
+}
+
+inputs = {
+   name = "name of disk_encryption_set" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   key_vault_key_id = "key_vault_key_id of disk_encryption_set" 
+   identity = "identity of disk_encryption_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

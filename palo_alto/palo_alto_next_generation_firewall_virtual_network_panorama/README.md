@@ -38,3 +38,28 @@ Manages a Palo Alto Next Generation Firewall Virtual Network Panorama.
 | **panorama_server_2** | string  | The name of the Second Panorana server. | 
 | **template_name** | string  | The name of the Panorama Template applied to this Firewall Resource. | 
 | **virtual_machine_ssh_key** | string  | The SSH Key to connect to the Firewall Resource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_next_generation_firewall_virtual_network_panorama" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of palo_alto_next_generation_firewall_virtual_network_panorama" 
+   network_profile = "network_profile of palo_alto_next_generation_firewall_virtual_network_panorama" 
+   panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_virtual_network_panorama" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

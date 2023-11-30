@@ -32,3 +32,29 @@ Manages Security Center Automation and Continuous Export. This resource supports
 | **enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Security Center Automation. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/security_center_automation" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of security_center_automation" 
+   resource_group_name = "${resource_group}" 
+   scopes = "scopes of security_center_automation" 
+   source = "source of security_center_automation" 
+   action = "action of security_center_automation" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

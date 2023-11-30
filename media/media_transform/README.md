@@ -24,3 +24,26 @@ Manages a Transform.
 | **description** | string  | - | 
 | **output** | block  | - | 
 | **id** | string  | The ID of the Transform. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_transform" 
+}
+
+inputs = {
+   media_services_account_name = "media_services_account_name of media_transform" 
+   name = "name of media_transform" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

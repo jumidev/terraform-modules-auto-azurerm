@@ -38,3 +38,26 @@ Manages a Data Factory Binary Dataset inside an Azure Data Factory.
 | **azure_blob_storage_location** | block  | - | 
 | **sftp_server_location** | block  | - | 
 | **id** | string  | The ID of the Data Factory Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_binary" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_binary" 
+   data_factory_id = "data_factory_id of data_factory_dataset_binary" 
+   linked_service_name = "linked_service_name of data_factory_dataset_binary" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

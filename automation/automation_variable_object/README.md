@@ -26,3 +26,26 @@ Manages an object variable in Azure Automation
 | **encrypted** | bool  | - | 
 | **value** | string  | - | 
 | **id** | string  | The ID of the Automation Variable. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_variable_object" 
+}
+
+inputs = {
+   name = "name of automation_variable_object" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_variable_object" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

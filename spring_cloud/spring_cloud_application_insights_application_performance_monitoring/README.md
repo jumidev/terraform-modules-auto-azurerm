@@ -30,3 +30,25 @@
 | **sampling_percentage** | string  | - | 
 | **sampling_requests_per_second** | int  | - | 
 | **id** | string  | The ID of the Spring Cloud Application Performance Monitoring resource for Application Insights. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_application_insights_application_performance_monitoring" 
+}
+
+inputs = {
+   name = "name of spring_cloud_application_insights_application_performance_monitoring" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_application_insights_application_performance_monitoring" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

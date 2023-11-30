@@ -44,3 +44,26 @@ Manages a 3rd Generation (v3) App Service Environment.
 | **description** | string  | A short description of the purpose of the network traffic. | 
 | **ip_addresses** | list  | A list of IP addresses that network traffic will originate from in CIDR notation. | 
 | **ports** | string  | The ports that network traffic will arrive to the App Service Environment V3 on. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_environment_v3" 
+}
+
+inputs = {
+   name = "name of app_service_environment_v3" 
+   resource_group_name = "subnet_id" 
+   subnet_id = "subnet_id of app_service_environment_v3" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

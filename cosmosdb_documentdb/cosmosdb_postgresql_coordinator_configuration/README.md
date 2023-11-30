@@ -20,3 +20,26 @@ Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster
 | **cluster_id** | string  | - | 
 | **value** | string  | - | 
 | **id** | string  | The ID of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_postgresql_coordinator_configuration" 
+}
+
+inputs = {
+   name = "name of cosmosdb_postgresql_coordinator_configuration" 
+   cluster_id = "cluster_id of cosmosdb_postgresql_coordinator_configuration" 
+   value = "value of cosmosdb_postgresql_coordinator_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

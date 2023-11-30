@@ -45,3 +45,28 @@ Manages a Private Endpoint.Azure Private Endpoint is a network interface that co
 | **subresource_name** | string  | The subresource this IP address applies to, which corresponds to the `group_id`. | 
 | **type** | string  | The type of DNS record. | 
 | **ttl** | int  | The time to live for each connection to the `private_dns_zone`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/private_endpoint" 
+}
+
+inputs = {
+   name = "name of private_endpoint" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   subnet_id = "subnet_id of private_endpoint" 
+   private_service_connection = "private_service_connection of private_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

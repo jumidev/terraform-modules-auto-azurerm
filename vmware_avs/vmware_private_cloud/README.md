@@ -48,3 +48,29 @@ Manages a VMware Private Cloud.
 | **primary_subnet_cidr** | string  | The CIDR of the primary subnet. | 
 | **secondary_subnet_cidr** | string  | The CIDR of the secondary subnet. | 
 | **hosts** | list  | A list of hosts in the management cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "vmware_avs/vmware_private_cloud" 
+}
+
+inputs = {
+   name = "name of vmware_private_cloud" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   management_cluster = "management_cluster of vmware_private_cloud" 
+   network_subnet_cidr = "network_subnet_cidr of vmware_private_cloud" 
+   sku_name = "sku_name of vmware_private_cloud" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

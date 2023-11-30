@@ -36,3 +36,26 @@ Manages a Virtual Hub within a Virtual WAN.
 | **virtual_router_asn** | int  | The Autonomous System Number of the Virtual Hub BGP router. | 
 | **virtual_router_ips** | string  | The IP addresses of the Virtual Hub BGP router. | 
 | **virtual_router_auto_scale_min_capacity** | string  | Minimum instance capacity for the scaling configuration of the Virtual Hub Router. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_hub" 
+}
+
+inputs = {
+   name = "name of virtual_hub" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -28,3 +28,28 @@ Manages a Log Analytics Storage Insights resource.
 | **blob_container_names** | string  | - | 
 | **table_names** | string  | - | 
 | **id** | string  | The ID of the Log Analytics Storage Insights. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_storage_insights" 
+}
+
+inputs = {
+   name = "name of log_analytics_storage_insights" 
+   resource_group_name = "${resource_group}" 
+   workspace_id = "workspace_id of log_analytics_storage_insights" 
+   storage_account_id = "storage_account_id of log_analytics_storage_insights" 
+   storage_account_key = "storage_account_key of log_analytics_storage_insights" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

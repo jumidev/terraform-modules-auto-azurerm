@@ -39,3 +39,30 @@ Manages an Application Insights WebTest.
 | **retry_enabled** | bool  | - | 
 | **description** | string  | - | 
 | **tags** | map  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "application_insights/application_insights_web_test" 
+}
+
+inputs = {
+   name = "name of application_insights_web_test" 
+   resource_group_name = "${resource_group}" 
+   application_insights_id = "application_insights_id of application_insights_web_test" 
+   location = "${location}" 
+   kind = "kind of application_insights_web_test" 
+   geo_locations = "geo_locations of application_insights_web_test" 
+   configuration = "configuration of application_insights_web_test" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -44,3 +44,26 @@ Manages a ServiceBus Subscription.
 | **client_scoped_subscription_enabled** | bool  | - | 
 | **client_scoped_subscription** | block  | - | 
 | **id** | string  | The ServiceBus Subscription ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_subscription" 
+}
+
+inputs = {
+   name = "name of servicebus_subscription" 
+   topic_id = "topic_id of servicebus_subscription" 
+   max_delivery_count = "max_delivery_count of servicebus_subscription" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

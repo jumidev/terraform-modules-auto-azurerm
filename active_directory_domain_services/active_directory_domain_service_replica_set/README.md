@@ -23,3 +23,26 @@ Manages a Replica Set for an Active Directory Domain Service.
 | **domain_controller_ip_addresses** | list  | A list of subnet IP addresses for the domain controllers in this Replica Set, typically two. | 
 | **external_access_ip_address** | string  | The publicly routable IP address for the domain controllers in this Replica Set. | 
 | **service_status** | string  | The current service status for the replica set. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "active_directory_domain_services/active_directory_domain_service_replica_set" 
+}
+
+inputs = {
+   domain_service_id = "domain_service_id of active_directory_domain_service_replica_set" 
+   location = "${location}" 
+   subnet_id = "subnet_id of active_directory_domain_service_replica_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

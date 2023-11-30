@@ -21,3 +21,26 @@ Manages an iSCSI Target lun.!> **Note:** Azure are officially [halting](https://
 | **name** | string  | - | 
 | **id** | string  | The ID of the iSCSI Target LUN. | 
 | **lun** | int  | The Logical Unit Number of the iSCSI Target LUN. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "disks/disk_pool_iscsi_target_lun" 
+}
+
+inputs = {
+   iscsi_target_id = "iscsi_target_id of disk_pool_iscsi_target_lun" 
+   disk_pool_managed_disk_attachment_id = "disk_pool_managed_disk_attachment_id of disk_pool_iscsi_target_lun" 
+   name = "name of disk_pool_iscsi_target_lun" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -18,3 +18,25 @@ Allows you to manage an Azure SQL Outbound Firewall Rule.
 | **name** | string  | - | 
 | **server_id** | string  | - | 
 | **id** | string  | The SQL Outbound Firewall Rule ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_outbound_firewall_rule" 
+}
+
+inputs = {
+   name = "name of mssql_outbound_firewall_rule" 
+   server_id = "server_id of mssql_outbound_firewall_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

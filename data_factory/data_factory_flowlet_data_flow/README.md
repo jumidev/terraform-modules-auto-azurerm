@@ -34,3 +34,25 @@ Manages a Flowlet Data Flow inside an Azure Data Factory.
 | **script_lines** | string  | - | 
 | **transformation** | block  | - | 
 | **id** | string  | The ID of the Data Factory Flowlet Data Flow. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_flowlet_data_flow" 
+}
+
+inputs = {
+   data_factory_id = "data_factory_id of data_factory_flowlet_data_flow" 
+   name = "name of data_factory_flowlet_data_flow" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

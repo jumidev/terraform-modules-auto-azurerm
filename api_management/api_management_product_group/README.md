@@ -22,3 +22,27 @@ Manages an API Management Product Assignment to a Group.
 | **api_management_name** | string  | - | 
 | **resource_group_name** | string  | - | 
 | **id** | string  | The ID of the API Management Product Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_product_group" 
+}
+
+inputs = {
+   product_id = "product_id of api_management_product_group" 
+   group_name = "group_name of api_management_product_group" 
+   api_management_name = "api_management_name of api_management_product_group" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

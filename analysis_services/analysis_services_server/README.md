@@ -35,3 +35,27 @@ Manages an Analysis Services Server.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Analysis Services Server. | 
 | **server_full_name** | string  | The full name of the Analysis Services Server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "analysis_services/analysis_services_server" 
+}
+
+inputs = {
+   name = "name of analysis_services_server" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of analysis_services_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

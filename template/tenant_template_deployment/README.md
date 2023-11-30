@@ -29,3 +29,25 @@ Manages a Template Deployment at the Tenant Scope.~> **Note:** Deleting a Deploy
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Tenant Template Deployment. | 
 | **output_content** | string  | The JSON Content of the Outputs of the ARM Template Deployment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "template/tenant_template_deployment" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of tenant_template_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

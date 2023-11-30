@@ -36,3 +36,25 @@ Manages an Azure App Configuration Feature.-> **Note:** App Configuration Featur
 | **targeting_filter** | block  | - | 
 | **timewindow_filter** | block  | - | 
 | **id** | string  | The App Configuration Feature ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_configuration/app_configuration_feature" 
+}
+
+inputs = {
+   configuration_store_id = "configuration_store_id of app_configuration_feature" 
+   name = "name of app_configuration_feature" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "nginx/nginx_certificate" 
+}
+
+inputs = {
+   name = "name of nginx_certificate" 
+   nginx_deployment_id = "nginx_deployment_id of nginx_certificate" 
+   certificate_virtual_path = "certificate_virtual_path of nginx_certificate" 
+   key_virtual_path = "key_virtual_path of nginx_certificate" 
+   key_vault_secret_id = "key_vault_secret_id of nginx_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

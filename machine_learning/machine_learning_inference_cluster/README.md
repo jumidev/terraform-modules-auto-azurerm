@@ -35,3 +35,27 @@ Manages a Machine Learning Inference Cluster.~> **NOTE:** The Machine Learning I
 | **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this Machine Learning Inference Cluster. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Inference Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_inference_cluster" 
+}
+
+inputs = {
+   name = "name of machine_learning_inference_cluster" 
+   kubernetes_cluster_id = "kubernetes_cluster_id of machine_learning_inference_cluster" 
+   location = "${location}" 
+   machine_learning_workspace_id = "machine_learning_workspace_id of machine_learning_inference_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

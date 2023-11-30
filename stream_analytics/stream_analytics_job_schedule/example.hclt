@@ -1,0 +1,16 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_job_schedule" 
+}
+
+inputs = {
+   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_job_schedule" 
+   start_mode = "start_mode of stream_analytics_job_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

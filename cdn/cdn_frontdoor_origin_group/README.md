@@ -26,3 +26,26 @@ Manages a Front Door (standard/premium) Origin Group.
 | **restore_traffic_time_to_healed_or_new_endpoint_in_minutes** | string  | - | 
 | **session_affinity_enabled** | bool  | - | 
 | **id** | string  | The ID of the Front Door Origin Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_origin_group" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_origin_group" 
+   cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_origin_group" 
+   load_balancing = "load_balancing of cdn_frontdoor_origin_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -52,3 +52,29 @@ Manages a Virtual Network Gateway to establish secure, cross-premises connectivi
 | **peering_addresses** | list  | A list of `peering_addresses` as defined below. | 
 | **default_addresses** | list  | A list of peering address assigned to the BGP peer of the Virtual Network Gateway. | 
 | **tunnel_ip_addresses** | list  | A list of tunnel IP addresses assigned to the BGP peer of the Virtual Network Gateway. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_network_gateway" 
+}
+
+inputs = {
+   ip_configuration = "ip_configuration of virtual_network_gateway" 
+   location = "${location}" 
+   name = "name of virtual_network_gateway" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of virtual_network_gateway" 
+   type = "type of virtual_network_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

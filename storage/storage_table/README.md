@@ -20,3 +20,25 @@ Manages a Table within an Azure Storage Account.
 | **storage_account_name** | string  | - | 
 | **acl** | block  | - | 
 | **id** | string  | The ID of the Table within the Storage Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_table" 
+}
+
+inputs = {
+   name = "name of storage_table" 
+   storage_account_name = "storage_account_name of storage_table" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

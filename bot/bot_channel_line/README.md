@@ -22,3 +22,27 @@ Manages a Line integration for a Bot Channel~> **Note** A bot can only have a si
 | **bot_name** | string  | - | 
 | **line_channel** | block  | - | 
 | **id** | string  | The ID of the Line Integration for a Bot Channel. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_line" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_line" 
+   line_channel = "line_channel of bot_channel_line" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

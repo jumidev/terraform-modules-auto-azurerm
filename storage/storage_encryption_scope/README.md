@@ -24,3 +24,26 @@ Manages a Storage Encryption Scope.~> **Note:** Storage Encryption Scopes are in
 | **infrastructure_encryption_required** | string  | - | 
 | **key_vault_key_id** | string  | - | 
 | **id** | string  | The ID of the Storage Encryption Scope. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_encryption_scope" 
+}
+
+inputs = {
+   name = "name of storage_encryption_scope" 
+   source = "source of storage_encryption_scope" 
+   storage_account_id = "storage_account_id of storage_encryption_scope" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

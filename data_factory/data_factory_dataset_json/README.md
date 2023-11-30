@@ -38,3 +38,26 @@ Manages an Azure JSON Dataset inside an Azure Data Factory.
 | **azure_blob_storage_location** | block  | - | 
 | **encoding** | string  | - | 
 | **id** | string  | The ID of the Data Factory Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_json" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_json" 
+   data_factory_id = "data_factory_id of data_factory_dataset_json" 
+   linked_service_name = "linked_service_name of data_factory_dataset_json" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

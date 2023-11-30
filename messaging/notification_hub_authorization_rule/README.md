@@ -30,3 +30,27 @@ Manages an Authorization Rule associated with a Notification Hub within a Notifi
 | **id** | string  | The ID of the Authorization Rule. | 
 | **primary_access_key** | string  | The Primary Access Key associated with this Authorization Rule. | 
 | **secondary_access_key** | string  | The Secondary Access Key associated with this Authorization Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/notification_hub_authorization_rule" 
+}
+
+inputs = {
+   name = "name of notification_hub_authorization_rule" 
+   notification_hub_name = "notification_hub_name of notification_hub_authorization_rule" 
+   namespace_name = "namespace_name of notification_hub_authorization_rule" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

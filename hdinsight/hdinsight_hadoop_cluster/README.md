@@ -54,3 +54,31 @@ Manages a HDInsight Hadoop Cluster.
 | **id** | string  | The ID of the HDInsight Hadoop Cluster. | 
 | **https_endpoint** | string  | The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. | 
 | **ssh_endpoint** | string  | The SSH Connectivity Endpoint for this HDInsight Hadoop Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "hdinsight/hdinsight_hadoop_cluster" 
+}
+
+inputs = {
+   name = "name of hdinsight_hadoop_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   cluster_version = "cluster_version of hdinsight_hadoop_cluster" 
+   component_version = "component_version of hdinsight_hadoop_cluster" 
+   gateway = "gateway of hdinsight_hadoop_cluster" 
+   roles = "roles of hdinsight_hadoop_cluster" 
+   tier = "tier of hdinsight_hadoop_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

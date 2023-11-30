@@ -35,3 +35,26 @@ Manages a Machine Learning Data Lake Gen2 DataStore.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Machine Learning DataStore. | 
 | **is_default** | string  | Indicates whether this Machines Learning DataStore is the default for the Workspace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_datastore_datalake_gen2" 
+}
+
+inputs = {
+   name = "name of machine_learning_datastore_datalake_gen2" 
+   workspace_id = "workspace_id of machine_learning_datastore_datalake_gen2" 
+   storage_container_id = "storage_container_id of machine_learning_datastore_datalake_gen2" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

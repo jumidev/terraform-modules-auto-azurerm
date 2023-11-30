@@ -34,3 +34,28 @@ Manages an Alert Management Prometheus Rule Group.
 | **interval** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Alert Management Prometheus Rule Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_alert_prometheus_rule_group" 
+}
+
+inputs = {
+   name = "name of monitor_alert_prometheus_rule_group" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   rule = "rule of monitor_alert_prometheus_rule_group" 
+   scopes = "scopes of monitor_alert_prometheus_rule_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

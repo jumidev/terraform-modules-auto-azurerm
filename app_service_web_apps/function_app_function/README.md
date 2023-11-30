@@ -35,3 +35,26 @@ Manages a Function App Function.
 | **secrets_file_url** | string  | The URL for the Secrets File. | 
 | **test_data_url** | string  | The Test data URL. | 
 | **url** | string  | The function URL. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/function_app_function" 
+}
+
+inputs = {
+   name = "name of function_app_function" 
+   function_app_id = "function_app_id of function_app_function" 
+   config_json = "config_json of function_app_function" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

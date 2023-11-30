@@ -43,3 +43,28 @@ Manages a Duplicated Anomaly Alert Rule.
 | **techniques** | list  | A list of techniques of attacks by which to classify the rule. | 
 | **connector_id** | string  | The ID of the required Data Connector. | 
 | **data_types** | list  | A list of data types of the required Data Connector. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_alert_rule_anomaly_duplicate" 
+}
+
+inputs = {
+   display_name = "display_name of sentinel_alert_rule_anomaly_duplicate" 
+   built_in_rule_id = "built_in_rule_id of sentinel_alert_rule_anomaly_duplicate" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_anomaly_duplicate" 
+   enabled = "enabled of sentinel_alert_rule_anomaly_duplicate" 
+   mode = "mode of sentinel_alert_rule_anomaly_duplicate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -25,3 +25,26 @@ Manages a Dev Center.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Dev Center. | 
 | **dev_center_uri** | string  | The URI of the Dev Center. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dev_center/dev_center" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of dev_center" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

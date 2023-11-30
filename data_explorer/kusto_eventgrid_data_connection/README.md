@@ -46,3 +46,31 @@ Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
 | **table_name** | string  | - | 
 | **skip_first_record** | bool  | - | 
 | **id** | string  | The ID of the Kusto Event Grid Data Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_eventgrid_data_connection" 
+}
+
+inputs = {
+   name = "name of kusto_eventgrid_data_connection" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   cluster_name = "cluster_name of kusto_eventgrid_data_connection" 
+   database_name = "database_name of kusto_eventgrid_data_connection" 
+   storage_account_id = "storage_account_id of kusto_eventgrid_data_connection" 
+   eventhub_id = "eventhub_id of kusto_eventgrid_data_connection" 
+   eventhub_consumer_group_name = "eventhub_consumer_group_name of kusto_eventgrid_data_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

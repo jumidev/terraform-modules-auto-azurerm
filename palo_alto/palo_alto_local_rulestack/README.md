@@ -34,3 +34,26 @@ Manages a Palo Alto Networks Rulestack.
 | **url_filtering_profile** | string  | - | 
 | **vulnerability_profile** | string  | - | 
 | **id** | string  | The ID of the Palo Alto Networks Rulestack. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "palo_alto/palo_alto_local_rulestack" 
+}
+
+inputs = {
+   name = "name of palo_alto_local_rulestack" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

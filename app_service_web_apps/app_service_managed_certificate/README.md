@@ -26,3 +26,24 @@ This certificate can be used to secure custom domains on App Services (Windows a
 | **issuer** | string  | The issuer of the Certificate. | 
 | **subject_name** | string  | The Subject Name for the Certificate. | 
 | **thumbprint** | string  | The Certificate Thumbprint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_managed_certificate" 
+}
+
+inputs = {
+   custom_hostname_binding_id = "custom_hostname_binding_id of app_service_managed_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

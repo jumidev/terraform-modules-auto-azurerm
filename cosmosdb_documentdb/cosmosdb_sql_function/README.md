@@ -20,3 +20,26 @@ Manages an SQL User Defined Function.
 | **container_id** | string  | - | 
 | **body** | string  | - | 
 | **id** | string  | The ID of the SQL User Defined Function. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_sql_function" 
+}
+
+inputs = {
+   name = "name of cosmosdb_sql_function" 
+   container_id = "container_id of cosmosdb_sql_function" 
+   body = "body of cosmosdb_sql_function" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

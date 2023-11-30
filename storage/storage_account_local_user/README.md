@@ -30,3 +30,25 @@ Manages a Storage Account Local User.
 | **id** | string  | The ID of the Storage Account Local User. | 
 | **password** | string  | The value of the password, which is only available when `ssh_password_enabled` is set to `true`. | 
 | **sid** | string  | The unique Security Identifier of this Storage Account Local User. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_account_local_user" 
+}
+
+inputs = {
+   name = "name of storage_account_local_user" 
+   storage_account_id = "storage_account_id of storage_account_local_user" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -36,3 +36,27 @@ Manages a Automation Schedule.
 | **week_days** | string  | - | 
 | **month_days** | int  | - | 
 | **id** | string  | The Automation Schedule ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_schedule" 
+}
+
+inputs = {
+   name = "name of automation_schedule" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_schedule" 
+   frequency = "frequency of automation_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

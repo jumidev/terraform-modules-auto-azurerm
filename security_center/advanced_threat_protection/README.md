@@ -18,3 +18,25 @@ Manages a resources Advanced Threat Protection setting.
 | **target_resource_id** | string  | - | 
 | **enabled** | bool  | - | 
 | **id** | string  | The ID of the Advanced Threat Protection resource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/advanced_threat_protection" 
+}
+
+inputs = {
+   target_resource_id = "target_resource_id of advanced_threat_protection" 
+   enabled = "enabled of advanced_threat_protection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

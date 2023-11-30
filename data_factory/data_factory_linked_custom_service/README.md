@@ -32,3 +32,27 @@ Manages a Linked Service (connection) between a resource and Azure Data Factory.
 | **integration_runtime** | block  | - | 
 | **parameters** | string  | - | 
 | **id** | string  | The ID of the Data Factory Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_custom_service" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_custom_service" 
+   data_factory_id = "data_factory_id of data_factory_linked_custom_service" 
+   type = "type of data_factory_linked_custom_service" 
+   type_properties_json = "type_properties_json of data_factory_linked_custom_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

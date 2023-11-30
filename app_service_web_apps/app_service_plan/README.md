@@ -39,3 +39,27 @@ Manages an App Service Plan component.!> **NOTE:** This resource has been deprec
 | **tags** | map  | - | 
 | **id** | string  | The ID of the App Service Plan component. | 
 | **maximum_number_of_workers** | int  | The maximum number of workers supported with the App Service Plan's sku. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_plan" 
+}
+
+inputs = {
+   name = "name of app_service_plan" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of app_service_plan" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -25,3 +25,28 @@ Manages an App Service Public Certificate.
 | **blob** | string  | - | 
 | **id** | string  | The ID of the App Service Public Certificate. | 
 | **thumbprint** | string  | The thumbprint of the public certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_public_certificate" 
+}
+
+inputs = {
+   app_service_name = "app_service_name of app_service_public_certificate" 
+   resource_group_name = "${resource_group}" 
+   certificate_name = "certificate_name of app_service_public_certificate" 
+   certificate_location = "certificate_location of app_service_public_certificate" 
+   blob = "blob of app_service_public_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_vault" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_vault" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   datastore_type = "datastore_type of data_protection_backup_vault" 
+   redundancy = "redundancy of data_protection_backup_vault" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

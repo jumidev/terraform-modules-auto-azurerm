@@ -25,3 +25,26 @@ Manages a Front Door (standard/premium) Profile which contains a collection of e
 | **tags** | map  | - | 
 | **id** | string  | The ID of this Front Door Profile. | 
 | **resource_guid** | string  | The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_profile" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_profile" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of cdn_frontdoor_profile" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

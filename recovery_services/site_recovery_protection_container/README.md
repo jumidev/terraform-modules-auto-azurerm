@@ -22,3 +22,27 @@ Manages a Azure Site Recovery protection container. Protection containers serve 
 | **recovery_vault_name** | string  | - | 
 | **recovery_fabric_name** | string  | - | 
 | **id** | string  | The ID of the Site Recovery Protection Container. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/site_recovery_protection_container" 
+}
+
+inputs = {
+   name = "name of site_recovery_protection_container" 
+   resource_group_name = "${resource_group}" 
+   recovery_vault_name = "recovery_vault_name of site_recovery_protection_container" 
+   recovery_fabric_name = "recovery_fabric_name of site_recovery_protection_container" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -51,3 +51,29 @@ Manages a MariaDB Server.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the MariaDB Server. | 
 | **fqdn** | string  | The FQDN of the MariaDB Server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mariadb_server" 
+}
+
+inputs = {
+   name = "name of mariadb_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of mariadb_server" 
+   version = "version of mariadb_server" 
+   ssl_enforcement_enabled = "ssl_enforcement_enabled of mariadb_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

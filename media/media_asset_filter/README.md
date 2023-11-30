@@ -24,3 +24,25 @@ Manages an Azure Media Asset Filter.
 | **presentation_time_range** | block  | - | 
 | **track_selection** | block  | - | 
 | **id** | string  | The ID of the Asset Filter. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_asset_filter" 
+}
+
+inputs = {
+   asset_id = "asset_id of media_asset_filter" 
+   name = "name of media_asset_filter" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

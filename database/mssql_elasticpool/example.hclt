@@ -1,0 +1,20 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_elasticpool" 
+}
+
+inputs = {
+   name = "name of mssql_elasticpool" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   server_name = "server_name of mssql_elasticpool" 
+   sku = "sku of mssql_elasticpool" 
+   per_database_settings = "per_database_settings of mssql_elasticpool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

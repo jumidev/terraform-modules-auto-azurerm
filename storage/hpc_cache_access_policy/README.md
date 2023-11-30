@@ -20,3 +20,26 @@ Manages a HPC Cache Access Policy.
 | **hpc_cache_id** | string  | - | 
 | **access_rule** | list  | - | 
 | **id** | string  | The ID of the HPC Cache Access Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/hpc_cache_access_policy" 
+}
+
+inputs = {
+   name = "name of hpc_cache_access_policy" 
+   hpc_cache_id = "hpc_cache_id of hpc_cache_access_policy" 
+   access_rule = "access_rule of hpc_cache_access_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

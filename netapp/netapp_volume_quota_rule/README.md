@@ -26,3 +26,28 @@ Manages a Volume Quota Rule.
 | **quota_type** | string  | - | 
 | **quota_target** | string  | - | 
 | **id** | string  | The ID of the Volume Quota Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "netapp/netapp_volume_quota_rule" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of netapp_volume_quota_rule" 
+   volume_id = "volume_id of netapp_volume_quota_rule" 
+   quota_size_in_kib = "quota_size_in_kib of netapp_volume_quota_rule" 
+   quota_type = "quota_type of netapp_volume_quota_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

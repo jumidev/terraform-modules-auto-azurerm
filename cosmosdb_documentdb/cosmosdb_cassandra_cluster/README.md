@@ -42,3 +42,28 @@ Manages a Cassandra Cluster.~> **NOTE:** In order for the `Azure Managed Instanc
 | **version** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Cassandra Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_cassandra_cluster" 
+}
+
+inputs = {
+   name = "name of cosmosdb_cassandra_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   delegated_management_subnet_id = "delegated_management_subnet_id of cosmosdb_cassandra_cluster" 
+   default_admin_password = "default_admin_password of cosmosdb_cassandra_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -38,3 +38,28 @@ Manages a Media Streaming Locator.
 | **start_time** | string  | - | 
 | **streaming_locator_id** | string  | - | 
 | **id** | string  | The ID of the Streaming Locator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_streaming_locator" 
+}
+
+inputs = {
+   asset_name = "asset_name of media_streaming_locator" 
+   media_services_account_name = "media_services_account_name of media_streaming_locator" 
+   name = "name of media_streaming_locator" 
+   resource_group_name = "${resource_group}" 
+   streaming_policy_name = "streaming_policy_name of media_streaming_locator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

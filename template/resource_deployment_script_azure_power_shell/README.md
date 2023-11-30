@@ -49,3 +49,28 @@ Manages a Resource Deployment Script of Azure PowerShell.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Resource Deployment Script. | 
 | **outputs** | string  | List of script outputs. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "template/resource_deployment_script_azure_power_shell" 
+}
+
+inputs = {
+   name = "name of resource_deployment_script_azure_power_shell" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   version = "version of resource_deployment_script_azure_power_shell" 
+   retention_interval = "retention_interval of resource_deployment_script_azure_power_shell" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

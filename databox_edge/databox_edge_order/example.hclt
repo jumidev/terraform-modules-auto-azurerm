@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databox_edge/databox_edge_order" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   device_name = "device_name of databox_edge_order" 
+   contact = "contact of databox_edge_order" 
+   shipment_address = "shipment_address of databox_edge_order" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

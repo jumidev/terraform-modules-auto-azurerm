@@ -22,3 +22,26 @@ Allows you to manage rules for allowing traffic between an Azure SQL server and 
 | **subnet_id** | string  | - | 
 | **ignore_missing_vnet_service_endpoint** | bool  | - | 
 | **id** | string  | The ID of the SQL virtual network rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_virtual_network_rule" 
+}
+
+inputs = {
+   name = "name of mssql_virtual_network_rule" 
+   server_id = "server_id of mssql_virtual_network_rule" 
+   subnet_id = "subnet_id of mssql_virtual_network_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

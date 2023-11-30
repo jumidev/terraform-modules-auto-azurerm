@@ -38,3 +38,27 @@ Manages an Arc Kubernetes Cluster Extension.
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "arckubernetes/arc_kubernetes_cluster_extension" 
+}
+
+inputs = {
+   name = "name of arc_kubernetes_cluster_extension" 
+   cluster_id = "cluster_id of arc_kubernetes_cluster_extension" 
+   extension_type = "extension_type of arc_kubernetes_cluster_extension" 
+   identity = "identity of arc_kubernetes_cluster_extension" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

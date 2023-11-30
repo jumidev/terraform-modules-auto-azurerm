@@ -22,3 +22,25 @@ Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
 | **long_term_retention_policy** | block  | - | 
 | **short_term_retention_days** | int  | - | 
 | **id** | string  | The Azure SQL Managed Database ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_managed_database" 
+}
+
+inputs = {
+   name = "name of mssql_managed_database" 
+   managed_instance_id = "managed_instance_id of mssql_managed_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

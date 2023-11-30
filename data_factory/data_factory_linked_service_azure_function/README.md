@@ -34,3 +34,26 @@ Manages a Linked Service (connection) between an Azure Function and Azure Data F
 | **key** | string  | - | 
 | **key_vault_key** | block  | - | 
 | **id** | string  | The ID of the Data Factory Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_azure_function" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_azure_function" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_azure_function" 
+   url = "url of data_factory_linked_service_azure_function" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

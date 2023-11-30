@@ -42,3 +42,25 @@ Manages a Trigger Schedule inside a Azure Data Factory.
 | **pipeline_parameters** | string  | - | 
 | **annotations** | string  | - | 
 | **id** | string  | The ID of the Data Factory Schedule Trigger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_trigger_schedule" 
+}
+
+inputs = {
+   name = "name of data_factory_trigger_schedule" 
+   data_factory_id = "data_factory_id of data_factory_trigger_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

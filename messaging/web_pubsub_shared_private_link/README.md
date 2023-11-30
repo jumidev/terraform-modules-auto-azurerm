@@ -25,3 +25,27 @@ Manages the Shared Private Link Resource for a Web Pubsub service.
 | **request_message** | string  | - | 
 | **id** | string  | The ID of the Web Pubsub Shared Private Link resource. | 
 | **status** | string  | The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/web_pubsub_shared_private_link" 
+}
+
+inputs = {
+   name = "name of web_pubsub_shared_private_link" 
+   web_pubsub_id = "web_pubsub_id of web_pubsub_shared_private_link" 
+   subresource_name = "subresource_name of web_pubsub_shared_private_link" 
+   target_resource_id = "target_resource_id of web_pubsub_shared_private_link" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

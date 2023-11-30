@@ -34,3 +34,26 @@ Manages the File Upload of an IoT Hub.~> **NOTE:** File upload can be defined ei
 | **notifications_enabled** | bool  | - | 
 | **sas_ttl** | string  | - | 
 | **id** | string  | The ID of the IoT Hub. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_file_upload" 
+}
+
+inputs = {
+   iothub_id = "iothub_id of iothub_file_upload" 
+   connection_string = "connection_string of iothub_file_upload" 
+   container_name = "container_name of iothub_file_upload" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

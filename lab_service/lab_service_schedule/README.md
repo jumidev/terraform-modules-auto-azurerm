@@ -28,3 +28,27 @@ Manages a Lab Service Schedule.
 | **recurrence** | block  | - | 
 | **start_time** | string  | - | 
 | **id** | string  | The ID of the Lab Service Schedule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lab_service/lab_service_schedule" 
+}
+
+inputs = {
+   name = "name of lab_service_schedule" 
+   lab_id = "lab_id of lab_service_schedule" 
+   stop_time = "stop_time of lab_service_schedule" 
+   time_zone = "time_zone of lab_service_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -30,3 +30,27 @@ Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 | **eligible_authorization** | block  | - | 
 | **plan** | block  | - | 
 | **id** | string  | the fully qualified ID of the Lighthouse Definition. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lighthouse/lighthouse_definition" 
+}
+
+inputs = {
+   name = "name of lighthouse_definition" 
+   managing_tenant_id = "managing_tenant_id of lighthouse_definition" 
+   scope = "scope of lighthouse_definition" 
+   authorization = "authorization of lighthouse_definition" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

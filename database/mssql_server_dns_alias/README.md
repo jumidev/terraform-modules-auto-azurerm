@@ -19,3 +19,25 @@ Manages a MS SQL Server DNS Alias.
 | **name** | string  | - | 
 | **id** | string  | The ID of the MSSQL Server DNS Alias. | 
 | **dns_record** | string  | The fully qualified DNS record for alias. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_server_dns_alias" 
+}
+
+inputs = {
+   mssql_server_id = "mssql_server_id of mssql_server_dns_alias" 
+   name = "name of mssql_server_dns_alias" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

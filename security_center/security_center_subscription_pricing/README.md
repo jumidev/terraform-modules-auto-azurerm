@@ -22,3 +22,24 @@ Manages the Pricing Tier for Azure Security Center in the current subscription.~
 | **subplan** | string  | - | 
 | **extension** | block  | - | 
 | **id** | string  | The subscription pricing ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/security_center_subscription_pricing" 
+}
+
+inputs = {
+   tier = "tier of security_center_subscription_pricing" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

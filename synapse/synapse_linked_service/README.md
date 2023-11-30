@@ -32,3 +32,27 @@ Manages a Synapse Linked Service.
 | **integration_runtime** | block  | - | 
 | **parameters** | string  | - | 
 | **id** | string  | The ID of the Synapse Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_linked_service" 
+}
+
+inputs = {
+   name = "name of synapse_linked_service" 
+   synapse_workspace_id = "synapse_workspace_id of synapse_linked_service" 
+   type = "type of synapse_linked_service" 
+   type_properties_json = "type_properties_json of synapse_linked_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

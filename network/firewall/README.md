@@ -46,3 +46,28 @@ Manages an Azure Firewall.
 | **virtual_hub** | block  | A `virtual_hub` block. | 
 | **private_ip_address** | string  | The private IP address associated with the Firewall. | 
 | **public_ip_addresses** | string  | The list of public IP addresses associated with the Firewall. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/firewall" 
+}
+
+inputs = {
+   name = "name of firewall" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of firewall" 
+   sku_tier = "sku_tier of firewall" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

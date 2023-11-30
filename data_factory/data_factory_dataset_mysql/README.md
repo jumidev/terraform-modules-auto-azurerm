@@ -34,3 +34,26 @@ Manages a MySQL Dataset inside a Azure Data Factory.
 | **additional_properties** | string  | - | 
 | **table_name** | string  | - | 
 | **id** | string  | The ID of the Data Factory MySQL Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_mysql" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_mysql" 
+   data_factory_id = "data_factory_id of data_factory_dataset_mysql" 
+   linked_service_name = "linked_service_name of data_factory_dataset_mysql" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

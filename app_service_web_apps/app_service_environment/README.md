@@ -36,3 +36,26 @@ Manages an App Service Environment.
 | **location** | string  | The location where the App Service Environment exists. | 
 | **outbound_ip_addresses** | string  | List of outbound IP addresses of the App Service Environment. | 
 | **service_ip_address** | string  | IP address of service endpoint of the App Service Environment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_environment" 
+}
+
+inputs = {
+   name = "name of app_service_environment" 
+   subnet_id = "subnet_id of app_service_environment" 
+   resource_group_name = "subnet_id" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

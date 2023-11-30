@@ -84,3 +84,28 @@ Manages a managed disk.
 | **disk_access_id** | string  | - | 
 | **public_network_access_enabled** | bool  | - | 
 | **id** | string  | The ID of the Managed Disk. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/managed_disk" 
+}
+
+inputs = {
+   name = "name of managed_disk" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_account_type = "storage_account_type of managed_disk" 
+   create_option = "create_option of managed_disk" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

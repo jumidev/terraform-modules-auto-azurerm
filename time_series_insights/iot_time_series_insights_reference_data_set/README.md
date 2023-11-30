@@ -26,3 +26,27 @@ Manages an Azure IoT Time Series Insights Reference Data Set.
 | **key_property** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the IoT Time Series Insights Reference Data Set. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "time_series_insights/iot_time_series_insights_reference_data_set" 
+}
+
+inputs = {
+   name = "name of iot_time_series_insights_reference_data_set" 
+   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_reference_data_set" 
+   location = "${location}" 
+   key_property = "key_property of iot_time_series_insights_reference_data_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

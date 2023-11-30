@@ -30,3 +30,26 @@ Manages a Healthcare DICOM Service
 | **service_url** | string  | The url of the Healthcare DICOM Services. | 
 | **authority** | string  | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. | 
 | **audience** | string  | The intended audience to receive authentication tokens for the service. The default value is <https://dicom.azurehealthcareapis.azure.com> | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "healthcare/healthcare_dicom" 
+}
+
+inputs = {
+   name = "name of healthcare_dicom" 
+   workspace_id = "workspace_id of healthcare_dicom" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

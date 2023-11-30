@@ -20,3 +20,26 @@ Manages an Azure Cosmos DB for PostgreSQL Role.
 | **cluster_id** | string  | - | 
 | **password** | string  | - | 
 | **id** | string  | The ID of the Azure Cosmos DB for PostgreSQL Role. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_postgresql_role" 
+}
+
+inputs = {
+   name = "name of cosmosdb_postgresql_role" 
+   cluster_id = "cluster_id of cosmosdb_postgresql_role" 
+   password = "password of cosmosdb_postgresql_role" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

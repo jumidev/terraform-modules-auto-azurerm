@@ -36,3 +36,27 @@ Manages a Databox Edge Device.
 | **node_count** | int  | The number of nodes in the cluster. | 
 | **serial_number** | int  | The Serial Number of Data Box Edge/Gateway device. | 
 | **time_zone** | string  | The Data Box Edge/Gateway device timezone. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databox_edge/databox_edge_device" 
+}
+
+inputs = {
+   name = "name of databox_edge_device" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of databox_edge_device" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

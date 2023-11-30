@@ -53,3 +53,27 @@ Manages a Databricks Workspace
 | **principal_id** | string  | The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys. | 
 | **tenant_id** | string  | The UUID of the tenant where the internal databricks storage account was created. | 
 | **type** | string  | The type of the internal databricks storage account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databricks/databricks_workspace" 
+}
+
+inputs = {
+   name = "name of databricks_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of databricks_workspace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,24 @@ Manages a MS SQL Server Microsoft Support Auditing Policy.
 | **log_monitoring_enabled** | bool  | - | 
 | **storage_account_subscription_id** | string  | - | 
 | **id** | string  | The ID of the MS SQL Server Microsoft Support Auditing Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_server_microsoft_support_auditing_policy" 
+}
+
+inputs = {
+   server_id = "server_id of mssql_server_microsoft_support_auditing_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

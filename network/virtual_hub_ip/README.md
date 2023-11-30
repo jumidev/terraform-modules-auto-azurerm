@@ -26,3 +26,27 @@ Manages a Virtual Hub IP. This resource is also known as a Route Server.~> **NOT
 | **private_ip_allocation_method** | string  | - | 
 | **public_ip_address_id** | string  | - | 
 | **id** | string  | The ID of the Virtual Hub IP. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_hub_ip" 
+}
+
+inputs = {
+   name = "name of virtual_hub_ip" 
+   virtual_hub_id = "virtual_hub_id of virtual_hub_ip" 
+   subnet_id = "subnet_id of virtual_hub_ip" 
+   public_ip_address_id = "public_ip_address_id of virtual_hub_ip" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

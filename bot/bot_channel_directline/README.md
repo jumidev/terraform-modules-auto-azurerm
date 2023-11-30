@@ -24,3 +24,27 @@ Manages a Directline integration for a Bot Channel
 | **id** | string  | Id for the site | 
 | **key** | string  | Primary key for accessing this site | 
 | **key2** | string  | Secondary key for accessing this site | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_directline" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_directline" 
+   site = "site of bot_channel_directline" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

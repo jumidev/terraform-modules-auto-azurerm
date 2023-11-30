@@ -26,3 +26,29 @@ Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
 | **container_name** | string  | - | 
 | **body** | string  | - | 
 | **id** | string  | The ID of the Cosmos DB SQL Stored Procedure. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_sql_stored_procedure" 
+}
+
+inputs = {
+   name = "name of cosmosdb_sql_stored_procedure" 
+   resource_group_name = "${resource_group}" 
+   account_name = "account_name of cosmosdb_sql_stored_procedure" 
+   database_name = "database_name of cosmosdb_sql_stored_procedure" 
+   container_name = "container_name of cosmosdb_sql_stored_procedure" 
+   body = "body of cosmosdb_sql_stored_procedure" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

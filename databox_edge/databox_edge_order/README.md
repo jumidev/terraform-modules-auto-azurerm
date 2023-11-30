@@ -35,3 +35,27 @@ Manages a Databox Edge Order.!> Creation of Databox Edge Order is not supported 
 | **additional_details** | string  | Dictionary to hold generic information which is not stored by the already existing properties. | 
 | **comments** | string  | Comments related to this status change. | 
 | **last_update** | datetime  | Time of status update. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databox_edge/databox_edge_order" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   device_name = "device_name of databox_edge_order" 
+   contact = "contact of databox_edge_order" 
+   shipment_address = "shipment_address of databox_edge_order" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

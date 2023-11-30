@@ -28,3 +28,28 @@ Manages a Cosmos DB SQL Role Definition.
 | **role_definition_id** | string  | - | 
 | **type** | string  | - | 
 | **id** | string  | The ID of the Cosmos DB SQL Role Definition. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_sql_role_definition" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   account_name = "account_name of cosmosdb_sql_role_definition" 
+   assignable_scopes = "assignable_scopes of cosmosdb_sql_role_definition" 
+   name = "name of cosmosdb_sql_role_definition" 
+   permissions = "permissions of cosmosdb_sql_role_definition" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

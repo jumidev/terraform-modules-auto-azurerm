@@ -19,3 +19,26 @@ Manages a VMware Private Cloud Netapp File Attachment.
 | **name** | string  | - | 
 | **netapp_volume_id** | string  | - | 
 | **vmware_cluster_id** | string  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "vmware_avs/vmware_netapp_volume_attachment" 
+}
+
+inputs = {
+   name = "name of vmware_netapp_volume_attachment" 
+   netapp_volume_id = "netapp_volume_id of vmware_netapp_volume_attachment" 
+   vmware_cluster_id = "vmware_cluster_id of vmware_netapp_volume_attachment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

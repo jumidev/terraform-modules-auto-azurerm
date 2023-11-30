@@ -34,3 +34,26 @@ Manages an Azure Subscription Policy Remediation.
 | **parallel_deployments** | string  | - | 
 | **resource_count** | int  | - | 
 | **id** | string  | The ID of the Policy Remediation. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/subscription_policy_remediation" 
+}
+
+inputs = {
+   name = "name of subscription_policy_remediation" 
+   subscription_id = "subscription_id of subscription_policy_remediation" 
+   policy_assignment_id = "policy_assignment_id of subscription_policy_remediation" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

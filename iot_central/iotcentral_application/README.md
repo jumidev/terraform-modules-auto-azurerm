@@ -37,3 +37,27 @@ Manages an IoT Central Application
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_central/iotcentral_application" 
+}
+
+inputs = {
+   name = "name of iotcentral_application" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sub_domain = "sub_domain of iotcentral_application" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

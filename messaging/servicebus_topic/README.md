@@ -40,3 +40,25 @@ Manages a ServiceBus Topic.**Note** Topics can only be created in Namespaces wit
 | **requires_duplicate_detection** | string  | - | 
 | **support_ordering** | bool  | - | 
 | **id** | string  | The ServiceBus Topic ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_topic" 
+}
+
+inputs = {
+   name = "name of servicebus_topic" 
+   namespace_id = "namespace_id of servicebus_topic" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -64,3 +64,29 @@ Manages a Virtual Machine.## Disclaimers-> **Note:** The `azurerm_virtual_machin
 | **id** | string  | The ID of the Virtual Machine. | 
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/virtual_machine" 
+}
+
+inputs = {
+   name = "name of virtual_machine" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   network_interface_ids = "network_interface_ids of virtual_machine" 
+   vm_size = "vm_size of virtual_machine" 
+   storage_os_disk = "storage_os_disk of virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

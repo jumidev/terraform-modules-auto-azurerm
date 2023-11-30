@@ -94,3 +94,28 @@ Manages a Linux Function App.
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
 | **name** | string  | The Site Credentials Username used for publishing. | 
 | **password** | string  | The Site Credentials Password used for publishing. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/linux_function_app" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of linux_function_app" 
+   resource_group_name = "${resource_group}" 
+   service_plan_id = "service_plan_id of linux_function_app" 
+   site_config = "site_config of linux_function_app" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

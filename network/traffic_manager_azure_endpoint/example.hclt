@@ -1,0 +1,17 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/traffic_manager_azure_endpoint" 
+}
+
+inputs = {
+   name = "name of traffic_manager_azure_endpoint" 
+   profile_id = "profile_id of traffic_manager_azure_endpoint" 
+   target_resource_id = "target_resource_id of traffic_manager_azure_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

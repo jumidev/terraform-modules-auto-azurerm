@@ -23,3 +23,25 @@ Manages a Log Analytics Linked Service.
 | **write_access_id** | string  | - | 
 | **id** | string  | The Log Analytics Linked Service ID. | 
 | **name** | string  | The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`) | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_linked_service" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   workspace_id = "workspace_id of log_analytics_linked_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

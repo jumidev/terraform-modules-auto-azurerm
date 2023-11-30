@@ -24,3 +24,28 @@ Manages a Log Analytics Windows Event DataSource.
 | **event_log_name** | string  | - | 
 | **event_types** | string  | - | 
 | **id** | string  | The ID of the Log Analytics Windows Event DataSource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_datasource_windows_event" 
+}
+
+inputs = {
+   name = "name of log_analytics_datasource_windows_event" 
+   resource_group_name = "${resource_group}" 
+   workspace_name = "workspace_name of log_analytics_datasource_windows_event" 
+   event_log_name = "event_log_name of log_analytics_datasource_windows_event" 
+   event_types = "event_types of log_analytics_datasource_windows_event" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

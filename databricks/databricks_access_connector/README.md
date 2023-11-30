@@ -29,3 +29,26 @@ Manages a Databricks Access Connector
 | **principal_id** | string  | The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector. | 
 | **tenant_id** | string  | The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector. | 
 | **identity_ids** | string  | The list of User Assigned Managed Identity IDs assigned to this Access Connector. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databricks/databricks_access_connector" 
+}
+
+inputs = {
+   name = "name of databricks_access_connector" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -31,3 +31,29 @@ Manages an Azure IoT Time Series Insights Gen2 Environment.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the IoT Time Series Insights Gen2 Environment. | 
 | **data_access_fqdn** | string  | The FQDN used to access the environment data. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "time_series_insights/iot_time_series_insights_gen2_environment" 
+}
+
+inputs = {
+   name = "name of iot_time_series_insights_gen2_environment" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of iot_time_series_insights_gen2_environment" 
+   storage = "storage of iot_time_series_insights_gen2_environment" 
+   id_properties = "id_properties of iot_time_series_insights_gen2_environment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

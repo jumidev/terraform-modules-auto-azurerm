@@ -42,3 +42,29 @@ Manages a Key Vault Managed Hardware Security Module.~> **Note:** The Azure Prov
 | **id** | string  | The Key Vault Secret Managed Hardware Security Module ID. | 
 | **hsm_uri** | string  | The URI of the Key Vault Managed Hardware Security Module, used for performing operations on keys. | 
 | **security_domain_encrypted_data** | string  | This attribute can be used for disaster recovery or when creating another Managed HSM that shares the same security domain. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_managed_hardware_security_module" 
+}
+
+inputs = {
+   name = "name of key_vault_managed_hardware_security_module" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   admin_object_ids = "admin_object_ids of key_vault_managed_hardware_security_module" 
+   sku_name = "sku_name of key_vault_managed_hardware_security_module" 
+   tenant_id = "tenant_id of key_vault_managed_hardware_security_module" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

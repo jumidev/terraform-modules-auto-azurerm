@@ -25,3 +25,28 @@ Manages a Redis Linked Server (ie Geo Location)
 | **server_role** | string  | - | 
 | **id** | string  | The ID of the Redis. | 
 | **name** | string  | The name of the linked server. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "redis/redis_linked_server" 
+}
+
+inputs = {
+   linked_redis_cache_id = "linked_redis_cache_id of redis_linked_server" 
+   linked_redis_cache_location = "linked_redis_cache_location of redis_linked_server" 
+   target_redis_cache_name = "target_redis_cache_name of redis_linked_server" 
+   resource_group_name = "${resource_group}" 
+   server_role = "server_role of redis_linked_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

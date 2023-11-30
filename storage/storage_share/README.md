@@ -30,3 +30,26 @@ Manages a File Share within Azure Storage.~> **Note:** The storage share support
 | **id** | string  | The ID of the File Share. | 
 | **resource_manager_id** | string  | The Resource Manager ID of this File Share. | 
 | **url** | string  | The URL of the File Share | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_share" 
+}
+
+inputs = {
+   name = "name of storage_share" 
+   storage_account_name = "storage_account_name of storage_share" 
+   quota = "quota of storage_share" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

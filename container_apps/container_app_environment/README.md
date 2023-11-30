@@ -37,3 +37,26 @@ Manages a Container App Environment.
 | **platform_reserved_cidr** | string  | The IP range, in CIDR notation, that is reserved for environment infrastructure IP addresses. | 
 | **platform_reserved_dns_ip_address** | string  | The IP address from the IP range defined by `platform_reserved_cidr` that is reserved for the internal DNS server. | 
 | **static_ip_address** | string  | The Static IP address of the Environment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container_apps/container_app_environment" 
+}
+
+inputs = {
+   name = "name of container_app_environment" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

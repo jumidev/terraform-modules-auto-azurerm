@@ -24,3 +24,27 @@ Manages a Private DNS Resolver.
 | **virtual_network_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the DNS Resolver. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns_resolver/private_dns_resolver" 
+}
+
+inputs = {
+   name = "name of private_dns_resolver" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   virtual_network_id = "virtual_network_id of private_dns_resolver" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

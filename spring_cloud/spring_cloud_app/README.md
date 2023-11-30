@@ -42,3 +42,26 @@ Manage an Azure Spring Cloud Application.
 | **url** | string  | The public endpoint of the Spring Cloud Application. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_app" 
+}
+
+inputs = {
+   name = "name of spring_cloud_app" 
+   resource_group_name = "${resource_group}" 
+   service_name = "service_name of spring_cloud_app" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

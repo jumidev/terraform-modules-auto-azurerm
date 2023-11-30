@@ -20,3 +20,26 @@ Manages a maintenance assignment to virtual machine.
 | **maintenance_configuration_id** | string  | - | 
 | **virtual_machine_id** | string  | - | 
 | **id** | string  | The ID of the Maintenance Assignment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "maintenance/maintenance_assignment_virtual_machine" 
+}
+
+inputs = {
+   location = "${location}" 
+   maintenance_configuration_id = "maintenance_configuration_id of maintenance_assignment_virtual_machine" 
+   virtual_machine_id = "virtual_machine_id of maintenance_assignment_virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

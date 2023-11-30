@@ -34,3 +34,26 @@ Manages an Azure Management Group Policy Remediation.
 | **parallel_deployments** | string  | - | 
 | **resource_count** | int  | - | 
 | **id** | string  | The ID of the Policy Remediation. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/management_group_policy_remediation" 
+}
+
+inputs = {
+   name = "name of management_group_policy_remediation" 
+   management_group_id = "management_group_id of management_group_policy_remediation" 
+   policy_assignment_id = "policy_assignment_id of management_group_policy_remediation" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

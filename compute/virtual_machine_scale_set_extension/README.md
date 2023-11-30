@@ -40,3 +40,28 @@ Manages an Extension for a Virtual Machine Scale Set.~> **NOTE:** This resource 
 | **provision_after_extensions** | string  | - | 
 | **settings** | string  | - | 
 | **id** | string  | The ID of the Virtual Machine Scale Set Extension. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/virtual_machine_scale_set_extension" 
+}
+
+inputs = {
+   name = "name of virtual_machine_scale_set_extension" 
+   virtual_machine_scale_set_id = "virtual_machine_scale_set_id of virtual_machine_scale_set_extension" 
+   publisher = "publisher of virtual_machine_scale_set_extension" 
+   type = "type of virtual_machine_scale_set_extension" 
+   type_handler_version = "type_handler_version of virtual_machine_scale_set_extension" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

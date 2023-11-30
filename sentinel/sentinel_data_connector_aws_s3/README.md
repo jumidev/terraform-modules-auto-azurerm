@@ -24,3 +24,28 @@ Manages a AWS S3 Data Connector.
 | **destination_table** | string  | - | 
 | **sqs_urls** | string  | - | 
 | **id** | string  | The ID of the AWS S3 Data Connector. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_data_connector_aws_s3" 
+}
+
+inputs = {
+   name = "name of sentinel_data_connector_aws_s3" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_data_connector_aws_s3" 
+   aws_role_arn = "aws_role_arn of sentinel_data_connector_aws_s3" 
+   destination_table = "destination_table of sentinel_data_connector_aws_s3" 
+   sqs_urls = "sqs_urls of sentinel_data_connector_aws_s3" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

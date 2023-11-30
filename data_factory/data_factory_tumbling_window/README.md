@@ -44,3 +44,29 @@ Manages a Tumbling Window Trigger inside an Azure Data Factory.
 | **retry** | block  | - | 
 | **trigger_dependency** | block  | - | 
 | **id** | string  | The ID of the Data Factory Tumbling Window Trigger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_tumbling_window" 
+}
+
+inputs = {
+   name = "name of data_factory_tumbling_window" 
+   data_factory_id = "data_factory_id of data_factory_tumbling_window" 
+   frequency = "frequency of data_factory_tumbling_window" 
+   interval = "interval of data_factory_tumbling_window" 
+   pipeline = "pipeline of data_factory_tumbling_window" 
+   start_time = "start_time of data_factory_tumbling_window" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

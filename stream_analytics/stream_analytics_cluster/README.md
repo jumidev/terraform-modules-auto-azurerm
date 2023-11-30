@@ -24,3 +24,27 @@ Manages a Stream Analytics Cluster.
 | **streaming_capacity** | int  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Stream Analytics. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_cluster" 
+}
+
+inputs = {
+   name = "name of stream_analytics_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   streaming_capacity = "streaming_capacity of stream_analytics_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

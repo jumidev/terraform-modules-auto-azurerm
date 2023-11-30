@@ -30,3 +30,25 @@ Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 | **secondary_connection_string** | string  | The Secondary Connection String for the ServiceBus Namespace authorization Rule. | 
 | **primary_connection_string_alias** | string  | The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired. | 
 | **secondary_connection_string_alias** | string  | The alias Secondary Connection String for the ServiceBus Namespace | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_namespace_authorization_rule" 
+}
+
+inputs = {
+   name = "name of servicebus_namespace_authorization_rule" 
+   namespace_id = "namespace_id of servicebus_namespace_authorization_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

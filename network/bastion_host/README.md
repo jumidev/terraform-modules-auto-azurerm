@@ -39,3 +39,27 @@ Manages a Bastion Host.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Bastion Host. | 
 | **dns_name** | string  | The FQDN for the Bastion Host. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/bastion_host" 
+}
+
+inputs = {
+   name = "name of bastion_host" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   ip_configuration = "ip_configuration of bastion_host" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

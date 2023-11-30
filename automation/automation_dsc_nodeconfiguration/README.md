@@ -22,3 +22,27 @@ Manages a Automation DSC Node Configuration.
 | **automation_account_name** | string  | - | 
 | **content_embedded** | string  | - | 
 | **id** | string  | The DSC Node Configuration ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_dsc_nodeconfiguration" 
+}
+
+inputs = {
+   name = "name of automation_dsc_nodeconfiguration" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_dsc_nodeconfiguration" 
+   content_embedded = "content_embedded of automation_dsc_nodeconfiguration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

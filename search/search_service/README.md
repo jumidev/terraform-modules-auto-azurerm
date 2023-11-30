@@ -51,3 +51,27 @@ Manages a Search Service.
 | **name** | string  | The name of this Query Key. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "search/search_service" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of search_service" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of search_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

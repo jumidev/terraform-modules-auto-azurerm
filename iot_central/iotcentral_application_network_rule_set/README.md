@@ -22,3 +22,24 @@ Manages an IoT Central Application Network Rule Set.
 | **default_action** | string  | - | 
 | **ip_rule** | block  | - | 
 | **id** | string  | The ID of the IoT Central Application Network Rule Set. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_central/iotcentral_application_network_rule_set" 
+}
+
+inputs = {
+   iotcentral_application_id = "iotcentral_application_id of iotcentral_application_network_rule_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

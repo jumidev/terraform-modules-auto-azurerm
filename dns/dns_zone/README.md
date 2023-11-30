@@ -25,3 +25,25 @@ Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azur
 | **max_number_of_record_sets** | int  | Maximum number of Records in the zone. Defaults to `1000`. | 
 | **number_of_record_sets** | int  | The number of records already in the zone. | 
 | **name_servers** | list  | A list of values that make up the NS record for the zone. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dns/dns_zone" 
+}
+
+inputs = {
+   name = "name of dns_zone" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

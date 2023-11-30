@@ -38,3 +38,28 @@ Manages a backend within an API Management Service.
 | **title** | string  | - | 
 | **tls** | block  | - | 
 | **id** | string  | The ID of the API Management API. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_backend" 
+}
+
+inputs = {
+   name = "name of api_management_backend" 
+   api_management_name = "api_management_name of api_management_backend" 
+   resource_group_name = "${resource_group}" 
+   protocol = "protocol of api_management_backend" 
+   url = "url of api_management_backend" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

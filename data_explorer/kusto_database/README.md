@@ -27,3 +27,27 @@ Manages a Kusto (also known as Azure Data Explorer) Database
 | **soft_delete_period** | string  | - | 
 | **id** | string  | The Kusto Cluster ID. | 
 | **size** | string  | The size of the database in bytes. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_database" 
+}
+
+inputs = {
+   name = "name of kusto_database" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   cluster_name = "cluster_name of kusto_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

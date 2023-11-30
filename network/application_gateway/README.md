@@ -113,3 +113,34 @@ Manages an Application Gateway.
 | **default_backend_http_settings_id** | string  | The ID of the Default Backend HTTP Settings Collection. | 
 | **default_redirect_configuration_id** | string  | The ID of the Default Redirect Configuration. | 
 | **path_rule** | block  | A list of `path_rule` blocks. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/application_gateway" 
+}
+
+inputs = {
+   name = "name of application_gateway" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   backend_address_pool = "backend_address_pool of application_gateway" 
+   backend_http_settings = "backend_http_settings of application_gateway" 
+   frontend_ip_configuration = "frontend_ip_configuration of application_gateway" 
+   frontend_port = "frontend_port of application_gateway" 
+   gateway_ip_configuration = "gateway_ip_configuration of application_gateway" 
+   http_listener = "http_listener of application_gateway" 
+   request_routing_rule = "request_routing_rule of application_gateway" 
+   sku = "sku of application_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -34,3 +34,27 @@ Manages a Event Hubs authorization Rule within an Event Hub.
 | **primary_key** | string  | The Primary Key for the Event Hubs authorization Rule. | 
 | **secondary_connection_string** | string  | The Secondary Connection String for the Event Hubs Authorization Rule. | 
 | **secondary_key** | string  | The Secondary Key for the Event Hubs Authorization Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventhub_authorization_rule" 
+}
+
+inputs = {
+   name = "name of eventhub_authorization_rule" 
+   namespace_name = "namespace_name of eventhub_authorization_rule" 
+   eventhub_name = "eventhub_name of eventhub_authorization_rule" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

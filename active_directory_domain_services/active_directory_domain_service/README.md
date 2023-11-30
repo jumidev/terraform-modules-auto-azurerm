@@ -47,3 +47,29 @@ Manages an Active Directory Domain Service.~> **Implementation Note:** Before us
 | **external_access_ip_address** | string  | The publicly routable IP address for the domain controllers in the initial replica set. | 
 | **location** | string  | The Azure location in which the initialreplica set resides. | 
 | **service_status** | string  | The current service status for the initial replica set. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "active_directory_domain_services/active_directory_domain_service" 
+}
+
+inputs = {
+   domain_name = "domain_name of active_directory_domain_service" 
+   location = "${location}" 
+   name = "name of active_directory_domain_service" 
+   initial_replica_set = "initial_replica_set of active_directory_domain_service" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of active_directory_domain_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

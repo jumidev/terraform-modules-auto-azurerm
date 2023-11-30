@@ -49,3 +49,27 @@ Manages an Azure Web PubSub Service.
 | **secondary_connection_string** | string  | The secondary connection string for the Web PubSub service. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/web_pubsub" 
+}
+
+inputs = {
+   name = "name of web_pubsub" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of web_pubsub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

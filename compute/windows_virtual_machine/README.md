@@ -120,3 +120,31 @@ Manages a Windows Virtual Machine.## Disclaimers-> **Note** Terraform will autom
 | **virtual_machine_id** | string  | A 128-bit identifier which uniquely identifies this Virtual Machine. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/windows_virtual_machine" 
+}
+
+inputs = {
+   admin_password = "admin_password of windows_virtual_machine" 
+   admin_username = "admin_username of windows_virtual_machine" 
+   location = "${location}" 
+   name = "name of windows_virtual_machine" 
+   network_interface_ids = "network_interface_ids of windows_virtual_machine" 
+   os_disk = "os_disk of windows_virtual_machine" 
+   resource_group_name = "${resource_group}" 
+   size = "size of windows_virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

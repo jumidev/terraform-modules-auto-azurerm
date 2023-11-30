@@ -26,3 +26,29 @@ Manages a Healthcare Med Tech Service Fhir Destination.```hclresource "azurerm_r
 | **destination_identity_resolution_type** | string  | - | 
 | **destination_fhir_mapping_json** | string  | - | 
 | **id** | string  | The ID of the Healthcare Med Tech Service Fhir Destination. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "healthcare/healthcare_medtech_service_fhir_destination" 
+}
+
+inputs = {
+   name = "name of healthcare_medtech_service_fhir_destination" 
+   medtech_service_id = "medtech_service_id of healthcare_medtech_service_fhir_destination" 
+   location = "${location}" 
+   destination_fhir_service_id = "destination_fhir_service_id of healthcare_medtech_service_fhir_destination" 
+   destination_identity_resolution_type = "destination_identity_resolution_type of healthcare_medtech_service_fhir_destination" 
+   destination_fhir_mapping_json = "destination_fhir_mapping_json of healthcare_medtech_service_fhir_destination" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

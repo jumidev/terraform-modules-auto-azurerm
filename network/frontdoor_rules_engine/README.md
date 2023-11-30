@@ -23,3 +23,26 @@
 | **resource_group_name** | string  | - | 
 | **enabled** | bool  | - | 
 | **rule** | block  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/frontdoor_rules_engine" 
+}
+
+inputs = {
+   name = "name of frontdoor_rules_engine" 
+   frontdoor_name = "frontdoor_name of frontdoor_rules_engine" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

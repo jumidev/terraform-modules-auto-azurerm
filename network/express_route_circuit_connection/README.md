@@ -26,3 +26,27 @@ Manages an Express Route Circuit Connection.
 | **authorization_key** | string  | - | 
 | **address_prefix_ipv6** | string  | - | 
 | **id** | string  | The ID of the Express Route Circuit Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/express_route_circuit_connection" 
+}
+
+inputs = {
+   name = "name of express_route_circuit_connection" 
+   peering_id = "peering_id of express_route_circuit_connection" 
+   peer_peering_id = "peer_peering_id of express_route_circuit_connection" 
+   address_prefix_ipv4 = "address_prefix_ipv4 of express_route_circuit_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

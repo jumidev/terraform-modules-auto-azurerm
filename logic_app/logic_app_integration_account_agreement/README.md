@@ -34,3 +34,32 @@ Manages a Logic App Integration Account Agreement.
 | **host_partner_name** | string  | - | 
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the Logic App Integration Account Agreement. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_integration_account_agreement" 
+}
+
+inputs = {
+   name = "name of logic_app_integration_account_agreement" 
+   resource_group_name = "${resource_group}" 
+   integration_account_name = "integration_account_name of logic_app_integration_account_agreement" 
+   agreement_type = "agreement_type of logic_app_integration_account_agreement" 
+   content = "content of logic_app_integration_account_agreement" 
+   guest_identity = "guest_identity of logic_app_integration_account_agreement" 
+   guest_partner_name = "guest_partner_name of logic_app_integration_account_agreement" 
+   host_identity = "host_identity of logic_app_integration_account_agreement" 
+   host_partner_name = "host_partner_name of logic_app_integration_account_agreement" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

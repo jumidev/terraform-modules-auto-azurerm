@@ -32,3 +32,28 @@ Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, 
 | **predictive** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the AutoScale Setting. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_autoscale_setting" 
+}
+
+inputs = {
+   name = "name of monitor_autoscale_setting" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   profile = "profile of monitor_autoscale_setting" 
+   target_resource_id = "target_resource_id of monitor_autoscale_setting" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

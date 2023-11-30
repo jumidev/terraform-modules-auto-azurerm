@@ -40,3 +40,27 @@ Manages a virtual network including any configured subnets. Each subnet canoptio
 | **address_space** | string  | The list of address spaces used by the virtual network. | 
 | **guid** | string  | The GUID of the virtual network. | 
 | **subnet** | block  | One or more `subnet` blocks. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/virtual_network" 
+}
+
+inputs = {
+   name = "name of virtual_network" 
+   resource_group_name = "${resource_group}" 
+   address_space = "address_space of virtual_network" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

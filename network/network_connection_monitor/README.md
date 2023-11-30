@@ -32,3 +32,29 @@ Manages a Network Connection Monitor.~> **NOTE:** Any Network Connection Monitor
 | **output_workspace_resource_ids** | list  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Network Connection Monitor. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_connection_monitor" 
+}
+
+inputs = {
+   name = "name of network_connection_monitor" 
+   location = "${location}" 
+   network_watcher_id = "network_watcher_id of network_connection_monitor" 
+   endpoint = "endpoint of network_connection_monitor" 
+   test_configuration = "test_configuration of network_connection_monitor" 
+   test_group = "test_group of network_connection_monitor" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -27,3 +27,27 @@ Enables you to manage DNS MX Records within Azure Private DNS.
 | **tags** | map  | - | 
 | **id** | string  | The Private DNS MX Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS MX Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_mx_record" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of private_dns_mx_record" 
+   record = "record of private_dns_mx_record" 
+   ttl = "ttl of private_dns_mx_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -37,3 +37,27 @@ Manages an IotHub Device Provisioning Service.
 | **device_provisioning_host_name** | string  | The device endpoint of the IoT Device Provisioning Service. | 
 | **id_scope** | string  | The unique identifier of the IoT Device Provisioning Service. | 
 | **service_operations_host_name** | string  | The service endpoint of the IoT Device Provisioning Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_dps" 
+}
+
+inputs = {
+   name = "name of iothub_dps" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of iothub_dps" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

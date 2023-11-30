@@ -52,3 +52,29 @@ Manages a HPC Cache.~> **Note:** By request of the service team the provider no 
 | **mount_addresses** | list  | A list of IP Addresses where the HPC Cache can be mounted. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/hpc_cache" 
+}
+
+inputs = {
+   name = "name of hpc_cache" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   cache_size_in_gb = "cache_size_in_gb of hpc_cache" 
+   subnet_id = "subnet_id of hpc_cache" 
+   sku_name = "sku_name of hpc_cache" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

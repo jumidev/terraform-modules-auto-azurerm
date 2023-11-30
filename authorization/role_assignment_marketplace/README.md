@@ -33,3 +33,24 @@ Assigns a given Principal (User or Group) to a given Role in a Private Azure Mar
 | **skip_service_principal_aad_check** | bool  | - | 
 | **id** | string  | The Role Assignment ID. | 
 | **principal_type** | string  | The type of the `principal_id`, e.g. User, Group, Service Principal, Application, etc. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "authorization/role_assignment_marketplace" 
+}
+
+inputs = {
+   principal_id = "principal_id of role_assignment_marketplace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

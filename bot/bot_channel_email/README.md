@@ -24,3 +24,28 @@ Manages a Email integration for a Bot Channel~> **Note** A bot can only have a s
 | **email_address** | string  | - | 
 | **email_password** | string  | - | 
 | **id** | string  | The ID of the Email Integration for a Bot Channel. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_email" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_email" 
+   email_address = "email_address of bot_channel_email" 
+   email_password = "email_password of bot_channel_email" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -27,3 +27,26 @@ Manages an Azure Maps Account.
 | **primary_access_key** | string  | The primary key used to authenticate and authorize access to the Maps REST APIs. | 
 | **secondary_access_key** | string  | The secondary key used to authenticate and authorize access to the Maps REST APIs. | 
 | **x_ms_client_id** | string  | A unique identifier for the Maps Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "maps/maps_account" 
+}
+
+inputs = {
+   name = "name of maps_account" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of maps_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

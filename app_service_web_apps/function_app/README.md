@@ -67,3 +67,29 @@ Manages a Function App.!> **NOTE:** This resource has been deprecated in version
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this App Service. | 
 | **username** | string  | The username which can be used to publish to this App Service | 
 | **password** | string  | The password associated with the username, which can be used to publish to this App Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/function_app" 
+}
+
+inputs = {
+   name = "name of function_app" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of function_app" 
+   storage_account_name = "storage_account_name of function_app" 
+   storage_account_access_key = "storage_account_access_key of function_app" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -36,3 +36,30 @@ Manages a Network Watcher Flow Log.~> **Note** The `azurerm_network_watcher_flow
 | **version** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Network Watcher. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_watcher_flow_log" 
+}
+
+inputs = {
+   name = "name of network_watcher_flow_log" 
+   network_watcher_name = "network_watcher_name of network_watcher_flow_log" 
+   resource_group_name = "${resource_group}" 
+   network_security_group_id = "network_security_group_id of network_watcher_flow_log" 
+   storage_account_id = "storage_account_id of network_watcher_flow_log" 
+   enabled = "enabled of network_watcher_flow_log" 
+   retention_policy = "retention_policy of network_watcher_flow_log" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -55,3 +55,30 @@ Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure 
 | **created_with_api_version** | string  | The api-version used when creating this alert rule. | 
 | **is_a_legacy_log_analytics_rule** | string  | True if this alert rule is a legacy Log Analytic Rule. | 
 | **is_workspace_alerts_storage_configured** | string  | The flag indicates whether this Scheduled Query Rule has been configured to be stored in the customer's storage. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_scheduled_query_rules_alert_v2" 
+}
+
+inputs = {
+   name = "name of monitor_scheduled_query_rules_alert_v2" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   criteria = "criteria of monitor_scheduled_query_rules_alert_v2" 
+   scopes = "scopes of monitor_scheduled_query_rules_alert_v2" 
+   severity = "severity of monitor_scheduled_query_rules_alert_v2" 
+   window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

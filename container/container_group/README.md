@@ -61,3 +61,28 @@ Manages as an Azure Container Group instance.~> **Note** `network_profile_id` is
 | **fqdn** | string  | The FQDN of the container group derived from `dns_name_label`. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/container_group" 
+}
+
+inputs = {
+   name = "name of container_group" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   container = "container of container_group" 
+   os_type = "os_type of container_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

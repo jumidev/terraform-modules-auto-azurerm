@@ -18,3 +18,25 @@
 | **name** | string  | - | 
 | **spring_cloud_service_id** | string  | - | 
 | **id** | string  | The ID of the Spring Cloud Accelerator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_accelerator" 
+}
+
+inputs = {
+   name = "name of spring_cloud_accelerator" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_accelerator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

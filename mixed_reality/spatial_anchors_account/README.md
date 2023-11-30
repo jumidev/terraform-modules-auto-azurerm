@@ -24,3 +24,26 @@ Manages an Azure Spatial Anchors Account.
 | **id** | string  | The ID of the Spatial Anchors Account. | 
 | **account_domain** | string  | The domain of the Spatial Anchors Account. | 
 | **account_id** | string  | The account ID of the Spatial Anchors Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mixed_reality/spatial_anchors_account" 
+}
+
+inputs = {
+   name = "name of spatial_anchors_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

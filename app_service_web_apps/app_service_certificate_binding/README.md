@@ -23,3 +23,26 @@ Manages an App Service Certificate Binding.
 | **app_service_name** | string  | The name of the App Service to which the certificate was bound. | 
 | **hostname** | string  | The hostname of the bound certificate. | 
 | **thumbprint** | string  | The certificate thumbprint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_certificate_binding" 
+}
+
+inputs = {
+   certificate_id = "certificate_id of app_service_certificate_binding" 
+   hostname_binding_id = "hostname_binding_id of app_service_certificate_binding" 
+   ssl_state = "ssl_state of app_service_certificate_binding" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

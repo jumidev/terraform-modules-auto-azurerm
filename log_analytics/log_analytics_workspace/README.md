@@ -52,3 +52,26 @@ Manages a Log Analytics (formally Operational Insights) Workspace.
 | **primary_shared_key** | string  | The Primary shared key for the Log Analytics Workspace. | 
 | **secondary_shared_key** | string  | The Secondary shared key for the Log Analytics Workspace. | 
 | **workspace_id** | string  | The Workspace (or Customer) ID for the Log Analytics Workspace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_workspace" 
+}
+
+inputs = {
+   name = "name of log_analytics_workspace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

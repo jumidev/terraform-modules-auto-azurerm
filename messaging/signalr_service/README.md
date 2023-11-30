@@ -60,3 +60,27 @@ Manages an Azure SignalR service.
 | **primary_connection_string** | string  | The primary connection string for the SignalR service. | 
 | **secondary_access_key** | string  | The secondary access key for the SignalR service. | 
 | **secondary_connection_string** | string  | The secondary connection string for the SignalR service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/signalr_service" 
+}
+
+inputs = {
+   name = "name of signalr_service" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of signalr_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

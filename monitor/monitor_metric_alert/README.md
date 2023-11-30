@@ -46,3 +46,26 @@ Manages a Metric Alert within Azure Monitor.
 | **window_size** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the metric alert. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_metric_alert" 
+}
+
+inputs = {
+   name = "name of monitor_metric_alert" 
+   resource_group_name = "${resource_group}" 
+   scopes = "scopes of monitor_metric_alert" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

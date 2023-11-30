@@ -29,3 +29,28 @@ Manages a Consumption Budget for a Management Group.
 | **filter** | block  | - | 
 | **id** | string  | The ID of the Management Group Consumption Budget. | 
 | **etag** | string  | The ETag of the Management Group Consumption Budget. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "consumption/consumption_budget_management_group" 
+}
+
+inputs = {
+   name = "name of consumption_budget_management_group" 
+   management_group_id = "management_group_id of consumption_budget_management_group" 
+   amount = "amount of consumption_budget_management_group" 
+   time_period = "time_period of consumption_budget_management_group" 
+   notification = "notification of consumption_budget_management_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

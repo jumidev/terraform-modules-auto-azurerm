@@ -42,3 +42,25 @@ Manages a Linked Service (connection) between Azure SQL Database and Azure Data 
 | **key_vault_connection_string** | block  | - | 
 | **key_vault_password** | block  | - | 
 | **id** | string  | The ID of the Data Factory Azure SQL Database Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_azure_sql_database" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_azure_sql_database" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_azure_sql_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

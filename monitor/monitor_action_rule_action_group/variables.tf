@@ -54,6 +54,10 @@ variable "condition" {
 #   severity (block)            : A 'severity' block.
 #   target_resource_type (block): A 'target_resource_type' block.
 #
+# alert_context block structure:
+#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                : (REQUIRED) A list of values to match for a given condition.
+#
 # description block structure:
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)              : (REQUIRED) A list of values to match for a given condition.
@@ -62,9 +66,9 @@ variable "condition" {
 #   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals'and 'NotEquals'.
 #   values (string)         : (REQUIRED) A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
 #
-# alert_context block structure:
-#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                : (REQUIRED) A list of values to match for a given condition.
+# target_resource_type block structure:
+#   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types.
 #
 # alert_rule_id block structure:
 #   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
@@ -73,10 +77,6 @@ variable "condition" {
 # monitor block structure:
 #   operator (string)      : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
 #   values (string)        : (REQUIRED) A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
-#
-# target_resource_type block structure:
-#   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types.
 #
 # monitor_service block structure:
 #   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.

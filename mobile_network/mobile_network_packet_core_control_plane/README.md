@@ -48,3 +48,29 @@ Manages a Mobile Network Packet Core Control Plane.
 | **tags** | map  | - | 
 | **software_version** | string  | - | 
 | **id** | string  | The ID of the Mobile Network Packet Core Control Plane. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_packet_core_control_plane" 
+}
+
+inputs = {
+   name = "name of mobile_network_packet_core_control_plane" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   site_ids = "site_ids of mobile_network_packet_core_control_plane" 
+   sku = "sku of mobile_network_packet_core_control_plane" 
+   local_diagnostics_access = "local_diagnostics_access of mobile_network_packet_core_control_plane" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

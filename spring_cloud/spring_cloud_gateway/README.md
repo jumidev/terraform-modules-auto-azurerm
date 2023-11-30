@@ -41,3 +41,25 @@
 | **sso** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Gateway. | 
 | **url** | string  | URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_gateway" 
+}
+
+inputs = {
+   name = "name of spring_cloud_gateway" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

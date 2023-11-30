@@ -31,3 +31,26 @@ Manages an Certificate within an API Management Service.
 | **expiration** | string  | The Expiration Date of this Certificate, formatted as an RFC3339 string. | 
 | **subject** | string  | The Subject of this Certificate. | 
 | **thumbprint** | string  | The Thumbprint of this Certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_certificate" 
+}
+
+inputs = {
+   name = "name of api_management_certificate" 
+   api_management_name = "api_management_name of api_management_certificate" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

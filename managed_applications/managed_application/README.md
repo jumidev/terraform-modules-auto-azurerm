@@ -35,3 +35,28 @@ Manages a Managed Application.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Managed Application. | 
 | **outputs** | string  | The name and value pairs that define the managed application outputs. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "managed_applications/managed_application" 
+}
+
+inputs = {
+   name = "name of managed_application" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   kind = "kind of managed_application" 
+   managed_resource_group_name = "managed_resource_group_name of managed_application" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

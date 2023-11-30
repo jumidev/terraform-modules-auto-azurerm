@@ -27,3 +27,28 @@ Enables you to manage DNS A Records within Azure Private DNS.
 | **tags** | map  | - | 
 | **id** | string  | The Private DNS A Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS A Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_a_record" 
+}
+
+inputs = {
+   name = "name of private_dns_a_record" 
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of private_dns_a_record" 
+   ttl = "ttl of private_dns_a_record" 
+   records = "records of private_dns_a_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

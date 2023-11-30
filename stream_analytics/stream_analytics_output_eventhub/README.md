@@ -36,3 +36,29 @@ Manages a Stream Analytics Output to an EventHub.
 | **authentication_mode** | string  | - | 
 | **partition_key** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Output EventHub. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_output_eventhub" 
+}
+
+inputs = {
+   name = "name of stream_analytics_output_eventhub" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_eventhub" 
+   eventhub_name = "eventhub_name of stream_analytics_output_eventhub" 
+   servicebus_namespace = "servicebus_namespace of stream_analytics_output_eventhub" 
+   serialization = "serialization of stream_analytics_output_eventhub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

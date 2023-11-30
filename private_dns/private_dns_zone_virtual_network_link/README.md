@@ -26,3 +26,27 @@ Enables you to manage Private DNS zone Virtual Network Links. These Links enable
 | **registration_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Private DNS Zone Virtual Network Link. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_zone_virtual_network_link" 
+}
+
+inputs = {
+   name = "name of private_dns_zone_virtual_network_link" 
+   private_dns_zone_name = "private_dns_zone_name of private_dns_zone_virtual_network_link" 
+   resource_group_name = "${resource_group}" 
+   virtual_network_id = "virtual_network_id of private_dns_zone_virtual_network_link" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

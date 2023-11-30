@@ -55,3 +55,29 @@ Manages a MySQL Server.
 | **fqdn** | string  | The FQDN of the MySQL Server. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mysql_server" 
+}
+
+inputs = {
+   name = "name of mysql_server" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of mysql_server" 
+   version = "version of mysql_server" 
+   ssl_enforcement_enabled = "ssl_enforcement_enabled of mysql_server" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

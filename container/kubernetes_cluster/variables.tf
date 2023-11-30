@@ -61,9 +61,6 @@ variable "default_node_pool" {
 #   min_count (int)                       : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   node_count (int)                      : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
 #
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-#
 # kubelet_config block structure  :
 #   allowed_unsafe_sysctls (string) : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
 #   container_log_max_line (int)    : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
@@ -76,8 +73,8 @@ variable "default_node_pool" {
 #   pod_max_pid (int)               : Specifies the maximum number of processes per pod.
 #   topology_manager_policy (string): Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
 #
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+# upgrade_settings block structure:
+#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 #
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created.
@@ -109,6 +106,9 @@ variable "default_node_pool" {
 #   vm_max_map_count (int)                     : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
+#
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 #
 # linux_os_config block structure       :
 #   swap_file_size_mb (int)               : Specifies the size of the swap file on each node in MB.

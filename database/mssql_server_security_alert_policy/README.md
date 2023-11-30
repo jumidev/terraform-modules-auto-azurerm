@@ -32,3 +32,26 @@ Manages a Security Alert Policy for a MSSQL Server.-> **NOTE** Security Alert Po
 | **storage_endpoint** | string  | - | 
 | **storage_account_access_key** | string  | - | 
 | **id** | string  | The ID of the MS SQL Server Security Alert Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_server_security_alert_policy" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   server_name = "server_name of mssql_server_security_alert_policy" 
+   state = "state of mssql_server_security_alert_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

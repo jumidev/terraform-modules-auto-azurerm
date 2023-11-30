@@ -27,3 +27,28 @@ Enables you to manage DNS TXT Records within Azure Private DNS.
 | **tags** | map  | - | 
 | **id** | string  | The Private DNS TXT Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS TXT Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_txt_record" 
+}
+
+inputs = {
+   name = "name of private_dns_txt_record" 
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of private_dns_txt_record" 
+   record = "record of private_dns_txt_record" 
+   ttl = "ttl of private_dns_txt_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

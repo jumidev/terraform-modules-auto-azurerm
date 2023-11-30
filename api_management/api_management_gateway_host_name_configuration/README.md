@@ -32,3 +32,28 @@ Manages an API Management Gateway Host Name Configuration.
 | **tls10_enabled** | bool  | - | 
 | **tls11_enabled** | bool  | - | 
 | **id** | string  | The ID of the API Management Gateway Host Name Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_gateway_host_name_configuration" 
+}
+
+inputs = {
+   name = "name of api_management_gateway_host_name_configuration" 
+   api_management_id = "api_management_id of api_management_gateway_host_name_configuration" 
+   gateway_name = "gateway_name of api_management_gateway_host_name_configuration" 
+   certificate_id = "certificate_id of api_management_gateway_host_name_configuration" 
+   host_name = "host_name of api_management_gateway_host_name_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

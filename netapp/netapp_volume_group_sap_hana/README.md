@@ -28,3 +28,30 @@ Manages a Application Volume Group for SAP HANA application.>Note: This feature 
 | **resource_group_name** | string  | - | 
 | **volume** | block  | - | 
 | **id** | string  | The ID of the Application Volume Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "netapp/netapp_volume_group_sap_hana" 
+}
+
+inputs = {
+   account_name = "account_name of netapp_volume_group_sap_hana" 
+   application_identifier = "application_identifier of netapp_volume_group_sap_hana" 
+   group_description = "group_description of netapp_volume_group_sap_hana" 
+   location = "${location}" 
+   name = "name of netapp_volume_group_sap_hana" 
+   resource_group_name = "${resource_group}" 
+   volume = "volume of netapp_volume_group_sap_hana" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -22,3 +22,27 @@ Sets a PostgreSQL Configuration value on a PostgreSQL Server.## Disclaimers~> **
 | **resource_group_name** | string  | - | 
 | **value** | string  | - | 
 | **id** | string  | The ID of the PostgreSQL Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_configuration" 
+}
+
+inputs = {
+   name = "name of postgresql_configuration" 
+   server_name = "server_name of postgresql_configuration" 
+   resource_group_name = "${resource_group}" 
+   value = "value of postgresql_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

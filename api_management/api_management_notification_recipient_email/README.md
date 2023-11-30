@@ -20,3 +20,26 @@ Manages a API Management Notification Recipient Email.
 | **email** | string  | - | 
 | **notification_type** | string  | - | 
 | **id** | string  | The ID of the API Management Notification Recipient Email. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_notification_recipient_email" 
+}
+
+inputs = {
+   api_management_id = "api_management_id of api_management_notification_recipient_email" 
+   email = "email of api_management_notification_recipient_email" 
+   notification_type = "notification_type of api_management_notification_recipient_email" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

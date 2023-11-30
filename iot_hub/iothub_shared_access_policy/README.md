@@ -32,3 +32,26 @@ Manages an IotHub Shared Access Policy
 | **primary_connection_string** | string  | The primary connection string of the Shared Access Policy. | 
 | **secondary_key** | string  | The secondary key used to create the authentication token. | 
 | **secondary_connection_string** | string  | The secondary connection string of the Shared Access Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_shared_access_policy" 
+}
+
+inputs = {
+   name = "name of iothub_shared_access_policy" 
+   resource_group_name = "${resource_group}" 
+   iothub_name = "iothub_name of iothub_shared_access_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

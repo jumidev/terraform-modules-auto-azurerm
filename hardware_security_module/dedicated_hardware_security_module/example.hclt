@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "hardware_security_module/dedicated_hardware_security_module" 
+}
+
+inputs = {
+   name = "name of dedicated_hardware_security_module" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   network_profile = "network_profile of dedicated_hardware_security_module" 
+   sku_name = "sku_name of dedicated_hardware_security_module" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

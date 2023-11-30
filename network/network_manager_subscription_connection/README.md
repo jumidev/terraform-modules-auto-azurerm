@@ -23,3 +23,26 @@ Manages a Network Manager Subscription Connection which may cross tenants.
 | **description** | string  | - | 
 | **id** | string  | The ID of the Network Manager Subscription Connection. | 
 | **connection_state** | string  | The Connection state of the Network Manager Subscription Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_subscription_connection" 
+}
+
+inputs = {
+   name = "name of network_manager_subscription_connection" 
+   subscription_id = "subscription_id of network_manager_subscription_connection" 
+   network_manager_id = "network_manager_id of network_manager_subscription_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

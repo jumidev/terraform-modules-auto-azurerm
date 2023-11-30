@@ -32,3 +32,24 @@ Manages an App Service Web App or Function App Source Control Configuration.
 | **id** | string  | The ID of the App Service Source Control. | 
 | **uses_github_action** | string  | Indicates if the Slot uses a GitHub action for deployment. This value is decoded by the service from the repository information supplied. | 
 | **scm_type** | string  | The SCM Type in use. This value is decoded by the service from the repository information supplied. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_source_control" 
+}
+
+inputs = {
+   app_id = "app_id of app_service_source_control" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

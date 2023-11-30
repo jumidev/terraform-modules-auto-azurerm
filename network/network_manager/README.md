@@ -32,3 +32,28 @@ Manages a Network Managers.
 | **management_groups** | string  | List of management groups. | 
 | **subscriptions** | string  | List of subscriptions. | 
 | **tenant_id** | string  | Tenant ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager" 
+}
+
+inputs = {
+   name = "name of network_manager" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   scope = "scope of network_manager" 
+   scope_accesses = "scope_accesses of network_manager" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

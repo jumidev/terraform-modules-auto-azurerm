@@ -24,3 +24,28 @@ Allows you to set a user or group as the AD administrator for an PostgreSQL serv
 | **object_id** | string  | - | 
 | **tenant_id** | string  | - | 
 | **id** | string  | The ID of the PostgreSQL Active Directory Administrator. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_active_directory_administrator" 
+}
+
+inputs = {
+   server_name = "server_name of postgresql_active_directory_administrator" 
+   resource_group_name = "${resource_group}" 
+   login = "login of postgresql_active_directory_administrator" 
+   object_id = "object_id of postgresql_active_directory_administrator" 
+   tenant_id = "tenant_id of postgresql_active_directory_administrator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

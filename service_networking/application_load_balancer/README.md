@@ -23,3 +23,26 @@ Manages an Application Gateway for Containers (ALB).
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Application Gateway for Containers (ALB). | 
 | **primary_configuration_endpoint** | string  | The primary configuration endpoints of the Application Gateway for Containers (ALB). | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "service_networking/application_load_balancer" 
+}
+
+inputs = {
+   name = "name of application_load_balancer" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -48,3 +48,26 @@ Manages a Logic App Workflow.
 | **workflow_outbound_ip_addresses** | string  | The list of outgoing IP addresses of workflow. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Logic App Workflow. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_workflow" 
+}
+
+inputs = {
+   name = "name of logic_app_workflow" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

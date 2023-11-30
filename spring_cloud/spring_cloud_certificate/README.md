@@ -27,3 +27,26 @@ Manages an Azure Spring Cloud Certificate.
 | **certificate_content** | string  | - | 
 | **id** | string  | The ID of the Spring Cloud Certificate. | 
 | **thumbprint** | string  | The thumbprint of the Spring Cloud certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_certificate" 
+}
+
+inputs = {
+   name = "name of spring_cloud_certificate" 
+   resource_group_name = "${resource_group}" 
+   service_name = "service_name of spring_cloud_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

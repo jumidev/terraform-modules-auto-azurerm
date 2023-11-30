@@ -25,3 +25,26 @@ Manages a Hostname Binding within an App Service (or Function App).
 | **thumbprint** | string  | - | 
 | **id** | string  | The ID of the App Service Custom Hostname Binding | 
 | **virtual_ip** | string  | The virtual IP address assigned to the hostname if IP based SSL is enabled. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_custom_hostname_binding" 
+}
+
+inputs = {
+   hostname = "hostname of app_service_custom_hostname_binding" 
+   app_service_name = "app_service_name of app_service_custom_hostname_binding" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

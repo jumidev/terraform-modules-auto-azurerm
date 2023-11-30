@@ -24,3 +24,26 @@ Manages an Azure Arc Private Link Scope.
 | **public_network_access_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Azure Arc Private Link Scope. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "hybrid_compute/arc_private_link_scope" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of arc_private_link_scope" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

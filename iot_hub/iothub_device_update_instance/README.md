@@ -26,3 +26,26 @@ Manages an IoT Hub Device Update Instance.
 | **diagnostic_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the IoT Hub Device Update Instance. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_device_update_instance" 
+}
+
+inputs = {
+   name = "name of iothub_device_update_instance" 
+   device_update_account_id = "device_update_account_id of iothub_device_update_instance" 
+   iothub_id = "iothub_id of iothub_device_update_instance" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

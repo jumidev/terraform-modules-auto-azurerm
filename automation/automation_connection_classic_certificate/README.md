@@ -28,3 +28,29 @@ Manages an Automation Connection with type `AzureClassicCertificate`.
 | **subscription_id** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The Automation Connection ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_connection_classic_certificate" 
+}
+
+inputs = {
+   name = "name of automation_connection_classic_certificate" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_connection_classic_certificate" 
+   certificate_asset_name = "certificate_asset_name of automation_connection_classic_certificate" 
+   subscription_name = "subscription_name of automation_connection_classic_certificate" 
+   subscription_id = "subscription_id of automation_connection_classic_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -36,3 +36,28 @@ Manages a Custom Event Trigger inside an Azure Data Factory.
 | **subject_begins_with** | string  | - | 
 | **subject_ends_with** | string  | - | 
 | **id** | string  | The ID of the Data Factory Custom Event Trigger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_trigger_custom_event" 
+}
+
+inputs = {
+   name = "name of data_factory_trigger_custom_event" 
+   data_factory_id = "data_factory_id of data_factory_trigger_custom_event" 
+   eventgrid_topic_id = "eventgrid_topic_id of data_factory_trigger_custom_event" 
+   events = "events of data_factory_trigger_custom_event" 
+   pipeline = "pipeline of data_factory_trigger_custom_event" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

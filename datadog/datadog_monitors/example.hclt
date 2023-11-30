@@ -1,0 +1,20 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "datadog/datadog_monitors" 
+}
+
+inputs = {
+   name = "name of datadog_monitors" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of datadog_monitors" 
+   user = "user of datadog_monitors" 
+   datadog_organization = "datadog_organization of datadog_monitors" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

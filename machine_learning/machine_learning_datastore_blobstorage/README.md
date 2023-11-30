@@ -32,3 +32,26 @@ Manages a Machine Learning Blob Storage DataStore.
 | **service_data_auth_identity** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Machine Learning DataStore. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_datastore_blobstorage" 
+}
+
+inputs = {
+   name = "name of machine_learning_datastore_blobstorage" 
+   workspace_id = "workspace_id of machine_learning_datastore_blobstorage" 
+   storage_container_id = "storage_container_id of machine_learning_datastore_blobstorage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

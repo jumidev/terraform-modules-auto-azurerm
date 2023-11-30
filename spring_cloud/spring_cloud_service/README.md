@@ -52,3 +52,26 @@ Manages an Azure Spring Cloud Service.
 | **ip_addresses** | string  | The IP list of required traffic. | 
 | **port** | string  | The port of required traffic. | 
 | **protocol** | string  | The protocol of required traffic. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_service" 
+}
+
+inputs = {
+   name = "name of spring_cloud_service" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

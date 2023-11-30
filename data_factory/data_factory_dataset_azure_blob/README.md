@@ -40,3 +40,26 @@ Manages an Azure Blob Dataset inside an Azure Data Factory.
 | **dynamic_path_enabled** | bool  | - | 
 | **dynamic_filename_enabled** | bool  | - | 
 | **id** | string  | The ID of the Data Factory Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_azure_blob" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_azure_blob" 
+   data_factory_id = "data_factory_id of data_factory_dataset_azure_blob" 
+   linked_service_name = "linked_service_name of data_factory_dataset_azure_blob" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

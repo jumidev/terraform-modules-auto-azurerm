@@ -22,3 +22,25 @@ Manages a PostgreSQL Flexible Server Database.
 | **charset** | string  | - | 
 | **collation** | string  | - | 
 | **id** | string  | The ID of the Azure PostgreSQL Flexible Server Database. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_flexible_server_database" 
+}
+
+inputs = {
+   name = "name of postgresql_flexible_server_database" 
+   server_id = "server_id of postgresql_flexible_server_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

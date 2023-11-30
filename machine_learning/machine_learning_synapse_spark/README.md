@@ -33,3 +33,27 @@ Manages the linked service to link an Azure Machine learning workspace to an Azu
 | **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this Machine Learning Synapse Spark. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Synapse Spark. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_synapse_spark" 
+}
+
+inputs = {
+   name = "name of machine_learning_synapse_spark" 
+   machine_learning_workspace_id = "machine_learning_workspace_id of machine_learning_synapse_spark" 
+   location = "${location}" 
+   synapse_spark_pool_id = "synapse_spark_pool_id of machine_learning_synapse_spark" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

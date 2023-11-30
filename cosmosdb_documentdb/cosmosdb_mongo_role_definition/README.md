@@ -22,3 +22,25 @@ Manages a Cosmos DB Mongo Role Definition.
 | **inherited_role_names** | list  | - | 
 | **privilege** | block  | - | 
 | **id** | string  | The ID of the Cosmos DB Mongo Role Definition. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_mongo_role_definition" 
+}
+
+inputs = {
+   cosmos_mongo_database_id = "cosmos_mongo_database_id of cosmosdb_mongo_role_definition" 
+   role_name = "role_name of cosmosdb_mongo_role_definition" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

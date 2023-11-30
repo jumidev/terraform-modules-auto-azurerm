@@ -21,3 +21,26 @@ Manages a Disk SAS Token.Use this resource to obtain a Shared Access Signature (
 | **access_level** | string  | - | 
 | **id** | string  | The ID of the Disk Export resource. | 
 | **sas_url** | string  | The computed Shared Access Signature (SAS) of the Managed Disk. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/disk_sas_token" 
+}
+
+inputs = {
+   managed_disk_id = "managed_disk_id of disk_sas_token" 
+   duration_in_seconds = "duration_in_seconds of disk_sas_token" 
+   access_level = "access_level of disk_sas_token" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

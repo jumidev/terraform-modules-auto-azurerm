@@ -44,3 +44,26 @@ Manages a Subscription Policy Assignment.
 | **id** | string  | The ID of the Subscription Policy Assignment. | 
 | **principal_id** | string  | The Principal ID of the Policy Assignment for this Subscription. | 
 | **tenant_id** | string  | The Tenant ID of the Policy Assignment for this Subscription. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/subscription_policy_assignment" 
+}
+
+inputs = {
+   name = "name of subscription_policy_assignment" 
+   policy_definition_id = "policy_definition_id of subscription_policy_assignment" 
+   subscription_id = "subscription_id of subscription_policy_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

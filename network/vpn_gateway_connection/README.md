@@ -28,3 +28,27 @@ Manages a VPN Gateway Connection.
 | **routing** | block  | - | 
 | **traffic_selector_policy** | block  | - | 
 | **id** | string  | The ID of the VPN Gateway Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/vpn_gateway_connection" 
+}
+
+inputs = {
+   name = "name of vpn_gateway_connection" 
+   remote_vpn_site_id = "remote_vpn_site_id of vpn_gateway_connection" 
+   vpn_gateway_id = "vpn_gateway_id of vpn_gateway_connection" 
+   vpn_link = "vpn_link of vpn_gateway_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,25 @@ Manages a Load Balancer Backend Address Pool.~> **NOTE:** When using this resour
 | **load_balancing_rules** | string  | The Load Balancing Rules associated with this Backend Address Pool. | 
 | **inbound_nat_rules** | string  | An array of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool. | 
 | **outbound_rules** | string  | An array of the Load Balancing Outbound Rules associated with this Backend Address Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_backend_address_pool" 
+}
+
+inputs = {
+   name = "name of lb_backend_address_pool" 
+   loadbalancer_id = "loadbalancer_id of lb_backend_address_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

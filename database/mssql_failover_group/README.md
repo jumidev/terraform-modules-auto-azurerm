@@ -35,3 +35,27 @@ Manages a Microsoft Azure SQL Failover Group.
 | **update** | datetime  | (Defaults to 30 minutes) Used when updating the Failover Group. | 
 | **read** | string  | (Defaults to 5 minutes) Used when retrieving the Failover Group. | 
 | **delete** | string  | (Defaults to 30 minutes) Used when deleting the Failover Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_failover_group" 
+}
+
+inputs = {
+   name = "name of mssql_failover_group" 
+   server_id = "server_id of mssql_failover_group" 
+   partner_server = "partner_server of mssql_failover_group" 
+   read_write_endpoint_failover_policy = "read_write_endpoint_failover_policy of mssql_failover_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -22,3 +22,27 @@ Applies a Guest Configuration Policy to a Virtual Machine.~> **NOTE:** You can c
 | **virtual_machine_id** | string  | - | 
 | **configuration** | block  | - | 
 | **id** | string  | The ID of the Policy Virtual Machine Configuration Assignment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "policy/policy_virtual_machine_configuration_assignment" 
+}
+
+inputs = {
+   name = "name of policy_virtual_machine_configuration_assignment" 
+   location = "${location}" 
+   virtual_machine_id = "virtual_machine_id of policy_virtual_machine_configuration_assignment" 
+   configuration = "configuration of policy_virtual_machine_configuration_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

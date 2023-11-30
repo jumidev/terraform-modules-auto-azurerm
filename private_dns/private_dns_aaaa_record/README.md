@@ -27,3 +27,28 @@ Enables you to manage DNS AAAA Records within Azure Private DNS.
 | **tags** | map  | - | 
 | **id** | string  | The Private DNS AAAA Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS AAAA Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_aaaa_record" 
+}
+
+inputs = {
+   name = "name of private_dns_aaaa_record" 
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of private_dns_aaaa_record" 
+   ttl = "ttl of private_dns_aaaa_record" 
+   records = "records of private_dns_aaaa_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

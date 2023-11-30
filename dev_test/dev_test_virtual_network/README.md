@@ -29,3 +29,26 @@ Manages a Virtual Network within a DevTest Lab.
 | **subnet** | block  | A `subnet` block. | 
 | **unique_identifier** | string  | The unique immutable identifier of the Dev Test Virtual Network. | 
 | **name** | string  | The name of the Subnet for this Virtual Network. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dev_test/dev_test_virtual_network" 
+}
+
+inputs = {
+   name = "name of dev_test_virtual_network" 
+   lab_name = "lab_name of dev_test_virtual_network" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -48,3 +48,27 @@ Manages a ServiceBus Namespace.
 | **default_secondary_connection_string** | string  | The secondary connection string for the authorization rule `RootManageSharedAccessKey`. | 
 | **default_primary_key** | string  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
 | **default_secondary_key** | string  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_namespace" 
+}
+
+inputs = {
+   name = "name of servicebus_namespace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of servicebus_namespace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

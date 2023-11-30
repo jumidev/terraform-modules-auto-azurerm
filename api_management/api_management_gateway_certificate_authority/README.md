@@ -22,3 +22,26 @@ Manages an API Management Gateway Certificate Authority.
 | **gateway_name** | string  | - | 
 | **is_trusted** | bool  | - | 
 | **id** | string  | The ID of the API Management Gateway Certificate Authority. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_gateway_certificate_authority" 
+}
+
+inputs = {
+   api_management_id = "api_management_id of api_management_gateway_certificate_authority" 
+   certificate_name = "certificate_name of api_management_gateway_certificate_authority" 
+   gateway_name = "gateway_name of api_management_gateway_certificate_authority" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

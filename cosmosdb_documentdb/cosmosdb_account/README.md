@@ -94,3 +94,29 @@ Manages a CosmosDB (formally DocumentDB) Account.
 | **secondary_readonly_mongodb_connection_string** | string  | Secondary readonly Mongodb connection string for the CosmosDB Account. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_account" 
+}
+
+inputs = {
+   name = "name of cosmosdb_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   offer_type = "offer_type of cosmosdb_account" 
+   consistency_policy = "consistency_policy of cosmosdb_account" 
+   geo_location = "geo_location of cosmosdb_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

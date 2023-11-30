@@ -50,3 +50,27 @@ Manages a Network Interface.
 | **private_ip_address** | string  | The first private IP address of the network interface. | 
 | **private_ip_addresses** | string  | The private IP addresses of the network interface. | 
 | **virtual_machine_id** | string  | The ID of the Virtual Machine which this Network Interface is connected to. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_interface" 
+}
+
+inputs = {
+   ip_configuration = "ip_configuration of network_interface" 
+   location = "${location}" 
+   name = "name of network_interface" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -40,3 +40,27 @@ Manages a Purview Account.
 | **event_hub_namespace_id** | string  | The ID of the managed event hub namespace. | 
 | **resource_group_id** | string  | The ID of the managed resource group. | 
 | **storage_account_id** | string  | The ID of the managed storage account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "purview/purview_account" 
+}
+
+inputs = {
+   location = "${location}" 
+   identity = "identity of purview_account" 
+   name = "name of purview_account" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

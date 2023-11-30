@@ -40,3 +40,25 @@ Manages a Key Vault Certificate.~> **Note:** The Azure Provider includes a Featu
 | **not_before** | string  | The not before valid time of the Key Vault Certificate. | 
 | **recovery_level** | string  | The deletion recovery level of the Key Vault Certificate. | 
 | **updated** | string  | The recent update time of the Key Vault Certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_certificate" 
+}
+
+inputs = {
+   name = "name of key_vault_certificate" 
+   key_vault_id = "key_vault_id of key_vault_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

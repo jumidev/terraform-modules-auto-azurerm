@@ -32,3 +32,26 @@ Manages a Route Table~> **NOTE on Route Tables and Routes:** Terraform currently
 | **tags** | map  | - | 
 | **id** | string  | The Route Table ID. | 
 | **subnets** | string  | The collection of Subnets associated with this route table. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/route_table" 
+}
+
+inputs = {
+   name = "name of route_table" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,28 @@ Manages a Route within a Route Table.~> **NOTE on Route Tables and Routes:** Ter
 | **next_hop_type** | string  | - | 
 | **next_hop_in_ip_address** | string  | - | 
 | **id** | string  | The Route ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/route" 
+}
+
+inputs = {
+   name = "name of route" 
+   resource_group_name = "${resource_group}" 
+   route_table_name = "route_table_name of route" 
+   address_prefix = "address_prefix of route" 
+   next_hop_type = "next_hop_type of route" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

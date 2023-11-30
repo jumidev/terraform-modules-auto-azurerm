@@ -61,3 +61,27 @@ Manages a Kusto (also known as Azure Data Explorer) Cluster
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID associated with this System Assigned Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this System Assigned Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_cluster" 
+}
+
+inputs = {
+   name = "name of kusto_cluster" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   sku = "sku of kusto_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

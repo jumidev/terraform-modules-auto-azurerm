@@ -20,3 +20,26 @@ Manages a Backup Policy Blob Storage.
 | **vault_id** | string  | - | 
 | **retention_duration** | string  | - | 
 | **id** | string  | The ID of the Backup Policy Blob Storage. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_policy_blob_storage" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_policy_blob_storage" 
+   vault_id = "vault_id of data_protection_backup_policy_blob_storage" 
+   retention_duration = "retention_duration of data_protection_backup_policy_blob_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

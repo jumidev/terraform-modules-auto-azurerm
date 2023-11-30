@@ -20,3 +20,26 @@ Manages registration of a storage account with Azure Backup. Storage accounts mu
 | **recovery_vault_name** | string  | - | 
 | **storage_account_id** | string  | - | 
 | **id** | string  | The ID of the Backup Storage Account Container. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/backup_container_storage_account" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   recovery_vault_name = "recovery_vault_name of backup_container_storage_account" 
+   storage_account_id = "storage_account_id of backup_container_storage_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

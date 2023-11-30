@@ -40,3 +40,27 @@ Manages a Key Vault Key.
 | **versionless_id** | string  | The Base ID of the Key Vault Key. | 
 | **public_key_pem** | string  | The PEM encoded public key of this Key Vault Key. | 
 | **public_key_openssh** | string  | The OpenSSH encoded public key of this Key Vault Key. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_key" 
+}
+
+inputs = {
+   name = "name of key_vault_key" 
+   key_vault_id = "key_vault_id of key_vault_key" 
+   key_type = "key_type of key_vault_key" 
+   key_opts = "key_opts of key_vault_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

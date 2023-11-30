@@ -24,3 +24,25 @@ Manages the configuration for a Nginx Deployment.
 | **config_file** | block  | - | 
 | **protected_file** | list  | - | 
 | **id** | string  | The ID of this Nginx Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "nginx/nginx_configuration" 
+}
+
+inputs = {
+   nginx_deployment_id = "nginx_deployment_id of nginx_configuration" 
+   root_file = "root_file of nginx_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

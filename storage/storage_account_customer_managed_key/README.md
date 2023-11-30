@@ -28,3 +28,25 @@ Manages a Customer Managed Key for a Storage Account.~> **NOTE:** It's possible 
 | **user_assigned_identity_id** | string  | - | 
 | **federated_identity_client_id** | string  | - | 
 | **id** | string  | The ID of the Storage Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_account_customer_managed_key" 
+}
+
+inputs = {
+   storage_account_id = "storage_account_id of storage_account_customer_managed_key" 
+   key_name = "key_name of storage_account_customer_managed_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

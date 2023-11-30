@@ -21,3 +21,25 @@ Manages a Stream Analytics Job Schedule.
 | **start_time** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Job. | 
 | **last_output_time** | string  | The time at which the Stream Analytics job last produced an output. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_job_schedule" 
+}
+
+inputs = {
+   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_job_schedule" 
+   start_mode = "start_mode of stream_analytics_job_schedule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

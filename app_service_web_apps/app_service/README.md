@@ -69,3 +69,27 @@ Manages an App Service (within an App Service Plan).!> **NOTE:** This resource h
 | **password** | string  | The password associated with the username, which can be used to publish to this App Service. | 
 | **repo_url** | string  | URL of the Git repository for this App Service. | 
 | **branch** | string  | Branch name of the Git repository for this App Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service" 
+}
+
+inputs = {
+   name = "name of app_service" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of app_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

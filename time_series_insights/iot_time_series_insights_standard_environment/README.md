@@ -30,3 +30,28 @@ Manages an Azure IoT Time Series Insights Standard Environment.
 | **partition_key** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the IoT Time Series Insights Standard Environment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "time_series_insights/iot_time_series_insights_standard_environment" 
+}
+
+inputs = {
+   name = "name of iot_time_series_insights_standard_environment" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of iot_time_series_insights_standard_environment" 
+   data_retention_time = "data_retention_time of iot_time_series_insights_standard_environment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

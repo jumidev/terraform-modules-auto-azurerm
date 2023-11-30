@@ -36,3 +36,27 @@ Manages a Linked Service (connection) between a Web Server and Azure Data Factor
 | **password** | string  | - | 
 | **username** | string  | - | 
 | **id** | string  | The ID of the Data Factory Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_web" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_web" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_web" 
+   authentication_type = "authentication_type of data_factory_linked_service_web" 
+   url = "url of data_factory_linked_service_web" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

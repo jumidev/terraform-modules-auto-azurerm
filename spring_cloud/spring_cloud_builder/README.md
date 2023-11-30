@@ -22,3 +22,27 @@ Manages a Spring Cloud Builder.-> **NOTE:** This resource is applicable only for
 | **build_pack_group** | block  | - | 
 | **stack** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Builder. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_builder" 
+}
+
+inputs = {
+   name = "name of spring_cloud_builder" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_builder" 
+   build_pack_group = "build_pack_group of spring_cloud_builder" 
+   stack = "stack of spring_cloud_builder" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

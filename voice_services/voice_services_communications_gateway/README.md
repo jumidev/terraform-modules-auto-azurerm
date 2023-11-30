@@ -42,3 +42,31 @@ Manages a Voice Services Communications Gateways.!> **NOTE:** You must have sign
 | **tags** | map  | - | 
 | **microsoft_teams_voicemail_pilot_number** | string  | - | 
 | **id** | string  | The ID of the Voice Services Communications Gateways. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "voice_services/voice_services_communications_gateway" 
+}
+
+inputs = {
+   name = "name of voice_services_communications_gateway" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   connectivity = "connectivity of voice_services_communications_gateway" 
+   codecs = "codecs of voice_services_communications_gateway" 
+   e911_type = "e911_type of voice_services_communications_gateway" 
+   platforms = "platforms of voice_services_communications_gateway" 
+   service_location = "service_location of voice_services_communications_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

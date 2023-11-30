@@ -30,3 +30,29 @@ Manages a Stream Analytics Output Function.
 | **batch_max_count** | int  | - | 
 | **batch_max_in_bytes** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Output Function. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_output_function" 
+}
+
+inputs = {
+   name = "name of stream_analytics_output_function" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_function" 
+   api_key = "api_key of stream_analytics_output_function" 
+   function_app = "function_app of stream_analytics_output_function" 
+   function_name = "function_name of stream_analytics_output_function" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

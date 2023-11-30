@@ -32,3 +32,26 @@ Manages a Key Vault Secret.~> **Note:** All arguments including the secret value
 | **resource_versionless_id** | string  | The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated. | 
 | **version** | string  | The current version of the Key Vault Secret. | 
 | **versionless_id** | string  | The Base ID of the Key Vault Secret. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_secret" 
+}
+
+inputs = {
+   name = "name of key_vault_secret" 
+   value = "value of key_vault_secret" 
+   key_vault_id = "key_vault_id of key_vault_secret" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

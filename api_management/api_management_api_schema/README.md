@@ -30,3 +30,28 @@ Manages an API Schema within an API Management Service.
 | **components** | string  | - | 
 | **definitions** | string  | - | 
 | **id** | string  | The ID of the API Management API Schema. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_api_schema" 
+}
+
+inputs = {
+   schema_id = "schema_id of api_management_api_schema" 
+   api_name = "api_name of api_management_api_schema" 
+   api_management_name = "api_management_name of api_management_api_schema" 
+   resource_group_name = "${resource_group}" 
+   content_type = "content_type of api_management_api_schema" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

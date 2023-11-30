@@ -33,3 +33,25 @@ Manages a File within an Azure Storage File Share.
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the file within the File Share. | 
 | **content_length** | string  | The length in bytes of the file content | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_share_file" 
+}
+
+inputs = {
+   name = "name of storage_share_file" 
+   storage_share_id = "storage_share_id of storage_share_file" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

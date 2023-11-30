@@ -30,3 +30,27 @@ Manages a Automation Python3 Package.
 | **hash_value** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Automation Python3 Package. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_python3_package" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_python3_package" 
+   name = "name of automation_python3_package" 
+   content_uri = "content_uri of automation_python3_package" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

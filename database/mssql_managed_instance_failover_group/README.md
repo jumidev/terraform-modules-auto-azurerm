@@ -29,3 +29,28 @@ Manages an Azure SQL Managed Instance Failover Group.
 | **partner_region** | block  | A `partner_region` block. | 
 | **role** | string  | The partner replication role of the Managed Instance Failover Group. | 
 | **location** | string  | The Azure Region where the Managed Instance Failover Group partner exists. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_managed_instance_failover_group" 
+}
+
+inputs = {
+   name = "name of mssql_managed_instance_failover_group" 
+   location = "${location}" 
+   managed_instance_id = "managed_instance_id of mssql_managed_instance_failover_group" 
+   partner_managed_instance_id = "partner_managed_instance_id of mssql_managed_instance_failover_group" 
+   read_write_endpoint_failover_policy = "read_write_endpoint_failover_policy of mssql_managed_instance_failover_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

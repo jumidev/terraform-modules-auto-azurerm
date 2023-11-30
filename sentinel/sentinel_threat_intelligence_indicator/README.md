@@ -66,3 +66,29 @@ Manages a Sentinel Threat Intelligence Indicator.
 | **pattern_type_values** | block  | A `pattern_type_values` block. | 
 | **value** | string  | The value of the parsed pattern type. | 
 | **value_type** | string  | The type of the value of the parsed pattern type value. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_threat_intelligence_indicator" 
+}
+
+inputs = {
+   display_name = "display_name of sentinel_threat_intelligence_indicator" 
+   pattern_type = "pattern_type of sentinel_threat_intelligence_indicator" 
+   pattern = "pattern of sentinel_threat_intelligence_indicator" 
+   source = "source of sentinel_threat_intelligence_indicator" 
+   validate_from_utc = "validate_from_utc of sentinel_threat_intelligence_indicator" 
+   workspace_id = "workspace_id of sentinel_threat_intelligence_indicator" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

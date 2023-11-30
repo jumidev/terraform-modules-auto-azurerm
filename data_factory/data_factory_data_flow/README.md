@@ -34,3 +34,27 @@ Manages a Data Flow inside an Azure Data Factory.
 | **folder** | string  | - | 
 | **transformation** | block  | - | 
 | **id** | string  | The ID of the Data Factory Data Flow. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_data_flow" 
+}
+
+inputs = {
+   name = "name of data_factory_data_flow" 
+   data_factory_id = "data_factory_id of data_factory_data_flow" 
+   source = "source of data_factory_data_flow" 
+   sink = "sink of data_factory_data_flow" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -25,3 +25,26 @@ Manages a User Assigned Identity.
 | **client_id** | string  | The ID of the app associated with the Identity. | 
 | **principal_id** | string  | The ID of the Service Principal object associated with the created Identity. | 
 | **tenant_id** | string  | The ID of the Tenant which the Identity belongs to. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "authorization/user_assigned_identity" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of user_assigned_identity" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,27 @@ Manages a Data Share Account.
 | **id** | string  | The ID of the Data Share Account. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this Data Share Account. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this Data Share Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_share/data_share_account" 
+}
+
+inputs = {
+   name = "name of data_share_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   identity = "identity of data_share_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

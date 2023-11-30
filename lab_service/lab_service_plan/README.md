@@ -34,3 +34,27 @@ Manages a Lab Service Plan.-> **Note:** Before using this resource, it's require
 | **support** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Lab Service Plan. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lab_service/lab_service_plan" 
+}
+
+inputs = {
+   name = "name of lab_service_plan" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   allowed_regions = "allowed_regions of lab_service_plan" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

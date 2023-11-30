@@ -38,3 +38,27 @@ Manages a Mobile Network Attached Data Network.
 | **user_equipment_static_address_pool_prefixes** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Mobile Network Attached Data Network. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_attached_data_network" 
+}
+
+inputs = {
+   mobile_network_data_network_name = "mobile_network_data_network_name of mobile_network_attached_data_network" 
+   mobile_network_packet_core_data_plane_id = "mobile_network_packet_core_data_plane_id of mobile_network_attached_data_network" 
+   location = "${location}" 
+   dns_addresses = "dns_addresses of mobile_network_attached_data_network" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -59,3 +59,31 @@ Manages a HDInsight Kafka Cluster.
 | **https_endpoint** | string  | The HTTPS Connectivity Endpoint for this HDInsight Kafka Cluster. | 
 | **kafka_rest_proxy_endpoint** | string  | The Kafka Rest Proxy Endpoint for this HDInsight Kafka Cluster. | 
 | **ssh_endpoint** | string  | The SSH Connectivity Endpoint for this HDInsight Kafka Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "hdinsight/hdinsight_kafka_cluster" 
+}
+
+inputs = {
+   name = "name of hdinsight_kafka_cluster" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   cluster_version = "cluster_version of hdinsight_kafka_cluster" 
+   component_version = "component_version of hdinsight_kafka_cluster" 
+   gateway = "gateway of hdinsight_kafka_cluster" 
+   roles = "roles of hdinsight_kafka_cluster" 
+   tier = "tier of hdinsight_kafka_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

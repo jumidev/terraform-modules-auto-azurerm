@@ -26,3 +26,25 @@ Manages a Batch Job.
 | **task_retry_maximum** | int  | - | 
 | **priority** | string  | - | 
 | **id** | string  | The ID of the Batch Job. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "batch/batch_job" 
+}
+
+inputs = {
+   batch_pool_id = "batch_pool_id of batch_job" 
+   name = "name of batch_job" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,28 @@ Manages a Voice Services Communications Gateway Test Line.
 | **purpose** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Voice Services Communications Gateway Test Line. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "voice_services/voice_services_communications_gateway_test_line" 
+}
+
+inputs = {
+   name = "name of voice_services_communications_gateway_test_line" 
+   location = "${location}" 
+   voice_services_communications_gateway_id = "voice_services_communications_gateway_id of voice_services_communications_gateway_test_line" 
+   phone_number = "phone_number of voice_services_communications_gateway_test_line" 
+   purpose = "purpose of voice_services_communications_gateway_test_line" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

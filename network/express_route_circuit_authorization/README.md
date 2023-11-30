@@ -22,3 +22,26 @@ Manages an ExpressRoute Circuit Authorization.
 | **id** | string  | The ID of the ExpressRoute Circuit Authorization. | 
 | **authorization_key** | string  | The Authorization Key. | 
 | **authorization_use_status** | string  | The authorization use status. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/express_route_circuit_authorization" 
+}
+
+inputs = {
+   name = "name of express_route_circuit_authorization" 
+   resource_group_name = "${resource_group}" 
+   express_route_circuit_name = "express_route_circuit_name of express_route_circuit_authorization" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

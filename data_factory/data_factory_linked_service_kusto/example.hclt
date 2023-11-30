@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_kusto" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_kusto" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_kusto" 
+   kusto_endpoint = "kusto_endpoint of data_factory_linked_service_kusto" 
+   kusto_database_name = "kusto_database_name of data_factory_linked_service_kusto" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

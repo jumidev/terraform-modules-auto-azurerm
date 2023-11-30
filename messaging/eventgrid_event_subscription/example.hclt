@@ -1,0 +1,16 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventgrid_event_subscription" 
+}
+
+inputs = {
+   name = "name of eventgrid_event_subscription" 
+   scope = "scope of eventgrid_event_subscription" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

@@ -33,3 +33,25 @@ Manages an Azure App Configuration Key.-> **Note:** App Configuration Keys are p
 | **tags** | map  | - | 
 | **id** | string  | The App Configuration Key ID. | 
 | **etag** | string  | The ETag of the key. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_configuration/app_configuration_key" 
+}
+
+inputs = {
+   configuration_store_id = "configuration_store_id of app_configuration_key" 
+   key = "key of app_configuration_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

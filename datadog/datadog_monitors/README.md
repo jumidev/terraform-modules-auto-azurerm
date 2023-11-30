@@ -36,3 +36,29 @@ Manages a datadog Monitor.
 | **marketplace_subscription_status** | string  | Flag specifying the Marketplace Subscription Status of the resource. If payment is not made in time, the resource will go in Suspended state. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Identity of this Datadog Monitor. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Identity of this Datadog Monitor. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "datadog/datadog_monitors" 
+}
+
+inputs = {
+   name = "name of datadog_monitors" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku_name = "sku_name of datadog_monitors" 
+   user = "user of datadog_monitors" 
+   datadog_organization = "datadog_organization of datadog_monitors" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

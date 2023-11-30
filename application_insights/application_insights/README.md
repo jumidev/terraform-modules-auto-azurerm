@@ -47,3 +47,27 @@ Manages an Application Insights component.
 | **app_id** | string  | The App ID associated with this Application Insights component. | 
 | **instrumentation_key** | string  | The Instrumentation Key for this Application Insights component. (Sensitive) | 
 | **connection_string** | string  | The Connection String for this Application Insights component. (Sensitive) | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "application_insights/application_insights" 
+}
+
+inputs = {
+   name = "name of application_insights" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   application_type = "application_type of application_insights" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -33,3 +33,28 @@ Manages an Automation Runbook's Webhook.
 | **uri** | string  | - | 
 | **id** | string  | The Automation Webhook ID. | 
 | **uri** | string  | (Sensitive) Generated URI for this Webhook. Changing this forces a new resource to be created. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_webhook" 
+}
+
+inputs = {
+   name = "name of automation_webhook" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_webhook" 
+   expiry_time = "expiry_time of automation_webhook" 
+   runbook_name = "runbook_name of automation_webhook" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

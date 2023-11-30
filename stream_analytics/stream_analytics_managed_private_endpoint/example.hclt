@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_managed_private_endpoint" 
+}
+
+inputs = {
+   name = "name of stream_analytics_managed_private_endpoint" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_cluster_name = "stream_analytics_cluster_name of stream_analytics_managed_private_endpoint" 
+   target_resource_id = "target_resource_id of stream_analytics_managed_private_endpoint" 
+   subresource_name = "subresource_name of stream_analytics_managed_private_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

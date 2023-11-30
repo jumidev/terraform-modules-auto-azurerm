@@ -38,3 +38,28 @@ Manages an App Service: Service Plan.
 | **id** | string  | The ID of the Service Plan. | 
 | **kind** | string  | A string representing the Kind of Service Plan. | 
 | **reserved** | string  | Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/service_plan" 
+}
+
+inputs = {
+   name = "name of service_plan" 
+   location = "${location}" 
+   os_type = "os_type of service_plan" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of service_plan" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

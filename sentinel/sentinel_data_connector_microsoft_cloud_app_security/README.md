@@ -24,3 +24,25 @@ Manages a Microsoft Cloud App Security Data Connector.!> **NOTE:** This resource
 | **discovery_logs_enabled** | bool  | - | 
 | **tenant_id** | string  | - | 
 | **id** | string  | The ID of the Microsoft Cloud App Security Data Connector. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_data_connector_microsoft_cloud_app_security" 
+}
+
+inputs = {
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_data_connector_microsoft_cloud_app_security" 
+   name = "name of sentinel_data_connector_microsoft_cloud_app_security" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

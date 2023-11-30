@@ -32,3 +32,26 @@ Manages a custom virtual machine image that can be used to create virtual machin
 | **zone_resilient** | bool  | - | 
 | **hyper_v_generation** | string  | - | 
 | **id** | string  | The ID of the Image. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/image" 
+}
+
+inputs = {
+   name = "name of image" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

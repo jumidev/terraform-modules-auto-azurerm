@@ -41,3 +41,28 @@ Manages a Data Collection Rule.
 | **immutable_id** | string  | The immutable ID of the Data Collection Rule. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_data_collection_rule" 
+}
+
+inputs = {
+   data_flow = "data_flow of monitor_data_collection_rule" 
+   destinations = "destinations of monitor_data_collection_rule" 
+   location = "${location}" 
+   name = "name of monitor_data_collection_rule" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

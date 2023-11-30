@@ -48,3 +48,29 @@ Manages a Resource Group.
 | **upgrade_wave** | string  | - | 
 | **username** | string  | - | 
 | **id** | string  | The ID of the Resource Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "service_fabric_managed_clusters/service_fabric_managed_cluster" 
+}
+
+inputs = {
+   client_connection_port = "client_connection_port of service_fabric_managed_cluster" 
+   http_gateway_port = "http_gateway_port of service_fabric_managed_cluster" 
+   lb_rule = "lb_rule of service_fabric_managed_cluster" 
+   location = "${location}" 
+   name = "name of service_fabric_managed_cluster" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -20,3 +20,25 @@ Manages a Azure Active Directory Data Connector.
 | **name** | string  | - | 
 | **tenant_id** | string  | - | 
 | **id** | string  | The ID of the Azure Active Directory Data Connector. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_data_connector_azure_active_directory" 
+}
+
+inputs = {
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_data_connector_azure_active_directory" 
+   name = "name of sentinel_data_connector_azure_active_directory" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

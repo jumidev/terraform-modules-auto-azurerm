@@ -43,3 +43,27 @@ Manages a Blob within a Storage Container.
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the Storage Blob. | 
 | **url** | string  | The URL of the blob | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_blob" 
+}
+
+inputs = {
+   name = "name of storage_blob" 
+   storage_account_name = "storage_account_name of storage_blob" 
+   storage_container_name = "storage_container_name of storage_blob" 
+   type = "type of storage_blob" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -30,3 +30,26 @@ Manages an IotHub ServiceBus Queue Endpoint~> **NOTE:** Endpoints can be defined
 | **connection_string** | string  | - | 
 | **iothub_id** | string  | - | 
 | **id** | string  | The ID of the IoTHub ServiceBus Queue Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_endpoint_servicebus_queue" 
+}
+
+inputs = {
+   name = "name of iothub_endpoint_servicebus_queue" 
+   resource_group_name = "${resource_group}" 
+   iothub_id = "iothub_id of iothub_endpoint_servicebus_queue" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

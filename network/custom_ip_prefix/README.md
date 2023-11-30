@@ -36,3 +36,27 @@ Manages a custom IPv4 prefix or custom IPv6 prefix.
 | **wan_validation_signed_message** | string  | - | 
 | **zones** | string  | - | 
 | **id** | string  | The ID of the Custom IP Prefix. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/custom_ip_prefix" 
+}
+
+inputs = {
+   name = "name of custom_ip_prefix" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   cidr = "cidr of custom_ip_prefix" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

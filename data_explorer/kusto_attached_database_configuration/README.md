@@ -31,3 +31,29 @@ Manages a Kusto (also known as Azure Data Explorer) Attached Database Configurat
 | **sharing** | block  | - | 
 | **id** | string  | The Kusto Attached Database Configuration ID. | 
 | **attached_database_names** | string  | The list of databases from the `cluster_resource_id` which are currently attached to the cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_attached_database_configuration" 
+}
+
+inputs = {
+   name = "name of kusto_attached_database_configuration" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   cluster_name = "cluster_name of kusto_attached_database_configuration" 
+   cluster_resource_id = "cluster_resource_id of kusto_attached_database_configuration" 
+   database_name = "database_name of kusto_attached_database_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

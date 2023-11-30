@@ -32,3 +32,28 @@ Manages an Automation Connection.
 | **AzureServicePrincipal** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The Automation Connection ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_connection" 
+}
+
+inputs = {
+   name = "name of automation_connection" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_connection" 
+   type = "type of automation_connection" 
+   values = "values of automation_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

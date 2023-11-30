@@ -23,3 +23,26 @@ Manages a Mobile Network Site.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Mobile Network Site. | 
 | **network_function_ids** | string  | An array of Id of Network Functions deployed on the site. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_site" 
+}
+
+inputs = {
+   name = "name of mobile_network_site" 
+   mobile_network_id = "mobile_network_id of mobile_network_site" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

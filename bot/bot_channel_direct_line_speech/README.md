@@ -30,3 +30,28 @@ Manages a Direct Line Speech integration for a Bot Channel
 | **custom_speech_model_id** | string  | - | 
 | **custom_voice_deployment_id** | string  | - | 
 | **id** | string  | The ID of the Direct Line Speech Channel. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_direct_line_speech" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_direct_line_speech" 
+   cognitive_service_access_key = "cognitive_service_access_key of bot_channel_direct_line_speech" 
+   cognitive_service_location = "cognitive_service_location of bot_channel_direct_line_speech" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

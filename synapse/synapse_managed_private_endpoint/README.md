@@ -22,3 +22,27 @@ Manages a Synapse Managed Private Endpoint.
 | **target_resource_id** | string  | - | 
 | **subresource_name** | string  | - | 
 | **id** | string  | The Synapse Managed Private Endpoint ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_managed_private_endpoint" 
+}
+
+inputs = {
+   name = "name of synapse_managed_private_endpoint" 
+   synapse_workspace_id = "synapse_workspace_id of synapse_managed_private_endpoint" 
+   target_resource_id = "target_resource_id of synapse_managed_private_endpoint" 
+   subresource_name = "subresource_name of synapse_managed_private_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

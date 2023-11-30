@@ -51,3 +51,26 @@ Manages a Firewall Policy.
 | **child_policies** | list  | A list of reference to child Firewall Policies of this Firewall Policy. | 
 | **firewalls** | list  | A list of references to Azure Firewalls that this Firewall Policy is associated with. | 
 | **rule_collection_groups** | list  | A list of references to Firewall Policy Rule Collection Groups that belongs to this Firewall Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/firewall_policy" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of firewall_policy" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -22,3 +22,27 @@ Manages a Spring Cloud Storage.
 | **storage_account_key** | string  | - | 
 | **storage_account_name** | string  | - | 
 | **id** | string  | The ID of the Spring Cloud Storage. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_storage" 
+}
+
+inputs = {
+   name = "name of spring_cloud_storage" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_storage" 
+   storage_account_key = "storage_account_key of spring_cloud_storage" 
+   storage_account_name = "storage_account_name of spring_cloud_storage" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

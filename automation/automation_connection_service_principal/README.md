@@ -30,3 +30,30 @@ Manages an Automation Connection with type `AzureServicePrincipal`.
 | **tenant_id** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The Automation Connection ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_connection_service_principal" 
+}
+
+inputs = {
+   name = "name of automation_connection_service_principal" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_connection_service_principal" 
+   application_id = "application_id of automation_connection_service_principal" 
+   certificate_thumbprint = "certificate_thumbprint of automation_connection_service_principal" 
+   subscription_id = "subscription_id of automation_connection_service_principal" 
+   tenant_id = "tenant_id of automation_connection_service_principal" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

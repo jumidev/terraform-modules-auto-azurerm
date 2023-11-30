@@ -39,3 +39,27 @@ Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communica
 | **ip_configuration_id** | string  | The pre-defined id of VPN Gateway IP Configuration. | 
 | **default_ips** | string  | The list of default BGP peering addresses which belong to the pre-defined VPN Gateway IP configuration. | 
 | **tunnel_ips** | string  | The list of tunnel public IP addresses which belong to the pre-defined VPN Gateway IP configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/vpn_gateway" 
+}
+
+inputs = {
+   name = "name of vpn_gateway" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   virtual_hub_id = "virtual_hub_id of vpn_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

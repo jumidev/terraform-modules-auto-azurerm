@@ -24,3 +24,26 @@ Manages an iSCSI Target.!> **Note:** Azure are officially [halting](https://lear
 | **id** | string  | The ID of the iSCSI Target. | 
 | **endpoints** | string  | List of private IPv4 addresses to connect to the iSCSI Target. | 
 | **port** | string  | The port used by iSCSI Target portal group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "disks/disk_pool_iscsi_target" 
+}
+
+inputs = {
+   acl_mode = "acl_mode of disk_pool_iscsi_target" 
+   disks_pool_id = "disks_pool_id of disk_pool_iscsi_target" 
+   name = "name of disk_pool_iscsi_target" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

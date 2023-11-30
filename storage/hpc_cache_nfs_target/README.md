@@ -24,3 +24,28 @@ Manages a NFS Target within a HPC Cache.~> **NOTE:**: By request of the service 
 | **target_host_name** | string  | - | 
 | **usage_model** | string  | - | 
 | **id** | string  | The ID of the HPC Cache NFS Target. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/hpc_cache_nfs_target" 
+}
+
+inputs = {
+   name = "name of hpc_cache_nfs_target" 
+   resource_group_name = "${resource_group}" 
+   cache_name = "cache_name of hpc_cache_nfs_target" 
+   target_host_name = "target_host_name of hpc_cache_nfs_target" 
+   usage_model = "usage_model of hpc_cache_nfs_target" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -43,3 +43,28 @@ Manages a NetApp Snapshot Policy.## NetApp Snapshot Policy Usage```hclresource "
 | **daily_schedule** | string  | Daily snapshot schedule. | 
 | **weekly_schedule** | string  | Weekly snapshot schedule. | 
 | **monthly_schedule** | string  | Monthly snapshot schedule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "netapp/netapp_snapshot_policy" 
+}
+
+inputs = {
+   name = "name of netapp_snapshot_policy" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   account_name = "account_name of netapp_snapshot_policy" 
+   enabled = "enabled of netapp_snapshot_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

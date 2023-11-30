@@ -28,3 +28,26 @@ Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
 | **analytical_storage_ttl** | string  | - | 
 | **autoscale_settings** | block  | - | 
 | **id** | string  | the ID of the CosmosDB Cassandra Table. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_cassandra_table" 
+}
+
+inputs = {
+   name = "name of cosmosdb_cassandra_table" 
+   cassandra_keyspace_id = "cassandra_keyspace_id of cosmosdb_cassandra_table" 
+   schema = "schema of cosmosdb_cassandra_table" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

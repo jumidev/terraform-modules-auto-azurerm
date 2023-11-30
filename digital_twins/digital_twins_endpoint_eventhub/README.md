@@ -24,3 +24,27 @@ Manages a Digital Twins Event Hub Endpoint.
 | **eventhub_secondary_connection_string** | string  | - | 
 | **dead_letter_storage_secret** | int  | - | 
 | **id** | string  | The ID of the Digital Twins Event Hub Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "digital_twins/digital_twins_endpoint_eventhub" 
+}
+
+inputs = {
+   name = "name of digital_twins_endpoint_eventhub" 
+   digital_twins_id = "digital_twins_id of digital_twins_endpoint_eventhub" 
+   eventhub_primary_connection_string = "eventhub_primary_connection_string of digital_twins_endpoint_eventhub" 
+   eventhub_secondary_connection_string = "eventhub_secondary_connection_string of digital_twins_endpoint_eventhub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

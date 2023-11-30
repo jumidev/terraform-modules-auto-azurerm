@@ -26,3 +26,28 @@ Manages a Video Analyzer.!> Video Analyzer (Preview) is now Deprecated and will 
 | **identity** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Video Analyzer. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "video_analyzer/video_analyzer" 
+}
+
+inputs = {
+   name = "name of video_analyzer" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_account = "storage_account of video_analyzer" 
+   identity = "identity of video_analyzer" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

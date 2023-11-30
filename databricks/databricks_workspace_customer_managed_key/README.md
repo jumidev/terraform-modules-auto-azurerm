@@ -18,3 +18,25 @@ Manages a Customer Managed Key for a Databricks Workspace root DBFS!>**IMPORTANT
 | **workspace_id** | string  | - | 
 | **key_vault_key_id** | string  | - | 
 | **id** | string  | The ID of the Databricks Workspace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "databricks/databricks_workspace_customer_managed_key" 
+}
+
+inputs = {
+   workspace_id = "workspace_id of databricks_workspace_customer_managed_key" 
+   key_vault_key_id = "key_vault_key_id of databricks_workspace_customer_managed_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

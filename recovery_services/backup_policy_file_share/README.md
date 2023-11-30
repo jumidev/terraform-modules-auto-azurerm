@@ -20,3 +20,26 @@ Manages an Azure File Share Backup Policy within a Recovery Services vault.
 | **resource_group_name** | string  | - | 
 | **recovery_vault_name** | string  | - | 
 | **id** | string  | The ID of the Azure File Share Backup Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "recovery_services/backup_policy_file_share" 
+}
+
+inputs = {
+   name = "name of backup_policy_file_share" 
+   resource_group_name = "${resource_group}" 
+   recovery_vault_name = "recovery_vault_name of backup_policy_file_share" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,24 @@ Manages a API Management Custom Domain.## Disclaimers~> **Note:** It's possible 
 | **gateway** | block  | - | 
 | **scm** | block  | - | 
 | **id** | string  | The ID of the API Management Custom Domain. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_custom_domain" 
+}
+
+inputs = {
+   api_management_id = "api_management_id of api_management_custom_domain" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

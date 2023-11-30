@@ -30,3 +30,27 @@ Manages an Activity Log Alert within Azure Monitor.
 | **description** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the activity log alert. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_activity_log_alert" 
+}
+
+inputs = {
+   name = "name of monitor_activity_log_alert" 
+   resource_group_name = "${resource_group}" 
+   scopes = "scopes of monitor_activity_log_alert" 
+   criteria = "criteria of monitor_activity_log_alert" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

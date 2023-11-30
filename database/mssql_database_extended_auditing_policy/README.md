@@ -28,3 +28,24 @@ Manages a MS SQL Database Extended Auditing Policy.
 | **storage_account_access_key_is_secondary** | string  | - | 
 | **log_monitoring_enabled** | bool  | - | 
 | **id** | string  | The ID of the MS SQL Database Extended Auditing Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_database_extended_auditing_policy" 
+}
+
+inputs = {
+   database_id = "database_id of mssql_database_extended_auditing_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

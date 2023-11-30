@@ -39,3 +39,31 @@ Manages an Azure Managed Lustre File System.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Azure Managed Lustre File System. | 
 | **mgs_address** | string  | IP Address of Managed Lustre File System Services. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "azure_managed_lustre_file_system/managed_lustre_file_system" 
+}
+
+inputs = {
+   name = "name of managed_lustre_file_system" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   maintenance_window = "maintenance_window of managed_lustre_file_system" 
+   sku_name = "sku_name of managed_lustre_file_system" 
+   storage_capacity_in_tb = "storage_capacity_in_tb of managed_lustre_file_system" 
+   subnet_id = "subnet_id of managed_lustre_file_system" 
+   zones = "zones of managed_lustre_file_system" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -27,3 +27,28 @@ Manages a Log Analytics Data Export Rule.
 | **enabled** | bool  | - | 
 | **id** | string  | The ID of the Log Analytics Data Export Rule. | 
 | **export_rule_id** | string  | The ID of the created Data Export Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "log_analytics/log_analytics_data_export_rule" 
+}
+
+inputs = {
+   name = "name of log_analytics_data_export_rule" 
+   resource_group_name = "${resource_group}" 
+   workspace_resource_id = "workspace_resource_id of log_analytics_data_export_rule" 
+   destination_resource_id = "destination_resource_id of log_analytics_data_export_rule" 
+   table_names = "table_names of log_analytics_data_export_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -29,3 +29,28 @@ Manages a Notification Hub Namespace.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Notification Hub Namespace. | 
 | **servicebus_endpoint** | string  | The ServiceBus Endpoint for this Notification Hub Namespace. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/notification_hub_namespace" 
+}
+
+inputs = {
+   name = "name of notification_hub_namespace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   namespace_type = "namespace_type of notification_hub_namespace" 
+   sku_name = "sku_name of notification_hub_namespace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

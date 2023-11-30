@@ -24,3 +24,27 @@ Manages a Logic App Integration Account Partner.
 | **business_identity** | block  | - | 
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the Logic App Integration Account Partner. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_integration_account_partner" 
+}
+
+inputs = {
+   name = "name of logic_app_integration_account_partner" 
+   resource_group_name = "${resource_group}" 
+   integration_account_name = "integration_account_name of logic_app_integration_account_partner" 
+   business_identity = "business_identity of logic_app_integration_account_partner" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

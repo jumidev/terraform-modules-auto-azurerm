@@ -26,3 +26,26 @@ Manages a ServiceBus Subscription Rule.
 | **correlation_filter** | block  | - | 
 | **action** | string  | - | 
 | **id** | string  | The ServiceBus Subscription Rule ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/servicebus_subscription_rule" 
+}
+
+inputs = {
+   name = "name of servicebus_subscription_rule" 
+   subscription_id = "subscription_id of servicebus_subscription_rule" 
+   filter_type = "filter_type of servicebus_subscription_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

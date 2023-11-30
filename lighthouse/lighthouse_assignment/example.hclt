@@ -1,0 +1,16 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lighthouse/lighthouse_assignment" 
+}
+
+inputs = {
+   scope = "scope of lighthouse_assignment" 
+   lighthouse_definition_id = "lighthouse_definition_id of lighthouse_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

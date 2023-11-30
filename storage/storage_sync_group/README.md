@@ -18,3 +18,25 @@ Manages a Storage Sync Group.
 | **name** | string  | - | 
 | **storage_sync_id** | string  | - | 
 | **id** | string  | The ID of the Storage Sync Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_sync_group" 
+}
+
+inputs = {
+   name = "name of storage_sync_group" 
+   storage_sync_id = "storage_sync_id of storage_sync_group" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

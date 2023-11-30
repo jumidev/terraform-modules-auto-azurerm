@@ -22,3 +22,26 @@ Manages an API Management Gateway.
 | **location_data** | block  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the API Management Gateway. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_gateway" 
+}
+
+inputs = {
+   name = "name of api_management_gateway" 
+   api_management_id = "api_management_id of api_management_gateway" 
+   location_data = "location_data of api_management_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

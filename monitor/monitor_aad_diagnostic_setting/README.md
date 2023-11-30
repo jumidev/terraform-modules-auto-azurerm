@@ -28,3 +28,24 @@ Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.!> **Auth
 | **log_analytics_workspace_id** | string  | - | 
 | **storage_account_id** | string  | - | 
 | **id** | string  | The ID of the Monitor Azure Active Directory Diagnostic Setting. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_aad_diagnostic_setting" 
+}
+
+inputs = {
+   name = "name of monitor_aad_diagnostic_setting" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

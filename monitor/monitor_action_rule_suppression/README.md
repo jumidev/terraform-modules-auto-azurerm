@@ -30,3 +30,26 @@ Manages a Monitor Action Rule which type is suppression.!> **NOTE:** This resour
 | **condition** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Monitor Action Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_action_rule_suppression" 
+}
+
+inputs = {
+   name = "name of monitor_action_rule_suppression" 
+   resource_group_name = "${resource_group}" 
+   suppression = "suppression of monitor_action_rule_suppression" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

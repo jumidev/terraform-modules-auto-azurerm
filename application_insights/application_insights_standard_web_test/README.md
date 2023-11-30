@@ -41,3 +41,29 @@ Manages a Application Insights Standard WebTest.
 | **validation_rules** | block  | - | 
 | **id** | string  | The ID of the Application Insights Standard WebTest. | 
 | **synthetic_monitor_id** | string  | Unique ID of this WebTest. This is typically the same value as the Name field. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "application_insights/application_insights_standard_web_test" 
+}
+
+inputs = {
+   name = "name of application_insights_standard_web_test" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   application_insights_id = "application_insights_id of application_insights_standard_web_test" 
+   geo_locations = "geo_locations of application_insights_standard_web_test" 
+   request = "request of application_insights_standard_web_test" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

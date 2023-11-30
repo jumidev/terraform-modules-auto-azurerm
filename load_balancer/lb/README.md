@@ -41,3 +41,26 @@ Manages a Load Balancer Resource.
 | **public_ip_address_id** | string  | The ID of a Public IP Address which is associated with this Load Balancer. | 
 | **public_ip_prefix_id** | string  | The ID of a Public IP Prefix which is associated with the Load Balancer. | 
 | **subnet_id** | string  | The ID of the Subnet which is associated with the IP Configuration. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb" 
+}
+
+inputs = {
+   name = "name of lb" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

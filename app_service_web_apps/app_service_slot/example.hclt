@@ -1,0 +1,19 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_slot" 
+}
+
+inputs = {
+   name = "name of app_service_slot" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   app_service_plan_id = "app_service_plan_id of app_service_slot" 
+   app_service_name = "app_service_name of app_service_slot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

@@ -26,3 +26,25 @@ Manages a Data Lake Gen2 File System within an Azure Storage Account.~> **NOTE:*
 | **owner** | string  | - | 
 | **group** | string  | - | 
 | **id** | string  | The ID of the Data Lake Gen2 File System. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage/storage_data_lake_gen2_filesystem" 
+}
+
+inputs = {
+   name = "name of storage_data_lake_gen2_filesystem" 
+   storage_account_id = "storage_account_id of storage_data_lake_gen2_filesystem" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

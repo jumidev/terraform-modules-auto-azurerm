@@ -20,3 +20,25 @@ Manages an App Service Source Control Token.~> **NOTE:** This resource can only 
 | **token** | string  | - | 
 | **token_secret** | string  | - | 
 | **id** | string  | The ID of the App Service Source GitHub Token. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/source_control_token" 
+}
+
+inputs = {
+   type = "type of source_control_token" 
+   token = "token of source_control_token" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

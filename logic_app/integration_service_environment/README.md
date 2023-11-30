@@ -32,3 +32,28 @@ Manages private and isolated Logic App instances within an Azure virtual network
 | **connector_outbound_ip_addresses** | string  | The list of outgoing IP addresses of connector. | 
 | **workflow_endpoint_ip_addresses** | string  | The list of access endpoint IP addresses of workflow. | 
 | **workflow_outbound_ip_addresses** | string  | The list of outgoing IP addresses of workflow. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/integration_service_environment" 
+}
+
+inputs = {
+   name = "name of integration_service_environment" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   access_endpoint_type = "access_endpoint_type of integration_service_environment" 
+   virtual_network_subnet_ids = "virtual_network_subnet_ids of integration_service_environment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

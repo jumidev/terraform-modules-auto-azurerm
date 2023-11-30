@@ -32,3 +32,26 @@ Manages an IoT Hub Device Update Account.
 | **identity** | block  | An `identity` block. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this IoT Hub Device Update Account. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_device_update_account" 
+}
+
+inputs = {
+   name = "name of iothub_device_update_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

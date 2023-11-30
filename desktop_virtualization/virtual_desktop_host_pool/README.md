@@ -44,3 +44,28 @@ Manages a Virtual Desktop Host Pool.
 | **scheduled_agent_updates** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Virtual Desktop Host Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "desktop_virtualization/virtual_desktop_host_pool" 
+}
+
+inputs = {
+   name = "name of virtual_desktop_host_pool" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   type = "type of virtual_desktop_host_pool" 
+   load_balancer_type = "load_balancer_type of virtual_desktop_host_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

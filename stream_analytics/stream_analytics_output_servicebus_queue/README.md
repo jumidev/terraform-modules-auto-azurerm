@@ -36,3 +36,29 @@ Manages a Stream Analytics Output to a ServiceBus Queue.
 | **authentication_mode** | string  | - | 
 | **system_property_columns** | string  | - | 
 | **id** | string  | The ID of the Stream Analytics Output ServiceBus Queue. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "stream_analytics/stream_analytics_output_servicebus_queue" 
+}
+
+inputs = {
+   name = "name of stream_analytics_output_servicebus_queue" 
+   resource_group_name = "${resource_group}" 
+   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_servicebus_queue" 
+   queue_name = "queue_name of stream_analytics_output_servicebus_queue" 
+   servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_queue" 
+   serialization = "serialization of stream_analytics_output_servicebus_queue" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

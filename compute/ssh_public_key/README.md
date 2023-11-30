@@ -24,3 +24,27 @@ Manages a SSH Public Key.
 | **resource_group_name** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the SSH Public Key. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/ssh_public_key" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of ssh_public_key" 
+   public_key = "public_key of ssh_public_key" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

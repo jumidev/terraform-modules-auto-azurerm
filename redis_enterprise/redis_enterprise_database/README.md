@@ -36,3 +36,24 @@ Manages a Redis Enterprise Database.
 | **id** | string  | The ID of the Redis Enterprise Database. | 
 | **primary_access_key** | string  | The Primary Access Key for the Redis Enterprise Database Instance. | 
 | **secondary_access_key** | string  | The Secondary Access Key for the Redis Enterprise Database Instance. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "redis_enterprise/redis_enterprise_database" 
+}
+
+inputs = {
+   cluster_id = "cluster_id of redis_enterprise_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

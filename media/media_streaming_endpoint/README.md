@@ -48,3 +48,28 @@ Manages a Streaming Endpoint.
 | **sku** | block  | A `sku` block defined as below. | 
 | **name** | string  | The sku name of Streaming Endpoint. | 
 | **capacity** | string  | The sku capacity of Streaming Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_streaming_endpoint" 
+}
+
+inputs = {
+   location = "${location}" 
+   media_services_account_name = "media_services_account_name of media_streaming_endpoint" 
+   name = "name of media_streaming_endpoint" 
+   resource_group_name = "${resource_group}" 
+   scale_units = "scale_units of media_streaming_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

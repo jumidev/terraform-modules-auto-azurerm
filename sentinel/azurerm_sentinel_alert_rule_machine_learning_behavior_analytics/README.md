@@ -22,3 +22,26 @@ Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
 | **alert_rule_template_guid** | string  | - | 
 | **enabled** | bool  | - | 
 | **id** | string  | The ID of the Sentinel Machine Learning Behavior Analytics Alert Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+}
+
+inputs = {
+   name = "name of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+   alert_rule_template_guid = "alert_rule_template_guid of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

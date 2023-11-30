@@ -27,3 +27,28 @@ Manages a Mobile Network.
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Mobile Network. | 
 | **service_key** | string  | The mobile network resource identifier. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network" 
+}
+
+inputs = {
+   name = "name of mobile_network" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   mobile_country_code = "mobile_country_code of mobile_network" 
+   mobile_network_code = "mobile_network_code of mobile_network" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

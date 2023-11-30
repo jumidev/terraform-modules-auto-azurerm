@@ -27,3 +27,28 @@ Enables you to manage DNS PTR Records within Azure DNS.~> **Note:** [The Azure D
 | **tags** | map  | - | 
 | **id** | string  | The DNS PTR Record ID. | 
 | **fqdn** | string  | The FQDN of the DNS PTR Record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dns/dns_ptr_record" 
+}
+
+inputs = {
+   name = "name of dns_ptr_record" 
+   resource_group_name = "${resource_group}" 
+   zone_name = "zone_name of dns_ptr_record" 
+   ttl = "ttl of dns_ptr_record" 
+   records = "records of dns_ptr_record" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,26 @@ Manages a Storage Mover Source Endpoint.
 | **nfs_version** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Storage Mover Source Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "storage_mover/storage_mover_source_endpoint" 
+}
+
+inputs = {
+   name = "name of storage_mover_source_endpoint" 
+   storage_mover_id = "storage_mover_id of storage_mover_source_endpoint" 
+   host = "host of storage_mover_source_endpoint" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

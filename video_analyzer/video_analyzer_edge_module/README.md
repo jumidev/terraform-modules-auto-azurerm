@@ -20,3 +20,26 @@ Manages a Video Analyzer Edge Module.!> Video Analyzer (Preview) is now Deprecat
 | **resource_group_name** | string  | - | 
 | **video_analyzer_name** | string  | - | 
 | **id** | string  | The ID of the Video Analyzer Edge Module. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "video_analyzer/video_analyzer_edge_module" 
+}
+
+inputs = {
+   name = "name of video_analyzer_edge_module" 
+   resource_group_name = "${resource_group}" 
+   video_analyzer_name = "video_analyzer_name of video_analyzer_edge_module" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

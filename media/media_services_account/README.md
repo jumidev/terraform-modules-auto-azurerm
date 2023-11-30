@@ -38,3 +38,27 @@ Manages a Media Services Account.
 | **current_key_identifier** | string  | The current key used to encrypt the Media Services Account, including the key version. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_services_account" 
+}
+
+inputs = {
+   name = "name of media_services_account" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   storage_account = "storage_account of media_services_account" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -21,3 +21,25 @@ Manages a Static Site Custom Domain.!> DNS validation polling is only done for C
 | **validation_type** | string  | - | 
 | **id** | string  | The ID of the Static Site Custom Domain. | 
 | **validation_token** | string  | Token to be used with `dns-txt-token` validation. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/static_site_custom_domain" 
+}
+
+inputs = {
+   domain_name = "domain_name of static_site_custom_domain" 
+   static_site_id = "static_site_id of static_site_custom_domain" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

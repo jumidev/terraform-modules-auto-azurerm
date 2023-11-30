@@ -34,3 +34,31 @@ Manages a Digital Twins Time Series Database Connection.
 | **eventhub_consumer_group_name** | string  | - | 
 | **kusto_table_name** | string  | - | 
 | **id** | string  | The ID of the Digital Twins Time Series Database Connection. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "digital_twins/digital_twins_time_series_database_connection" 
+}
+
+inputs = {
+   name = "name of digital_twins_time_series_database_connection" 
+   digital_twins_id = "digital_twins_id of digital_twins_time_series_database_connection" 
+   eventhub_name = "eventhub_name of digital_twins_time_series_database_connection" 
+   eventhub_namespace_endpoint_uri = "eventhub_namespace_endpoint_uri of digital_twins_time_series_database_connection" 
+   eventhub_namespace_id = "eventhub_namespace_id of digital_twins_time_series_database_connection" 
+   kusto_cluster_id = "kusto_cluster_id of digital_twins_time_series_database_connection" 
+   kusto_cluster_uri = "kusto_cluster_uri of digital_twins_time_series_database_connection" 
+   kusto_database_name = "kusto_database_name of digital_twins_time_series_database_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

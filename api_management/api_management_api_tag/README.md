@@ -18,3 +18,25 @@ Manages the Assignment of an API Management API Tag to an API.
 | **api_id** | string  | - | 
 | **name** | string  | - | 
 | **id** | string  | The ID of the API Management API Tag. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_api_tag" 
+}
+
+inputs = {
+   api_id = "api_id of api_management_api_tag" 
+   name = "name of api_management_api_tag" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

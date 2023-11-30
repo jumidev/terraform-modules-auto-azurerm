@@ -36,3 +36,25 @@ Manages a Diagnostic Setting for an existing Resource.
 | **log_analytics_destination_type** | string  | - | 
 | **partner_solution_id** | string  | - | 
 | **id** | string  | The ID of the Diagnostic Setting. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "monitor/monitor_diagnostic_setting" 
+}
+
+inputs = {
+   name = "name of monitor_diagnostic_setting" 
+   target_resource_id = "target_resource_id of monitor_diagnostic_setting" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

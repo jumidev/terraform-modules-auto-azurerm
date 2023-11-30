@@ -22,3 +22,27 @@ Manages an Alexa integration for a Bot Channel~> **Note** A bot can only have a 
 | **bot_name** | string  | - | 
 | **skill_id** | string  | - | 
 | **id** | string  | The ID of the Alexa Integration for a Bot Channel. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_alexa" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_alexa" 
+   skill_id = "skill_id of bot_channel_alexa" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

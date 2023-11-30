@@ -30,3 +30,25 @@ Enables you to manage Private DNS zones within Azure DNS. These zones are hosted
 | **fqdn** | string  | The fully qualified domain name of the Record Set. | 
 | **host_name** | string  | The domain name of the authoritative name server for the SOA record. | 
 | **serial_number** | string  | The serial number for the SOA record. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns/private_dns_zone" 
+}
+
+inputs = {
+   name = "name of private_dns_zone" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

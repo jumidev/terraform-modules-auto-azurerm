@@ -42,3 +42,32 @@ Manages an Azure Cost Management Scheduled Action.
 | **message** | string  | - | 
 | **weeks_of_month** | string  | - | 
 | **id** | string  | The ID of the Azure Cost Management Scheduled Action. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cost_management/cost_management_scheduled_action" 
+}
+
+inputs = {
+   display_name = "display_name of cost_management_scheduled_action" 
+   email_address_sender = "email_address_sender of cost_management_scheduled_action" 
+   email_addresses = "email_addresses of cost_management_scheduled_action" 
+   email_subject = "email_subject of cost_management_scheduled_action" 
+   end_date = "end_date of cost_management_scheduled_action" 
+   frequency = "frequency of cost_management_scheduled_action" 
+   name = "name of cost_management_scheduled_action" 
+   start_date = "start_date of cost_management_scheduled_action" 
+   view_id = "view_id of cost_management_scheduled_action" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

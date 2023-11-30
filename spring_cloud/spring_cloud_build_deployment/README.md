@@ -28,3 +28,26 @@ Manages a Spring Cloud Build Deployment.-> **NOTE:** This resource is applicable
 | **instance_count** | int  | - | 
 | **quota** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Build Deployment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_build_deployment" 
+}
+
+inputs = {
+   name = "name of spring_cloud_build_deployment" 
+   spring_cloud_app_id = "spring_cloud_app_id of spring_cloud_build_deployment" 
+   build_result_id = "build_result_id of spring_cloud_build_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

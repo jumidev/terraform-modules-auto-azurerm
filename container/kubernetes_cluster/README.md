@@ -158,3 +158,27 @@ Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Servi
 | **web_app_routing_identity** | block  | A `web_app_routing_identity` block is exported. The exported attributes are defined below. | 
 | **vertical_pod_autoscaler_controlled_values** | string  | Which resources values should be controlled. | 
 | **vertical_pod_autoscaler_update_mode** | string  | How the autoscaler applies changes to pod resources. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "container/kubernetes_cluster" 
+}
+
+inputs = {
+   name = "name of kubernetes_cluster" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   default_node_pool = "default_node_pool of kubernetes_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -27,3 +27,26 @@ Manages an Application Security Group.
 | **location** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Application Security Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/application_security_group" 
+}
+
+inputs = {
+   name = "name of application_security_group" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

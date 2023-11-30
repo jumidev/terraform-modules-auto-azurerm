@@ -30,3 +30,30 @@ Manages a Kusto Cluster Principal Assignment.
 | **id** | string  | The ID of the Kusto Cluster Principal Assignment. | 
 | **principal_name** | string  | The name of the principal. | 
 | **tenant_name** | string  | The name of the tenant. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_explorer/kusto_cluster_principal_assignment" 
+}
+
+inputs = {
+   name = "name of kusto_cluster_principal_assignment" 
+   resource_group_name = "${resource_group}" 
+   cluster_name = "cluster_name of kusto_cluster_principal_assignment" 
+   principal_id = "principal_id of kusto_cluster_principal_assignment" 
+   principal_type = "principal_type of kusto_cluster_principal_assignment" 
+   role = "role of kusto_cluster_principal_assignment" 
+   tenant_id = "tenant_id of kusto_cluster_principal_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

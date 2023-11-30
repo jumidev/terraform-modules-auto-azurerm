@@ -26,3 +26,28 @@ Manages a Backup Policy to back up PostgreSQL.
 | **default_retention_duration** | string  | - | 
 | **retention_rule** | block  | - | 
 | **id** | string  | The ID of the Backup Policy PostgreSQL. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_backup_policy_postgresql" 
+}
+
+inputs = {
+   name = "name of data_protection_backup_policy_postgresql" 
+   resource_group_name = "${resource_group}" 
+   vault_name = "vault_name of data_protection_backup_policy_postgresql" 
+   backup_repeating_time_intervals = "backup_repeating_time_intervals of data_protection_backup_policy_postgresql" 
+   default_retention_duration = "default_retention_duration of data_protection_backup_policy_postgresql" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -40,3 +40,30 @@ Manages a Automation Runbook.
 | **log_activity_trace_level** | string  | - | 
 | **draft** | block  | - | 
 | **id** | string  | The Automation Runbook ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_runbook" 
+}
+
+inputs = {
+   name = "name of automation_runbook" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   automation_account_name = "automation_account_name of automation_runbook" 
+   runbook_type = "runbook_type of automation_runbook" 
+   log_progress = "log_progress of automation_runbook" 
+   log_verbose = "log_verbose of automation_runbook" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

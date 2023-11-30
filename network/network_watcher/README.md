@@ -22,3 +22,26 @@ Manages a Network Watcher.
 | **location** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Network Watcher. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_watcher" 
+}
+
+inputs = {
+   name = "name of network_watcher" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

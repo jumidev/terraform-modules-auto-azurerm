@@ -32,3 +32,26 @@ Manages a Linked Service (connection) between Snowflake and Azure Data Factory.~
 | **additional_properties** | string  | - | 
 | **key_vault_password** | block  | - | 
 | **id** | string  | The ID of the Data Factory Snowflake Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_snowflake" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_snowflake" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_snowflake" 
+   connection_string = "connection_string of data_factory_linked_service_snowflake" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -24,3 +24,27 @@ Allows you to add, update, or remove an Azure SQL server to a subnet of a virtua
 | **subnet_id** | string  | - | 
 | **ignore_missing_vnet_service_endpoint** | string  | - | 
 | **id** | string  | The ID of the SQL virtual network rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/sql_virtual_network_rule" 
+}
+
+inputs = {
+   name = "name of sql_virtual_network_rule" 
+   resource_group_name = "${resource_group}" 
+   server_name = "server_name of sql_virtual_network_rule" 
+   subnet_id = "subnet_id of sql_virtual_network_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

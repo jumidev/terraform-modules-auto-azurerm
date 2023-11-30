@@ -53,3 +53,27 @@ Manages an EventHub Namespace.
 | **default_secondary_key** | string  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
 | **principal_id** | string  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string  | The Tenant ID associated with this Managed Service Identity. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventhub_namespace" 
+}
+
+inputs = {
+   name = "name of eventhub_namespace" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   sku = "sku of eventhub_namespace" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -21,3 +21,27 @@ Manages a service connector for function app.
 | **function_app_id** | string  | - | 
 | **target_resource_id** | string  | - | 
 | **authentication** | block  | - | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/function_app_connection" 
+}
+
+inputs = {
+   name = "name of function_app_connection" 
+   function_app_id = "function_app_id of function_app_connection" 
+   target_resource_id = "target_resource_id of function_app_connection" 
+   authentication = "authentication of function_app_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

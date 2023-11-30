@@ -34,3 +34,28 @@ Manages an Threat Intelligence TAXII Data Connector.
 | **lookback_date** | datetime  | - | 
 | **tenant_id** | string  | - | 
 | **id** | string  | The ID of the Threat Intelligence TAXII Data Connector. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_data_connector_threat_intelligence_taxii" 
+}
+
+inputs = {
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_data_connector_threat_intelligence_taxii" 
+   name = "name of sentinel_data_connector_threat_intelligence_taxii" 
+   display_name = "display_name of sentinel_data_connector_threat_intelligence_taxii" 
+   api_root_url = "api_root_url of sentinel_data_connector_threat_intelligence_taxii" 
+   collection_id = "collection_id of sentinel_data_connector_threat_intelligence_taxii" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

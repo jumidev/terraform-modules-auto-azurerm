@@ -44,3 +44,28 @@ Manages an iot security solution.
 | **query_subscription_ids** | list  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Iot Security Solution resource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "security_center/iot_security_solution" 
+}
+
+inputs = {
+   name = "name of iot_security_solution" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   display_name = "display_name of iot_security_solution" 
+   iothub_ids = "iothub_ids of iot_security_solution" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

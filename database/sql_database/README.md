@@ -46,3 +46,27 @@ Allows you to manage an Azure SQL Database-> **Note:** The `azurerm_sql_database
 | **id** | string  | The SQL Database ID. | 
 | **creation_date** | datetime  | The creation date of the SQL Database. | 
 | **default_secondary_location** | string  | The default secondary location of the SQL Database. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/sql_database" 
+}
+
+inputs = {
+   name = "name of sql_database" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   server_name = "server_name of sql_database" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

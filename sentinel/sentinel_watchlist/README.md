@@ -28,3 +28,27 @@ Manages a Sentinel Watchlist.
 | **description** | string  | - | 
 | **labels** | string  | - | 
 | **id** | string  | The ID of the Sentinel Watchlist. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_watchlist" 
+}
+
+inputs = {
+   name = "name of sentinel_watchlist" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_watchlist" 
+   display_name = "display_name of sentinel_watchlist" 
+   item_search_key = "item_search_key of sentinel_watchlist" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

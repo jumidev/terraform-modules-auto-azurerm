@@ -34,3 +34,29 @@ Manages an API Management User.
 | **password** | string  | - | 
 | **state** | string  | - | 
 | **id** | string  | The ID of the API Management User. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_user" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_user" 
+   resource_group_name = "${resource_group}" 
+   email = "email of api_management_user" 
+   first_name = "first_name of api_management_user" 
+   last_name = "last_name of api_management_user" 
+   user_id = "user_id of api_management_user" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

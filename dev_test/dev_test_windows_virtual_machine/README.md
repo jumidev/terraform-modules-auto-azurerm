@@ -50,3 +50,34 @@ Manages a Windows Virtual Machine within a Dev Test Lab.
 | **inbound_nat_rule** | block  | One or more `inbound_nat_rule` blocks. | 
 | **unique_identifier** | string  | The unique immutable identifier of the Virtual Machine. | 
 | **frontend_port** | string  | The frontend port associated with this Inbound NAT Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dev_test/dev_test_windows_virtual_machine" 
+}
+
+inputs = {
+   name = "name of dev_test_windows_virtual_machine" 
+   lab_name = "lab_name of dev_test_windows_virtual_machine" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   gallery_image_reference = "gallery_image_reference of dev_test_windows_virtual_machine" 
+   lab_subnet_name = "lab_subnet_name of dev_test_windows_virtual_machine" 
+   lab_virtual_network_id = "lab_virtual_network_id of dev_test_windows_virtual_machine" 
+   password = "password of dev_test_windows_virtual_machine" 
+   size = "size of dev_test_windows_virtual_machine" 
+   storage_type = "storage_type of dev_test_windows_virtual_machine" 
+   username = "username of dev_test_windows_virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

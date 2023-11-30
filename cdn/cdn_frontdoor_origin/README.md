@@ -36,3 +36,27 @@ Manages a Front Door (standard/premium) Origin.!>**IMPORTANT:** If you are attem
 | **private_link** | block  | - | 
 | **weight** | int  | - | 
 | **id** | string  | The ID of the Front Door Origin. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_origin" 
+}
+
+inputs = {
+   name = "name of cdn_frontdoor_origin" 
+   cdn_frontdoor_origin_group_id = "cdn_frontdoor_origin_group_id of cdn_frontdoor_origin" 
+   host_name = "host_name of cdn_frontdoor_origin" 
+   certificate_name_check_enabled = "certificate_name_check_enabled of cdn_frontdoor_origin" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

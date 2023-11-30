@@ -28,3 +28,26 @@ Manages a Key Vault Certificate Issuer.
 | **admin** | block  | - | 
 | **password** | string  | - | 
 | **id** | string  | The ID of the Key Vault Certificate Issuer. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_certificate_issuer" 
+}
+
+inputs = {
+   key_vault_id = "key_vault_id of key_vault_certificate_issuer" 
+   name = "name of key_vault_certificate_issuer" 
+   provider_name = "provider_name of key_vault_certificate_issuer" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

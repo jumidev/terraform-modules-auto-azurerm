@@ -18,3 +18,25 @@ Manages the Link To Default Domain property of a Front Door (standard/premium) R
 | **cdn_frontdoor_route_id** | string  | - | 
 | **cdn_frontdoor_custom_domain_ids** | string  | - | 
 | **id** | string  | The ID of the Front Door Route Disable Link To Default Domain. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cdn/cdn_frontdoor_route_disable_link_to_default_domain" 
+}
+
+inputs = {
+   cdn_frontdoor_route_id = "cdn_frontdoor_route_id of cdn_frontdoor_route_disable_link_to_default_domain" 
+   cdn_frontdoor_custom_domain_ids = "cdn_frontdoor_custom_domain_ids of cdn_frontdoor_route_disable_link_to_default_domain" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

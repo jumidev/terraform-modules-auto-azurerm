@@ -42,3 +42,31 @@ Manages a virtual machine scale set.## Disclaimers!> **Note:** The `azurerm_virt
 | **automatic_os_upgrade** | bool  | - | 
 | **boot_diagnostics** | block  | - | 
 | **id** | string  | The virtual machine scale set ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/virtual_machine_scale_set" 
+}
+
+inputs = {
+   name = "name of virtual_machine_scale_set" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   network_profile = "network_profile of virtual_machine_scale_set" 
+   os_profile = "os_profile of virtual_machine_scale_set" 
+   sku = "sku of virtual_machine_scale_set" 
+   storage_profile_os_disk = "storage_profile_os_disk of virtual_machine_scale_set" 
+   upgrade_policy_mode = "upgrade_policy_mode of virtual_machine_scale_set" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

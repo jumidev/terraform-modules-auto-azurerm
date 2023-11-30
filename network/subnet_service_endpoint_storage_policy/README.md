@@ -24,3 +24,26 @@ Manages a Subnet Service Endpoint Storage Policy.
 | **definition** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Subnet Service Endpoint Storage Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/subnet_service_endpoint_storage_policy" 
+}
+
+inputs = {
+   name = "name of subnet_service_endpoint_storage_policy" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

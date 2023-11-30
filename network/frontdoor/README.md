@@ -43,3 +43,30 @@
 | **id** | string  | The ID of the FrontDoor. | 
 | **cname** | string  | The host that each frontendEndpoint must CNAME to. | 
 | **header_frontdoor_id** | string  | The unique ID of the Front Door which is embedded into the incoming headers `X-Azure-FDID` attribute and maybe used to filter traffic sent by the Front Door to your backend. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/frontdoor" 
+}
+
+inputs = {
+   name = "name of frontdoor" 
+   resource_group_name = "${resource_group}" 
+   backend_pool = "backend_pool of frontdoor" 
+   backend_pool_health_probe = "backend_pool_health_probe of frontdoor" 
+   backend_pool_load_balancing = "backend_pool_load_balancing of frontdoor" 
+   frontend_endpoint = "frontend_endpoint of frontdoor" 
+   routing_rule = "routing_rule of frontdoor" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

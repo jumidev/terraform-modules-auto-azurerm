@@ -18,3 +18,25 @@ Manages a Customer Managed Key for a MySQL Server.
 | **server_id** | string  | - | 
 | **key_vault_key_id** | string  | - | 
 | **id** | string  | The ID of the MySQL Server Key. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mysql_server_key" 
+}
+
+inputs = {
+   server_id = "server_id of mysql_server_key" 
+   key_vault_key_id = "key_vault_key_id of mysql_server_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

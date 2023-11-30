@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_deployment" 
+}
+
+inputs = {
+   network_manager_id = "network_manager_id of network_manager_deployment" 
+   location = "${location}" 
+   scope_access = "scope_access of network_manager_deployment" 
+   configuration_ids = "configuration_ids of network_manager_deployment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

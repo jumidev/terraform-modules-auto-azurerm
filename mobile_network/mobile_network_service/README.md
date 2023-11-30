@@ -28,3 +28,28 @@ Manages a Mobile Network Service.
 | **service_qos_policy** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Mobile Network Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "mobile_network/mobile_network_service" 
+}
+
+inputs = {
+   name = "name of mobile_network_service" 
+   mobile_network_id = "mobile_network_id of mobile_network_service" 
+   location = "${location}" 
+   service_precedence = "service_precedence of mobile_network_service" 
+   pcc_rule = "pcc_rule of mobile_network_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

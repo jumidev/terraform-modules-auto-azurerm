@@ -29,3 +29,25 @@ Manages a Spring Cloud API Portal.-> **NOTE:** This resource is applicable only 
 | **sso** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud API Portal. | 
 | **url** | string  | TODO. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_api_portal" 
+}
+
+inputs = {
+   name = "name of spring_cloud_api_portal" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_api_portal" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

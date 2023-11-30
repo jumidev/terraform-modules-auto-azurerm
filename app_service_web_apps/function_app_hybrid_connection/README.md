@@ -29,3 +29,27 @@ Manages a Function App Hybrid Connection.
 | **send_key_value** | string  | The Primary Access Key for the `send_key_name` | 
 | **service_bus_namespace** | string  | The Service Bus Namespace. | 
 | **service_bus_suffix** | string  | The suffix for the endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/function_app_hybrid_connection" 
+}
+
+inputs = {
+   function_app_id = "function_app_id of function_app_hybrid_connection" 
+   relay_id = "relay_id of function_app_hybrid_connection" 
+   hostname = "hostname of function_app_hybrid_connection" 
+   port = "port of function_app_hybrid_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

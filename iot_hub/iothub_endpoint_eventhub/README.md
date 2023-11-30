@@ -30,3 +30,26 @@ Manages an IotHub EventHub Endpoint~> **NOTE:** Endpoints can be defined either 
 | **connection_string** | string  | - | 
 | **iothub_id** | string  | - | 
 | **id** | string  | The ID of the IoTHub EventHub Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_endpoint_eventhub" 
+}
+
+inputs = {
+   name = "name of iothub_endpoint_eventhub" 
+   resource_group_name = "${resource_group}" 
+   iothub_id = "iothub_id of iothub_endpoint_eventhub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -34,3 +34,31 @@ Manages an Azure IoT Time Series Insights IoTHub Event Source.
 | **timestamp_property_name** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the IoT Time Series Insights IoTHub Event Source. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "time_series_insights/iot_time_series_insights_event_source_iothub" 
+}
+
+inputs = {
+   name = "name of iot_time_series_insights_event_source_iothub" 
+   environment_id = "environment_id of iot_time_series_insights_event_source_iothub" 
+   location = "${location}" 
+   iothub_name = "iothub_name of iot_time_series_insights_event_source_iothub" 
+   consumer_group_name = "consumer_group_name of iot_time_series_insights_event_source_iothub" 
+   event_source_resource_id = "event_source_resource_id of iot_time_series_insights_event_source_iothub" 
+   shared_access_key_name = "shared_access_key_name of iot_time_series_insights_event_source_iothub" 
+   shared_access_key = "shared_access_key of iot_time_series_insights_event_source_iothub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

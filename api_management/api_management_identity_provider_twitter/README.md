@@ -22,3 +22,27 @@ Manages an API Management Twitter Identity Provider.
 | **api_key** | string  | - | 
 | **api_secret_key** | string  | - | 
 | **id** | string  | The ID of the API Management Twitter Identity Provider. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_identity_provider_twitter" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_identity_provider_twitter" 
+   resource_group_name = "${resource_group}" 
+   api_key = "api_key of api_management_identity_provider_twitter" 
+   api_secret_key = "api_secret_key of api_management_identity_provider_twitter" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

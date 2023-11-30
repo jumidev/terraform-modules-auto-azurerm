@@ -22,3 +22,25 @@
 | **id** | string  | The ID of the Azure Front Door Custom HTTPS Configuration. | 
 | **custom_https_configuration** | block  | A `custom_https_configuration` block. | 
 | **minimum_tls_version** | string  | Minimum client TLS version supported. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/frontdoor_custom_https_configuration" 
+}
+
+inputs = {
+   frontend_endpoint_id = "frontend_endpoint_id of frontdoor_custom_https_configuration" 
+   custom_https_provisioning_enabled = "custom_https_provisioning_enabled of frontdoor_custom_https_configuration" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

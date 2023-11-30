@@ -24,3 +24,27 @@ Manages a PostgreSQL Virtual Network Rule.-> **NOTE:** PostgreSQL Virtual Networ
 | **subnet_id** | string  | - | 
 | **ignore_missing_vnet_service_endpoint** | string  | - | 
 | **id** | string  | The ID of the PostgreSQL Virtual Network Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/postgresql_virtual_network_rule" 
+}
+
+inputs = {
+   name = "name of postgresql_virtual_network_rule" 
+   resource_group_name = "${resource_group}" 
+   server_name = "server_name of postgresql_virtual_network_rule" 
+   subnet_id = "subnet_id of postgresql_virtual_network_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

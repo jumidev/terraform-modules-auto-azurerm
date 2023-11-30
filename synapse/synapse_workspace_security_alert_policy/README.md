@@ -30,3 +30,25 @@ Manages a Security Alert Policy for a Synapse Workspace.
 | **storage_account_access_key** | string  | - | 
 | **storage_endpoint** | string  | - | 
 | **id** | string  | The ID of the Synapse Workspace Security Alert Policy. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_workspace_security_alert_policy" 
+}
+
+inputs = {
+   synapse_workspace_id = "synapse_workspace_id of synapse_workspace_security_alert_policy" 
+   policy_state = "policy_state of synapse_workspace_security_alert_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

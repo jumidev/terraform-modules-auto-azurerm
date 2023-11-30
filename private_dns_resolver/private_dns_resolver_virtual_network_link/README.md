@@ -22,3 +22,26 @@ Manages a Private DNS Resolver Virtual Network Link.
 | **virtual_network_id** | string  | - | 
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the Private DNS Resolver Virtual Network Link. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "private_dns_resolver/private_dns_resolver_virtual_network_link" 
+}
+
+inputs = {
+   name = "name of private_dns_resolver_virtual_network_link" 
+   dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_virtual_network_link" 
+   virtual_network_id = "virtual_network_id of private_dns_resolver_virtual_network_link" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

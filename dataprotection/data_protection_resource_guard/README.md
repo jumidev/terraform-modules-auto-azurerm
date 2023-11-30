@@ -24,3 +24,26 @@ Manages a Resource Guard.
 | **vault_critical_operation_exclusion_list** | list  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Resource Guard. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "dataprotection/data_protection_resource_guard" 
+}
+
+inputs = {
+   name = "name of data_protection_resource_guard" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,26 @@ Manages a Media Services Account Filter.
 | **presentation_time_range** | block  | - | 
 | **track_selection** | block  | - | 
 | **id** | string  | The ID of the Account Filter. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "media/media_services_account_filter" 
+}
+
+inputs = {
+   name = "name of media_services_account_filter" 
+   resource_group_name = "${resource_group}" 
+   media_services_account_name = "media_services_account_name of media_services_account_filter" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

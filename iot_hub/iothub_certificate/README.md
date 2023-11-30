@@ -24,3 +24,27 @@ Manages an IotHub Certificate.
 | **certificate_content** | string  | - | 
 | **is_verified** | bool  | - | 
 | **id** | string  | The ID of the IoTHub Certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_certificate" 
+}
+
+inputs = {
+   name = "name of iothub_certificate" 
+   resource_group_name = "${resource_group}" 
+   iothub_name = "iothub_name of iothub_certificate" 
+   certificate_content = "certificate_content of iothub_certificate" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

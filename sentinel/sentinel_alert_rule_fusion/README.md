@@ -24,3 +24,26 @@ Manages a Sentinel Fusion Alert Rule.
 | **enabled** | bool  | - | 
 | **source** | block  | - | 
 | **id** | string  | The ID of the Sentinel Fusion Alert Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "sentinel/sentinel_alert_rule_fusion" 
+}
+
+inputs = {
+   name = "name of sentinel_alert_rule_fusion" 
+   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_fusion" 
+   alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_fusion" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

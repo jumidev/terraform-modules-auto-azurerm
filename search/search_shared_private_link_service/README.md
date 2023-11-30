@@ -25,3 +25,27 @@ Manages the Shared Private Link Service for an Azure Search Service.
 | **request_message** | string  | - | 
 | **id** | string  | The ID of the Azure Search Shared Private Link resource. | 
 | **status** | string  | The status of a private endpoint connection. Possible values are Pending, Approved, Rejected or Disconnected. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "search/search_shared_private_link_service" 
+}
+
+inputs = {
+   name = "name of search_shared_private_link_service" 
+   search_service_id = "search_service_id of search_shared_private_link_service" 
+   subresource_name = "subresource_name of search_shared_private_link_service" 
+   target_resource_id = "target_resource_id of search_shared_private_link_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

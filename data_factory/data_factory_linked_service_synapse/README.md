@@ -32,3 +32,26 @@ Manages a Linked Service (connection) between Synapse and Azure Data Factory.~> 
 | **connection_string** | string  | - | 
 | **key_vault_password** | block  | - | 
 | **id** | string  | The ID of the Data Factory Synapse Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_synapse" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_synapse" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_synapse" 
+   connection_string = "connection_string of data_factory_linked_service_synapse" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

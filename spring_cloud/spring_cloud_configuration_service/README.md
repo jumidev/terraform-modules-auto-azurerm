@@ -22,3 +22,25 @@ Manages a Spring Cloud Configuration Service.-> **NOTE:** This resource is appli
 | **generation** | string  | - | 
 | **repository** | block  | - | 
 | **id** | string  | The ID of the Spring Cloud Configuration Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "spring_cloud/spring_cloud_configuration_service" 
+}
+
+inputs = {
+   name = "name of spring_cloud_configuration_service" 
+   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_configuration_service" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

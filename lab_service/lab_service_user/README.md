@@ -22,3 +22,26 @@ Manages a Lab Service User.
 | **email** | string  | - | 
 | **additional_usage_quota** | string  | - | 
 | **id** | string  | The ID of the Lab Service User. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "lab_service/lab_service_user" 
+}
+
+inputs = {
+   name = "name of lab_service_user" 
+   lab_id = "lab_id of lab_service_user" 
+   email = "email of lab_service_user" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

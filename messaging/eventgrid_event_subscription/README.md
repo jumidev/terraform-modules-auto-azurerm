@@ -56,3 +56,25 @@ Manages an EventGrid Event Subscription
 | **labels** | list  | - | 
 | **advanced_filtering_on_arrays_enabled** | bool  | - | 
 | **id** | string  | The ID of the EventGrid Event Subscription. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventgrid_event_subscription" 
+}
+
+inputs = {
+   name = "name of eventgrid_event_subscription" 
+   scope = "scope of eventgrid_event_subscription" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

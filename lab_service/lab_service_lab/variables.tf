@@ -48,12 +48,6 @@ variable "virtual_machine" {
 #   username (string)         : (REQUIRED) The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
 #   password (string)         : (REQUIRED) The password for the Lab user. Changing this forces a new resource to be created.
 #
-# image_reference block structure:
-#   offer (string)                 : The image offer if applicable. Changing this forces a new resource to be created.
-#   publisher (string)             : The image publisher. Changing this forces a new resource to be created.
-#   sku (string)                   : The image SKU. Changing this forces a new resource to be created.
-#   version (string)               : The image version specified on creation. Changing this forces a new resource to be created.
-#
 # sku block structure:
 #   name (string)      : (REQUIRED) The name of the SKU. Changing this forces a new resource to be created.
 #   capacity (string)  : (REQUIRED) The capacity for the SKU. Possible values are between '0' and '400'.
@@ -61,6 +55,12 @@ variable "virtual_machine" {
 # non_admin_user block structure:
 #   username (string)             : (REQUIRED) The username to use when signing in to Lab Service Lab VMs.
 #   password (string)             : (REQUIRED) The password for the user.
+#
+# image_reference block structure:
+#   offer (string)                 : The image offer if applicable. Changing this forces a new resource to be created.
+#   publisher (string)             : The image publisher. Changing this forces a new resource to be created.
+#   sku (string)                   : The image SKU. Changing this forces a new resource to be created.
+#   version (string)               : The image version specified on creation. Changing this forces a new resource to be created.
 
 
 

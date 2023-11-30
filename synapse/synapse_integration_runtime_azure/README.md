@@ -28,3 +28,26 @@ Manages a Synapse Azure Integration Runtime.
 | **description** | string  | - | 
 | **time_to_live_min** | string  | - | 
 | **id** | string  | The ID of the Synapse Azure Integration Runtime. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_integration_runtime_azure" 
+}
+
+inputs = {
+   name = "name of synapse_integration_runtime_azure" 
+   synapse_workspace_id = "synapse_workspace_id of synapse_integration_runtime_azure" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

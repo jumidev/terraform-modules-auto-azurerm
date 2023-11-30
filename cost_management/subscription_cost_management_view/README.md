@@ -34,3 +34,31 @@ Manages an Azure Cost Management View for a Subscription.
 | **kpi** | block  | - | 
 | **pivot** | block  | - | 
 | **id** | string  | The ID of the Cost Management View for a Subscription. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cost_management/subscription_cost_management_view" 
+}
+
+inputs = {
+   accumulated = "accumulated of subscription_cost_management_view" 
+   chart_type = "chart_type of subscription_cost_management_view" 
+   dataset = "dataset of subscription_cost_management_view" 
+   display_name = "display_name of subscription_cost_management_view" 
+   name = "name of subscription_cost_management_view" 
+   report_type = "report_type of subscription_cost_management_view" 
+   subscription_id = "subscription_id of subscription_cost_management_view" 
+   timeframe = "timeframe of subscription_cost_management_view" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

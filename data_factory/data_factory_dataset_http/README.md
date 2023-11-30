@@ -38,3 +38,26 @@ Manages an Azure HTTP Dataset inside an Azure Data Factory.
 | **request_body** | string  | - | 
 | **request_method** | string  | - | 
 | **id** | string  | The ID of the Data Factory Dataset. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_dataset_http" 
+}
+
+inputs = {
+   name = "name of data_factory_dataset_http" 
+   data_factory_id = "data_factory_id of data_factory_dataset_http" 
+   linked_service_name = "linked_service_name of data_factory_dataset_http" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

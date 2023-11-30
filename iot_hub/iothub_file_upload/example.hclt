@@ -1,0 +1,17 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "iot_hub/iothub_file_upload" 
+}
+
+inputs = {
+   iothub_id = "iothub_id of iothub_file_upload" 
+   connection_string = "connection_string of iothub_file_upload" 
+   container_name = "container_name of iothub_file_upload" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

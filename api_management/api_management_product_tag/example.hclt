@@ -1,0 +1,18 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_product_tag" 
+}
+
+inputs = {
+   api_management_name = "api_management_name of api_management_product_tag" 
+   api_management_product_id = "api_management_product_id of api_management_product_tag" 
+   resource_group_name = "${resource_group}" 
+   name = "name of api_management_product_tag" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

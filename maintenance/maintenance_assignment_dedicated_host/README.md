@@ -20,3 +20,26 @@ Manages a maintenance assignment to Dedicated Host.
 | **maintenance_configuration_id** | string  | - | 
 | **dedicated_host_id** | string  | - | 
 | **id** | string  | The ID of the Maintenance Assignment. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "maintenance/maintenance_assignment_dedicated_host" 
+}
+
+inputs = {
+   location = "${location}" 
+   maintenance_configuration_id = "maintenance_configuration_id of maintenance_assignment_dedicated_host" 
+   dedicated_host_id = "dedicated_host_id of maintenance_assignment_dedicated_host" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -1,0 +1,20 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_manager_admin_rule" 
+}
+
+inputs = {
+   name = "name of network_manager_admin_rule" 
+   admin_rule_collection_id = "admin_rule_collection_id of network_manager_admin_rule" 
+   action = "action of network_manager_admin_rule" 
+   direction = "direction of network_manager_admin_rule" 
+   priority = "priority of network_manager_admin_rule" 
+   protocol = "protocol of network_manager_admin_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

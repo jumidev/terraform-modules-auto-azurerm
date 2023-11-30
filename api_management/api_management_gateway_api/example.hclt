@@ -1,0 +1,16 @@
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management_gateway_api" 
+}
+
+inputs = {
+   gateway_id = "gateway_id of api_management_gateway_api" 
+   api_id = "api_id of api_management_gateway_api" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+

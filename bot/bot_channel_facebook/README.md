@@ -26,3 +26,29 @@ Manages a Facebook integration for a Bot Channel~> **Note** A bot can only have 
 | **facebook_application_secret** | string  | - | 
 | **page** | block  | - | 
 | **id** | string  | The ID of the Facebook Integration for a Bot Channel. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "bot/bot_channel_facebook" 
+}
+
+inputs = {
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   bot_name = "bot_name of bot_channel_facebook" 
+   facebook_application_id = "facebook_application_id of bot_channel_facebook" 
+   facebook_application_secret = "facebook_application_secret of bot_channel_facebook" 
+   page = "page of bot_channel_facebook" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

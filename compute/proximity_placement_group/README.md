@@ -26,3 +26,26 @@ Manages a proximity placement group for virtual machines, virtual machine scale 
 | **zone** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Proximity Placement Group. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/proximity_placement_group" 
+}
+
+inputs = {
+   name = "name of proximity_placement_group" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -22,3 +22,26 @@ Manages an Elastic Job Agent.
 | **database_id** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Elastic Job Agent. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_job_agent" 
+}
+
+inputs = {
+   name = "name of mssql_job_agent" 
+   location = "${location}" 
+   database_id = "database_id of mssql_job_agent" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

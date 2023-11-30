@@ -40,3 +40,29 @@ Manages a Load Balancer NAT Rule.-> **NOTE:** This resource cannot be used with 
 | **enable_floating_ip** | bool  | - | 
 | **enable_tcp_reset** | bool  | - | 
 | **id** | string  | The ID of the Load Balancer NAT Rule. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "load_balancer/lb_nat_rule" 
+}
+
+inputs = {
+   name = "name of lb_nat_rule" 
+   resource_group_name = "${resource_group}" 
+   loadbalancer_id = "loadbalancer_id of lb_nat_rule" 
+   frontend_ip_configuration_name = "frontend_ip_configuration_name of lb_nat_rule" 
+   protocol = "protocol of lb_nat_rule" 
+   backend_port = "backend_port of lb_nat_rule" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

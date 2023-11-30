@@ -20,3 +20,26 @@ Manages a SQL Dedicated Gateway within a Cosmos DB Account.
 | **instance_size** | string  | - | 
 | **instance_count** | int  | - | 
 | **id** | string  | The ID of the CosmosDB SQL Dedicated Gateway. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "cosmosdb_documentdb/cosmosdb_sql_dedicated_gateway" 
+}
+
+inputs = {
+   cosmosdb_account_id = "cosmosdb_account_id of cosmosdb_sql_dedicated_gateway" 
+   instance_size = "instance_size of cosmosdb_sql_dedicated_gateway" 
+   instance_count = "instance_count of cosmosdb_sql_dedicated_gateway" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

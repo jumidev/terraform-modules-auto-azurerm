@@ -90,3 +90,29 @@ Manages an API Management Service.## Disclaimers-> When creating a new API Manag
 | **proxy** | block  | A `proxy` block. | 
 | **certificate_source** | string  | The source of the certificate. | 
 | **certificate_status** | string  | The status of the certificate. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "api_management/api_management" 
+}
+
+inputs = {
+   name = "name of api_management" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   publisher_name = "publisher_name of api_management" 
+   publisher_email = "publisher_email of api_management" 
+   sku_name = "sku_name of api_management" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

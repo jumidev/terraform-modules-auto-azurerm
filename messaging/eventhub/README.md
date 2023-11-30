@@ -29,3 +29,28 @@ Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 | **status** | string  | - | 
 | **id** | string  | The ID of the EventHub. | 
 | **partition_ids** | string  | The identifiers for partitions created for Event Hubs. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "messaging/eventhub" 
+}
+
+inputs = {
+   name = "name of eventhub" 
+   namespace_name = "namespace_name of eventhub" 
+   resource_group_name = "${resource_group}" 
+   partition_count = "partition_count of eventhub" 
+   message_retention = "message_retention of eventhub" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

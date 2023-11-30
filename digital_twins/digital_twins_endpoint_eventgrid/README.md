@@ -26,3 +26,28 @@ Manages a Digital Twins Event Grid Endpoint.
 | **eventgrid_topic_secondary_access_key** | string  | - | 
 | **dead_letter_storage_secret** | int  | - | 
 | **id** | string  | The ID of the Digital Twins Event Grid Endpoint. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "digital_twins/digital_twins_endpoint_eventgrid" 
+}
+
+inputs = {
+   name = "name of digital_twins_endpoint_eventgrid" 
+   digital_twins_id = "digital_twins_id of digital_twins_endpoint_eventgrid" 
+   eventgrid_topic_endpoint = "eventgrid_topic_endpoint of digital_twins_endpoint_eventgrid" 
+   eventgrid_topic_primary_access_key = "eventgrid_topic_primary_access_key of digital_twins_endpoint_eventgrid" 
+   eventgrid_topic_secondary_access_key = "eventgrid_topic_secondary_access_key of digital_twins_endpoint_eventgrid" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

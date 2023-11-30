@@ -26,3 +26,28 @@ Manages a Automation Credential.
 | **password** | string  | - | 
 | **description** | string  | - | 
 | **id** | string  | The ID of the Automation Credential. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "automation/automation_credential" 
+}
+
+inputs = {
+   name = "name of automation_credential" 
+   resource_group_name = "${resource_group}" 
+   automation_account_name = "automation_account_name of automation_credential" 
+   username = "username of automation_credential" 
+   password = "password of automation_credential" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

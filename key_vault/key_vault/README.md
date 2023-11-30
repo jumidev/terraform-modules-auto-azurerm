@@ -47,3 +47,28 @@ Manages a Key Vault.## Disclaimers~> **Note:** It's possible to define Key Vault
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Key Vault. | 
 | **vault_uri** | string  | The URI of the Key Vault, used for performing operations on keys and secrets. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault" 
+}
+
+inputs = {
+   name = "name of key_vault" 
+   location = "${location}" 
+   resource_group_name = "${resource_group}" 
+   sku_name = "sku_name of key_vault" 
+   tenant_id = "tenant_id of key_vault" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

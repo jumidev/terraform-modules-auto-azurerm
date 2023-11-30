@@ -46,3 +46,24 @@ Manages a Microsoft SQL Virtual Machine
 | **wsfc_domain_credential** | block  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the SQL Virtual Machine. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_virtual_machine" 
+}
+
+inputs = {
+   virtual_machine_id = "virtual_machine_id of mssql_virtual_machine" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

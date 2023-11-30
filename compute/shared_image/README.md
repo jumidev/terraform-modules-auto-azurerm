@@ -66,3 +66,29 @@ Manages a Shared Image within a Shared Image Gallery.
 | **accelerated_network_support_enabled** | bool  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Shared Image. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/shared_image" 
+}
+
+inputs = {
+   name = "name of shared_image" 
+   gallery_name = "gallery_name of shared_image" 
+   resource_group_name = "${resource_group}" 
+   location = "${location}" 
+   identifier = "identifier of shared_image" 
+   os_type = "os_type of shared_image" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

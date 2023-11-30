@@ -30,3 +30,26 @@ Manages a Key Vault Access Policy.~> **NOTE:** It's possible to define Key Vault
 | **secret_permissions** | list  | - | 
 | **storage_permissions** | list  | - | 
 | **id** | string  | Key Vault Access Policy ID. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "key_vault/key_vault_access_policy" 
+}
+
+inputs = {
+   key_vault_id = "key_vault_id of key_vault_access_policy" 
+   tenant_id = "tenant_id of key_vault_access_policy" 
+   object_id = "object_id of key_vault_access_policy" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

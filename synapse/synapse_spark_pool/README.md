@@ -52,3 +52,27 @@ Manages a Synapse Spark Pool.
 | **spark_version** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Synapse Spark Pool. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "synapse/synapse_spark_pool" 
+}
+
+inputs = {
+   name = "name of synapse_spark_pool" 
+   synapse_workspace_id = "synapse_workspace_id of synapse_spark_pool" 
+   node_size_family = "node_size_family of synapse_spark_pool" 
+   node_size = "node_size of synapse_spark_pool" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

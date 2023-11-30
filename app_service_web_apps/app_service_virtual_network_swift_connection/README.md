@@ -18,3 +18,25 @@ Manages an App Service Virtual Network Association for [Regional VNet Integratio
 | **app_service_id** | string  | - | 
 | **subnet_id** | string  | - | 
 | **id** | string  | The ID of the App Service Virtual Network Association | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/app_service_virtual_network_swift_connection" 
+}
+
+inputs = {
+   app_service_id = "app_service_id of app_service_virtual_network_swift_connection" 
+   subnet_id = "subnet_id of app_service_virtual_network_swift_connection" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -38,3 +38,28 @@ Manages a Blob Event Trigger inside an Azure Data Factory.
 | **description** | string  | - | 
 | **ignore_empty_blobs** | string  | - | 
 | **id** | string  | The ID of the Data Factory Blob Event Trigger. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_trigger_blob_event" 
+}
+
+inputs = {
+   name = "name of data_factory_trigger_blob_event" 
+   data_factory_id = "data_factory_id of data_factory_trigger_blob_event" 
+   storage_account_id = "storage_account_id of data_factory_trigger_blob_event" 
+   events = "events of data_factory_trigger_blob_event" 
+   pipeline = "pipeline of data_factory_trigger_blob_event" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

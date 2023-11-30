@@ -27,3 +27,26 @@ Manages a Pim Eligible Role Assignment.
 | **ticket** | block  | - | 
 | **id** | string  | The ID of the Pim Eligible Role Assignment. | 
 | **principal_type** | string  | The type of principal. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "authorization/pim_eligible_role_assignment" 
+}
+
+inputs = {
+   principal_id = "principal_id of pim_eligible_role_assignment" 
+   role_definition_id = "role_definition_id of pim_eligible_role_assignment" 
+   scope = "scope of pim_eligible_role_assignment" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

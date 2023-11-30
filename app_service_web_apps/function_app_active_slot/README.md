@@ -19,3 +19,24 @@ Manages a Function App Active Slot.
 | **overwrite_network_config** | bool  | - | 
 | **id** | string  | The ID of the Function App Active Slot | 
 | **last_successful_swap** | string  | The timestamp of the last successful swap with `Production` | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "app_service_web_apps/function_app_active_slot" 
+}
+
+inputs = {
+   slot_id = "slot_id of function_app_active_slot" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

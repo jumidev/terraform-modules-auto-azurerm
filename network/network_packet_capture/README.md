@@ -34,3 +34,28 @@ Configures Network Packet Capturing against a Virtual Machine using a Network Wa
 | **id** | string  | The Packet Capture ID. | 
 | **storage_location** | block  | A `storage_location` block. | 
 | **storage_path** | string  | The URI of the storage path to save the packet capture. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/network_packet_capture" 
+}
+
+inputs = {
+   name = "name of network_packet_capture" 
+   network_watcher_name = "network_watcher_name of network_packet_capture" 
+   resource_group_name = "${resource_group}" 
+   target_resource_id = "target_resource_id of network_packet_capture" 
+   storage_location = "storage_location of network_packet_capture" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

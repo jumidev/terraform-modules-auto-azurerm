@@ -18,3 +18,25 @@ Manages IP Group CIDR records.~> Warning Do not use this resource at the same ti
 | **ip_group_id** | string  | - | 
 | **cidr** | string  | - | 
 | **id** | string  | The ID of the IP Group CIDR. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "network/ip_group_cidr" 
+}
+
+inputs = {
+   ip_group_id = "ip_group_id of ip_group_cidr" 
+   cidr = "cidr of ip_group_cidr" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

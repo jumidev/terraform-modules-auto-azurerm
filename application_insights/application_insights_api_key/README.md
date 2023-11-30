@@ -23,3 +23,25 @@ Manages an Application Insights API key.
 | **write_permissions** | string  | - | 
 | **id** | string  | The ID of the Application Insights API key. | 
 | **api_key** | string  | The API Key secret (Sensitive). | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "application_insights/application_insights_api_key" 
+}
+
+inputs = {
+   name = "name of application_insights_api_key" 
+   application_insights_id = "application_insights_id of application_insights_api_key" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

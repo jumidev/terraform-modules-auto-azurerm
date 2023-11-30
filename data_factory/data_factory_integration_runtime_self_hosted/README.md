@@ -24,3 +24,25 @@ Manages a Data Factory Self-hosted Integration Runtime.
 | **id** | string  | The ID of the Data Factory. | 
 | **primary_authorization_key** | string  | The primary integration runtime authentication key. | 
 | **secondary_authorization_key** | string  | The secondary integration runtime authentication key. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_integration_runtime_self_hosted" 
+}
+
+inputs = {
+   data_factory_id = "data_factory_id of data_factory_integration_runtime_self_hosted" 
+   name = "name of data_factory_integration_runtime_self_hosted" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

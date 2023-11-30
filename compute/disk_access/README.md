@@ -22,3 +22,26 @@ Manages a Disk Access.
 | **resource_group_name** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Disk Access resource. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/disk_access" 
+}
+
+inputs = {
+   location = "${location}" 
+   name = "name of disk_access" 
+   resource_group_name = "${resource_group}" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

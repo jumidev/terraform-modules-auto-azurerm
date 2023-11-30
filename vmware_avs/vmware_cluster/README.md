@@ -24,3 +24,27 @@ Manages a VMware Cluster.
 | **id** | string  | The ID of the VMware Cluster. | 
 | **cluster_number** | string  | A number that identifies this VMware Cluster in its VMware Private Cloud. | 
 | **hosts** | list  | A list of host of the VMware Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "vmware_avs/vmware_cluster" 
+}
+
+inputs = {
+   name = "name of vmware_cluster" 
+   vmware_cloud_id = "vmware_cloud_id of vmware_cluster" 
+   cluster_node_count = "cluster_node_count of vmware_cluster" 
+   sku_name = "sku_name of vmware_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

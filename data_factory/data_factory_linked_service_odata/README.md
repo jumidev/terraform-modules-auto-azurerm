@@ -32,3 +32,26 @@ Manages a Linked Service (connection) between a Database and Azure Data Factory 
 | **parameters** | string  | - | 
 | **additional_properties** | string  | - | 
 | **id** | string  | The ID of the Data Factory OData Linked Service. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_factory/data_factory_linked_service_odata" 
+}
+
+inputs = {
+   name = "name of data_factory_linked_service_odata" 
+   data_factory_id = "data_factory_id of data_factory_linked_service_odata" 
+   url = "url of data_factory_linked_service_odata" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

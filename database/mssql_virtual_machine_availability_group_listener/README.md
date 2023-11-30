@@ -28,3 +28,26 @@ Manages a Microsoft SQL Virtual Machine Availability Group Listener.
 | **port** | string  | - | 
 | **replica** | block  | - | 
 | **id** | string  | The ID of the Microsoft SQL Virtual Machine Availability Group Listener. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "database/mssql_virtual_machine_availability_group_listener" 
+}
+
+inputs = {
+   name = "name of mssql_virtual_machine_availability_group_listener" 
+   sql_virtual_machine_group_id = "sql_virtual_machine_group_id of mssql_virtual_machine_availability_group_listener" 
+   replica = "replica of mssql_virtual_machine_availability_group_listener" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

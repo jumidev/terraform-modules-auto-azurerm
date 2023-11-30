@@ -30,3 +30,27 @@ Manages a Logic App Integration Account Assembly.
 | **content_link_uri** | string  | - | 
 | **metadata** | string  | - | 
 | **id** | string  | The ID of the Logic App Integration Account Assembly. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "logic_app/logic_app_integration_account_assembly" 
+}
+
+inputs = {
+   name = "name of logic_app_integration_account_assembly" 
+   resource_group_name = "${resource_group}" 
+   integration_account_name = "integration_account_name of logic_app_integration_account_assembly" 
+   assembly_name = "assembly_name of logic_app_integration_account_assembly" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

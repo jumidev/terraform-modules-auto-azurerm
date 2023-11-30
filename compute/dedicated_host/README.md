@@ -30,3 +30,28 @@ Manage a Dedicated Host within a Dedicated Host Group.
 | **license_type** | string  | - | 
 | **tags** | map  | - | 
 | **id** | string  | The ID of the Dedicated Host. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "compute/dedicated_host" 
+}
+
+inputs = {
+   name = "name of dedicated_host" 
+   dedicated_host_group_id = "dedicated_host_group_id of dedicated_host" 
+   location = "${location}" 
+   sku_name = "sku_name of dedicated_host" 
+   platform_fault_domain = "platform_fault_domain of dedicated_host" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

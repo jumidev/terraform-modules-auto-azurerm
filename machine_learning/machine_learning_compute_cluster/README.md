@@ -45,3 +45,29 @@ Manages a Machine Learning Compute Cluster.**NOTE:** At this point in time the r
 | **identity** | block  | An `identity` block, which contains the Managed Service Identity information for this Machine Learning Compute Cluster. | 
 | **principal_id** | string  | The Principal ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster. | 
 | **tenant_id** | string  | The Tenant ID for the Service Principal associated with the Managed Service Identity of this Machine Learning Compute Cluster. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "machine_learning/machine_learning_compute_cluster" 
+}
+
+inputs = {
+   name = "name of machine_learning_compute_cluster" 
+   machine_learning_workspace_id = "machine_learning_workspace_id of machine_learning_compute_cluster" 
+   location = "${location}" 
+   vm_priority = "vm_priority of machine_learning_compute_cluster" 
+   vm_size = "vm_size of machine_learning_compute_cluster" 
+   scale_settings = "scale_settings of machine_learning_compute_cluster" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```

@@ -26,3 +26,26 @@ Manages a Data Share.
 | **snapshot_schedule** | block  | - | 
 | **terms** | string  | - | 
 | **id** | string  | The ID of the Data Share. | 
+
+## Example minimal hclt
+
+```hcl
+source = {
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
+   path = "data_share/data_share" 
+}
+
+inputs = {
+   name = "name of data_share" 
+   account_id = "account_id of data_share" 
+   kind = "kind of data_share" 
+}
+
+tfstate_store = {
+   storage_account = "${storage_account}" 
+   container = "${container}" 
+   container_path = "${COMPONENT_PATH}" 
+}
+
+
+```
