@@ -54,19 +54,19 @@ tfstate_store = {
 
 ### `criteria` block structure
 
->`operator` (string): (REQUIRED) Specifies the criteria operator. Possible values are 'Equal', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan',and 'LessThanOrEqual'.
->`query` (string): (REQUIRED) The query to run on logs. The results returned by this query are used to populate the alert.
->`threshold` (string): (REQUIRED) Specifies the criteria threshold value that activates the alert.
->`time_aggregation_method` (string): (REQUIRED) The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'.
->`dimension` (block): A 'dimension' block.
->`failing_periods` (block): A 'failing_periods' block.
->`metric_measure_column` (string): Specifies the column containing the metric measure number.
->`resource_id_column` (string): Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
+> `operator` (string): (REQUIRED) Specifies the criteria operator. Possible values are 'Equal', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan',and 'LessThanOrEqual'.
+> `query` (string): (REQUIRED) The query to run on logs. The results returned by this query are used to populate the alert.
+> `threshold` (string): (REQUIRED) Specifies the criteria threshold value that activates the alert.
+> `time_aggregation_method` (string): (REQUIRED) The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'.
+> `dimension` (block): A 'dimension' block.
+> `failing_periods` (block): A 'failing_periods' block.
+> `metric_measure_column` (string): Specifies the column containing the metric measure number.
+> `resource_id_column` (string): Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 
 ### `action` block structure
 
->`action_groups` (string): List of Action Group resource IDs to invoke when the alert fires.
->`custom_properties` (string): Specifies the properties of an alert payload.
+> `action_groups` (string): List of Action Group resource IDs to invoke when the alert fires.
+> `custom_properties` (string): Specifies the properties of an alert payload.
 
 
 

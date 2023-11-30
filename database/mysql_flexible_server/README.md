@@ -53,33 +53,33 @@ tfstate_store = {
 
 ### `customer_managed_key` block structure
 
->`key_vault_key_id` (string): The ID of the Key Vault Key.
->`primary_user_assigned_identity_id` (string): Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'.
->`geo_backup_key_vault_key_id` (string): The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
->`geo_backup_user_assigned_identity_id` (string): The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup.
+> `key_vault_key_id` (string): The ID of the Key Vault Key.
+> `primary_user_assigned_identity_id` (string): Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'.
+> `geo_backup_key_vault_key_id` (string): The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
+> `geo_backup_user_assigned_identity_id` (string): The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup.
 
 ### `high_availability` block structure
 
->`mode` (string): (REQUIRED) The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'.
->`standby_availability_zone` (string): Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'.
+> `mode` (string): (REQUIRED) The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'.
+> `standby_availability_zone` (string): Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'.
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'.
->`identity_ids` (list): (REQUIRED) A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'.
+> `identity_ids` (list): (REQUIRED) A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server.
 
 ### `maintenance_window` block structure
 
->`day_of_week` (string): The day of week for maintenance window. Defaults to '0'.
->`start_hour` (string): The start hour for maintenance window. Defaults to '0'.
->`start_minute` (string): The start minute for maintenance window. Defaults to '0'.
+> `day_of_week` (string): The day of week for maintenance window. Defaults to '0'.
+> `start_hour` (string): The start hour for maintenance window. Defaults to '0'.
+> `start_minute` (string): The start minute for maintenance window. Defaults to '0'.
 
 ### `storage` block structure
 
->`auto_grow_enabled` (bool): Should Storage Auto Grow be enabled? Defaults to 'true'.
->`io_scaling_enabled` (bool): Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'.
->`iops` (string): The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'.
->`size_gb` (string): The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'.
+> `auto_grow_enabled` (bool): Should Storage Auto Grow be enabled? Defaults to 'true'.
+> `io_scaling_enabled` (bool): Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'.
+> `iops` (string): The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'.
+> `size_gb` (string): The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'.
 
 
 

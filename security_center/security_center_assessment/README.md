@@ -35,9 +35,9 @@ tfstate_store = {
 
 ### `status` block structure
 
->`code` (string): (REQUIRED) Specifies the programmatic code of the assessment status. Possible values are 'Healthy', 'Unhealthy' and 'NotApplicable'.
->`cause` (string): Specifies the cause of the assessment status.
->`description` (string): Specifies the human readable description of the assessment status.
+> `code` (string): (REQUIRED) Specifies the programmatic code of the assessment status. Possible values are 'Healthy', 'Unhealthy' and 'NotApplicable'.
+> `cause` (string): Specifies the cause of the assessment status.
+> `description` (string): Specifies the human readable description of the assessment status.
 
 
 

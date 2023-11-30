@@ -37,8 +37,8 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`principal_id` (string): The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
->`tenant_id` (string): The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
+> `principal_id` (string): The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
+> `tenant_id` (string): The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
 
 
 

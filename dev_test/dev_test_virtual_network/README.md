@@ -37,8 +37,8 @@ tfstate_store = {
 
 ### `subnet` block structure
 
->`use_public_ip_address` (string): Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are 'Allow', 'Default' and 'Deny'. Defaults to 'Allow'.
->`use_in_virtual_machine_creation` (string): Can this subnet be used for creating Virtual Machines? Possible values are 'Allow', 'Default' and 'Deny'. Defaults to 'Allow'.
+> `use_public_ip_address` (string): Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are 'Allow', 'Default' and 'Deny'. Defaults to 'Allow'.
+> `use_in_virtual_machine_creation` (string): Can this subnet be used for creating Virtual Machines? Possible values are 'Allow', 'Default' and 'Deny'. Defaults to 'Allow'.
 
 
 

@@ -46,49 +46,49 @@ tfstate_store = {
 
 ### `backend_pool` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the Backend Pool.
->`backend` (block): (REQUIRED) A 'backend' block.
->`load_balancing_name` (string): (REQUIRED) Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'.
->`health_probe_name` (string): (REQUIRED) Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'.
+> `name` (string): (REQUIRED) Specifies the name of the Backend Pool.
+> `backend` (block): (REQUIRED) A 'backend' block.
+> `load_balancing_name` (string): (REQUIRED) Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'.
+> `health_probe_name` (string): (REQUIRED) Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'.
 
 ### `backend_pool_health_probe` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the Health Probe.
->`enabled` (bool): Is this health probe enabled? Defaults to 'true'.
->`path` (string): The path to use for the Health Probe. Default is '/'.
->`protocol` (string): Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'.
->`probe_method` (string): Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'.
->`interval_in_seconds` (int): The number of seconds between each Health Probe. Defaults to '120'.
+> `name` (string): (REQUIRED) Specifies the name of the Health Probe.
+> `enabled` (bool): Is this health probe enabled? Defaults to 'true'.
+> `path` (string): The path to use for the Health Probe. Default is '/'.
+> `protocol` (string): Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'.
+> `probe_method` (string): Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'.
+> `interval_in_seconds` (int): The number of seconds between each Health Probe. Defaults to '120'.
 
 ### `backend_pool_load_balancing` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the Load Balancer.
->`sample_size` (int): The number of samples to consider for load balancing decisions. Defaults to '4'.
->`successful_samples_required` (int): The number of samples within the sample period that must succeed. Defaults to '2'.
->`additional_latency_milliseconds` (int): The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'.
+> `name` (string): (REQUIRED) Specifies the name of the Load Balancer.
+> `sample_size` (int): The number of samples to consider for load balancing decisions. Defaults to '4'.
+> `successful_samples_required` (int): The number of samples within the sample period that must succeed. Defaults to '2'.
+> `additional_latency_milliseconds` (int): The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'.
 
 ### `backend_pool_settings` block structure
 
->`backend_pools_send_receive_timeout_seconds` (string): Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'.
->`enforce_backend_pools_certificate_name_check` (bool): (REQUIRED) Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'.
+> `backend_pools_send_receive_timeout_seconds` (string): Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'.
+> `enforce_backend_pools_certificate_name_check` (bool): (REQUIRED) Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'.
 
 ### `frontend_endpoint` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the 'frontend_endpoint'.
->`host_name` (string): (REQUIRED) Specifies the host name of the 'frontend_endpoint'. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
->`session_affinity_enabled` (bool): Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'.
->`session_affinity_ttl_seconds` (int): The TTL to use in seconds for session affinity, if applicable. Defaults to '0'.
->`web_application_firewall_policy_link_id` (string): Defines the Web Application Firewall policy 'ID' for each host.
+> `name` (string): (REQUIRED) Specifies the name of the 'frontend_endpoint'.
+> `host_name` (string): (REQUIRED) Specifies the host name of the 'frontend_endpoint'. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
+> `session_affinity_enabled` (bool): Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'.
+> `session_affinity_ttl_seconds` (int): The TTL to use in seconds for session affinity, if applicable. Defaults to '0'.
+> `web_application_firewall_policy_link_id` (string): Defines the Web Application Firewall policy 'ID' for each host.
 
 ### `routing_rule` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the Routing Rule.
->`frontend_endpoints` (string): (REQUIRED) The names of the 'frontend_endpoint' blocks within this resource to associate with this 'routing_rule'.
->`accepted_protocols` (string): (REQUIRED) Protocol schemes to match for the Backend Routing Rule. Possible values are 'Http' and 'Https'.
->`patterns_to_match` (string): (REQUIRED) The route patterns for the Backend Routing Rule.
->`enabled` (bool): 'Enable' or 'Disable' use of this Backend Routing Rule. Permitted values are 'true' or 'false'. Defaults to 'true'.
->`forwarding_configuration` (block): A 'forwarding_configuration' block.
->`redirect_configuration` (block): A 'redirect_configuration' block.
+> `name` (string): (REQUIRED) Specifies the name of the Routing Rule.
+> `frontend_endpoints` (string): (REQUIRED) The names of the 'frontend_endpoint' blocks within this resource to associate with this 'routing_rule'.
+> `accepted_protocols` (string): (REQUIRED) Protocol schemes to match for the Backend Routing Rule. Possible values are 'Http' and 'Https'.
+> `patterns_to_match` (string): (REQUIRED) The route patterns for the Backend Routing Rule.
+> `enabled` (bool): 'Enable' or 'Disable' use of this Backend Routing Rule. Permitted values are 'true' or 'false'. Defaults to 'true'.
+> `forwarding_configuration` (block): A 'forwarding_configuration' block.
+> `redirect_configuration` (block): A 'redirect_configuration' block.
 
 
 

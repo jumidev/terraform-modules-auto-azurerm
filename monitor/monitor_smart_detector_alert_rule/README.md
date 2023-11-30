@@ -46,9 +46,9 @@ tfstate_store = {
 
 ### `action_group` block structure
 
->`ids` (string): (REQUIRED) Specifies the action group ids.
->`email_subject` (string): Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
->`webhook_payload` (string): A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
+> `ids` (string): (REQUIRED) Specifies the action group ids.
+> `email_subject` (string): Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
+> `webhook_payload` (string): A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
 
 
 

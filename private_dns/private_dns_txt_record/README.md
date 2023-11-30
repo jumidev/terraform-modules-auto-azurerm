@@ -39,7 +39,7 @@ tfstate_store = {
 
 ### `record` block structure
 
->`value` (string): (REQUIRED) The value of the TXT record. Max length: 1024 characters
+> `value` (string): (REQUIRED) The value of the TXT record. Max length: 1024 characters
 
 
 

@@ -34,8 +34,8 @@ tfstate_store = {
 
 ### `privilege` block structure
 
->`actions` (list): (REQUIRED) A list of actions that are allowed.
->`resource` (block): (REQUIRED) A 'resource' block.
+> `actions` (list): (REQUIRED) A list of actions that are allowed.
+> `resource` (block): (REQUIRED) A 'resource' block.
 
 
 

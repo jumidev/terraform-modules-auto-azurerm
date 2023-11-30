@@ -47,37 +47,37 @@ tfstate_store = {
 
 ### `criteria` block structure
 
->`metric_namespace` (string): (REQUIRED) One of the metric namespaces to be monitored.
->`metric_name` (string): (REQUIRED) One of the metric names to be monitored.
->`aggregation` (string): (REQUIRED) The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'.
->`operator` (string): (REQUIRED) The criteria operator. Possible values are 'Equals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan' and 'LessThanOrEqual'.
->`threshold` (string): (REQUIRED) The criteria threshold value that activates the alert.
->`dimension` (block): One or more 'dimension' blocks.
->`skip_metric_validation` (bool): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'.
+> `metric_namespace` (string): (REQUIRED) One of the metric namespaces to be monitored.
+> `metric_name` (string): (REQUIRED) One of the metric names to be monitored.
+> `aggregation` (string): (REQUIRED) The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'.
+> `operator` (string): (REQUIRED) The criteria operator. Possible values are 'Equals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan' and 'LessThanOrEqual'.
+> `threshold` (string): (REQUIRED) The criteria threshold value that activates the alert.
+> `dimension` (block): One or more 'dimension' blocks.
+> `skip_metric_validation` (bool): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'.
 
 ### `dynamic_criteria` block structure
 
->`metric_namespace` (string): (REQUIRED) One of the metric namespaces to be monitored.
->`metric_name` (string): (REQUIRED) One of the metric names to be monitored.
->`aggregation` (string): (REQUIRED) The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'.
->`operator` (string): (REQUIRED) The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'.
->`alert_sensitivity` (string): (REQUIRED) The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'.
->`dimension` (block): One or more 'dimension' blocks.
->`evaluation_total_count` (int): The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'.
->`evaluation_failure_count` (int): The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'.
->`ignore_data_before` (string): The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
->`skip_metric_validation` (string): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
+> `metric_namespace` (string): (REQUIRED) One of the metric namespaces to be monitored.
+> `metric_name` (string): (REQUIRED) One of the metric names to be monitored.
+> `aggregation` (string): (REQUIRED) The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'.
+> `operator` (string): (REQUIRED) The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'.
+> `alert_sensitivity` (string): (REQUIRED) The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'.
+> `dimension` (block): One or more 'dimension' blocks.
+> `evaluation_total_count` (int): The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'.
+> `evaluation_failure_count` (int): The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'.
+> `ignore_data_before` (string): The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds.
+> `skip_metric_validation` (string): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
 
 ### `application_insights_web_test_location_availability_criteria` block structure
 
->`web_test_id` (string): (REQUIRED) The ID of the Application Insights Web Test.
->`component_id` (string): (REQUIRED) The ID of the Application Insights Resource.
->`failed_location_count` (int): (REQUIRED) The number of failed locations.
+> `web_test_id` (string): (REQUIRED) The ID of the Application Insights Web Test.
+> `component_id` (string): (REQUIRED) The ID of the Application Insights Resource.
+> `failed_location_count` (int): (REQUIRED) The number of failed locations.
 
 ### `action` block structure
 
->`action_group_id` (string): (REQUIRED) The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html)
->`webhook_properties` (string): The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
+> `action_group_id` (string): (REQUIRED) The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html)
+> `webhook_properties` (string): The map of custom string properties to include with the post operation. These data are appended to the webhook payload.
 
 
 

@@ -33,8 +33,8 @@ tfstate_store = {
 
 ### `extension` block structure
 
->`name` (string): (REQUIRED) The name of extension.
->`additional_extension_properties` (string): Key/Value pairs that are required for some extensions.
+> `name` (string): (REQUIRED) The name of extension.
+> `additional_extension_properties` (string): Key/Value pairs that are required for some extensions.
 
 
 

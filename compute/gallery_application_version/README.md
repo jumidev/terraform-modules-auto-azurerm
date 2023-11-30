@@ -46,21 +46,21 @@ tfstate_store = {
 
 ### `manage_action` block structure
 
->`install` (string): (REQUIRED) The command to install the Gallery Application. Changing this forces a new resource to be created.
->`remove` (string): (REQUIRED) The command to remove the Gallery Application. Changing this forces a new resource to be created.
->`update` (datetime): The command to update the Gallery Application. Changing this forces a new resource to be created.
+> `install` (string): (REQUIRED) The command to install the Gallery Application. Changing this forces a new resource to be created.
+> `remove` (string): (REQUIRED) The command to remove the Gallery Application. Changing this forces a new resource to be created.
+> `update` (datetime): The command to update the Gallery Application. Changing this forces a new resource to be created.
 
 ### `source` block structure
 
->`media_link` (string): (REQUIRED) The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
->`default_configuration_link` (string): The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
+> `media_link` (string): (REQUIRED) The Storage Blob URI of the source application package. Changing this forces a new resource to be created.
+> `default_configuration_link` (string): The Storage Blob URI of the default configuration. Changing this forces a new resource to be created.
 
 ### `target_region` block structure
 
->`name` (string): (REQUIRED) The Azure Region in which the Gallery Application Version exists.
->`regional_replica_count` (string): (REQUIRED) The number of replicas of the Gallery Application Version to be created per region. Possible values are between '1' and '10'.
->`exclude_from_latest` (bool): Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'.
->`storage_account_type` (string): The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'.
+> `name` (string): (REQUIRED) The Azure Region in which the Gallery Application Version exists.
+> `regional_replica_count` (string): (REQUIRED) The number of replicas of the Gallery Application Version to be created per region. Possible values are between '1' and '10'.
+> `exclude_from_latest` (bool): Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'.
+> `storage_account_type` (string): The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'.
 
 
 

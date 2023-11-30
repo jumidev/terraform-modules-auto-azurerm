@@ -44,44 +44,44 @@ tfstate_store = {
 
 ### `template` block structure
 
->`container` (list): (REQUIRED) One or more 'container' blocks as detailed below.
->`max_replicas` (int): The maximum number of replicas for this container.
->`min_replicas` (int): The minimum number of replicas for this container.
->`azure_queue_scale_rule` (block): One or more 'azure_queue_scale_rule' blocks.
->`custom_scale_rule` (block): One or more 'custom_scale_rule' blocks.
->`http_scale_rule` (block): One or more 'http_scale_rule' blocks.
->`tcp_scale_rule` (block): One or more 'tcp_scale_rule' blocks.
->`revision_suffix` (string): The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
->`volume` (block): A 'volume' block as detailed below.
+> `container` (list): (REQUIRED) One or more 'container' blocks as detailed below.
+> `max_replicas` (int): The maximum number of replicas for this container.
+> `min_replicas` (int): The minimum number of replicas for this container.
+> `azure_queue_scale_rule` (block): One or more 'azure_queue_scale_rule' blocks.
+> `custom_scale_rule` (block): One or more 'custom_scale_rule' blocks.
+> `http_scale_rule` (block): One or more 'http_scale_rule' blocks.
+> `tcp_scale_rule` (block): One or more 'tcp_scale_rule' blocks.
+> `revision_suffix` (string): The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
+> `volume` (block): A 'volume' block as detailed below.
 
 ### `dapr` block structure
 
->`app_id` (string): (REQUIRED) The Dapr Application Identifier.
->`app_port` (string): The port which the application is listening on. This is the same as the 'ingress' port.
->`app_protocol` (string): The protocol for the app. Possible values include 'http' and 'grpc'. Defaults to 'http'.
+> `app_id` (string): (REQUIRED) The Dapr Application Identifier.
+> `app_port` (string): The port which the application is listening on. This is the same as the 'ingress' port.
+> `app_protocol` (string): The protocol for the app. Possible values include 'http' and 'grpc'. Defaults to 'http'.
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) The type of managed identity to assign. Possible values are 'SystemAssigned', 'UserAssigned', and 'SystemAssigned, UserAssigned' (to enable both).
->`identity_ids` (list): - A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'.
+> `type` (string): (REQUIRED) The type of managed identity to assign. Possible values are 'SystemAssigned', 'UserAssigned', and 'SystemAssigned, UserAssigned' (to enable both).
+> `identity_ids` (list): - A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'.
 
 ### `ingress` block structure
 
->`allow_insecure_connections` (bool): Should this ingress allow insecure connections?
->`custom_domain` (list): One or more 'custom_domain' block as detailed below.
->`fqdn` (string): The FQDN of the ingress.
->`external_enabled` (bool): Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'.
->`target_port` (string): (REQUIRED) The target port on the container for the Ingress traffic.
->`exposed_port` (string): The exposed port on the container for the Ingress traffic.
->`traffic_weight` (block): (REQUIRED) A 'traffic_weight' block as detailed below.
->`transport` (string): The transport method for the Ingress. Possible values are 'auto', 'http', 'http2' and 'tcp'. Defaults to 'auto'.
+> `allow_insecure_connections` (bool): Should this ingress allow insecure connections?
+> `custom_domain` (list): One or more 'custom_domain' block as detailed below.
+> `fqdn` (string): The FQDN of the ingress.
+> `external_enabled` (bool): Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'.
+> `target_port` (string): (REQUIRED) The target port on the container for the Ingress traffic.
+> `exposed_port` (string): The exposed port on the container for the Ingress traffic.
+> `traffic_weight` (block): (REQUIRED) A 'traffic_weight' block as detailed below.
+> `transport` (string): The transport method for the Ingress. Possible values are 'auto', 'http', 'http2' and 'tcp'. Defaults to 'auto'.
 
 ### `registry` block structure
 
->`server` (string): (REQUIRED) The hostname for the Container Registry.
->`identity` (string): Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
->`password_secret_name` (string): The name of the Secret Reference containing the password value for this user on the Container Registry, 'username' must also be supplied.
->`username` (string): The username to use for this Container Registry, 'password_secret_name' must also be supplied..
+> `server` (string): (REQUIRED) The hostname for the Container Registry.
+> `identity` (string): Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+> `password_secret_name` (string): The name of the Secret Reference containing the password value for this user on the Container Registry, 'username' must also be supplied.
+> `username` (string): The username to use for this Container Registry, 'password_secret_name' must also be supplied..
 
 
 

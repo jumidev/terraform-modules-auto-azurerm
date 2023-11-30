@@ -43,11 +43,11 @@ tfstate_store = {
 
 ### `links` block structure
 
->`bandwidth_mhz` (string): (REQUIRED) Bandwidth in Mhz.
->`center_frequency_mhz` (string): (REQUIRED) Center frequency in Mhz.
->`direction` (string): (REQUIRED) Direction if the communication. Possible values are 'Uplink' and 'Downlink'.
->`polarization` (string): (REQUIRED) Polarization. Possible values are 'RHCP', 'LHCP', 'linearVertical' and 'linearHorizontal'.
->`name` (string): (REQUIRED) Name of the link.
+> `bandwidth_mhz` (string): (REQUIRED) Bandwidth in Mhz.
+> `center_frequency_mhz` (string): (REQUIRED) Center frequency in Mhz.
+> `direction` (string): (REQUIRED) Direction if the communication. Possible values are 'Uplink' and 'Downlink'.
+> `polarization` (string): (REQUIRED) Polarization. Possible values are 'RHCP', 'LHCP', 'linearVertical' and 'linearHorizontal'.
+> `name` (string): (REQUIRED) Name of the link.
 
 
 

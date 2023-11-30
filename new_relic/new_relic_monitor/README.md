@@ -44,17 +44,17 @@ tfstate_store = {
 
 ### `plan` block structure
 
->`effective_date` (datetime): (REQUIRED) Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
->`billing_cycle` (string): Specifies the billing cycles. Possible values are 'MONTHLY', 'WEEKLY' and 'YEARLY'. Defaults to 'MONTHLY'. Changing this forces a new Azure Native New Relic Monitor to be created.
->`plan_id` (string): Specifies the plan id published by NewRelic. The only possible value is 'newrelic-pay-as-you-go-free-live'. Defaults to 'newrelic-pay-as-you-go-free-live'. Changing this forces a new Azure Native New Relic Monitor to be created.
->`usage_type` (string): Specifies the usage type. Possible values are 'COMMITTED' and 'PAYG'. Defaults to 'PAYG'. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `effective_date` (datetime): (REQUIRED) Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `billing_cycle` (string): Specifies the billing cycles. Possible values are 'MONTHLY', 'WEEKLY' and 'YEARLY'. Defaults to 'MONTHLY'. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `plan_id` (string): Specifies the plan id published by NewRelic. The only possible value is 'newrelic-pay-as-you-go-free-live'. Defaults to 'newrelic-pay-as-you-go-free-live'. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `usage_type` (string): Specifies the usage type. Possible values are 'COMMITTED' and 'PAYG'. Defaults to 'PAYG'. Changing this forces a new Azure Native New Relic Monitor to be created.
 
 ### `user` block structure
 
->`email` (string): (REQUIRED) Specifies the user Email. Changing this forces a new Azure Native New Relic Monitor to be created.
->`first_name` (string): (REQUIRED) Specifies the first name. Changing this forces a new Azure Native New Relic Monitor to be created.
->`last_name` (string): (REQUIRED) Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
->`phone_number` (string): (REQUIRED) Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `email` (string): (REQUIRED) Specifies the user Email. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `first_name` (string): (REQUIRED) Specifies the first name. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `last_name` (string): (REQUIRED) Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created.
+> `phone_number` (string): (REQUIRED) Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created.
 
 
 

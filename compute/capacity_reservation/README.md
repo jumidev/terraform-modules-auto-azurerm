@@ -36,8 +36,8 @@ tfstate_store = {
 
 ### `sku` block structure
 
->`name` (string): (REQUIRED) Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created.
->`capacity` (int): (REQUIRED) Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription.
+> `name` (string): (REQUIRED) Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created.
+> `capacity` (int): (REQUIRED) Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription.
 
 
 

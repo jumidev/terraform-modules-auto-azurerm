@@ -39,15 +39,15 @@ tfstate_store = {
 
 ### `apns_credential` block structure
 
->`application_mode` (string): (REQUIRED) The Application Mode which defines which server the APNS Messages should be sent to. Possible values are 'Production' and 'Sandbox'.
->`bundle_id` (string): (REQUIRED) The Bundle ID of the iOS/macOS application to send push notifications for, such as 'com.hashicorp.example'.
->`key_id` (string): (REQUIRED) The Apple Push Notifications Service (APNS) Key.
->`team_id` (string): (REQUIRED) The ID of the team the Token.
->`token` (string): (REQUIRED) The Push Token associated with the Apple Developer Account. This is the contents of the 'key' downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the '-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----' blocks.
+> `application_mode` (string): (REQUIRED) The Application Mode which defines which server the APNS Messages should be sent to. Possible values are 'Production' and 'Sandbox'.
+> `bundle_id` (string): (REQUIRED) The Bundle ID of the iOS/macOS application to send push notifications for, such as 'com.hashicorp.example'.
+> `key_id` (string): (REQUIRED) The Apple Push Notifications Service (APNS) Key.
+> `team_id` (string): (REQUIRED) The ID of the team the Token.
+> `token` (string): (REQUIRED) The Push Token associated with the Apple Developer Account. This is the contents of the 'key' downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the '-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----' blocks.
 
 ### `gcm_credential` block structure
 
->`api_key` (string): (REQUIRED) The API Key associated with the Google Cloud Messaging service.
+> `api_key` (string): (REQUIRED) The API Key associated with the Google Cloud Messaging service.
 
 
 

@@ -46,9 +46,9 @@ tfstate_store = {
 
 ### `client_scoped_subscription` block structure
 
->`client_id` (string): Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
->`is_client_scoped_subscription_shareable` (bool): Whether the client scoped subscription is shareable. Defaults to 'true' Changing this forces a new resource to be created.
->`is_client_scoped_subscription_durable` (bool): Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+> `client_id` (string): Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created.
+> `is_client_scoped_subscription_shareable` (bool): Whether the client scoped subscription is shareable. Defaults to 'true' Changing this forces a new resource to be created.
+> `is_client_scoped_subscription_durable` (bool): Whether the client scoped subscription is durable. This property can only be controlled from the application side.
 
 
 

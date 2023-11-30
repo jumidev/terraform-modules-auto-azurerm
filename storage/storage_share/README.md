@@ -38,7 +38,7 @@ tfstate_store = {
 
 ### `acl` block structure
 
->`access_policy` (block): An 'access_policy' block.
+> `access_policy` (block): An 'access_policy' block.
 
 
 

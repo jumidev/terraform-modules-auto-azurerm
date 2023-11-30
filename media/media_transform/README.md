@@ -36,13 +36,13 @@ tfstate_store = {
 
 ### `output` block structure
 
->`audio_analyzer_preset` (block): An 'audio_analyzer_preset' block.
->`builtin_preset` (block): A 'builtin_preset' block.
->`custom_preset` (block): A 'custom_preset' block.
->`face_detector_preset` (block): A 'face_detector_preset' block.
->`on_error_action` (string): A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. Possible values are 'StopProcessingJob' or 'ContinueJob'. Defaults to 'StopProcessingJob'.
->`relative_priority` (string): Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are 'High', 'Normal' or 'Low'. Defaults to 'Normal'.
->`video_analyzer_preset` (block): A 'video_analyzer_preset' block.
+> `audio_analyzer_preset` (block): An 'audio_analyzer_preset' block.
+> `builtin_preset` (block): A 'builtin_preset' block.
+> `custom_preset` (block): A 'custom_preset' block.
+> `face_detector_preset` (block): A 'face_detector_preset' block.
+> `on_error_action` (string): A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. Possible values are 'StopProcessingJob' or 'ContinueJob'. Defaults to 'StopProcessingJob'.
+> `relative_priority` (string): Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing Transform Outputs. Possible values are 'High', 'Normal' or 'Low'. Defaults to 'Normal'.
+> `video_analyzer_preset` (block): A 'video_analyzer_preset' block.
 
 
 

@@ -54,44 +54,44 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both).
->`identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both).
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 
 ### `aad_admin` block structure
 
->`login` (string): (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace.
->`object_id` (string): (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace.
->`tenant_id` (string): (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace.
+> `login` (string): (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace.
+> `object_id` (string): (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace.
+> `tenant_id` (string): (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace.
 
 ### `azure_devops_repo` block structure
 
->`account_name` (string): (REQUIRED) Specifies the Azure DevOps account name.
->`branch_name` (string): (REQUIRED) Specifies the collaboration branch of the repository to get code from.
->`last_commit_id` (string): The last commit ID.
->`project_name` (string): (REQUIRED) Specifies the name of the Azure DevOps project.
->`repository_name` (string): (REQUIRED) Specifies the name of the git repository.
->`root_folder` (string): (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level.
->`tenant_id` (string): the ID of the tenant for the Azure DevOps account.
+> `account_name` (string): (REQUIRED) Specifies the Azure DevOps account name.
+> `branch_name` (string): (REQUIRED) Specifies the collaboration branch of the repository to get code from.
+> `last_commit_id` (string): The last commit ID.
+> `project_name` (string): (REQUIRED) Specifies the name of the Azure DevOps project.
+> `repository_name` (string): (REQUIRED) Specifies the name of the git repository.
+> `root_folder` (string): (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level.
+> `tenant_id` (string): the ID of the tenant for the Azure DevOps account.
 
 ### `customer_managed_key` block structure
 
->`key_versionless_id` (string): (REQUIRED) The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. 'https://example-keyvault.vault.azure.net/type/cmk/').
->`key_name` (string): An identifier for the key. Name needs to match the name of the key used with the 'azurerm_synapse_workspace_key' resource. Defaults to 'cmk' if not specified.
+> `key_versionless_id` (string): (REQUIRED) The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. 'https://example-keyvault.vault.azure.net/type/cmk/').
+> `key_name` (string): An identifier for the key. Name needs to match the name of the key used with the 'azurerm_synapse_workspace_key' resource. Defaults to 'cmk' if not specified.
 
 ### `github_repo` block structure
 
->`account_name` (string): (REQUIRED) Specifies the GitHub account name.
->`branch_name` (string): (REQUIRED) Specifies the collaboration branch of the repository to get code from.
->`last_commit_id` (string): The last commit ID.
->`repository_name` (string): (REQUIRED) Specifies the name of the git repository.
->`root_folder` (string): (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level.
->`git_url` (string): Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+> `account_name` (string): (REQUIRED) Specifies the GitHub account name.
+> `branch_name` (string): (REQUIRED) Specifies the collaboration branch of the repository to get code from.
+> `last_commit_id` (string): The last commit ID.
+> `repository_name` (string): (REQUIRED) Specifies the name of the git repository.
+> `root_folder` (string): (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level.
+> `git_url` (string): Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
 
 ### `sql_aad_admin` block structure
 
->`login` (string): (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace SQL.
->`object_id` (string): (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace SQL.
->`tenant_id` (string): (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
+> `login` (string): (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace SQL.
+> `object_id` (string): (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace SQL.
+> `tenant_id` (string): (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
 
 
 

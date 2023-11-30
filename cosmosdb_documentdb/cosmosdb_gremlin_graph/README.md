@@ -46,26 +46,26 @@ tfstate_store = {
 
 ### `autoscale_settings` block structure
 
->`max_throughput` (string): The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.
+> `max_throughput` (string): The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.
 
 ### `index_policy` block structure
 
->`automatic` (bool): Indicates if the indexing policy is automatic. Defaults to 'true'.
->`indexing_mode` (string): (REQUIRED) Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy', 'None'.
->`included_paths` (string): List of paths to include in the indexing. Required if 'indexing_mode' is 'Consistent' or 'Lazy'.
->`excluded_paths` (string): List of paths to exclude from indexing. Required if 'indexing_mode' is 'Consistent' or 'Lazy'.
->`composite_index` (block): One or more 'composite_index' blocks.
->`spatial_index` (block): One or more 'spatial_index' blocks.
+> `automatic` (bool): Indicates if the indexing policy is automatic. Defaults to 'true'.
+> `indexing_mode` (string): (REQUIRED) Indicates the indexing mode. Possible values include: 'Consistent', 'Lazy', 'None'.
+> `included_paths` (string): List of paths to include in the indexing. Required if 'indexing_mode' is 'Consistent' or 'Lazy'.
+> `excluded_paths` (string): List of paths to exclude from indexing. Required if 'indexing_mode' is 'Consistent' or 'Lazy'.
+> `composite_index` (block): One or more 'composite_index' blocks.
+> `spatial_index` (block): One or more 'spatial_index' blocks.
 
 ### `conflict_resolution_policy` block structure
 
->`mode` (string): (REQUIRED) Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'.
->`conflict_resolution_path` (string): The conflict resolution path in the case of LastWriterWins mode.
->`conflict_resolution_procedure` (string): The procedure to resolve conflicts in the case of custom mode.
+> `mode` (string): (REQUIRED) Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'.
+> `conflict_resolution_path` (string): The conflict resolution path in the case of LastWriterWins mode.
+> `conflict_resolution_procedure` (string): The procedure to resolve conflicts in the case of custom mode.
 
 ### `unique_key` block structure
 
->`paths` (list): (REQUIRED) A list of paths to use for this unique key. Changing this forces a new resource to be created.
+> `paths` (list): (REQUIRED) A list of paths to use for this unique key. Changing this forces a new resource to be created.
 
 
 

@@ -38,8 +38,8 @@ tfstate_store = {
 
 ### `key_property` block structure
 
->`name` (string): (REQUIRED) The name of the key property. Changing this forces a new resource to be created.
->`type` (string): (REQUIRED) The data type of the key property. Valid values include 'Bool', 'DateTime', 'Double', 'String'. Changing this forces a new resource to be created.
+> `name` (string): (REQUIRED) The name of the key property. Changing this forces a new resource to be created.
+> `type` (string): (REQUIRED) The data type of the key property. Valid values include 'Bool', 'DateTime', 'Double', 'String'. Changing this forces a new resource to be created.
 
 
 

@@ -41,22 +41,22 @@ tfstate_store = {
 
 ### `log` block structure
 
->`category` (string): The name of a Diagnostic Log Category for this Resource.
->`category_group` (string): The name of a Diagnostic Log Category Group for this Resource.
->`retention_policy` (block): A 'retention_policy' block.
->`enabled` (bool): Is this Diagnostic Log enabled? Defaults to 'true'.
+> `category` (string): The name of a Diagnostic Log Category for this Resource.
+> `category_group` (string): The name of a Diagnostic Log Category Group for this Resource.
+> `retention_policy` (block): A 'retention_policy' block.
+> `enabled` (bool): Is this Diagnostic Log enabled? Defaults to 'true'.
 
 ### `enabled_log` block structure
 
->`category` (string): The name of a Diagnostic Log Category for this Resource.
->`category_group` (string): The name of a Diagnostic Log Category Group for this Resource.
->`retention_policy` (block): A 'retention_policy' block.
+> `category` (string): The name of a Diagnostic Log Category for this Resource.
+> `category_group` (string): The name of a Diagnostic Log Category Group for this Resource.
+> `retention_policy` (block): A 'retention_policy' block.
 
 ### `metric` block structure
 
->`category` (string): (REQUIRED) The name of a Diagnostic Metric Category for this Resource.
->`retention_policy` (block): A 'retention_policy' block.
->`enabled` (bool): Is this Diagnostic Metric enabled? Defaults to 'true'.
+> `category` (string): (REQUIRED) The name of a Diagnostic Metric Category for this Resource.
+> `retention_policy` (block): A 'retention_policy' block.
+> `enabled` (bool): Is this Diagnostic Metric enabled? Defaults to 'true'.
 
 
 

@@ -42,13 +42,13 @@ tfstate_store = {
 
 ### `network_profile` block structure
 
->`network_interface_private_ip_addresses` (string): (REQUIRED) The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
->`subnet_id` (string): (REQUIRED) The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+> `network_interface_private_ip_addresses` (string): (REQUIRED) The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+> `subnet_id` (string): (REQUIRED) The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
 
 ### `management_network_profile` block structure
 
->`network_interface_private_ip_addresses` (string): (REQUIRED) The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
->`subnet_id` (string): (REQUIRED) The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
+> `network_interface_private_ip_addresses` (string): (REQUIRED) The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
+> `subnet_id` (string): (REQUIRED) The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
 
 
 

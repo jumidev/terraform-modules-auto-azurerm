@@ -44,7 +44,7 @@ tfstate_store = {
 
 ### `management_cluster` block structure
 
->`size` (string): (REQUIRED) The size of the management cluster. This field can not updated with 'internet_connection_enabled' together.
+> `size` (string): (REQUIRED) The size of the management cluster. This field can not updated with 'internet_connection_enabled' together.
 
 
 

@@ -33,8 +33,8 @@ tfstate_store = {
 
 ### `ip_rule` block structure
 
->`name` (string): (REQUIRED) The name of the IP Rule
->`ip_mask` (string): (REQUIRED) The IP address range in CIDR notation for the IP Rule.
+> `name` (string): (REQUIRED) The name of the IP Rule
+> `ip_mask` (string): (REQUIRED) The IP address range in CIDR notation for the IP Rule.
 
 
 

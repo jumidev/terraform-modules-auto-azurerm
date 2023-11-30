@@ -45,11 +45,11 @@ tfstate_store = {
 
 ### `content_key` block structure
 
->`content_key_id` (string): ID of Content Key. Changing this forces a new Streaming Locator to be created.
->`label_reference_in_streaming_policy` (string): Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
->`policy_name` (string): Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
->`type` (string): Encryption type of Content Key. Supported values are 'CommonEncryptionCbcs', 'CommonEncryptionCenc' or 'EnvelopeEncryption'. Changing this forces a new Streaming Locator to be created.
->`value` (string): Value of Content Key. Changing this forces a new Streaming Locator to be created.
+> `content_key_id` (string): ID of Content Key. Changing this forces a new Streaming Locator to be created.
+> `label_reference_in_streaming_policy` (string): Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
+> `policy_name` (string): Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
+> `type` (string): Encryption type of Content Key. Supported values are 'CommonEncryptionCbcs', 'CommonEncryptionCenc' or 'EnvelopeEncryption'. Changing this forces a new Streaming Locator to be created.
+> `value` (string): Value of Content Key. Changing this forces a new Streaming Locator to be created.
 
 
 

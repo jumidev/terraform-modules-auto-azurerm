@@ -55,31 +55,31 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
->`identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
+> `identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
 
 ### `patch_schedule` block structure
 
->`day_of_week` (string): (REQUIRED) the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc.
->`start_hour_utc` (string): the Start Hour for maintenance in UTC - possible values range from '0 - 23'.
->`maintenance_window` (string): The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'.
+> `day_of_week` (string): (REQUIRED) the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc.
+> `start_hour_utc` (string): the Start Hour for maintenance in UTC - possible values range from '0 - 23'.
+> `maintenance_window` (string): The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'.
 
 ### `redis_configuration` block structure
 
->`aof_backup_enabled` (bool): Enable or disable AOF persistence for this Redis Cache. Defaults to 'false'.
->`aof_storage_connection_string_0` (string): First Storage Account connection string for AOF persistence.
->`aof_storage_connection_string_1` (string): Second Storage Account connection string for AOF persistence.
->`enable_authentication` (bool): If set to 'false', the Redis instance will be accessible without authentication. Defaults to 'true'.
->`active_directory_authentication_enabled` (bool): Enable Microsoft Entra (AAD) authentication. Defaults to 'false'.
->`maxmemory_reserved` (string): Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
->`maxmemory_delta` (string): The max-memory delta for this Redis instance. Defaults are shown below.
->`maxmemory_policy` (string): How Redis will select what to remove when 'maxmemory' is reached. Defaults to 'volatile-lru'.
->`maxfragmentationmemory_reserved` (string): Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
->`rdb_backup_enabled` (bool): Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'.
->`rdb_backup_frequency` (string): The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'.
->`rdb_backup_max_snapshot_count` (int): The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
->`rdb_storage_connection_string` (string): The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'.
->`notify_keyspace_events` (string): Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+> `aof_backup_enabled` (bool): Enable or disable AOF persistence for this Redis Cache. Defaults to 'false'.
+> `aof_storage_connection_string_0` (string): First Storage Account connection string for AOF persistence.
+> `aof_storage_connection_string_1` (string): Second Storage Account connection string for AOF persistence.
+> `enable_authentication` (bool): If set to 'false', the Redis instance will be accessible without authentication. Defaults to 'true'.
+> `active_directory_authentication_enabled` (bool): Enable Microsoft Entra (AAD) authentication. Defaults to 'false'.
+> `maxmemory_reserved` (string): Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
+> `maxmemory_delta` (string): The max-memory delta for this Redis instance. Defaults are shown below.
+> `maxmemory_policy` (string): How Redis will select what to remove when 'maxmemory' is reached. Defaults to 'volatile-lru'.
+> `maxfragmentationmemory_reserved` (string): Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
+> `rdb_backup_enabled` (bool): Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'.
+> `rdb_backup_frequency` (string): The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'.
+> `rdb_backup_max_snapshot_count` (int): The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
+> `rdb_storage_connection_string` (string): The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'.
+> `notify_keyspace_events` (string): Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 
 
 

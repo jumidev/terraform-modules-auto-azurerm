@@ -40,13 +40,13 @@ tfstate_store = {
 
 ### `rule` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the rule.
->`description` (string): Specifies a description for the rule.
->`source_addresses` (list): A list of source IP addresses and/or IP ranges.
->`source_ip_groups` (list): A list of source IP Group IDs for the rule.
->`fqdn_tags` (string): A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'.
->`target_fqdns` (list): A list of FQDNs.
->`protocol` (block): One or more 'protocol' blocks.
+> `name` (string): (REQUIRED) Specifies the name of the rule.
+> `description` (string): Specifies a description for the rule.
+> `source_addresses` (list): A list of source IP addresses and/or IP ranges.
+> `source_ip_groups` (list): A list of source IP Group IDs for the rule.
+> `fqdn_tags` (string): A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'.
+> `target_fqdns` (list): A list of FQDNs.
+> `protocol` (block): One or more 'protocol' blocks.
 
 
 

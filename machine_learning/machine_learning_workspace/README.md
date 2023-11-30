@@ -54,14 +54,14 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
->`identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 
 ### `encryption` block structure
 
->`key_vault_id` (string): (REQUIRED) The ID of the keyVault where the customer owned encryption key is present.
->`key_id` (string): (REQUIRED) The Key Vault URI to access the encryption key.
->`user_assigned_identity_id` (string): The Key Vault URI to access the encryption key.
+> `key_vault_id` (string): (REQUIRED) The ID of the keyVault where the customer owned encryption key is present.
+> `key_id` (string): (REQUIRED) The Key Vault URI to access the encryption key.
+> `user_assigned_identity_id` (string): The Key Vault URI to access the encryption key.
 
 
 

@@ -34,7 +34,7 @@ tfstate_store = {
 
 ### `secret` block structure
 
->`customer_certificate` (block): (REQUIRED) A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created.
+> `customer_certificate` (block): (REQUIRED) A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created.
 
 
 

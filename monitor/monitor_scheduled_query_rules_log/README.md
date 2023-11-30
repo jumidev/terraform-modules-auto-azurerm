@@ -42,8 +42,8 @@ tfstate_store = {
 
 ### `criteria` block structure
 
->`dimension` (block): (REQUIRED) A 'dimension' block.
->`metric_name` (string): (REQUIRED) Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
+> `dimension` (block): (REQUIRED) A 'dimension' block.
+> `metric_name` (string): (REQUIRED) Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 
 
 

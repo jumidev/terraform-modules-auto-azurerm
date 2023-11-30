@@ -47,13 +47,13 @@ tfstate_store = {
 
 ### `import` block structure
 
->`storage_uri` (string): (REQUIRED) Specifies the blob URI of the .bacpac file.
->`storage_key` (string): (REQUIRED) Specifies the access key for the storage account.
->`storage_key_type` (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'.
->`administrator_login` (string): (REQUIRED) Specifies the name of the SQL administrator.
->`administrator_login_password` (string): (REQUIRED) Specifies the password of the SQL administrator.
->`authentication_type` (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'.
->`operation_mode` (string): Specifies the type of import operation being performed. The only allowable value is 'Import'. Defaults to 'Import'.
+> `storage_uri` (string): (REQUIRED) Specifies the blob URI of the .bacpac file.
+> `storage_key` (string): (REQUIRED) Specifies the access key for the storage account.
+> `storage_key_type` (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'.
+> `administrator_login` (string): (REQUIRED) Specifies the name of the SQL administrator.
+> `administrator_login_password` (string): (REQUIRED) Specifies the password of the SQL administrator.
+> `authentication_type` (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'.
+> `operation_mode` (string): Specifies the type of import operation being performed. The only allowable value is 'Import'. Defaults to 'Import'.
 
 
 

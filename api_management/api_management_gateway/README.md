@@ -35,10 +35,10 @@ tfstate_store = {
 
 ### `location_data` block structure
 
->`name` (string): (REQUIRED) A canonical name for the geographic or physical location.
->`city` (string): The city or locality where the resource is located.
->`district` (string): The district, state, or province where the resource is located.
->`region` (string): The country or region where the resource is located.
+> `name` (string): (REQUIRED) A canonical name for the geographic or physical location.
+> `city` (string): The city or locality where the resource is located.
+> `district` (string): The district, state, or province where the resource is located.
+> `region` (string): The country or region where the resource is located.
 
 
 

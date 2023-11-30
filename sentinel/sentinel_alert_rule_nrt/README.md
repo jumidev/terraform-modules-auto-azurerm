@@ -52,29 +52,29 @@ tfstate_store = {
 
 ### `alert_details_override` block structure
 
->`description_format` (string): The format containing columns name(s) to override the description of this Sentinel Alert Rule.
->`display_name_format` (string): The format containing columns name(s) to override the name of this Sentinel Alert Rule.
->`severity_column_name` (string): The column name to take the alert severity from.
->`tactics_column_name` (string): The column name to take the alert tactics from.
->`dynamic_property` (block): A list of 'dynamic_property' blocks.
+> `description_format` (string): The format containing columns name(s) to override the description of this Sentinel Alert Rule.
+> `display_name_format` (string): The format containing columns name(s) to override the name of this Sentinel Alert Rule.
+> `severity_column_name` (string): The column name to take the alert severity from.
+> `tactics_column_name` (string): The column name to take the alert tactics from.
+> `dynamic_property` (block): A list of 'dynamic_property' blocks.
 
 ### `entity_mapping` block structure
 
->`entity_type` (string): (REQUIRED) The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'.
->`field_mapping` (block): (REQUIRED) A list of 'field_mapping' blocks.
+> `entity_type` (string): (REQUIRED) The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'.
+> `field_mapping` (block): (REQUIRED) A list of 'field_mapping' blocks.
 
 ### `event_grouping` block structure
 
->`aggregation_method` (string): (REQUIRED) The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'.
+> `aggregation_method` (string): (REQUIRED) The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'.
 
 ### `sentinel_entity_mapping` block structure
 
->`column_name` (string): (REQUIRED) The column name to be mapped to the identifier.
+> `column_name` (string): (REQUIRED) The column name to be mapped to the identifier.
 
 ### `incident` block structure
 
->`create_incident_enabled` (bool): (REQUIRED) Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
->`grouping` (block): (REQUIRED) A 'grouping' block.
+> `create_incident_enabled` (bool): (REQUIRED) Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule?
+> `grouping` (block): (REQUIRED) A 'grouping' block.
 
 
 

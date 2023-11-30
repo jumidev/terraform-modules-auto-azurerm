@@ -50,11 +50,11 @@ tfstate_store = {
 
 ### `service_location` block structure
 
->`location` (string): (REQUIRED) Specifies the region in which the resources needed for Teams Calling will be deployed.
->`operator_addresses` (string): (REQUIRED) IP address to use to contact the operator network from this region.
->`allowed_media_source_address_prefixes` (string): Specifies the allowed source IP address or CIDR ranges for media.
->`allowed_signaling_source_address_prefixes` (string): Specifies the allowed source IP address or CIDR ranges for signaling.
->`esrp_addresses` (string): IP address to use to contact the ESRP from this region.
+> `location` (string): (REQUIRED) Specifies the region in which the resources needed for Teams Calling will be deployed.
+> `operator_addresses` (string): (REQUIRED) IP address to use to contact the operator network from this region.
+> `allowed_media_source_address_prefixes` (string): Specifies the allowed source IP address or CIDR ranges for media.
+> `allowed_signaling_source_address_prefixes` (string): Specifies the allowed source IP address or CIDR ranges for signaling.
+> `esrp_addresses` (string): IP address to use to contact the ESRP from this region.
 
 
 

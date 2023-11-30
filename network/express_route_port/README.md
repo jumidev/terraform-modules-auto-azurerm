@@ -45,24 +45,24 @@ tfstate_store = {
 
 ### `link1` block structure
 
->`admin_enabled` (bool): Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
->`macsec_cipher` (string): The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
->`macsec_ckn_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
->`macsec_cak_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
->`macsec_sci_enabled` (bool): Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
+> `admin_enabled` (bool): Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
+> `macsec_cipher` (string): The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
+> `macsec_ckn_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+> `macsec_cak_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+> `macsec_sci_enabled` (bool): Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
 
 ### `link2` block structure
 
->`admin_enabled` (bool): Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
->`macsec_cipher` (string): The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
->`macsec_ckn_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
->`macsec_cak_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
->`macsec_sci_enabled` (bool): Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
+> `admin_enabled` (bool): Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
+> `macsec_cipher` (string): The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
+> `macsec_ckn_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
+> `macsec_cak_keyvault_secret_id` (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
+> `macsec_sci_enabled` (bool): Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'.
->`identity_ids` (string): (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'.
+> `identity_ids` (string): (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 
 
 

@@ -33,14 +33,14 @@ tfstate_store = {
 
 ### `log` block structure
 
->`aad_log_enabled` (bool): Whether AAD logs should be sent for the Monitor resource?
->`subscription_log_enabled` (bool): Whether Azure subscription logs should be sent for the Monitor resource?
->`resource_log_enabled` (bool): Whether Azure resource logs should be sent for the Monitor resource?
->`filter` (block): A 'filter' block.
+> `aad_log_enabled` (bool): Whether AAD logs should be sent for the Monitor resource?
+> `subscription_log_enabled` (bool): Whether Azure subscription logs should be sent for the Monitor resource?
+> `resource_log_enabled` (bool): Whether Azure resource logs should be sent for the Monitor resource?
+> `filter` (block): A 'filter' block.
 
 ### `metric` block structure
 
->`filter` (block): A 'filter' block.
+> `filter` (block): A 'filter' block.
 
 
 

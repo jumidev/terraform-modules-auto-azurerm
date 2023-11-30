@@ -31,10 +31,10 @@ tfstate_store = {
 
 ### `rule` block structure
 
->`name` (string): (REQUIRED) The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
->`enabled` (bool): (REQUIRED) Boolean to specify whether the rule is enabled.
->`filters` (block): (REQUIRED) A 'filters' block.
->`actions` (block): (REQUIRED) An 'actions' block.
+> `name` (string): (REQUIRED) The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
+> `enabled` (bool): (REQUIRED) Boolean to specify whether the rule is enabled.
+> `filters` (block): (REQUIRED) A 'filters' block.
+> `actions` (block): (REQUIRED) An 'actions' block.
 
 
 

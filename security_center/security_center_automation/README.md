@@ -43,15 +43,15 @@ tfstate_store = {
 
 ### `source` block structure
 
->`event_source` (string): (REQUIRED) Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations
->`rule_set` (block): A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks.
+> `event_source` (string): (REQUIRED) Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations
+> `rule_set` (block): A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks.
 
 ### `action` block structure
 
->`type` (string): (REQUIRED) Type of Azure resource to send data to. Must be set to one of: 'LogicApp', 'EventHub' or 'LogAnalytics'.
->`resource_id` (string): (REQUIRED) The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
->`connection_string` (string): (Optional, but required when 'type' is 'EventHub') A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
->`trigger_url` (string): (Optional, but required when 'type' is 'LogicApp') The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under 'See trigger history'
+> `type` (string): (REQUIRED) Type of Azure resource to send data to. Must be set to one of: 'LogicApp', 'EventHub' or 'LogAnalytics'.
+> `resource_id` (string): (REQUIRED) The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
+> `connection_string` (string): (Optional, but required when 'type' is 'EventHub') A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
+> `trigger_url` (string): (Optional, but required when 'type' is 'LogicApp') The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under 'See trigger history'
 
 
 

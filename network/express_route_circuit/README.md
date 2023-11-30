@@ -44,8 +44,8 @@ tfstate_store = {
 
 ### `sku` block structure
 
->`tier` (string): (REQUIRED) The service tier. Possible values are 'Basic', 'Local', 'Standard' or 'Premium'.
->`family` (string): (REQUIRED) The billing mode for bandwidth. Possible values are 'MeteredData' or 'UnlimitedData'.
+> `tier` (string): (REQUIRED) The service tier. Possible values are 'Basic', 'Local', 'Standard' or 'Premium'.
+> `family` (string): (REQUIRED) The billing mode for bandwidth. Possible values are 'MeteredData' or 'UnlimitedData'.
 
 
 

@@ -42,8 +42,8 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
->`identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+> `type` (string): (REQUIRED) The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
+> `identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
 
 
 

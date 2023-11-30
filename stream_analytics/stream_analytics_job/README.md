@@ -46,15 +46,15 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is 'SystemAssigned'.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is 'SystemAssigned'.
 
 ### `job_storage_account` block structure
 
->`authentication_mode` (string): The authentication mode of the storage account. The only supported value is 'ConnectionString'. Defaults to 'ConnectionString'.
->`account_name` (string): (REQUIRED) The name of the Azure storage account.
->`account_key` (string): (REQUIRED) The account key for the Azure storage account.
->`transformation_query` (string): (REQUIRED) Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
->`tags` (map): A mapping of tags assigned to the resource.
+> `authentication_mode` (string): The authentication mode of the storage account. The only supported value is 'ConnectionString'. Defaults to 'ConnectionString'.
+> `account_name` (string): (REQUIRED) The name of the Azure storage account.
+> `account_key` (string): (REQUIRED) The account key for the Azure storage account.
+> `transformation_query` (string): (REQUIRED) Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
+> `tags` (map): A mapping of tags assigned to the resource.
 
 
 

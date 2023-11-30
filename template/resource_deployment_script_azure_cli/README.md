@@ -50,23 +50,23 @@ tfstate_store = {
 
 ### `container` block structure
 
->`container_group_name` (string): Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
+> `container_group_name` (string): Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation.
 
 ### `environment_variable` block structure
 
->`name` (string): (REQUIRED) Specifies the name of the environment variable.
->`secure_value` (string): Specifies the value of the secure environment variable.
->`value` (string): Specifies the value of the environment variable.
+> `name` (string): (REQUIRED) Specifies the name of the environment variable.
+> `secure_value` (string): Specifies the value of the secure environment variable.
+> `value` (string): Specifies the value of the environment variable.
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created.
->`identity_ids` (string): (REQUIRED) Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
+> `type` (string): (REQUIRED) Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created.
+> `identity_ids` (string): (REQUIRED) Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created.
 
 ### `storage_account` block structure
 
->`key` (string): (REQUIRED) Specifies the storage account access key.
->`name` (string): (REQUIRED) Specifies the storage account name.
+> `key` (string): (REQUIRED) Specifies the storage account access key.
+> `name` (string): (REQUIRED) Specifies the storage account name.
 
 
 

@@ -40,24 +40,24 @@ tfstate_store = {
 
 ### `authorization` block structure
 
->`principal_id` (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
->`role_definition_id` (string): (REQUIRED) The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role.
->`delegated_role_definition_ids` (string): The set of role definition ids which define all the permissions that the principal id can assign.
->`principal_display_name` (string): The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
+> `principal_id` (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+> `role_definition_id` (string): (REQUIRED) The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role.
+> `delegated_role_definition_ids` (string): The set of role definition ids which define all the permissions that the principal id can assign.
+> `principal_display_name` (string): The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
 
 ### `eligible_authorization` block structure
 
->`principal_id` (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
->`role_definition_id` (string): (REQUIRED) The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
->`just_in_time_access_policy` (block): A 'just_in_time_access_policy' block.
->`principal_display_name` (string): The display name of the Azure Active Directory Principal.
+> `principal_id` (string): (REQUIRED) Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
+> `role_definition_id` (string): (REQUIRED) The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
+> `just_in_time_access_policy` (block): A 'just_in_time_access_policy' block.
+> `principal_display_name` (string): The display name of the Azure Active Directory Principal.
 
 ### `plan` block structure
 
->`name` (string): (REQUIRED) The plan name of the marketplace offer.
->`publisher` (string): (REQUIRED) The publisher ID of the plan.
->`product` (string): (REQUIRED) The product code of the plan.
->`version` (string): (REQUIRED) The version of the plan.
+> `name` (string): (REQUIRED) The plan name of the marketplace offer.
+> `publisher` (string): (REQUIRED) The publisher ID of the plan.
+> `product` (string): (REQUIRED) The product code of the plan.
+> `version` (string): (REQUIRED) The version of the plan.
 
 
 

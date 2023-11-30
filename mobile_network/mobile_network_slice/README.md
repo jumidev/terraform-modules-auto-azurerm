@@ -38,8 +38,8 @@ tfstate_store = {
 
 ### `single_network_slice_selection_assistance_information` block structure
 
->`slice_differentiator` (string): Slice differentiator (SD). Must be a 6 digit hex string.
->`slice_service_type` (string): (REQUIRED) Slice/service type (SST). Must be between '0' and '255'.
+> `slice_differentiator` (string): Slice differentiator (SD). Must be a 6 digit hex string.
+> `slice_service_type` (string): (REQUIRED) Slice/service type (SST). Must be between '0' and '255'.
 
 
 

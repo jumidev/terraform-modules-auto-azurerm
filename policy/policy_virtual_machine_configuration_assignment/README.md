@@ -36,11 +36,11 @@ tfstate_store = {
 
 ### `configuration` block structure
 
->`assignment_type` (string): The assignment type for the Guest Configuration Assignment. Possible values are 'Audit', 'ApplyAndAutoCorrect', 'ApplyAndMonitor' and 'DeployAndAutoCorrect'.
->`content_hash` (string): The content hash for the Guest Configuration package.
->`content_uri` (string): The content URI where the Guest Configuration package is stored.
->`parameter` (block): One or more 'parameter' blocks which define what configuration parameters and values against.
->`version` (string): The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
+> `assignment_type` (string): The assignment type for the Guest Configuration Assignment. Possible values are 'Audit', 'ApplyAndAutoCorrect', 'ApplyAndMonitor' and 'DeployAndAutoCorrect'.
+> `content_hash` (string): The content hash for the Guest Configuration package.
+> `content_uri` (string): The content URI where the Guest Configuration package is stored.
+> `parameter` (block): One or more 'parameter' blocks which define what configuration parameters and values against.
+> `version` (string): The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 
 
 

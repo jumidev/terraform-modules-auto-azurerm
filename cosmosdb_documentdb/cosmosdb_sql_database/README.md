@@ -36,7 +36,7 @@ tfstate_store = {
 
 ### `autoscale_settings` block structure
 
->`max_throughput` (string): The maximum throughput of the SQL database (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.
+> `max_throughput` (string): The maximum throughput of the SQL database (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.
 
 
 

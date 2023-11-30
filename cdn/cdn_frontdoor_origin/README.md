@@ -43,10 +43,10 @@ tfstate_store = {
 
 ### `private_link` block structure
 
->`request_message` (string): Specifies the request message that will be submitted to the 'private_link_target_id' when requesting the private link endpoint connection. Values must be between '1' and '140' characters in length. Defaults to 'Access request for CDN FrontDoor Private Link Origin'.
->`target_type` (string): Specifies the type of target for this Private Link Endpoint. Possible values are 'blob', 'blob_secondary', 'web' and 'sites'.
->`location` (string): (REQUIRED) Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
->`private_link_target_id` (string): (REQUIRED) The ID of the Azure Resource to connect to via the Private Link.
+> `request_message` (string): Specifies the request message that will be submitted to the 'private_link_target_id' when requesting the private link endpoint connection. Values must be between '1' and '140' characters in length. Defaults to 'Access request for CDN FrontDoor Private Link Origin'.
+> `target_type` (string): Specifies the type of target for this Private Link Endpoint. Possible values are 'blob', 'blob_secondary', 'web' and 'sites'.
+> `location` (string): (REQUIRED) Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created.
+> `private_link_target_id` (string): (REQUIRED) The ID of the Azure Resource to connect to via the Private Link.
 
 
 

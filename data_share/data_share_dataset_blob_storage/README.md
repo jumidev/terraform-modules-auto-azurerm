@@ -38,9 +38,9 @@ tfstate_store = {
 
 ### `storage_account` block structure
 
->`name` (string): (REQUIRED) The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
->`resource_group_name` (string): (REQUIRED) The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
->`subscription_id` (string): (REQUIRED) The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+> `name` (string): (REQUIRED) The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+> `resource_group_name` (string): (REQUIRED) The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
+> `subscription_id` (string): (REQUIRED) The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
 
 
 

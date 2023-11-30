@@ -39,9 +39,9 @@ tfstate_store = {
 
 ### `bgp_settings` block structure
 
->`asn` (string): (REQUIRED) The BGP speaker's ASN.
->`bgp_peering_address` (string): (REQUIRED) The BGP peering address and BGP identifier of this BGP speaker.
->`peer_weight` (string): The weight added to routes learned from this BGP speaker.
+> `asn` (string): (REQUIRED) The BGP speaker's ASN.
+> `bgp_peering_address` (string): (REQUIRED) The BGP peering address and BGP identifier of this BGP speaker.
+> `peer_weight` (string): The weight added to routes learned from this BGP speaker.
 
 
 

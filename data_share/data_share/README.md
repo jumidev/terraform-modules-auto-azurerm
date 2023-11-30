@@ -37,9 +37,9 @@ tfstate_store = {
 
 ### `snapshot_schedule` block structure
 
->`name` (string): (REQUIRED) The name of the snapshot schedule.
->`recurrence` (string): (REQUIRED) The interval of the synchronization with the source data. Possible values are 'Hour' and 'Day'.
->`start_time` (string): (REQUIRED) The synchronization with the source data's start time.
+> `name` (string): (REQUIRED) The name of the snapshot schedule.
+> `recurrence` (string): (REQUIRED) The interval of the synchronization with the source data. Possible values are 'Hour' and 'Day'.
+> `start_time` (string): (REQUIRED) The synchronization with the source data's start time.
 
 
 

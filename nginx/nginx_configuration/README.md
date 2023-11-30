@@ -35,8 +35,8 @@ tfstate_store = {
 
 ### `config_file` block structure
 
->`content` (string): (REQUIRED) Specifies the base-64 encoded contents of this config file.
->`virtual_path` (string): (REQUIRED) Specify the path of this config file.
+> `content` (string): (REQUIRED) Specifies the base-64 encoded contents of this config file.
+> `virtual_path` (string): (REQUIRED) Specify the path of this config file.
 
 
 

@@ -41,9 +41,9 @@ tfstate_store = {
 
 ### `plan` block structure
 
->`publisher` (string): (REQUIRED) The publisher of the solution. For example 'Microsoft'. Changing this forces a new resource to be created.
->`product` (string): (REQUIRED) The product name of the solution. For example 'OMSGallery/Containers'. Changing this forces a new resource to be created.
->`promotion_code` (string): A promotion code to be used with the solution. Changing this forces a new resource to be created.
+> `publisher` (string): (REQUIRED) The publisher of the solution. For example 'Microsoft'. Changing this forces a new resource to be created.
+> `product` (string): (REQUIRED) The product name of the solution. For example 'OMSGallery/Containers'. Changing this forces a new resource to be created.
+> `promotion_code` (string): A promotion code to be used with the solution. Changing this forces a new resource to be created.
 
 
 

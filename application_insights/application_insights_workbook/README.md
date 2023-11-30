@@ -44,10 +44,10 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) The type of Managed Service Identity that is configured on this Workbook. Possible values are 'UserAssigned', 'SystemAssigned' and 'SystemAssigned, UserAssigned'. Changing this forces a new resource to be created.
->`principal_id` (string): The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
->`tenant_id` (string): The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
->`identity_ids` (string): The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
+> `type` (string): (REQUIRED) The type of Managed Service Identity that is configured on this Workbook. Possible values are 'UserAssigned', 'SystemAssigned' and 'SystemAssigned, UserAssigned'. Changing this forces a new resource to be created.
+> `principal_id` (string): The Principal ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+> `tenant_id` (string): The Tenant ID of the System Assigned Managed Service Identity that is configured on this Workbook.
+> `identity_ids` (string): The list of User Assigned Managed Identity IDs assigned to this Workbook. Changing this forces a new resource to be created.
 
 
 

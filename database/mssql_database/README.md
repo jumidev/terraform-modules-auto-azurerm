@@ -54,25 +54,25 @@ tfstate_store = {
 
 ### `import` block structure
 
->`storage_uri` (string): (REQUIRED) Specifies the blob URI of the .bacpac file.
->`storage_key` (string): (REQUIRED) Specifies the access key for the storage account.
->`storage_key_type` (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'.
->`administrator_login` (string): (REQUIRED) Specifies the name of the SQL administrator.
->`administrator_login_password` (string): (REQUIRED) Specifies the password of the SQL administrator.
->`authentication_type` (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'.
->`storage_account_id` (string): The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
+> `storage_uri` (string): (REQUIRED) Specifies the blob URI of the .bacpac file.
+> `storage_key` (string): (REQUIRED) Specifies the access key for the storage account.
+> `storage_key_type` (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'.
+> `administrator_login` (string): (REQUIRED) Specifies the name of the SQL administrator.
+> `administrator_login_password` (string): (REQUIRED) Specifies the password of the SQL administrator.
+> `authentication_type` (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'.
+> `storage_account_id` (string): The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
 
 ### `long_term_retention_policy` block structure
 
->`weekly_retention` (string): The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'.
->`monthly_retention` (string): The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'.
->`yearly_retention` (string): The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'.
->`week_of_year` (string): The week of year to take the yearly backup. Value has to be between '1' and '52'.
+> `weekly_retention` (string): The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'.
+> `monthly_retention` (string): The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'.
+> `yearly_retention` (string): The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'.
+> `week_of_year` (string): The week of year to take the yearly backup. Value has to be between '1' and '52'.
 
 ### `short_term_retention_policy` block structure
 
->`retention_days` (int): (REQUIRED) Point In Time Restore configuration. Value has to be between '1' and '35'.
->`backup_interval_in_hours` (string): The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours.
+> `retention_days` (int): (REQUIRED) Point In Time Restore configuration. Value has to be between '1' and '35'.
+> `backup_interval_in_hours` (string): The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours.
 
 
 

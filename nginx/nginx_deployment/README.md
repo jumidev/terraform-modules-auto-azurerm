@@ -46,27 +46,27 @@ tfstate_store = {
 
 ### `identity` block structure
 
->`type` (string): (REQUIRED) Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field.
->`identity_ids` (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'.
+> `type` (string): (REQUIRED) Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field.
+> `identity_ids` (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'.
 
 ### `frontend_private` block structure
 
->`allocation_method` (string): (REQUIRED) Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'.
->`ip_address` (string): (REQUIRED) Specify the IP Address of this private IP.
->`subnet_id` (string): (REQUIRED) Specify the SubNet Resource ID to this Nginx Deployment.
+> `allocation_method` (string): (REQUIRED) Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'.
+> `ip_address` (string): (REQUIRED) Specify the IP Address of this private IP.
+> `subnet_id` (string): (REQUIRED) Specify the SubNet Resource ID to this Nginx Deployment.
 
 ### `frontend_public` block structure
 
->`ip_address` (string): Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+> `ip_address` (string): Specifies a list of Public IP Resouce ID to this Nginx Deployment.
 
 ### `logging_storage_account` block structure
 
->`container_name` (string): Specify the container name of Stoage Account for logging.
->`name` (string): The account name of the StorageAccount for Nginx Logging.
+> `container_name` (string): Specify the container name of Stoage Account for logging.
+> `name` (string): The account name of the StorageAccount for Nginx Logging.
 
 ### `network_interface` block structure
 
->`subnet_id` (string): (REQUIRED) Specify The SubNet Resource ID to this Nginx Deployment.
+> `subnet_id` (string): (REQUIRED) Specify The SubNet Resource ID to this Nginx Deployment.
 
 
 

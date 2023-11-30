@@ -51,22 +51,22 @@ tfstate_store = {
 
 ### `auto_scale` block structure
 
->`max_node_count` (int): (REQUIRED) The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'.
->`min_node_count` (int): (REQUIRED) The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'.
+> `max_node_count` (int): (REQUIRED) The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'.
+> `min_node_count` (int): (REQUIRED) The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'.
 
 ### `auto_pause` block structure
 
->`delay_in_minutes` (int): (REQUIRED) Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'.
+> `delay_in_minutes` (int): (REQUIRED) Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'.
 
 ### `library_requirement` block structure
 
->`content` (string): (REQUIRED) The content of library requirements.
->`filename` (string): (REQUIRED) The name of the library requirements file.
+> `content` (string): (REQUIRED) The content of library requirements.
+> `filename` (string): (REQUIRED) The name of the library requirements file.
 
 ### `spark_config` block structure
 
->`content` (string): (REQUIRED) The contents of a spark configuration.
->`filename` (string): (REQUIRED) The name of the file where the spark configuration 'content' will be stored.
+> `content` (string): (REQUIRED) The contents of a spark configuration.
+> `filename` (string): (REQUIRED) The name of the file where the spark configuration 'content' will be stored.
 
 
 

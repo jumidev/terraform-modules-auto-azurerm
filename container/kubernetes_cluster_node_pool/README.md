@@ -74,35 +74,35 @@ tfstate_store = {
 
 ### `kubelet_config` block structure
 
->`allowed_unsafe_sysctls` (string): Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). Changing this forces a new resource to be created.
->`container_log_max_line` (int): Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
->`container_log_max_size_mb` (int): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
->`cpu_cfs_quota_enabled` (bool): Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
->`cpu_cfs_quota_period` (string): Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
->`cpu_manager_policy` (string): Specifies the CPU Manager policy to use. Possible values are 'none' and 'static', Changing this forces a new resource to be created.
->`image_gc_high_threshold` (string): Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. Changing this forces a new resource to be created.
->`image_gc_low_threshold` (string): Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created.
->`pod_max_pid` (int): Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
->`topology_manager_policy` (string): Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created.
+> `allowed_unsafe_sysctls` (string): Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). Changing this forces a new resource to be created.
+> `container_log_max_line` (int): Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+> `container_log_max_size_mb` (int): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+> `cpu_cfs_quota_enabled` (bool): Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
+> `cpu_cfs_quota_period` (string): Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
+> `cpu_manager_policy` (string): Specifies the CPU Manager policy to use. Possible values are 'none' and 'static', Changing this forces a new resource to be created.
+> `image_gc_high_threshold` (string): Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. Changing this forces a new resource to be created.
+> `image_gc_low_threshold` (string): Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created.
+> `pod_max_pid` (int): Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+> `topology_manager_policy` (string): Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created.
 
 ### `linux_os_config` block structure
 
->`swap_file_size_mb` (int): Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
->`sysctl_config` (block): A 'sysctl_config' block. Changing this forces a new resource to be created.
->`transparent_huge_page_defrag` (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created.
->`transparent_huge_page_enabled` (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created.
+> `swap_file_size_mb` (int): Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+> `sysctl_config` (block): A 'sysctl_config' block. Changing this forces a new resource to be created.
+> `transparent_huge_page_defrag` (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created.
+> `transparent_huge_page_enabled` (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created.
 
 ### `node_network_profile` block structure
 
->`node_public_ip_tags` (map): Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+> `node_public_ip_tags` (map): Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 
 ### `upgrade_settings` block structure
 
->`max_surge` (string): (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+> `max_surge` (string): (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 
 ### `windows_profile` block structure
 
->`outbound_nat_enabled` (bool): Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created.
+> `outbound_nat_enabled` (bool): Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created.
 
 
 

@@ -45,13 +45,13 @@ tfstate_store = {
 
 ### `destination` block structure
 
->`address_prefix` (string): (REQUIRED) Specifies the address prefix.
->`address_prefix_type` (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+> `address_prefix` (string): (REQUIRED) Specifies the address prefix.
+> `address_prefix_type` (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 
 ### `source` block structure
 
->`address_prefix` (string): (REQUIRED) Specifies the address prefix.
->`address_prefix_type` (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
+> `address_prefix` (string): (REQUIRED) Specifies the address prefix.
+> `address_prefix_type` (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).
 
 
 
