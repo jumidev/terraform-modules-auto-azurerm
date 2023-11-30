@@ -40,7 +40,7 @@ tfstate_store = {
 
 ### `permissions` block structure
 
-> `data_actions` (list): (REQUIRED) A list of data actions that are allowed for the Cosmos DB SQL Role Definition.
+> `data_actions` (list): (REQUIRED) A list of data actions that are allowed for the Cosmos DB SQL Role Definition.\
 
 
 

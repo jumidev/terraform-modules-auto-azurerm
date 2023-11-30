@@ -34,10 +34,10 @@ tfstate_store = {
 
 ### `tunnel_interface` block structure
 
-> `identifier` (string): (REQUIRED) The unique identifier of this Gateway Lodbalancer Tunnel Interface.
-> `type` (string): (REQUIRED) The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are 'None', 'Internal' and 'External'.
-> `protocol` (string): (REQUIRED) The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are 'None', 'Native' and 'VXLAN'.
-> `port` (string): (REQUIRED) The port number that this Gateway Lodbalancer Tunnel Interface listens to.
+> `identifier` (string): (REQUIRED) The unique identifier of this Gateway Lodbalancer Tunnel Interface.\
+> `type` (string): (REQUIRED) The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are 'None', 'Internal' and 'External'.\
+> `protocol` (string): (REQUIRED) The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are 'None', 'Native' and 'VXLAN'.\
+> `port` (string): (REQUIRED) The port number that this Gateway Lodbalancer Tunnel Interface listens to.\
 
 
 

@@ -46,8 +46,8 @@ tfstate_store = {
 
 ### `protected_settings_from_key_vault` block structure
 
-> `secret_url` (string): (REQUIRED) The URL to the Key Vault Secret which stores the protected settings.
-> `source_vault_id` (string): (REQUIRED) The ID of the source Key Vault.
+> `secret_url` (string): (REQUIRED) The URL to the Key Vault Secret which stores the protected settings.\
+> `source_vault_id` (string): (REQUIRED) The ID of the source Key Vault.\
 
 
 

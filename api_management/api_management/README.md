@@ -61,78 +61,78 @@ tfstate_store = {
 
 ### `additional_location` block structure
 
-> `location` (string): (REQUIRED) The name of the Azure Region in which the API Management Service should be expanded to.
-> `capacity` (int): The number of compute units in this region. Defaults to the capacity of the main region.
-> `zones` (list): A list of availability zones. Changing this forces a new resource to be created.
-> `public_ip_address_id` (string): ID of a standard SKU IPv4 Public IP.
-> `virtual_network_configuration` (block): A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'.
-> `gateway_disabled` (bool): Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+> `location` (string): (REQUIRED) The name of the Azure Region in which the API Management Service should be expanded to.\
+> `capacity` (int): The number of compute units in this region. Defaults to the capacity of the main region.\
+> `zones` (list): A list of availability zones. Changing this forces a new resource to be created.\
+> `public_ip_address_id` (string): ID of a standard SKU IPv4 Public IP.\
+> `virtual_network_configuration` (block): A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'.\
+> `gateway_disabled` (bool): Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.\
 
 ### `delegation` block structure
 
-> `subscriptions_enabled` (bool): Should subscription requests be delegated to an external url? Defaults to 'false'.
-> `user_registration_enabled` (bool): Should user registration requests be delegated to an external url? Defaults to 'false'.
-> `url` (string): The delegation URL.
-> `validation_key` (string): A base64-encoded validation key to validate, that a request is coming from Azure API Management.
+> `subscriptions_enabled` (bool): Should subscription requests be delegated to an external url? Defaults to 'false'.\
+> `user_registration_enabled` (bool): Should user registration requests be delegated to an external url? Defaults to 'false'.\
+> `url` (string): The delegation URL.\
+> `validation_key` (string): A base64-encoded validation key to validate, that a request is coming from Azure API Management.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-> `identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
+> `identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this API Management Service.\
 
 ### `hostname_configuration` block structure
 
-> `management` (list): One or more 'management' blocks.
-> `portal` (list): One or more 'portal' blocks.
-> `developer_portal` (list): One or more 'developer_portal' blocks.
-> `proxy` (list): One or more 'proxy' blocks.
-> `scm` (list): One or more 'scm' blocks.
+> `management` (list): One or more 'management' blocks.\
+> `portal` (list): One or more 'portal' blocks.\
+> `developer_portal` (list): One or more 'developer_portal' blocks.\
+> `proxy` (list): One or more 'proxy' blocks.\
+> `scm` (list): One or more 'scm' blocks.\
 
 ### `policy` block structure
 
-> `xml_content` (string): The XML Content for this Policy.
-> `xml_link` (string): A link to an API Management Policy XML Document, which must be publicly available.
+> `xml_content` (string): The XML Content for this Policy.\
+> `xml_link` (string): A link to an API Management Policy XML Document, which must be publicly available.\
 
 ### `protocols` block structure
 
-> `enable_http2` (bool): Should HTTP/2 be supported by the API Management Service? Defaults to 'false'.
+> `enable_http2` (bool): Should HTTP/2 be supported by the API Management Service? Defaults to 'false'.\
 
 ### `security` block structure
 
-> `enable_backend_ssl30` (bool): Should SSL 3.0 be enabled on the backend of the gateway? Defaults to 'false'.
-> `enable_backend_tls10` (bool): Should TLS 1.0 be enabled on the backend of the gateway? Defaults to 'false'.
-> `enable_backend_tls11` (bool): Should TLS 1.1 be enabled on the backend of the gateway? Defaults to 'false'.
-> `enable_frontend_ssl30` (bool): Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to 'false'.
-> `enable_frontend_tls10` (bool): Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to 'false'.
-> `enable_frontend_tls11` (bool): Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to 'false'.
-> `tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' cipher be enabled? Defaults to 'false'.
-> `tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'.
-> `tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' cipher be enabled? Defaults to 'false'.
-> `tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'.
-> `tls_rsa_with_aes128_cbc_sha256_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_128_CBC_SHA256' cipher be enabled? Defaults to 'false'.
-> `tls_rsa_with_aes128_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_128_CBC_SHA' cipher be enabled? Defaults to 'false'.
-> `tls_rsa_with_aes128_gcm_sha256_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_128_GCM_SHA256' cipher be enabled? Defaults to 'false'.
-> `tls_rsa_with_aes256_gcm_sha384_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_256_GCM_SHA384' cipher be enabled? Defaults to 'false'.
-> `tls_rsa_with_aes256_cbc_sha256_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_256_CBC_SHA256' cipher be enabled? Defaults to 'false'.
-> `tls_rsa_with_aes256_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'.
-> `triple_des_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_3DES_EDE_CBC_SHA' cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
+> `enable_backend_ssl30` (bool): Should SSL 3.0 be enabled on the backend of the gateway? Defaults to 'false'.\
+> `enable_backend_tls10` (bool): Should TLS 1.0 be enabled on the backend of the gateway? Defaults to 'false'.\
+> `enable_backend_tls11` (bool): Should TLS 1.1 be enabled on the backend of the gateway? Defaults to 'false'.\
+> `enable_frontend_ssl30` (bool): Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to 'false'.\
+> `enable_frontend_tls10` (bool): Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to 'false'.\
+> `enable_frontend_tls11` (bool): Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to 'false'.\
+> `tls_ecdhe_ecdsa_with_aes128_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA' cipher be enabled? Defaults to 'false'.\
+> `tls_ecdhe_ecdsa_with_aes256_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'.\
+> `tls_ecdhe_rsa_with_aes128_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA' cipher be enabled? Defaults to 'false'.\
+> `tls_ecdhe_rsa_with_aes256_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'.\
+> `tls_rsa_with_aes128_cbc_sha256_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_128_CBC_SHA256' cipher be enabled? Defaults to 'false'.\
+> `tls_rsa_with_aes128_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_128_CBC_SHA' cipher be enabled? Defaults to 'false'.\
+> `tls_rsa_with_aes128_gcm_sha256_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_128_GCM_SHA256' cipher be enabled? Defaults to 'false'.\
+> `tls_rsa_with_aes256_gcm_sha384_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_256_GCM_SHA384' cipher be enabled? Defaults to 'false'.\
+> `tls_rsa_with_aes256_cbc_sha256_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_256_CBC_SHA256' cipher be enabled? Defaults to 'false'.\
+> `tls_rsa_with_aes256_cbc_sha_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'.\
+> `triple_des_ciphers_enabled` (bool): Should the 'TLS_RSA_WITH_3DES_EDE_CBC_SHA' cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?\
 
 ### `sign_in` block structure
 
-> `enabled` (bool): (REQUIRED) Should anonymous users be redirected to the sign in page?
+> `enabled` (bool): (REQUIRED) Should anonymous users be redirected to the sign in page?\
 
 ### `sign_up` block structure
 
-> `enabled` (bool): (REQUIRED) Can users sign up on the development portal?
-> `terms_of_service` (block): (REQUIRED) A 'terms_of_service' block.
+> `enabled` (bool): (REQUIRED) Can users sign up on the development portal?\
+> `terms_of_service` (block): (REQUIRED) A 'terms_of_service' block.\
 
 ### `tenant_access` block structure
 
-> `enabled` (bool): (REQUIRED) Should the access to the management API be enabled?
+> `enabled` (bool): (REQUIRED) Should the access to the management API be enabled?\
 
 ### `virtual_network_configuration` block structure
 
-> `subnet_id` (string): (REQUIRED) The id of the subnet that will be used for the API Management.
+> `subnet_id` (string): (REQUIRED) The id of the subnet that will be used for the API Management.\
 
 
 

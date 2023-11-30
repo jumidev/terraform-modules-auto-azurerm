@@ -39,21 +39,21 @@ tfstate_store = {
 
 ### `network_profile` block structure
 
-> `public_ip_address_ids` (string): (REQUIRED) Specifies a list of Azure Public IP Address IDs.
-> `vnet_configuration` (block): (REQUIRED) A 'vnet_configuration' block.
-> `egress_nat_ip_address_ids` (string): Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
+> `public_ip_address_ids` (string): (REQUIRED) Specifies a list of Azure Public IP Address IDs.\
+> `vnet_configuration` (block): (REQUIRED) A 'vnet_configuration' block.\
+> `egress_nat_ip_address_ids` (string): Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.\
 
 ### `destination_nat` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this Destination NAT.
-> `protocol` (string): (REQUIRED) The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'.
-> `backend_config` (block): A 'backend_config' block.
-> `frontend_config` (block): A 'frontend_config' block.
+> `name` (string): (REQUIRED) The name which should be used for this Destination NAT.\
+> `protocol` (string): (REQUIRED) The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'.\
+> `backend_config` (block): A 'backend_config' block.\
+> `frontend_config` (block): A 'frontend_config' block.\
 
 ### `dns_settings` block structure
 
-> `dns_servers` (string): Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'.
-> `use_azure_dns` (bool): Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'.
+> `dns_servers` (string): Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'.\
+> `use_azure_dns` (bool): Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'.\
 
 
 

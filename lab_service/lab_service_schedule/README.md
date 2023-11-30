@@ -39,10 +39,10 @@ tfstate_store = {
 
 ### `recurrence` block structure
 
-> `expiration_date` (datetime): (REQUIRED) When the recurrence will expire in RFC-3339 format.
-> `frequency` (string): (REQUIRED) The frequency of the recurrence. Possible values are 'Daily' and 'Weekly'.
-> `interval` (string): The interval to invoke the schedule on. Possible values are between '1' and '365'.
-> `week_days` (string): The interval to invoke the schedule on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
+> `expiration_date` (datetime): (REQUIRED) When the recurrence will expire in RFC-3339 format.\
+> `frequency` (string): (REQUIRED) The frequency of the recurrence. Possible values are 'Daily' and 'Weekly'.\
+> `interval` (string): The interval to invoke the schedule on. Possible values are between '1' and '365'.\
+> `week_days` (string): The interval to invoke the schedule on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.\
 
 
 

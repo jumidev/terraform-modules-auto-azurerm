@@ -52,35 +52,35 @@ tfstate_store = {
 
 ### `schema_column` block structure
 
-> `name` (string): (REQUIRED) The name of the column.
-> `type` (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive.
-> `description` (string): The description of the column.
+> `name` (string): (REQUIRED) The name of the column.\
+> `type` (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive.\
+> `description` (string): The description of the column.\
 
 ### `azure_blob_fs_location` block structure
 
-> `file_system` (string): The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.
-> `dynamic_file_system_enabled` (bool): Is the 'file_system' using dynamic expression, function or system variables? Defaults to 'false'.
-> `path` (string): The folder path to the file.
-> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.
-> `filename` (string): The filename of the file.
-> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.
+> `file_system` (string): The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file.\
+> `dynamic_file_system_enabled` (bool): Is the 'file_system' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `path` (string): The folder path to the file.\
+> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `filename` (string): The filename of the file.\
+> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.\
 
 ### `azure_blob_storage_location` block structure
 
-> `container` (string): (REQUIRED) The container on the Azure Blob Storage Account hosting the file.
-> `path` (string): The folder path to the file. This can be an empty string.
-> `filename` (string): The filename of the file.
-> `dynamic_container_enabled` (bool): Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.
+> `container` (string): (REQUIRED) The container on the Azure Blob Storage Account hosting the file.\
+> `path` (string): The folder path to the file. This can be an empty string.\
+> `filename` (string): The filename of the file.\
+> `dynamic_container_enabled` (bool): Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.\
 
 ### `http_server_location` block structure
 
-> `relative_url` (string): (REQUIRED) The base URL to the web server hosting the file.
-> `path` (string): (REQUIRED) The folder path to the file on the web server.
-> `filename` (string): (REQUIRED) The filename of the file on the web server.
-> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.
+> `relative_url` (string): (REQUIRED) The base URL to the web server hosting the file.\
+> `path` (string): (REQUIRED) The folder path to the file on the web server.\
+> `filename` (string): (REQUIRED) The filename of the file on the web server.\
+> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.\
 
 
 

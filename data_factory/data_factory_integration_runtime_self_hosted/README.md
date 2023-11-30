@@ -34,7 +34,7 @@ tfstate_store = {
 
 ### `rbac_authorization` block structure
 
-> `resource_id` (string): (REQUIRED) The resource identifier of the integration runtime to be shared.
+> `resource_id` (string): (REQUIRED) The resource identifier of the integration runtime to be shared.\
 
 
 

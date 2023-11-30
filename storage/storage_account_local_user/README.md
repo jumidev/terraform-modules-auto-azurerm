@@ -37,14 +37,14 @@ tfstate_store = {
 
 ### `permission_scope` block structure
 
-> `permissions` (block): (REQUIRED) A 'permissions' block.
-> `resource_name` (string): (REQUIRED) The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User.
-> `service` (string): (REQUIRED) The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'.
+> `permissions` (block): (REQUIRED) A 'permissions' block.\
+> `resource_name` (string): (REQUIRED) The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User.\
+> `service` (string): (REQUIRED) The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'.\
 
 ### `ssh_authorized_key` block structure
 
-> `key` (string): (REQUIRED) The public key value of this SSH authorized key.
-> `description` (string): The description of this SSH authorized key.
+> `key` (string): (REQUIRED) The public key value of this SSH authorized key.\
+> `description` (string): The description of this SSH authorized key.\
 
 
 

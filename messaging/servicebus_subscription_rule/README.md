@@ -37,14 +37,14 @@ tfstate_store = {
 
 ### `correlation_filter` block structure
 
-> `content_type` (string): Content type of the message.
-> `correlation_id` (string): Identifier of the correlation.
-> `label` (string): Application specific label.
-> `message_id` (string): Identifier of the message.
-> `reply_to` (string): Address of the queue to reply to.
-> `reply_to_session_id` (string): Session identifier to reply to.
-> `session_id` (string): Session identifier.
-> `properties` (list): A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.
+> `content_type` (string): Content type of the message.\
+> `correlation_id` (string): Identifier of the correlation.\
+> `label` (string): Application specific label.\
+> `message_id` (string): Identifier of the message.\
+> `reply_to` (string): Address of the queue to reply to.\
+> `reply_to_session_id` (string): Session identifier to reply to.\
+> `session_id` (string): Session identifier.\
+> `properties` (list): A list of user defined properties to be included in the filter. Specified as a map of name/value pairs.\
 
 
 

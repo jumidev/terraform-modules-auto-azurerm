@@ -45,13 +45,13 @@ variable "node_type" {
 #   ephemeral_ports (block)             : A 'ephemeral_ports' block.
 #   reverse_proxy_endpoint_port (string): The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
 #
-# application_ports block structure:
-#   start_port (string)              : (REQUIRED) The start of the Application Port Range on this Node Type.
-#   end_port (string)                : (REQUIRED) The end of the Application Port Range on this Node Type.
-#
 # ephemeral_ports block structure:
 #   start_port (string)            : (REQUIRED) The start of the Ephemeral Port Range on this Node Type.
 #   end_port (string)              : (REQUIRED) The end of the Ephemeral Port Range on this Node Type.
+#
+# application_ports block structure:
+#   start_port (string)              : (REQUIRED) The start of the Application Port Range on this Node Type.
+#   end_port (string)                : (REQUIRED) The end of the Application Port Range on this Node Type.
 
 
 variable "upgrade_mode" {
@@ -208,14 +208,14 @@ variable "upgrade_policy" {
 #   health_policy (block)                     : A 'health_policy' block
 #   delta_health_policy (block)               : A 'delta_health_policy' block
 #
-# health_policy block structure              :
-#   max_unhealthy_applications_percent (string): Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'.
-#   max_unhealthy_nodes_percent (string)       : Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'.
-#
 # delta_health_policy block structure                      :
 #   max_delta_unhealthy_applications_percent (string)        : Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'.
 #   max_delta_unhealthy_nodes_percent (string)               : Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'.
 #   max_upgrade_domain_delta_unhealthy_nodes_percent (string): Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'.
+#
+# health_policy block structure              :
+#   max_unhealthy_applications_percent (string): Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'.
+#   max_unhealthy_nodes_percent (string)       : Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'.
 
 
 variable "service_fabric_zonal_upgrade_mode" {

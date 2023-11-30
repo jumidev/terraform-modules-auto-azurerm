@@ -42,9 +42,9 @@ tfstate_store = {
 
 ### `rotation_policy` block structure
 
-> `expire_after` (string): Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
-> `automatic` (block): An 'automatic' block.
-> `notify_before_expiry` (string): Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
+> `expire_after` (string): Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).\
+> `automatic` (block): An 'automatic' block.\
+> `notify_before_expiry` (string): Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).\
 
 
 

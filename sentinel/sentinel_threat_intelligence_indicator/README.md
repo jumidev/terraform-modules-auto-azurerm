@@ -54,20 +54,20 @@ tfstate_store = {
 
 ### `external_reference` block structure
 
-> `description` (string): The description of the external reference of the Threat Intelligence Indicator.
-> `hashes` (string): The list of hashes of the external reference of the Threat Intelligence Indicator.
-> `source_name` (string): The source name of the external reference of the Threat Intelligence Indicator.
-> `url` (string): The url of the external reference of the Threat Intelligence Indicator.
+> `description` (string): The description of the external reference of the Threat Intelligence Indicator.\
+> `hashes` (string): The list of hashes of the external reference of the Threat Intelligence Indicator.\
+> `source_name` (string): The source name of the external reference of the Threat Intelligence Indicator.\
+> `url` (string): The url of the external reference of the Threat Intelligence Indicator.\
 
 ### `granular_marking` block structure
 
-> `language` (string): The language of granular marking of the Threat Intelligence Indicator.
-> `marking_ref` (string): The reference of the granular marking of the Threat Intelligence Indicator.
-> `selectors` (list): A list of selectors of the granular marking of the Threat Intelligence Indicator.
+> `language` (string): The language of granular marking of the Threat Intelligence Indicator.\
+> `marking_ref` (string): The reference of the granular marking of the Threat Intelligence Indicator.\
+> `selectors` (list): A list of selectors of the granular marking of the Threat Intelligence Indicator.\
 
 ### `kill_chain_phase` block structure
 
-> `name` (string): The name which should be used for the Lockheed Martin cyber kill chain phase.
+> `name` (string): The name which should be used for the Lockheed Martin cyber kill chain phase.\
 
 
 

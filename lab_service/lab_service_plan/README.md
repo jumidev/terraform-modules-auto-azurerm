@@ -42,24 +42,24 @@ tfstate_store = {
 
 ### `default_auto_shutdown` block structure
 
-> `disconnect_delay` (string): The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.
-> `idle_delay` (string): The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.
-> `no_connect_delay` (string): The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.
-> `shutdown_on_idle` (string): Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'.
+> `disconnect_delay` (string): The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.\
+> `idle_delay` (string): The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.\
+> `no_connect_delay` (string): The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.\
+> `shutdown_on_idle` (string): Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'.\
 
 ### `default_connection` block structure
 
-> `client_rdp_access` (string): The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'.
-> `client_ssh_access` (string): The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'.
-> `web_rdp_access` (string): The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'.
-> `web_ssh_access` (string): The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'.
+> `client_rdp_access` (string): The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'.\
+> `client_ssh_access` (string): The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'.\
+> `web_rdp_access` (string): The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'.\
+> `web_ssh_access` (string): The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'.\
 
 ### `support` block structure
 
-> `email` (string): The email address for the support contact.
-> `instructions` (string): The instructions for users of the Lab Service Plan.
-> `phone` (string): The phone number for the support contact.
-> `url` (string): The web address for users of the Lab Service Plan.
+> `email` (string): The email address for the support contact.\
+> `instructions` (string): The instructions for users of the Lab Service Plan.\
+> `phone` (string): The phone number for the support contact.\
+> `url` (string): The web address for users of the Lab Service Plan.\
 
 
 

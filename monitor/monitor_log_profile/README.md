@@ -38,8 +38,8 @@ tfstate_store = {
 
 ### `retention_policy` block structure
 
-> `enabled` (bool): (REQUIRED) A boolean value to indicate whether the retention policy is enabled.
-> `days` (int): The number of days for the retention policy. Defaults to '0'.
+> `enabled` (bool): (REQUIRED) A boolean value to indicate whether the retention policy is enabled.\
+> `days` (int): The number of days for the retention policy. Defaults to '0'.\
 
 
 

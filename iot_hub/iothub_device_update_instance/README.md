@@ -37,7 +37,7 @@ tfstate_store = {
 
 ### `diagnostic_storage_account` block structure
 
-> `connection_string` (string): (REQUIRED) Connection String of the Diagnostic Storage Account.
+> `connection_string` (string): (REQUIRED) Connection String of the Diagnostic Storage Account.\
 
 
 

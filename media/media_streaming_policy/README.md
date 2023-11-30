@@ -39,33 +39,33 @@ tfstate_store = {
 
 ### `common_encryption_cbcs` block structure
 
-> `clear_key_encryption` (block): A 'clear_key_encryption' block. Changing this forces a new Streaming Policy to be created.
-> `default_content_key` (block): A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.
-> `drm_fairplay` (block): A 'drm_fairplay' block. Changing this forces a new Streaming Policy to be created.
-> `enabled_protocols` (block): A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.
+> `clear_key_encryption` (block): A 'clear_key_encryption' block. Changing this forces a new Streaming Policy to be created.\
+> `default_content_key` (block): A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.\
+> `drm_fairplay` (block): A 'drm_fairplay' block. Changing this forces a new Streaming Policy to be created.\
+> `enabled_protocols` (block): A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.\
 
 ### `common_encryption_cenc` block structure
 
-> `clear_key_encryption` (block): A 'clear_key_encryption' block. Changing this forces a new Streaming Policy to be created.
-> `clear_track` (block): One or more 'clear_track' blocks. Changing this forces a new Streaming Policy to be created.
-> `content_key_to_track_mapping` (block): One or more 'content_key_to_track_mapping' blocks. Changing this forces a new Streaming Policy to be created.
-> `default_content_key` (block): A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.
-> `drm_playready` (block): A 'drm_playready' block. Changing this forces a new Streaming Policy to be created.
-> `drm_widevine_custom_license_acquisition_url_template` (string): The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
-> `enabled_protocols` (block): A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.
+> `clear_key_encryption` (block): A 'clear_key_encryption' block. Changing this forces a new Streaming Policy to be created.\
+> `clear_track` (block): One or more 'clear_track' blocks. Changing this forces a new Streaming Policy to be created.\
+> `content_key_to_track_mapping` (block): One or more 'content_key_to_track_mapping' blocks. Changing this forces a new Streaming Policy to be created.\
+> `default_content_key` (block): A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.\
+> `drm_playready` (block): A 'drm_playready' block. Changing this forces a new Streaming Policy to be created.\
+> `drm_widevine_custom_license_acquisition_url_template` (string): The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.\
+> `enabled_protocols` (block): A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.\
 
 ### `envelope_encryption` block structure
 
-> `custom_keys_acquisition_url_template` (string): The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-> `default_content_key` (block): A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.
-> `enabled_protocols` (block): A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.
+> `custom_keys_acquisition_url_template` (string): The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.\
+> `default_content_key` (block): A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.\
+> `enabled_protocols` (block): A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.\
 
 ### `no_encryption_enabled_protocols` block structure
 
-> `dash` (string): Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
-> `download` (string): Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
-> `hls` (string): Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
-> `smooth_streaming` (string): Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+> `dash` (string): Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.\
+> `download` (string): Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.\
+> `hls` (string): Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.\
+> `smooth_streaming` (string): Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.\
 
 
 

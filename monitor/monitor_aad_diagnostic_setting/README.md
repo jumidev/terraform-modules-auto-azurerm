@@ -36,14 +36,14 @@ tfstate_store = {
 
 ### `log` block structure
 
-> `category` (string): (REQUIRED) The log category for the Azure Active Directory Diagnostic.
-> `retention_policy` (block): (REQUIRED) A 'retention_policy' block.
-> `enabled` (bool): Is this Diagnostic Log enabled? Defaults to 'true'.
+> `category` (string): (REQUIRED) The log category for the Azure Active Directory Diagnostic.\
+> `retention_policy` (block): (REQUIRED) A 'retention_policy' block.\
+> `enabled` (bool): Is this Diagnostic Log enabled? Defaults to 'true'.\
 
 ### `enabled_log` block structure
 
-> `category` (string): (REQUIRED) The log category for the Azure Active Directory Diagnostic.
-> `retention_policy` (block): (REQUIRED) A 'retention_policy' block.
+> `category` (string): (REQUIRED) The log category for the Azure Active Directory Diagnostic.\
+> `retention_policy` (block): (REQUIRED) A 'retention_policy' block.\
 
 
 

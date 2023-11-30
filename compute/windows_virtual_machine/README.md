@@ -85,68 +85,68 @@ tfstate_store = {
 
 ### `os_disk` block structure
 
-> `caching` (string): (REQUIRED) The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.
-> `storage_account_type` (string): (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values are 'Standard_LRS', 'StandardSSD_LRS', 'Premium_LRS', 'StandardSSD_ZRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.
-> `diff_disk_settings` (block): A 'diff_disk_settings' block. Changing this forces a new resource to be created.
-> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'.
-> `disk_size_gb` (int): The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
-> `name` (string): The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
-> `secure_vm_disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created.
-> `security_encryption_type` (string): Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created.
-> `write_accelerator_enabled` (bool): Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'.
+> `caching` (string): (REQUIRED) The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.\
+> `storage_account_type` (string): (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values are 'Standard_LRS', 'StandardSSD_LRS', 'Premium_LRS', 'StandardSSD_ZRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.\
+> `diff_disk_settings` (block): A 'diff_disk_settings' block. Changing this forces a new resource to be created.\
+> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'.\
+> `disk_size_gb` (int): The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.\
+> `name` (string): The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.\
+> `secure_vm_disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created.\
+> `security_encryption_type` (string): Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created.\
+> `write_accelerator_enabled` (bool): Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'.\
 
 ### `additional_capabilities` block structure
 
-> `ultra_ssd_enabled` (bool): Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine? Defaults to 'false'.
+> `ultra_ssd_enabled` (bool): Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine? Defaults to 'false'.\
 
 ### `additional_unattend_content` block structure
 
-> `content` (string): (REQUIRED) The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
-> `setting` (string): (REQUIRED) The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created.
+> `content` (string): (REQUIRED) The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.\
+> `setting` (string): (REQUIRED) The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created.\
 
 ### `boot_diagnostics` block structure
 
-> `storage_account_uri` (string): The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
+> `storage_account_uri` (string): The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.\
 
 ### `gallery_application` block structure
 
-> `version_id` (string): (REQUIRED) Specifies the Gallery Application Version resource ID.
-> `configuration_blob_uri` (string): Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
-> `order` (string): Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'.
-> `tag` (string): Specifies a passthrough value for more generic context. This field can be any valid 'string' value.
+> `version_id` (string): (REQUIRED) Specifies the Gallery Application Version resource ID.\
+> `configuration_blob_uri` (string): Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.\
+> `order` (string): Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'.\
+> `tag` (string): Specifies a passthrough value for more generic context. This field can be any valid 'string' value.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine.\
 
 ### `plan` block structure
 
-> `name` (string): (REQUIRED) Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-> `product` (string): (REQUIRED) Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
-> `publisher` (string): (REQUIRED) Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
+> `name` (string): (REQUIRED) Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.\
+> `product` (string): (REQUIRED) Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.\
+> `publisher` (string): (REQUIRED) Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.\
 
 ### `secret` block structure
 
-> `certificate` (list): (REQUIRED) One or more 'certificate' blocks.
-> `key_vault_id` (string): (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
+> `certificate` (list): (REQUIRED) One or more 'certificate' blocks.\
+> `key_vault_id` (string): (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.\
 
 ### `source_image_reference` block structure
 
-> `publisher` (string): (REQUIRED) Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.
-> `offer` (string): (REQUIRED) Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.
-> `sku` (string): (REQUIRED) Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.
-> `version` (string): (REQUIRED) Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.
+> `publisher` (string): (REQUIRED) Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.\
+> `offer` (string): (REQUIRED) Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.\
+> `sku` (string): (REQUIRED) Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created.\
+> `version` (string): (REQUIRED) Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created.\
 
 ### `termination_notification` block structure
 
-> `enabled` (bool): (REQUIRED) Should the termination notification be enabled on this Virtual Machine?
-> `timeout` (string): Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'.
+> `enabled` (bool): (REQUIRED) Should the termination notification be enabled on this Virtual Machine?\
+> `timeout` (string): Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'.\
 
 ### `winrm_listener` block structure
 
-> `protocol` (string): (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
-> `certificate_url` (string): The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created.
+> `protocol` (string): (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.\
+> `certificate_url` (string): The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created.\
 
 
 

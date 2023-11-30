@@ -43,32 +43,32 @@ tfstate_store = {
 
 ### `compression` block structure
 
-> `type` (string): (REQUIRED) The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'.
-> `level` (string): The level of compression. Possible values are 'Fastest' and 'Optimal'.
+> `type` (string): (REQUIRED) The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'.\
+> `level` (string): The level of compression. Possible values are 'Fastest' and 'Optimal'.\
 
 ### `http_server_location` block structure
 
-> `relative_url` (string): (REQUIRED) The base URL to the web server hosting the file.
-> `path` (string): (REQUIRED) The folder path to the file on the web server.
-> `filename` (string): (REQUIRED) The filename of the file on the web server.
-> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.
+> `relative_url` (string): (REQUIRED) The base URL to the web server hosting the file.\
+> `path` (string): (REQUIRED) The folder path to the file on the web server.\
+> `filename` (string): (REQUIRED) The filename of the file on the web server.\
+> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.\
 
 ### `azure_blob_storage_location` block structure
 
-> `container` (string): (REQUIRED) The container on the Azure Blob Storage Account hosting the file.
-> `path` (string): The folder path to the file in the blob container.
-> `filename` (string): The filename of the file in the blob container.
-> `dynamic_container_enabled` (bool): Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.
+> `container` (string): (REQUIRED) The container on the Azure Blob Storage Account hosting the file.\
+> `path` (string): The folder path to the file in the blob container.\
+> `filename` (string): The filename of the file in the blob container.\
+> `dynamic_container_enabled` (bool): Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.\
 
 ### `sftp_server_location` block structure
 
-> `path` (string): (REQUIRED) The folder path to the file on the SFTP server.
-> `filename` (string): (REQUIRED) The filename of the file on the SFTP server.
-> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.
-> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.
+> `path` (string): (REQUIRED) The folder path to the file on the SFTP server.\
+> `filename` (string): (REQUIRED) The filename of the file on the SFTP server.\
+> `dynamic_path_enabled` (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'.\
+> `dynamic_filename_enabled` (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'.\
 
 
 

@@ -44,12 +44,12 @@ tfstate_store = {
 
 ### `read_write_endpoint_failover_policy` block structure
 
-> `mode` (string): (REQUIRED) the failover mode. Possible values are 'Manual', 'Automatic'
-> `grace_minutes` (int): Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted
+> `mode` (string): (REQUIRED) the failover mode. Possible values are 'Manual', 'Automatic'\
+> `grace_minutes` (int): Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted\
 
 ### `readonly_endpoint_failover_policy` block structure
 
-> `mode` (string): (REQUIRED) Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled'
+> `mode` (string): (REQUIRED) Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled'\
 
 
 

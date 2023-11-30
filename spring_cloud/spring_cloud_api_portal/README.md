@@ -37,10 +37,10 @@ tfstate_store = {
 
 ### `sso` block structure
 
-> `client_id` (string): The public identifier for the application.
-> `client_secret` (string): The secret known only to the application and the authorization server.
-> `issuer_uri` (string): The URI of Issuer Identifier.
-> `scope` (string): It defines the specific actions applications can be allowed to do on a user's behalf.
+> `client_id` (string): The public identifier for the application.\
+> `client_secret` (string): The secret known only to the application and the authorization server.\
+> `issuer_uri` (string): The URI of Issuer Identifier.\
+> `scope` (string): It defines the specific actions applications can be allowed to do on a user's behalf.\
 
 
 

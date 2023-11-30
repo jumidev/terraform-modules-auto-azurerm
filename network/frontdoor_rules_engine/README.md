@@ -36,10 +36,10 @@ tfstate_store = {
 
 ### `rule` block structure
 
-> `name` (string): (REQUIRED) The name of the rule.
-> `priority` (string): (REQUIRED) Priority of the rule, must be unique per rules engine definition.
-> `action` (block): An 'action' block.
-> `match_condition` (block): One or more 'match_condition' block.
+> `name` (string): (REQUIRED) The name of the rule.\
+> `priority` (string): (REQUIRED) Priority of the rule, must be unique per rules engine definition.\
+> `action` (block): An 'action' block.\
+> `match_condition` (block): One or more 'match_condition' block.\
 
 
 

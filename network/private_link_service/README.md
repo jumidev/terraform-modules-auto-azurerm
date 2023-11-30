@@ -43,11 +43,11 @@ tfstate_store = {
 
 ### `nat_ip_configuration` block structure
 
-> `name` (string): (REQUIRED) Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-> `subnet_id` (string): (REQUIRED) Specifies the ID of the Subnet which should be used for the Private Link Service.
-> `primary` (bool): (REQUIRED) Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
-> `private_ip_address` (string): Specifies a Private Static IP Address for this IP Configuration.
-> `private_ip_address_version` (string): The version of the IP Protocol which should be used. At this time the only supported value is 'IPv4'. Defaults to 'IPv4'.
+> `name` (string): (REQUIRED) Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.\
+> `subnet_id` (string): (REQUIRED) Specifies the ID of the Subnet which should be used for the Private Link Service.\
+> `primary` (bool): (REQUIRED) Is this is the Primary IP Configuration? Changing this forces a new resource to be created.\
+> `private_ip_address` (string): Specifies a Private Static IP Address for this IP Configuration.\
+> `private_ip_address_version` (string): The version of the IP Protocol which should be used. At this time the only supported value is 'IPv4'. Defaults to 'IPv4'.\
 
 
 

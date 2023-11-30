@@ -60,15 +60,15 @@ tfstate_store = {
 
 ### `identifier` block structure
 
-> `offer` (string): (REQUIRED) The Offer Name for this Shared Image. Changing this forces a new resource to be created.
-> `publisher` (string): (REQUIRED) The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
-> `sku` (string): (REQUIRED) The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
+> `offer` (string): (REQUIRED) The Offer Name for this Shared Image. Changing this forces a new resource to be created.\
+> `publisher` (string): (REQUIRED) The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.\
+> `sku` (string): (REQUIRED) The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.\
 
 ### `purchase_plan` block structure
 
-> `name` (string): (REQUIRED) The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
-> `publisher` (string): The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
-> `product` (string): The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
+> `name` (string): (REQUIRED) The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.\
+> `publisher` (string): The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.\
+> `product` (string): The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.\
 
 
 

@@ -40,8 +40,8 @@ tfstate_store = {
 
 ### `cluster_setting` block structure
 
-> `name` (string): (REQUIRED) The name of the Cluster Setting.
-> `value` (string): (REQUIRED) The value for the Cluster Setting.
+> `name` (string): (REQUIRED) The name of the Cluster Setting.\
+> `value` (string): (REQUIRED) The value for the Cluster Setting.\
 
 
 

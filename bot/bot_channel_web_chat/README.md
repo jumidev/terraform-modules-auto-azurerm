@@ -36,10 +36,10 @@ tfstate_store = {
 
 ### `site` block structure
 
-> `name` (string): (REQUIRED) The name of the site.
-> `user_upload_enabled` (bool): Is the user upload enabled for this site? Defaults to 'true'.
-> `endpoint_parameters_enabled` (bool): Is the endpoint parameters enabled for this site?
-> `storage_enabled` (bool): Is the storage site enabled for detailed logging? Defaults to 'true'.
+> `name` (string): (REQUIRED) The name of the site.\
+> `user_upload_enabled` (bool): Is the user upload enabled for this site? Defaults to 'true'.\
+> `endpoint_parameters_enabled` (bool): Is the endpoint parameters enabled for this site?\
+> `storage_enabled` (bool): Is the storage site enabled for detailed logging? Defaults to 'true'.\
 
 
 

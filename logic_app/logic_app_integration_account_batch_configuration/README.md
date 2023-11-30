@@ -39,9 +39,9 @@ tfstate_store = {
 
 ### `release_criteria` block structure
 
-> `batch_size` (string): The batch size in bytes for the Logic App Integration Batch Configuration.
-> `message_count` (int): The message count for the Logic App Integration Batch Configuration.
-> `recurrence` (block): A 'recurrence' block.
+> `batch_size` (string): The batch size in bytes for the Logic App Integration Batch Configuration.\
+> `message_count` (int): The message count for the Logic App Integration Batch Configuration.\
+> `recurrence` (block): A 'recurrence' block.\
 
 
 

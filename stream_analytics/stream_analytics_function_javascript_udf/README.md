@@ -40,12 +40,12 @@ tfstate_store = {
 
 ### `input` block structure
 
-> `type` (string): (REQUIRED) The Data Type for the Input Argument of this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'.
-> `configuration_parameter` (bool): Is this input parameter a configuration parameter? Defaults to 'false'.
+> `type` (string): (REQUIRED) The Data Type for the Input Argument of this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'.\
+> `configuration_parameter` (bool): Is this input parameter a configuration parameter? Defaults to 'false'.\
 
 ### `output` block structure
 
-> `type` (string): (REQUIRED) The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'.
+> `type` (string): (REQUIRED) The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'.\
 
 
 

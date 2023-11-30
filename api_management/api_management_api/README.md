@@ -56,35 +56,35 @@ tfstate_store = {
 
 ### `contact` block structure
 
-> `email` (string): The email address of the contact person/organization.
-> `name` (string): The name of the contact person/organization.
-> `url` (string): Absolute URL of the contact information.
+> `email` (string): The email address of the contact person/organization.\
+> `name` (string): The name of the contact person/organization.\
+> `url` (string): Absolute URL of the contact information.\
 
 ### `import` block structure
 
-> `content_format` (string): (REQUIRED) The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'.
-> `content_value` (string): (REQUIRED) The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline.
-> `wsdl_selector` (block): A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'.
+> `content_format` (string): (REQUIRED) The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'.\
+> `content_value` (string): (REQUIRED) The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline.\
+> `wsdl_selector` (block): A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'.\
 
 ### `license` block structure
 
-> `name` (string): The name of the license .
-> `url` (string): Absolute URL of the license.
+> `name` (string): The name of the license .\
+> `url` (string): Absolute URL of the license.\
 
 ### `oauth2_authorization` block structure
 
-> `authorization_server_name` (string): (REQUIRED) OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html).
-> `scope` (string): Operations scope.
+> `authorization_server_name` (string): (REQUIRED) OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html).\
+> `scope` (string): Operations scope.\
 
 ### `openid_authentication` block structure
 
-> `openid_provider_name` (string): (REQUIRED) OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html).
-> `bearer_token_sending_methods` (string): How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'.
+> `openid_provider_name` (string): (REQUIRED) OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html).\
+> `bearer_token_sending_methods` (string): How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'.\
 
 ### `subscription_key_parameter_names` block structure
 
-> `header` (string): (REQUIRED) The name of the HTTP Header which should be used for the Subscription Key.
-> `query` (string): (REQUIRED) The name of the QueryString parameter which should be used for the Subscription Key.
+> `header` (string): (REQUIRED) The name of the HTTP Header which should be used for the Subscription Key.\
+> `query` (string): (REQUIRED) The name of the QueryString parameter which should be used for the Subscription Key.\
 
 
 

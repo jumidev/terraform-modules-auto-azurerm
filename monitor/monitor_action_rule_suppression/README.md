@@ -39,23 +39,23 @@ tfstate_store = {
 
 ### `suppression` block structure
 
-> `recurrence_type` (string): (REQUIRED) Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'.
-> `schedule` (block): A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'.
+> `recurrence_type` (string): (REQUIRED) Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'.\
+> `schedule` (block): A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'.\
 
 ### `scope` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'.
-> `resource_ids` (list): (REQUIRED) A list of resource IDs of the given scope type which will be the target of action rule.
+> `type` (string): (REQUIRED) Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'.\
+> `resource_ids` (list): (REQUIRED) A list of resource IDs of the given scope type which will be the target of action rule.\
 
 ### `condition` block structure
 
-> `alert_context` (block): A 'alert_context' block.
-> `alert_rule_id` (block): A 'alert_rule_id' block.
-> `description` (block): A 'description' block.
-> `monitor` (block): A 'monitor' block.
-> `monitor_service` (block): A 'monitor_service' block.
-> `severity` (block): A 'severity' block.
-> `target_resource_type` (block): A 'target_resource_type' block.
+> `alert_context` (block): A 'alert_context' block.\
+> `alert_rule_id` (block): A 'alert_rule_id' block.\
+> `description` (block): A 'description' block.\
+> `monitor` (block): A 'monitor' block.\
+> `monitor_service` (block): A 'monitor_service' block.\
+> `severity` (block): A 'severity' block.\
+> `target_resource_type` (block): A 'target_resource_type' block.\
 
 
 

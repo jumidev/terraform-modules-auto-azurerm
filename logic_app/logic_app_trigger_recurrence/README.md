@@ -39,9 +39,9 @@ tfstate_store = {
 
 ### `schedule` block structure
 
-> `at_these_minutes` (string): Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
-> `at_these_hours` (string): Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
-> `on_these_days` (string): Specifies a list of days when the trigger should run. Valid values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'.
+> `at_these_minutes` (string): Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.\
+> `at_these_hours` (string): Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.\
+> `on_these_days` (string): Specifies a list of days when the trigger should run. Valid values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'.\
 
 
 

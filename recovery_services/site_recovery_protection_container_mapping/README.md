@@ -43,9 +43,9 @@ tfstate_store = {
 
 ### `automatic_update` block structure
 
-> `enabled` (bool): Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to 'false'.
-> `automation_account_id` (string): The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-> `authentication_type` (string): The authentication type used for automation account. Possible values are 'RunAsAccount' and 'SystemAssignedIdentity'.
+> `enabled` (bool): Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to 'false'.\
+> `automation_account_id` (string): The automation account ID which holds the automatic update runbook and authenticates to Azure resources.\
+> `authentication_type` (string): The authentication type used for automation account. Possible values are 'RunAsAccount' and 'SystemAssignedIdentity'.\
 
 
 

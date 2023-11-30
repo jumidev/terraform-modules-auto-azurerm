@@ -40,8 +40,8 @@ tfstate_store = {
 
 ### `value_from_key_vault` block structure
 
-> `secret_id` (string): (REQUIRED) The resource ID of the Key Vault Secret.
-> `identity_client_id` (string): The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.
+> `secret_id` (string): (REQUIRED) The resource ID of the Key Vault Secret.\
+> `identity_client_id` (string): The client ID of User Assigned Identity, for the API Management Service, which will be used to access the key vault secret. The System Assigned Identity will be used in absence.\
 
 
 

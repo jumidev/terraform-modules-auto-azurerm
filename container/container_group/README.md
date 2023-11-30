@@ -54,30 +54,30 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.\
 
 ### `dns_config` block structure
 
-> `nameservers` (list): (REQUIRED) A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.
-> `search_domains` (list): A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.
-> `options` (list): A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.
+> `nameservers` (list): (REQUIRED) A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created.\
+> `search_domains` (list): A list of search domains that DNS requests will search along. Changing this forces a new resource to be created.\
+> `options` (list): A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created.\
 
 ### `diagnostics` block structure
 
-> `log_analytics` (block): (REQUIRED) A 'log_analytics' block. Changing this forces a new resource to be created.
+> `log_analytics` (block): (REQUIRED) A 'log_analytics' block. Changing this forces a new resource to be created.\
 
 ### `exposed_port` block structure
 
-> `port` (string): The port number the container will expose. Changing this forces a new resource to be created.
-> `protocol` (string): The network protocol associated with port. Possible values are 'TCP' & 'UDP'. Changing this forces a new resource to be created. Defaults to 'TCP'.
+> `port` (string): The port number the container will expose. Changing this forces a new resource to be created.\
+> `protocol` (string): The network protocol associated with port. Possible values are 'TCP' & 'UDP'. Changing this forces a new resource to be created. Defaults to 'TCP'.\
 
 ### `image_registry_credential` block structure
 
-> `user_assigned_identity_id` (string): The identity ID for the private registry. Changing this forces a new resource to be created.
-> `username` (string): The username with which to connect to the registry. Changing this forces a new resource to be created.
-> `password` (string): The password with which to connect to the registry. Changing this forces a new resource to be created.
-> `server` (string): (REQUIRED) The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created.
+> `user_assigned_identity_id` (string): The identity ID for the private registry. Changing this forces a new resource to be created.\
+> `username` (string): The username with which to connect to the registry. Changing this forces a new resource to be created.\
+> `password` (string): The password with which to connect to the registry. Changing this forces a new resource to be created.\
+> `server` (string): (REQUIRED) The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created.\
 
 
 

@@ -53,7 +53,7 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is 'SystemAssigned'.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Server. The only possible value is 'SystemAssigned'.\
 
 
 

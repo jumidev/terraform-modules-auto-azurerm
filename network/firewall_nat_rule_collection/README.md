@@ -40,15 +40,15 @@ tfstate_store = {
 
 ### `rule` block structure
 
-> `name` (string): (REQUIRED) Specifies the name of the rule.
-> `description` (string): Specifies a description for the rule.
-> `destination_addresses` (list): (REQUIRED) A list of destination IP addresses and/or IP ranges.
-> `destination_ports` (list): (REQUIRED) A list of destination ports.
-> `protocols` (string): (REQUIRED) A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. If 'action' is 'Dnat', protocols can only be 'TCP' and 'UDP'.
-> `source_addresses` (list): A list of source IP addresses and/or IP ranges.
-> `source_ip_groups` (list): A list of source IP Group IDs for the rule.
-> `translated_address` (string): (REQUIRED) The address of the service behind the Firewall.
-> `translated_port` (string): (REQUIRED) The port of the service behind the Firewall.
+> `name` (string): (REQUIRED) Specifies the name of the rule.\
+> `description` (string): Specifies a description for the rule.\
+> `destination_addresses` (list): (REQUIRED) A list of destination IP addresses and/or IP ranges.\
+> `destination_ports` (list): (REQUIRED) A list of destination ports.\
+> `protocols` (string): (REQUIRED) A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. If 'action' is 'Dnat', protocols can only be 'TCP' and 'UDP'.\
+> `source_addresses` (list): A list of source IP addresses and/or IP ranges.\
+> `source_ip_groups` (list): A list of source IP Group IDs for the rule.\
+> `translated_address` (string): (REQUIRED) The address of the service behind the Firewall.\
+> `translated_port` (string): (REQUIRED) The port of the service behind the Firewall.\
 
 
 

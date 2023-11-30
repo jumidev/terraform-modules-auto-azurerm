@@ -37,8 +37,8 @@ tfstate_store = {
 
 ### `business_identity` block structure
 
-> `qualifier` (string): (REQUIRED) The authenticating body that provides unique business identities to organizations.
-> `value` (string): (REQUIRED) The value that identifies the documents that your logic apps receive.
+> `qualifier` (string): (REQUIRED) The authenticating body that provides unique business identities to organizations.\
+> `value` (string): (REQUIRED) The value that identifies the documents that your logic apps receive.\
 
 
 

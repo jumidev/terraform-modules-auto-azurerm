@@ -42,11 +42,11 @@ tfstate_store = {
 
 ### `ddos_protection_plan` block structure
 
-> `enable` (string): (REQUIRED) Enable/disable DDoS Protection Plan on Virtual Network.
+> `enable` (string): (REQUIRED) Enable/disable DDoS Protection Plan on Virtual Network.\
 
 ### `encryption` block structure
 
-> `enforcement` (string): (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'.
+> `enforcement` (string): (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'.\
 
 
 

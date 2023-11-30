@@ -36,12 +36,12 @@ tfstate_store = {
 
 ### `routing` block structure
 
-> `associated_route_table_id` (string): The ID of the route table associated with this Virtual Hub connection.
-> `inbound_route_map_id` (string): The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
-> `outbound_route_map_id` (string): The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
-> `propagated_route_table` (block): A 'propagated_route_table' block.
-> `static_vnet_local_route_override_criteria` (string): The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created.
-> `static_vnet_route` (block): A 'static_vnet_route' block.
+> `associated_route_table_id` (string): The ID of the route table associated with this Virtual Hub connection.\
+> `inbound_route_map_id` (string): The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.\
+> `outbound_route_map_id` (string): The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.\
+> `propagated_route_table` (block): A 'propagated_route_table' block.\
+> `static_vnet_local_route_override_criteria` (string): The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created.\
+> `static_vnet_route` (block): A 'static_vnet_route' block.\
 
 
 

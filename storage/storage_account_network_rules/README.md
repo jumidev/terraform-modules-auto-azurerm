@@ -36,8 +36,8 @@ tfstate_store = {
 
 ### `private_link_access` block structure
 
-> `endpoint_resource_id` (string): (REQUIRED) The resource id of the resource access rule to be granted access.
-> `endpoint_tenant_id` (string): The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
+> `endpoint_resource_id` (string): (REQUIRED) The resource id of the resource access rule to be granted access.\
+> `endpoint_tenant_id` (string): The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.\
 
 
 

@@ -40,14 +40,14 @@ tfstate_store = {
 
 ### `custom_header` block structure
 
-> `name` (string): (REQUIRED) The name of the custom header.
-> `value` (string): (REQUIRED) The value of custom header. Applicable for HTTP and HTTPS protocol.
+> `name` (string): (REQUIRED) The name of the custom header.\
+> `value` (string): (REQUIRED) The value of custom header. Applicable for HTTP and HTTPS protocol.\
 
 ### `subnet` block structure
 
-> `first` (string): (REQUIRED) The first IP Address in this subnet.
-> `last` (string): The last IP Address in this subnet.
-> `scope` (int): The block size (number of leading bits in the subnet mask).
+> `first` (string): (REQUIRED) The first IP Address in this subnet.\
+> `last` (string): The last IP Address in this subnet.\
+> `scope` (int): The block size (number of leading bits in the subnet mask).\
 
 
 

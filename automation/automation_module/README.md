@@ -36,8 +36,8 @@ tfstate_store = {
 
 ### `module_link` block structure
 
-> `uri` (string): (REQUIRED) The URI of the module content (zip or nupkg).
-> `hash` (block): A 'hash' block.
+> `uri` (string): (REQUIRED) The URI of the module content (zip or nupkg).\
+> `hash` (block): A 'hash' block.\
 
 
 

@@ -48,20 +48,20 @@ tfstate_store = {
 
 ### `scale_settings` block structure
 
-> `max_node_count` (int): (REQUIRED) Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-> `min_node_count` (int): (REQUIRED) Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-> `scale_down_nodes_after_idle_duration` (string): (REQUIRED) Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
+> `max_node_count` (int): (REQUIRED) Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.\
+> `min_node_count` (int): (REQUIRED) Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.\
+> `scale_down_nodes_after_idle_duration` (string): (REQUIRED) Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.\
 
 ### `ssh` block structure
 
-> `admin_username` (string): (REQUIRED) Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
-> `admin_password` (string): Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
-> `key_value` (string): SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
+> `admin_username` (string): (REQUIRED) Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.\
+> `admin_password` (string): Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.\
+> `key_value` (string): SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created.
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created.\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created.\
 
 
 

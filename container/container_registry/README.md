@@ -51,36 +51,36 @@ tfstate_store = {
 
 ### `georeplications` block structure
 
-> `location` (string): (REQUIRED) A location where the container registry should be geo-replicated.
-> `regional_endpoint_enabled` (bool): Whether regional endpoint is enabled for this Container Registry?
-> `zone_redundancy_enabled` (bool): Whether zone redundancy is enabled for this replication location? Defaults to 'false'.
-> `tags` (map): A mapping of tags to assign to this replication location.
+> `location` (string): (REQUIRED) A location where the container registry should be geo-replicated.\
+> `regional_endpoint_enabled` (bool): Whether regional endpoint is enabled for this Container Registry?\
+> `zone_redundancy_enabled` (bool): Whether zone redundancy is enabled for this replication location? Defaults to 'false'.\
+> `tags` (map): A mapping of tags to assign to this replication location.\
 
 ### `network_rule_set` block structure
 
-> `default_action` (string): The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow'
-> `ip_rule` (block): One or more 'ip_rule' blocks.
-> `virtual_network` (block): One or more 'virtual_network' blocks.
+> `default_action` (string): The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow'\
+> `ip_rule` (block): One or more 'ip_rule' blocks.\
+> `virtual_network` (block): One or more 'virtual_network' blocks.\
 
 ### `retention_policy` block structure
 
-> `days` (int): The number of days to retain an untagged manifest after which it gets purged. Default is '7'.
-> `enabled` (bool): Boolean value that indicates whether the policy is enabled.
+> `days` (int): The number of days to retain an untagged manifest after which it gets purged. Default is '7'.\
+> `enabled` (bool): Boolean value that indicates whether the policy is enabled.\
 
 ### `trust_policy` block structure
 
-> `enabled` (bool): Boolean value that indicates whether the policy is enabled.
+> `enabled` (bool): Boolean value that indicates whether the policy is enabled.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry.\
 
 ### `encryption` block structure
 
-> `enabled` (bool): Boolean value that indicates whether encryption is enabled.
-> `key_vault_key_id` (string): (REQUIRED) The ID of the Key Vault Key.
-> `identity_client_id` (string): (REQUIRED) The client ID of the managed identity associated with the encryption key.
+> `enabled` (bool): Boolean value that indicates whether encryption is enabled.\
+> `key_vault_key_id` (string): (REQUIRED) The ID of the Key Vault Key.\
+> `identity_client_id` (string): (REQUIRED) The client ID of the managed identity associated with the encryption key.\
 
 
 

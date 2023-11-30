@@ -41,10 +41,10 @@ tfstate_store = {
 
 ### `logs` block structure
 
-> `filtering_tag` (block): A list of 'filtering_tag' blocks.
-> `send_activity_logs` (bool): Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.
-> `send_azuread_logs` (bool): Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.
-> `send_subscription_logs` (bool): Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.
+> `filtering_tag` (block): A list of 'filtering_tag' blocks.\
+> `send_activity_logs` (bool): Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.\
+> `send_azuread_logs` (bool): Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.\
+> `send_subscription_logs` (bool): Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'.\
 
 
 

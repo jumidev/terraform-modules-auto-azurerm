@@ -44,8 +44,8 @@ tfstate_store = {
 
 ### `key_vault_password` block structure
 
-> `linked_service_name` (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.
-> `secret_name` (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores Azure File Storage password.
+> `linked_service_name` (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.\
+> `secret_name` (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores Azure File Storage password.\
 
 
 

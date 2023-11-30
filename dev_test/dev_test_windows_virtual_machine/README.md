@@ -55,15 +55,15 @@ tfstate_store = {
 
 ### `gallery_image_reference` block structure
 
-> `offer` (string): (REQUIRED) The Offer of the Gallery Image. Changing this forces a new resource to be created.
-> `publisher` (string): (REQUIRED) The Publisher of the Gallery Image. Changing this forces a new resource to be created.
-> `sku` (string): (REQUIRED) The SKU of the Gallery Image. Changing this forces a new resource to be created.
-> `version` (string): (REQUIRED) The Version of the Gallery Image. Changing this forces a new resource to be created.
+> `offer` (string): (REQUIRED) The Offer of the Gallery Image. Changing this forces a new resource to be created.\
+> `publisher` (string): (REQUIRED) The Publisher of the Gallery Image. Changing this forces a new resource to be created.\
+> `sku` (string): (REQUIRED) The SKU of the Gallery Image. Changing this forces a new resource to be created.\
+> `version` (string): (REQUIRED) The Version of the Gallery Image. Changing this forces a new resource to be created.\
 
 ### `inbound_nat_rule` block structure
 
-> `protocol` (string): (REQUIRED) The Protocol used for this NAT Rule. Possible values are 'Tcp' and 'Udp'.
-> `backend_port` (string): (REQUIRED) The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
+> `protocol` (string): (REQUIRED) The Protocol used for this NAT Rule. Possible values are 'Tcp' and 'Udp'.\
+> `backend_port` (string): (REQUIRED) The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.\
 
 
 

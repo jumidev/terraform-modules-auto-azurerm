@@ -37,10 +37,10 @@ tfstate_store = {
 
 ### `field` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this connection field definition.
-> `type` (string): (REQUIRED) The type of the connection field definition.
-> `is_encrypted` (string): Whether to set the isEncrypted flag of the connection field definition.
-> `is_optional` (string): Whether to set the isOptional flag of the connection field definition.
+> `name` (string): (REQUIRED) The name which should be used for this connection field definition.\
+> `type` (string): (REQUIRED) The type of the connection field definition.\
+> `is_encrypted` (string): Whether to set the isEncrypted flag of the connection field definition.\
+> `is_optional` (string): Whether to set the isOptional flag of the connection field definition.\
 
 
 

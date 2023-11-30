@@ -43,14 +43,14 @@ tfstate_store = {
 
 ### `user_equipment_aggregate_maximum_bit_rate` block structure
 
-> `downlink` (string): (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-> `uplink` (string): (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+> `downlink` (string): (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.\
+> `uplink` (string): (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.\
 
 ### `slice` block structure
 
-> `data_network` (block): (REQUIRED) An array of 'data_network' block.
-> `default_data_network_id` (string): (REQUIRED) The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block.
-> `slice_id` (string): (REQUIRED) The ID of the slice that these settings apply to.
+> `data_network` (block): (REQUIRED) An array of 'data_network' block.\
+> `default_data_network_id` (string): (REQUIRED) The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block.\
+> `slice_id` (string): (REQUIRED) The ID of the slice that these settings apply to.\
 
 
 

@@ -48,46 +48,46 @@ tfstate_store = {
 
 ### `dns` block structure
 
-> `proxy_enabled` (bool): Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to 'false'.
-> `servers` (list): A list of custom DNS servers' IP addresses.
+> `proxy_enabled` (bool): Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to 'false'.\
+> `servers` (list): A list of custom DNS servers' IP addresses.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is 'UserAssigned'.
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is 'UserAssigned'.\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.\
 
 ### `insights` block structure
 
-> `enabled` (bool): (REQUIRED) Whether the insights functionality is enabled for this Firewall Policy.
-> `default_log_analytics_workspace_id` (string): (REQUIRED) The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the 'log_analytics_workspace'.
-> `retention_in_days` (int): The log retention period in days.
-> `log_analytics_workspace` (block): A list of 'log_analytics_workspace' block.
+> `enabled` (bool): (REQUIRED) Whether the insights functionality is enabled for this Firewall Policy.\
+> `default_log_analytics_workspace_id` (string): (REQUIRED) The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the 'log_analytics_workspace'.\
+> `retention_in_days` (int): The log retention period in days.\
+> `log_analytics_workspace` (block): A list of 'log_analytics_workspace' block.\
 
 ### `intrusion_detection` block structure
 
-> `mode` (string): In which mode you want to run intrusion detection: 'Off', 'Alert' or 'Deny'.
-> `signature_overrides` (block): One or more 'signature_overrides' blocks.
-> `traffic_bypass` (block): One or more 'traffic_bypass' blocks.
-> `private_ranges` (list): A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+> `mode` (string): In which mode you want to run intrusion detection: 'Off', 'Alert' or 'Deny'.\
+> `signature_overrides` (block): One or more 'signature_overrides' blocks.\
+> `traffic_bypass` (block): One or more 'traffic_bypass' blocks.\
+> `private_ranges` (list): A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.\
 
 ### `threat_intelligence_allowlist` block structure
 
-> `fqdns` (list): A list of FQDNs that will be skipped for threat detection.
-> `ip_addresses` (list): A list of IP addresses or CIDR ranges that will be skipped for threat detection.
+> `fqdns` (list): A list of FQDNs that will be skipped for threat detection.\
+> `ip_addresses` (list): A list of IP addresses or CIDR ranges that will be skipped for threat detection.\
 
 ### `tls_certificate` block structure
 
-> `key_vault_secret_id` (string): (REQUIRED) The ID of the Key Vault, where the secret or certificate is stored.
-> `name` (string): (REQUIRED) The name of the certificate.
+> `key_vault_secret_id` (string): (REQUIRED) The ID of the Key Vault, where the secret or certificate is stored.\
+> `name` (string): (REQUIRED) The name of the certificate.\
 
 ### `explicit_proxy` block structure
 
-> `enabled` (bool): Whether the explicit proxy is enabled for this Firewall Policy.
-> `http_port` (string): The port number for explicit http protocol.
-> `https_port` (string): The port number for explicit proxy https protocol.
-> `enable_pac_file` (bool): Whether the pac file port and url need to be provided.
-> `pac_file_port` (string): Specifies a port number for firewall to serve PAC file.
-> `pac_file` (string): Specifies a SAS URL for PAC file.
+> `enabled` (bool): Whether the explicit proxy is enabled for this Firewall Policy.\
+> `http_port` (string): The port number for explicit http protocol.\
+> `https_port` (string): The port number for explicit proxy https protocol.\
+> `enable_pac_file` (bool): Whether the pac file port and url need to be provided.\
+> `pac_file_port` (string): Specifies a port number for firewall to serve PAC file.\
+> `pac_file` (string): Specifies a SAS URL for PAC file.\
 
 
 

@@ -44,27 +44,27 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are 'SystemAssigned', 'UserAssigned'.
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are 'SystemAssigned', 'UserAssigned'.\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain.\
 
 ### `input_mapping_fields` block structure
 
-> `topic` (string): Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-> `event_type` (string): Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-> `event_time` (string): Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-> `data_version` (string): Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-> `subject` (string): Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+> `topic` (string): Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
+> `event_type` (string): Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
+> `event_time` (string): Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
+> `data_version` (string): Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
+> `subject` (string): Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
 
 ### `input_mapping_default_values` block structure
 
-> `event_type` (string): Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-> `data_version` (string): Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
-> `subject` (string): Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
+> `event_type` (string): Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
+> `data_version` (string): Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
+> `subject` (string): Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.\
 
 ### `inbound_ip_rule` block structure
 
-> `ip_mask` (string): (REQUIRED) The IP mask (CIDR) to match on.
-> `action` (string): The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'.
+> `ip_mask` (string): (REQUIRED) The IP mask (CIDR) to match on.\
+> `action` (string): The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'.\
 
 
 

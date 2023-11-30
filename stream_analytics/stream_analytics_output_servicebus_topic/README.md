@@ -45,10 +45,10 @@ tfstate_store = {
 
 ### `serialization` block structure
 
-> `type` (string): (REQUIRED) The serialization format used for outgoing data streams. Possible values are 'Avro', 'Csv', 'Json' and 'Parquet'.
-> `encoding` (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'.
-> `field_delimiter` (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'.
-> `format` (string): Specifies the format of the JSON the output will be written in. Possible values are 'Array' and 'LineSeparated'.
+> `type` (string): (REQUIRED) The serialization format used for outgoing data streams. Possible values are 'Avro', 'Csv', 'Json' and 'Parquet'.\
+> `encoding` (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'.\
+> `field_delimiter` (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'.\
+> `format` (string): Specifies the format of the JSON the output will be written in. Possible values are 'Array' and 'LineSeparated'.\
 
 
 

@@ -42,16 +42,16 @@ tfstate_store = {
 
 ### `link` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this VPN Site Link.
-> `bgp` (block): A 'bgp' block.
-> `fqdn` (string): The FQDN of this VPN Site Link.
-> `ip_address` (string): The IP address of this VPN Site Link.
-> `provider_name` (string): The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'.
-> `speed_in_mbps` (int): The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'.
+> `name` (string): (REQUIRED) The name which should be used for this VPN Site Link.\
+> `bgp` (block): A 'bgp' block.\
+> `fqdn` (string): The FQDN of this VPN Site Link.\
+> `ip_address` (string): The IP address of this VPN Site Link.\
+> `provider_name` (string): The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'.\
+> `speed_in_mbps` (int): The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'.\
 
 ### `o365_policy` block structure
 
-> `traffic_category` (block): A 'traffic_category' block.
+> `traffic_category` (block): A 'traffic_category' block.\
 
 
 

@@ -42,23 +42,23 @@ tfstate_store = {
 
 ### `sku` block structure
 
-> `name` (string): (REQUIRED) The name of the sku. Currently can only be set to 'S1'.
-> `capacity` (int): (REQUIRED) The number of provisioned IoT Device Provisioning Service units.
+> `name` (string): (REQUIRED) The name of the sku. Currently can only be set to 'S1'.\
+> `capacity` (int): (REQUIRED) The number of provisioned IoT Device Provisioning Service units.\
 
 ### `linked_hub` block structure
 
-> `connection_string` (string): (REQUIRED) The connection string to connect to the IoT Hub.
-> `location` (string): (REQUIRED) The location of the IoT hub.
-> `apply_allocation_policy` (bool): Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'.
-> `allocation_weight` (string): The weight applied to the IoT Hub. Defaults to '1'.
-> `hostname` (string): (Computed) The IoT Hub hostname.
+> `connection_string` (string): (REQUIRED) The connection string to connect to the IoT Hub.\
+> `location` (string): (REQUIRED) The location of the IoT hub.\
+> `apply_allocation_policy` (bool): Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'.\
+> `allocation_weight` (string): The weight applied to the IoT Hub. Defaults to '1'.\
+> `hostname` (string): (Computed) The IoT Hub hostname.\
 
 ### `ip_filter_rule` block structure
 
-> `name` (string): (REQUIRED) The name of the filter.
-> `ip_mask` (string): (REQUIRED) The IP address range in CIDR notation for the rule.
-> `action` (string): (REQUIRED) The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject'
-> `target` (string): Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'.
+> `name` (string): (REQUIRED) The name of the filter.\
+> `ip_mask` (string): (REQUIRED) The IP address range in CIDR notation for the rule.\
+> `action` (string): (REQUIRED) The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject'\
+> `target` (string): Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'.\
 
 
 

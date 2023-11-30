@@ -33,11 +33,11 @@ tfstate_store = {
 
 ### `password1` block structure
 
-> `expiry` (string): The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+> `expiry` (string): The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.\
 
 ### `password2` block structure
 
-> `expiry` (string): The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+> `expiry` (string): The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.\
 
 
 

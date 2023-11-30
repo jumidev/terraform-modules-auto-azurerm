@@ -46,19 +46,19 @@ tfstate_store = {
 
 ### `dataset` block structure
 
-> `aggregation` (list): (REQUIRED) One or more 'aggregation' blocks.
-> `granularity` (string): (REQUIRED) The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'.
-> `grouping` (block): One or more 'grouping' blocks.
-> `sorting` (block): One or more 'sorting' blocks, containing the order by expression to be used in the report
+> `aggregation` (list): (REQUIRED) One or more 'aggregation' blocks.\
+> `granularity` (string): (REQUIRED) The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'.\
+> `grouping` (block): One or more 'grouping' blocks.\
+> `sorting` (block): One or more 'sorting' blocks, containing the order by expression to be used in the report\
 
 ### `kpi` block structure
 
-> `type` (string): (REQUIRED) KPI type. Possible values are 'Budget' and 'Forecast'.
+> `type` (string): (REQUIRED) KPI type. Possible values are 'Budget' and 'Forecast'.\
 
 ### `pivot` block structure
 
-> `name` (string): (REQUIRED) The name of the column which should be used for this sub-view in the Cost Analysis UI.
-> `type` (string): (REQUIRED) The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'.
+> `name` (string): (REQUIRED) The name of the column which should be used for this sub-view in the Cost Analysis UI.\
+> `type` (string): (REQUIRED) The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'.\
 
 
 

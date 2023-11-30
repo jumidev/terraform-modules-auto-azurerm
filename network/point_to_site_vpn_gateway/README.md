@@ -45,10 +45,10 @@ tfstate_store = {
 
 ### `connection_configuration` block structure
 
-> `name` (string): (REQUIRED) The Name which should be used for this Connection Configuration.
-> `vpn_client_address_pool` (block): (REQUIRED) A 'vpn_client_address_pool' block.
-> `route` (block): A 'route' block.
-> `internet_security_enabled` (bool): Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'.
+> `name` (string): (REQUIRED) The Name which should be used for this Connection Configuration.\
+> `vpn_client_address_pool` (block): (REQUIRED) A 'vpn_client_address_pool' block.\
+> `route` (block): A 'route' block.\
+> `internet_security_enabled` (bool): Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'.\
 
 
 

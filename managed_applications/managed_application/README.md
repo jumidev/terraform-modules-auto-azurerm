@@ -43,11 +43,11 @@ tfstate_store = {
 
 ### `plan` block structure
 
-> `name` (string): (REQUIRED) Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
-> `product` (string): (REQUIRED) Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.
-> `publisher` (string): (REQUIRED) Specifies the publisher of the plan. Changing this forces a new resource to be created.
-> `version` (string): (REQUIRED) Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.
-> `promotion_code` (string): Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.
+> `name` (string): (REQUIRED) Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.\
+> `product` (string): (REQUIRED) Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created.\
+> `publisher` (string): (REQUIRED) Specifies the publisher of the plan. Changing this forces a new resource to be created.\
+> `version` (string): (REQUIRED) Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created.\
+> `promotion_code` (string): Specifies the promotion code to use with the plan. Changing this forces a new resource to be created.\
 
 
 

@@ -43,13 +43,13 @@ tfstate_store = {
 
 ### `export_data_storage_location` block structure
 
-> `container_id` (string): (REQUIRED) The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
-> `root_folder_path` (string): (REQUIRED) The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.
+> `container_id` (string): (REQUIRED) The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.\
+> `root_folder_path` (string): (REQUIRED) The path of the directory where exports will be uploaded. Changing this forces a new resource to be created.\
 
 ### `export_data_options` block structure
 
-> `type` (string): (REQUIRED) The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'.
-> `time_frame` (string): (REQUIRED) The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'.
+> `type` (string): (REQUIRED) The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'.\
+> `time_frame` (string): (REQUIRED) The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'.\
 
 
 

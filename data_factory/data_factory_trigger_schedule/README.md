@@ -44,16 +44,16 @@ tfstate_store = {
 
 ### `schedule` block structure
 
-> `days_of_month` (int): Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
-> `days_of_week` (int): Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
-> `hours` (string): Hours of the day on which the trigger is scheduled.
-> `minutes` (int): Minutes of the hour on which the trigger is scheduled.
-> `monthly` (block): A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
+> `days_of_month` (int): Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.\
+> `days_of_week` (int): Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.\
+> `hours` (string): Hours of the day on which the trigger is scheduled.\
+> `minutes` (int): Minutes of the hour on which the trigger is scheduled.\
+> `monthly` (block): A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.\
 
 ### `pipeline` block structure
 
-> `name` (string): (REQUIRED) Reference pipeline name.
-> `parameters` (string): The pipeline parameters that the trigger will act upon.
+> `name` (string): (REQUIRED) Reference pipeline name.\
+> `parameters` (string): The pipeline parameters that the trigger will act upon.\
 
 
 

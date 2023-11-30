@@ -39,11 +39,11 @@ tfstate_store = {
 
 ### `ipfx_emission` block structure
 
-> `destination_types` (list): (REQUIRED) A list of emission destination types. The only possible value is 'AzureMonitor'. Changing this forces a new Network Function Collector Policy to be created.
+> `destination_types` (list): (REQUIRED) A list of emission destination types. The only possible value is 'AzureMonitor'. Changing this forces a new Network Function Collector Policy to be created.\
 
 ### `ipfx_ingestion` block structure
 
-> `source_resource_ids` (list): (REQUIRED) A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
+> `source_resource_ids` (list): (REQUIRED) A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.\
 
 
 

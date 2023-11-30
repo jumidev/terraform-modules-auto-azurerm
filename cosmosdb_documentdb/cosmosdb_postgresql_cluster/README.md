@@ -55,9 +55,9 @@ tfstate_store = {
 
 ### `maintenance_window` block structure
 
-> `day_of_week` (string): The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'.
-> `start_hour` (string): The start hour for maintenance window. Defaults to '0'.
-> `start_minute` (string): The start minute for maintenance window. Defaults to '0'.
+> `day_of_week` (string): The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'.\
+> `start_hour` (string): The start hour for maintenance window. Defaults to '0'.\
+> `start_minute` (string): The start minute for maintenance window. Defaults to '0'.\
 
 
 

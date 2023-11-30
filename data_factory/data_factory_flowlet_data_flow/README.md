@@ -40,31 +40,31 @@ tfstate_store = {
 
 ### `source` block structure
 
-> `description` (string): The description for the Data Flow Source.
-> `dataset` (block): A 'dataset' block.
-> `flowlet` (block): A 'flowlet' block.
-> `linked_service` (block): A 'linked_service' block.
-> `name` (string): (REQUIRED) The name for the Data Flow Source.
-> `rejected_linked_service` (block): A 'rejected_linked_service' block.
-> `schema_linked_service` (block): A 'schema_linked_service' block.
+> `description` (string): The description for the Data Flow Source.\
+> `dataset` (block): A 'dataset' block.\
+> `flowlet` (block): A 'flowlet' block.\
+> `linked_service` (block): A 'linked_service' block.\
+> `name` (string): (REQUIRED) The name for the Data Flow Source.\
+> `rejected_linked_service` (block): A 'rejected_linked_service' block.\
+> `schema_linked_service` (block): A 'schema_linked_service' block.\
 
 ### `sink` block structure
 
-> `description` (string): The description for the Data Flow Source.
-> `dataset` (block): A 'dataset' block.
-> `flowlet` (block): A 'flowlet' block.
-> `linked_service` (block): A 'linked_service' block.
-> `name` (string): (REQUIRED) The name for the Data Flow Source.
-> `rejected_linked_service` (block): A 'rejected_linked_service' block.
-> `schema_linked_service` (block): A 'schema_linked_service' block.
+> `description` (string): The description for the Data Flow Source.\
+> `dataset` (block): A 'dataset' block.\
+> `flowlet` (block): A 'flowlet' block.\
+> `linked_service` (block): A 'linked_service' block.\
+> `name` (string): (REQUIRED) The name for the Data Flow Source.\
+> `rejected_linked_service` (block): A 'rejected_linked_service' block.\
+> `schema_linked_service` (block): A 'schema_linked_service' block.\
 
 ### `transformation` block structure
 
-> `name` (string): (REQUIRED) The name for the Data Flow transformation.
-> `description` (string): The description for the Data Flow transformation.
-> `dataset` (block): A 'dataset' block.
-> `flowlet` (block): A 'flowlet' block.
-> `linked_service` (block): A 'linked_service' block.
+> `name` (string): (REQUIRED) The name for the Data Flow transformation.\
+> `description` (string): The description for the Data Flow transformation.\
+> `dataset` (block): A 'dataset' block.\
+> `flowlet` (block): A 'flowlet' block.\
+> `linked_service` (block): A 'linked_service' block.\
 
 
 

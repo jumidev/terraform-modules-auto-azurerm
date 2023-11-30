@@ -69,78 +69,78 @@ tfstate_store = {
 
 ### `custom_domain` block structure
 
-> `name` (string): (REQUIRED) The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
-> `use_subdomain` (bool): Should the Custom Domain Name be validated by using indirect CNAME validation?
+> `name` (string): (REQUIRED) The Custom Domain Name to use for the Storage Account, which will be validated by Azure.\
+> `use_subdomain` (bool): Should the Custom Domain Name be validated by using indirect CNAME validation?\
 
 ### `customer_managed_key` block structure
 
-> `key_vault_key_id` (string): (REQUIRED) The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-> `user_assigned_identity_id` (string): (REQUIRED) The ID of a user assigned identity.
+> `key_vault_key_id` (string): (REQUIRED) The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.\
+> `user_assigned_identity_id` (string): (REQUIRED) The ID of a user assigned identity.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.\
 
 ### `blob_properties` block structure
 
-> `cors_rule` (block): A 'cors_rule' block.
-> `delete_retention_policy` (block): A 'delete_retention_policy' block.
-> `restore_policy` (block): A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'.
-> `versioning_enabled` (bool): Is versioning enabled? Default to 'false'.
-> `change_feed_enabled` (bool): Is the blob service properties for change feed events enabled? Default to 'false'.
-> `change_feed_retention_in_days` (string): The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
-> `default_service_version` (string): The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
-> `last_access_time_enabled` (bool): Is the last access time based tracking enabled? Default to 'false'.
-> `container_delete_retention_policy` (block): A 'container_delete_retention_policy' block.
+> `cors_rule` (block): A 'cors_rule' block.\
+> `delete_retention_policy` (block): A 'delete_retention_policy' block.\
+> `restore_policy` (block): A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'.\
+> `versioning_enabled` (bool): Is versioning enabled? Default to 'false'.\
+> `change_feed_enabled` (bool): Is the blob service properties for change feed events enabled? Default to 'false'.\
+> `change_feed_retention_in_days` (string): The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.\
+> `default_service_version` (string): The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.\
+> `last_access_time_enabled` (bool): Is the last access time based tracking enabled? Default to 'false'.\
+> `container_delete_retention_policy` (block): A 'container_delete_retention_policy' block.\
 
 ### `queue_properties` block structure
 
-> `cors_rule` (block): A 'cors_rule' block.
-> `logging` (block): A 'logging' block.
-> `minute_metrics` (block): A 'minute_metrics' block.
-> `hour_metrics` (block): A 'hour_metrics' block.
+> `cors_rule` (block): A 'cors_rule' block.\
+> `logging` (block): A 'logging' block.\
+> `minute_metrics` (block): A 'minute_metrics' block.\
+> `hour_metrics` (block): A 'hour_metrics' block.\
 
 ### `static_website` block structure
 
-> `index_document` (string): The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-> `error_404_document` (string): The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
+> `index_document` (string): The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.\
+> `error_404_document` (string): The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.\
 
 ### `share_properties` block structure
 
-> `cors_rule` (block): A 'cors_rule' block.
-> `retention_policy` (block): A 'retention_policy' block.
-> `smb` (block): A 'smb' block.
+> `cors_rule` (block): A 'cors_rule' block.\
+> `retention_policy` (block): A 'retention_policy' block.\
+> `smb` (block): A 'smb' block.\
 
 ### `network_rules` block structure
 
-> `default_action` (string): (REQUIRED) Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'.
-> `bypass` (string): Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'.
-> `ip_rules` (string): List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
-> `virtual_network_subnet_ids` (list): A list of resource ids for subnets.
-> `private_link_access` (block): One or more 'private_link_access' block.
+> `default_action` (string): (REQUIRED) Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'.\
+> `bypass` (string): Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'.\
+> `ip_rules` (string): List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.\
+> `virtual_network_subnet_ids` (list): A list of resource ids for subnets.\
+> `private_link_access` (block): One or more 'private_link_access' block.\
 
 ### `azure_files_authentication` block structure
 
-> `directory_type` (string): (REQUIRED) Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'.
-> `active_directory` (block): A 'active_directory' block. Required when 'directory_type' is 'AD'.
+> `directory_type` (string): (REQUIRED) Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'.\
+> `active_directory` (block): A 'active_directory' block. Required when 'directory_type' is 'AD'.\
 
 ### `routing` block structure
 
-> `publish_internet_endpoints` (bool): Should internet routing storage endpoints be published? Defaults to 'false'.
-> `publish_microsoft_endpoints` (bool): Should Microsoft routing storage endpoints be published? Defaults to 'false'.
-> `choice` (string): Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'.
+> `publish_internet_endpoints` (bool): Should internet routing storage endpoints be published? Defaults to 'false'.\
+> `publish_microsoft_endpoints` (bool): Should Microsoft routing storage endpoints be published? Defaults to 'false'.\
+> `choice` (string): Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'.\
 
 ### `immutability_policy` block structure
 
-> `allow_protected_append_writes` (bool): (REQUIRED) When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
-> `state` (string): (REQUIRED) Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
-> `period_since_creation_in_days` (int): (REQUIRED) The immutability period for the blobs in the container since the policy creation, in days.
+> `allow_protected_append_writes` (bool): (REQUIRED) When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.\
+> `state` (string): (REQUIRED) Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.\
+> `period_since_creation_in_days` (int): (REQUIRED) The immutability period for the blobs in the container since the policy creation, in days.\
 
 ### `sas_policy` block structure
 
-> `expiration_period` (string): (REQUIRED) The SAS expiration period in format of 'DD.HH:MM:SS'.
-> `expiration_action` (string): The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'.
+> `expiration_period` (string): (REQUIRED) The SAS expiration period in format of 'DD.HH:MM:SS'.\
+> `expiration_action` (string): The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'.\
 
 
 

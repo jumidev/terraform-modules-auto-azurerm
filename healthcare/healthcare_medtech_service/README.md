@@ -44,8 +44,8 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are 'SystemAssigned'.
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are 'SystemAssigned'.\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service.\
 
 
 

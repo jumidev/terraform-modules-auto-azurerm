@@ -40,7 +40,7 @@ tfstate_store = {
 
 ### `frontend_ip_configuration` block structure
 
-> `name` (string): (REQUIRED) The name of the Frontend IP Configuration.
+> `name` (string): (REQUIRED) The name of the Frontend IP Configuration.\
 
 
 

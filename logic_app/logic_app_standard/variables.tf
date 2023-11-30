@@ -119,11 +119,9 @@ variable "site_config" {
 #   vnet_route_all_enabled (bool)          : Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
 #   websockets_enabled (bool)              : Should WebSockets be enabled?
 #
-# headers block structure   :
-#   x_azure_fdid (list)       : A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-#   x_fd_health_probe (string): A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'.
-#   x_forwarded_for (list)    : A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-#   x_forwarded_host (list)   : A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+# cors block structure        :
+#   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
 #
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
@@ -143,9 +141,11 @@ variable "site_config" {
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
 #
-# cors block structure        :
-#   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
+# headers block structure   :
+#   x_azure_fdid (list)       : A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+#   x_fd_health_probe (string): A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'.
+#   x_forwarded_for (list)    : A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+#   x_forwarded_host (list)   : A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
 
 
 variable "storage_account_share_name" {

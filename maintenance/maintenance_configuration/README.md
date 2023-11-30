@@ -42,17 +42,17 @@ tfstate_store = {
 
 ### `window` block structure
 
-> `start_date_time` (string): (REQUIRED) Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
-> `expiration_date_time` (string): Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
-> `duration` (string): The duration of the maintenance window in HH:mm format.
-> `time_zone` (string): (REQUIRED) The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
-> `recur_every` (string): The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
+> `start_date_time` (string): (REQUIRED) Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.\
+> `expiration_date_time` (string): Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.\
+> `duration` (string): The duration of the maintenance window in HH:mm format.\
+> `time_zone` (string): (REQUIRED) The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.\
+> `recur_every` (string): The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.\
 
 ### `install_patches` block structure
 
-> `linux` (block): A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch'
-> `windows` (block): A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch'
-> `reboot` (string): Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'.
+> `linux` (block): A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch'\
+> `windows` (block): A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch'\
+> `reboot` (string): Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'.\
 
 
 

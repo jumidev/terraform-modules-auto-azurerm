@@ -47,15 +47,15 @@ tfstate_store = {
 
 ### `azuread_administrator` block structure
 
-> `login_username` (string): (REQUIRED) The login username of the Azure AD Administrator of this SQL Server.
-> `object_id` (string): (REQUIRED) The object id of the Azure AD Administrator of this SQL Server.
-> `tenant_id` (string): The tenant id of the Azure AD Administrator of this SQL Server.
-> `azuread_authentication_only` (string): Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted.
+> `login_username` (string): (REQUIRED) The login username of the Azure AD Administrator of this SQL Server.\
+> `object_id` (string): (REQUIRED) The object id of the Azure AD Administrator of this SQL Server.\
+> `tenant_id` (string): The tenant id of the Azure AD Administrator of this SQL Server.\
+> `azuread_authentication_only` (string): Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted.\
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
+> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
+> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.\
 
 
 

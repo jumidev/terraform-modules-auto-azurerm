@@ -42,12 +42,12 @@ tfstate_store = {
 
 ### `sharing` block structure
 
-> `external_tables_to_exclude` (string): List of external tables exclude from the follower database.
-> `external_tables_to_include` (string): List of external tables to include in the follower database.
-> `materialized_views_to_exclude` (string): List of materialized views exclude from the follower database.
-> `materialized_views_to_include` (string): List of materialized views to include in the follower database.
-> `tables_to_exclude` (string): List of tables to exclude from the follower database.
-> `tables_to_include` (string): List of tables to include in the follower database.
+> `external_tables_to_exclude` (string): List of external tables exclude from the follower database.\
+> `external_tables_to_include` (string): List of external tables to include in the follower database.\
+> `materialized_views_to_exclude` (string): List of materialized views exclude from the follower database.\
+> `materialized_views_to_include` (string): List of materialized views to include in the follower database.\
+> `tables_to_exclude` (string): List of tables to exclude from the follower database.\
+> `tables_to_include` (string): List of tables to include in the follower database.\
 
 
 

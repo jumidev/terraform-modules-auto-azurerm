@@ -46,16 +46,16 @@ tfstate_store = {
 
 ### `retention_policy` block structure
 
-> `enabled` (bool): (REQUIRED) Boolean flag to enable/disable retention.
-> `days` (int): (REQUIRED) The number of days to retain flow log records.
+> `enabled` (bool): (REQUIRED) Boolean flag to enable/disable retention.\
+> `days` (int): (REQUIRED) The number of days to retain flow log records.\
 
 ### `traffic_analytics` block structure
 
-> `enabled` (bool): (REQUIRED) Boolean flag to enable/disable traffic analytics.
-> `workspace_id` (string): (REQUIRED) The resource GUID of the attached workspace.
-> `workspace_region` (string): (REQUIRED) The location of the attached workspace.
-> `workspace_resource_id` (string): (REQUIRED) The resource ID of the attached workspace.
-> `interval_in_minutes` (int): How frequently service should do flow analytics in minutes. Defaults to '60'.
+> `enabled` (bool): (REQUIRED) Boolean flag to enable/disable traffic analytics.\
+> `workspace_id` (string): (REQUIRED) The resource GUID of the attached workspace.\
+> `workspace_region` (string): (REQUIRED) The location of the attached workspace.\
+> `workspace_resource_id` (string): (REQUIRED) The resource ID of the attached workspace.\
+> `interval_in_minutes` (int): How frequently service should do flow analytics in minutes. Defaults to '60'.\
 
 
 

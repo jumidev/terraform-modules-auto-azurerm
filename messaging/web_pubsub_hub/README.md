@@ -35,17 +35,17 @@ tfstate_store = {
 
 ### `event_handler` block structure
 
-> `url_template` (string): (REQUIRED) The Event Handler URL Template. Two predefined parameters '{hub}' and '{event}' are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: 'http://example.com/api/{hub}/{event}'.
-> `user_event_pattern` (string): Specifies the matching event names. There are 3 kind of patterns supported: * '*' matches any event name * ',' Combine multiple events with ',' for example 'event1,event2', it matches event 'event1' and 'event2' * The single event name, for example 'event1', it matches 'event1'.
-> `system_events` (string): Specifies the list of system events. Supported values are 'connect', 'connected' and 'disconnected'.
-> `auth` (block): An 'auth' block.
+> `url_template` (string): (REQUIRED) The Event Handler URL Template. Two predefined parameters '{hub}' and '{event}' are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: 'http://example.com/api/{hub}/{event}'.\
+> `user_event_pattern` (string): Specifies the matching event names. There are 3 kind of patterns supported: * '*' matches any event name * ',' Combine multiple events with ',' for example 'event1,event2', it matches event 'event1' and 'event2' * The single event name, for example 'event1', it matches 'event1'.\
+> `system_events` (string): Specifies the list of system events. Supported values are 'connect', 'connected' and 'disconnected'.\
+> `auth` (block): An 'auth' block.\
 
 ### `event_listener` block structure
 
-> `system_event_name_filter` (string): Specifies the list of system events. Supported values are 'connected' and 'disconnected'.
-> `user_event_name_filter` (string): Specifies the list of matching user event names. '['*']' can be used to match all events.
-> `eventhub_namespace_name` (string): (REQUIRED) Specifies the event hub namespace name to receive the events.
-> `eventhub_name` (string): (REQUIRED) Specifies the event hub name to receive the events.
+> `system_event_name_filter` (string): Specifies the list of system events. Supported values are 'connected' and 'disconnected'.\
+> `user_event_name_filter` (string): Specifies the list of matching user event names. '['*']' can be used to match all events.\
+> `eventhub_namespace_name` (string): (REQUIRED) Specifies the event hub namespace name to receive the events.\
+> `eventhub_name` (string): (REQUIRED) Specifies the event hub name to receive the events.\
 
 
 
