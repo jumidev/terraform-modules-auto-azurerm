@@ -65,19 +65,19 @@ variable "auth_settings" {
 #   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
 #   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
 #
-# active_directory block structure:
-#   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-#   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-#   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+# twitter block structure :
+#   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
+#   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
 #
 # google block structure:
 #   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
 #   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
 #   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 #
-# twitter block structure :
-#   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
-#   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
+# active_directory block structure:
+#   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+#   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+#   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
 
 variable "connection_string" {
@@ -145,6 +145,10 @@ variable "site_config" {
 #   vnet_route_all_enabled (bool)                : Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to 'false'.
 #   websockets_enabled (bool)                    : Should WebSockets be enabled?
 #
+# cors block structure        :
+#   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
+#
 # scm_ip_restriction block structure:
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -152,10 +156,6 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
-#
-# cors block structure        :
-#   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
 #
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.

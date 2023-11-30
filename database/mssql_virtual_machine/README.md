@@ -48,18 +48,6 @@ tfstate_store = {
 | **var.wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `auto_backup` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `encryption_enabled` | bool | No | False | Enable or disable encryption for backups. Defaults to 'false'. |
-| `encryption_password` | string | No | - | Encryption password to use. Must be specified when encryption is enabled. |
-| `manual_schedule` | block | No | - | A 'manual_schedule' block. When this block is present, the schedule type is set to 'Manual'. Without this block, the schedule type is set to 'Automated'. |
-| `retention_period_in_days` | string | Yes | - | Retention period of backups, in days. Valid values are from '1' to '30'. |
-| `storage_blob_endpoint` | string | Yes | - | Blob endpoint for the storage account where backups will be kept. |
-| `storage_account_access_key` | string | Yes | - | Access key for the storage account where backups will be kept. |
-| `system_databases_backup_enabled` | bool | No | - | Include or exclude system databases from auto backup. |
-
 ### `auto_patching` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +76,27 @@ tfstate_store = {
 | `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
 | `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
 
+### `auto_backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `encryption_enabled` | bool | No | False | Enable or disable encryption for backups. Defaults to 'false'. |
+| `encryption_password` | string | No | - | Encryption password to use. Must be specified when encryption is enabled. |
+| `manual_schedule` | block | No | - | A 'manual_schedule' block. When this block is present, the schedule type is set to 'Manual'. Without this block, the schedule type is set to 'Automated'. |
+| `retention_period_in_days` | string | Yes | - | Retention period of backups, in days. Valid values are from '1' to '30'. |
+| `storage_blob_endpoint` | string | Yes | - | Blob endpoint for the storage account where backups will be kept. |
+| `storage_account_access_key` | string | Yes | - | Access key for the storage account where backups will be kept. |
+| `system_databases_backup_enabled` | bool | No | - | Include or exclude system databases from auto backup. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
+| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
+| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
+
 ### `storage_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -107,6 +116,25 @@ tfstate_store = {
 | `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
 | `schedule` | block | No | - | An 'schedule' block. |
 
+### `temp_db_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+| `data_file_count` | int | No | 8 | The SQL Server default file count. This value defaults to '8' |
+| `data_file_size_mb` | int | No | 256 | The SQL Server default file size - This value defaults to '256' |
+| `data_file_growth_in_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
+| `log_file_size_mb` | int | No | 256 | The SQL Server default file size - This value defaults to '256' |
+| `log_file_growth_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
+
+### `storage_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+
 ### `wsfc_domain_credential` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -114,6 +142,16 @@ tfstate_store = {
 | `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
 | `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
 | `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
+
+### `manual_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `full_backup_frequency` | string | Yes | - | Frequency of full backups. Valid values include 'Daily' or 'Weekly'. |
+| `full_backup_start_hour` | string | Yes | - | Start hour of a given day during which full backups can take place. Valid values are from '0' to '23'. |
+| `full_backup_window_in_hours` | string | Yes | - | Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between '1' and '23'. |
+| `log_backup_frequency_in_minutes` | string | Yes | - | Frequency of log backups, in minutes. Valid values are from '5' to '60'. |
+| `days_of_week` | string | No | - | A list of days on which backup can take place. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday' |
 
 
 

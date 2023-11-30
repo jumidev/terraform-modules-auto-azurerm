@@ -59,6 +59,13 @@ tfstate_store = {
 | `tcp_port_reuse_minimum_hold_time_in_seconds` | int | No | 120 | Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to '120'. |
 | `udp_port_reuse_minimum_hold_time_in_seconds` | int | No | 60 | Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to '60'. |
 
+### `port_range` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `maximum` | string | No | - | Specifies the maximum port number. |
+| `minimum` | string | No | - | Specifies the minimum port number. |
+
 
 
 ## Outputs

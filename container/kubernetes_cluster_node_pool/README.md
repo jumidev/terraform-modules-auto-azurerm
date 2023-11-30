@@ -77,6 +77,67 @@ tfstate_store = {
 | **var.min_count** | string |  -  |  `0`, `1000`, `max_count`  |  The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`. | 
 | **var.node_count** | string |  -  |  `0`, `1000`, `1`  |  The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools. | 
 
+### `node_network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
+
+### `sysctl_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `fs_aio_max_nr` | string | No | - | The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created. |
+| `fs_file_max` | string | No | - | The sysctl setting fs.file-max. Must be between '8192' and '12000500'. Changing this forces a new resource to be created. |
+| `fs_inotify_max_user_watches` | string | No | - | The sysctl setting fs.inotify.max_user_watches. Must be between '781250' and '2097152'. Changing this forces a new resource to be created. |
+| `fs_nr_open` | string | No | - | The sysctl setting fs.nr_open. Must be between '8192' and '20000500'. Changing this forces a new resource to be created. |
+| `kernel_threads_max` | string | No | - | The sysctl setting kernel.threads-max. Must be between '20' and '513785'. Changing this forces a new resource to be created. |
+| `net_core_netdev_max_backlog` | string | No | - | The sysctl setting net.core.netdev_max_backlog. Must be between '1000' and '3240000'. Changing this forces a new resource to be created. |
+| `net_core_optmem_max` | string | No | - | The sysctl setting net.core.optmem_max. Must be between '20480' and '4194304'. Changing this forces a new resource to be created. |
+| `net_core_rmem_default` | string | No | - | The sysctl setting net.core.rmem_default. Must be between '212992' and '134217728'. Changing this forces a new resource to be created. |
+| `net_core_rmem_max` | string | No | - | The sysctl setting net.core.rmem_max. Must be between '212992' and '134217728'. Changing this forces a new resource to be created. |
+| `net_core_somaxconn` | string | No | - | The sysctl setting net.core.somaxconn. Must be between '4096' and '3240000'. Changing this forces a new resource to be created. |
+| `net_core_wmem_default` | string | No | - | The sysctl setting net.core.wmem_default. Must be between '212992' and '134217728'. Changing this forces a new resource to be created. |
+| `net_core_wmem_max` | string | No | - | The sysctl setting net.core.wmem_max. Must be between '212992' and '134217728'. Changing this forces a new resource to be created. |
+| `net_ipv4_ip_local_port_range_max` | string | No | - | The sysctl setting net.ipv4.ip_local_port_range max value. Must be between '32768' and '65535'. Changing this forces a new resource to be created. |
+| `net_ipv4_ip_local_port_range_min` | string | No | - | The sysctl setting net.ipv4.ip_local_port_range min value. Must be between '1024' and '60999'. Changing this forces a new resource to be created. |
+| `net_ipv4_neigh_default_gc_thresh1` | string | No | - | The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between '128' and '80000'. Changing this forces a new resource to be created. |
+| `net_ipv4_neigh_default_gc_thresh2` | string | No | - | The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between '512' and '90000'. Changing this forces a new resource to be created. |
+| `net_ipv4_neigh_default_gc_thresh3` | string | No | - | The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between '1024' and '100000'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_fin_timeout` | string | No | - | The sysctl setting net.ipv4.tcp_fin_timeout. Must be between '5' and '120'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_keepalive_intvl` | string | No | - | The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between '10' and '90'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_keepalive_probes` | string | No | - | The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between '1' and '15'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_keepalive_time` | string | No | - | The sysctl setting net.ipv4.tcp_keepalive_time. Must be between '30' and '432000'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_max_syn_backlog` | string | No | - | The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between '128' and '3240000'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_max_tw_buckets` | string | No | - | The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between '8000' and '1440000'. Changing this forces a new resource to be created. |
+| `net_ipv4_tcp_tw_reuse` | string | No | - | Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created. |
+| `net_netfilter_nf_conntrack_buckets` | string | No | - | The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between '65536' and '524288'. Changing this forces a new resource to be created. |
+| `net_netfilter_nf_conntrack_max` | string | No | - | The sysctl setting net.netfilter.nf_conntrack_max. Must be between '131072' and '2097152'. Changing this forces a new resource to be created. |
+| `vm_max_map_count` | int | No | - | The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created. |
+| `vm_swappiness` | string | No | - | The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created. |
+| `vm_vfs_cache_pressure` | string | No | - | The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created. |
+
+### `windows_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `outbound_nat_enabled` | bool | No | True | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. |
+
+### `linux_os_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `swap_file_size_mb` | int | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
+| `sysctl_config` | block | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
+| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+| `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+
+### `upgrade_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
+
 ### `kubelet_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -91,33 +152,6 @@ tfstate_store = {
 | `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 | `pod_max_pid` | int | No | - | Specifies the maximum number of processes per pod. Changing this forces a new resource to be created. |
 | `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created. |
-
-### `linux_os_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `swap_file_size_mb` | int | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
-| `sysctl_config` | block | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
-| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-| `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-
-### `node_network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
-
-### `upgrade_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
-
-### `windows_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `outbound_nat_enabled` | bool | No | True | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. |
 
 
 

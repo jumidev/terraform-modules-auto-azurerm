@@ -43,6 +43,13 @@ tfstate_store = {
 | **var.action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
 | **var.rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
+### `protocol` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | Specify a port for the connection. |
+| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |

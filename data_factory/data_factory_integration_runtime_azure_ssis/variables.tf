@@ -81,12 +81,6 @@ variable "express_custom_setup" {
 #   environment (string)                : The Environment Variables for the Azure-SSIS Integration Runtime.
 #   powershell_version (string)         : The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
 #
-# command_key block structure:
-#   target_name (string)       : (REQUIRED) The target computer or domain name.
-#   user_name (string)         : (REQUIRED) The username for the target device.
-#   password (string)          : The password for the target device.
-#   key_vault_password (block) : A 'key_vault_secret_reference' block.
-#
 # key_vault_secret_reference block structure:
 #   linked_service_name (string)              : (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.
 #   secret_name (string)                      : (REQUIRED) Specifies the secret name in Azure Key Vault.
@@ -96,6 +90,12 @@ variable "express_custom_setup" {
 # component block structure:
 #   license (string)         : The license used for the Component.
 #   key_vault_license (block): A 'key_vault_secret_reference' block.
+#
+# command_key block structure:
+#   target_name (string)       : (REQUIRED) The target computer or domain name.
+#   user_name (string)         : (REQUIRED) The username for the target device.
+#   password (string)          : The password for the target device.
+#   key_vault_password (block) : A 'key_vault_secret_reference' block.
 
 
 variable "express_vnet_integration" {

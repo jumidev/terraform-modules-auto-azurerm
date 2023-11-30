@@ -53,6 +53,12 @@ tfstate_store = {
 | `instance_0_bgp_peering_address` | block | No | - | An 'instance_bgp_peering_address' block. |
 | `instance_1_bgp_peering_address` | block | No | - | An 'instance_bgp_peering_address' block. |
 
+### `instance_bgp_peering_address` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_ips` | list | Yes | - | A list of custom BGP peering addresses to assign to this instance. |
+
 
 
 ## Outputs

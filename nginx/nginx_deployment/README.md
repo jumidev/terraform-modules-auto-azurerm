@@ -49,6 +49,12 @@ tfstate_store = {
 | **var.network_interface** | [block](#network_interface-block-structure) |  -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Nginx Deployment. | 
 
+### `frontend_public` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,12 +69,6 @@ tfstate_store = {
 | `allocation_method` | string | Yes | - | Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. |
 | `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
 | `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
-
-### `frontend_public` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
 
 ### `logging_storage_account` block structure
 

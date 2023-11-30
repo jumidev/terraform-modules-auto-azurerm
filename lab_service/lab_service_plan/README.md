@@ -45,6 +45,15 @@ tfstate_store = {
 | **var.support** | [block](#support-block-structure) |  A `support` block. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Lab Service Plan. | 
 
+### `support` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | No | - | The email address for the support contact. |
+| `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
+| `phone` | string | No | - | The phone number for the support contact. |
+| `url` | string | No | - | The web address for users of the Lab Service Plan. |
+
 ### `default_auto_shutdown` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,15 +71,6 @@ tfstate_store = {
 | `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
 | `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
 | `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
-
-### `support` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address for the support contact. |
-| `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
-| `phone` | string | No | - | The phone number for the support contact. |
-| `url` | string | No | - | The web address for users of the Lab Service Plan. |
 
 
 

@@ -44,6 +44,13 @@ tfstate_store = {
 | `actions` | list | Yes | - | A list of actions that are allowed. |
 | `resource` | block | Yes | - | A 'resource' block. |
 
+### `resource` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `collection_name` | string | No | - | The name of the Mongo DB Collection that the Role Definition is applied. |
+| `db_name` | string | No | - | The name of the Mongo DB that the Role Definition is applied. |
+
 
 
 ## Outputs

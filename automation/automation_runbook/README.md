@@ -59,6 +59,23 @@ tfstate_store = {
 | `version` | string | No | - | Specifies the version of the content |
 | `hash` | block | No | - | A 'hash' block. |
 
+### `hash` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
+| `value` | string | Yes | - | Specifies the expected hash value of the content. |
+
+### `parameters` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | The name of the parameter. |
+| `type` | string | Yes | - | Specifies the type of this parameter. |
+| `mandatory` | string | No | - | Whether this parameter is mandatory. |
+| `position` | string | No | - | Specifies the position of the parameter. |
+| `default_value` | string | No | - | Specifies the default value of the parameter. |
+
 ### `draft` block structure
 
 | Name | Type | Required? | Default | Description |

@@ -57,6 +57,27 @@ tfstate_store = {
 | **var.time_grain** | string |  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
 | **var.filter** | [block](#filter-block-structure) |  -  |  -  |  A `filter` block. | 
 
+### `filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dimension` | block | No | - | One or more 'dimension' blocks to filter the budget on. |
+| `tag` | block | No | - | One or more 'tag' blocks to filter the budget on. |
+
+### `tag` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | string | Yes | - | Specifies a list of values for the tag. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | string | Yes | - | Specifies a list of values for the column. |
+
 ### `time_period` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,13 +94,6 @@ tfstate_store = {
 | `contact_emails` | string | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
 | `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
 | `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
-
-### `filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dimension` | block | No | - | One or more 'dimension' blocks to filter the budget on. |
-| `tag` | block | No | - | One or more 'tag' blocks to filter the budget on. |
 
 
 

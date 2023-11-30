@@ -47,6 +47,13 @@ tfstate_store = {
 | **var.vnet_integration** | [block](#vnet_integration-block-structure) |  -  |  -  |  A `vnet_integration` block. | 
 | **var.description** | string |  -  |  -  |  Integration runtime description. | 
 
+### `vnet_integration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `vnet_id` | string | Yes | - | ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. |
+| `subnet_name` | string | Yes | - | Name of the subnet to which the nodes of the Managed Integration Runtime will be added. |
+
 ### `catalog_info` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,13 +69,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `blob_container_uri` | string | Yes | - | The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
 | `sas_token` | string | Yes | - | A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
-
-### `vnet_integration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `vnet_id` | string | Yes | - | ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. |
-| `subnet_name` | string | Yes | - | Name of the subnet to which the nodes of the Managed Integration Runtime will be added. |
 
 
 

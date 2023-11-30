@@ -41,13 +41,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.password2** | [block](#password-block-structure) |  One `password` block. | 
 
-### `password1` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `expiry` | string | No | - | The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created. |
-
-### `password2` block structure
+### `password` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

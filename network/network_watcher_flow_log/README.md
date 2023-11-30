@@ -56,13 +56,6 @@ tfstate_store = {
 | **var.version** | string |  -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
 
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Boolean flag to enable/disable retention. |
-| `days` | int | Yes | - | The number of days to retain flow log records. |
-
 ### `traffic_analytics` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,6 +65,13 @@ tfstate_store = {
 | `workspace_region` | string | Yes | - | The location of the attached workspace. |
 | `workspace_resource_id` | string | Yes | - | The resource ID of the attached workspace. |
 | `interval_in_minutes` | int | No | 60 | How frequently service should do flow analytics in minutes. Defaults to '60'. |
+
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Boolean flag to enable/disable retention. |
+| `days` | int | Yes | - | The number of days to retain flow log records. |
 
 
 

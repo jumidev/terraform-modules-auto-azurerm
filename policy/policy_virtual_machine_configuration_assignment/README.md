@@ -49,6 +49,12 @@ tfstate_store = {
 | `parameter` | block | No | - | One or more 'parameter' blocks which define what configuration parameters and values against. |
 | `version` | string | No | - | The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment. |
 
+### `parameter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value to check the configuration parameter with. |
+
 
 
 ## Outputs

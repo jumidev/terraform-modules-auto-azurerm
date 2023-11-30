@@ -64,6 +64,25 @@ tfstate_store = {
 | `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
 | `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
 
+### `channels` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `center_frequency_mhz` | string | Yes | - | Center frequency in MHz. |
+| `bandwidth_mhz` | string | Yes | - | Bandwidth in MHz. |
+| `end_point` | block | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
+| `modulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
+| `demodulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
+
+### `end_point` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `end_point_name` | string | Yes | - | Name of an end point. |
+| `port` | string | Yes | - | TCP port to listen on to receive data. |
+| `protocol` | string | Yes | - | Protocol of an end point. Possible values are 'TCP' and 'UDP'. |
+| `ip_address` | string | No | - | IP address of an end point. |
+
 
 
 ## Outputs

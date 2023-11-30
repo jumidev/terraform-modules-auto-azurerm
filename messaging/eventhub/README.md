@@ -54,6 +54,14 @@ tfstate_store = {
 | `skip_empty_archives` | bool | No | False | Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'. |
 | `destination` | block | Yes | - | A 'destination' block. |
 
+### `destination` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `archive_name_format` | string | Yes | - | The Blob naming convention for archiving. e.g. '{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}'. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order |
+| `blob_container_name` | string | Yes | - | The name of the Container within the Blob Storage Account where messages should be archived. |
+| `storage_account_id` | string | Yes | - | The ID of the Blob Storage Account where messages should be archived. |
+
 
 
 ## Outputs

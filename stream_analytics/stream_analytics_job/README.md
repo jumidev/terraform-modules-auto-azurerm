@@ -49,12 +49,6 @@ tfstate_store = {
 | **var.content_storage_policy** | string |  `SystemAccount`  |  `JobStorageAccount`, `SystemAccount`  |  The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`. | 
 | **var.job_storage_account** | [block](#job_storage_account-block-structure) |  -  |  -  |  The details of the job storage account. A `job_storage_account` block. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is 'SystemAssigned'. |
-
 ### `job_storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,6 +58,12 @@ tfstate_store = {
 | `account_key` | string | Yes | - | The account key for the Azure storage account. |
 | `transformation_query` | string | Yes | - | Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998). |
 | `tags` | map | No | - | A mapping of tags assigned to the resource. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is 'SystemAssigned'. |
 
 
 

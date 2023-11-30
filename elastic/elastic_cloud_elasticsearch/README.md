@@ -44,6 +44,13 @@ tfstate_store = {
 | **var.monitoring_enabled** | bool |  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
 
+### `filtering_tag` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
+| `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
+
 ### `logs` block structure
 
 | Name | Type | Required? | Default | Description |

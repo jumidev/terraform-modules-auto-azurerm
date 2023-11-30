@@ -42,6 +42,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `access_policy` | block | No | - | An 'access_policy' block. |
 
+### `access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiry` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid until. |
+| `permissions` | string | Yes | - | The permissions which should associated with this Shared Identifier. |
+| `start` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid from. |
+
 
 
 ## Outputs

@@ -61,14 +61,6 @@ tfstate_store = {
 | `sql_virtual_machine_ids` | string | Yes | - | Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created. |
 | `subnet_id` | string | Yes | - | The ID of the Subnet to create the listener. Changing this forces a new resource to be created. |
 
-### `multi_subnet_ip_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `private_ip_address` | string | Yes | - | The private IP Address of the listener. Changing this forces a new resource to be created. |
-| `sql_virtual_machine_id` | string | Yes | - | The ID of the Sql Virtual Machine. Changing this forces a new resource to be created. |
-| `subnet_id` | string | Yes | - | The ID of the Subnet to create the listener. Changing this forces a new resource to be created. |
-
 ### `replica` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +70,14 @@ tfstate_store = {
 | `readable_secondary` | string | Yes | - | The replica readable secondary mode for the availability group. Possible values are 'No', 'Read_Only' and 'All'. Changing this forces a new resource to be created. |
 | `role` | string | Yes | - | The replica role for the availability group. Possible values are 'Primary' and 'Secondary'. Changing this forces a new resource to be created. |
 | `sql_virtual_machine_id` | string | Yes | - | The ID of the SQL Virtual Machine. Changing this forces a new resource to be created. |
+
+### `multi_subnet_ip_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `private_ip_address` | string | Yes | - | The private IP Address of the listener. Changing this forces a new resource to be created. |
+| `sql_virtual_machine_id` | string | Yes | - | The ID of the Sql Virtual Machine. Changing this forces a new resource to be created. |
+| `subnet_id` | string | Yes | - | The ID of the Subnet to create the listener. Changing this forces a new resource to be created. |
 
 
 

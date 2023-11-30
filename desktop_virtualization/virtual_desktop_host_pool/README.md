@@ -60,6 +60,13 @@ tfstate_store = {
 | `use_session_host_timezone` | bool | No | False | Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides 'timezone'. Default is 'false'. |
 | `schedule` | block | No | - | A 'schedule' block. A maximum of two blocks can be added. |
 
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | Yes | - | The day of the week on which agent updates should be performed. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday' |
+| `hour_of_day` | string | Yes | - | The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used. |
+
 
 
 ## Outputs

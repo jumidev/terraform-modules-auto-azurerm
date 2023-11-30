@@ -59,6 +59,13 @@ tfstate_store = {
 | `dimension` | block | Yes | - | A 'dimension' block. |
 | `metric_name` | string | Yes | - | Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace. |
 
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | Include | Operator for dimension values, - 'Include'. Defaults to 'Include'. |
+| `values` | string | Yes | - | List of dimension values. |
+
 
 
 ## Outputs

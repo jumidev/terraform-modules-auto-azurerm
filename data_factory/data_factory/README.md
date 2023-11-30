@@ -47,30 +47,12 @@ tfstate_store = {
 | **var.purview_id** | string |  -  |  Specifies the ID of the purview account resource associated with the Data Factory. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `github_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `account_name` | string | Yes | - | Specifies the GitHub account name. |
-| `branch_name` | string | Yes | - | Specifies the branch of the repository to get code from. |
-| `git_url` | string | Yes | - | Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories. |
-| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
-| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
-| `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
-
 ### `global_parameter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
 | `value` | string | Yes | - | Specifies the global parameter value. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
 
 ### `vsts_configuration` block structure
 
@@ -82,6 +64,24 @@ tfstate_store = {
 | `repository_name` | string | Yes | - | Specifies the name of the git repository. |
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `tenant_id` | string | Yes | - | Specifies the Tenant ID associated with the VSTS account. |
+| `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
+
+### `github_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `account_name` | string | Yes | - | Specifies the GitHub account name. |
+| `branch_name` | string | Yes | - | Specifies the branch of the repository to get code from. |
+| `git_url` | string | Yes | - | Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories. |
+| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
+| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
 

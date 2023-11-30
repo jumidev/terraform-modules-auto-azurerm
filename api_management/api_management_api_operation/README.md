@@ -49,24 +49,6 @@ tfstate_store = {
 | **var.response** | [block](#response-block-structure) |  One or more `response` blocks. | 
 | **var.template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
-### `request` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
-| `representation` | block | No | - | One or more 'representation' blocks. |
-
-### `response` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `status_code` | string | Yes | - | The HTTP Status Code. |
-| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `representation` | block | No | - | One or more 'representation' blocks. |
-
 ### `template_parameter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +61,34 @@ tfstate_store = {
 | `example` | list | No | - | One or more 'example' blocks. |
 | `schema_id` | string | No | - | The name of the Schema. |
 | `type_name` | string | No | - | The type name defined by the Schema. |
+
+### `request` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
+| `representation` | block | No | - | One or more 'representation' blocks. |
+
+### `representation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_type` | string | Yes | - | The Content Type of this representation, such as 'application/json'. |
+| `form_parameter` | list | No | - | One or more 'form_parameter' block. |
+| `example` | list | No | - | One or more 'example' blocks. |
+| `schema_id` | string | No | - | The ID of an API Management Schema which represents this Response. |
+| `type_name` | string | No | - | The Type Name defined by the Schema. |
+
+### `response` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `status_code` | string | Yes | - | The HTTP Status Code. |
+| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `representation` | block | No | - | One or more 'representation' blocks. |
 
 
 

@@ -42,6 +42,12 @@ tfstate_store = {
 | **var.gcm_credential** | [block](#gcm_credential-block-structure) |  A `gcm_credential` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `gcm_credential` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `api_key` | string | Yes | - | The API Key associated with the Google Cloud Messaging service. |
+
 ### `apns_credential` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,12 +57,6 @@ tfstate_store = {
 | `key_id` | string | Yes | - | The Apple Push Notifications Service (APNS) Key. |
 | `team_id` | string | Yes | - | The ID of the team the Token. |
 | `token` | string | Yes | - | The Push Token associated with the Apple Developer Account. This is the contents of the 'key' downloaded from [the Apple Developer Portal](https://developer.apple.com/account/ios/authkey/) between the '-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----' blocks. |
-
-### `gcm_credential` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `api_key` | string | Yes | - | The API Key associated with the Google Cloud Messaging service. |
 
 
 

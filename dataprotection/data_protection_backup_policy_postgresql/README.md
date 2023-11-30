@@ -42,6 +42,16 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.retention_rule** | [block](#retention_rule-block-structure) |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy PostgreSQL to be created. | 
 
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `absolute_criteria` | string | No | - | Possible values are 'AllBackup', 'FirstOfDay', 'FirstOfWeek', 'FirstOfMonth' and 'FirstOfYear'. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `days_of_week` | string | No | - | Possible values are 'Monday', 'Tuesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `months_of_year` | string | No | - | Possible values are 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November' and 'December'. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `scheduled_backup_times` | string | No | - | Specifies a list of backup times for backup in the 'RFC3339' format. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `weeks_of_month` | string | No | - | Possible values are 'First', 'Second', 'Third', 'Fourth' and 'Last'. Changing this forces a new Backup Policy PostgreSQL to be created. |
+
 ### `retention_rule` block structure
 
 | Name | Type | Required? | Default | Description |

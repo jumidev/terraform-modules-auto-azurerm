@@ -52,14 +52,6 @@ tfstate_store = {
 | **var.contact** | [block](#contact-block-structure) |  A `contact` block. | 
 | **var.shipment_address** | [block](#shipment_address-block-structure) |  A `shipment_address` block. | 
 
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `company_name` | string | Yes | - | The name of the company. Changing this forces a new Databox Edge Order to be created. |
-| `emails` | list | Yes | - | A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created. |
-| `phone_number` | string | Yes | - | The phone number. Changing this forces a new Databox Edge Order to be created. |
-
 ### `shipment_address` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,6 +61,14 @@ tfstate_store = {
 | `country` | string | Yes | - | The name of the country to ship the Databox Edge Device to. Valid values are 'Algeria', 'Argentina', 'Australia', 'Austria', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Bermuda', 'Bolivia', 'Bosnia and Herzegovina', 'Brazil', 'Bulgaria', 'Canada', 'Cayman Islands', 'Chile', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'CÃ´te D'ivoire', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Honduras', 'Hong Kong SAR', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kuwait', 'Kyrgyzstan', 'Latvia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macao SAR', 'Malaysia', 'Malta', 'Mauritius', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Namibia', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Nigeria', 'Norway', 'Oman', 'Pakistan', 'Palestinian Authority', 'Panama', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Republic of Korea', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts And Nevis', 'Saudi Arabia', 'Senegal', 'Serbia', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Trinidad And Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'U.S. Virgin Islands', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia' or 'Zimbabwe'. Changing this forces a new Databox Edge Order to be created. |
 | `postal_code` | string | Yes | - | The postal code. Changing this forces a new Databox Edge Order to be created. |
 | `state` | string | Yes | - | The name of the state to ship the Databox Edge Device to. Changing this forces a new Databox Edge Order to be created. |
+
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `company_name` | string | Yes | - | The name of the company. Changing this forces a new Databox Edge Order to be created. |
+| `emails` | list | Yes | - | A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created. |
+| `phone_number` | string | Yes | - | The phone number. Changing this forces a new Databox Edge Order to be created. |
 
 
 

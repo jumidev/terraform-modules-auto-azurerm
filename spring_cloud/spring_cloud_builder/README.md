@@ -45,17 +45,17 @@ tfstate_store = {
 | **var.build_pack_group** | [block](#build_pack_group-block-structure) |  One or more `build_pack_group` blocks. | 
 | **var.stack** | [block](#stack-block-structure) |  A `stack` block. | 
 
-### `build_pack_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
-
 ### `stack` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `version` | string | Yes | - | Specifies the version of the ClusterStack |
+
+### `build_pack_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
 
 
 

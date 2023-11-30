@@ -68,6 +68,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
+### `peering_addresses` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_configuration_name` | string | No | - | The name of the IP configuration of this Virtual Network Gateway. In case there are multiple 'ip_configuration' blocks defined, this property is **required** to specify. |
+| `apipa_addresses` | list | No | - | A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway. |
+
 ### `vpn_client_configuration` block structure
 
 | Name | Type | Required? | Default | Description |

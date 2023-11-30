@@ -40,6 +40,12 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.retention_rule** | [block](#retention_rule-block-structure) |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy Disk to be created. | 
 
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `absolute_criteria` | string | No | - | Possible values are 'FirstOfDay' and 'FirstOfWeek'. Changing this forces a new Backup Policy Disk to be created. |
+
 ### `retention_rule` block structure
 
 | Name | Type | Required? | Default | Description |

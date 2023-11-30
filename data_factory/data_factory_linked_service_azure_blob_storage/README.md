@@ -44,6 +44,19 @@ tfstate_store = {
 | **var.sas_uri** | string |  The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`. | 
 | **var.key_vault_sas_token** | [block](#key_vault_sas_token-block-structure) |  A `key_vault_sas_token` block. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required. | 
 
+### `service_principal_linked_key_vault_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores the Service Principal key. |
+| `service_endpoint` | string | No | - | The Service Endpoint. Conflicts with 'connection_string', 'connection_string_insecure' and 'sas_uri'. |
+| `use_managed_identity` | bool | No | - | Whether to use the Data Factory's managed identity to authenticate against the Azure Blob Storage account. Incompatible with 'service_principal_id' and 'service_principal_key'. |
+| `service_principal_id` | string | No | - | The service principal id in which to authenticate against the Azure Blob Storage account. |
+| `service_principal_key` | string | No | - | The service principal key in which to authenticate against the AAzure Blob Storage account. |
+| `storage_kind` | string | No | - | Specify the kind of the storage account. Allowed values are 'Storage', 'StorageV2', 'BlobStorage' and 'BlockBlobStorage'. |
+| `tenant_id` | string | No | - | The tenant id or name in which to authenticate against the Azure Blob Storage account. |
+
 ### `key_vault_sas_token` block structure
 
 | Name | Type | Required? | Default | Description |

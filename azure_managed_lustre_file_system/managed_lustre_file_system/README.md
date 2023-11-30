@@ -65,6 +65,13 @@ tfstate_store = {
 | `day_of_week` | string | Yes | - | The day of the week on which the maintenance window will occur. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `time_of_day_in_utc` | string | Yes | - | The time of day (in UTC) to start the maintenance window. |
 
+### `encryption_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
+
 ### `hsm_setting` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,13 +86,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
 | `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created. |
-
-### `encryption_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
 
 
