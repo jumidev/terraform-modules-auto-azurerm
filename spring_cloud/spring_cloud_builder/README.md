@@ -13,8 +13,20 @@ source = {
 inputs = {
    name = "name of spring_cloud_builder" 
    spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_builder" 
-   build_pack_group = "build_pack_group of spring_cloud_builder" 
-   stack = "stack of spring_cloud_builder" 
+   build_pack_group = {
+      example_build_pack_group = {
+         ...
+      }
+  
+   }
+ 
+   stack = {
+      example_stack = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -38,7 +50,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this build pack group. |
 | `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
 
 ### `stack` block structure

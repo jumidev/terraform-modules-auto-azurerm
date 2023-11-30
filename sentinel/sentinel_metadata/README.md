@@ -56,7 +56,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the author, company or person. |
 | `email` | string | No | - | The email address of the author contact. |
 | `link` | string | No | - | The link for author/vendor page. |
 
@@ -81,7 +80,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
 | `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 ### `support` block structure
@@ -91,7 +89,6 @@ tfstate_store = {
 | `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
 | `email` | string | No | - | The email address of the support contact. |
 | `link` | string | No | - | The link for support help. |
-| `name` | string | No | - | The name of the support contact. |
 
 
 

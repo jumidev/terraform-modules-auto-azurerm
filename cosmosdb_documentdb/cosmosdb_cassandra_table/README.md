@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of cosmosdb_cassandra_table" 
    cassandra_keyspace_id = "cassandra_keyspace_id of cosmosdb_cassandra_table" 
-   schema = "schema of cosmosdb_cassandra_table" 
+   schema = {
+      example_schema = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -25,15 +25,15 @@ variable "github_action_configuration" {
 #   generate_workflow_file (bool)              : Should the service generate the GitHub Action Workflow file. Defaults to 'true' Changing this forces a new resource to be created.
 #   linux_action (string)                      : Denotes this action uses a Linux base image.
 #
-# code_configuration block structure:
-#   runtime_stack (string)            : (REQUIRED) The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'.
-#   runtime_version (string)          : (REQUIRED) The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
-#
 # container_configuration block structure:
 #   image_name (string)                    : (REQUIRED) The image name for the build. Changing this forces a new resource to be created.
 #   registry_password (string)             : The password used to upload the image to the container registry. Changing this forces a new resource to be created.
 #   registry_url (string)                  : (REQUIRED) The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
 #   registry_username (string)             : The username used to upload the image to the container registry. Changing this forces a new resource to be created.
+#
+# code_configuration block structure:
+#   runtime_stack (string)            : (REQUIRED) The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'.
+#   runtime_version (string)          : (REQUIRED) The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created.
 
 
 variable "repo_url" {

@@ -33,7 +33,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the feature to register. |
 | `registered` | string | Yes | - | Should this feature be Registered or Unregistered? |
 
 

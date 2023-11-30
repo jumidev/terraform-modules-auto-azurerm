@@ -42,7 +42,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Cluster Setting. |
 | `value` | string | Yes | - | The value for the Cluster Setting. |
 
 

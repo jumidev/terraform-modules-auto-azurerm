@@ -16,8 +16,20 @@ inputs = {
    recurrence_type = "recurrence_type of resource_group_cost_management_export" 
    recurrence_period_start_date = "recurrence_period_start_date of resource_group_cost_management_export" 
    recurrence_period_end_date = "recurrence_period_end_date of resource_group_cost_management_export" 
-   export_data_storage_location = "export_data_storage_location of resource_group_cost_management_export" 
-   export_data_options = "export_data_options of resource_group_cost_management_export" 
+   export_data_storage_location = {
+      example_export_data_storage_location = {
+         ...
+      }
+  
+   }
+ 
+   export_data_options = {
+      example_export_data_options = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

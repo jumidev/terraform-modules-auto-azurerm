@@ -15,7 +15,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    key_vault_key_id = "key_vault_key_id of disk_encryption_set" 
-   identity = "identity of disk_encryption_set" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

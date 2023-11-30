@@ -14,7 +14,13 @@ inputs = {
    name = "name of policy_set_definition" 
    policy_type = "policy_type of policy_set_definition" 
    display_name = "display_name of policy_set_definition" 
-   policy_definition_reference = "policy_definition_reference of policy_set_definition" 
+   policy_definition_reference = {
+      example_policy_definition_reference = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -52,7 +58,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of this policy definition group. |
 | `display_name` | string | No | - | The display name of this policy definition group. |
 | `category` | string | No | - | The category of this policy definition group. |
 | `description` | string | No | - | The description of this policy definition group. |

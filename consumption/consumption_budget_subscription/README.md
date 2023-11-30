@@ -14,8 +14,20 @@ inputs = {
    name = "name of consumption_budget_subscription" 
    subscription_id = "subscription_id of consumption_budget_subscription" 
    amount = "amount of consumption_budget_subscription" 
-   time_period = "time_period of consumption_budget_subscription" 
-   notification = "notification of consumption_budget_subscription" 
+   time_period = {
+      example_time_period = {
+         ...
+      }
+  
+   }
+ 
+   notification = {
+      example_notification = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

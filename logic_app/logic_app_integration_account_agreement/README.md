@@ -16,9 +16,21 @@ inputs = {
    integration_account_name = "integration_account_name of logic_app_integration_account_agreement" 
    agreement_type = "agreement_type of logic_app_integration_account_agreement" 
    content = "content of logic_app_integration_account_agreement" 
-   guest_identity = "guest_identity of logic_app_integration_account_agreement" 
+   guest_identity = {
+      example_guest_identity = {
+         ...
+      }
+  
+   }
+ 
    guest_partner_name = "guest_partner_name of logic_app_integration_account_agreement" 
-   host_identity = "host_identity of logic_app_integration_account_agreement" 
+   host_identity = {
+      example_host_identity = {
+         ...
+      }
+  
+   }
+ 
    host_partner_name = "host_partner_name of logic_app_integration_account_agreement" 
 }
 

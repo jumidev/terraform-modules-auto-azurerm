@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of arc_kubernetes_flux_configuration" 
    cluster_id = "cluster_id of arc_kubernetes_flux_configuration" 
-   kustomizations = "kustomizations of arc_kubernetes_flux_configuration" 
+   kustomizations = {
+      example_kustomizations = {
+         ...
+      }
+  
+   }
+ 
    namespace = "namespace of arc_kubernetes_flux_configuration" 
 }
 
@@ -43,7 +49,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the kustomization. |
 | `path` | string | No | - | Specifies the path in the source reference to reconcile on the cluster. |
 | `timeout_in_seconds` | int | No | 600 | The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to '600'. |
 | `sync_interval_in_seconds` | int | No | 600 | The interval at which to re-reconcile the kustomization on the cluster. Defaults to '600'. |

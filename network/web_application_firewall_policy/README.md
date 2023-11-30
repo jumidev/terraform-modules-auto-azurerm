@@ -14,7 +14,13 @@ inputs = {
    name = "name of web_application_firewall_policy" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   managed_rules = "managed_rules of web_application_firewall_policy" 
+   managed_rules = {
+      example_managed_rules = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -42,7 +48,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | True | Describes if the policy is in enabled state or disabled state. Defaults to 'true'. |
-| `name` | string | No | - | Gets name of the resource that is unique within a policy. This name can be used to access the resource. |
 | `priority` | string | Yes | - | Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. |
 | `rule_type` | string | Yes | - | Describes the type of rule. Possible values are 'MatchRule', 'RateLimitRule' and 'Invalid'. |
 | `match_conditions` | block | Yes | - | One or more 'match_conditions' blocks. |

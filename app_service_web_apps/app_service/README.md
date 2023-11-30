@@ -73,7 +73,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name for this Backup. |
 | `enabled` | bool | No | True | Is this Backup enabled? Defaults to 'true'. |
 | `storage_account_url` | string | Yes | - | The SAS URL to a Storage Container where Backups should be saved. |
 | `schedule` | block | Yes | - | A 'schedule' block. |
@@ -82,7 +81,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
 | `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
 | `value` | string | Yes | - | The value for the Connection String. |
 
@@ -106,7 +104,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the storage account identifier. |
 | `type` | string | Yes | - | The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'. |
 | `account_name` | string | Yes | - | The name of the storage account. |
 | `share_name` | string | Yes | - | The name of the file share (container name, for Blob storage). |

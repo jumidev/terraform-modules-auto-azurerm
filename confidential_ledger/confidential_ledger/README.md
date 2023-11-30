@@ -14,7 +14,13 @@ inputs = {
    name = "name of confidential_ledger" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   azuread_based_service_principal = "azuread_based_service_principal of confidential_ledger" 
+   azuread_based_service_principal = {
+      example_azuread_based_service_principal = {
+         ...
+      }
+  
+   }
+ 
    ledger_type = "ledger_type of confidential_ledger" 
 }
 

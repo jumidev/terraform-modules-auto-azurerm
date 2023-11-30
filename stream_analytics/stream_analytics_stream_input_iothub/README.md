@@ -17,7 +17,13 @@ inputs = {
    eventhub_consumer_group_name = "eventhub_consumer_group_name of stream_analytics_stream_input_iothub" 
    endpoint = "endpoint of stream_analytics_stream_input_iothub" 
    iothub_namespace = "iothub_namespace of stream_analytics_stream_input_iothub" 
-   serialization = "serialization of stream_analytics_stream_input_iothub" 
+   serialization = {
+      example_serialization = {
+         ...
+      }
+  
+   }
+ 
    shared_access_policy_key = "shared_access_policy_key of stream_analytics_stream_input_iothub" 
    shared_access_policy_name = "shared_access_policy_name of stream_analytics_stream_input_iothub" 
 }

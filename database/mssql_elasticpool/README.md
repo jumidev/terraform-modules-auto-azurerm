@@ -15,8 +15,20 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    server_name = "server_name of mssql_elasticpool" 
-   sku = "sku of mssql_elasticpool" 
-   per_database_settings = "per_database_settings of mssql_elasticpool" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
+   per_database_settings = {
+      example_per_database_settings = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -48,7 +60,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either 'vCore' based 'tier' + 'family' pattern (e.g. GP_Gen4, BC_Gen5) or the 'DTU' based 'BasicPool', 'StandardPool', or 'PremiumPool' pattern. Possible values are 'BasicPool', 'StandardPool', 'PremiumPool', 'GP_Gen4', 'GP_Gen5', 'GP_Fsv2', 'GP_DC', 'BC_Gen4', 'BC_Gen5', 'BC_DC', or 'HS_Gen5'. |
 | `capacity` | string | Yes | - | The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools). |
 | `tier` | string | Yes | - | The tier of the particular SKU. Possible values are 'GeneralPurpose', 'BusinessCritical', 'Basic', 'Standard', 'Premium', or 'HyperScale'. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools). |
 | `family` | string | No | - | The 'family' of hardware 'Gen4', 'Gen5', 'Fsv2' or 'DC'. |

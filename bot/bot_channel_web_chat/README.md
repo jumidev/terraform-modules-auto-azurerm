@@ -38,7 +38,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the site. |
 | `user_upload_enabled` | bool | No | True | Is the user upload enabled for this site? Defaults to 'true'. |
 | `endpoint_parameters_enabled` | bool | No | - | Is the endpoint parameters enabled for this site? |
 | `storage_enabled` | bool | No | True | Is the storage site enabled for detailed logging? Defaults to 'true'. |

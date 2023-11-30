@@ -13,8 +13,20 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}" 
    device_name = "device_name of databox_edge_order" 
-   contact = "contact of databox_edge_order" 
-   shipment_address = "shipment_address of databox_edge_order" 
+   contact = {
+      example_contact = {
+         ...
+      }
+  
+   }
+ 
+   shipment_address = {
+      example_shipment_address = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -39,7 +51,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `company_name` | string | Yes | - | The name of the company. Changing this forces a new Databox Edge Order to be created. |
-| `name` | string | Yes | - | The contact person name. Changing this forces a new Databox Edge Order to be created. |
 | `emails` | list | Yes | - | A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created. |
 | `phone_number` | string | Yes | - | The phone number. Changing this forces a new Databox Edge Order to be created. |
 

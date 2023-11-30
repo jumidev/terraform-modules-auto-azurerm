@@ -14,7 +14,13 @@ inputs = {
    name = "name of bastion_host" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   ip_configuration = "ip_configuration of bastion_host" 
+   ip_configuration = {
+      example_ip_configuration = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -46,7 +52,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the IP configuration. Changing this forces a new resource to be created. |
 | `subnet_id` | string | Yes | - | Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created. |
 | `public_ip_address_id` | string | Yes | - | Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created. |
 

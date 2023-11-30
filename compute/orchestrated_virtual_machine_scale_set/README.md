@@ -74,7 +74,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name which should be used for this Network Interface. Changing this forces a new resource to be created. |
 | `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
 | `dns_servers` | list | No | - | A list of IP Addresses of DNS Servers which should be assigned to the Network Interface. |
 | `enable_accelerated_networking` | bool | No | False | Does this Network Interface support Accelerated Networking? Possible values are 'true' and 'false'. Defaults to 'false'. |
@@ -132,7 +131,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
 | `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
 | `type` | string | Yes | - | Specifies the Type of the Extension. |
 | `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
@@ -155,7 +153,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
 | `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
 

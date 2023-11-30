@@ -37,7 +37,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `label` | string | Yes | - | Specifies the label of the repository. |
-| `name` | string | Yes | - | Specifies the name which should be used for this repository. |
 | `patterns` | string | Yes | - | Specifies the collection of patterns of the repository. |
 | `uri` | string | Yes | - | Specifies the URI of the repository. |
 | `ca_certificate_id` | string | No | - | Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS. |

@@ -15,8 +15,20 @@ inputs = {
    name = "name of security_center_automation" 
    resource_group_name = "${resource_group}" 
    scopes = "scopes of security_center_automation" 
-   source = "source of security_center_automation" 
-   action = "action of security_center_automation" 
+   source = {
+      example_source = {
+         ...
+      }
+  
+   }
+ 
+   action = {
+      example_action = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

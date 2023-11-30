@@ -13,7 +13,13 @@ source = {
 inputs = {
    source_storage_account_id = "source_storage_account_id of storage_object_replication" 
    destination_storage_account_id = "destination_storage_account_id of storage_object_replication" 
-   rules = "rules of storage_object_replication" 
+   rules = {
+      example_rules = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

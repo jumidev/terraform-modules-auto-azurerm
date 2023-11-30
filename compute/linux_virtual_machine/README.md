@@ -15,7 +15,13 @@ inputs = {
    location = "${location}" 
    name = "name of linux_virtual_machine" 
    network_interface_ids = "network_interface_ids of linux_virtual_machine" 
-   os_disk = "os_disk of linux_virtual_machine" 
+   os_disk = {
+      example_os_disk = {
+         ...
+      }
+  
+   }
+ 
    resource_group_name = "${resource_group}" 
    size = "size of linux_virtual_machine" 
 }
@@ -88,7 +94,6 @@ tfstate_store = {
 | `diff_disk_settings` | block | No | - | A 'diff_disk_settings' block. Changing this forces a new resource to be created. |
 | `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'. |
 | `disk_size_gb` | int | No | - | The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from. |
-| `name` | string | No | - | The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created. |
 | `secure_vm_disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created. |
 | `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
 | `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
@@ -132,7 +137,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
 | `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
 | `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
 

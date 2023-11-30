@@ -47,7 +47,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the custom header. |
 | `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 ### `subnet` block structure

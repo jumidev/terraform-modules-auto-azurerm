@@ -70,7 +70,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_name` | string | No | - | Specify the container name of Stoage Account for logging. |
-| `name` | string | No | - | The account name of the StorageAccount for Nginx Logging. |
 
 ### `network_interface` block structure
 

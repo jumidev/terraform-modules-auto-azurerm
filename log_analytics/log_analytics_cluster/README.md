@@ -14,7 +14,13 @@ inputs = {
    name = "name of log_analytics_cluster" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   identity = "identity of log_analytics_cluster" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

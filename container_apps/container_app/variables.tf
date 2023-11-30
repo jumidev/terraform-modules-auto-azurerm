@@ -36,16 +36,9 @@ variable "template" {
 #   revision_suffix (string)      : The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 #   volume (block)                : A 'volume' block as detailed below.
 #
-# volume block structure:
-#   name (string)         : (REQUIRED) The name of the volume.
-#   storage_name (string) : The name of the 'AzureFile' storage.
-#   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
-#
-# azure_queue_scale_rule block structure:
-#   name (string)                         : (REQUIRED) The name of the Scaling Rule
-#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
-#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
-#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
+# authentication block structure:
+#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
+#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
 #
 # custom_scale_rule block structure:
 #   name (string)                    : (REQUIRED) The name of the Scaling Rule
@@ -53,19 +46,26 @@ variable "template" {
 #   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
 #   authentication (block)           : Zero or more 'authentication' blocks.
 #
-# http_scale_rule block structure:
-#   name (string)                  : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (int)      : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)         : Zero or more 'authentication' blocks.
+# azure_queue_scale_rule block structure:
+#   name (string)                         : (REQUIRED) The name of the Scaling Rule
+#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
+#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
+#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 #
-# authentication block structure:
-#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
-#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
+# volume block structure:
+#   name (string)         : (REQUIRED) The name of the volume.
+#   storage_name (string) : The name of the 'AzureFile' storage.
+#   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
 #
 # tcp_scale_rule block structure:
 #   name (string)                 : (REQUIRED) The name of the Scaling Rule
 #   concurrent_requests (int)     : (REQUIRED) - The number of concurrent requests to trigger scaling.
 #   authentication (block)        : Zero or more 'authentication' blocks.
+#
+# http_scale_rule block structure:
+#   name (string)                  : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (int)      : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)         : Zero or more 'authentication' blocks.
 
 
 

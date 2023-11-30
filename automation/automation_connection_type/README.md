@@ -14,7 +14,13 @@ inputs = {
    name = "name of automation_connection_type" 
    resource_group_name = "${resource_group}" 
    automation_account_name = "automation_account_name of automation_connection_type" 
-   field = "field of automation_connection_type" 
+   field = {
+      example_field = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -39,7 +45,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this connection field definition. |
 | `type` | string | Yes | - | The type of the connection field definition. |
 | `is_encrypted` | string | No | - | Whether to set the isEncrypted flag of the connection field definition. |
 | `is_optional` | string | No | - | Whether to set the isOptional flag of the connection field definition. |

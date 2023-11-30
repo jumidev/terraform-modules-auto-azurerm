@@ -16,8 +16,20 @@ inputs = {
    resource_group_name = "${resource_group}" 
    admin_username = "admin_username of linux_virtual_machine_scale_set" 
    sku = "sku of linux_virtual_machine_scale_set" 
-   network_interface = "network_interface of linux_virtual_machine_scale_set" 
-   os_disk = "os_disk of linux_virtual_machine_scale_set" 
+   network_interface = {
+      example_network_interface = {
+         ...
+      }
+  
+   }
+ 
+   os_disk = {
+      example_os_disk = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -90,7 +102,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name which should be used for this Network Interface. Changing this forces a new resource to be created. |
 | `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
 | `dns_servers` | list | No | - | A list of IP Addresses of DNS Servers which should be assigned to the Network Interface. |
 | `enable_accelerated_networking` | bool | No | False | Does this Network Interface support Accelerated Networking? Defaults to 'false'. |
@@ -148,7 +159,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the Data Disk. |
 | `caching` | string | Yes | - | The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
 | `create_option` | string | No | Empty | The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks). |
 | `disk_size_gb` | int | Yes | - | The size of the Data Disk which should be created. |
@@ -163,7 +173,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
 | `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
 | `type` | string | Yes | - | Specifies the Type of the Extension. |
 | `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
@@ -195,7 +204,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
 | `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
 

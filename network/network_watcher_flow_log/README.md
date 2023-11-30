@@ -17,7 +17,13 @@ inputs = {
    network_security_group_id = "network_security_group_id of network_watcher_flow_log" 
    storage_account_id = "storage_account_id of network_watcher_flow_log" 
    enabled = "enabled of network_watcher_flow_log" 
-   retention_policy = "retention_policy of network_watcher_flow_log" 
+   retention_policy = {
+      example_retention_policy = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

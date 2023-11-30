@@ -13,8 +13,20 @@ source = {
 inputs = {
    name = "name of cognitive_deployment" 
    cognitive_account_id = "cognitive_account_id of cognitive_deployment" 
-   model = "model of cognitive_deployment" 
-   scale = "scale of cognitive_deployment" 
+   model = {
+      example_model = {
+         ...
+      }
+  
+   }
+ 
+   scale = {
+      example_scale = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -41,7 +53,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `format` | string | Yes | - | The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is 'OpenAI'. |
-| `name` | string | Yes | - | The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | The version of Cognitive Services Account Deployment model. |
 
 ### `scale` block structure

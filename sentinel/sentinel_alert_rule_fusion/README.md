@@ -38,7 +38,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Fusion source signal. Refer to Fusion alert rule template for supported values. |
 | `enabled` | bool | No | True | Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'. |
 | `sub_type` | block | No | - | One or more 'sub_type' blocks. |
 

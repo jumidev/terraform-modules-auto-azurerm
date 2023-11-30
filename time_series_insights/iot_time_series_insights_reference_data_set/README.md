@@ -14,7 +14,13 @@ inputs = {
    name = "name of iot_time_series_insights_reference_data_set" 
    time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_reference_data_set" 
    location = "${location}" 
-   key_property = "key_property of iot_time_series_insights_reference_data_set" 
+   key_property = {
+      example_key_property = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -40,7 +46,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the key property. Changing this forces a new resource to be created. |
 | `type` | string | Yes | - | The data type of the key property. Valid values include 'Bool', 'DateTime', 'Double', 'String'. Changing this forces a new resource to be created. |
 
 

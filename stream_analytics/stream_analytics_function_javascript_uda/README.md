@@ -13,8 +13,20 @@ source = {
 inputs = {
    name = "name of stream_analytics_function_javascript_uda" 
    stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_function_javascript_uda" 
-   input = "input of stream_analytics_function_javascript_uda" 
-   output = "output of stream_analytics_function_javascript_uda" 
+   input = {
+      example_input = {
+         ...
+      }
+  
+   }
+ 
+   output = {
+      example_output = {
+         ...
+      }
+  
+   }
+ 
    script = "script of stream_analytics_function_javascript_uda" 
 }
 

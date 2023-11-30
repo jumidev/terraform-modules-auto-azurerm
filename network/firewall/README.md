@@ -49,7 +49,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
 | `subnet_id` | string | No | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
 | `public_ip_address_id` | string | No | - | The ID of the Public IP Address associated with the firewall. |
 
@@ -57,7 +56,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
 | `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. |
 

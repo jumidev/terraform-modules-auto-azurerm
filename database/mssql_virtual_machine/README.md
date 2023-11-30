@@ -67,7 +67,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The credential name. |
 | `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
 | `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
 | `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |

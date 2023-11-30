@@ -68,7 +68,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | Specifies a name for the resource selector. |
 | `selectors` | block | Yes | - | One or more 'resource_selector' block. |
 
 

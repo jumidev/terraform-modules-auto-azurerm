@@ -15,7 +15,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    integration_account_name = "integration_account_name of logic_app_integration_account_batch_configuration" 
    batch_group_name = "batch_group_name of logic_app_integration_account_batch_configuration" 
-   release_criteria = "release_criteria of logic_app_integration_account_batch_configuration" 
+   release_criteria = {
+      example_release_criteria = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

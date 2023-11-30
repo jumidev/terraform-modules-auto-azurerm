@@ -15,9 +15,27 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    cluster_version = "cluster_version of hdinsight_kafka_cluster" 
-   component_version = "component_version of hdinsight_kafka_cluster" 
-   gateway = "gateway of hdinsight_kafka_cluster" 
-   roles = "roles of hdinsight_kafka_cluster" 
+   component_version = {
+      example_component_version = {
+         ...
+      }
+  
+   }
+ 
+   gateway = {
+      example_gateway = {
+         ...
+      }
+  
+   }
+ 
+   roles = {
+      example_roles = {
+         ...
+      }
+  
+   }
+ 
    tier = "tier of hdinsight_kafka_cluster" 
 }
 

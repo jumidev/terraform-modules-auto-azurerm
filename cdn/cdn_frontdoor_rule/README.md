@@ -14,7 +14,13 @@ inputs = {
    name = "name of cdn_frontdoor_rule" 
    cdn_frontdoor_rule_set_id = "cdn_frontdoor_rule_set_id of cdn_frontdoor_rule" 
    order = "order of cdn_frontdoor_rule" 
-   actions = "actions of cdn_frontdoor_rule" 
+   actions = {
+      example_actions = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

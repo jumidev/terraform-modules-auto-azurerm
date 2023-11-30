@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of capacity_reservation" 
    capacity_reservation_group_id = "capacity_reservation_group_id of capacity_reservation" 
-   sku = "sku of capacity_reservation" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -38,7 +44,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created. |
 | `capacity` | int | Yes | - | Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. |
 
 

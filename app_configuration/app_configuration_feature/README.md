@@ -43,7 +43,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the group. |
 | `rollout_percentage` | string | Yes | - | Rollout percentage of the group. |
 
 ### `timewindow_filter` block structure

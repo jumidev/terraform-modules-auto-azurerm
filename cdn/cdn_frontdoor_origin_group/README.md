@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of cdn_frontdoor_origin_group" 
    cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_origin_group" 
-   load_balancing = "load_balancing of cdn_frontdoor_origin_group" 
+   load_balancing = {
+      example_load_balancing = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

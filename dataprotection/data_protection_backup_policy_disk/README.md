@@ -39,7 +39,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created. |
 | `duration` | string | Yes | - | Duration of deletion after given timespan. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy Disk to be created. |
 | `criteria` | block | Yes | - | A 'criteria' block. Changing this forces a new Backup Policy Disk to be created. |
 | `priority` | string | Yes | - | Retention Tag priority. Changing this forces a new Backup Policy Disk to be created. |

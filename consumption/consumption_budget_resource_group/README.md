@@ -14,8 +14,20 @@ inputs = {
    name = "name of consumption_budget_resource_group" 
    resource_group_id = "resource_group_id of consumption_budget_resource_group" 
    amount = "amount of consumption_budget_resource_group" 
-   time_period = "time_period of consumption_budget_resource_group" 
-   notification = "notification of consumption_budget_resource_group" 
+   time_period = {
+      example_time_period = {
+         ...
+      }
+  
+   }
+ 
+   notification = {
+      example_notification = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

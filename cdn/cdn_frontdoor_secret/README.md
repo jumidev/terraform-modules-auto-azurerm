@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of cdn_frontdoor_secret" 
    cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_secret" 
-   secret = "secret of cdn_frontdoor_secret" 
+   secret = {
+      example_secret = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

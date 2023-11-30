@@ -15,7 +15,13 @@ inputs = {
    name = "name of linux_web_app" 
    resource_group_name = "${resource_group}" 
    service_plan_id = "service_plan_id of linux_web_app" 
-   site_config = "site_config of linux_web_app" 
+   site_config = {
+      example_site_config = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -143,7 +149,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Backup. |
 | `schedule` | block | Yes | - | A 'schedule' block. |
 | `storage_account_url` | string | Yes | - | The SAS URL to the container. |
 | `enabled` | bool | No | True | Should this backup job be enabled? Defaults to 'true'. |
@@ -152,7 +157,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
 | `type` | string | Yes | - | Type of database. Possible values include: 'MySQL', 'SQLServer', 'SQLAzure', 'Custom', 'NotificationHub', 'ServiceBus', 'EventHub', 'APIHub', 'DocDb', 'RedisCache', and 'PostgreSQL'. |
 | `value` | string | Yes | - | The connection string value. |
 
@@ -178,7 +182,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `access_key` | string | Yes | - | The Access key for the storage account. |
 | `account_name` | string | Yes | - | The Name of the Storage Account. |
-| `name` | string | Yes | - | The name which should be used for this Storage Account. |
 | `share_name` | string | Yes | - | The Name of the File Share or Container Name for Blob storage. |
 | `type` | string | Yes | - | The Azure Storage Type. Possible values include 'AzureFiles' and 'AzureBlob' |
 | `mount_path` | string | No | - | The path at which to mount the storage share. |

@@ -14,8 +14,20 @@ inputs = {
    name = "name of backup_policy_vm_workload" 
    resource_group_name = "${resource_group}" 
    recovery_vault_name = "recovery_vault_name of backup_policy_vm_workload" 
-   protection_policy = "protection_policy of backup_policy_vm_workload" 
-   settings = "settings of backup_policy_vm_workload" 
+   protection_policy = {
+      example_protection_policy = {
+         ...
+      }
+  
+   }
+ 
+   settings = {
+      example_settings = {
+         ...
+      }
+  
+   }
+ 
    workload_type = "workload_type of backup_policy_vm_workload" 
 }
 

@@ -14,8 +14,20 @@ inputs = {
    name = "name of new_relic_monitor" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   plan = "plan of new_relic_monitor" 
-   user = "user of new_relic_monitor" 
+   plan = {
+      example_plan = {
+         ...
+      }
+  
+   }
+ 
+   user = {
+      example_user = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

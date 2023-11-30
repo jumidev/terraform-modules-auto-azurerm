@@ -15,8 +15,20 @@ inputs = {
    mobile_network_id = "mobile_network_id of mobile_network_sim_policy" 
    default_slice_id = "default_slice_id of mobile_network_sim_policy" 
    location = "${location}" 
-   user_equipment_aggregate_maximum_bit_rate = "user_equipment_aggregate_maximum_bit_rate of mobile_network_sim_policy" 
-   slice = "slice of mobile_network_sim_policy" 
+   user_equipment_aggregate_maximum_bit_rate = {
+      example_user_equipment_aggregate_maximum_bit_rate = {
+         ...
+      }
+  
+   }
+ 
+   slice = {
+      example_slice = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

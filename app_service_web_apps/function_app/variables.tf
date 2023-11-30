@@ -70,11 +70,6 @@ variable "auth_settings" {
 #   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
 #   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
 #
-# google block structure:
-#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
-#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
-#
 # twitter block structure :
 #   consumer_key (string)   : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 #   consumer_secret (string): (REQUIRED) The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
@@ -83,6 +78,11 @@ variable "auth_settings" {
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 #   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+#
+# google block structure:
+#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
+#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 
 
 variable "connection_string" {
@@ -172,6 +172,10 @@ variable "site_config" {
 #   websockets_enabled (bool)              : Should WebSockets be enabled?
 #   auto_swap_slot_name (string)           : The name of the slot to automatically swap to during deployment
 #
+# cors block structure        :
+#   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
+#
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -189,10 +193,6 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
-#
-# cors block structure        :
-#   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
 
 
 variable "source_control" {

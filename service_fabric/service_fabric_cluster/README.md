@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    reliability_level = "reliability_level of service_fabric_cluster" 
    management_endpoint = "management_endpoint of service_fabric_cluster" 
-   node_type = "node_type of service_fabric_cluster" 
+   node_type = {
+      example_node_type = {
+         ...
+      }
+  
+   }
+ 
    upgrade_mode = "upgrade_mode of service_fabric_cluster" 
    vm_image = "vm_image of service_fabric_cluster" 
 }
@@ -61,7 +67,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Node Type. |
 | `placement_properties` | string | No | - | The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run. |
 | `capacities` | string | No | - | The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has. |
 | `instance_count` | int | Yes | - | The number of nodes for this Node Type. |
@@ -142,7 +147,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Fabric Setting, such as 'Security' or 'Federation'. |
 | `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
 
 ### `upgrade_policy` block structure

@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of data_factory_custom_dataset" 
    data_factory_id = "data_factory_id of data_factory_custom_dataset" 
-   linked_service = "linked_service of data_factory_custom_dataset" 
+   linked_service = {
+      example_linked_service = {
+         ...
+      }
+  
+   }
+ 
    type = "type of data_factory_custom_dataset" 
    type_properties_json = "type_properties_json of data_factory_custom_dataset" 
 }
@@ -46,7 +52,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Data Factory Linked Service. |
 | `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
 

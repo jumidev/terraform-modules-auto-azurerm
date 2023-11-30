@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    network_interface_ids = "network_interface_ids of virtual_machine" 
    vm_size = "vm_size of virtual_machine" 
-   storage_os_disk = "storage_os_disk of virtual_machine" 
+   storage_os_disk = {
+      example_storage_os_disk = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -113,7 +119,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the image from the marketplace. |
 | `publisher` | string | Yes | - | Specifies the publisher of the image. |
 | `product` | string | Yes | - | Specifies the product of the image from the marketplace. |
 
@@ -121,7 +126,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Data Disk. |
 | `caching` | string | No | - | Specifies the caching requirements for the Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'. |
 | `create_option` | string | Yes | - | Specifies how the data disk should be created. Possible values are 'Attach', 'FromImage' and 'Empty'. |
 | `disk_size_gb` | int | No | - | Specifies the size of the data disk in gigabytes. |
@@ -144,7 +148,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the OS Disk. |
 | `create_option` | string | Yes | - | Specifies how the OS Disk should be created. Possible values are 'Attach' (managed disks only) and 'FromImage'. |
 | `caching` | string | No | - | Specifies the caching requirements for the OS Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'. |
 | `disk_size_gb` | int | No | - | Specifies the size of the OS Disk in gigabytes. |

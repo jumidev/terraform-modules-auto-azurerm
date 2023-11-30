@@ -43,7 +43,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A name for this delegation. |
 | `service_delegation` | block | Yes | - | A 'service_delegation' block. |
 
 

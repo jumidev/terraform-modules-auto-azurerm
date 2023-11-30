@@ -14,9 +14,27 @@ inputs = {
    name = "name of gallery_application_version" 
    gallery_application_id = "gallery_application_id of gallery_application_version" 
    location = "${location}" 
-   manage_action = "manage_action of gallery_application_version" 
-   source = "source of gallery_application_version" 
-   target_region = "target_region of gallery_application_version" 
+   manage_action = {
+      example_manage_action = {
+         ...
+      }
+  
+   }
+ 
+   source = {
+      example_source = {
+         ...
+      }
+  
+   }
+ 
+   target_region = {
+      example_target_region = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -63,7 +81,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Azure Region in which the Gallery Application Version exists. |
 | `regional_replica_count` | string | Yes | - | The number of replicas of the Gallery Application Version to be created per region. Possible values are between '1' and '10'. |
 | `exclude_from_latest` | bool | No | False | Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'. |
 | `storage_account_type` | string | No | Standard_LRS | The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. |

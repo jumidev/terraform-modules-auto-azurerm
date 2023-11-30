@@ -11,7 +11,13 @@ source = {
 }
 
 inputs = {
-   ip_configuration = "ip_configuration of network_interface" 
+   ip_configuration = {
+      example_ip_configuration = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
    name = "name of network_interface" 
    resource_group_name = "${resource_group}" 
@@ -46,7 +52,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A name used for this IP Configuration. |
 | `gateway_load_balancer_frontend_ip_configuration_id` | string | No | - | The Frontend IP Configuration ID of a Gateway SKU Load Balancer. |
 | `subnet_id` | string | No | - | The ID of the Subnet where this Network Interface should be located in. |
 | `private_ip_address_version` | string | No | IPv4 | The IP Version to use. Possible values are 'IPv4' or 'IPv6'. Defaults to 'IPv4'. |

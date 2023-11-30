@@ -48,7 +48,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the container registry. |
 | `username` | string | Yes | - | Specifies the username of the container registry. |
 | `password` | string | Yes | - | Specifies the password of the container registry. |
 | `server` | string | Yes | - | Specifies the login server of the container registry. |

@@ -11,7 +11,13 @@ source = {
 }
 
 inputs = {
-   input = "input of media_live_event" 
+   input = {
+      example_input = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
    media_services_account_name = "media_services_account_name of media_live_event" 
    name = "name of media_live_event" 

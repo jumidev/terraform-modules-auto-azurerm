@@ -14,7 +14,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    bot_name = "bot_name of bot_channel_line" 
-   line_channel = "line_channel of bot_channel_line" 
+   line_channel = {
+      example_line_channel = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

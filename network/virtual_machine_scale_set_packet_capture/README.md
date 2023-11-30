@@ -14,7 +14,13 @@ inputs = {
    name = "name of virtual_machine_scale_set_packet_capture" 
    network_watcher_id = "network_watcher_id of virtual_machine_scale_set_packet_capture" 
    virtual_machine_scale_set_id = "virtual_machine_scale_set_id of virtual_machine_scale_set_packet_capture" 
-   storage_location = "storage_location of virtual_machine_scale_set_packet_capture" 
+   storage_location = {
+      example_storage_location = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -14,7 +14,13 @@ inputs = {
    name = "name of mobile_network_slice" 
    mobile_network_id = "mobile_network_id of mobile_network_slice" 
    location = "${location}" 
-   single_network_slice_selection_assistance_information = "single_network_slice_selection_assistance_information of mobile_network_slice" 
+   single_network_slice_selection_assistance_information = {
+      example_single_network_slice_selection_assistance_information = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

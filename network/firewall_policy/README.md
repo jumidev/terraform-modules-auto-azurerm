@@ -90,7 +90,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_secret_id` | string | Yes | - | The ID of the Key Vault, where the secret or certificate is stored. |
-| `name` | string | Yes | - | The name of the certificate. |
 
 ### `explicit_proxy` block structure
 

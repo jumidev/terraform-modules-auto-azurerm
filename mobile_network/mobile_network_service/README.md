@@ -15,7 +15,13 @@ inputs = {
    mobile_network_id = "mobile_network_id of mobile_network_service" 
    location = "${location}" 
    service_precedence = "service_precedence of mobile_network_service" 
-   pcc_rule = "pcc_rule of mobile_network_service" 
+   pcc_rule = {
+      example_pcc_rule = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -42,7 +48,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - 'default', 'requested' or 'service'. |
 | `precedence` | string | Yes | - | A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network. Must be between '0' and '255'. |
 | `qos_policy` | block | No | - | A 'qos_policy' block. The QoS policy to use for packets matching this rule. If this field is not specified then the Service will define the QoS settings. |
 | `service_data_flow_template` | block | Yes | - | A 'service_data_flow_template' block. The set of service data flow templates to use for this PCC rule. |

@@ -14,9 +14,21 @@ inputs = {
    name = "name of lab_service_lab" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   security = "security of lab_service_lab" 
+   security = {
+      example_security = {
+         ...
+      }
+  
+   }
+ 
    title = "title of lab_service_lab" 
-   virtual_machine = "virtual_machine of lab_service_lab" 
+   virtual_machine = {
+      example_virtual_machine = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

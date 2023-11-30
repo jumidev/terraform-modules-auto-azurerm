@@ -14,7 +14,13 @@ inputs = {
    name = "name of policy_virtual_machine_configuration_assignment" 
    location = "${location}" 
    virtual_machine_id = "virtual_machine_id of policy_virtual_machine_configuration_assignment" 
-   configuration = "configuration of policy_virtual_machine_configuration_assignment" 
+   configuration = {
+      example_configuration = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

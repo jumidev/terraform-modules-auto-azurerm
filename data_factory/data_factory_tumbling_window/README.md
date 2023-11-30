@@ -15,7 +15,13 @@ inputs = {
    data_factory_id = "data_factory_id of data_factory_tumbling_window" 
    frequency = "frequency of data_factory_tumbling_window" 
    interval = "interval of data_factory_tumbling_window" 
-   pipeline = "pipeline of data_factory_tumbling_window" 
+   pipeline = {
+      example_pipeline = {
+         ...
+      }
+  
+   }
+ 
    start_time = "start_time of data_factory_tumbling_window" 
 }
 
@@ -51,7 +57,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 ### `retry` block structure

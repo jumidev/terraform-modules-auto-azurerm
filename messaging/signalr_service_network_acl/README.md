@@ -13,7 +13,13 @@ source = {
 inputs = {
    signalr_service_id = "signalr_service_id of signalr_service_network_acl" 
    default_action = "default_action of signalr_service_network_acl" 
-   public_network = "public_network of signalr_service_network_acl" 
+   public_network = {
+      example_public_network = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

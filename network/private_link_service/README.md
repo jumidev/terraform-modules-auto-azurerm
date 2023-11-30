@@ -14,7 +14,13 @@ inputs = {
    name = "name of private_link_service" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   nat_ip_configuration = "nat_ip_configuration of private_link_service" 
+   nat_ip_configuration = {
+      example_nat_ip_configuration = {
+         ...
+      }
+  
+   }
+ 
    load_balancer_frontend_ip_configuration_ids = "load_balancer_frontend_ip_configuration_ids of private_link_service" 
 }
 
@@ -45,7 +51,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created. |
 | `subnet_id` | string | Yes | - | Specifies the ID of the Subnet which should be used for the Private Link Service. |
 | `primary` | bool | Yes | True | Is this is the Primary IP Configuration? Changing this forces a new resource to be created. |
 | `private_ip_address` | string | No | - | Specifies a Private Static IP Address for this IP Configuration. |

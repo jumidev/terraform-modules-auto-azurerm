@@ -15,7 +15,13 @@ inputs = {
    network_watcher_name = "network_watcher_name of network_packet_capture" 
    resource_group_name = "${resource_group}" 
    target_resource_id = "target_resource_id of network_packet_capture" 
-   storage_location = "storage_location of network_packet_capture" 
+   storage_location = {
+      example_storage_location = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

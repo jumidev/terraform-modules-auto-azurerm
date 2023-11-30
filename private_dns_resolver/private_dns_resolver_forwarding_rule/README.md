@@ -14,7 +14,13 @@ inputs = {
    name = "name of private_dns_resolver_forwarding_rule" 
    dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_forwarding_rule" 
    domain_name = "domain_name of private_dns_resolver_forwarding_rule" 
-   target_dns_servers = "target_dns_servers of private_dns_resolver_forwarding_rule" 
+   target_dns_servers = {
+      example_target_dns_servers = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

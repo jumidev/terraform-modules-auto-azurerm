@@ -11,7 +11,13 @@ source = {
 }
 
 inputs = {
-   git_repository = "git_repository of spring_cloud_customized_accelerator" 
+   git_repository = {
+      example_git_repository = {
+         ...
+      }
+  
+   }
+ 
    name = "name of spring_cloud_customized_accelerator" 
    spring_cloud_accelerator_id = "spring_cloud_accelerator_id of spring_cloud_customized_accelerator" 
 }

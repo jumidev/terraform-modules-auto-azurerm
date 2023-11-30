@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of mssql_virtual_machine_availability_group_listener" 
    sql_virtual_machine_group_id = "sql_virtual_machine_group_id of mssql_virtual_machine_availability_group_listener" 
-   replica = "replica of mssql_virtual_machine_availability_group_listener" 
+   replica = {
+      example_replica = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

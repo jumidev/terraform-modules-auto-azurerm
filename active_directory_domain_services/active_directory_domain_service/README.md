@@ -14,7 +14,13 @@ inputs = {
    domain_name = "domain_name of active_directory_domain_service" 
    location = "${location}" 
    name = "name of active_directory_domain_service" 
-   initial_replica_set = "initial_replica_set of active_directory_domain_service" 
+   initial_replica_set = {
+      example_initial_replica_set = {
+         ...
+      }
+  
+   }
+ 
    resource_group_name = "${resource_group}" 
    sku = "sku of active_directory_domain_service" 
 }

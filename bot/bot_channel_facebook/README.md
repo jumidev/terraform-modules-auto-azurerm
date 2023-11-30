@@ -16,7 +16,13 @@ inputs = {
    bot_name = "bot_name of bot_channel_facebook" 
    facebook_application_id = "facebook_application_id of bot_channel_facebook" 
    facebook_application_secret = "facebook_application_secret of bot_channel_facebook" 
-   page = "page of bot_channel_facebook" 
+   page = {
+      example_page = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

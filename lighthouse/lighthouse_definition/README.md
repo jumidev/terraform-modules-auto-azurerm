@@ -14,7 +14,13 @@ inputs = {
    name = "name of lighthouse_definition" 
    managing_tenant_id = "managing_tenant_id of lighthouse_definition" 
    scope = "scope of lighthouse_definition" 
-   authorization = "authorization of lighthouse_definition" 
+   authorization = {
+      example_authorization = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -60,7 +66,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The plan name of the marketplace offer. |
 | `publisher` | string | Yes | - | The publisher ID of the plan. |
 | `product` | string | Yes | - | The product code of the plan. |
 | `version` | string | Yes | - | The version of the plan. |

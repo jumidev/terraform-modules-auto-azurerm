@@ -15,7 +15,13 @@ inputs = {
    location = "${location}" 
    managed_instance_id = "managed_instance_id of mssql_managed_instance_failover_group" 
    partner_managed_instance_id = "partner_managed_instance_id of mssql_managed_instance_failover_group" 
-   read_write_endpoint_failover_policy = "read_write_endpoint_failover_policy of mssql_managed_instance_failover_group" 
+   read_write_endpoint_failover_policy = {
+      example_read_write_endpoint_failover_policy = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

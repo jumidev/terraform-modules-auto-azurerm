@@ -14,7 +14,13 @@ inputs = {
    name = "name of dedicated_hardware_security_module" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   network_profile = "network_profile of dedicated_hardware_security_module" 
+   network_profile = {
+      example_network_profile = {
+         ...
+      }
+  
+   }
+ 
    sku_name = "sku_name of dedicated_hardware_security_module" 
 }
 

@@ -14,7 +14,13 @@ inputs = {
    name = "name of cdn_frontdoor_custom_domain" 
    cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_custom_domain" 
    host_name = "host_name of cdn_frontdoor_custom_domain" 
-   tls = "tls of cdn_frontdoor_custom_domain" 
+   tls = {
+      example_tls = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of monitor_action_rule_suppression" 
    resource_group_name = "${resource_group}" 
-   suppression = "suppression of monitor_action_rule_suppression" 
+   suppression = {
+      example_suppression = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

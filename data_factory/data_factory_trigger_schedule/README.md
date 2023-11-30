@@ -56,7 +56,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Reference pipeline name. |
 | `parameters` | string | No | - | The pipeline parameters that the trigger will act upon. |
 
 

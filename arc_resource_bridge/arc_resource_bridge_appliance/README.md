@@ -15,7 +15,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    distro = "distro of arc_resource_bridge_appliance" 
-   identity = "identity of arc_resource_bridge_appliance" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
    infrastructure_provider = "infrastructure_provider of arc_resource_bridge_appliance" 
 }
 

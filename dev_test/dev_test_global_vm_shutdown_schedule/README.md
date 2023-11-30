@@ -15,7 +15,13 @@ inputs = {
    virtual_machine_id = "virtual_machine_id of dev_test_global_vm_shutdown_schedule" 
    timezone = "timezone of dev_test_global_vm_shutdown_schedule" 
    daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule" 
-   notification_settings = "notification_settings of dev_test_global_vm_shutdown_schedule" 
+   notification_settings = {
+      example_notification_settings = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

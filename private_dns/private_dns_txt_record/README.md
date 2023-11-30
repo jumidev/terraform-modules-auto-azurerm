@@ -14,7 +14,13 @@ inputs = {
    name = "name of private_dns_txt_record" 
    resource_group_name = "${resource_group}" 
    zone_name = "zone_name of private_dns_txt_record" 
-   record = "record of private_dns_txt_record" 
+   record = {
+      example_record = {
+         ...
+      }
+  
+   }
+ 
    ttl = "ttl of private_dns_txt_record" 
 }
 

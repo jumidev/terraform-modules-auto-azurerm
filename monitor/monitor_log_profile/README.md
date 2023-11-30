@@ -14,7 +14,13 @@ inputs = {
    name = "name of monitor_log_profile" 
    categories = "categories of monitor_log_profile" 
    locations = "locations of monitor_log_profile" 
-   retention_policy = "retention_policy of monitor_log_profile" 
+   retention_policy = {
+      example_retention_policy = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

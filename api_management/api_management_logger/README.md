@@ -47,7 +47,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of an EventHub. |
 | `connection_string` | string | No | - | The connection string of an EventHub Namespace. |
 | `user_assigned_identity_client_id` | string | No | - | The Client Id of the User Assigned Identity  with the 'Azure Event Hubs Data Sender' role to the target EventHub Namespace. Required when 'endpoint_uri' is set. If not specified the System Assigned Identity will be used. |
 | `endpoint_uri` | string | No | - | The endpoint address of an EventHub Namespace. Required when 'client_id' is set. |

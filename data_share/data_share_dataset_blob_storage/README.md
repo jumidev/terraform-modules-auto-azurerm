@@ -14,7 +14,13 @@ inputs = {
    name = "name of data_share_dataset_blob_storage" 
    data_share_id = "data_share_id of data_share_dataset_blob_storage" 
    container_name = "container_name of data_share_dataset_blob_storage" 
-   storage_account = "storage_account of data_share_dataset_blob_storage" 
+   storage_account = {
+      example_storage_account = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -40,7 +46,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. |
 | `resource_group_name` | string | Yes | - | The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. |
 | `subscription_id` | string | Yes | - | The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. |
 

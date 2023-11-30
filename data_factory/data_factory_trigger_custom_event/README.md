@@ -15,7 +15,13 @@ inputs = {
    data_factory_id = "data_factory_id of data_factory_trigger_custom_event" 
    eventgrid_topic_id = "eventgrid_topic_id of data_factory_trigger_custom_event" 
    events = "events of data_factory_trigger_custom_event" 
-   pipeline = "pipeline of data_factory_trigger_custom_event" 
+   pipeline = {
+      example_pipeline = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -46,7 +52,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 

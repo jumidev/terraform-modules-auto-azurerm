@@ -50,7 +50,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the ARM role receiver. |
 | `role_id` | string | Yes | - | The arm role id. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
@@ -58,7 +57,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the automation runbook receiver. |
 | `automation_account_id` | string | Yes | - | The automation account ID which holds this runbook and authenticates to Azure resources. |
 | `runbook_name` | string | Yes | - | The name for this runbook. |
 | `webhook_resource_id` | string | Yes | - | The resource id for webhook linked to this runbook. |
@@ -70,14 +68,12 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Azure app push receiver. |
 | `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
 
 ### `azure_function_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Azure Function receiver. |
 | `function_app_resource_id` | string | Yes | - | The Azure resource ID of the function app. |
 | `function_name` | string | Yes | - | The function name in the function app. |
 | `http_trigger_url` | string | Yes | - | The HTTP trigger url where HTTP request sent to. |
@@ -87,7 +83,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
 | `email_address` | string | Yes | - | The email address of this receiver. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
@@ -95,7 +90,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the EventHub Receiver, must be unique within action group. |
 | `event_hub_id` | string | No | - | The resource ID of the respective Event Hub. |
 | `event_hub_name` | string | No | - | The name of the specific Event Hub queue. |
 | `event_hub_namespace` | string | No | - | The namespace name of the Event Hub. |
@@ -107,7 +101,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the ITSM receiver. |
 | `workspace_id` | string | Yes | - | The Azure Log Analytics workspace ID where this connection is defined. Format is '<subscription id>|<workspace id>', for example '00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000'. |
 | `connection_id` | string | Yes | - | The unique connection identifier of the ITSM connection. |
 | `ticket_configuration` | string | Yes | - | A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well. |
@@ -117,7 +110,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the logic app receiver. |
 | `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
 | `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
@@ -126,7 +118,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
 | `country_code` | string | Yes | - | The country code of the SMS receiver. |
 | `phone_number` | int | Yes | - | The phone number of the SMS receiver. |
 
@@ -134,7 +125,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the voice receiver. |
 | `country_code` | string | Yes | - | The country code of the voice receiver. |
 | `phone_number` | int | Yes | - | The phone number of the voice receiver. |
 
@@ -142,7 +132,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
 | `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 | `aad_auth` | block | No | - | The 'aad_auth' block. |

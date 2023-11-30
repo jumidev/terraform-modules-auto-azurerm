@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    vm_priority = "vm_priority of machine_learning_compute_cluster" 
    vm_size = "vm_size of machine_learning_compute_cluster" 
-   scale_settings = "scale_settings of machine_learning_compute_cluster" 
+   scale_settings = {
+      example_scale_settings = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

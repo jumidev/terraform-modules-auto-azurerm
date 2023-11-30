@@ -14,7 +14,13 @@ inputs = {
    name = "name of monitor_scheduled_query_rules_alert_v2" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   criteria = "criteria of monitor_scheduled_query_rules_alert_v2" 
+   criteria = {
+      example_criteria = {
+         ...
+      }
+  
+   }
+ 
    scopes = "scopes of monitor_scheduled_query_rules_alert_v2" 
    severity = "severity of monitor_scheduled_query_rules_alert_v2" 
    window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2" 

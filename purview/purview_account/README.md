@@ -12,7 +12,13 @@ source = {
 
 inputs = {
    location = "${location}" 
-   identity = "identity of purview_account" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
    name = "name of purview_account" 
    resource_group_name = "${resource_group}" 
 }

@@ -14,7 +14,13 @@ inputs = {
    name = "name of iothub" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   sku = "sku of iothub" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -52,7 +58,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the sku. Possible values are 'B1', 'B2', 'B3', 'F1', 'S1', 'S2', and 'S3'. |
 | `capacity` | int | Yes | - | The number of provisioned IoT Hub units. |
 
 ### `endpoint` block structure
@@ -60,7 +65,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of the endpoint. Possible values are 'AzureIotHub.StorageContainer', 'AzureIotHub.ServiceBusQueue', 'AzureIotHub.ServiceBusTopic' or 'AzureIotHub.EventHub'. |
-| `name` | string | Yes | - | The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: 'events', 'operationsMonitoringEvents', 'fileNotifications' and '$default'. |
 | `authentication_type` | string | No | keyBased | The type used to authenticate against the endpoint. Possible values are 'keyBased' and 'identityBased'. Defaults to 'keyBased'. |
 | `identity_id` | string | No | - | The ID of the User Managed Identity used to authenticate against the endpoint. |
 | `endpoint_uri` | string | No | - | URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when 'authentication_type' is 'identityBased' for endpoint type 'AzureIotHub.ServiceBusQueue', 'AzureIotHub.ServiceBusTopic' or 'AzureIotHub.EventHub'. |
@@ -115,7 +119,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the route. |
 | `source` | string | Yes | - | The source that the routing rule is to be applied to, such as 'DeviceMessages'. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents', 'DeviceConnectionStateEvents', 'DeviceJobLifecycleEvents' and 'DigitalTwinChangeEvents'. |
 | `condition` | bool | No | True | The condition that is evaluated to apply the routing rule. Defaults to 'true'. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. |
 | `endpoint_names` | string | Yes | - | The list of endpoints to which messages that satisfy the condition are routed. |

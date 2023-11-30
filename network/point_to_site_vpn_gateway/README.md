@@ -14,7 +14,13 @@ inputs = {
    name = "name of point_to_site_vpn_gateway" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   connection_configuration = "connection_configuration of point_to_site_vpn_gateway" 
+   connection_configuration = {
+      example_connection_configuration = {
+         ...
+      }
+  
+   }
+ 
    scale_unit = "scale_unit of point_to_site_vpn_gateway" 
    virtual_hub_id = "virtual_hub_id of point_to_site_vpn_gateway" 
    vpn_server_configuration_id = "vpn_server_configuration_id of point_to_site_vpn_gateway" 
@@ -47,7 +53,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name which should be used for this Connection Configuration. |
 | `vpn_client_address_pool` | block | Yes | - | A 'vpn_client_address_pool' block. |
 | `route` | block | No | - | A 'route' block. |
 | `internet_security_enabled` | bool | No | False | Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'. |

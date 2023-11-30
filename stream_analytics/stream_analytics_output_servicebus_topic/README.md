@@ -16,7 +16,13 @@ inputs = {
    stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_servicebus_topic" 
    topic_name = "topic_name of stream_analytics_output_servicebus_topic" 
    servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_topic" 
-   serialization = "serialization of stream_analytics_output_servicebus_topic" 
+   serialization = {
+      example_serialization = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -18,7 +18,13 @@ inputs = {
    codecs = "codecs of voice_services_communications_gateway" 
    e911_type = "e911_type of voice_services_communications_gateway" 
    platforms = "platforms of voice_services_communications_gateway" 
-   service_location = "service_location of voice_services_communications_gateway" 
+   service_location = {
+      example_service_location = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

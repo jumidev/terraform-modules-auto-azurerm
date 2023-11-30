@@ -17,7 +17,13 @@ inputs = {
    application_insights_id = "application_insights_id of machine_learning_workspace" 
    key_vault_id = "key_vault_id of machine_learning_workspace" 
    storage_account_id = "storage_account_id of machine_learning_workspace" 
-   identity = "identity of machine_learning_workspace" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

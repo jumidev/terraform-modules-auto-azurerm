@@ -14,7 +14,13 @@ inputs = {
    name = "name of monitor_alert_prometheus_rule_group" 
    location = "${location}" 
    resource_group_name = "${resource_group}" 
-   rule = "rule of monitor_alert_prometheus_rule_group" 
+   rule = {
+      example_rule = {
+         ...
+      }
+  
+   }
+ 
    scopes = "scopes of monitor_alert_prometheus_rule_group" 
 }
 

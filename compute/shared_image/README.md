@@ -15,7 +15,13 @@ inputs = {
    gallery_name = "gallery_name of shared_image" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   identifier = "identifier of shared_image" 
+   identifier = {
+      example_identifier = {
+         ...
+      }
+  
+   }
+ 
    os_type = "os_type of shared_image" 
 }
 
@@ -70,7 +76,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created. |
 | `publisher` | string | No | - | The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created. |
 | `product` | string | No | - | The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. |
 

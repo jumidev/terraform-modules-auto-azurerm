@@ -14,7 +14,13 @@ inputs = {
    name = "name of media_services_account" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   storage_account = "storage_account of media_services_account" 
+   storage_account = {
+      example_storage_account = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

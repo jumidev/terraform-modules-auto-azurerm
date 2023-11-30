@@ -43,7 +43,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `product` | string | Yes | - | Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `promotion_code` | string | No | - | Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created. |

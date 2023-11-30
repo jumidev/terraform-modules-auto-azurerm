@@ -14,7 +14,13 @@ inputs = {
    name = "name of signalr_service" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   sku = "sku of signalr_service" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -53,7 +59,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies which tier to use. Valid values are 'Free_F1', 'Standard_S1' and 'Premium_P1'. |
 | `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
 
 ### `cors` block structure

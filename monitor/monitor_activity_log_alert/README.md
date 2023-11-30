@@ -14,7 +14,13 @@ inputs = {
    name = "name of monitor_activity_log_alert" 
    resource_group_name = "${resource_group}" 
    scopes = "scopes of monitor_activity_log_alert" 
-   criteria = "criteria of monitor_activity_log_alert" 
+   criteria = {
+      example_criteria = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

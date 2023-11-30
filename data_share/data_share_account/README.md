@@ -14,7 +14,13 @@ inputs = {
    name = "name of data_share_account" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   identity = "identity of data_share_account" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

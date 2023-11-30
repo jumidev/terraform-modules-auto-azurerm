@@ -14,7 +14,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    bot_name = "bot_name of bot_channel_directline" 
-   site = "site of bot_channel_directline" 
+   site = {
+      example_site = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -38,7 +44,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the site |
 | `user_upload_enabled` | bool | No | True | Is the user upload enabled for this site? Defaults to 'true'. |
 | `enabled` | bool | No | True | Enables/Disables this site. Defaults to 'true'. |
 | `endpoint_parameters_enabled` | bool | No | - | Is the endpoint parameters enabled for this site? |

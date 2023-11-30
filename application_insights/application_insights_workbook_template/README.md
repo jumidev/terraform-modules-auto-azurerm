@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of application_insights_workbook_template" 
    resource_group_name = "${resource_group}" 
-   galleries = "galleries of application_insights_workbook_template" 
+   galleries = {
+      example_galleries = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
    template_data = "template_data of application_insights_workbook_template" 
 }
@@ -44,7 +50,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the workbook template in the gallery. |
 | `category` | string | Yes | - | Category for the gallery. |
 | `order` | string | No | 0 | Order of the template within the gallery. Defaults to '0'. |
 | `resource_type` | string | No | Azure Monitor | Azure resource type supported by the gallery. Defaults to 'Azure Monitor'. |

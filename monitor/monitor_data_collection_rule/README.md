@@ -11,8 +11,20 @@ source = {
 }
 
 inputs = {
-   data_flow = "data_flow of monitor_data_collection_rule" 
-   destinations = "destinations of monitor_data_collection_rule" 
+   data_flow = {
+      example_data_flow = {
+         ...
+      }
+  
+   }
+ 
+   destinations = {
+      example_destinations = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
    name = "name of monitor_data_collection_rule" 
    resource_group_name = "${resource_group}" 

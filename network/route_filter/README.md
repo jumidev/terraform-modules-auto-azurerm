@@ -40,7 +40,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `access` | string | Yes | - | The access type of the rule. The only possible value is 'Allow'. |
 | `communities` | string | Yes | - | The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']. |
-| `name` | string | Yes | - | The name of the route filter rule. |
 | `rule_type` | string | Yes | - | The rule type of the rule. The only possible value is 'Community'. |
 
 

@@ -14,7 +14,13 @@ inputs = {
    name = "name of managed_lustre_file_system" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   maintenance_window = "maintenance_window of managed_lustre_file_system" 
+   maintenance_window = {
+      example_maintenance_window = {
+         ...
+      }
+  
+   }
+ 
    sku_name = "sku_name of managed_lustre_file_system" 
    storage_capacity_in_tb = "storage_capacity_in_tb of managed_lustre_file_system" 
    subnet_id = "subnet_id of managed_lustre_file_system" 

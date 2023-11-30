@@ -35,7 +35,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of extension. |
 | `additional_extension_properties` | string | No | - | Key/Value pairs that are required for some extensions. |
 
 

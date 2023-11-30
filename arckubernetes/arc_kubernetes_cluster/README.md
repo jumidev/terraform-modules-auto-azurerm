@@ -14,7 +14,13 @@ inputs = {
    name = "name of arc_kubernetes_cluster" 
    resource_group_name = "${resource_group}" 
    agent_public_key_certificate = "agent_public_key_certificate of arc_kubernetes_cluster" 
-   identity = "identity of arc_kubernetes_cluster" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
 }
 

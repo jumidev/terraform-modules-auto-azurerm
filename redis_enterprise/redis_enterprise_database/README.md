@@ -41,7 +41,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this module. Possible values are 'RedisBloom', 'RedisTimeSeries', 'RediSearch' and 'RedisJSON'. Changing this forces a new Redis Enterprise Database to be created. |
 | `args` | string | No |  | Configuration options for the module (e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'). Changing this forces a new resource to be created. Defaults to ''''. |
 
 

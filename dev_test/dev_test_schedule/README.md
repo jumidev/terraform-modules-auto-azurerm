@@ -17,7 +17,13 @@ inputs = {
    lab_name = "lab_name of dev_test_schedule" 
    task_type = "task_type of dev_test_schedule" 
    time_zone_id = "time_zone_id of dev_test_schedule" 
-   notification_settings = "notification_settings of dev_test_schedule" 
+   notification_settings = {
+      example_notification_settings = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

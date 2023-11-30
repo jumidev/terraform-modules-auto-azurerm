@@ -14,7 +14,13 @@ inputs = {
    name = "name of vmware_private_cloud" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   management_cluster = "management_cluster of vmware_private_cloud" 
+   management_cluster = {
+      example_management_cluster = {
+         ...
+      }
+  
+   }
+ 
    network_subnet_cidr = "network_subnet_cidr of vmware_private_cloud" 
    sku_name = "sku_name of vmware_private_cloud" 
 }

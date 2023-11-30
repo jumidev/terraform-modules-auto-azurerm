@@ -15,7 +15,13 @@ inputs = {
    automation_account_id = "automation_account_id of automation_source_control" 
    folder_path = "folder_path of automation_source_control" 
    repository_url = "repository_url of automation_source_control" 
-   security = "security of automation_source_control" 
+   security = {
+      example_security = {
+         ...
+      }
+  
+   }
+ 
    source_control_type = "source_control_type of automation_source_control" 
 }
 

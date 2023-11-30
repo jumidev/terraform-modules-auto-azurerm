@@ -40,6 +40,20 @@ variable "profile" {
 #   dimensions (block)            : One or more 'dimensions' block.
 #   divide_by_instance_count (int): Whether to enable metric divide by instance count.
 #
+# fixed_date block structure:
+#   end (string)              : (REQUIRED) Specifies the end date for the profile, formatted as an RFC3339 date string.
+#   start (string)            : (REQUIRED) Specifies the start date for the profile, formatted as an RFC3339 date string.
+#   timezone (string)         : The Time Zone of the 'start' and 'end' times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'.
+#
+# dimensions block structure:
+#   name (string)             : (REQUIRED) The name of the dimension.
+#   operator (string)         : (REQUIRED) The dimension operator. Possible values are 'Equals' and 'NotEquals'. 'Equals' means being equal to any of the values. 'NotEquals' means being not equal to any of the values.
+#   values (list)             : (REQUIRED) A list of dimension values.
+#
+# rule block structure  :
+#   metric_trigger (block): (REQUIRED) A 'metric_trigger' block.
+#   scale_action (block)  : (REQUIRED) A 'scale_action' block.
+#
 # recurrence block structure:
 #   timezone (string)         : The Time Zone used for the 'hours' field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'.
 #   days (string)             : (REQUIRED) A list of days that this profile takes effect on. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
@@ -51,25 +65,11 @@ variable "profile" {
 #   maximum (string)        : (REQUIRED) The maximum number of instances for this resource. Valid values are between '0' and '1000'.
 #   minimum (string)        : (REQUIRED) The minimum number of instances for this resource. Valid values are between '0' and '1000'.
 #
-# rule block structure  :
-#   metric_trigger (block): (REQUIRED) A 'metric_trigger' block.
-#   scale_action (block)  : (REQUIRED) A 'scale_action' block.
-#
 # scale_action block structure:
 #   cooldown (string)           : (REQUIRED) The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
 #   direction (string)          : (REQUIRED) The scale direction. Possible values are 'Increase' and 'Decrease'.
 #   type (string)               : (REQUIRED) The type of action that should occur. Possible values are 'ChangeCount', 'ExactCount', 'PercentChangeCount' and 'ServiceAllowedNextValue'.
 #   value (int)                 : (REQUIRED) The number of instances involved in the scaling action.
-#
-# dimensions block structure:
-#   name (string)             : (REQUIRED) The name of the dimension.
-#   operator (string)         : (REQUIRED) The dimension operator. Possible values are 'Equals' and 'NotEquals'. 'Equals' means being equal to any of the values. 'NotEquals' means being not equal to any of the values.
-#   values (list)             : (REQUIRED) A list of dimension values.
-#
-# fixed_date block structure:
-#   end (string)              : (REQUIRED) Specifies the end date for the profile, formatted as an RFC3339 date string.
-#   start (string)            : (REQUIRED) Specifies the start date for the profile, formatted as an RFC3339 date string.
-#   timezone (string)         : The Time Zone of the 'start' and 'end' times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'.
 
 
 variable "target_resource_id" {

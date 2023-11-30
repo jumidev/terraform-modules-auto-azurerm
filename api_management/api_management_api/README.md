@@ -59,7 +59,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `email` | string | No | - | The email address of the contact person/organization. |
-| `name` | string | No | - | The name of the contact person/organization. |
 | `url` | string | No | - | Absolute URL of the contact information. |
 
 ### `import` block structure
@@ -74,7 +73,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the license . |
 | `url` | string | No | - | Absolute URL of the license. |
 
 ### `oauth2_authorization` block structure

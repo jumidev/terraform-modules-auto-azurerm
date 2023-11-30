@@ -12,7 +12,13 @@ source = {
 
 inputs = {
    key_vault_id = "key_vault_id of key_vault_certificate_contacts" 
-   contact = "contact of key_vault_certificate_contacts" 
+   contact = {
+      example_contact = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -35,7 +41,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `email` | string | Yes | - | E-mail address of the contact. |
-| `name` | string | No | - | Name of the contact. |
 | `phone` | int | No | - | Phone number of the contact. |
 
 

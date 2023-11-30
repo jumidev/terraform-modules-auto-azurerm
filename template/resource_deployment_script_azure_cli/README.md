@@ -58,7 +58,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the environment variable. |
 | `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
 | `value` | string | No | - | Specifies the value of the environment variable. |
 
@@ -74,7 +73,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key` | string | Yes | - | Specifies the storage account access key. |
-| `name` | string | Yes | - | Specifies the storage account name. |
 
 
 

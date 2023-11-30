@@ -14,7 +14,13 @@ inputs = {
    name = "name of express_route_circuit" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   sku = "sku of express_route_circuit" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

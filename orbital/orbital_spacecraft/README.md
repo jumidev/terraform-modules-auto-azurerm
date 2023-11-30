@@ -15,7 +15,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    norad_id = "norad_id of orbital_spacecraft" 
-   links = "links of orbital_spacecraft" 
+   links = {
+      example_links = {
+         ...
+      }
+  
+   }
+ 
    two_line_elements = "two_line_elements of orbital_spacecraft" 
    title_line = "title_line of orbital_spacecraft" 
 }
@@ -49,7 +55,6 @@ tfstate_store = {
 | `center_frequency_mhz` | string | Yes | - | Center frequency in Mhz. |
 | `direction` | string | Yes | - | Direction if the communication. Possible values are 'Uplink' and 'Downlink'. |
 | `polarization` | string | Yes | - | Polarization. Possible values are 'RHCP', 'LHCP', 'linearVertical' and 'linearHorizontal'. |
-| `name` | string | Yes | - | Name of the link. |
 
 
 

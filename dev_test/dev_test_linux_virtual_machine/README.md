@@ -15,7 +15,13 @@ inputs = {
    lab_name = "lab_name of dev_test_linux_virtual_machine" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   gallery_image_reference = "gallery_image_reference of dev_test_linux_virtual_machine" 
+   gallery_image_reference = {
+      example_gallery_image_reference = {
+         ...
+      }
+  
+   }
+ 
    lab_subnet_name = "lab_subnet_name of dev_test_linux_virtual_machine" 
    lab_virtual_network_id = "lab_virtual_network_id of dev_test_linux_virtual_machine" 
    size = "size of dev_test_linux_virtual_machine" 

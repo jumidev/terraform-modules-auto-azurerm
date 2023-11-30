@@ -14,7 +14,13 @@ inputs = {
    name = "name of spring_cloud_connection" 
    spring_cloud_id = "spring_cloud_id of spring_cloud_connection" 
    target_resource_id = "target_resource_id of spring_cloud_connection" 
-   authentication = "authentication of spring_cloud_connection" 
+   authentication = {
+      example_authentication = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -39,7 +45,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The authentication type. Possible values are 'systemAssignedIdentity', 'userAssignedIdentity', 'servicePrincipalSecret', 'servicePrincipalCertificate', 'secret'. Changing this forces a new resource to be created. |
-| `name` | string | No | - | Username or account name for secret auth. 'name' and 'secret' should be either both specified or both not specified when 'type' is set to 'secret'. |
 | `secret` | string | No | - | Password or account key for secret auth. 'secret' and 'name' should be either both specified or both not specified when 'type' is set to 'secret'. |
 | `client_id` | string | No | - | Client ID for 'userAssignedIdentity' or 'servicePrincipal' auth. Should be specified when 'type' is set to 'servicePrincipalSecret' or 'servicePrincipalCertificate'. When 'type' is set to 'userAssignedIdentity', 'client_id' and 'subscription_id' should be either both specified or both not specified. |
 | `subscription_id` | string | No | - | Subscription ID for 'userAssignedIdentity'. 'subscription_id' and 'client_id' should be either both specified or both not specified. |

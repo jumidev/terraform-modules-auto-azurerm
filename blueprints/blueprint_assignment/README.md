@@ -14,7 +14,13 @@ inputs = {
    name = "name of blueprint_assignment" 
    target_subscription_id = "target_subscription_id of blueprint_assignment" 
    location = "${location}" 
-   identity = "identity of blueprint_assignment" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
    version_id = "version_id of blueprint_assignment" 
 }
 

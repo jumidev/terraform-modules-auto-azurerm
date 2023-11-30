@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of api_management_gateway" 
    api_management_id = "api_management_id of api_management_gateway" 
-   location_data = "location_data of api_management_gateway" 
+   location_data = {
+      example_location_data = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -37,7 +43,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A canonical name for the geographic or physical location. |
 | `city` | string | No | - | The city or locality where the resource is located. |
 | `district` | string | No | - | The district, state, or province where the resource is located. |
 | `region` | string | No | - | The country or region where the resource is located. |

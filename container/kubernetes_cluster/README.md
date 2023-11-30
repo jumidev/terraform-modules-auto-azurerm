@@ -14,7 +14,13 @@ inputs = {
    name = "name of kubernetes_cluster" 
    location = "${location}" 
    resource_group_name = "${resource_group}" 
-   default_node_pool = "default_node_pool of kubernetes_cluster" 
+   default_node_pool = {
+      example_default_node_pool = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -88,7 +94,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for the default Kubernetes Node Pool. |
 | `vm_size` | string | Yes | - | The size of the Virtual Machine, such as 'Standard_DS2_v2'. 'temporary_name_for_rotation' must be specified when attempting a resize. |
 | `capacity_reservation_group_id` | string | No | - | Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created. |
 | `custom_ca_trust_enabled` | bool | No | - | Specifies whether to trust a Custom CA. |

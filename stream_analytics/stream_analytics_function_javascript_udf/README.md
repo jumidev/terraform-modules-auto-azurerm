@@ -14,8 +14,20 @@ inputs = {
    name = "name of stream_analytics_function_javascript_udf" 
    resource_group_name = "${resource_group}" 
    stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_function_javascript_udf" 
-   input = "input of stream_analytics_function_javascript_udf" 
-   output = "output of stream_analytics_function_javascript_udf" 
+   input = {
+      example_input = {
+         ...
+      }
+  
+   }
+ 
+   output = {
+      example_output = {
+         ...
+      }
+  
+   }
+ 
    script = "script of stream_analytics_function_javascript_udf" 
 }
 

@@ -38,7 +38,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name (also known as the key) of the tag. |
 | `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
 | `value` | string | Yes | - | Specifies the value of the tag. |
 
@@ -46,7 +45,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name (also known as the key) of the tag. |
 | `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
 | `value` | string | Yes | - | Specifies the value of the tag. |
 

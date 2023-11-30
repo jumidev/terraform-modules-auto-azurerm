@@ -15,7 +15,13 @@ inputs = {
    name = "name of container_app" 
    resource_group_name = "${resource_group}" 
    revision_mode = "revision_mode of container_app" 
-   template = "template of container_app" 
+   template = {
+      example_template = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

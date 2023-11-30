@@ -14,7 +14,13 @@ inputs = {
    name = "name of vpn_gateway_connection" 
    remote_vpn_site_id = "remote_vpn_site_id of vpn_gateway_connection" 
    vpn_gateway_id = "vpn_gateway_id of vpn_gateway_connection" 
-   vpn_link = "vpn_link of vpn_gateway_connection" 
+   vpn_link = {
+      example_vpn_link = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -41,7 +47,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this VPN Link Connection. |
 | `egress_nat_rule_ids` | list | No | - | A list of the egress NAT Rule Ids. |
 | `ingress_nat_rule_ids` | list | No | - | A list of the ingress NAT Rule Ids. |
 | `vpn_site_link_id` | string | Yes | - | The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created. |

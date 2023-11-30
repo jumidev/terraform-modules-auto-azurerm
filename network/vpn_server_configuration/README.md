@@ -15,8 +15,20 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    vpn_authentication_types = "vpn_authentication_types of vpn_server_configuration" 
-   azure_active_directory_authentication = "azure_active_directory_authentication of vpn_server_configuration" 
-   client_root_certificate = "client_root_certificate of vpn_server_configuration" 
+   azure_active_directory_authentication = {
+      example_azure_active_directory_authentication = {
+         ...
+      }
+  
+   }
+ 
+   client_root_certificate = {
+      example_client_root_certificate = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -68,21 +80,18 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 ### `client_revoked_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 ### `radius` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 

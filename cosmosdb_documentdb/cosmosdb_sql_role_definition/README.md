@@ -15,7 +15,13 @@ inputs = {
    account_name = "account_name of cosmosdb_sql_role_definition" 
    assignable_scopes = "assignable_scopes of cosmosdb_sql_role_definition" 
    name = "name of cosmosdb_sql_role_definition" 
-   permissions = "permissions of cosmosdb_sql_role_definition" 
+   permissions = {
+      example_permissions = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

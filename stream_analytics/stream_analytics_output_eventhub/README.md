@@ -16,7 +16,13 @@ inputs = {
    stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_eventhub" 
    eventhub_name = "eventhub_name of stream_analytics_output_eventhub" 
    servicebus_namespace = "servicebus_namespace of stream_analytics_output_eventhub" 
-   serialization = "serialization of stream_analytics_output_eventhub" 
+   serialization = {
+      example_serialization = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

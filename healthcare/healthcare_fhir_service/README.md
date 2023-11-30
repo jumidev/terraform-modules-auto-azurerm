@@ -15,7 +15,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    workspace_id = "workspace_id of healthcare_fhir_service" 
    location = "${location}" 
-   authentication = "authentication of healthcare_fhir_service" 
+   authentication = {
+      example_authentication = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

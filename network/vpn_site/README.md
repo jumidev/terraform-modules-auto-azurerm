@@ -44,7 +44,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this VPN Site Link. |
 | `bgp` | block | No | - | A 'bgp' block. |
 | `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
 | `ip_address` | string | No | - | The IP address of this VPN Site Link. |

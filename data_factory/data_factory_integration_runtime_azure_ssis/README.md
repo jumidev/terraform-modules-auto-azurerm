@@ -83,7 +83,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the package store. |
 | `linked_service_name` | string | Yes | - | Name of the Linked Service to associate with the packages. |
 
 ### `proxy` block structure

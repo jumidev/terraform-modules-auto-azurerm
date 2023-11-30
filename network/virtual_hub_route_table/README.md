@@ -36,7 +36,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this route. |
 | `destinations` | list | Yes | - | A list of destination addresses for this route. |
 | `destinations_type` | string | Yes | - | The type of destinations. Possible values are 'CIDR', 'ResourceId' and 'Service'. |
 | `next_hop` | string | Yes | - | The next hop's resource ID. |

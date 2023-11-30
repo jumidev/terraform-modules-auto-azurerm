@@ -14,8 +14,20 @@ inputs = {
    name = "name of video_analyzer" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   storage_account = "storage_account of video_analyzer" 
-   identity = "identity of video_analyzer" 
+   storage_account = {
+      example_storage_account = {
+         ...
+      }
+  
+   }
+ 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

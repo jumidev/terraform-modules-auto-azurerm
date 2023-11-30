@@ -57,7 +57,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the global parameter name. |
 | `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
 | `value` | string | Yes | - | Specifies the global parameter value. |
 

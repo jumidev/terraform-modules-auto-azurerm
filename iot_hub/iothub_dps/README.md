@@ -14,7 +14,13 @@ inputs = {
    name = "name of iothub_dps" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   sku = "sku of iothub_dps" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -44,7 +50,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the sku. Currently can only be set to 'S1'. |
 | `capacity` | int | Yes | - | The number of provisioned IoT Device Provisioning Service units. |
 
 ### `linked_hub` block structure
@@ -61,7 +66,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the filter. |
 | `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the rule. |
 | `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
 | `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |

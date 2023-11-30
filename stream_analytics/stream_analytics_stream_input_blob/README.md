@@ -20,7 +20,13 @@ inputs = {
    storage_account_key = "storage_account_key of stream_analytics_stream_input_blob" 
    storage_container_name = "storage_container_name of stream_analytics_stream_input_blob" 
    time_format = "time_format of stream_analytics_stream_input_blob" 
-   serialization = "serialization of stream_analytics_stream_input_blob" 
+   serialization = {
+      example_serialization = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

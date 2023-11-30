@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    sql_image_offer = "sql_image_offer of mssql_virtual_machine_group" 
    sql_image_sku = "sql_image_sku of mssql_virtual_machine_group" 
-   wsfc_domain_profile = "wsfc_domain_profile of mssql_virtual_machine_group" 
+   wsfc_domain_profile = {
+      example_wsfc_domain_profile = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

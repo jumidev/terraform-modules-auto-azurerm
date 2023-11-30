@@ -13,7 +13,13 @@ source = {
 inputs = {
    accumulated = "accumulated of resource_group_cost_management_view" 
    chart_type = "chart_type of resource_group_cost_management_view" 
-   dataset = "dataset of resource_group_cost_management_view" 
+   dataset = {
+      example_dataset = {
+         ...
+      }
+  
+   }
+ 
    display_name = "display_name of resource_group_cost_management_view" 
    name = "name of resource_group_cost_management_view" 
    report_type = "report_type of resource_group_cost_management_view" 
@@ -63,7 +69,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the column which should be used for this sub-view in the Cost Analysis UI. |
 | `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
 
 

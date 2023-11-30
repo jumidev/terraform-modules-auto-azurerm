@@ -60,7 +60,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
-| `name` | string | Yes | - | Specifies the name of the replica. |
 
 
 

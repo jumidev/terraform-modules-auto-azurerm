@@ -15,8 +15,20 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    offer_type = "offer_type of cosmosdb_account" 
-   consistency_policy = "consistency_policy of cosmosdb_account" 
-   geo_location = "geo_location of cosmosdb_account" 
+   consistency_policy = {
+      example_consistency_policy = {
+         ...
+      }
+  
+   }
+ 
+   geo_location = {
+      example_geo_location = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -95,7 +107,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The capability to enable - Possible values are 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'EnableCassandra', 'EnableGremlin', 'EnableMongo', 'EnableMongo16MBDocumentSupport', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnablePartialUniqueIndex', 'EnableServerless', 'EnableTable', 'EnableTtlOnCustomPath', 'EnableUniqueCompoundNestedDocs', 'MongoDBv3.4' and 'mongoEnableDocLevelTTL'. |
 
 ### `virtual_network_rule` block structure
 

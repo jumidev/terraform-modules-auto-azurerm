@@ -17,7 +17,13 @@ inputs = {
    location = "${location}" 
    name = "name of netapp_volume_group_sap_hana" 
    resource_group_name = "${resource_group}" 
-   volume = "volume of netapp_volume_group_sap_hana" 
+   volume = {
+      example_volume = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -45,7 +51,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `capacity_pool_id` | string | Yes | - | The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `name` | string | Yes | - | The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `protocols` | string | Yes | - | The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include 'NFSv3' or 'NFSv4.1', multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details. |
 | `proximity_placement_group_id` | string | No | - | The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements. |
 | `security_style` | string | Yes | - | Volume security style. Possible values are 'ntfs' and 'unix'. Changing this forces a new Application Volume Group to be created and data will be lost. |

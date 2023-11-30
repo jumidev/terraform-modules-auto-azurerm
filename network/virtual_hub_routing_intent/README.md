@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of virtual_hub_routing_intent" 
    virtual_hub_id = "virtual_hub_id of virtual_hub_routing_intent" 
-   routing_policy = "routing_policy of virtual_hub_routing_intent" 
+   routing_policy = {
+      example_routing_policy = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -36,7 +42,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The unique name for the routing policy. |
 | `destinations` | string | Yes | - | A list of destinations which this routing policy is applicable to. Possible values are 'Internet' and 'PrivateTraffic'. |
 | `next_hop` | string | Yes | - | The resource ID of the next hop on which this routing policy is applicable to. |
 

@@ -14,9 +14,27 @@ inputs = {
    name = "name of network_connection_monitor" 
    location = "${location}" 
    network_watcher_id = "network_watcher_id of network_connection_monitor" 
-   endpoint = "endpoint of network_connection_monitor" 
-   test_configuration = "test_configuration of network_connection_monitor" 
-   test_group = "test_group of network_connection_monitor" 
+   endpoint = {
+      example_endpoint = {
+         ...
+      }
+  
+   }
+ 
+   test_configuration = {
+      example_test_configuration = {
+         ...
+      }
+  
+   }
+ 
+   test_group = {
+      example_test_group = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -45,7 +63,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the endpoint for the Network Connection Monitor . |
 | `address` | string | No | - | The IP address or domain name of the Network Connection Monitor endpoint. |
 | `coverage_level` | string | No | - | The test coverage for the Network Connection Monitor endpoint. Possible values are 'AboveAverage', 'Average', 'BelowAverage', 'Default', 'Full' and 'Low'. |
 | `excluded_ip_addresses` | list | No | - | A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint. |
@@ -58,7 +75,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of test configuration for the Network Connection Monitor. |
 | `protocol` | string | Yes | - | The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'. |
 | `test_frequency_in_seconds` | int | No | 60 | The time interval in seconds at which the test evaluation will happen. Defaults to '60'. |
 | `http_configuration` | block | No | - | A 'http_configuration' block. |
@@ -71,7 +87,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the test group for the Network Connection Monitor. |
 | `destination_endpoints` | list | Yes | - | A list of destination endpoint names. |
 | `source_endpoints` | list | Yes | - | A list of source endpoint names. |
 | `test_configuration_names` | list | Yes | - | A list of test configuration names. |

@@ -14,7 +14,13 @@ inputs = {
    name = "name of arc_kubernetes_cluster_extension" 
    cluster_id = "cluster_id of arc_kubernetes_cluster_extension" 
    extension_type = "extension_type of arc_kubernetes_cluster_extension" 
-   identity = "identity of arc_kubernetes_cluster_extension" 
+   identity = {
+      example_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

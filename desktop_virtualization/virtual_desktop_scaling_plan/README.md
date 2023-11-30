@@ -14,7 +14,13 @@ inputs = {
    location = "${location}" 
    name = "name of virtual_desktop_scaling_plan" 
    resource_group_name = "${resource_group}" 
-   schedule = "schedule of virtual_desktop_scaling_plan" 
+   schedule = {
+      example_schedule = {
+         ...
+      }
+  
+   }
+ 
    time_zone = "time_zone of virtual_desktop_scaling_plan" 
 }
 
@@ -46,7 +52,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `days_of_week` | string | Yes | - | A list of Days of the Week on which this schedule will be used. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday' |
-| `name` | string | Yes | - | The name of the schedule. |
 | `off_peak_load_balancing_algorithm` | string | Yes | - | The load Balancing Algorithm to use during Off-Peak Hours. Possible values are 'DepthFirst' and 'BreadthFirst'. |
 | `off_peak_start_time` | string | Yes | - | The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in 'HH:MM' format. |
 | `peak_load_balancing_algorithm` | string | Yes | - | The load Balancing Algorithm to use during Peak Hours. Possible values are 'DepthFirst' and 'BreadthFirst'. |

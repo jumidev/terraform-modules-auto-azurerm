@@ -14,14 +14,62 @@ inputs = {
    name = "name of application_gateway" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   backend_address_pool = "backend_address_pool of application_gateway" 
-   backend_http_settings = "backend_http_settings of application_gateway" 
-   frontend_ip_configuration = "frontend_ip_configuration of application_gateway" 
-   frontend_port = "frontend_port of application_gateway" 
-   gateway_ip_configuration = "gateway_ip_configuration of application_gateway" 
-   http_listener = "http_listener of application_gateway" 
-   request_routing_rule = "request_routing_rule of application_gateway" 
-   sku = "sku of application_gateway" 
+   backend_address_pool = {
+      example_backend_address_pool = {
+         ...
+      }
+  
+   }
+ 
+   backend_http_settings = {
+      example_backend_http_settings = {
+         ...
+      }
+  
+   }
+ 
+   frontend_ip_configuration = {
+      example_frontend_ip_configuration = {
+         ...
+      }
+  
+   }
+ 
+   frontend_port = {
+      example_frontend_port = {
+         ...
+      }
+  
+   }
+ 
+   gateway_ip_configuration = {
+      example_gateway_ip_configuration = {
+         ...
+      }
+  
+   }
+ 
+   http_listener = {
+      example_http_listener = {
+         ...
+      }
+  
+   }
+ 
+   request_routing_rule = {
+      example_request_routing_rule = {
+         ...
+      }
+  
+   }
+ 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -74,7 +122,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Backend Address Pool. |
 | `fqdns` | list | No | - | A list of FQDN's which should be part of the Backend Address Pool. |
 | `ip_addresses` | list | No | - | A list of IP Addresses which should be part of the Backend Address Pool. |
 
@@ -82,13 +129,11 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Authentication Certificate. |
 
 ### `frontend_ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Frontend IP Configuration. |
 | `subnet_id` | string | No | - | The ID of the Subnet. |
 | `private_ip_address` | string | No | - | The Private IP Address to use for the Application Gateway. |
 | `public_ip_address_id` | string | No | - | The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the 'sku' of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details. |
@@ -99,21 +144,18 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Frontend Port. |
 | `port` | string | Yes | - | The port used for this Frontend Port. |
 
 ### `gateway_ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of this Gateway IP Configuration. |
 | `subnet_id` | string | Yes | - | The ID of the Subnet which the Application Gateway should be connected to. |
 
 ### `http_listener` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the HTTP Listener. |
 | `frontend_ip_configuration_name` | string | Yes | - | The Name of the Frontend IP Configuration used for this HTTP Listener. |
 | `frontend_port_name` | string | Yes | - | The Name of the Frontend Port use for this HTTP Listener. |
 | `host_name` | string | No | - | The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'. |
@@ -129,7 +171,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of this Request Routing Rule. |
 | `rule_type` | string | Yes | - | The Type of Routing that should be used for this Rule. Possible values are 'Basic' and 'PathBasedRouting'. |
 | `http_listener_name` | string | Yes | - | The Name of the HTTP Listener which should be used for this Routing Rule. |
 | `backend_address_pool_name` | string | No | - | The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set. |
@@ -143,7 +184,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the SKU to use for this Application Gateway. Possible values are 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'Standard_v2', 'WAF_Medium', 'WAF_Large', and 'WAF_v2'. |
 | `tier` | string | Yes | - | The Tier of the SKU to use for this Application Gateway. Possible values are 'Standard', 'Standard_v2', 'WAF' and 'WAF_v2'. |
 | `capacity` | string | No | - | The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between '1' and '32', and '1' to '125' for a V2 SKU. This property is optional if 'autoscale_configuration' is set. |
 
@@ -165,21 +205,18 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the private link configuration. |
 | `ip_configuration` | block | Yes | - | One or more 'ip_configuration' blocks. |
 
 ### `trusted_client_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Trusted Client Certificate that is unique within this Application Gateway. |
 | `data` | string | Yes | - | The base-64 encoded certificate. |
 
 ### `ssl_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the SSL Profile that is unique within this Application Gateway. |
 | `trusted_client_certificate_names` | string | No | - | The name of the Trusted Client Certificate that will be used to authenticate requests from clients. |
 | `verify_client_cert_issuer_dn` | bool | No | False | Should client certificate issuer DN be verified? Defaults to 'false'. |
 | `verify_client_certificate_revocation` | string | No | - | Specify the method to check client certificate revocation status. Possible value is 'OCSP'. |
@@ -189,14 +226,12 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the Authentication Certificate to use. |
 | `data` | string | Yes | - | The contents of the Authentication Certificate which should be used. |
 
 ### `trusted_root_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the Trusted Root Certificate to use. |
 | `data` | string | No | - | The contents of the Trusted Root Certificate which should be used. Required if 'key_vault_secret_id' is not set. |
 | `key_vault_secret_id` | string | No | - | The Secret ID of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if 'data' is not set. |
 
@@ -216,7 +251,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `host` | string | No | - | The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe. Cannot be set if 'pick_host_name_from_backend_http_settings' is set to 'true'. |
 | `interval` | string | Yes | - | The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds. |
-| `name` | string | Yes | - | The Name of the Probe. |
 | `protocol` | string | Yes | - | The Protocol used for this Probe. Possible values are 'Http' and 'Https'. |
 | `path` | string | Yes | - | The Path used for this Probe. |
 | `timeout` | string | Yes | - | The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds. |
@@ -230,7 +264,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the SSL certificate that is unique within this Application Gateway |
 | `data` | string | No | - | The base64-encoded PFX certificate data. Required if 'key_vault_secret_id' is not set. |
 | `password` | string | No | - | Password for the pfx file specified in data. Required if 'data' is set. |
 | `key_vault_secret_id` | string | No | - | The Secret ID of (base-64 encoded unencrypted pfx) the 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if 'data' is not set. |
@@ -239,7 +272,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the URL Path Map. |
 | `default_backend_address_pool_name` | string | No | - | The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set. |
 | `default_backend_http_settings_name` | string | No | - | The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set. |
 | `default_redirect_configuration_name` | string | No | - | The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set. |
@@ -271,7 +303,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Unique name of the redirect configuration block |
 | `redirect_type` | string | Yes | - | The type of redirect. Possible values are 'Permanent', 'Temporary', 'Found' and 'SeeOther' |
 | `target_listener_name` | string | No | - | The name of the listener to redirect to. Cannot be set if 'target_url' is set. |
 | `target_url` | string | No | - | The URL to redirect the request to. Cannot be set if 'target_listener_name' is set. |
@@ -289,7 +320,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Unique name of the rewrite rule set block |
 | `rewrite_rule` | block | No | - | One or more 'rewrite_rule' blocks. |
 
 

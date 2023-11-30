@@ -12,7 +12,13 @@ source = {
 
 inputs = {
    storage_account_id = "storage_account_id of storage_blob_inventory_policy" 
-   rules = "rules of storage_blob_inventory_policy" 
+   rules = {
+      example_rules = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -34,7 +40,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Blob Inventory Policy Rule. |
 | `storage_container_name` | string | Yes | - | The storage container name to store the blob inventory files for this rule. |
 | `format` | string | Yes | - | The format of the inventory files. Possible values are 'Csv' and 'Parquet'. |
 | `schedule` | string | Yes | - | The inventory schedule applied by this rule. Possible values are 'Daily' and 'Weekly'. |

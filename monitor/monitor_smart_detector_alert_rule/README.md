@@ -15,7 +15,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    detector_type = "detector_type of monitor_smart_detector_alert_rule" 
    scope_resource_ids = "scope_resource_ids of monitor_smart_detector_alert_rule" 
-   action_group = "action_group of monitor_smart_detector_alert_rule" 
+   action_group = {
+      example_action_group = {
+         ...
+      }
+  
+   }
+ 
    severity = "severity of monitor_smart_detector_alert_rule" 
    frequency = "frequency of monitor_smart_detector_alert_rule" 
 }

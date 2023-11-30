@@ -16,8 +16,20 @@ inputs = {
    priority = "priority of palo_alto_local_rulestack_rule" 
    action = "action of palo_alto_local_rulestack_rule" 
    name = "name of palo_alto_local_rulestack_rule" 
-   destination = "destination of palo_alto_local_rulestack_rule" 
-   source = "source of palo_alto_local_rulestack_rule" 
+   destination = {
+      example_destination = {
+         ...
+      }
+  
+   }
+ 
+   source = {
+      example_source = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    application_insights_id = "application_insights_id of application_insights_standard_web_test" 
    geo_locations = "geo_locations of application_insights_standard_web_test" 
-   request = "request of application_insights_standard_web_test" 
+   request = {
+      example_request = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

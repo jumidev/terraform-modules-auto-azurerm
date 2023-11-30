@@ -13,8 +13,20 @@ source = {
 inputs = {
    name = "name of mssql_failover_group" 
    server_id = "server_id of mssql_failover_group" 
-   partner_server = "partner_server of mssql_failover_group" 
-   read_write_endpoint_failover_policy = "read_write_endpoint_failover_policy of mssql_failover_group" 
+   partner_server = {
+      example_partner_server = {
+         ...
+      }
+  
+   }
+ 
+   read_write_endpoint_failover_policy = {
+      example_read_write_endpoint_failover_policy = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

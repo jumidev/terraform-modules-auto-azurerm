@@ -14,7 +14,13 @@ inputs = {
    name = "name of logic_app_integration_account_partner" 
    resource_group_name = "${resource_group}" 
    integration_account_name = "integration_account_name of logic_app_integration_account_partner" 
-   business_identity = "business_identity of logic_app_integration_account_partner" 
+   business_identity = {
+      example_business_identity = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

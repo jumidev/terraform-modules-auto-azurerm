@@ -106,7 +106,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this trigger. |
 | `type` | string | Yes | - | The type of the trigger. Possible values are 'All' and 'Runtime'. |
 | `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
 | `update_trigger_endpoint` | string | No | - | The endpoint URL for receiving the trigger. |
@@ -116,7 +115,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this trigger. |
 | `events` | string | Yes | - | Specifies a list of source events corresponding to the trigger. Possible values are 'commit' and 'pullrequest'. |
 | `repository_url` | string | Yes | - | The full URL to the source code repository. |
 | `source_type` | string | Yes | - | The type of the source control service. Possible values are 'Github' and 'VisualStudioTeamService'. |
@@ -128,7 +126,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this trigger. |
 | `schedule` | string | Yes | - | The CRON expression for the task schedule. |
 | `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
 

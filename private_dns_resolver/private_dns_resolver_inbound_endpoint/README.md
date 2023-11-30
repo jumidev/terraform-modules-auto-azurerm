@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of private_dns_resolver_inbound_endpoint" 
    private_dns_resolver_id = "private_dns_resolver_id of private_dns_resolver_inbound_endpoint" 
-   ip_configurations = "ip_configurations of private_dns_resolver_inbound_endpoint" 
+   ip_configurations = {
+      example_ip_configurations = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
 }
 

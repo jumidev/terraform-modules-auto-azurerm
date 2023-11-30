@@ -18,8 +18,20 @@ inputs = {
    frequency = "frequency of monitor_scheduled_query_rules_alert" 
    query = "query of monitor_scheduled_query_rules_alert" 
    time_window = "time_window of monitor_scheduled_query_rules_alert" 
-   trigger = "trigger of monitor_scheduled_query_rules_alert" 
-   action = "action of monitor_scheduled_query_rules_alert" 
+   trigger = {
+      example_trigger = {
+         ...
+      }
+  
+   }
+ 
+   action = {
+      example_action = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

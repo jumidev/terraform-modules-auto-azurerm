@@ -14,8 +14,20 @@ inputs = {
    name = "name of network_function_collector_policy" 
    traffic_collector_id = "traffic_collector_id of network_function_collector_policy" 
    location = "${location}" 
-   ipfx_emission = "ipfx_emission of network_function_collector_policy" 
-   ipfx_ingestion = "ipfx_ingestion of network_function_collector_policy" 
+   ipfx_emission = {
+      example_ipfx_emission = {
+         ...
+      }
+  
+   }
+ 
+   ipfx_ingestion = {
+      example_ipfx_ingestion = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

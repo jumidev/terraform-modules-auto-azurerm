@@ -58,7 +58,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of the Parameter. |
 | `value` | string | Yes | - | The Value of the Parameter. |
 
 

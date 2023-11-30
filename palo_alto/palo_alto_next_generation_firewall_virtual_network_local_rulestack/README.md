@@ -12,7 +12,13 @@ source = {
 
 inputs = {
    name = "name of palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
-   network_profile = "network_profile of palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
+   network_profile = {
+      example_network_profile = {
+         ...
+      }
+  
+   }
+ 
    resource_group_name = "${resource_group}" 
    rulestack_id = "rulestack_id of palo_alto_next_generation_firewall_virtual_network_local_rulestack" 
 }
@@ -49,7 +55,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Destination NAT. |
 | `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
 | `backend_config` | block | No | - | A 'backend_config' block. |
 | `frontend_config` | block | No | - | A 'frontend_config' block. |

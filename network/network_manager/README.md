@@ -14,7 +14,13 @@ inputs = {
    name = "name of network_manager" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   scope = "scope of network_manager" 
+   scope = {
+      example_scope = {
+         ...
+      }
+  
+   }
+ 
    scope_accesses = "scope_accesses of network_manager" 
 }
 

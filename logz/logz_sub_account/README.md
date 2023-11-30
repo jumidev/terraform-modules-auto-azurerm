@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of logz_sub_account" 
    logz_monitor_id = "logz_monitor_id of logz_sub_account" 
-   user = "user of logz_sub_account" 
+   user = {
+      example_user = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

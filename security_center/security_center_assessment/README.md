@@ -13,7 +13,13 @@ source = {
 inputs = {
    assessment_policy_id = "assessment_policy_id of security_center_assessment" 
    target_resource_id = "target_resource_id of security_center_assessment" 
-   status = "status of security_center_assessment" 
+   status = {
+      example_status = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -16,7 +16,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    priority = "priority of firewall_nat_rule_collection" 
    action = "action of firewall_nat_rule_collection" 
-   rule = "rule of firewall_nat_rule_collection" 
+   rule = {
+      example_rule = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -42,7 +48,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the rule. |
 | `description` | string | No | - | Specifies a description for the rule. |
 | `destination_addresses` | list | Yes | - | A list of destination IP addresses and/or IP ranges. |
 | `destination_ports` | list | Yes | - | A list of destination ports. |

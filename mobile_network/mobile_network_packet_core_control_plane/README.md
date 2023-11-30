@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    site_ids = "site_ids of mobile_network_packet_core_control_plane" 
    sku = "sku of mobile_network_packet_core_control_plane" 
-   local_diagnostics_access = "local_diagnostics_access of mobile_network_packet_core_control_plane" 
+   local_diagnostics_access = {
+      example_local_diagnostics_access = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

@@ -17,7 +17,13 @@ inputs = {
    minimum_variable_contact_duration = "minimum_variable_contact_duration of orbital_contact_profile" 
    auto_tracking = "auto_tracking of orbital_contact_profile" 
    network_configuration_subnet_id = "network_configuration_subnet_id of orbital_contact_profile" 
-   links = "links of orbital_contact_profile" 
+   links = {
+      example_links = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -49,7 +55,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `channels` | block | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
 | `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
-| `name` | string | Yes | - | Name of the link. |
 | `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
 
 

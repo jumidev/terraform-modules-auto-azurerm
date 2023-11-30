@@ -14,8 +14,20 @@ inputs = {
    name = "name of sql_failover_group" 
    resource_group_name = "${resource_group}" 
    server_name = "server_name of sql_failover_group" 
-   partner_servers = "partner_servers of sql_failover_group" 
-   read_write_endpoint_failover_policy = "read_write_endpoint_failover_policy of sql_failover_group" 
+   partner_servers = {
+      example_partner_servers = {
+         ...
+      }
+  
+   }
+ 
+   read_write_endpoint_failover_policy = {
+      example_read_write_endpoint_failover_policy = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

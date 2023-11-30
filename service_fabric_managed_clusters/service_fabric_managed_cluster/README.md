@@ -13,7 +13,13 @@ source = {
 inputs = {
    client_connection_port = "client_connection_port of service_fabric_managed_cluster" 
    http_gateway_port = "http_gateway_port of service_fabric_managed_cluster" 
-   lb_rule = "lb_rule of service_fabric_managed_cluster" 
+   lb_rule = {
+      example_lb_rule = {
+         ...
+      }
+  
+   }
+ 
    location = "${location}" 
    name = "name of service_fabric_managed_cluster" 
    resource_group_name = "${resource_group}" 
@@ -81,7 +87,6 @@ tfstate_store = {
 | `application_port_range` | string | Yes | - | Sets the port range available for applications. Format is '<from_port>-<to_port>', for example '10000-20000'. |
 | `data_disk_size_gb` | int | Yes | - | The size of the data disk in gigabytes.. |
 | `ephemeral_port_range` | string | Yes | - | Sets the port range available for the OS. Format is '<from_port>-<to_port>', for example '10000-20000'. There has to be at least 255 ports available and cannot overlap with 'application_port_range'.. |
-| `name` | string | Yes | - | The name which should be used for this node type. |
 | `vm_image_offer` | string | Yes | - | The offer type of the marketplace image cluster VMs will use. |
 | `vm_image_publisher` | string | Yes | - | The publisher of the marketplace image cluster VMs will use. |
 | `vm_image_sku` | string | Yes | - | The SKU of the marketplace image cluster VMs will use. |

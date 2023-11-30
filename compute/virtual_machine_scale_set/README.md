@@ -14,10 +14,34 @@ inputs = {
    name = "name of virtual_machine_scale_set" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   network_profile = "network_profile of virtual_machine_scale_set" 
-   os_profile = "os_profile of virtual_machine_scale_set" 
-   sku = "sku of virtual_machine_scale_set" 
-   storage_profile_os_disk = "storage_profile_os_disk of virtual_machine_scale_set" 
+   network_profile = {
+      example_network_profile = {
+         ...
+      }
+  
+   }
+ 
+   os_profile = {
+      example_os_profile = {
+         ...
+      }
+  
+   }
+ 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
+   storage_profile_os_disk = {
+      example_storage_profile_os_disk = {
+         ...
+      }
+  
+   }
+ 
    upgrade_policy_mode = "upgrade_policy_mode of virtual_machine_scale_set" 
 }
 
@@ -52,7 +76,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the network interface configuration. |
 | `primary` | string | Yes | - | Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM. |
 | `ip_configuration` | block | Yes | - | An 'ip_configuration' block. |
 | `accelerated_networking` | string | No | - | Specifies whether to enable accelerated networking or not. |
@@ -89,7 +112,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the size of virtual machines in a scale set. |
 | `tier` | string | No | - | Specifies the tier of virtual machines in a scale set. Possible values, 'standard' or 'basic'. |
 | `capacity` | int | Yes | - | Specifies the number of virtual machines in the scale set. |
 
@@ -97,7 +119,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). |
 | `vhd_containers` | string | No | - | Specifies the VHD URI. Cannot be used when 'image' or 'managed_disk_type' is specified. |
 | `managed_disk_type` | string | No | - | Specifies the type of managed disk to create. Value you must be either 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. Cannot be used when 'vhd_containers' or 'image' is specified. |
 | `create_option` | string | Yes | - | Specifies how the virtual machine should be created. The only possible option is 'FromImage'. |

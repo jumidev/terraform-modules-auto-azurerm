@@ -16,7 +16,13 @@ inputs = {
    location = "${location}" 
    workspace_resource_id = "workspace_resource_id of log_analytics_solution" 
    workspace_name = "workspace_name of log_analytics_solution" 
-   plan = "plan of log_analytics_solution" 
+   plan = {
+      example_plan = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

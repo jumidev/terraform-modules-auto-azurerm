@@ -13,7 +13,13 @@ source = {
 inputs = {
    name = "name of network_manager_connectivity_configuration" 
    network_manager_id = "network_manager_id of network_manager_connectivity_configuration" 
-   applies_to_group = "applies_to_group of network_manager_connectivity_configuration" 
+   applies_to_group = {
+      example_applies_to_group = {
+         ...
+      }
+  
+   }
+ 
    connectivity_topology = "connectivity_topology of network_manager_connectivity_configuration" 
 }
 

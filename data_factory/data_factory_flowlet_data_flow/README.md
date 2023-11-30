@@ -46,7 +46,6 @@ tfstate_store = {
 | `dataset` | block | No | - | A 'dataset' block. |
 | `flowlet` | block | No | - | A 'flowlet' block. |
 | `linked_service` | block | No | - | A 'linked_service' block. |
-| `name` | string | Yes | - | The name for the Data Flow Source. |
 | `rejected_linked_service` | block | No | - | A 'rejected_linked_service' block. |
 | `schema_linked_service` | block | No | - | A 'schema_linked_service' block. |
 
@@ -58,7 +57,6 @@ tfstate_store = {
 | `dataset` | block | No | - | A 'dataset' block. |
 | `flowlet` | block | No | - | A 'flowlet' block. |
 | `linked_service` | block | No | - | A 'linked_service' block. |
-| `name` | string | Yes | - | The name for the Data Flow Source. |
 | `rejected_linked_service` | block | No | - | A 'rejected_linked_service' block. |
 | `schema_linked_service` | block | No | - | A 'schema_linked_service' block. |
 
@@ -66,7 +64,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Data Flow transformation. |
 | `description` | string | No | - | The description for the Data Flow transformation. |
 | `dataset` | block | No | - | A 'dataset' block. |
 | `flowlet` | block | No | - | A 'flowlet' block. |

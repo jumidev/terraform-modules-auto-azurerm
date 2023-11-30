@@ -14,7 +14,13 @@ inputs = {
    name = "name of app_service_plan" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   sku = "sku of app_service_plan" 
+   sku = {
+      example_sku = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

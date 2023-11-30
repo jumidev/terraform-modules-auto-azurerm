@@ -14,7 +14,13 @@ inputs = {
    name = "name of monitor_autoscale_setting" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   profile = "profile of monitor_autoscale_setting" 
+   profile = {
+      example_profile = {
+         ...
+      }
+  
+   }
+ 
    target_resource_id = "target_resource_id of monitor_autoscale_setting" 
 }
 
@@ -44,7 +50,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the profile. |
 | `capacity` | block | Yes | - | A 'capacity' block. |
 | `rule` | block | No | - | One or more (up to 10) 'rule' blocks. |
 | `fixed_date` | block | No | - | A 'fixed_date' block. This cannot be specified if a 'recurrence' block is specified. |

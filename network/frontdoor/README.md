@@ -13,11 +13,41 @@ source = {
 inputs = {
    name = "name of frontdoor" 
    resource_group_name = "${resource_group}" 
-   backend_pool = "backend_pool of frontdoor" 
-   backend_pool_health_probe = "backend_pool_health_probe of frontdoor" 
-   backend_pool_load_balancing = "backend_pool_load_balancing of frontdoor" 
-   frontend_endpoint = "frontend_endpoint of frontdoor" 
-   routing_rule = "routing_rule of frontdoor" 
+   backend_pool = {
+      example_backend_pool = {
+         ...
+      }
+  
+   }
+ 
+   backend_pool_health_probe = {
+      example_backend_pool_health_probe = {
+         ...
+      }
+  
+   }
+ 
+   backend_pool_load_balancing = {
+      example_backend_pool_load_balancing = {
+         ...
+      }
+  
+   }
+ 
+   frontend_endpoint = {
+      example_frontend_endpoint = {
+         ...
+      }
+  
+   }
+ 
+   routing_rule = {
+      example_routing_rule = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -48,7 +78,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Backend Pool. |
 | `backend` | block | Yes | - | A 'backend' block. |
 | `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
 | `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
@@ -57,7 +86,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Health Probe. |
 | `enabled` | bool | No | True | Is this health probe enabled? Defaults to 'true'. |
 | `path` | string | No | / | The path to use for the Health Probe. Default is '/'. |
 | `protocol` | string | No | Http | Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'. |
@@ -68,7 +96,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Load Balancer. |
 | `sample_size` | int | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
 | `successful_samples_required` | int | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
 | `additional_latency_milliseconds` | int | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
@@ -84,7 +111,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the 'frontend_endpoint'. |
 | `host_name` | string | Yes | - | Specifies the host name of the 'frontend_endpoint'. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name. |
 | `session_affinity_enabled` | bool | No | False | Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'. |
 | `session_affinity_ttl_seconds` | int | No | 0 | The TTL to use in seconds for session affinity, if applicable. Defaults to '0'. |
@@ -94,7 +120,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Routing Rule. |
 | `frontend_endpoints` | string | Yes | - | The names of the 'frontend_endpoint' blocks within this resource to associate with this 'routing_rule'. |
 | `accepted_protocols` | string | Yes | - | Protocol schemes to match for the Backend Routing Rule. Possible values are 'Http' and 'Https'. |
 | `patterns_to_match` | string | Yes | - | The route patterns for the Backend Routing Rule. |

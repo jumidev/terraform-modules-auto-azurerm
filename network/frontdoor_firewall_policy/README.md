@@ -42,7 +42,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Gets name of the resource that is unique within a policy. This name can be used to access the resource. |
 | `action` | string | Yes | - | The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
 | `enabled` | bool | No | True | Is the rule is enabled or disabled? Defaults to 'true'. |
 | `priority` | string | No | 1 | The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'. |

@@ -13,8 +13,20 @@ source = {
 inputs = {
    name = "name of data_factory_data_flow" 
    data_factory_id = "data_factory_id of data_factory_data_flow" 
-   source = "source of data_factory_data_flow" 
-   sink = "sink of data_factory_data_flow" 
+   source = {
+      example_source = {
+         ...
+      }
+  
+   }
+ 
+   sink = {
+      example_sink = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -44,7 +56,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Data Flow Source. |
 | `description` | string | No | - | The description for the Data Flow Source. |
 | `dataset` | block | No | - | A 'dataset' block. |
 | `flowlet` | block | No | - | A 'flowlet' block. |
@@ -56,7 +67,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Data Flow Source. |
 | `description` | string | No | - | The description for the Data Flow Source. |
 | `dataset` | block | No | - | A 'dataset' block. |
 | `flowlet` | block | No | - | A 'flowlet' block. |
@@ -68,7 +78,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Data Flow transformation. |
 | `description` | string | No | - | The description for the Data Flow transformation. |
 | `dataset` | block | No | - | A 'dataset' block. |
 | `flowlet` | block | No | - | A 'flowlet' block. |

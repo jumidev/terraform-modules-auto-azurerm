@@ -15,8 +15,20 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    sku_name = "sku_name of datadog_monitors" 
-   user = "user of datadog_monitors" 
-   datadog_organization = "datadog_organization of datadog_monitors" 
+   user = {
+      example_user = {
+         ...
+      }
+  
+   }
+ 
+   datadog_organization = {
+      example_datadog_organization = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -51,7 +63,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this user_info. Changing this forces a new resource to be created. |
 | `email` | string | Yes | - | Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created. |
 | `phone_number` | int | No | - | Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created. |
 

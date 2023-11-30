@@ -14,7 +14,13 @@ inputs = {
    name = "name of network_profile" 
    location = "${location}" 
    resource_group_name = "${resource_group}" 
-   container_network_interface = "container_network_interface of network_profile" 
+   container_network_interface = {
+      example_container_network_interface = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -39,7 +45,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
 | `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
 
 

@@ -14,7 +14,13 @@ inputs = {
    name = "name of monitor_scheduled_query_rules_log" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   criteria = "criteria of monitor_scheduled_query_rules_log" 
+   criteria = {
+      example_criteria = {
+         ...
+      }
+  
+   }
+ 
    data_source_id = "data_source_id of monitor_scheduled_query_rules_log" 
 }
 

@@ -71,7 +71,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Custom Domain Name to use for the Storage Account, which will be validated by Azure. |
 | `use_subdomain` | bool | No | - | Should the Custom Domain Name be validated by using indirect CNAME validation? |
 
 ### `customer_managed_key` block structure

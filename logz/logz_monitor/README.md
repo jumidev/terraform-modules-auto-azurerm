@@ -14,8 +14,20 @@ inputs = {
    name = "name of logz_monitor" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   plan = "plan of logz_monitor" 
-   user = "user of logz_monitor" 
+   plan = {
+      example_plan = {
+         ...
+      }
+  
+   }
+ 
+   user = {
+      example_user = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {

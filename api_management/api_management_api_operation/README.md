@@ -66,7 +66,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of this Template Parameter. |
 | `required` | bool | Yes | - | Is this Template Parameter Required? |
 | `type` | string | Yes | - | The Type of this Template Parameter, such as a 'string'. |
 | `description` | string | No | - | A description of this Template Parameter. |

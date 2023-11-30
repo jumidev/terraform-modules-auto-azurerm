@@ -16,7 +16,13 @@ inputs = {
    account_name = "account_name of batch_pool" 
    node_agent_sku_id = "node_agent_sku_id of batch_pool" 
    vm_size = "vm_size of batch_pool" 
-   storage_image_reference = "storage_image_reference of batch_pool" 
+   storage_image_reference = {
+      example_storage_image_reference = {
+         ...
+      }
+  
+   }
+ 
 }
 
 tfstate_store = {
@@ -89,7 +95,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the virtual machine extension. |
 | `publisher` | string | Yes | - | The name of the extension handler publisher.The name of the extension handler publisher. |
 | `type` | string | Yes | - | The type of the extensions. |
 | `type_handler_version` | string | No | - | The version of script handler. |
@@ -178,7 +183,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the user account. |
 | `password` | string | Yes | - | The password for the user account. |
 | `elevation_level` | string | Yes | - | The elevation level of the user account. 'NonAdmin' - The auto user is a standard user without elevated access. 'Admin' - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin. |
 | `linux_user_configuration` | string | No | - | The 'linux_user_configuration' block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options. |

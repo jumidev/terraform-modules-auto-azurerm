@@ -73,7 +73,6 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
 
 
 
