@@ -30,21 +30,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.account_name** | string  The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool  Defines that the NetApp Snapshot Policy is enabled or not. | 
+| **var.name** | string |  The name of the NetApp Snapshot Policy. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group where the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created. | 
+| **var.enabled** | bool |  Defines that the NetApp Snapshot Policy is enabled or not. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.hourly_schedule** | block  Sets an hourly snapshot schedule. A `hourly_schedule` block. | 
-| **var.daily_schedule** | block  Sets a daily snapshot schedule. A `daily_schedule` block. | 
-| **var.weekly_schedule** | block  Sets a weekly snapshot schedule. A `weekly_schedule` block. | 
-| **var.monthly_schedule** | block  Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.hourly_schedule** | block |  Sets an hourly snapshot schedule. A `hourly_schedule` block. | 
+| **var.daily_schedule** | block |  Sets a daily snapshot schedule. A `daily_schedule` block. | 
+| **var.weekly_schedule** | block |  Sets a weekly snapshot schedule. A `weekly_schedule` block. | 
+| **var.monthly_schedule** | block |  Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `hourly_schedule` block structure
 

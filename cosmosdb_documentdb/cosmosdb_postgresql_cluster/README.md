@@ -29,34 +29,34 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.node_count** | int  The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`. | 
+| **var.name** | string |  The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created. | 
+| **var.node_count** | int |  The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.administrator_login_password** | string  -  |  -  |  The password of the administrator login. This is required when `source_resource_id` is not set. | 
-| **var.citus_version** | string  -  |  `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3`, `12.1`  |  The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`. | 
-| **var.coordinator_public_ip_access_enabled** | bool  `True`  |  -  |  Is public access enabled on coordinator? Defaults to `true`. | 
-| **var.coordinator_server_edition** | string  `GeneralPurpose`  |  `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, `MemoryOptimized`  |  The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`. | 
-| **var.coordinator_storage_quota_in_mb** | string  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, `33554432`  |  The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`. | 
-| **var.coordinator_vcore_count** | string  -  |  `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96`  |  The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`. | 
-| **var.ha_enabled** | bool  `False`  |  -  |  Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`. | 
-| **var.maintenance_window** | block  -  |  -  |  A `maintenance_window` block. | 
-| **var.node_public_ip_access_enabled** | bool  `False`  |  -  |  Is public access enabled on worker nodes. Defaults to `false`. | 
-| **var.node_server_edition** | string  `MemoryOptimized`  |  `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, `MemoryOptimized`  |  The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`. | 
-| **var.node_storage_quota_in_mb** | string  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`  |  The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`. | 
-| **var.node_vcores** | string  -  |  `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96`, `104`  |  The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`. | 
-| **var.point_in_time_in_utc** | string  -  |  -  |  The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created. | 
-| **var.preferred_primary_zone** | string  -  |  -  |  The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster. | 
-| **var.shards_on_coordinator_enabled** | bool  -  |  -  |  Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster. | 
-| **var.source_location** | string  -  |  -  |  The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created. | 
-| **var.source_resource_id** | string  -  |  -  |  The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created. | 
-| **var.sql_version** | string  -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster. | 
+| **var.administrator_login_password** | string |  -  |  -  |  The password of the administrator login. This is required when `source_resource_id` is not set. | 
+| **var.citus_version** | string |  -  |  `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3`, `12.1`  |  The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`. | 
+| **var.coordinator_public_ip_access_enabled** | bool |  `True`  |  -  |  Is public access enabled on coordinator? Defaults to `true`. | 
+| **var.coordinator_server_edition** | string |  `GeneralPurpose`  |  `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, `MemoryOptimized`  |  The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`. | 
+| **var.coordinator_storage_quota_in_mb** | string |  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, `33554432`  |  The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`. | 
+| **var.coordinator_vcore_count** | string |  -  |  `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96`  |  The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`. | 
+| **var.ha_enabled** | bool |  `False`  |  -  |  Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`. | 
+| **var.maintenance_window** | block |  -  |  -  |  A `maintenance_window` block. | 
+| **var.node_public_ip_access_enabled** | bool |  `False`  |  -  |  Is public access enabled on worker nodes. Defaults to `false`. | 
+| **var.node_server_edition** | string |  `MemoryOptimized`  |  `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, `MemoryOptimized`  |  The edition of the node server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `MemoryOptimized`. | 
+| **var.node_storage_quota_in_mb** | string |  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`  |  The storage quota in MB on each worker node. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608` and `16777216`. | 
+| **var.node_vcores** | string |  -  |  `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96`, `104`  |  The vCores count on each worker node. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96` and `104`. | 
+| **var.point_in_time_in_utc** | string |  -  |  -  |  The date and time in UTC (ISO8601 format) for the Azure Cosmos DB for PostgreSQL cluster restore. Changing this forces a new resource to be created. | 
+| **var.preferred_primary_zone** | string |  -  |  -  |  The preferred primary availability zone for the Azure Cosmos DB for PostgreSQL cluster. | 
+| **var.shards_on_coordinator_enabled** | bool |  -  |  -  |  Is shards on coordinator enabled for the Azure Cosmos DB for PostgreSQL cluster. | 
+| **var.source_location** | string |  -  |  -  |  The Azure region of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created. | 
+| **var.source_resource_id** | string |  -  |  -  |  The resource ID of the source Azure Cosmos DB for PostgreSQL cluster for read replica clusters. Changing this forces a new resource to be created. | 
+| **var.sql_version** | string |  -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster. | 
 
 ### `maintenance_window` block structure
 

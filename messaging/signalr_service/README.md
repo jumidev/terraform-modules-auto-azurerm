@@ -35,30 +35,30 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the SignalR service. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created. | 
-| **var.sku** | block  A `sku` block. | 
+| **var.name** | string |  The name of the SignalR service. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the SignalR service. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the SignalR service exists. Changing this forces a new resource to be created. | 
+| **var.sku** | block |  A `sku` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.cors** | block  -  |  -  |  A `cors` block. | 
-| **var.connectivity_logs_enabled** | bool  `False`  |  -  |  Specifies if Connectivity Logs are enabled or not. Defaults to `false`. | 
-| **var.messaging_logs_enabled** | bool  `False`  |  -  |  Specifies if Messaging Logs are enabled or not. Defaults to `false`. | 
-| **var.http_request_logs_enabled** | bool  `False`  |  -  |  Specifies if Http Request Logs are enabled or not. Defaults to `false`. | 
-| **var.live_trace_enabled** | bool  `False`  |  -  |  Specifies if Live Trace is enabled or not. Defaults to `false`. | 
-| **var.identity** | block  -  |  -  |  An `identity` block. | 
-| **var.public_network_access_enabled** | bool  `True`  |  -  |  Whether to enable public network access? Defaults to `true`. | 
-| **var.local_auth_enabled** | bool  `True`  |  -  |  Whether to enable local auth? Defaults to `true`. | 
-| **var.aad_auth_enabled** | bool  `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
-| **var.tls_client_cert_enabled** | bool  `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 
-| **var.serverless_connection_timeout_in_seconds** | int  `30`  |  -  |  Specifies the client connection timeout. Defaults to `30`. | 
-| **var.service_mode** | string  `Default`  |  `Classic`, `Default`, `Serverless`  |  Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`. | 
-| **var.upstream_endpoint** | block  -  |  -  |  An `upstream_endpoint` block. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in. | 
-| **var.live_trace** | block  -  |  -  |  A `live_trace` block. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.cors** | block |  -  |  -  |  A `cors` block. | 
+| **var.connectivity_logs_enabled** | bool |  `False`  |  -  |  Specifies if Connectivity Logs are enabled or not. Defaults to `false`. | 
+| **var.messaging_logs_enabled** | bool |  `False`  |  -  |  Specifies if Messaging Logs are enabled or not. Defaults to `false`. | 
+| **var.http_request_logs_enabled** | bool |  `False`  |  -  |  Specifies if Http Request Logs are enabled or not. Defaults to `false`. | 
+| **var.live_trace_enabled** | bool |  `False`  |  -  |  Specifies if Live Trace is enabled or not. Defaults to `false`. | 
+| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether to enable public network access? Defaults to `true`. | 
+| **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether to enable local auth? Defaults to `true`. | 
+| **var.aad_auth_enabled** | bool |  `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
+| **var.tls_client_cert_enabled** | bool |  `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 
+| **var.serverless_connection_timeout_in_seconds** | int |  `30`  |  -  |  Specifies the client connection timeout. Defaults to `30`. | 
+| **var.service_mode** | string |  `Default`  |  `Classic`, `Default`, `Serverless`  |  Specifies the service mode. Possible values are `Classic`, `Default` and `Serverless`. Defaults to `Default`. | 
+| **var.upstream_endpoint** | block |  -  |  -  |  An `upstream_endpoint` block. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in. | 
+| **var.live_trace** | block |  -  |  -  |  A `live_trace` block. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `sku` block structure
 

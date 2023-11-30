@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.location** | string  -  |  The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created. | 
-| **var.name** | string  -  |  The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created. | 
-| **var.volume_id** | string  -  |  The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created. | 
-| **var.quota_size_in_kib** | string  -  |  Quota size in kibibytes. | 
-| **var.quota_type** | string  `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota`, `IndividualUserQuota`  |  Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  The Azure Region where the Volume Quota Rule should exist. Changing this forces a new Volume Quota Rule to be created. | 
+| **var.name** | string |  -  |  The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created. | 
+| **var.volume_id** | string |  -  |  The NetApp volume ID where the Volume Quota Rule is assigned to. Changing this forces a new resource to be created. | 
+| **var.quota_size_in_kib** | string |  -  |  Quota size in kibibytes. | 
+| **var.quota_type** | string |  `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota`, `IndividualUserQuota`  |  Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.quota_target** | string  Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created. | 
+| **var.quota_target** | string |  Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created. | 
 
 
 

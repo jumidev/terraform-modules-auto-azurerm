@@ -27,17 +27,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.batch_pool_id** | string  The ID of the Batch Pool. Changing this forces a new Batch Job to be created. | 
-| **var.name** | string  The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created. | 
+| **var.batch_pool_id** | string |  The ID of the Batch Pool. Changing this forces a new Batch Job to be created. | 
+| **var.name** | string |  The name which should be used for this Batch Job. Changing this forces a new Batch Job to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.common_environment_properties** | string  -  |  Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created. | 
-| **var.display_name** | string  -  |  The display name of this Batch Job. Changing this forces a new Batch Job to be created. | 
-| **var.task_retry_maximum** | int  -  |  The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. | 
-| **var.priority** | string  `0`  |  The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`. | 
+| **var.common_environment_properties** | string |  -  |  Specifies a map of common environment settings applied to this Batch Job. Changing this forces a new Batch Job to be created. | 
+| **var.display_name** | string |  -  |  The display name of this Batch Job. Changing this forces a new Batch Job to be created. | 
+| **var.task_retry_maximum** | int |  -  |  The number of retries to each Batch Task belongs to this Batch Job. If this is set to `0`, the Batch service does not retry Tasks. If this is set to `-1`, the Batch service retries Batch Tasks without limit. | 
+| **var.priority** | string |  `0`  |  The priority of this Batch Job, possible values can range from -1000 (lowest) to 1000 (highest). Defaults to `0`. | 
 
 
 

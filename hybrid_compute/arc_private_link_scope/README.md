@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The Azure Region where the Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created. | 
-| **var.name** | string  The name which should be used for the Azure Arc Private Link Scope. Changing this forces a new Azure Arc Private Link Scope to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Azure Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created. | 
+| **var.location** | string |  The Azure Region where the Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created. | 
+| **var.name** | string |  The name which should be used for the Azure Arc Private Link Scope. Changing this forces a new Azure Arc Private Link Scope to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Azure Arc Private Link Scope should exist. Changing this forces a new Azure Arc Private Link Scope to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.public_network_access_enabled** | bool  `False`  |  `true`, `false`  |  Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `false`. Possible values are `true` and `false`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Azure Arc Private Link Scope. | 
+| **var.public_network_access_enabled** | bool |  `False`  |  `true`, `false`  |  Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints. Defaults to `false`. Possible values are `true` and `false`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Azure Arc Private Link Scope. | 
 
 
 

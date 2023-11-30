@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created. | 
-| **var.server_name** | string  Specifies the name of the MariaDB Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created. | 
-| **var.charset** | string  Specifies the Charset for the MariaDB Database, which needs [to be a valid MariaDB Charset](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created. | 
-| **var.collation** | string  Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB identifier](https://mariadb.com/kb/en/library/identifier-names/). Changing this forces a new resource to be created. | 
+| **var.server_name** | string |  Specifies the name of the MariaDB Server. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created. | 
+| **var.charset** | string |  Specifies the Charset for the MariaDB Database, which needs [to be a valid MariaDB Charset](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created. | 
+| **var.collation** | string |  Specifies the Collation for the MariaDB Database, which needs [to be a valid MariaDB Collation](https://mariadb.com/kb/en/library/setting-character-sets-and-collations). Changing this forces a new resource to be created. | 
 
 
 

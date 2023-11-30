@@ -43,12 +43,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the JavaScript UDF Function. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string  The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
-| **var.input** | block  One or more `input` blocks. | 
-| **var.output** | block  An `output` blocks. | 
-| **var.script** | string  The JavaScript of this UDF Function. | 
+| **var.name** | string |  The name of the JavaScript UDF Function. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
+| **var.input** | block |  One or more `input` blocks. | 
+| **var.output** | block |  An `output` blocks. | 
+| **var.script** | string |  The JavaScript of this UDF Function. | 
 
 ### `input` block structure
 

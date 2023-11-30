@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string  The name of the SKU to use. At this time the only supported value is `Standard`. | 
+| **var.name** | string |  Specifies the name of the Azure Relay Namespace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Azure Relay Namespace. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the Azure Relay Namespace exists. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string |  The name of the SKU to use. At this time the only supported value is `Standard`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

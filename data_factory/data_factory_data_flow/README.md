@@ -39,21 +39,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created. | 
-| **var.data_factory_id** | string  The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource. | 
-| **var.source** | block  One or more `source` blocks. | 
-| **var.sink** | block  One or more `sink` blocks. | 
+| **var.name** | string |  Specifies the name of the Data Factory Data Flow. Changing this forces a new resource to be created. | 
+| **var.data_factory_id** | string |  The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource. | 
+| **var.source** | block |  One or more `source` blocks. | 
+| **var.sink** | block |  One or more `sink` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.script** | string  The script for the Data Factory Data Flow. | 
-| **var.script_lines** | string  The script lines for the Data Factory Data Flow. | 
-| **var.annotations** | string  List of tags that can be used for describing the Data Factory Data Flow. | 
-| **var.description** | string  The description for the Data Factory Data Flow. | 
-| **var.folder** | string  The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
-| **var.transformation** | block  One or more `transformation` blocks. | 
+| **var.script** | string |  The script for the Data Factory Data Flow. | 
+| **var.script_lines** | string |  The script lines for the Data Factory Data Flow. | 
+| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Data Flow. | 
+| **var.description** | string |  The description for the Data Factory Data Flow. | 
+| **var.folder** | string |  The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
+| **var.transformation** | block |  One or more `transformation` blocks. | 
 
 ### `source` block structure
 

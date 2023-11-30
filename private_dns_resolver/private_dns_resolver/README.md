@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Private DNS Resolver. Changing this forces a new Private DNS Resolver to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created. | 
-| **var.virtual_network_id** | string  The ID of the Virtual Network that is linked to the Private DNS Resolver. Changing this forces a new Private DNS Resolver to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Private DNS Resolver. Changing this forces a new Private DNS Resolver to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Private DNS Resolver should exist. Changing this forces a new Private DNS Resolver to be created. | 
+| **var.virtual_network_id** | string |  The ID of the Virtual Network that is linked to the Private DNS Resolver. Changing this forces a new Private DNS Resolver to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Private DNS Resolver. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Private DNS Resolver. | 
 
 
 

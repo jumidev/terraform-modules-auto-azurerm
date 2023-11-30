@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.key_vault_key_id** | string  The ID of the Key Vault Key to use for encryption. | 
-| **var.log_analytics_cluster_id** | string  The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created. | 
+| **var.key_vault_key_id** | string |  The ID of the Key Vault Key to use for encryption. | 
+| **var.log_analytics_cluster_id** | string |  The ID of the Log Analytics Cluster. Changing this forces a new Log Analytics Cluster Customer Managed Key to be created. | 
 
 
 

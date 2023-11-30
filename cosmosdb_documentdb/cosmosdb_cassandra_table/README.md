@@ -35,18 +35,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created. | 
-| **var.cassandra_keyspace_id** | string  The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created. | 
-| **var.schema** | block  A `schema` block. | 
+| **var.name** | string |  Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created. | 
+| **var.cassandra_keyspace_id** | string |  The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created. | 
+| **var.schema** | block |  A `schema` block. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.throughput** | string  -  |  The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
-| **var.default_ttl** | string  `-1`  |  Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires. | 
-| **var.analytical_storage_ttl** | string  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
-| **var.autoscale_settings** | block  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **var.throughput** | string |  -  |  The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **var.default_ttl** | string |  `-1`  |  Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires. | 
+| **var.analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
+| **var.autoscale_settings** | block |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
 ### `schema` block structure
 

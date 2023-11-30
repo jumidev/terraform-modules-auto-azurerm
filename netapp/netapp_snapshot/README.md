@@ -31,12 +31,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the NetApp Snapshot. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string  The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created. | 
-| **var.pool_name** | string  The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created. | 
-| **var.volume_name** | string  The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the NetApp Snapshot. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group where the NetApp Snapshot should be created. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created. | 
+| **var.pool_name** | string |  The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created. | 
+| **var.volume_name** | string |  The name of the NetApp volume in which the NetApp Snapshot should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 
 

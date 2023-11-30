@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the NetApp Account. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the NetApp Account. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.active_directory** | block  A `active_directory` block. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.active_directory** | block |  A `active_directory` block. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `active_directory` block structure
 

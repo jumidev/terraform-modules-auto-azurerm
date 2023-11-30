@@ -31,19 +31,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string  The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
-| **var.location** | string  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.client_id** | string  The Client ID that will be used to authenticate with Slack. | 
-| **var.client_secret** | string  The Client Secret that will be used to authenticate with Slack. | 
-| **var.verification_token** | string  The Verification Token that will be used to authenticate with Slack. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.client_id** | string |  The Client ID that will be used to authenticate with Slack. | 
+| **var.client_secret** | string |  The Client Secret that will be used to authenticate with Slack. | 
+| **var.verification_token** | string |  The Verification Token that will be used to authenticate with Slack. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.landing_page_url** | string  The Slack Landing Page URL. | 
-| **var.signing_secret** | string  The Signing Secret that will be used to sign the requests. | 
+| **var.landing_page_url** | string |  The Slack Landing Page URL. | 
+| **var.signing_secret** | string |  The Signing Secret that will be used to sign the requests. | 
 
 
 

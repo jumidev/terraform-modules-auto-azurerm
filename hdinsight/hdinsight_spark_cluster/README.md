@@ -54,31 +54,31 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.cluster_version** | string  -  |  Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created. | 
-| **var.component_version** | block  -  |  A `component_version` block. | 
-| **var.gateway** | block  -  |  A `gateway` block. | 
-| **var.roles** | block  -  |  A `roles` block. | 
-| **var.tier** | string  `Standard`, `Premium`  |  Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  Specifies the name for this HDInsight Spark Cluster. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  Specifies the Azure Region which this HDInsight Spark Cluster should exist. Changing this forces a new resource to be created. | 
+| **var.cluster_version** | string |  -  |  Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created. | 
+| **var.component_version** | block |  -  |  A `component_version` block. | 
+| **var.gateway** | block |  -  |  A `gateway` block. | 
+| **var.roles** | block |  -  |  A `roles` block. | 
+| **var.tier** | string |  `Standard`, `Premium`  |  Specifies the Tier which should be used for this HDInsight Spark Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.encryption_in_transit_enabled** | bool  Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created. | 
-| **var.disk_encryption** | block  One or more `disk_encryption` block. | 
-| **var.network** | block  A `network` block. | 
-| **var.compute_isolation** | block  A `compute_isolation` block. | 
-| **var.storage_account** | block  One or more `storage_account` block. | 
-| **var.storage_account_gen2** | block  A `storage_account_gen2` block. | 
-| **var.tls_min_version** | string  The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created. | 
-| **var.tags** | map  A map of Tags which should be assigned to this HDInsight Spark Cluster. | 
-| **var.metastores** | block  A `metastores` block. | 
-| **var.monitor** | block  A `monitor` block. | 
-| **var.extension** | block  An `extension` block. | 
-| **var.security_profile** | block  A `security_profile` block. Changing this forces a new resource to be created. | 
+| **var.encryption_in_transit_enabled** | bool |  Whether encryption in transit is enabled for this Cluster. Changing this forces a new resource to be created. | 
+| **var.disk_encryption** | block |  One or more `disk_encryption` block. | 
+| **var.network** | block |  A `network` block. | 
+| **var.compute_isolation** | block |  A `compute_isolation` block. | 
+| **var.storage_account** | block |  One or more `storage_account` block. | 
+| **var.storage_account_gen2** | block |  A `storage_account_gen2` block. | 
+| **var.tls_min_version** | string |  The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created. | 
+| **var.tags** | map |  A map of Tags which should be assigned to this HDInsight Spark Cluster. | 
+| **var.metastores** | block |  A `metastores` block. | 
+| **var.monitor** | block |  A `monitor` block. | 
+| **var.extension** | block |  An `extension` block. | 
+| **var.security_profile** | block |  A `security_profile` block. Changing this forces a new resource to be created. | 
 
 ### `component_version` block structure
 

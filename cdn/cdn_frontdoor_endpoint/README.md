@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created. | 
-| **var.cdn_frontdoor_profile_id** | string  The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created. | 
+| **var.name** | string |  The name which should be used for this Front Door Endpoint. Changing this forces a new Front Door Endpoint to be created. | 
+| **var.cdn_frontdoor_profile_id** | string |  The ID of the Front Door Profile within which this Front Door Endpoint should exist. Changing this forces a new Front Door Endpoint to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  Specifies if this Front Door Endpoint is enabled? Defaults to `true`. | 
-| **var.tags** | map  -  |  Specifies a mapping of tags which should be assigned to the Front Door Endpoint. | 
+| **var.enabled** | bool |  `True`  |  Specifies if this Front Door Endpoint is enabled? Defaults to `true`. | 
+| **var.tags** | map |  -  |  Specifies a mapping of tags which should be assigned to the Front Door Endpoint. | 
 
 
 

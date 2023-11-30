@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created. | 
-| **var.name** | string  Specifies the name of this Load Test. Changing this forces a new Load Test to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created. | 
+| **var.location** | string |  The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created. | 
+| **var.name** | string |  Specifies the name of this Load Test. Changing this forces a new Load Test to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  Description of the resource. Changing this forces a new Load Test to be created. | 
-| **var.identity** | block  An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Load Test. | 
+| **var.description** | string |  Description of the resource. Changing this forces a new Load Test to be created. | 
+| **var.identity** | block |  An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Load Test. | 
 
 ### `identity` block structure
 

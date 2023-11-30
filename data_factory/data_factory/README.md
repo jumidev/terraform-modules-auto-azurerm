@@ -28,24 +28,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Data Factory. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Data Factory. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.github_configuration** | block  -  |  A `github_configuration` block. | 
-| **var.global_parameter** | block  -  |  A list of `global_parameter` blocks. | 
-| **var.identity** | block  -  |  An `identity` block. | 
-| **var.vsts_configuration** | block  -  |  A `vsts_configuration` block. | 
-| **var.managed_virtual_network_enabled** | bool  -  |  Is Managed Virtual Network enabled? | 
-| **var.public_network_enabled** | bool  `True`  |  Is the Data Factory visible to the public network? Defaults to `true`. | 
-| **var.customer_managed_key_id** | string  -  |  Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity. | 
-| **var.customer_managed_key_identity_id** | string  -  |  Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set. | 
-| **var.purview_id** | string  -  |  Specifies the ID of the purview account resource associated with the Data Factory. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.github_configuration** | block |  -  |  A `github_configuration` block. | 
+| **var.global_parameter** | block |  -  |  A list of `global_parameter` blocks. | 
+| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.vsts_configuration** | block |  -  |  A `vsts_configuration` block. | 
+| **var.managed_virtual_network_enabled** | bool |  -  |  Is Managed Virtual Network enabled? | 
+| **var.public_network_enabled** | bool |  `True`  |  Is the Data Factory visible to the public network? Defaults to `true`. | 
+| **var.customer_managed_key_id** | string |  -  |  Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity. | 
+| **var.customer_managed_key_identity_id** | string |  -  |  Specifies the ID of the user assigned identity associated with the Customer Managed Key. Must be supplied if `customer_managed_key_id` is set. | 
+| **var.purview_id** | string |  -  |  Specifies the ID of the purview account resource associated with the Data Factory. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `github_configuration` block structure
 

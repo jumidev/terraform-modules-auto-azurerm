@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
-| **var.name** | string  Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
+| **var.location** | string |  The Azure Region where the User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
+| **var.name** | string |  Specifies the name of this User Assigned Identity. Changing this forces a new User Assigned Identity to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group within which this User Assigned Identity should exist. Changing this forces a new User Assigned Identity to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the User Assigned Identity. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the User Assigned Identity. | 
 
 
 

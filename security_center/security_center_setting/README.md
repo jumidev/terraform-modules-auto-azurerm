@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.setting_name** | string  `MCAS`, `WDATP`, `SENTINEL`  |  The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool  -  |  Boolean flag to enable/disable data access. | 
+| **var.setting_name** | string |  `MCAS`, `WDATP`, `SENTINEL`  |  The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created. | 
+| **var.enabled** | bool |  -  |  Boolean flag to enable/disable data access. | 
 
 
 

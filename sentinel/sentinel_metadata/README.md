@@ -30,32 +30,32 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.content_id** | string  -  |  The ID of the content. Used to identify dependencies and content from solutions or community. | 
-| **var.kind** | string  `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook`, `WorkbookTemplate`  |  The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`. | 
-| **var.name** | string  -  |  The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created. | 
-| **var.parent_id** | string  -  |  The ID of the parent resource ID of the content item, which the metadata belongs to. | 
-| **var.workspace_id** | string  -  |  The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created. | 
+| **var.content_id** | string |  -  |  The ID of the content. Used to identify dependencies and content from solutions or community. | 
+| **var.kind** | string |  `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook`, `WorkbookTemplate`  |  The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`. | 
+| **var.name** | string |  -  |  The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created. | 
+| **var.parent_id** | string |  -  |  The ID of the parent resource ID of the content item, which the metadata belongs to. | 
+| **var.workspace_id** | string |  -  |  The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.author** | block  -  |  An `author` blocks. | 
-| **var.category** | block  -  |  A `category` block. | 
-| **var.content_schema_version** | string  -  |  Schema version of the content. Can be used to distinguish between flow based on the schema version. | 
-| **var.custom_version** | string  -  |  The Custom version of the content. | 
-| **var.dependency** | block  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
-| **var.first_publish_date** | datetime  -  |  The first publish date of solution content item. | 
-| **var.icon_id** | string  -  |  The ID of the icon, this id can be fetched from the solution template. | 
-| **var.last_publish_date** | datetime  -  |  The last publish date of solution content item. | 
-| **var.preview_images** | string  -  |  Specifies a list of preview image file names. These will be taken from solution artifacts. | 
-| **var.preview_images_dark** | string  -  |  Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts. | 
-| **var.providers** | string  -  |  Specifies a list of providers for the solution content item. | 
-| **var.source** | block  -  |  A `source` block. | 
-| **var.support** | block  -  |  A `support` block. | 
-| **var.threat_analysis_tactics** | string  `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`  |  Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`. | 
-| **var.threat_analysis_techniques** | string  -  |  Specifies a list of techniques the resource covers. | 
-| **var.version** | string  -  |  Version of the content. | 
+| **var.author** | block |  -  |  An `author` blocks. | 
+| **var.category** | block |  -  |  A `category` block. | 
+| **var.content_schema_version** | string |  -  |  Schema version of the content. Can be used to distinguish between flow based on the schema version. | 
+| **var.custom_version** | string |  -  |  The Custom version of the content. | 
+| **var.dependency** | block |  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
+| **var.first_publish_date** | datetime |  -  |  The first publish date of solution content item. | 
+| **var.icon_id** | string |  -  |  The ID of the icon, this id can be fetched from the solution template. | 
+| **var.last_publish_date** | datetime |  -  |  The last publish date of solution content item. | 
+| **var.preview_images** | string |  -  |  Specifies a list of preview image file names. These will be taken from solution artifacts. | 
+| **var.preview_images_dark** | string |  -  |  Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts. | 
+| **var.providers** | string |  -  |  Specifies a list of providers for the solution content item. | 
+| **var.source** | block |  -  |  A `source` block. | 
+| **var.support** | block |  -  |  A `support` block. | 
+| **var.threat_analysis_tactics** | string |  `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`  |  Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`. | 
+| **var.threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
+| **var.version** | string |  -  |  Version of the content. | 
 
 ### `author` block structure
 

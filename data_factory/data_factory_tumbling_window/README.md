@@ -36,26 +36,26 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created. | 
-| **var.data_factory_id** | string  -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
-| **var.frequency** | string  `Hour`, `Minute`, `Month`  |  Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource. | 
-| **var.interval** | string  -  |  Specifies the interval of Tumbling Window. Changing this forces a new resource. | 
-| **var.pipeline** | block  -  |  A `pipeline` block. | 
-| **var.start_time** | string  -  |  Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource. | 
+| **var.name** | string |  -  |  Specifies the name of the Data Factory Tumbling Window Trigger. Changing this forces a new resource to be created. | 
+| **var.data_factory_id** | string |  -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
+| **var.frequency** | string |  `Hour`, `Minute`, `Month`  |  Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource. | 
+| **var.interval** | string |  -  |  Specifies the interval of Tumbling Window. Changing this forces a new resource. | 
+| **var.pipeline** | block |  -  |  A `pipeline` block. | 
+| **var.start_time** | string |  -  |  Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.activated** | bool  `True`  |  -  |  Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`. | 
-| **var.additional_properties** | string  -  |  -  |  A map of additional properties to associate with the Data Factory Tumbling Window Trigger. | 
-| **var.annotations** | string  -  |  -  |  List of tags that can be used for describing the Data Factory Tumbling Window Trigger. | 
-| **var.delay** | string  -  |  -  |  Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`. | 
-| **var.description** | string  -  |  -  |  The description for the Data Factory Tumbling Window Trigger. | 
-| **var.end_time** | string  -  |  -  |  Specifies the end time of Tumbling Window, formatted as an RFC3339 string. | 
-| **var.max_concurrency** | string  `50`  |  `1`, `50`  |  The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`. | 
-| **var.retry** | block  -  |  -  |  A `retry` block. | 
-| **var.trigger_dependency** | block  -  |  -  |  One or more `trigger_dependency` block. | 
+| **var.activated** | bool |  `True`  |  -  |  Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`. | 
+| **var.additional_properties** | string |  -  |  -  |  A map of additional properties to associate with the Data Factory Tumbling Window Trigger. | 
+| **var.annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Tumbling Window Trigger. | 
+| **var.delay** | string |  -  |  -  |  Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`. | 
+| **var.description** | string |  -  |  -  |  The description for the Data Factory Tumbling Window Trigger. | 
+| **var.end_time** | string |  -  |  -  |  Specifies the end time of Tumbling Window, formatted as an RFC3339 string. | 
+| **var.max_concurrency** | string |  `50`  |  `1`, `50`  |  The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`. | 
+| **var.retry** | block |  -  |  -  |  A `retry` block. | 
+| **var.trigger_dependency** | block |  -  |  -  |  One or more `trigger_dependency` block. | 
 
 ### `pipeline` block structure
 

@@ -29,18 +29,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created. | 
-| **var.lab_id** | string  The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created. | 
-| **var.stop_time** | string  When Lab User Virtual Machines will be stopped in RFC-3339 format. | 
-| **var.time_zone** | string  The IANA Time Zone ID for the Schedule. | 
+| **var.name** | string |  The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created. | 
+| **var.lab_id** | string |  The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created. | 
+| **var.stop_time** | string |  When Lab User Virtual Machines will be stopped in RFC-3339 format. | 
+| **var.time_zone** | string |  The IANA Time Zone ID for the Schedule. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.notes** | string  The notes for the Schedule. | 
-| **var.recurrence** | block  A `recurrence` block. | 
-| **var.start_time** | string  When Lab User Virtual Machines will be started in RFC-3339 format. | 
+| **var.notes** | string |  The notes for the Schedule. | 
+| **var.recurrence** | block |  A `recurrence` block. | 
+| **var.start_time** | string |  When Lab User Virtual Machines will be started in RFC-3339 format. | 
 
 ### `recurrence` block structure
 

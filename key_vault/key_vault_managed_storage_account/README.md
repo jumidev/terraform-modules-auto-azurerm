@@ -29,18 +29,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created. | 
-| **var.key_vault_id** | string  -  |  The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string  -  |  The ID of the Storage Account. | 
-| **var.storage_account_key** | string  `key1`, `key2`  |  Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`. | 
+| **var.name** | string |  -  |  The name which should be used for this Key Vault Managed Storage Account. Changing this forces a new Key Vault Managed Storage Account to be created. | 
+| **var.key_vault_id** | string |  -  |  The ID of the Key Vault where the Managed Storage Account should be created. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string |  -  |  The ID of the Storage Account. | 
+| **var.storage_account_key** | string |  `key1`, `key2`  |  Which Storage Account access key that is managed by Key Vault. Possible values are `key1` and `key2`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.regenerate_key_automatically** | string  Should Storage Account access key be regenerated periodically? | 
-| **var.regeneration_period** | string  How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations). | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created. | 
+| **var.regenerate_key_automatically** | string |  Should Storage Account access key be regenerated periodically? | 
+| **var.regeneration_period** | string |  How often Storage Account access key should be regenerated. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations). | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Key Vault Managed Storage Account. Changing this forces a new resource to be created. | 
 
 
 

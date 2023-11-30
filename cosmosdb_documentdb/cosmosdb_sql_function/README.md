@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created. | 
-| **var.container_id** | string  The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created. | 
-| **var.body** | string  Body of the User Defined Function. | 
+| **var.name** | string |  The name which should be used for this SQL User Defined Function. Changing this forces a new SQL User Defined Function to be created. | 
+| **var.container_id** | string |  The id of the Cosmos DB SQL Container to create the SQL User Defined Function within. Changing this forces a new SQL User Defined Function to be created. | 
+| **var.body** | string |  Body of the User Defined Function. | 
 
 
 

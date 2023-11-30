@@ -26,16 +26,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.logz_sub_account_id** | string  The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created. | 
+| **var.logz_sub_account_id** | string |  The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tag_filter** | block  One or more (up to 10) `tag_filter` blocks. | 
-| **var.send_aad_logs** | string  Whether AAD logs should be sent to the Monitor resource? | 
-| **var.send_activity_logs** | string  Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource? | 
-| **var.send_subscription_logs** | string  Whether subscription logs should be sent to the Monitor resource? | 
+| **var.tag_filter** | block |  One or more (up to 10) `tag_filter` blocks. | 
+| **var.send_aad_logs** | string |  Whether AAD logs should be sent to the Monitor resource? | 
+| **var.send_activity_logs** | string |  Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource? | 
+| **var.send_subscription_logs** | string |  Whether subscription logs should be sent to the Monitor resource? | 
 
 ### `tag_filter` block structure
 

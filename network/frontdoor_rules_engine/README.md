@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Rules engine configuration. Changing this forces a new resource to be created. | 
-| **var.frontdoor_name** | string  The name of the Front Door instance. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the Rules engine configuration. Changing this forces a new resource to be created. | 
+| **var.frontdoor_name** | string |  The name of the Front Door instance. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
-| **var.rule** | block  -  |  A `rule` block. | 
+| **var.enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
+| **var.rule** | block |  -  |  A `rule` block. | 
 
 ### `rule` block structure
 

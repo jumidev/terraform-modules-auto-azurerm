@@ -35,20 +35,20 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the policy set definition. Changing this forces a new resource to be created. | 
-| **var.policy_type** | string  `BuiltIn`, `Custom`, `NotSpecified`, `Static`  |  The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created. | 
-| **var.display_name** | string  -  |  The display name of the policy set definition. | 
-| **var.policy_definition_reference** | block  -  |  One or more `policy_definition_reference` blocks. | 
+| **var.name** | string |  -  |  The name of the policy set definition. Changing this forces a new resource to be created. | 
+| **var.policy_type** | string |  `BuiltIn`, `Custom`, `NotSpecified`, `Static`  |  The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created. | 
+| **var.display_name** | string |  -  |  The display name of the policy set definition. | 
+| **var.policy_definition_reference** | block |  -  |  One or more `policy_definition_reference` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.policy_definition_group** | block  One or more `policy_definition_group` blocks. | 
-| **var.description** | string  The description of the policy set definition. | 
-| **var.management_group_id** | string  The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created. | 
-| **var.metadata** | string  The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition. | 
-| **var.parameters** | string  Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition. | 
+| **var.policy_definition_group** | block |  One or more `policy_definition_group` blocks. | 
+| **var.description** | string |  The description of the policy set definition. | 
+| **var.management_group_id** | string |  The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created. | 
+| **var.metadata** | string |  The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition. | 
+| **var.parameters** | string |  Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition. | 
 
 ### `policy_definition_reference` block structure
 

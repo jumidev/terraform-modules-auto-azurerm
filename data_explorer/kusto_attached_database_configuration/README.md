@@ -31,19 +31,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created. | 
-| **var.cluster_name** | string  Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created. | 
-| **var.cluster_resource_id** | string  The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created. | 
-| **var.database_name** | string  The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the location of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created. | 
+| **var.cluster_name** | string |  Specifies the name of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created. | 
+| **var.cluster_resource_id** | string |  The resource id of the cluster where the databases you would like to attach reside. Changing this forces a new resource to be created. | 
+| **var.database_name** | string |  The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.default_principal_modification_kind** | string  `None`  |  `None`, `Replace`, `Union`  |  The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`. | 
-| **var.sharing** | block  -  |  -  |  A `sharing` block. | 
+| **var.default_principal_modification_kind** | string |  `None`  |  `None`, `Replace`, `Union`  |  The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`. | 
+| **var.sharing** | block |  -  |  -  |  A `sharing` block. | 
 
 ### `sharing` block structure
 

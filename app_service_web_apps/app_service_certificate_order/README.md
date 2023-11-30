@@ -28,20 +28,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the certificate. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the certificate. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`. | 
+| **var.name** | string |  Specifies the name of the certificate. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the certificate. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.auto_renew** | bool  `True`  |  true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`. | 
-| **var.csr** | string  -  |  Last CSR that was created for this order. | 
-| **var.distinguished_name** | string  -  |  The Distinguished Name for the App Service Certificate Order. | 
-| **var.key_size** | string  `2048`  |  Certificate key size. Defaults to `2048`. | 
-| **var.product_type** | string  `Standard`  |  Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`. | 
-| **var.validity_in_years** | string  `1`  |  Duration in years (must be between `1` and `3`). Defaults to `1`. | 
+| **var.auto_renew** | bool |  `True`  |  true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`. | 
+| **var.csr** | string |  -  |  Last CSR that was created for this order. | 
+| **var.distinguished_name** | string |  -  |  The Distinguished Name for the App Service Certificate Order. | 
+| **var.key_size** | string |  `2048`  |  Certificate key size. Defaults to `2048`. | 
+| **var.product_type** | string |  `Standard`  |  Certificate product type, such as `Standard` or `WildCard`. Defaults to `Standard`. | 
+| **var.validity_in_years** | string |  `1`  |  Duration in years (must be between `1` and `3`). Defaults to `1`. | 
 
 
 

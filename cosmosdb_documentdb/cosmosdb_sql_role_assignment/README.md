@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string  The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string  The name of the Cosmos DB Account. Changing this forces a new resource to be created. | 
-| **var.principal_id** | string  The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created. | 
-| **var.role_definition_id** | string  The resource ID of the Cosmos DB SQL Role Definition. | 
-| **var.scope** | string  The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group in which the Cosmos DB SQL Role Assignment is created. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  The name of the Cosmos DB Account. Changing this forces a new resource to be created. | 
+| **var.principal_id** | string |  The ID of the Principal (Client) in Azure Active Directory. Changing this forces a new resource to be created. | 
+| **var.role_definition_id** | string |  The resource ID of the Cosmos DB SQL Role Definition. | 
+| **var.scope** | string |  The data plane resource path for which access is being granted through this Cosmos DB SQL Role Assignment. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The GUID as the name of the Cosmos DB SQL Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created. | 
 
 
 

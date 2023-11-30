@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.user_id** | string  The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created. | 
-| **var.group_name** | string  The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string  The name of the API Management Service. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.user_id** | string |  The ID of the API Management User which should be assigned to this API Management Group. Changing this forces a new resource to be created. | 
+| **var.group_name** | string |  The Name of the API Management Group within the API Management Service. Changing this forces a new resource to be created. | 
+| **var.api_management_name** | string |  The name of the API Management Service. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
 
 
 

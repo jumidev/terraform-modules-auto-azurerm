@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.mssql_server_id** | string  The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created. | 
-| **var.name** | string  The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created. | 
+| **var.mssql_server_id** | string |  The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created. | 
+| **var.name** | string |  The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created. | 
 
 
 

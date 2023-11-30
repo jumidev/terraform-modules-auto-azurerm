@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the Azure Maps Account. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string  `S0`, `S1`, `G2`  |  The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  The name of the Azure Maps Account. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group in which the Azure Maps Account should exist. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string |  `S0`, `S1`, `G2`  |  The SKU of the Azure Maps Account. Possible values are `S0`, `S1` and `G2`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.local_authentication_enabled** | bool  `True`  |  Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the Azure Maps Account. | 
+| **var.local_authentication_enabled** | bool |  `True`  |  Is local authentication enabled for this Azure Maps Account? When `false`, all authentication to the Azure Maps data-plane REST API is disabled, except Azure AD authentication. Defaults to `true`. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the Azure Maps Account. | 
 
 
 

@@ -30,21 +30,21 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Managed Application. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.kind** | string  `MarketPlace`, `ServiceCatalog`  |  The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created. | 
-| **var.managed_resource_group_name** | string  -  |  The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  Specifies the name of the Managed Application. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.kind** | string |  `MarketPlace`, `ServiceCatalog`  |  The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created. | 
+| **var.managed_resource_group_name** | string |  -  |  The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.application_definition_id** | string  The application definition ID to deploy. | 
-| **var.parameters** | string  A mapping of name and value pairs to pass to the managed application as parameters. | 
-| **var.parameter_values** | string  The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application. | 
-| **var.plan** | block  One `plan` block. Changing this forces a new resource to be created. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.application_definition_id** | string |  The application definition ID to deploy. | 
+| **var.parameters** | string |  A mapping of name and value pairs to pass to the managed application as parameters. | 
+| **var.parameter_values** | string |  The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application. | 
+| **var.plan** | block |  One `plan` block. Changing this forces a new resource to be created. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `plan` block structure
 

@@ -30,18 +30,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created. | 
-| **var.namespace_type** | string  `Messaging`, `NotificationHub`  |  The Type of Namespace - possible values are `Messaging` or `NotificationHub`. | 
-| **var.sku_name** | string  `Free`, `Basic`, `Standard`  |  The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. | 
+| **var.name** | string |  -  |  The name to use for this Notification Hub Namespace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group in which the Notification Hub Namespace should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  The Azure Region in which this Notification Hub Namespace should be created. Changing this forces a new resource to be created. | 
+| **var.namespace_type** | string |  `Messaging`, `NotificationHub`  |  The Type of Namespace - possible values are `Messaging` or `NotificationHub`. | 
+| **var.sku_name** | string |  `Free`, `Basic`, `Standard`  |  The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  Is this Notification Hub Namespace enabled? Defaults to `true`. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.enabled** | bool |  `True`  |  Is this Notification Hub Namespace enabled? Defaults to `true`. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 
 

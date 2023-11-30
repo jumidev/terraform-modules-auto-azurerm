@@ -28,28 +28,28 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Action Group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created. | 
-| **var.short_name** | string  The short name of the action group. This will be used in SMS messages. | 
+| **var.name** | string |  The name of the Action Group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created. | 
+| **var.short_name** | string |  The short name of the action group. This will be used in SMS messages. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`. | 
-| **var.arm_role_receiver** | block  -  |  One or more `arm_role_receiver` blocks. | 
-| **var.automation_runbook_receiver** | block  -  |  One or more `automation_runbook_receiver` blocks. | 
-| **var.azure_app_push_receiver** | block  -  |  One or more `azure_app_push_receiver` blocks. | 
-| **var.azure_function_receiver** | block  -  |  One or more `azure_function_receiver` blocks. | 
-| **var.email_receiver** | block  -  |  One or more `email_receiver` blocks. | 
-| **var.event_hub_receiver** | block  -  |  One or more `event_hub_receiver` blocks. | 
-| **var.itsm_receiver** | block  -  |  One or more `itsm_receiver` blocks. | 
-| **var.location** | string  `global`  |  The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`. | 
-| **var.logic_app_receiver** | block  -  |  One or more `logic_app_receiver` blocks. | 
-| **var.sms_receiver** | block  -  |  One or more `sms_receiver` blocks. | 
-| **var.voice_receiver** | block  -  |  One or more `voice_receiver` blocks. | 
-| **var.webhook_receiver** | block  -  |  One or more `webhook_receiver` blocks. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.enabled** | bool |  `True`  |  Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`. | 
+| **var.arm_role_receiver** | block |  -  |  One or more `arm_role_receiver` blocks. | 
+| **var.automation_runbook_receiver** | block |  -  |  One or more `automation_runbook_receiver` blocks. | 
+| **var.azure_app_push_receiver** | block |  -  |  One or more `azure_app_push_receiver` blocks. | 
+| **var.azure_function_receiver** | block |  -  |  One or more `azure_function_receiver` blocks. | 
+| **var.email_receiver** | block |  -  |  One or more `email_receiver` blocks. | 
+| **var.event_hub_receiver** | block |  -  |  One or more `event_hub_receiver` blocks. | 
+| **var.itsm_receiver** | block |  -  |  One or more `itsm_receiver` blocks. | 
+| **var.location** | string |  `global`  |  The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`. | 
+| **var.logic_app_receiver** | block |  -  |  One or more `logic_app_receiver` blocks. | 
+| **var.sms_receiver** | block |  -  |  One or more `sms_receiver` blocks. | 
+| **var.voice_receiver** | block |  -  |  One or more `voice_receiver` blocks. | 
+| **var.webhook_receiver** | block |  -  |  One or more `webhook_receiver` blocks. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `arm_role_receiver` block structure
 

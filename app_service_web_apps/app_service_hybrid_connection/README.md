@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.app_service_name** | string  Specifies the name of the App Service. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the App Service. Changing this forces a new resource to be created. | 
-| **var.relay_id** | string  The ID of the Service Bus Relay. Changing this forces a new resource to be created. | 
-| **var.hostname** | string  The hostname of the endpoint. | 
-| **var.port** | string  The port of the endpoint. | 
+| **var.app_service_name** | string |  Specifies the name of the App Service. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the App Service. Changing this forces a new resource to be created. | 
+| **var.relay_id** | string |  The ID of the Service Bus Relay. Changing this forces a new resource to be created. | 
+| **var.hostname** | string |  The hostname of the endpoint. | 
+| **var.port** | string |  The port of the endpoint. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.send_key_name** | string  `RootManageSharedAccessKey`  |  The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`. | 
+| **var.send_key_name** | string |  `RootManageSharedAccessKey`  |  The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`. | 
 
 
 

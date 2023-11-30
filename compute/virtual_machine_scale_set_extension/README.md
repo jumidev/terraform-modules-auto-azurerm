@@ -30,24 +30,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created. | 
-| **var.virtual_machine_scale_set_id** | string  The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created. | 
-| **var.publisher** | string  Specifies the Publisher of the Extension. Changing this forces a new resource to be created. | 
-| **var.type** | string  Specifies the Type of the Extension. Changing this forces a new resource to be created. | 
-| **var.type_handler_version** | string  Specifies the version of the extension to use, available versions can be found using the Azure CLI. | 
+| **var.name** | string |  The name for the Virtual Machine Scale Set Extension. Changing this forces a new resource to be created. | 
+| **var.virtual_machine_scale_set_id** | string |  The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created. | 
+| **var.publisher** | string |  Specifies the Publisher of the Extension. Changing this forces a new resource to be created. | 
+| **var.type** | string |  Specifies the Type of the Extension. Changing this forces a new resource to be created. | 
+| **var.type_handler_version** | string |  Specifies the version of the extension to use, available versions can be found using the Azure CLI. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.auto_upgrade_minor_version** | bool  `True`  |  -  |  Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`. | 
-| **var.automatic_upgrade_enabled** | bool  -  |  -  |  Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? | 
-| **var.failure_suppression_enabled** | bool  `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
-| **var.force_update_tag** | string  -  |  -  |  A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. | 
-| **var.protected_settings** | string  -  |  -  |  A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. | 
-| **var.protected_settings_from_key_vault** | block  -  |  -  |  A `protected_settings_from_key_vault` block. | 
-| **var.provision_after_extensions** | string  -  |  -  |  An ordered list of Extension names which this should be provisioned after. | 
-| **var.settings** | string  -  |  -  |  A JSON String which specifies Settings for the Extension. | 
+| **var.auto_upgrade_minor_version** | bool |  `True`  |  -  |  Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`. | 
+| **var.automatic_upgrade_enabled** | bool |  -  |  -  |  Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? | 
+| **var.failure_suppression_enabled** | bool |  `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
+| **var.force_update_tag** | string |  -  |  -  |  A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. | 
+| **var.protected_settings** | string |  -  |  -  |  A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. | 
+| **var.protected_settings_from_key_vault** | block |  -  |  -  |  A `protected_settings_from_key_vault` block. | 
+| **var.provision_after_extensions** | string |  -  |  -  |  An ordered list of Extension names which this should be provisioned after. | 
+| **var.settings** | string |  -  |  -  |  A JSON String which specifies Settings for the Extension. | 
 
 ### `protected_settings_from_key_vault` block structure
 

@@ -35,9 +35,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.source_storage_account_id** | string  The ID of the source storage account. Changing this forces a new Storage Object Replication to be created. | 
-| **var.destination_storage_account_id** | string  The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created. | 
-| **var.rules** | block  One or more `rules` blocks. | 
+| **var.source_storage_account_id** | string |  The ID of the source storage account. Changing this forces a new Storage Object Replication to be created. | 
+| **var.destination_storage_account_id** | string |  The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created. | 
+| **var.rules** | block |  One or more `rules` blocks. | 
 
 ### `rules` block structure
 

@@ -39,22 +39,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Network Watcher Flow Log. Changing this forces a new resource to be created. | 
-| **var.network_watcher_name** | string  The name of the Network Watcher. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created. | 
-| **var.network_security_group_id** | string  The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string  The ID of the Storage Account where flow logs are stored. | 
-| **var.enabled** | bool  Should Network Flow Logging be Enabled? | 
-| **var.retention_policy** | block  A `retention_policy` block. | 
+| **var.name** | string |  The name of the Network Watcher Flow Log. Changing this forces a new resource to be created. | 
+| **var.network_watcher_name** | string |  The name of the Network Watcher. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the Network Watcher was deployed. Changing this forces a new resource to be created. | 
+| **var.network_security_group_id** | string |  The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string |  The ID of the Storage Account where flow logs are stored. | 
+| **var.enabled** | bool |  Should Network Flow Logging be Enabled? | 
+| **var.retention_policy** | block |  A `retention_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.location** | string  `location`  |  -  |  The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher. | 
-| **var.traffic_analytics** | block  -  |  -  |  A `traffic_analytics` block. | 
-| **var.version** | string  -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
+| **var.location** | string |  `location`  |  -  |  The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher. | 
+| **var.traffic_analytics** | block |  -  |  -  |  A `traffic_analytics` block. | 
+| **var.version** | string |  -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
 
 ### `retention_policy` block structure
 

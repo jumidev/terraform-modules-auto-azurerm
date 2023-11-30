@@ -29,23 +29,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created. | 
-| **var.spring_cloud_app_id** | string  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created. | 
-| **var.image** | string  Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry. | 
-| **var.server** | string  The name of the registry that contains the container image. | 
+| **var.name** | string |  The name which should be used for this Spring Cloud Container Deployment. Changing this forces a new Spring Cloud Container Deployment to be created. | 
+| **var.spring_cloud_app_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Container Deployment to be created. | 
+| **var.image** | string |  Container image of the custom container. This should be in the form of `<repository>:<tag>` without the server name of the registry. | 
+| **var.server** | string |  The name of the registry that contains the container image. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.addon_json** | string  -  |  A JSON object that contains the addon configurations of the Spring Cloud Container Deployment. | 
-| **var.application_performance_monitoring_ids** | string  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
-| **var.arguments** | string  -  |  Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified. | 
-| **var.commands** | string  -  |  Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified. | 
-| **var.environment_variables** | string  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
-| **var.instance_count** | int  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
-| **var.language_framework** | string  -  |  Specifies the language framework of the container image. The only possible value is `springboot`. | 
-| **var.quota** | block  -  |  A `quota` block. | 
+| **var.addon_json** | string |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Container Deployment. | 
+| **var.application_performance_monitoring_ids** | string |  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
+| **var.arguments** | string |  -  |  Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified. | 
+| **var.commands** | string |  -  |  Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified. | 
+| **var.environment_variables** | string |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
+| **var.instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
+| **var.language_framework** | string |  -  |  Specifies the language framework of the container image. The only possible value is `springboot`. | 
+| **var.quota** | block |  -  |  A `quota` block. | 
 
 ### `quota` block structure
 

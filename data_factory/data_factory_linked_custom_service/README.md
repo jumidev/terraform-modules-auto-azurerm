@@ -29,20 +29,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.type** | string  The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created. | 
-| **var.type_properties_json** | string  A JSON object that contains the properties of the Data Factory Linked Service. | 
+| **var.name** | string |  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **var.type** | string |  The type of data stores that will be connected to Data Factory. For full list of supported data stores, please refer to [Azure Data Factory connector](https://docs.microsoft.com/azure/data-factory/connector-overview). Changing this forces a new resource to be created. | 
+| **var.type_properties_json** | string |  A JSON object that contains the properties of the Data Factory Linked Service. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.additional_properties** | string  A map of additional properties to associate with the Data Factory Linked Service. | 
-| **var.annotations** | string  List of tags that can be used for describing the Data Factory Linked Service. | 
-| **var.description** | string  The description for the Data Factory Linked Service. | 
-| **var.integration_runtime** | block  An `integration_runtime` block. | 
-| **var.parameters** | string  A map of parameters to associate with the Data Factory Linked Service. | 
+| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service. | 
+| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service. | 
+| **var.description** | string |  The description for the Data Factory Linked Service. | 
+| **var.integration_runtime** | block |  An `integration_runtime` block. | 
+| **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service. | 
 
 ### `integration_runtime` block structure
 

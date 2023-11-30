@@ -40,21 +40,21 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the contact profile. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  The location where the contact profile exists. Changing this forces a new resource to be created. | 
-| **var.minimum_variable_contact_duration** | string  -  |  Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station. | 
-| **var.auto_tracking** | string  `disabled`, `xBand`, `sBand`  |  Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`. | 
-| **var.network_configuration_subnet_id** | string  -  |  ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created. | 
-| **var.links** | block  -  |  A list of spacecraft links. A `links` block. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  The name of the contact profile. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the contact profile exists. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  The location where the contact profile exists. Changing this forces a new resource to be created. | 
+| **var.minimum_variable_contact_duration** | string |  -  |  Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station. | 
+| **var.auto_tracking** | string |  `disabled`, `xBand`, `sBand`  |  Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`. | 
+| **var.network_configuration_subnet_id** | string |  -  |  ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created. | 
+| **var.links** | block |  -  |  A list of spacecraft links. A `links` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.event_hub_uri** | string  ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub. | 
-| **var.minimum_elevation_degrees** | string  Maximum elevation of the antenna during the contact in decimal degrees. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.event_hub_uri** | string |  ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub. | 
+| **var.minimum_elevation_degrees** | string |  Maximum elevation of the antenna during the contact in decimal degrees. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `links` block structure
 

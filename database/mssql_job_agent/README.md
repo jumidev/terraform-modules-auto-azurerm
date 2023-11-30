@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
-| **var.location** | string  The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created. | 
-| **var.database_id** | string  The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
+| **var.name** | string |  The name which should be used for this Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
+| **var.location** | string |  The Azure Region where the Elastic Job Agent should exist. Changing this forces a new Elastic Job Agent to be created. | 
+| **var.database_id** | string |  The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Database. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Database. | 
 
 
 

@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created. | 
-| **var.api_management_id** | string  The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created. | 
-| **var.connection_string** | string  The connection string to the Cache for Redis. | 
+| **var.name** | string |  The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created. | 
+| **var.api_management_id** | string |  The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created. | 
+| **var.connection_string** | string |  The connection string to the Cache for Redis. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.description** | string  -  |  -  |  The description of the API Management Redis Cache. | 
-| **var.redis_cache_id** | string  -  |  -  |  The resource ID of the Cache for Redis. | 
-| **var.cache_location** | string  `default`  |  `default`  |  The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`. | 
+| **var.description** | string |  -  |  -  |  The description of the API Management Redis Cache. | 
+| **var.redis_cache_id** | string |  -  |  -  |  The resource ID of the Cache for Redis. | 
+| **var.cache_location** | string |  `default`  |  `default`  |  The location where to use cache from. Possible values are `default` and valid Azure regions. Defaults to `default`. | 
 
 
 

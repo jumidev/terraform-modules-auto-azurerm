@@ -27,16 +27,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.backend_address_pool_id** | string  The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created. | 
-| **var.name** | string  The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created. | 
+| **var.backend_address_pool_id** | string |  The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created. | 
+| **var.name** | string |  The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.ip_address** | string  The Static IP Address which should be allocated to this Backend Address Pool. | 
-| **var.virtual_network_id** | string  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
-| **var.backend_address_ip_configuration_id** | string  The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool. | 
+| **var.ip_address** | string |  The Static IP Address which should be allocated to this Backend Address Pool. | 
+| **var.virtual_network_id** | string |  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
+| **var.backend_address_ip_configuration_id** | string |  The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool. | 
 
 
 

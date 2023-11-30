@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cognitive_account_id** | string  The ID of the Cognitive Account. Changing this forces a new resource to be created. | 
-| **var.key_vault_key_id** | string  The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. | 
+| **var.cognitive_account_id** | string |  The ID of the Cognitive Account. Changing this forces a new resource to be created. | 
+| **var.key_vault_key_id** | string |  The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity_client_id** | string  The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. | 
+| **var.identity_client_id** | string |  The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. | 
 
 
 

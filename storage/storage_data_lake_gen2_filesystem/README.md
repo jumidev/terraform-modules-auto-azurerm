@@ -27,17 +27,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string  Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string |  Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.properties** | string  -  |  A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. | 
-| **var.ace** | block  -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
-| **var.owner** | string  `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`. | 
-| **var.group** | string  `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`. | 
+| **var.properties** | string |  -  |  A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. | 
+| **var.ace** | block |  -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
+| **var.owner** | string |  `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`. | 
+| **var.group** | string |  `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`. | 
 
 ### `ace` block structure
 

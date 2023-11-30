@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created. | 
-| **var.name** | string  The name which should be used for this Disk Access. Changing this forces a new Disk Access to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Disk Access should exist. Changing this forces a new Disk Access to be created. | 
+| **var.location** | string |  The Azure Region where the Disk Access should exist. Changing this forces a new Disk to be created. | 
+| **var.name** | string |  The name which should be used for this Disk Access. Changing this forces a new Disk Access to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Disk Access should exist. Changing this forces a new Disk Access to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Disk Access. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Disk Access. | 
 
 
 

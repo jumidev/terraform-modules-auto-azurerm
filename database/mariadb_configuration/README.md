@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created. | 
-| **var.server_name** | string  Specifies the name of the MariaDB Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created. | 
-| **var.value** | string  Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created. | 
+| **var.server_name** | string |  Specifies the name of the MariaDB Server. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the MariaDB Server exists. Changing this forces a new resource to be created. | 
+| **var.value** | string |  Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created. | 
 
 
 

@@ -34,16 +34,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.media_services_account_name** | string  The Media Services account name. Changing this forces a new Content Key Policy to be created. | 
-| **var.name** | string  The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created. | 
-| **var.policy_option** | block  One or more `policy_option` blocks. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created. | 
+| **var.media_services_account_name** | string |  The Media Services account name. Changing this forces a new Content Key Policy to be created. | 
+| **var.name** | string |  The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created. | 
+| **var.policy_option** | block |  One or more `policy_option` blocks. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  A description for the Policy. | 
+| **var.description** | string |  A description for the Policy. | 
 
 ### `policy_option` block structure
 

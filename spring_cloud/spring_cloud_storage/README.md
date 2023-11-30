@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created. | 
-| **var.spring_cloud_service_id** | string  The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created. | 
-| **var.storage_account_key** | string  The access key of the Azure Storage Account. | 
-| **var.storage_account_name** | string  The account name of the Azure Storage Account. | 
+| **var.name** | string |  The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created. | 
+| **var.spring_cloud_service_id** | string |  The ID of the Spring Cloud Service where the Spring Cloud Storage should exist. Changing this forces a new Spring Cloud Storage to be created. | 
+| **var.storage_account_key** | string |  The access key of the Azure Storage Account. | 
+| **var.storage_account_name** | string |  The account name of the Azure Storage Account. | 
 
 
 

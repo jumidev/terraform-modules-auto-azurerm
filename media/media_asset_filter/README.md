@@ -27,16 +27,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.asset_id** | string  The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created. | 
-| **var.name** | string  The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created. | 
+| **var.asset_id** | string |  The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created. | 
+| **var.name** | string |  The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.first_quality_bitrate** | string  The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning. | 
-| **var.presentation_time_range** | block  A `presentation_time_range` block. | 
-| **var.track_selection** | block  One or more `track_selection` blocks. | 
+| **var.first_quality_bitrate** | string |  The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning. | 
+| **var.presentation_time_range** | block |  A `presentation_time_range` block. | 
+| **var.track_selection** | block |  One or more `track_selection` blocks. | 
 
 ### `presentation_time_range` block structure
 

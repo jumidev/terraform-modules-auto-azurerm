@@ -29,18 +29,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name to use for this Authorization Rule. Changing this forces a new resource to be created. | 
-| **var.notification_hub_name** | string  The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string  The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name to use for this Authorization Rule. Changing this forces a new resource to be created. | 
+| **var.notification_hub_name** | string |  The name of the Notification Hub for which the Authorization Rule should be created. Changing this forces a new resource to be created. | 
+| **var.namespace_name** | string |  The name of the Notification Hub Namespace in which the Notification Hub exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.manage** | bool  `False`  |  Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`. | 
-| **var.send** | bool  `False`  |  Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`. | 
-| **var.listen** | bool  `False`  |  Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`. | 
+| **var.manage** | bool |  `False`  |  Does this Authorization Rule have Manage access to the Notification Hub? Defaults to `false`. | 
+| **var.send** | bool |  `False`  |  Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`. | 
+| **var.listen** | bool |  `False`  |  Does this Authorization Rule have Listen access to the Notification Hub? Defaults to `false`. | 
 
 
 

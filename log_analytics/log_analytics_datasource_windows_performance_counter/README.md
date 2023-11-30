@@ -32,13 +32,13 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created. | 
-| **var.workspace_name** | string  The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created. | 
-| **var.object_name** | string  The object name of the Log Analytics Windows Performance Counter DataSource. | 
-| **var.instance_name** | string  The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances. | 
-| **var.counter_name** | string  The friendly name of the performance counter. | 
-| **var.interval_seconds** | int  The time of sample interval in seconds. Supports values between 10 and 2147483647. | 
+| **var.name** | string |  The Name which should be used for this Log Analytics Windows Performance Counter DataSource. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created. | 
+| **var.workspace_name** | string |  The name of the Log Analytics Workspace where the Log Analytics Windows Performance Counter DataSource should exist. Changing this forces a new Log Analytics Windows Performance Counter DataSource to be created. | 
+| **var.object_name** | string |  The object name of the Log Analytics Windows Performance Counter DataSource. | 
+| **var.instance_name** | string |  The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances. | 
+| **var.counter_name** | string |  The friendly name of the performance counter. | 
+| **var.interval_seconds** | int |  The time of sample interval in seconds. Supports values between 10 and 2147483647. | 
 
 
 

@@ -37,24 +37,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. | 
-| **var.location** | string  The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights) | 
-| **var.application_insights_id** | string  The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created. | 
-| **var.geo_locations** | string  Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application. | 
-| **var.request** | block  A `request` block. | 
+| **var.name** | string |  The name which should be used for this Application Insights Standard WebTest. Changing this forces a new Application Insights Standard WebTest to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. | 
+| **var.location** | string |  The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights) | 
+| **var.application_insights_id** | string |  The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created. | 
+| **var.geo_locations** | string |  Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application. | 
+| **var.request** | block |  A `request` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.description** | string  -  |  -  |  Purpose/user defined descriptive test for this WebTest. | 
-| **var.enabled** | bool  -  |  -  |  Should the WebTest be enabled? | 
-| **var.frequency** | string  `300`  |  `300`, `600`, `900`  |  Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`. | 
-| **var.retry_enabled** | bool  -  |  -  |  Should the retry on WebTest failure be enabled? | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Application Insights Standard WebTest. | 
-| **var.timeout** | string  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
-| **var.validation_rules** | block  -  |  -  |  A `validation_rules` block. | 
+| **var.description** | string |  -  |  -  |  Purpose/user defined descriptive test for this WebTest. | 
+| **var.enabled** | bool |  -  |  -  |  Should the WebTest be enabled? | 
+| **var.frequency** | string |  `300`  |  `300`, `600`, `900`  |  Interval in seconds between test runs for this WebTest. Valid options are `300`, `600` and `900`. Defaults to `300`. | 
+| **var.retry_enabled** | bool |  -  |  -  |  Should the retry on WebTest failure be enabled? | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Application Insights Standard WebTest. | 
+| **var.timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
+| **var.validation_rules** | block |  -  |  -  |  A `validation_rules` block. | 
 
 ### `request` block structure
 

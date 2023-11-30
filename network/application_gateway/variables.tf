@@ -369,17 +369,17 @@ variable "rewrite_rule_set" {
 # rewrite_rule_set block structure:
 #   rewrite_rule (block)            : One or more 'rewrite_rule' blocks.
 #
+# url block structure  :
+#   path (string)        : The URL path to rewrite.
+#   query_string (string): The query string to rewrite.
+#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
+#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+#
 # rewrite_rule block structure        :
 #   rule_sequence (string)              : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
 #   condition (list)                    : One or more 'condition' blocks.
 #   request_header_configuration (list) : One or more 'request_header_configuration' blocks.
 #   response_header_configuration (list): One or more 'response_header_configuration' blocks.
 #   url (block)                         : One 'url' block
-#
-# url block structure  :
-#   path (string)        : The URL path to rewrite.
-#   query_string (string): The query string to rewrite.
-#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
-#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 
 

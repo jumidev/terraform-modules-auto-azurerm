@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created. | 
-| **var.domain_name** | string  Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the EventGrid Domain Topic resource. Changing this forces a new resource to be created. | 
+| **var.domain_name** | string |  Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the EventGrid Domain exists. Changing this forces a new resource to be created. | 
 
 
 

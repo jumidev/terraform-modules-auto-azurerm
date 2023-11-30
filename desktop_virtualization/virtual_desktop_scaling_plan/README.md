@@ -50,21 +50,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
-| **var.name** | string  The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
-| **var.schedule** | block  One or more `schedule` blocks. | 
-| **var.time_zone** | string  Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). | 
+| **var.location** | string |  The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
+| **var.name** | string |  The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
+| **var.schedule** | block |  One or more `schedule` blocks. | 
+| **var.time_zone** | string |  Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.host_pool** | block  One or more `host_pool` blocks. | 
-| **var.description** | string  A description of the Scaling Plan. | 
-| **var.exclusion_tag** | string  The name of the tag associated with the VMs you want to exclude from autoscaling. | 
-| **var.friendly_name** | string  Friendly name of the Scaling Plan. | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan . | 
+| **var.host_pool** | block |  One or more `host_pool` blocks. | 
+| **var.description** | string |  A description of the Scaling Plan. | 
+| **var.exclusion_tag** | string |  The name of the tag associated with the VMs you want to exclude from autoscaling. | 
+| **var.friendly_name** | string |  Friendly name of the Scaling Plan. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan . | 
 
 ### `schedule` block structure
 

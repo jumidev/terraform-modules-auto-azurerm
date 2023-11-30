@@ -51,20 +51,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created. | 
-| **var.location** | string  The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created. | 
-| **var.network_watcher_id** | string  The ID of the Network Watcher. Changing this forces a new resource to be created. | 
-| **var.endpoint** | block  A `endpoint` block. | 
-| **var.test_configuration** | block  A `test_configuration` block. | 
-| **var.test_group** | block  A `test_group` block. | 
+| **var.name** | string |  The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created. | 
+| **var.network_watcher_id** | string |  The ID of the Network Watcher. Changing this forces a new resource to be created. | 
+| **var.endpoint** | block |  A `endpoint` block. | 
+| **var.test_configuration** | block |  A `test_configuration` block. | 
+| **var.test_group** | block |  A `test_group` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.notes** | string  The description of the Network Connection Monitor. | 
-| **var.output_workspace_resource_ids** | list  A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor. | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Network Connection Monitor. | 
+| **var.notes** | string |  The description of the Network Connection Monitor. | 
+| **var.output_workspace_resource_ids** | list |  A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Network Connection Monitor. | 
 
 ### `endpoint` block structure
 

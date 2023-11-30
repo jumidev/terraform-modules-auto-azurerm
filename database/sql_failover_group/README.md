@@ -41,19 +41,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the failover group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
-| **var.server_name** | string  The name of the primary SQL server. Changing this forces a new resource to be created. | 
-| **var.partner_servers** | block  A list of `partner_servers` blocks. | 
-| **var.read_write_endpoint_failover_policy** | block  A `read_write_endpoint_failover_policy` block. | 
+| **var.name** | string |  The name of the failover group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
+| **var.server_name** | string |  The name of the primary SQL server. Changing this forces a new resource to be created. | 
+| **var.partner_servers** | block |  A list of `partner_servers` blocks. | 
+| **var.read_write_endpoint_failover_policy** | block |  A `read_write_endpoint_failover_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.databases** | list  A list of database ids to add to the failover group | 
-| **var.readonly_endpoint_failover_policy** | block  A `readonly_endpoint_failover_policy` block. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.databases** | list |  A list of database ids to add to the failover group | 
+| **var.readonly_endpoint_failover_policy** | block |  A `readonly_endpoint_failover_policy` block. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `partner_servers` block structure
 

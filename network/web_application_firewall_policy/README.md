@@ -35,18 +35,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the policy. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group. Changing this forces a new resource to be created. | 
-| **var.location** | string  Resource location. Changing this forces a new resource to be created. | 
-| **var.managed_rules** | block  A `managed_rules` blocks. | 
+| **var.name** | string |  The name of the policy. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Resource location. Changing this forces a new resource to be created. | 
+| **var.managed_rules** | block |  A `managed_rules` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.custom_rules** | block  One or more `custom_rules` blocks. | 
-| **var.policy_settings** | block  A `policy_settings` block. | 
-| **var.tags** | map  A mapping of tags to assign to the Web Application Firewall Policy. | 
+| **var.custom_rules** | block |  One or more `custom_rules` blocks. | 
+| **var.policy_settings** | block |  A `policy_settings` block. | 
+| **var.tags** | map |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
 ### `custom_rules` block structure
 

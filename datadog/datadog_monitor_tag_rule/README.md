@@ -26,15 +26,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.datadog_monitor_id** | string  The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created. | 
+| **var.datadog_monitor_id** | string |  The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule. Changing this forces a new Datadog Monitor Tag Rule to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  `default`  |  The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`. | 
-| **var.log** | block  -  |  A `log` block. | 
-| **var.metric** | block  -  |  A `metric` block. | 
+| **var.name** | string |  `default`  |  The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`. | 
+| **var.log** | block |  -  |  A `log` block. | 
+| **var.metric** | block |  -  |  A `metric` block. | 
 
 ### `log` block structure
 

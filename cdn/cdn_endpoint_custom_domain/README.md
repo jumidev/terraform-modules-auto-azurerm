@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
-| **var.cdn_endpoint_id** | string  The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
-| **var.host_name** | string  The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
+| **var.name** | string |  The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
+| **var.cdn_endpoint_id** | string |  The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
+| **var.host_name** | string |  The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cdn_managed_https** | block  A `cdn_managed_https` block. | 
-| **var.user_managed_https** | block  A `user_managed_https` block. | 
+| **var.cdn_managed_https** | block |  A `cdn_managed_https` block. | 
+| **var.user_managed_https** | block |  A `user_managed_https` block. | 
 
 ### `cdn_managed_https` block structure
 

@@ -30,24 +30,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string  The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created. | 
-| **var.database_name** | string  The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created. | 
-| **var.partition_key_path** | string  Define a partition key. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Cosmos DB Gremlin Graph. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  The name of the CosmosDB Account to create the Gremlin Graph within. Changing this forces a new resource to be created. | 
+| **var.database_name** | string |  The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is created. Changing this forces a new resource to be created. | 
+| **var.partition_key_path** | string |  Define a partition key. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.partition_key_version** | string  `1`, `2`  |  Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys. | 
-| **var.throughput** | string  -  |  The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
-| **var.analytical_storage_ttl** | string  `-1`, `2147483647`, `0`  |  The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire. | 
-| **var.default_ttl** | string  -  |  The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire. | 
-| **var.autoscale_settings** | block  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
-| **var.index_policy** | block  -  |  The configuration of the indexing policy. One or more `index_policy` blocks. | 
-| **var.conflict_resolution_policy** | block  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
-| **var.unique_key** | block  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
+| **var.partition_key_version** | string |  `1`, `2`  |  Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys. | 
+| **var.throughput** | string |  -  |  The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **var.analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire. | 
+| **var.default_ttl** | string |  -  |  The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire. | 
+| **var.autoscale_settings** | block |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
+| **var.index_policy** | block |  -  |  The configuration of the indexing policy. One or more `index_policy` blocks. | 
+| **var.conflict_resolution_policy** | block |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
+| **var.unique_key** | block |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
 
 ### `autoscale_settings` block structure
 

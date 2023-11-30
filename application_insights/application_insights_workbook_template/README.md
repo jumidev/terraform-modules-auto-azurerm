@@ -36,20 +36,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created. | 
-| **var.galleries** | block  A `galleries` block. | 
-| **var.location** | string  Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created. | 
-| **var.template_data** | string  Valid JSON object containing workbook template payload. | 
+| **var.name** | string |  Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created. | 
+| **var.galleries** | block |  A `galleries` block. | 
+| **var.location** | string |  Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created. | 
+| **var.template_data** | string |  Valid JSON object containing workbook template payload. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.author** | string  -  |  Information about the author of the workbook template. | 
-| **var.localized** | string  -  |  Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal. | 
-| **var.priority** | string  `0`  |  Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`. | 
-| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Application Insights Workbook Template. | 
+| **var.author** | string |  -  |  Information about the author of the workbook template. | 
+| **var.localized** | string |  -  |  Key value pairs of localized gallery. Each key is the locale code of languages supported by the Azure portal. | 
+| **var.priority** | string |  `0`  |  Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode. Defaults to `0`. | 
+| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Application Insights Workbook Template. | 
 
 ### `galleries` block structure
 

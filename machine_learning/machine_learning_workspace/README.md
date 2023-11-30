@@ -38,30 +38,30 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created. | 
-| **var.application_insights_id** | string  The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.key_vault_id** | string  The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string  The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.identity** | block  An `identity` block. | 
+| **var.name** | string |  Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group in which the Machine Learning Workspace should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created. | 
+| **var.application_insights_id** | string |  The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
+| **var.key_vault_id** | string |  The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string |  The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
+| **var.identity** | block |  An `identity` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.container_registry_id** | string  -  |  -  |  The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.public_access_behind_virtual_network_enabled** | bool  -  |  -  |  Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created. | 
-| **var.public_network_access_enabled** | bool  -  |  -  |  Enable public access when this Machine Learning Workspace is behind VNet. | 
-| **var.image_build_compute_name** | string  -  |  -  |  The compute name for image build of the Machine Learning Workspace. | 
-| **var.description** | string  -  |  -  |  The description of this Machine Learning Workspace. | 
-| **var.encryption** | block  -  |  -  |  An `encryption` block. Changing this forces a new resource to be created. | 
-| **var.friendly_name** | string  -  |  -  |  Display name for this Machine Learning Workspace. | 
-| **var.high_business_impact** | string  -  |  -  |  Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service | 
-| **var.primary_user_assigned_identity** | string  -  |  -  |  The user assigned identity id that represents the workspace identity. | 
-| **var.v1_legacy_mode_enabled** | bool  `False`  |  -  |  Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`. | 
-| **var.sku_name** | string  `Basic`  |  `Basic`  |  SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.container_registry_id** | string |  -  |  -  |  The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
+| **var.public_access_behind_virtual_network_enabled** | bool |  -  |  -  |  Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created. | 
+| **var.public_network_access_enabled** | bool |  -  |  -  |  Enable public access when this Machine Learning Workspace is behind VNet. | 
+| **var.image_build_compute_name** | string |  -  |  -  |  The compute name for image build of the Machine Learning Workspace. | 
+| **var.description** | string |  -  |  -  |  The description of this Machine Learning Workspace. | 
+| **var.encryption** | block |  -  |  -  |  An `encryption` block. Changing this forces a new resource to be created. | 
+| **var.friendly_name** | string |  -  |  -  |  Display name for this Machine Learning Workspace. | 
+| **var.high_business_impact** | string |  -  |  -  |  Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service | 
+| **var.primary_user_assigned_identity** | string |  -  |  -  |  The user assigned identity id that represents the workspace identity. | 
+| **var.v1_legacy_mode_enabled** | bool |  `False`  |  -  |  Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`. | 
+| **var.sku_name** | string |  `Basic`  |  `Basic`  |  SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 

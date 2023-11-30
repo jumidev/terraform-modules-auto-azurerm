@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Application Insights API key. Changing this forces a new resource to be created. | 
-| **var.application_insights_id** | string  The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Application Insights API key. Changing this forces a new resource to be created. | 
+| **var.application_insights_id** | string |  The ID of the Application Insights component on which the API key operates. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.read_permissions** | string  `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`  |  Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. | 
-| **var.write_permissions** | string  `annotations`  |  Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created. | 
+| **var.read_permissions** | string |  `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`  |  Specifies the list of read permissions granted to the API key. Valid values are `agentconfig`, `aggregate`, `api`, `draft`, `extendqueries`, `search`. Please note these values are case sensitive. Changing this forces a new resource to be created. | 
+| **var.write_permissions** | string |  `annotations`  |  Specifies the list of write permissions granted to the API key. Valid values are `annotations`. Please note these values are case sensitive. Changing this forces a new resource to be created. | 
 
 
 

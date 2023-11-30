@@ -36,22 +36,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.container_app_environment_id** | string  -  |  The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created. | 
-| **var.name** | string  -  |  The name for this Container App. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created. | 
-| **var.revision_mode** | string  `Single`, `Multiple`  |  The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration. | 
-| **var.template** | block  -  |  A `template` block as detailed below. | 
+| **var.container_app_environment_id** | string |  -  |  The ID of the Container App Environment within which this Container App should exist. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  The name for this Container App. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created. | 
+| **var.revision_mode** | string |  `Single`, `Multiple`  |  The revisions operational mode for the Container App. Possible values include `Single` and `Multiple`. In `Single` mode, a single revision is in operation at any given time. In `Multiple` mode, more than one revision can be active at a time and can be configured with load distribution via the `traffic_weight` block in the `ingress` configuration. | 
+| **var.template** | block |  -  |  A `template` block as detailed below. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.dapr** | block  A `dapr` block as detailed below. | 
-| **var.identity** | block  An `identity` block as detailed below. | 
-| **var.ingress** | block  An `ingress` block as detailed below. | 
-| **var.registry** | block  A `registry` block as detailed below. | 
-| **var.secret** | list  One or more `secret` block as detailed below. | 
-| **var.tags** | map  A mapping of tags to assign to the Container App. | 
+| **var.dapr** | block |  A `dapr` block as detailed below. | 
+| **var.identity** | block |  An `identity` block as detailed below. | 
+| **var.ingress** | block |  An `ingress` block as detailed below. | 
+| **var.registry** | block |  A `registry` block as detailed below. | 
+| **var.secret** | list |  One or more `secret` block as detailed below. | 
+| **var.tags** | map |  A mapping of tags to assign to the Container App. | 
 
 ### `template` block structure
 

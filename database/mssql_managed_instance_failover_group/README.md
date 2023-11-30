@@ -36,17 +36,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created. | 
-| **var.location** | string  The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created. | 
-| **var.managed_instance_id** | string  The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created. | 
-| **var.partner_managed_instance_id** | string  The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created. | 
-| **var.read_write_endpoint_failover_policy** | block  A `read_write_endpoint_failover_policy` block. | 
+| **var.name** | string |  The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created. | 
+| **var.managed_instance_id** | string |  The ID of the Azure SQL Managed Instance which will be replicated using a Managed Instance Failover Group. Changing this forces a new resource to be created. | 
+| **var.partner_managed_instance_id** | string |  The ID of the Azure SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created. | 
+| **var.read_write_endpoint_failover_policy** | block |  A `read_write_endpoint_failover_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.readonly_endpoint_failover_policy_enabled** | bool  `True`  |  Failover policy for the read-only endpoint. Defaults to `true`. | 
+| **var.readonly_endpoint_failover_policy_enabled** | bool |  `True`  |  Failover policy for the read-only endpoint. Defaults to `true`. | 
 
 ### `read_write_endpoint_failover_policy` block structure
 

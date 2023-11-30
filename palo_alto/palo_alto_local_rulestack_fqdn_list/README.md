@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Palo Alto Local Rulestack FQDN List. | 
-| **var.rulestack_id** | string  The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created. | 
-| **var.fully_qualified_domain_names** | string  Specifies a list of Fully Qualified Domain Names. | 
+| **var.name** | string |  The name which should be used for this Palo Alto Local Rulestack FQDN List. | 
+| **var.rulestack_id** | string |  The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created. | 
+| **var.fully_qualified_domain_names** | string |  Specifies a list of Fully Qualified Domain Names. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.audit_comment** | string  The comment for Audit purposes. | 
-| **var.description** | string  The description for the FQDN List. | 
+| **var.audit_comment** | string |  The comment for Audit purposes. | 
+| **var.description** | string |  The description for the FQDN List. | 
 
 
 

@@ -29,20 +29,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_id** | string  The ID of the vault that should be updated. Changing this forces a new resource to be created. | 
-| **var.source_recovery_fabric_id** | string  ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created. | 
-| **var.target_recovery_fabric_id** | string  ID of target fabric to recover. Changing this forces a new Replication Plan to be created. | 
+| **var.name** | string |  The name of the Replication Plan. The name can contain only letters, numbers, and hyphens. It should start with a letter and end with a letter or a number. Can be a maximum of 63 characters. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_id** | string |  The ID of the vault that should be updated. Changing this forces a new resource to be created. | 
+| **var.source_recovery_fabric_id** | string |  ID of source fabric to be recovered from. Changing this forces a new Replication Plan to be created. | 
+| **var.target_recovery_fabric_id** | string |  ID of target fabric to recover. Changing this forces a new Replication Plan to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.recovery_group** | string  Three or more `recovery_group` block defined as below. | 
-| **var.shutdown_recovery_group** | block  One `shutdown_recovery_group` block. | 
-| **var.failover_recovery_group** | block  One `failover_recovery_group` block. | 
-| **var.boot_recovery_group** | block  One or more `boot_recovery_group` blocks. | 
-| **var.azure_to_azure_settings** | block  An `azure_to_azure_settings` block. | 
+| **var.recovery_group** | string |  Three or more `recovery_group` block defined as below. | 
+| **var.shutdown_recovery_group** | block |  One `shutdown_recovery_group` block. | 
+| **var.failover_recovery_group** | block |  One `failover_recovery_group` block. | 
+| **var.boot_recovery_group** | block |  One or more `boot_recovery_group` blocks. | 
+| **var.azure_to_azure_settings** | block |  An `azure_to_azure_settings` block. | 
 
 ### `shutdown_recovery_group` block structure
 

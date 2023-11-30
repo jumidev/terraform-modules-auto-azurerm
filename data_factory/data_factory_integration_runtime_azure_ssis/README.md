@@ -29,27 +29,27 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string  -  |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.node_size** | string  `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2`, `Standard_A8_v2`  |  The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2` | 
+| **var.name** | string |  -  |  Specifies the name of the Azure-SSIS Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.data_factory_id** | string |  -  |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.node_size** | string |  `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2`, `Standard_A8_v2`  |  The size of the nodes on which the Azure-SSIS Integration Runtime runs. Valid values are: `Standard_D2_v3`, `Standard_D4_v3`, `Standard_D8_v3`, `Standard_D16_v3`, `Standard_D32_v3`, `Standard_D64_v3`, `Standard_E2_v3`, `Standard_E4_v3`, `Standard_E8_v3`, `Standard_E16_v3`, `Standard_E32_v3`, `Standard_E64_v3`, `Standard_D1_v2`, `Standard_D2_v2`, `Standard_D3_v2`, `Standard_D4_v2`, `Standard_A4_v2` and `Standard_A8_v2` | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.number_of_nodes** | int  `1`  |  -  |  Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`. | 
-| **var.max_parallel_executions_per_node** | string  `1`  |  -  |  Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`. | 
-| **var.edition** | string  `Standard`  |  `Standard`, `Enterprise`  |  The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`. | 
-| **var.license_type** | string  `LicenseIncluded`  |  `LicenseIncluded`, `BasePrice`  |  The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`. | 
-| **var.catalog_info** | block  -  |  -  |  A `catalog_info` block. | 
-| **var.custom_setup_script** | block  -  |  -  |  A `custom_setup_script` block. | 
-| **var.express_custom_setup** | block  -  |  -  |  An `express_custom_setup` block. | 
-| **var.express_vnet_integration** | block  -  |  -  |  A `express_vnet_integration` block. | 
-| **var.package_store** | block  -  |  -  |  One or more `package_store` block. | 
-| **var.proxy** | block  -  |  -  |  A `proxy` block. | 
-| **var.vnet_integration** | block  -  |  -  |  A `vnet_integration` block. | 
-| **var.description** | string  -  |  -  |  Integration runtime description. | 
+| **var.number_of_nodes** | int |  `1`  |  -  |  Number of nodes for the Azure-SSIS Integration Runtime. Max is `10`. Defaults to `1`. | 
+| **var.max_parallel_executions_per_node** | string |  `1`  |  -  |  Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`. | 
+| **var.edition** | string |  `Standard`  |  `Standard`, `Enterprise`  |  The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`. | 
+| **var.license_type** | string |  `LicenseIncluded`  |  `LicenseIncluded`, `BasePrice`  |  The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`. | 
+| **var.catalog_info** | block |  -  |  -  |  A `catalog_info` block. | 
+| **var.custom_setup_script** | block |  -  |  -  |  A `custom_setup_script` block. | 
+| **var.express_custom_setup** | block |  -  |  -  |  An `express_custom_setup` block. | 
+| **var.express_vnet_integration** | block |  -  |  -  |  A `express_vnet_integration` block. | 
+| **var.package_store** | block |  -  |  -  |  One or more `package_store` block. | 
+| **var.proxy** | block |  -  |  -  |  A `proxy` block. | 
+| **var.vnet_integration** | block |  -  |  -  |  A `vnet_integration` block. | 
+| **var.description** | string |  -  |  -  |  Integration runtime description. | 
 
 ### `catalog_info` block structure
 

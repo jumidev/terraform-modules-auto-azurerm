@@ -26,13 +26,13 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.feature** | block  A list of `feature` blocks. | 
+| **var.feature** | block |  A list of `feature` blocks. | 
 
 ### `feature` block structure
 

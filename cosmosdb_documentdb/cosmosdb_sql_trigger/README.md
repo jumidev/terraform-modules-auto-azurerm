@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created. | 
-| **var.container_id** | string  -  |  The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created. | 
-| **var.body** | string  -  |  Body of the Trigger. | 
-| **var.operation** | string  `All`, `Create`, `Update`, `Delete`, `Replace`  |  The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`. | 
-| **var.type** | string  `Pre`, `Post`  |  Type of the Trigger. Possible values are `Pre` and `Post`. | 
+| **var.name** | string |  -  |  The name which should be used for this SQL Trigger. Changing this forces a new SQL Trigger to be created. | 
+| **var.container_id** | string |  -  |  The id of the Cosmos DB SQL Container to create the SQL Trigger within. Changing this forces a new SQL Trigger to be created. | 
+| **var.body** | string |  -  |  Body of the Trigger. | 
+| **var.operation** | string |  `All`, `Create`, `Update`, `Delete`, `Replace`  |  The operation the trigger is associated with. Possible values are `All`, `Create`, `Update`, `Delete` and `Replace`. | 
+| **var.type** | string |  `Pre`, `Post`  |  Type of the Trigger. Possible values are `Pre` and `Post`. | 
 
 
 

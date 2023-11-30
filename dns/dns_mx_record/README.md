@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int  The Time To Live (TTL) of the DNS record in seconds. | 
+| **var.resource_group_name** | string |  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  `@`  |  The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created. | 
+| **var.name** | string |  `@`  |  The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created. | 
 
 
 

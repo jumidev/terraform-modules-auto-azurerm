@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.virtual_machine_id** | string  -  |  The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created. | 
-| **var.managed_disk_id** | string  -  |  The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created. | 
-| **var.lun** | int  -  |  The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created. | 
-| **var.caching** | string  `None`, `ReadOnly`, `ReadWrite`  |  Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`. | 
+| **var.virtual_machine_id** | string |  -  |  The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created. | 
+| **var.managed_disk_id** | string |  -  |  The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created. | 
+| **var.lun** | int |  -  |  The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created. | 
+| **var.caching** | string |  `None`, `ReadOnly`, `ReadWrite`  |  Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.create_option** | string  `Attach`  |  The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created. | 
-| **var.write_accelerator_enabled** | bool  `False`  |  Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`. | 
+| **var.create_option** | string |  `Attach`  |  The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created. | 
+| **var.write_accelerator_enabled** | bool |  `False`  |  Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`. | 
 
 
 

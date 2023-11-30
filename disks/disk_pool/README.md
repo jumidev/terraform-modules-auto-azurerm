@@ -31,18 +31,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the Disk Pool. Changing this forces a new Disk Pool to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created. | 
-| **var.location** | string  -  |  The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created. | 
-| **var.zones** | string  -  |  Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created. | 
-| **var.sku_name** | string  `Basic_B1`, `Standard_S1`, `Premium_P1`  |  The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created. | 
-| **var.subnet_id** | string  -  |  The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created. | 
+| **var.name** | string |  -  |  The name of the Disk Pool. Changing this forces a new Disk Pool to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Disk Pool should exist. Changing this forces a new Disk Pool to be created. | 
+| **var.location** | string |  -  |  The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created. | 
+| **var.zones** | string |  -  |  Specifies a list of Availability Zones in which this Disk Pool should be located. Changing this forces a new Disk Pool to be created. | 
+| **var.sku_name** | string |  `Basic_B1`, `Standard_S1`, `Premium_P1`  |  The SKU of the Disk Pool. Possible values are `Basic_B1`, `Standard_S1` and `Premium_P1`. Changing this forces a new Disk Pool to be created. | 
+| **var.subnet_id** | string |  -  |  The ID of the Subnet where the Disk Pool should be created. Changing this forces a new Disk Pool to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Disk Pool. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Disk Pool. | 
 
 
 

@@ -36,21 +36,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created. | 
-| **var.rule** | block  A `rule` block. | 
-| **var.scopes** | string  Specifies the resource ID of the Azure Monitor Workspace. | 
+| **var.name** | string |  Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created. | 
+| **var.rule** | block |  A `rule` block. | 
+| **var.scopes** | string |  Specifies the resource ID of the Azure Monitor Workspace. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.cluster_name** | string  -  |  Specifies the name of the Managed Kubernetes Cluster. | 
-| **var.description** | string  -  |  The description of the Alert Management Prometheus Rule Group. | 
-| **var.rule_group_enabled** | string  `true`, `false`  |  Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`. | 
-| **var.interval** | string  `PT1M`, `PT15M`  |  Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the Alert Management Prometheus Rule Group. | 
+| **var.cluster_name** | string |  -  |  Specifies the name of the Managed Kubernetes Cluster. | 
+| **var.description** | string |  -  |  The description of the Alert Management Prometheus Rule Group. | 
+| **var.rule_group_enabled** | string |  `true`, `false`  |  Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`. | 
+| **var.interval** | string |  `PT1M`, `PT15M`  |  Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the Alert Management Prometheus Rule Group. | 
 
 ### `rule` block structure
 

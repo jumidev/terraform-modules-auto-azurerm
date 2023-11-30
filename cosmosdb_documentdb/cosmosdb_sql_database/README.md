@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string  The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Cosmos DB SQL Database. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  The name of the Cosmos DB SQL Database to create the table within. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.throughput** | string  The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azurerm_cosmosdb_account` is configured with `EnableServerless` capability. | 
-| **var.autoscale_settings** | block  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **var.throughput** | string |  The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azurerm_cosmosdb_account` is configured with `EnableServerless` capability. | 
+| **var.autoscale_settings** | block |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
 ### `autoscale_settings` block structure
 

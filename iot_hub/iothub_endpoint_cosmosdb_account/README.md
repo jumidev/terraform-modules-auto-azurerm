@@ -31,23 +31,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created. | 
-| **var.iothub_id** | string  The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created. | 
-| **var.container_name** | string  The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created. | 
-| **var.database_name** | string  The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created. | 
-| **var.endpoint_uri** | string  The URI of the Cosmos DB Account. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group under which the Cosmos DB Account has been created. Changing this forces a new resource to be created. | 
+| **var.iothub_id** | string |  The ID of the IoT Hub to create the endpoint. Changing this forces a new resource to be created. | 
+| **var.container_name** | string |  The name of the Cosmos DB Container in the Cosmos DB Database. Changing this forces a new resource to be created. | 
+| **var.database_name** | string |  The name of the Cosmos DB Database in the Cosmos DB Account. Changing this forces a new resource to be created. | 
+| **var.endpoint_uri** | string |  The URI of the Cosmos DB Account. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.authentication_type** | string  `keyBased`  |  `keyBased`, `identityBased`  |  The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`. | 
-| **var.identity_id** | string  -  |  -  |  The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint. | 
-| **var.partition_key_name** | string  -  |  -  |  The name of the partition key associated with the Cosmos DB Container. | 
-| **var.partition_key_template** | string  -  |  -  |  The template for generating a synthetic partition key value for use within the Cosmos DB Container. | 
-| **var.primary_key** | string  -  |  -  |  The primary key of the Cosmos DB Account. | 
-| **var.secondary_key** | string  -  |  -  |  The secondary key of the Cosmos DB Account. | 
+| **var.authentication_type** | string |  `keyBased`  |  `keyBased`, `identityBased`  |  The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`. | 
+| **var.identity_id** | string |  -  |  -  |  The ID of the User Managed Identity used to authenticate against the Cosmos DB Account endpoint. | 
+| **var.partition_key_name** | string |  -  |  -  |  The name of the partition key associated with the Cosmos DB Container. | 
+| **var.partition_key_template** | string |  -  |  -  |  The template for generating a synthetic partition key value for use within the Cosmos DB Container. | 
+| **var.primary_key** | string |  -  |  -  |  The primary key of the Cosmos DB Account. | 
+| **var.secondary_key** | string |  -  |  -  |  The secondary key of the Cosmos DB Account. | 
 
 
 

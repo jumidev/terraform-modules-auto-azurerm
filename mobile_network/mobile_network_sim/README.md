@@ -31,20 +31,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created. | 
-| **var.mobile_network_sim_group_id** | string  The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created. | 
-| **var.authentication_key** | string  The Ki value for the SIM. | 
-| **var.international_mobile_subscriber_identity** | string  The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created. | 
-| **var.integrated_circuit_card_identifier** | string  The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created. | 
-| **var.operator_key_code** | string  The Opc value for the SIM. | 
+| **var.name** | string |  The name which should be used for this Mobile Network Sim. Changing this forces a new Mobile Network Sim to be created. | 
+| **var.mobile_network_sim_group_id** | string |  The ID of the Mobile Network which the Mobile Network Sim belongs to. Changing this forces a new Mobile Network Sim to be created. | 
+| **var.authentication_key** | string |  The Ki value for the SIM. | 
+| **var.international_mobile_subscriber_identity** | string |  The international mobile subscriber identity (IMSI) for the SIM. Changing this forces a new Mobile Network Sim to be created. | 
+| **var.integrated_circuit_card_identifier** | string |  The integrated circuit card ID (ICCID) for the SIM. Changing this forces a new Mobile Network Sim to be created. | 
+| **var.operator_key_code** | string |  The Opc value for the SIM. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.device_type** | string  An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value. | 
-| **var.sim_policy_id** | string  The ID of SIM policy used by this SIM. | 
-| **var.static_ip_configuration** | block  A `static_ip_configuration` block. | 
+| **var.device_type** | string |  An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value. | 
+| **var.sim_policy_id** | string |  The ID of SIM policy used by this SIM. | 
+| **var.static_ip_configuration** | block |  A `static_ip_configuration` block. | 
 
 ### `static_ip_configuration` block structure
 

@@ -34,21 +34,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Stream Output. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.storage_account_name** | string  The name of the Storage Account. | 
-| **var.storage_account_key** | string  The Access Key which should be used to connect to this Storage Account. | 
-| **var.table** | string  The name of the table where the stream should be output to. | 
-| **var.partition_key** | string  The name of the output column that contains the partition key. | 
-| **var.row_key** | string  The name of the output column that contains the row key. | 
-| **var.batch_size** | int  The number of records for a batch operation. Must be between `1` and `100`. | 
+| **var.name** | string |  The name of the Stream Output. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **var.storage_account_name** | string |  The name of the Storage Account. | 
+| **var.storage_account_key** | string |  The Access Key which should be used to connect to this Storage Account. | 
+| **var.table** | string |  The name of the table where the stream should be output to. | 
+| **var.partition_key** | string |  The name of the output column that contains the partition key. | 
+| **var.row_key** | string |  The name of the output column that contains the row key. | 
+| **var.batch_size** | int |  The number of records for a batch operation. Must be between `1` and `100`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.columns_to_remove** | list  A list of the column names to be removed from output event entities. | 
+| **var.columns_to_remove** | list |  A list of the column names to be removed from output event entities. | 
 
 
 

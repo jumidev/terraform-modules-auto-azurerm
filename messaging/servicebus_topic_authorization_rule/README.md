@@ -27,16 +27,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created. | 
-| **var.topic_id** | string  Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created. | 
+| **var.topic_id** | string |  Specifies the ID of the ServiceBus Topic. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.listen** | bool  `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
-| **var.send** | bool  `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
-| **var.manage** | bool  `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
+| **var.listen** | bool |  `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
+| **var.send** | bool |  `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
+| **var.manage** | bool |  `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
 
 
 

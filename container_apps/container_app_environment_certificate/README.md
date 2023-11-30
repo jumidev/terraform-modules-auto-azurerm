@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created. | 
-| **var.container_app_environment_id** | string  The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created. | 
-| **var.certificate_blob_base64** | string  The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created. | 
-| **var.certificate_password** | string  The password for the Certificate. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the Container Apps Environment Certificate. Changing this forces a new resource to be created. | 
+| **var.container_app_environment_id** | string |  The Container App Managed Environment ID to configure this Certificate on. Changing this forces a new resource to be created. | 
+| **var.certificate_blob_base64** | string |  The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created. | 
+| **var.certificate_password** | string |  The password for the Certificate. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

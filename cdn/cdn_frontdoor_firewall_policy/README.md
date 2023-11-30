@@ -29,22 +29,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the policy. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string  `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`  |  The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created. | 
-| **var.mode** | string  `Detection`, `Prevention`  |  The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. | 
+| **var.name** | string |  -  |  The name of the policy. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string |  `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`  |  The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created. | 
+| **var.mode** | string |  `Detection`, `Prevention`  |  The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  -  |  Is the Front Door Firewall Policy enabled? Defaults to `true`. | 
-| **var.redirect_url** | string  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
-| **var.custom_rule** | block  -  |  -  |  One or more `custom_rule` blocks. | 
-| **var.custom_block_response_status_code** | string  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
-| **var.custom_block_response_body** | string  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
-| **var.managed_rule** | block  -  |  -  |  One or more `managed_rule` blocks. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
+| **var.enabled** | bool |  `True`  |  -  |  Is the Front Door Firewall Policy enabled? Defaults to `true`. | 
+| **var.redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
+| **var.custom_rule** | block |  -  |  -  |  One or more `custom_rule` blocks. | 
+| **var.custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
+| **var.custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
+| **var.managed_rule** | block |  -  |  -  |  One or more `managed_rule` blocks. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
 ### `custom_rule` block structure
 

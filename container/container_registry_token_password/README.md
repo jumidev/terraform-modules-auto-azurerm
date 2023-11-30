@@ -32,14 +32,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.container_registry_token_id** | string  The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created. | 
-| **var.password1** | block  One `password` block. | 
+| **var.container_registry_token_id** | string |  The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created. | 
+| **var.password1** | block |  One `password` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.password2** | block  One `password` block. | 
+| **var.password2** | block |  One `password` block. | 
 
 ### `password1` block structure
 

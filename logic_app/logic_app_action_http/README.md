@@ -29,19 +29,19 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.logic_app_id** | string  -  |  Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.method** | string  `DELETE`, `GET`, `PATCH`, `POST`, `PUT`  |  Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`. | 
-| **var.uri** | string  -  |  Specifies the URI which will be called when this HTTP Action is triggered. | 
+| **var.name** | string |  -  |  Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **var.logic_app_id** | string |  -  |  Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **var.method** | string |  `DELETE`, `GET`, `PATCH`, `POST`, `PUT`  |  Specifies the HTTP Method which should be used for this HTTP Action. Possible values include `DELETE`, `GET`, `PATCH`, `POST` and `PUT`. | 
+| **var.uri** | string |  -  |  Specifies the URI which will be called when this HTTP Action is triggered. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.body** | string  Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered. | 
-| **var.headers** | string  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
-| **var.queries** | string  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
-| **var.run_after** | string  Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below. | 
+| **var.body** | string |  Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered. | 
+| **var.headers** | string |  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
+| **var.queries** | string |  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
+| **var.run_after** | string |  Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below. | 
 
 
 

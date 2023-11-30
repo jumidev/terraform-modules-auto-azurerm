@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
-| **var.private_cloud_id** | string  The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
+| **var.name** | string |  The name which should be used for this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
+| **var.private_cloud_id** | string |  The ID of the VMware Private Cloud in which to create this Express Route VMware Authorization. Changing this forces a new VMware Authorization to be created. | 
 
 
 

@@ -28,23 +28,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created. | 
-| **var.service_name** | string  Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created. | 
+| **var.service_name** | string |  Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.addon_json** | string  -  |  A JSON object that contains the addon configurations of the Spring Cloud Service. | 
-| **var.custom_persistent_disk** | block  -  |  A `custom_persistent_disk` block. | 
-| **var.identity** | block  -  |  An `identity` block. | 
-| **var.is_public** | bool  `False`  |  Does the Spring Cloud Application have public endpoint? Defaults to `false`. | 
-| **var.https_only** | bool  `False`  |  Is only HTTPS allowed? Defaults to `false`. | 
-| **var.ingress_settings** | block  -  |  An `ingress_settings` block. | 
-| **var.persistent_disk** | block  -  |  An `persistent_disk` block. | 
-| **var.public_endpoint_enabled** | bool  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
-| **var.tls_enabled** | bool  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
+| **var.addon_json** | string |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Service. | 
+| **var.custom_persistent_disk** | block |  -  |  A `custom_persistent_disk` block. | 
+| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.is_public** | bool |  `False`  |  Does the Spring Cloud Application have public endpoint? Defaults to `false`. | 
+| **var.https_only** | bool |  `False`  |  Is only HTTPS allowed? Defaults to `false`. | 
+| **var.ingress_settings** | block |  -  |  An `ingress_settings` block. | 
+| **var.persistent_disk** | block |  -  |  An `persistent_disk` block. | 
+| **var.public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
+| **var.tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
 ### `custom_persistent_disk` block structure
 

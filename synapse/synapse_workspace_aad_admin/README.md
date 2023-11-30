@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.synapse_workspace_id** | string  The ID of the Synapse Workspace where the Azure AD Administrator should be configured. | 
-| **var.login** | string  The login name of the Azure AD Administrator of this Synapse Workspace. | 
-| **var.object_id** | string  The object id of the Azure AD Administrator of this Synapse Workspace. | 
-| **var.tenant_id** | string  The tenant id of the Azure AD Administrator of this Synapse Workspace. | 
+| **var.synapse_workspace_id** | string |  The ID of the Synapse Workspace where the Azure AD Administrator should be configured. | 
+| **var.login** | string |  The login name of the Azure AD Administrator of this Synapse Workspace. | 
+| **var.object_id** | string |  The object id of the Azure AD Administrator of this Synapse Workspace. | 
+| **var.tenant_id** | string |  The tenant id of the Azure AD Administrator of this Synapse Workspace. | 
 
 
 

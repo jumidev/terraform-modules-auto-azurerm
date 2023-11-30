@@ -30,27 +30,27 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name. | 
-| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string  `standard`, `premium`  |  The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`. | 
-| **var.tenant_id** | string  -  |  The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. | 
+| **var.name** | string |  -  |  Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name. | 
+| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string |  `standard`, `premium`  |  The Name of the SKU used for this Key Vault. Possible values are `standard` and `premium`. | 
+| **var.tenant_id** | string |  -  |  The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.access_policy** | block  -  |  [A list](/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below. | 
-| **var.enabled_for_deployment** | bool  -  |  Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. | 
-| **var.enabled_for_disk_encryption** | bool  -  |  Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | 
-| **var.enabled_for_template_deployment** | bool  -  |  Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | 
-| **var.enable_rbac_authorization** | bool  -  |  Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. | 
-| **var.network_acls** | block  -  |  A `network_acls` block. | 
-| **var.purge_protection_enabled** | bool  -  |  Is Purge Protection enabled for this Key Vault? | 
-| **var.public_network_access_enabled** | bool  `True`  |  Whether public network access is allowed for this Key Vault. Defaults to `true`. | 
-| **var.soft_delete_retention_days** | int  -  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. | 
-| **var.contact** | block  -  |  One or more `contact` block. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.access_policy** | block |  -  |  [A list](/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below. | 
+| **var.enabled_for_deployment** | bool |  -  |  Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. | 
+| **var.enabled_for_disk_encryption** | bool |  -  |  Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | 
+| **var.enabled_for_template_deployment** | bool |  -  |  Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | 
+| **var.enable_rbac_authorization** | bool |  -  |  Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. | 
+| **var.network_acls** | block |  -  |  A `network_acls` block. | 
+| **var.purge_protection_enabled** | bool |  -  |  Is Purge Protection enabled for this Key Vault? | 
+| **var.public_network_access_enabled** | bool |  `True`  |  Whether public network access is allowed for this Key Vault. Defaults to `true`. | 
+| **var.soft_delete_retention_days** | int |  -  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. | 
+| **var.contact** | block |  -  |  One or more `contact` block. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `access_policy` block structure
 

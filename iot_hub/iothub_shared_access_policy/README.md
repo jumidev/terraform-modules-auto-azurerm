@@ -28,18 +28,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_name** | string  The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created. | 
+| **var.iothub_name** | string |  The name of the IoTHub to which this Shared Access Policy belongs. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.registry_read** | string  Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry. | 
-| **var.registry_write** | string  Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry. | 
-| **var.service_connect** | string  Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints. | 
-| **var.device_connect** | string  Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints. | 
+| **var.registry_read** | string |  Adds `RegistryRead` permission to this Shared Access Account. It allows read access to the identity registry. | 
+| **var.registry_write** | string |  Adds `RegistryWrite` permission to this Shared Access Account. It allows write access to the identity registry. | 
+| **var.service_connect** | string |  Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints. | 
+| **var.device_connect** | string |  Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints. | 
 
 
 

@@ -31,18 +31,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.account_name** | string  -  |  Specifies the name of the Batch account. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created. | 
-| **var.certificate** | string  -  |  The base64-encoded contents of the certificate. | 
-| **var.format** | string  `Cer`, `Pfx`  |  The format of the certificate. Possible values are `Cer` or `Pfx`. | 
-| **var.thumbprint** | string  -  |  The thumbprint of the certificate. Changing this forces a new resource to be created. | 
-| **var.thumbprint_algorithm** | string  -  |  The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  -  |  Specifies the name of the Batch account. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created. | 
+| **var.certificate** | string |  -  |  The base64-encoded contents of the certificate. | 
+| **var.format** | string |  `Cer`, `Pfx`  |  The format of the certificate. Possible values are `Cer` or `Pfx`. | 
+| **var.thumbprint** | string |  -  |  The thumbprint of the certificate. Changing this forces a new resource to be created. | 
+| **var.thumbprint_algorithm** | string |  -  |  The algorithm of the certificate thumbprint. At this time the only supported value is `SHA1`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.password** | string  The password to access the certificate's private key. This can only be specified when `format` is `Pfx`. | 
+| **var.password** | string |  The password to access the certificate's private key. This can only be specified when `format` is `Pfx`. | 
 
 
 

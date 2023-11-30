@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string  The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group where the Web Chat Channel should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.site_names** | list  A list of Web Chat Site names. | 
-| **var.site** | block  A site represents a client application that you want to connect to your bot. One or more `site` blocks. | 
+| **var.site_names** | list |  A list of Web Chat Site names. | 
+| **var.site** | block |  A site represents a client application that you want to connect to your bot. One or more `site` blocks. | 
 
 ### `site` block structure
 

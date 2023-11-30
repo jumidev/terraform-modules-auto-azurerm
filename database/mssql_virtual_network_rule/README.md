@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the SQL virtual network rule. Changing this forces a new resource to be created. | 
-| **var.server_id** | string  The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string  The ID of the subnet from which the SQL server will accept communications. | 
+| **var.name** | string |  The name of the SQL virtual network rule. Changing this forces a new resource to be created. | 
+| **var.server_id** | string |  The resource ID of the SQL Server to which this SQL virtual network rule will be applied. Changing this forces a new resource to be created. | 
+| **var.subnet_id** | string |  The ID of the subnet from which the SQL server will accept communications. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ignore_missing_vnet_service_endpoint** | bool  `False`  |  Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`. | 
+| **var.ignore_missing_vnet_service_endpoint** | bool |  `False`  |  Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`. | 
 
 
 

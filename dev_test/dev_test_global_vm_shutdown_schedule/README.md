@@ -36,18 +36,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The location where the schedule is created. Changing this forces a new resource to be created. | 
-| **var.virtual_machine_id** | string  The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created. | 
-| **var.timezone** | string  The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). | 
-| **var.daily_recurrence_time** | string  The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.) | 
-| **var.notification_settings** | block  The notification setting of a schedule. A `notification_settings` block. | 
+| **var.location** | string |  The location where the schedule is created. Changing this forces a new resource to be created. | 
+| **var.virtual_machine_id** | string |  The resource ID of the target ARM-based Virtual Machine. Changing this forces a new resource to be created. | 
+| **var.timezone** | string |  The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). | 
+| **var.daily_recurrence_time** | string |  The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.) | 
+| **var.notification_settings** | block |  The notification setting of a schedule. A `notification_settings` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  `true`, `false`  |  Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.enabled** | bool |  `True`  |  `true`, `false`  |  Whether to enable the schedule. Possible values are `true` and `false`. Defaults to `true`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `notification_settings` block structure
 

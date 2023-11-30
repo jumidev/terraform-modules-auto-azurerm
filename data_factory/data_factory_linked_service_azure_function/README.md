@@ -28,21 +28,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.url** | string  The url of the Azure Function. | 
+| **var.name** | string |  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **var.url** | string |  The url of the Azure Function. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  The description for the Data Factory Linked Service. | 
-| **var.integration_runtime_name** | string  The integration runtime reference to associate with the Data Factory Linked Service. | 
-| **var.annotations** | string  List of tags that can be used for describing the Data Factory Linked Service. | 
-| **var.parameters** | string  A map of parameters to associate with the Data Factory Linked Service. | 
-| **var.additional_properties** | string  A map of additional properties to associate with the Data Factory Linked Service. | 
-| **var.key** | string  The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required | 
-| **var.key_vault_key** | block  A `key_vault_key` block. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required. | 
+| **var.description** | string |  The description for the Data Factory Linked Service. | 
+| **var.integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service. | 
+| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service. | 
+| **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service. | 
+| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service. | 
+| **var.key** | string |  The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required | 
+| **var.key_vault_key** | block |  A `key_vault_key` block. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required. | 
 
 ### `key_vault_key` block structure
 

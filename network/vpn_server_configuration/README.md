@@ -45,22 +45,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
-| **var.vpn_authentication_types** | string  `AAD`, `Certificate`, `Radius`  |  A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`. | 
-| **var.azure_active_directory_authentication** | block  -  |  A `azure_active_directory_authentication` block. | 
-| **var.client_root_certificate** | block  -  |  One or more `client_root_certificate` blocks. | 
+| **var.name** | string |  -  |  The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
+| **var.vpn_authentication_types** | string |  `AAD`, `Certificate`, `Radius`  |  A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`. | 
+| **var.azure_active_directory_authentication** | block |  -  |  A `azure_active_directory_authentication` block. | 
+| **var.client_root_certificate** | block |  -  |  One or more `client_root_certificate` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ipsec_policy** | block  -  |  A `ipsec_policy` block. | 
-| **var.vpn_protocols** | string  `IkeV2`, `OpenVPN`  |  A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
-| **var.client_revoked_certificate** | block  -  |  One or more `client_revoked_certificate` blocks. | 
-| **var.radius** | block  -  |  A `radius` block. | 
+| **var.ipsec_policy** | block |  -  |  A `ipsec_policy` block. | 
+| **var.vpn_protocols** | string |  `IkeV2`, `OpenVPN`  |  A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **var.client_revoked_certificate** | block |  -  |  One or more `client_revoked_certificate` blocks. | 
+| **var.radius** | block |  -  |  A `radius` block. | 
 
 ### `ipsec_policy` block structure
 

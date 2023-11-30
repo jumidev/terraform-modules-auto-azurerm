@@ -30,28 +30,28 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the App Service Slot component. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.app_service_plan_id** | string  The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created. | 
-| **var.app_service_name** | string  The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the App Service Slot component. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the App Service Slot component. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.app_service_plan_id** | string |  The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created. | 
+| **var.app_service_name** | string |  The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.app_settings** | string  -  |  A key-value pair of App Settings. | 
-| **var.auth_settings** | block  -  |  A `auth_settings` block. | 
-| **var.connection_string** | block  -  |  An `connection_string` block. | 
-| **var.client_affinity_enabled** | bool  -  |  Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? | 
-| **var.enabled** | bool  `True`  |  Is the App Service Slot Enabled? Defaults to `true`. | 
-| **var.https_only** | bool  `False`  |  Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. | 
-| **var.site_config** | block  -  |  A `site_config` object as defined below. | 
-| **var.storage_account** | block  -  |  One or more `storage_account` blocks. | 
-| **var.logs** | block  -  |  A `logs` block. | 
-| **var.identity** | block  -  |  An `identity` block. | 
-| **var.key_vault_reference_identity_id** | string  -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.app_settings** | string |  -  |  A key-value pair of App Settings. | 
+| **var.auth_settings** | block |  -  |  A `auth_settings` block. | 
+| **var.connection_string** | block |  -  |  An `connection_string` block. | 
+| **var.client_affinity_enabled** | bool |  -  |  Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? | 
+| **var.enabled** | bool |  `True`  |  Is the App Service Slot Enabled? Defaults to `true`. | 
+| **var.https_only** | bool |  `False`  |  Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. | 
+| **var.site_config** | block |  -  |  A `site_config` object as defined below. | 
+| **var.storage_account** | block |  -  |  One or more `storage_account` blocks. | 
+| **var.logs** | block |  -  |  A `logs` block. | 
+| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.key_vault_reference_identity_id** | string |  -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `auth_settings` block structure
 

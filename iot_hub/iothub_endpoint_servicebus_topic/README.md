@@ -28,19 +28,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created. | 
-| **var.iothub_id** | string  The IoTHub ID for the endpoint. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: `events`, `operationsMonitoringEvents`, `fileNotifications` and `$default`. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group under which the Service Bus Topic has been created. Changing this forces a new resource to be created. | 
+| **var.iothub_id** | string |  The IoTHub ID for the endpoint. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.authentication_type** | string  `keyBased`  |  `keyBased`, `identityBased`  |  Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`. | 
-| **var.identity_id** | string  -  |  -  |  ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint. | 
-| **var.endpoint_uri** | string  -  |  -  |  URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
-| **var.entity_path** | string  -  |  -  |  Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
-| **var.connection_string** | string  -  |  -  |  The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`. | 
+| **var.authentication_type** | string |  `keyBased`  |  `keyBased`, `identityBased`  |  Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`. | 
+| **var.identity_id** | string |  -  |  -  |  ID of the User Managed Identity used to authenticate against the Service Bus Topic endpoint. | 
+| **var.endpoint_uri** | string |  -  |  -  |  URI of the Service Bus endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
+| **var.entity_path** | string |  -  |  -  |  Name of the Service Bus Topic. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
+| **var.connection_string** | string |  -  |  -  |  The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`. | 
 
 
 

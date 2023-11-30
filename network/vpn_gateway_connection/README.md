@@ -35,18 +35,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.remote_vpn_site_id** | string  The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.vpn_gateway_id** | string  The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.vpn_link** | block  One or more `vpn_link` blocks. | 
+| **var.name** | string |  The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created. | 
+| **var.remote_vpn_site_id** | string |  The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created. | 
+| **var.vpn_gateway_id** | string |  The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created. | 
+| **var.vpn_link** | block |  One or more `vpn_link` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.internet_security_enabled** | bool  `False`  |  Whether Internet Security is enabled for this VPN Connection. Defaults to `false`. | 
-| **var.routing** | block  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
-| **var.traffic_selector_policy** | block  -  |  One or more `traffic_selector_policy` blocks. | 
+| **var.internet_security_enabled** | bool |  `False`  |  Whether Internet Security is enabled for this VPN Connection. Defaults to `false`. | 
+| **var.routing** | block |  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
+| **var.traffic_selector_policy** | block |  -  |  One or more `traffic_selector_policy` blocks. | 
 
 ### `vpn_link` block structure
 

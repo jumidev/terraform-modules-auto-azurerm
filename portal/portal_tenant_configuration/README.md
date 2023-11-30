@@ -26,7 +26,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.private_markdown_storage_enforced** | bool  Is the private tile markdown storage which used to display custom dynamic and static content enabled? | 
+| **var.private_markdown_storage_enforced** | bool |  Is the private tile markdown storage which used to display custom dynamic and static content enabled? | 
 
 
 

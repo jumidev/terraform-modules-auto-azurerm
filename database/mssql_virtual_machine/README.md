@@ -26,27 +26,27 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.virtual_machine_id** | string  The ID of the Virtual Machine. Changing this forces a new resource to be created. | 
+| **var.virtual_machine_id** | string |  The ID of the Virtual Machine. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.sql_license_type** | string  -  |  `AHUB`, `DR`, `PAYG`  |  The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created. | 
-| **var.auto_backup** | block  -  |  -  |  An `auto_backup` block. This block can be added to an existing resource, but removing this block forces a new resource to be created. | 
-| **var.auto_patching** | block  -  |  -  |  An `auto_patching` block. | 
-| **var.key_vault_credential** | block  -  |  -  |  An `key_vault_credential` block. | 
-| **var.r_services_enabled** | bool  -  |  -  |  Should R Services be enabled? | 
-| **var.sql_connectivity_port** | string  `1433`  |  -  |  The SQL Server port. Defaults to `1433`. | 
-| **var.sql_connectivity_type** | string  `PRIVATE`  |  `LOCAL`, `PRIVATE`, `PUBLIC`  |  The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`. | 
-| **var.sql_connectivity_update_password** | string  -  |  -  |  The SQL Server sysadmin login password. | 
-| **var.sql_connectivity_update_username** | string  -  |  -  |  The SQL Server sysadmin login to create. | 
-| **var.sql_instance** | block  -  |  -  |  A `sql_instance` block. | 
-| **var.storage_configuration** | block  -  |  -  |  An `storage_configuration` block. | 
-| **var.assessment** | block  -  |  -  |  An `assessment` block. | 
-| **var.sql_virtual_machine_group_id** | string  -  |  -  |  The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to. | 
-| **var.wsfc_domain_credential** | block  -  |  -  |  A `wsfc_domain_credential` block | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.sql_license_type** | string |  -  |  `AHUB`, `DR`, `PAYG`  |  The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created. | 
+| **var.auto_backup** | block |  -  |  -  |  An `auto_backup` block. This block can be added to an existing resource, but removing this block forces a new resource to be created. | 
+| **var.auto_patching** | block |  -  |  -  |  An `auto_patching` block. | 
+| **var.key_vault_credential** | block |  -  |  -  |  An `key_vault_credential` block. | 
+| **var.r_services_enabled** | bool |  -  |  -  |  Should R Services be enabled? | 
+| **var.sql_connectivity_port** | string |  `1433`  |  -  |  The SQL Server port. Defaults to `1433`. | 
+| **var.sql_connectivity_type** | string |  `PRIVATE`  |  `LOCAL`, `PRIVATE`, `PUBLIC`  |  The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`. | 
+| **var.sql_connectivity_update_password** | string |  -  |  -  |  The SQL Server sysadmin login password. | 
+| **var.sql_connectivity_update_username** | string |  -  |  -  |  The SQL Server sysadmin login to create. | 
+| **var.sql_instance** | block |  -  |  -  |  A `sql_instance` block. | 
+| **var.storage_configuration** | block |  -  |  -  |  An `storage_configuration` block. | 
+| **var.assessment** | block |  -  |  -  |  An `assessment` block. | 
+| **var.sql_virtual_machine_group_id** | string |  -  |  -  |  The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to. | 
+| **var.wsfc_domain_credential** | block |  -  |  -  |  A `wsfc_domain_credential` block | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `auto_backup` block structure
 

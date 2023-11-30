@@ -28,19 +28,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_dps_name** | string  The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created. | 
+| **var.iothub_dps_name** | string |  The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.enrollment_read** | string  Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data. | 
-| **var.enrollment_write** | string  Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data. | 
-| **var.registration_read** | string  Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations. | 
-| **var.registration_write** | string  Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations. | 
-| **var.service_config** | string  Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service. | 
+| **var.enrollment_read** | string |  Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data. | 
+| **var.enrollment_write** | string |  Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data. | 
+| **var.registration_read** | string |  Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations. | 
+| **var.registration_write** | string |  Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations. | 
+| **var.service_config** | string |  Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service. | 
 
 
 

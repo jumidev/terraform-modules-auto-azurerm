@@ -42,17 +42,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created. | 
-| **var.cognitive_account_id** | string  The ID of the Cognitive Services Account. Changing this forces a new resource to be created. | 
-| **var.model** | block  A `model` block. Changing this forces a new resource to be created. | 
-| **var.scale** | block  A `scale` block. | 
+| **var.name** | string |  The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created. | 
+| **var.cognitive_account_id** | string |  The ID of the Cognitive Services Account. Changing this forces a new resource to be created. | 
+| **var.model** | block |  A `model` block. Changing this forces a new resource to be created. | 
+| **var.scale** | block |  A `scale` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.rai_policy_name** | string  -  |  -  |  The name of RAI policy. | 
-| **var.version_upgrade_option** | string  `OnceNewDefaultVersionAvailable`  |  `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, `NoAutoUpgrade`  |  Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created. | 
+| **var.rai_policy_name** | string |  -  |  -  |  The name of RAI policy. | 
+| **var.version_upgrade_option** | string |  `OnceNewDefaultVersionAvailable`  |  `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, `NoAutoUpgrade`  |  Deployment model version upgrade option. Possible values are `OnceNewDefaultVersionAvailable`, `OnceCurrentVersionExpired`, and `NoAutoUpgrade`. Defaults to `OnceNewDefaultVersionAvailable`. Changing this forces a new resource to be created. | 
 
 ### `model` block structure
 

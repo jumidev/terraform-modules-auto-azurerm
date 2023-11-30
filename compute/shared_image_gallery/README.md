@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Shared Image Gallery. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  A description for this Shared Image Gallery. | 
-| **var.sharing** | block  A `sharing` block. Changing this forces a new resource to be created. | 
-| **var.tags** | map  A mapping of tags to assign to the Shared Image Gallery. | 
+| **var.description** | string |  A description for this Shared Image Gallery. | 
+| **var.sharing** | block |  A `sharing` block. Changing this forces a new resource to be created. | 
+| **var.tags** | map |  A mapping of tags to assign to the Shared Image Gallery. | 
 
 ### `sharing` block structure
 

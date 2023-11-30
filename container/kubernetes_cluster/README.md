@@ -42,65 +42,65 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created. | 
-| **var.location** | string  The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.default_node_pool** | block  A `default_node_pool` block. | 
+| **var.name** | string |  The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
+| **var.default_node_pool** | block |  A `default_node_pool` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.dns_prefix** | string  -  |  -  |  DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created. | 
-| **var.dns_prefix_private_cluster** | string  -  |  -  |  Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created. | 
-| **var.aci_connector_linux** | block  -  |  -  |  A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). | 
-| **var.automatic_channel_upgrade** | string  -  |  `patch`, `rapid`, `node-image`, `stable`  |  The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`. | 
-| **var.api_server_access_profile** | block  -  |  -  |  An `api_server_access_profile` block. | 
-| **var.auto_scaler_profile** | block  -  |  -  |  A `auto_scaler_profile` block. | 
-| **var.azure_active_directory_role_based_access_control** | block  -  |  -  |  A `azure_active_directory_role_based_access_control` block. | 
-| **var.azure_policy_enabled** | bool  -  |  -  |  Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks) | 
-| **var.confidential_computing** | block  -  |  -  |  A `confidential_computing` block. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview) | 
-| **var.custom_ca_trust_certificates_base64** | list  -  |  -  |  A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled. | 
-| **var.disk_encryption_set_id** | string  -  |  -  |  The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created. | 
-| **var.edge_zone** | string  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.http_application_routing_enabled** | bool  -  |  -  |  Should HTTP Application Routing be enabled? | 
-| **var.http_proxy_config** | block  -  |  -  |  A `http_proxy_config` block. | 
-| **var.identity** | block  -  |  -  |  An `identity` block. One of either `identity` or `service_principal` must be specified. | 
-| **var.image_cleaner_enabled** | bool  -  |  -  |  Specifies whether Image Cleaner is enabled. | 
-| **var.image_cleaner_interval_hours** | string  `48`  |  -  |  Specifies the interval in hours when images should be cleaned up. Defaults to `48`. | 
-| **var.ingress_application_gateway** | block  -  |  -  |  A `ingress_application_gateway` block. | 
-| **var.key_management_service** | block  -  |  -  |  A `key_management_service` block. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption). | 
-| **var.key_vault_secrets_provider** | block  -  |  -  |  A `key_vault_secrets_provider` block. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver). | 
-| **var.kubelet_identity** | block  -  |  -  |  A `kubelet_identity` block. | 
-| **var.kubernetes_version** | string  -  |  -  |  Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). | 
-| **var.linux_profile** | block  -  |  -  |  A `linux_profile` block. | 
-| **var.local_account_disabled** | bool  -  |  -  |  If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information. | 
-| **var.maintenance_window** | block  -  |  -  |  A `maintenance_window` block. | 
-| **var.maintenance_window_auto_upgrade** | block  -  |  -  |  A `maintenance_window_auto_upgrade` block. | 
-| **var.maintenance_window_node_os** | block  -  |  -  |  A `maintenance_window_node_os` block. | 
-| **var.microsoft_defender** | block  -  |  -  |  A `microsoft_defender` block. | 
-| **var.monitor_metrics** | block  -  |  -  |  Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block. | 
-| **var.network_profile** | block  -  |  -  |  A `network_profile` block. Changing this forces a new resource to be created. | 
-| **var.node_os_channel_upgrade** | string  -  |  `Unmanaged`, `SecurityPatch`, `NodeImage`, `None`  |  The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. | 
-| **var.node_resource_group** | string  -  |  -  |  The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. | 
-| **var.oidc_issuer_enabled** | bool  -  |  -  |  Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer) | 
-| **var.oms_agent** | block  -  |  -  |  A `oms_agent` block. | 
-| **var.open_service_mesh_enabled** | bool  -  |  -  |  Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about). | 
-| **var.private_cluster_enabled** | bool  `False`  |  -  |  Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.private_dns_zone_id** | string  -  |  -  |  Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created. | 
-| **var.private_cluster_public_fqdn_enabled** | bool  `False`  |  -  |  Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`. | 
-| **var.service_mesh_profile** | block  -  |  -  |  A `service_mesh_profile` block. | 
-| **var.workload_autoscaler_profile** | block  -  |  -  |  A `workload_autoscaler_profile` block defined below. | 
-| **var.workload_identity_enabled** | bool  `False`  |  -  |  Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`. | 
-| **var.public_network_access_enabled** | bool  `True`  |  -  |  Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. | 
-| **var.role_based_access_control_enabled** | bool  `True`  |  -  |  Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created. | 
-| **var.run_command_enabled** | bool  `True`  |  -  |  Whether to enable run command for the cluster or not. Defaults to `true`. | 
-| **var.service_principal** | block  -  |  -  |  A `service_principal` block. One of either `identity` or `service_principal` must be specified. | 
-| **var.sku_tier** | string  `Free`  |  `Free`, `Standard`  |  The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`. | 
-| **var.storage_profile** | block  -  |  -  |  A `storage_profile` block. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.web_app_routing** | block  -  |  -  |  A `web_app_routing` block. | 
-| **var.windows_profile** | block  -  |  -  |  A `windows_profile` block. | 
+| **var.dns_prefix** | string |  -  |  -  |  DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created. | 
+| **var.dns_prefix_private_cluster** | string |  -  |  -  |  Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created. | 
+| **var.aci_connector_linux** | block |  -  |  -  |  A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). | 
+| **var.automatic_channel_upgrade** | string |  -  |  `patch`, `rapid`, `node-image`, `stable`  |  The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`. | 
+| **var.api_server_access_profile** | block |  -  |  -  |  An `api_server_access_profile` block. | 
+| **var.auto_scaler_profile** | block |  -  |  -  |  A `auto_scaler_profile` block. | 
+| **var.azure_active_directory_role_based_access_control** | block |  -  |  -  |  A `azure_active_directory_role_based_access_control` block. | 
+| **var.azure_policy_enabled** | bool |  -  |  -  |  Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks) | 
+| **var.confidential_computing** | block |  -  |  -  |  A `confidential_computing` block. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview) | 
+| **var.custom_ca_trust_certificates_base64** | list |  -  |  -  |  A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled. | 
+| **var.disk_encryption_set_id** | string |  -  |  -  |  The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created. | 
+| **var.edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
+| **var.http_application_routing_enabled** | bool |  -  |  -  |  Should HTTP Application Routing be enabled? | 
+| **var.http_proxy_config** | block |  -  |  -  |  A `http_proxy_config` block. | 
+| **var.identity** | block |  -  |  -  |  An `identity` block. One of either `identity` or `service_principal` must be specified. | 
+| **var.image_cleaner_enabled** | bool |  -  |  -  |  Specifies whether Image Cleaner is enabled. | 
+| **var.image_cleaner_interval_hours** | string |  `48`  |  -  |  Specifies the interval in hours when images should be cleaned up. Defaults to `48`. | 
+| **var.ingress_application_gateway** | block |  -  |  -  |  A `ingress_application_gateway` block. | 
+| **var.key_management_service** | block |  -  |  -  |  A `key_management_service` block. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption). | 
+| **var.key_vault_secrets_provider** | block |  -  |  -  |  A `key_vault_secrets_provider` block. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver). | 
+| **var.kubelet_identity** | block |  -  |  -  |  A `kubelet_identity` block. | 
+| **var.kubernetes_version** | string |  -  |  -  |  Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). | 
+| **var.linux_profile** | block |  -  |  -  |  A `linux_profile` block. | 
+| **var.local_account_disabled** | bool |  -  |  -  |  If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information. | 
+| **var.maintenance_window** | block |  -  |  -  |  A `maintenance_window` block. | 
+| **var.maintenance_window_auto_upgrade** | block |  -  |  -  |  A `maintenance_window_auto_upgrade` block. | 
+| **var.maintenance_window_node_os** | block |  -  |  -  |  A `maintenance_window_node_os` block. | 
+| **var.microsoft_defender** | block |  -  |  -  |  A `microsoft_defender` block. | 
+| **var.monitor_metrics** | block |  -  |  -  |  Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block. | 
+| **var.network_profile** | block |  -  |  -  |  A `network_profile` block. Changing this forces a new resource to be created. | 
+| **var.node_os_channel_upgrade** | string |  -  |  `Unmanaged`, `SecurityPatch`, `NodeImage`, `None`  |  The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. | 
+| **var.node_resource_group** | string |  -  |  -  |  The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. | 
+| **var.oidc_issuer_enabled** | bool |  -  |  -  |  Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer) | 
+| **var.oms_agent** | block |  -  |  -  |  A `oms_agent` block. | 
+| **var.open_service_mesh_enabled** | bool |  -  |  -  |  Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about). | 
+| **var.private_cluster_enabled** | bool |  `False`  |  -  |  Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.private_dns_zone_id** | string |  -  |  -  |  Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created. | 
+| **var.private_cluster_public_fqdn_enabled** | bool |  `False`  |  -  |  Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`. | 
+| **var.service_mesh_profile** | block |  -  |  -  |  A `service_mesh_profile` block. | 
+| **var.workload_autoscaler_profile** | block |  -  |  -  |  A `workload_autoscaler_profile` block defined below. | 
+| **var.workload_identity_enabled** | bool |  `False`  |  -  |  Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. | 
+| **var.role_based_access_control_enabled** | bool |  `True`  |  -  |  Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created. | 
+| **var.run_command_enabled** | bool |  `True`  |  -  |  Whether to enable run command for the cluster or not. Defaults to `true`. | 
+| **var.service_principal** | block |  -  |  -  |  A `service_principal` block. One of either `identity` or `service_principal` must be specified. | 
+| **var.sku_tier** | string |  `Free`  |  `Free`, `Standard`  |  The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`. | 
+| **var.storage_profile** | block |  -  |  -  |  A `storage_profile` block. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.web_app_routing** | block |  -  |  -  |  A `web_app_routing` block. | 
+| **var.windows_profile** | block |  -  |  -  |  A `windows_profile` block. | 
 
 ### `default_node_pool` block structure
 

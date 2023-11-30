@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created. | 
-| **var.vmware_cloud_id** | string  -  |  The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created. | 
-| **var.cluster_node_count** | int  -  |  The count of the VMware Cluster nodes. | 
-| **var.sku_name** | string  `av20`, `av36`, `av36t`, `av36p`, `av52`  |  The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created. | 
+| **var.name** | string |  -  |  The name which should be used for this VMware Cluster. Changing this forces a new VMware Cluster to be created. | 
+| **var.vmware_cloud_id** | string |  -  |  The ID of the VMware Private Cloud in which to create this VMware Cluster. Changing this forces a new VMware Cluster to be created. | 
+| **var.cluster_node_count** | int |  -  |  The count of the VMware Cluster nodes. | 
+| **var.sku_name** | string |  `av20`, `av36`, `av36t`, `av36p`, `av52`  |  The cluster SKU to use. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Cluster to be created. | 
 
 
 

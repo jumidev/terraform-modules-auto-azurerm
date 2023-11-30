@@ -42,17 +42,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created. | 
-| **var.traffic_collector_id** | string  Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created. | 
-| **var.ipfx_emission** | block  An `ipfx_emission` block. Changing this forces a new Network Function Collector Policy to be created. | 
-| **var.ipfx_ingestion** | block  An `ipfx_ingestion` block. Changing this forces a new Network Function Collector Policy to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created. | 
+| **var.traffic_collector_id** | string |  Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Network Function Collector Policy should exist. Changing this forces a new Network Function Collector Policy to be created. | 
+| **var.ipfx_emission** | block |  An `ipfx_emission` block. Changing this forces a new Network Function Collector Policy to be created. | 
+| **var.ipfx_ingestion** | block |  An `ipfx_ingestion` block. Changing this forces a new Network Function Collector Policy to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Network Function Collector Policy. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Network Function Collector Policy. | 
 
 ### `ipfx_emission` block structure
 

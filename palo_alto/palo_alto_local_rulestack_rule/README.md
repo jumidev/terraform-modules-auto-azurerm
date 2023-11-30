@@ -42,30 +42,30 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.applications** | string  -  |  Specifies a list of Applications. | 
-| **var.rulestack_id** | string  -  |  The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created. | 
-| **var.priority** | string  -  |  The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created. | 
-| **var.action** | string  `Allow`, `DenyResetBoth`, `DenyResetServer`, `DenySilent`  |  The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`. | 
-| **var.name** | string  -  |  The name which should be used for this Palo Alto Local Rulestack Rule. | 
-| **var.destination** | block  -  |  One or more `destination` blocks. | 
-| **var.source** | block  -  |  One or more `source` blocks. | 
+| **var.applications** | string |  -  |  Specifies a list of Applications. | 
+| **var.rulestack_id** | string |  -  |  The ID of the Local Rulestack in which to create this Rule. Changing this forces a new Palo Alto Local Rulestack Rule to be created. | 
+| **var.priority** | string |  -  |  The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created. | 
+| **var.action** | string |  `Allow`, `DenyResetBoth`, `DenyResetServer`, `DenySilent`  |  The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`. | 
+| **var.name** | string |  -  |  The name which should be used for this Palo Alto Local Rulestack Rule. | 
+| **var.destination** | block |  -  |  One or more `destination` blocks. | 
+| **var.source** | block |  -  |  One or more `source` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.audit_comment** | string  -  |  -  |  The comment for Audit purposes. | 
-| **var.category** | block  -  |  -  |  A `category` block. | 
-| **var.decryption_rule_type** | string  `None`  |  `SSLInboundInspection`, `SSLOutboundInspection`, `None`  |  The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`. | 
-| **var.description** | string  -  |  -  |  The description for the rule. | 
-| **var.enabled** | bool  `True`  |  -  |  Should this Rule be enabled? Defaults to `true`. | 
-| **var.inspection_certificate_id** | string  -  |  -  |  The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`. | 
-| **var.logging_enabled** | bool  `False`  |  -  |  Should Logging be enabled? Defaults to `false`. | 
-| **var.negate_destination** | bool  `False`  |  -  |  Should the inverse of the Destination configuration be used. Defaults to `false`. | 
-| **var.negate_source** | bool  `False`  |  -  |  Should the inverse of the Source configuration be used. Defaults to `false`. | 
-| **var.protocol** | string  `application-default`  |  -  |  The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`. | 
-| **var.protocol_ports** | string  -  |  -  |  Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule. | 
+| **var.audit_comment** | string |  -  |  -  |  The comment for Audit purposes. | 
+| **var.category** | block |  -  |  -  |  A `category` block. | 
+| **var.decryption_rule_type** | string |  `None`  |  `SSLInboundInspection`, `SSLOutboundInspection`, `None`  |  The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`. | 
+| **var.description** | string |  -  |  -  |  The description for the rule. | 
+| **var.enabled** | bool |  `True`  |  -  |  Should this Rule be enabled? Defaults to `true`. | 
+| **var.inspection_certificate_id** | string |  -  |  -  |  The ID of the certificate for inbound inspection. Only valid when `decryption_rule_type` is set to `SSLInboundInspection`. | 
+| **var.logging_enabled** | bool |  `False`  |  -  |  Should Logging be enabled? Defaults to `false`. | 
+| **var.negate_destination** | bool |  `False`  |  -  |  Should the inverse of the Destination configuration be used. Defaults to `false`. | 
+| **var.negate_source** | bool |  `False`  |  -  |  Should the inverse of the Source configuration be used. Defaults to `false`. | 
+| **var.protocol** | string |  `application-default`  |  -  |  The Protocol and port to use in the form `[protocol]:[port_number]` e.g. `TCP:8080` or `UDP:53`. Conflicts with `protocol_ports`. Defaults to `application-default`. | 
+| **var.protocol_ports** | string |  -  |  -  |  Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule. | 
 
 ### `destination` block structure
 

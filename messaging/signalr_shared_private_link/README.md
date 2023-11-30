@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created. | 
-| **var.signalr_service_id** | string  -  |  The id of the Signalr Service. Changing this forces a new resource to be created. | 
-| **var.sub_resource_name** | string  `sites`, `vault`  |  The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created. | 
-| **var.target_resource_id** | string  -  |  The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  The name of the Signalr Shared Private Link Resource. Changing this forces a new resource to be created. | 
+| **var.signalr_service_id** | string |  -  |  The id of the Signalr Service. Changing this forces a new resource to be created. | 
+| **var.sub_resource_name** | string |  `sites`, `vault`  |  The sub resource name which the Signalr Private Endpoint can connect to. Possible values are `sites`, `vault`. Changing this forces a new resource to be created. | 
+| **var.target_resource_id** | string |  -  |  The ID of the Shared Private Link Enabled Remote Resource which this Signalr Private Endpoint should be connected to. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.request_message** | string  The request message for requesting approval of the Shared Private Link Enabled Remote Resource. | 
+| **var.request_message** | string |  The request message for requesting approval of the Shared Private Link Enabled Remote Resource. | 
 
 
 

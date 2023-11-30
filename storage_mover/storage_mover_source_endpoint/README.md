@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created. | 
-| **var.storage_mover_id** | string  Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created. | 
-| **var.host** | string  Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Storage Mover Source Endpoint. Changing this forces a new resource to be created. | 
+| **var.storage_mover_id** | string |  Specifies the ID of the Storage Mover for this Storage Mover Source Endpoint. Changing this forces a new resource to be created. | 
+| **var.host** | string |  Specifies the host name or IP address of the server exporting the file system. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.export** | string  -  |  -  |  Specifies the directory being exported from the server. Changing this forces a new resource to be created. | 
-| **var.nfs_version** | string  `NFSauto`  |  `NFSauto`, `NFSv3`, `NFSv4`  |  Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created. | 
-| **var.description** | string  -  |  -  |  Specifies a description for the Storage Mover Source Endpoint. | 
+| **var.export** | string |  -  |  -  |  Specifies the directory being exported from the server. Changing this forces a new resource to be created. | 
+| **var.nfs_version** | string |  `NFSauto`  |  `NFSauto`, `NFSv3`, `NFSv4`  |  Specifies the NFS protocol version. Possible values are `NFSauto`, `NFSv3` and `NFSv4`. Defaults to `NFSauto`. Changing this forces a new resource to be created. | 
+| **var.description** | string |  -  |  -  |  Specifies a description for the Storage Mover Source Endpoint. | 
 
 
 

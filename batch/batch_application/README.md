@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the application. This must be unique within the account. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group that contains the Batch account. Changing this forces a new resource to be created. | 
-| **var.account_name** | string  The name of the Batch account. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the application. This must be unique within the account. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group that contains the Batch account. Changing this forces a new resource to be created. | 
+| **var.account_name** | string |  The name of the Batch account. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.allow_updates** | bool  `True`  |  A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`. | 
-| **var.default_version** | string  -  |  The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package. | 
-| **var.display_name** | string  -  |  The display name for the application. | 
+| **var.allow_updates** | bool |  `True`  |  A value indicating whether packages within the application may be overwritten using the same version string. Defaults to `true`. | 
+| **var.default_version** | string |  -  |  The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package. | 
+| **var.display_name** | string |  -  |  The display name for the application. | 
 
 
 

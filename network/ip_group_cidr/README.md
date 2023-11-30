@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.ip_group_id** | string  The ID of the destination IP Group. Changing this forces a new IP Group CIDR to be created. | 
-| **var.cidr** | string  The `CIDR` that should be added to the IP Group. Changing this forces a new IP Group CIDR to be created. | 
+| **var.ip_group_id** | string |  The ID of the destination IP Group. Changing this forces a new IP Group CIDR to be created. | 
+| **var.cidr** | string |  The `CIDR` that should be added to the IP Group. Changing this forces a new IP Group CIDR to be created. | 
 
 
 

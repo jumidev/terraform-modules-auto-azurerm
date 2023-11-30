@@ -30,20 +30,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.display_name** | string  The Display Name of the built-in Anomaly Alert Rule. | 
-| **var.built_in_rule_id** | string  The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
-| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
-| **var.enabled** | bool  Should the Duplicated Anomaly Alert Rule be enabled? | 
-| **var.mode** | string  mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
+| **var.display_name** | string |  The Display Name of the built-in Anomaly Alert Rule. | 
+| **var.built_in_rule_id** | string |  The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
+| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
+| **var.enabled** | bool |  Should the Duplicated Anomaly Alert Rule be enabled? | 
+| **var.mode** | string |  mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.multi_select_observation** | block  A list of `multi_select_observation` blocks. | 
-| **var.single_select_observation** | block  A list of `single_select_observation` blocks. | 
-| **var.prioritized_exclude_observation** | block  A list of `prioritized_exclude_observation` blocks. | 
-| **var.threshold_observation** | block  A list of `threshold_observation` blocks. | 
+| **var.multi_select_observation** | block |  A list of `multi_select_observation` blocks. | 
+| **var.single_select_observation** | block |  A list of `single_select_observation` blocks. | 
+| **var.prioritized_exclude_observation** | block |  A list of `prioritized_exclude_observation` blocks. | 
+| **var.threshold_observation** | block |  A list of `threshold_observation` blocks. | 
 
 ### `multi_select_observation` block structure
 

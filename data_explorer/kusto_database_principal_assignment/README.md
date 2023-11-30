@@ -33,14 +33,14 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the kusto principal assignment. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
-| **var.cluster_name** | string  -  |  The name of the cluster in which to create the resource. Changing this forces a new resource to be created. | 
-| **var.database_name** | string  -  |  The name of the database in which to create the resource. Changing this forces a new resource to be created. | 
-| **var.principal_id** | string  -  |  The object id of the principal. Changing this forces a new resource to be created. | 
-| **var.principal_type** | string  `App`, `Group`, `User`  |  The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created. | 
-| **var.role** | string  `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User`, `Viewer`  |  The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created. | 
-| **var.tenant_id** | string  -  |  The tenant id in which the principal resides. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  The name of the kusto principal assignment. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
+| **var.cluster_name** | string |  -  |  The name of the cluster in which to create the resource. Changing this forces a new resource to be created. | 
+| **var.database_name** | string |  -  |  The name of the database in which to create the resource. Changing this forces a new resource to be created. | 
+| **var.principal_id** | string |  -  |  The object id of the principal. Changing this forces a new resource to be created. | 
+| **var.principal_type** | string |  `App`, `Group`, `User`  |  The type of the principal. Valid values include `App`, `Group`, `User`. Changing this forces a new resource to be created. | 
+| **var.role** | string |  `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User`, `Viewer`  |  The database role assigned to the principal. Valid values include `Admin`, `Ingestor`, `Monitor`, `UnrestrictedViewer`, `User` and `Viewer`. Changing this forces a new resource to be created. | 
+| **var.tenant_id** | string |  -  |  The tenant id in which the principal resides. Changing this forces a new resource to be created. | 
 
 
 

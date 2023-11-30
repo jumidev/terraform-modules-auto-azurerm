@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string  The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string  Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created. | 
-| **var.source_storage_account_id** | string  Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created. | 
-| **var.source_file_share_name** | string  Specifies the name of the file share to backup. Changing this forces a new resource to be created. | 
-| **var.backup_policy_id** | string  Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Azure Backup Protected File Share. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string |  Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created. | 
+| **var.source_storage_account_id** | string |  Specifies the ID of the storage account of the file share to backup. Changing this forces a new resource to be created. | 
+| **var.source_file_share_name** | string |  Specifies the name of the file share to backup. Changing this forces a new resource to be created. | 
+| **var.backup_policy_id** | string |  Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported. | 
 
 
 

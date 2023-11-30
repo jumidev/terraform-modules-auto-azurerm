@@ -32,24 +32,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Runbook. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string  The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created. | 
-| **var.runbook_type** | string  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
-| **var.log_progress** | string  Progress log option. | 
-| **var.log_verbose** | string  Verbose log option. | 
+| **var.name** | string |  Specifies the name of the Runbook. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string |  The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created. | 
+| **var.runbook_type** | string |  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
+| **var.log_progress** | string |  Progress log option. | 
+| **var.log_verbose** | string |  Verbose log option. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.publish_content_link** | block  -  |  One `publish_content_link` block. | 
-| **var.description** | string  -  |  A description for this credential. | 
-| **var.content** | string  -  |  The desired content of the runbook. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
-| **var.log_activity_trace_level** | string  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
-| **var.draft** | block  -  |  A `draft` block . | 
+| **var.publish_content_link** | block |  -  |  One `publish_content_link` block. | 
+| **var.description** | string |  -  |  A description for this credential. | 
+| **var.content** | string |  -  |  The desired content of the runbook. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **var.log_activity_trace_level** | string |  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
+| **var.draft** | block |  -  |  A `draft` block . | 
 
 ### `publish_content_link` block structure
 

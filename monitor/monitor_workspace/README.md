@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Azure Monitor Workspace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Azure Monitor Workspace should exist. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.public_network_access_enabled** | bool  `True`  |  Is public network access enabled? Defaults to `true`. | 
-| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Azure Monitor Workspace. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  Is public network access enabled? Defaults to `true`. | 
+| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Azure Monitor Workspace. | 
 
 
 

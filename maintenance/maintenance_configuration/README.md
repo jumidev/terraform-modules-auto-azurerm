@@ -29,21 +29,21 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.scope** | string  `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB`, `SQLManagedInstance`  |  The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. | 
+| **var.name** | string |  -  |  Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.scope** | string |  `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB`, `SQLManagedInstance`  |  The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.visibility** | string  `Custom`  |  -  |  The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`. | 
-| **var.window** | block  -  |  -  |  A `window` block. | 
-| **var.install_patches** | block  -  |  -  |  An `install_patches` block. | 
-| **var.in_guest_user_patch_mode** | string  -  |  `Platform`, `User`  |  The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`. | 
-| **var.properties** | string  -  |  -  |  A mapping of properties to assign to the resource. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 
+| **var.visibility** | string |  `Custom`  |  -  |  The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`. | 
+| **var.window** | block |  -  |  -  |  A `window` block. | 
+| **var.install_patches** | block |  -  |  -  |  An `install_patches` block. | 
+| **var.in_guest_user_patch_mode** | string |  -  |  `Platform`, `User`  |  The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`. | 
+| **var.properties** | string |  -  |  -  |  A mapping of properties to assign to the resource. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 
 
 ### `window` block structure
 

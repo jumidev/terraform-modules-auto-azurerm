@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Automation Account. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string  `Basic`, `Free`  |  The SKU of the account. Possible values are `Basic` and `Free`. | 
+| **var.name** | string |  -  |  Specifies the name of the Automation Account. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string |  `Basic`, `Free`  |  The SKU of the account. Possible values are `Basic` and `Free`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.local_authentication_enabled** | bool  `True`  |  Whether requests using non-AAD authentication are blocked. Defaults to `true`. | 
-| **var.public_network_access_enabled** | bool  `True`  |  Whether public network access is allowed for the automation account. Defaults to `true`. | 
+| **var.local_authentication_enabled** | bool |  `True`  |  Whether requests using non-AAD authentication are blocked. Defaults to `true`. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  Whether public network access is allowed for the automation account. Defaults to `true`. | 
 
 
 

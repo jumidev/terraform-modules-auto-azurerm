@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created. | 
-| **var.mobile_network_id** | string  Specifies the ID of the Mobile Network. Changing this forces a new Mobile Network Data Network to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Mobile Network Data Network should exist. Changing this forces a new Mobile Network Data Network to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Mobile Network Data Network. Changing this forces a new Mobile Network Data Network to be created. | 
+| **var.mobile_network_id** | string |  Specifies the ID of the Mobile Network. Changing this forces a new Mobile Network Data Network to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Mobile Network Data Network should exist. Changing this forces a new Mobile Network Data Network to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  A description of this Mobile Network Data Network. | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Mobile Network Data Network. | 
+| **var.description** | string |  A description of this Mobile Network Data Network. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Mobile Network Data Network. | 
 
 
 

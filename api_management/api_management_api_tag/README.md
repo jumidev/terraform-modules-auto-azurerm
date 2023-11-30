@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_id** | string  The ID of the API Management API. Changing this forces a new API Management API Tag to be created. | 
-| **var.name** | string  The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created. | 
+| **var.api_id** | string |  The ID of the API Management API. Changing this forces a new API Management API Tag to be created. | 
+| **var.name** | string |  The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created. | 
 
 
 

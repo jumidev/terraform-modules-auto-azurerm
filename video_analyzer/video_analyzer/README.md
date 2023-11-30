@@ -43,17 +43,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Video Analyzer. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.storage_account** | block  A `storage_account` block. | 
-| **var.identity** | block  An `identity` block. | 
+| **var.name** | string |  Specifies the name of the Video Analyzer. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.storage_account** | block |  A `storage_account` block. | 
+| **var.identity** | block |  An `identity` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags assigned to the resource. | 
+| **var.tags** | map |  A mapping of tags assigned to the resource. | 
 
 ### `storage_account` block structure
 

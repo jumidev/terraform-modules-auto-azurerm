@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the scope map. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created. | 
-| **var.container_registry_name** | string  The name of the Container Registry. Changing this forces a new resource to be created. | 
-| **var.actions** | list  A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`). | 
+| **var.name** | string |  Specifies the name of the scope map. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created. | 
+| **var.container_registry_name** | string |  The name of the Container Registry. Changing this forces a new resource to be created. | 
+| **var.actions** | list |  A list of actions to attach to the scope map (e.g. `repo/content/read`, `repo2/content/delete`). | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  The description of the Container Registry. | 
+| **var.description** | string |  The description of the Container Registry. | 
 
 
 

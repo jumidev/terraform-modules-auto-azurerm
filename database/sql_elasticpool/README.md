@@ -31,21 +31,21 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.server_name** | string  -  |  The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created. | 
-| **var.edition** | string  `Basic`, `Standard`, `Premium`  |  The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created. | 
-| **var.dtu** | string  `edition`  |  The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations. | 
+| **var.name** | string |  -  |  The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.server_name** | string |  -  |  The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created. | 
+| **var.edition** | string |  `Basic`, `Standard`, `Premium`  |  The edition of the elastic pool to be created. Valid values are `Basic`, `Standard`, and `Premium`. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for details. Changing this forces a new resource to be created. | 
+| **var.dtu** | string |  `edition`  |  The total shared DTU for the elastic pool. Valid values depend on the `edition` which has been defined. Refer to [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus) for valid combinations. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.db_dtu_min** | string  The minimum DTU which will be guaranteed to all databases in the elastic pool to be created. | 
-| **var.db_dtu_max** | string  The maximum DTU which will be guaranteed to all databases in the elastic pool to be created. | 
-| **var.pool_size** | string  The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.db_dtu_min** | string |  The minimum DTU which will be guaranteed to all databases in the elastic pool to be created. | 
+| **var.db_dtu_max** | string |  The maximum DTU which will be guaranteed to all databases in the elastic pool to be created. | 
+| **var.pool_size** | string |  The maximum size in MB that all databases in the elastic pool can grow to. The maximum size must be consistent with combination of `edition` and `dtu` and the limits documented in [Azure SQL Database Service Tiers](https://docs.microsoft.com/en-gb/azure/sql-database/sql-database-service-tiers#elastic-pool-service-tiers-and-performance-in-edtus). If not defined when creating an elastic pool, the value is set to the size implied by `edition` and `dtu`. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

@@ -29,24 +29,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.location** | string  The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.machine_learning_workspace_id** | string  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.virtual_machine_size** | string  The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.name** | string |  The name which should be used for this Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.location** | string |  The Azure Region where the Machine Learning Compute Instance should exist. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.machine_learning_workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.virtual_machine_size** | string |  The Virtual Machine Size. Changing this forces a new Machine Learning Compute Instance to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.authorization_type** | string  -  |  `personal`  |  The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.assign_to_user** | block  -  |  -  |  A `assign_to_user` block. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.description** | string  -  |  -  |  The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.identity** | block  -  |  -  |  An `identity` block. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.local_auth_enabled** | bool  `True`  |  -  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.ssh** | block  -  |  -  |  A `ssh` block. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.subnet_resource_id** | string  -  |  -  |  Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created. | 
-| **var.node_public_ip_enabled** | bool  `True`  |  -  |  Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.authorization_type** | string |  -  |  `personal`  |  The Compute Instance Authorization type. Possible values include: `personal`. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.assign_to_user** | block |  -  |  -  |  A `assign_to_user` block. A user explicitly assigned to a personal compute instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.description** | string |  -  |  -  |  The description of the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.identity** | block |  -  |  -  |  An `identity` block. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.ssh** | block |  -  |  -  |  A `ssh` block. Specifies policy and settings for SSH access. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.subnet_resource_id** | string |  -  |  -  |  Virtual network subnet resource ID the compute nodes belong to. Changing this forces a new Machine Learning Compute Instance to be created. | 
+| **var.node_public_ip_enabled** | bool |  `True`  |  -  |  Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
 
 ### `assign_to_user` block structure
 

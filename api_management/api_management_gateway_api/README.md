@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.gateway_id** | string  The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created. | 
-| **var.api_id** | string  The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created. | 
+| **var.gateway_id** | string |  The Identifier for the API Management Gateway. Changing this forces a new API Management Gateway API to be created. | 
+| **var.api_id** | string |  The Identifier of the API Management API within the API Management Service. Changing this forces a new API Management Gateway API to be created. | 
 
 
 

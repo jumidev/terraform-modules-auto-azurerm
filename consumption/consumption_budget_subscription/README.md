@@ -43,18 +43,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created. | 
-| **var.subscription_id** | string  The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created. | 
-| **var.amount** | string  The total amount of cost to track with the budget. | 
-| **var.time_period** | block  A `time_period` block. | 
-| **var.notification** | block  One or more `notification` blocks. | 
+| **var.name** | string |  The name which should be used for this Subscription Consumption Budget. Changing this forces a new resource to be created. | 
+| **var.subscription_id** | string |  The ID of the Subscription for which to create a Consumption Budget. Changing this forces a new resource to be created. | 
+| **var.amount** | string |  The total amount of cost to track with the budget. | 
+| **var.time_period** | block |  A `time_period` block. | 
+| **var.notification** | block |  One or more `notification` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.time_grain** | string  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
-| **var.filter** | block  -  |  -  |  A `filter` block. | 
+| **var.time_grain** | string |  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
+| **var.filter** | block |  -  |  -  |  A `filter` block. | 
 
 ### `time_period` block structure
 

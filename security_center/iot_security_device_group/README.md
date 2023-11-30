@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Device Security Group. Changing this forces a new resource to be created. | 
-| **var.iothub_id** | string  The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Device Security Group. Changing this forces a new resource to be created. | 
+| **var.iothub_id** | string |  The ID of the IoT Hub which to link the Security Device Group to. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.allow_rule** | block  an `allow_rule` blocks. | 
-| **var.range_rule** | block  One or more `range_rule` blocks. | 
+| **var.allow_rule** | block |  an `allow_rule` blocks. | 
+| **var.range_rule** | block |  One or more `range_rule` blocks. | 
 
 ### `allow_rule` block structure
 

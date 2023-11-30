@@ -28,25 +28,25 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.adb_domain** | string  The domain URL of the databricks instance. | 
-| **var.data_factory_id** | string  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.name** | string  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.adb_domain** | string |  The domain URL of the databricks instance. | 
+| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **var.name** | string |  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.access_token** | string  Authenticate to ADB via an access token. | 
-| **var.key_vault_password** | block  Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below. | 
-| **var.msi_work_space_resource_id** | string  Authenticate to ADB via managed service identity. | 
-| **var.existing_cluster_id** | string  The cluster_id of an existing cluster within the linked ADB instance. | 
-| **var.instance_pool** | string  Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below. | 
-| **var.new_cluster_config** | string  Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below. | 
-| **var.additional_properties** | string  A map of additional properties to associate with the Data Factory Linked Service. | 
-| **var.annotations** | string  List of tags that can be used for describing the Data Factory Linked Service. | 
-| **var.description** | string  The description for the Data Factory Linked Service. | 
-| **var.integration_runtime_name** | string  The integration runtime reference to associate with the Data Factory Linked Service. | 
-| **var.parameters** | string  A map of parameters to associate with the Data Factory Linked Service. | 
+| **var.access_token** | string |  Authenticate to ADB via an access token. | 
+| **var.key_vault_password** | block |  Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below. | 
+| **var.msi_work_space_resource_id** | string |  Authenticate to ADB via managed service identity. | 
+| **var.existing_cluster_id** | string |  The cluster_id of an existing cluster within the linked ADB instance. | 
+| **var.instance_pool** | string |  Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below. | 
+| **var.new_cluster_config** | string |  Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below. | 
+| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service. | 
+| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service. | 
+| **var.description** | string |  The description for the Data Factory Linked Service. | 
+| **var.integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service. | 
+| **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service. | 
 
 ### `key_vault_password` block structure
 

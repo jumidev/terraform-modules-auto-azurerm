@@ -28,19 +28,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Express Route Connection. Changing this forces a new resource to be created. | 
-| **var.express_route_circuit_peering_id** | string  The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created. | 
-| **var.express_route_gateway_id** | string  The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name which should be used for this Express Route Connection. Changing this forces a new resource to be created. | 
+| **var.express_route_circuit_peering_id** | string |  The ID of the Express Route Circuit Peering that this Express Route Connection connects with. Changing this forces a new resource to be created. | 
+| **var.express_route_gateway_id** | string |  The ID of the Express Route Gateway that this Express Route Connection connects with. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.authorization_key** | string  -  |  The authorization key to establish the Express Route Connection. | 
-| **var.enable_internet_security** | bool  -  |  Is Internet security enabled for this Express Route Connection? | 
-| **var.express_route_gateway_bypass_enabled** | bool  `False`  |  Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`. | 
-| **var.routing** | block  -  |  A `routing` block. | 
-| **var.routing_weight** | string  `0`  |  The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`. | 
+| **var.authorization_key** | string |  -  |  The authorization key to establish the Express Route Connection. | 
+| **var.enable_internet_security** | bool |  -  |  Is Internet security enabled for this Express Route Connection? | 
+| **var.express_route_gateway_bypass_enabled** | bool |  `False`  |  Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`. | 
+| **var.routing** | block |  -  |  A `routing` block. | 
+| **var.routing_weight** | string |  `0`  |  The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`. | 
 
 ### `routing` block structure
 

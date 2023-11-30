@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created. | 
-| **var.dns_forwarding_ruleset_id** | string  Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created. | 
-| **var.virtual_network_id** | string  The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Private DNS Resolver Virtual Network Link. Changing this forces a new Private DNS Resolver Virtual Network Link to be created. | 
+| **var.dns_forwarding_ruleset_id** | string |  Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset. Changing this forces a new Private DNS Resolver Virtual Network Link to be created. | 
+| **var.virtual_network_id** | string |  The ID of the Virtual Network that is linked to the Private DNS Resolver Virtual Network Link. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.metadata** | string  Metadata attached to the Private DNS Resolver Virtual Network Link. | 
+| **var.metadata** | string |  Metadata attached to the Private DNS Resolver Virtual Network Link. | 
 
 
 

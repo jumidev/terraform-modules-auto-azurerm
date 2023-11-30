@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created. | 
-| **var.recovery_vault_id** | string  ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created. | 
-| **var.recovery_point_retention_in_minutes** | int  Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`. | 
-| **var.application_consistent_snapshot_frequency_in_minutes** | int  Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`. | 
+| **var.name** | string |  The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created. | 
+| **var.recovery_vault_id** | string |  ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created. | 
+| **var.recovery_point_retention_in_minutes** | int |  Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`. | 
+| **var.application_consistent_snapshot_frequency_in_minutes** | int |  Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`. | 
 
 
 

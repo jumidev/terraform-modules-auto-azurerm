@@ -31,21 +31,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.automation_account_id** | string  The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created. | 
-| **var.name** | string  The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created. | 
-| **var.execution_frequency_in_seconds** | int  Specify the frequency at which the watcher is invoked. | 
-| **var.location** | string  The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created. | 
-| **var.script_name** | string  Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created. | 
-| **var.script_run_on** | string  Specify the name of the Hybrid work group the watcher will run on. | 
+| **var.automation_account_id** | string |  The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created. | 
+| **var.name** | string |  The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created. | 
+| **var.execution_frequency_in_seconds** | int |  Specify the frequency at which the watcher is invoked. | 
+| **var.location** | string |  The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created. | 
+| **var.script_name** | string |  Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created. | 
+| **var.script_run_on** | string |  Specify the name of the Hybrid work group the watcher will run on. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  A description of this Automation Watcher. | 
-| **var.etag** | string  A string of etag assigned to this Automation Watcher. | 
-| **var.script_parameters** | string  Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created. | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Automation Watcher. | 
+| **var.description** | string |  A description of this Automation Watcher. | 
+| **var.etag** | string |  A string of etag assigned to this Automation Watcher. | 
+| **var.script_parameters** | string |  Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Automation Watcher. | 
 
 
 

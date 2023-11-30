@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created. | 
-| **var.subscription_id** | string  Specifies the ID of the target Subscription. Changing this forces a new resource to be created. | 
-| **var.network_manager_id** | string  Specifies the ID of the Network Manager which the Subscription is connected to. | 
+| **var.name** | string |  Specifies the name which should be used for this Network Subscription Network Manager Connection. Changing this forces a new Network Subscription Network Manager Connection to be created. | 
+| **var.subscription_id** | string |  Specifies the ID of the target Subscription. Changing this forces a new resource to be created. | 
+| **var.network_manager_id** | string |  Specifies the ID of the Network Manager which the Subscription is connected to. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  A description of the Network Manager Subscription Connection. | 
+| **var.description** | string |  A description of the Network Manager Subscription Connection. | 
 
 
 

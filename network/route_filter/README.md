@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string  The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created. | 
-| **var.name** | string  The Name which should be used for this Route Filter. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created. | 
+| **var.location** | string |  The Azure Region where the Route Filter should exist. Changing this forces a new Route Filter to be created. | 
+| **var.name** | string |  The Name which should be used for this Route Filter. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Route Filter should exist. Changing this forces a new Route Filter to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.rule** | block  A `rule` block. | 
-| **var.tags** | map  A mapping of tags which should be assigned to the Route Filter. | 
+| **var.rule** | block |  A `rule` block. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Route Filter. | 
 
 ### `rule` block structure
 

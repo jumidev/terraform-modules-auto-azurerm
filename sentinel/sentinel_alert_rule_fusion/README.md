@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
-| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
-| **var.alert_rule_template_guid** | string  The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
+| **var.name** | string |  The name which should be used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
+| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
+| **var.alert_rule_template_guid** | string |  The GUID of the alert rule template which is used for this Sentinel Fusion Alert Rule. Changing this forces a new Sentinel Fusion Alert Rule to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`. | 
-| **var.source** | block  -  |  One or more `source` blocks. | 
+| **var.enabled** | bool |  `True`  |  Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`. | 
+| **var.source** | block |  -  |  One or more `source` blocks. | 
 
 ### `source` block structure
 

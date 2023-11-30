@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cache_name** | string  The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created. | 
-| **var.name** | string  The name of the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
-| **var.namespace_path** | string  The client-facing file path of the HPC Cache Blob Target. | 
-| **var.storage_container_id** | string  The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **var.cache_name** | string |  The name HPC Cache, which the HPC Cache Blob Target will be added to. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **var.namespace_path** | string |  The client-facing file path of the HPC Cache Blob Target. | 
+| **var.storage_container_id** | string |  The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.access_policy_name** | string  `default`  |  The name of the access policy applied to this target. Defaults to `default`. | 
+| **var.access_policy_name** | string |  `default`  |  The name of the access policy applied to this target. Defaults to `default`. | 
 
 
 

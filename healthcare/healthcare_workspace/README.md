@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created. | 
+| **var.name** | string |  Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Healthcare Workspace should exist. Changing this forces a new Healthcare Workspace to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Healthcare Workspace should be created. Changing this forces a new Healthcare Workspace to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags to assign to the Healthcare Workspace. | 
+| **var.tags** | map |  A mapping of tags to assign to the Healthcare Workspace. | 
 
 
 

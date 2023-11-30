@@ -29,22 +29,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string  -  |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.authentication_type** | string  `Anonymous`, `Basic`, `ClientCertificate`  |  The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`. | 
-| **var.url** | string  -  |  The URL of the web service endpoint (e.g. <https://www.microsoft.com>). | 
+| **var.name** | string |  -  |  Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **var.data_factory_id** | string |  -  |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **var.authentication_type** | string |  `Anonymous`, `Basic`, `ClientCertificate`  |  The type of authentication used to connect to the web table source. Valid options are `Anonymous`, `Basic` and `ClientCertificate`. | 
+| **var.url** | string |  -  |  The URL of the web service endpoint (e.g. <https://www.microsoft.com>). | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  The description for the Data Factory Linked Service. | 
-| **var.integration_runtime_name** | string  The integration runtime reference to associate with the Data Factory Linked Service. | 
-| **var.annotations** | string  List of tags that can be used for describing the Data Factory Linked Service. | 
-| **var.parameters** | string  A map of parameters to associate with the Data Factory Linked Service. | 
-| **var.additional_properties** | string  A map of additional properties to associate with the Data Factory Linked Service. | 
-| **var.password** | string  The password for Basic authentication. Required if `authentication_type` sets to `Basic`. | 
-| **var.username** | string  The username for Basic authentication. Required if `authentication_type` sets to `Basic`. | 
+| **var.description** | string |  The description for the Data Factory Linked Service. | 
+| **var.integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service. | 
+| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service. | 
+| **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service. | 
+| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service. | 
+| **var.password** | string |  The password for Basic authentication. Required if `authentication_type` sets to `Basic`. | 
+| **var.username** | string |  The username for Basic authentication. Required if `authentication_type` sets to `Basic`. | 
 
 
 

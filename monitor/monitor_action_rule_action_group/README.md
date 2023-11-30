@@ -28,19 +28,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created. | 
-| **var.action_group_id** | string  Specifies the resource id of monitor action group. | 
+| **var.name** | string |  Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created. | 
+| **var.action_group_id** | string |  Specifies the resource id of monitor action group. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.description** | string  -  |  Specifies a description for the Action Rule. | 
-| **var.enabled** | bool  `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
-| **var.scope** | block  -  |  A `scope` block. | 
-| **var.condition** | block  -  |  A `condition` block. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.description** | string |  -  |  Specifies a description for the Action Rule. | 
+| **var.enabled** | bool |  `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
+| **var.scope** | block |  -  |  A `scope` block. | 
+| **var.condition** | block |  -  |  A `condition` block. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `scope` block structure
 

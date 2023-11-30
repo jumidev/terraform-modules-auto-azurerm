@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`. | 
-| **var.spring_cloud_service_id** | string  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created. | 
+| **var.name** | string |  The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`. | 
+| **var.spring_cloud_service_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Accelerator to be created. | 
 
 
 

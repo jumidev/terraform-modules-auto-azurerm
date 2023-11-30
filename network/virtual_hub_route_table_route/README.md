@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.route_table_id** | string  -  |  The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created. | 
-| **var.name** | string  -  |  The name which should be used for this route. Changing this forces a new resource to be created. | 
-| **var.destinations** | list  -  |  A list of destination addresses for this route. | 
-| **var.destinations_type** | string  `CIDR`, `ResourceId`, `Service`  |  The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`. | 
-| **var.next_hop** | string  -  |  The next hop's resource ID. | 
+| **var.route_table_id** | string |  -  |  The ID of the Virtual Hub Route Table to link this route to. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  The name which should be used for this route. Changing this forces a new resource to be created. | 
+| **var.destinations** | list |  -  |  A list of destination addresses for this route. | 
+| **var.destinations_type** | string |  `CIDR`, `ResourceId`, `Service`  |  The type of destinations. Possible values are `CIDR`, `ResourceId` and `Service`. | 
+| **var.next_hop** | string |  -  |  The next hop's resource ID. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.next_hop_type** | string  `ResourceId`  |  The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`. | 
+| **var.next_hop_type** | string |  `ResourceId`  |  The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`. | 
 
 
 

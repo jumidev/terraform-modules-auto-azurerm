@@ -27,22 +27,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.configuration_store_id** | string  Specifies the id of the App Configuration. Changing this forces a new resource to be created. | 
-| **var.name** | string  The name of the App Configuration Feature. Changing this forces a new resource to be created. | 
+| **var.configuration_store_id** | string |  Specifies the id of the App Configuration. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the App Configuration Feature. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string  The description of the App Configuration Feature. | 
-| **var.enabled** | bool  The status of the App Configuration Feature. By default, this is set to false. | 
-| **var.key** | string  The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created. | 
-| **var.label** | string  The label of the App Configuration Feature. Changing this forces a new resource to be created. | 
-| **var.locked** | string  Should this App Configuration Feature be Locked to prevent changes? | 
-| **var.percentage_filter_value** | string  A number representing the value of the percentage required to enable this feature. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
-| **var.targeting_filter** | block  A `targeting_filter` block. | 
-| **var.timewindow_filter** | block  A `timewindow_filter` block. | 
+| **var.description** | string |  The description of the App Configuration Feature. | 
+| **var.enabled** | bool |  The status of the App Configuration Feature. By default, this is set to false. | 
+| **var.key** | string |  The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created. | 
+| **var.label** | string |  The label of the App Configuration Feature. Changing this forces a new resource to be created. | 
+| **var.locked** | string |  Should this App Configuration Feature be Locked to prevent changes? | 
+| **var.percentage_filter_value** | string |  A number representing the value of the percentage required to enable this feature. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **var.targeting_filter** | block |  A `targeting_filter` block. | 
+| **var.timewindow_filter** | block |  A `timewindow_filter` block. | 
 
 ### `targeting_filter` block structure
 

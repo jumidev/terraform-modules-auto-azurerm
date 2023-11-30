@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
-| **var.firewall_policy_id** | string  The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
-| **var.priority** | string  The priority of the Firewall Policy Rule Collection Group. The range is 100-65000. | 
+| **var.name** | string |  The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
+| **var.firewall_policy_id** | string |  The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
+| **var.priority** | string |  The priority of the Firewall Policy Rule Collection Group. The range is 100-65000. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.application_rule_collection** | block  One or more `application_rule_collection` blocks. | 
-| **var.nat_rule_collection** | block  One or more `nat_rule_collection` blocks. | 
-| **var.network_rule_collection** | block  One or more `network_rule_collection` blocks. | 
+| **var.application_rule_collection** | block |  One or more `application_rule_collection` blocks. | 
+| **var.nat_rule_collection** | block |  One or more `nat_rule_collection` blocks. | 
+| **var.network_rule_collection** | block |  One or more `network_rule_collection` blocks. | 
 
 ### `application_rule_collection` block structure
 

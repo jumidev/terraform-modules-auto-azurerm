@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
-| **var.domain_name** | string  Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
-| **var.signalr_service_id** | string  Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
-| **var.signalr_custom_certificate_id** | string  Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
+| **var.domain_name** | string |  Specifies the custom domain name of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
+| **var.signalr_service_id** | string |  Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
+| **var.signalr_custom_certificate_id** | string |  Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created. | 
 
 
 

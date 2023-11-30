@@ -26,21 +26,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cluster_id** | string  The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created. | 
+| **var.cluster_id** | string |  The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise Database. Changing this forces a new Redis Enterprise Database to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string  `default`  |  -  |  The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created. | 
-| **var.resource_group_name** | string  -  |  -  |  The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created. | 
-| **var.client_protocol** | string  `Encrypted`  |  `Encrypted`, `Plaintext`  |  Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created. | 
-| **var.clustering_policy** | string  `OSSCluster`  |  `EnterpriseCluster`, `OSSCluster`  |  Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created. | 
-| **var.eviction_policy** | string  `VolatileLRU`  |  `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom`, `NoEviction`  |  Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`. | 
-| **var.module** | block  -  |  -  |  A `module` block. Changing this forces a new resource to be created. | 
-| **var.linked_database_id** | list  -  |  -  |  A list of database resources to link with this database with a maximum of 5. | 
-| **var.linked_database_group_nickname** | string  -  |  -  |  Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created. | 
-| **var.port** | string  -  |  -  |  TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`. | 
+| **var.name** | string |  `default`  |  -  |  The name which should be used for this Redis Enterprise Database. Currently the acceptable value for this argument is `default`. Defaults to `default`. Changing this forces a new Redis Enterprise Database to be created. | 
+| **var.resource_group_name** | string |  -  |  -  |  The name of the Resource Group where the Redis Enterprise Database should exist. Changing this forces a new Redis Enterprise Database to be created. | 
+| **var.client_protocol** | string |  `Encrypted`  |  `Encrypted`, `Plaintext`  |  Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`. Changing this forces a new Redis Enterprise Database to be created. | 
+| **var.clustering_policy** | string |  `OSSCluster`  |  `EnterpriseCluster`, `OSSCluster`  |  Clustering policy Specified at create time. Possible values are `EnterpriseCluster` and `OSSCluster`. Defaults to `OSSCluster`. Changing this forces a new Redis Enterprise Database to be created. | 
+| **var.eviction_policy** | string |  `VolatileLRU`  |  `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom`, `NoEviction`  |  Redis eviction policy possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Changing this forces a new Redis Enterprise Database to be created. Defaults to `VolatileLRU`. | 
+| **var.module** | block |  -  |  -  |  A `module` block. Changing this forces a new resource to be created. | 
+| **var.linked_database_id** | list |  -  |  -  |  A list of database resources to link with this database with a maximum of 5. | 
+| **var.linked_database_group_nickname** | string |  -  |  -  |  Nickname of the group of linked databases. Changing this force a new Redis Enterprise Geo Database to be created. | 
+| **var.port** | string |  -  |  -  |  TCP port of the database endpoint. Specified at create time. Defaults to an available port. Changing this forces a new Redis Enterprise Database to be created. Defaults to `10000`. | 
 
 ### `module` block structure
 

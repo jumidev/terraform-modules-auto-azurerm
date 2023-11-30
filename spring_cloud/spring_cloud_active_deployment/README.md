@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.spring_cloud_app_id** | string  Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created. | 
-| **var.deployment_name** | string  Specifies the name of Spring Cloud Deployment which is going to be active. | 
+| **var.spring_cloud_app_id** | string |  Specifies the id of the Spring Cloud Application. Changing this forces a new resource to be created. | 
+| **var.deployment_name** | string |  Specifies the name of Spring Cloud Deployment which is going to be active. | 
 
 
 

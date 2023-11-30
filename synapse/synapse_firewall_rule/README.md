@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The Name of the firewall rule. Changing this forces a new resource to be created. | 
-| **var.synapse_workspace_id** | string  The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created. | 
-| **var.start_ip_address** | string  The starting IP address to allow through the firewall for this rule. | 
-| **var.end_ip_address** | string  The ending IP address to allow through the firewall for this rule. | 
+| **var.name** | string |  The Name of the firewall rule. Changing this forces a new resource to be created. | 
+| **var.synapse_workspace_id** | string |  The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created. | 
+| **var.start_ip_address** | string |  The starting IP address to allow through the firewall for this rule. | 
+| **var.end_ip_address** | string |  The ending IP address to allow through the firewall for this rule. | 
 
 
 

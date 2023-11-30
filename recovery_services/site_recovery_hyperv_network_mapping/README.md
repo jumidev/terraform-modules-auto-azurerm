@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the HyperV network mapping. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_id** | string  The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created. | 
-| **var.source_system_center_virtual_machine_manager_name** | string  Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created. | 
-| **var.source_network_name** | string  The Name of the primary network. Changing this forces a new resource to be created. | 
-| **var.target_network_id** | string  The id of the recovery network. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the HyperV network mapping. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_id** | string |  The ID of the Recovery Services Vault where the HyperV network mapping should be created. Changing this forces a new resource to be created. | 
+| **var.source_system_center_virtual_machine_manager_name** | string |  Specifies the name of source System Center Virtual Machine Manager where the source network exists. Changing this forces a new resource to be created. | 
+| **var.source_network_name** | string |  The Name of the primary network. Changing this forces a new resource to be created. | 
+| **var.target_network_id** | string |  The id of the recovery network. Changing this forces a new resource to be created. | 
 
 
 

@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.logic_app_id** | string  Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.body** | string  Specifies the JSON Blob defining the Body of this Custom Action. | 
+| **var.name** | string |  Specifies the name of the HTTP Action to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **var.logic_app_id** | string |  Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **var.body** | string |  Specifies the JSON Blob defining the Body of this Custom Action. | 
 
 
 

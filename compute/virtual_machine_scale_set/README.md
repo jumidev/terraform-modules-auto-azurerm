@@ -60,25 +60,25 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.network_profile** | block  -  |  A collection of `network_profile` blocks. | 
-| **var.os_profile** | block  -  |  A `os_profile` block. | 
-| **var.sku** | block  -  |  A `sku` block. | 
-| **var.storage_profile_os_disk** | block  -  |  A `storage_profile_os_disk` block. | 
-| **var.upgrade_policy_mode** | string  `Rolling`, `Manual`, `Automatic`  |  Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe. | 
+| **var.name** | string |  -  |  Specifies the name of the virtual machine scale set resource. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the virtual machine scale set. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.network_profile** | block |  -  |  A collection of `network_profile` blocks. | 
+| **var.os_profile** | block |  -  |  A `os_profile` block. | 
+| **var.sku** | block |  -  |  A `sku` block. | 
+| **var.storage_profile_os_disk** | block |  -  |  A `storage_profile_os_disk` block. | 
+| **var.upgrade_policy_mode** | string |  `Rolling`, `Manual`, `Automatic`  |  Specifies the mode of an upgrade to virtual machines in the scale set. Possible values, `Rolling`, `Manual`, or `Automatic`. When choosing `Rolling`, you will need to set a health probe. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.os_profile_windows_config** | block  -  |  A `os_profile_windows_config` block. | 
-| **var.os_profile_linux_config** | block  -  |  A `os_profile_linux_config` block. | 
-| **var.proximity_placement_group_id** | string  -  |  The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created | 
-| **var.identity** | block  -  |  An `identity` block. | 
-| **var.automatic_os_upgrade** | bool  `False`  |  Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`. | 
-| **var.boot_diagnostics** | block  -  |  A `boot_diagnostics` block as referenced below. | 
+| **var.os_profile_windows_config** | block |  -  |  A `os_profile_windows_config` block. | 
+| **var.os_profile_linux_config** | block |  -  |  A `os_profile_linux_config` block. | 
+| **var.proximity_placement_group_id** | string |  -  |  The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created | 
+| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.automatic_os_upgrade** | bool |  `False`  |  Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`. | 
+| **var.boot_diagnostics** | block |  -  |  A `boot_diagnostics` block as referenced below. | 
 
 ### `network_profile` block structure
 

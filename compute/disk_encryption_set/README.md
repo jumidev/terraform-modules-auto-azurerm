@@ -36,20 +36,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Disk Encryption Set. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created. | 
-| **var.key_vault_key_id** | string  Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). | 
-| **var.identity** | block  An `identity` block. | 
+| **var.name** | string |  The name of the Disk Encryption Set. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created. | 
+| **var.key_vault_key_id** | string |  Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). | 
+| **var.identity** | block |  An `identity` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.auto_key_rotation_enabled** | bool  `False`  |  `true`, `false`  |  Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`. | 
-| **var.encryption_type** | string  `EncryptionAtRestWithCustomerKey`  |  `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, `ConfidentialVmEncryptedWithCustomerKey`  |  The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created. | 
-| **var.federated_client_id** | string  -  |  -  |  Multi-tenant application client id to access key vault in a different tenant. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the Disk Encryption Set. | 
+| **var.auto_key_rotation_enabled** | bool |  `False`  |  `true`, `false`  |  Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`. | 
+| **var.encryption_type** | string |  `EncryptionAtRestWithCustomerKey`  |  `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, `ConfidentialVmEncryptedWithCustomerKey`  |  The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created. | 
+| **var.federated_client_id** | string |  -  |  -  |  Multi-tenant application client id to access key vault in a different tenant. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Disk Encryption Set. | 
 
 ### `identity` block structure
 

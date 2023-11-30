@@ -34,36 +34,36 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created. | 
-| **var.app_service_id** | string  The ID of the Linux Web App this Deployment Slot will be part of. | 
-| **var.site_config** | block  A `site_config` block. | 
+| **var.name** | string |  The name which should be used for this Linux Web App Slot. Changing this forces a new Linux Web App Slot to be created. | 
+| **var.app_service_id** | string |  The ID of the Linux Web App this Deployment Slot will be part of. | 
+| **var.site_config** | block |  A `site_config` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.app_settings** | string  -  |  -  |  A map of key-value pairs of App Settings. | 
-| **var.auth_settings** | block  -  |  -  |  An `auth_settings` block. | 
-| **var.auth_settings_v2** | block  -  |  -  |  An `auth_settings_v2` block. | 
-| **var.backup** | block  -  |  -  |  A `backup` block. | 
-| **var.client_affinity_enabled** | bool  -  |  -  |  Should Client Affinity be enabled? | 
-| **var.client_certificate_enabled** | bool  -  |  -  |  Should Client Certificates be enabled? | 
-| **var.client_certificate_mode** | string  `Required`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`. | 
-| **var.client_certificate_exclusion_paths** | string  -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
-| **var.connection_string** | block  -  |  -  |  One or more `connection_string` blocks. | 
-| **var.enabled** | bool  `True`  |  -  |  Should the Linux Web App be enabled? Defaults to `true`. | 
-| **var.ftp_publish_basic_authentication_enabled** | bool  `True`  |  -  |  Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`. | 
-| **var.https_only** | string  -  |  -  |  Should the Linux Web App require HTTPS connections. | 
-| **var.public_network_access_enabled** | bool  `True`  |  -  |  Should public network access be enabled for the Web App. Defaults to `true`. | 
-| **var.identity** | block  -  |  -  |  An `identity` block. | 
-| **var.key_vault_reference_identity_id** | string  -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity). | 
-| **var.logs** | block  -  |  -  |  A `logs` block. | 
-| **var.service_plan_id** | string  -  |  -  |  The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used. | 
-| **var.storage_account** | block  -  |  -  |  One or more `storage_account` blocks. | 
-| **var.virtual_network_subnet_id** | string  -  |  -  |  The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
-| **var.webdeploy_publish_basic_authentication_enabled** | bool  `True`  |  -  |  Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`. | 
-| **var.zip_deploy_file** | string  -  |  -  |  The local path and filename of the Zip packaged application to deploy to this Linux Web App. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags that should be assigned to the Linux Web App. | 
+| **var.app_settings** | string |  -  |  -  |  A map of key-value pairs of App Settings. | 
+| **var.auth_settings** | block |  -  |  -  |  An `auth_settings` block. | 
+| **var.auth_settings_v2** | block |  -  |  -  |  An `auth_settings_v2` block. | 
+| **var.backup** | block |  -  |  -  |  A `backup` block. | 
+| **var.client_affinity_enabled** | bool |  -  |  -  |  Should Client Affinity be enabled? | 
+| **var.client_certificate_enabled** | bool |  -  |  -  |  Should Client Certificates be enabled? | 
+| **var.client_certificate_mode** | string |  `Required`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`. | 
+| **var.client_certificate_exclusion_paths** | string |  -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
+| **var.connection_string** | block |  -  |  -  |  One or more `connection_string` blocks. | 
+| **var.enabled** | bool |  `True`  |  -  |  Should the Linux Web App be enabled? Defaults to `true`. | 
+| **var.ftp_publish_basic_authentication_enabled** | bool |  `True`  |  -  |  Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`. | 
+| **var.https_only** | string |  -  |  -  |  Should the Linux Web App require HTTPS connections. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Should public network access be enabled for the Web App. Defaults to `true`. | 
+| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.key_vault_reference_identity_id** | string |  -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity). | 
+| **var.logs** | block |  -  |  -  |  A `logs` block. | 
+| **var.service_plan_id** | string |  -  |  -  |  The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Web App will be used. | 
+| **var.storage_account** | block |  -  |  -  |  One or more `storage_account` blocks. | 
+| **var.virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
+| **var.webdeploy_publish_basic_authentication_enabled** | bool |  `True`  |  -  |  Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`. | 
+| **var.zip_deploy_file** | string |  -  |  -  |  The local path and filename of the Zip packaged application to deploy to this Linux Web App. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags that should be assigned to the Linux Web App. | 
 
 ### `site_config` block structure
 

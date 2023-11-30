@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.domain_service_id** | string  The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created. | 
-| **var.location** | string  The Azure location where this Replica Set should exist. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string  The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created. | 
+| **var.domain_service_id** | string |  The ID of the Domain Service for which to create this Replica Set. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The Azure location where this Replica Set should exist. Changing this forces a new resource to be created. | 
+| **var.subnet_id** | string |  The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created. | 
 
 
 

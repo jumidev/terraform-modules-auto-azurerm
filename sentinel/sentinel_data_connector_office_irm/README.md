@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace that this Office IRM Data Connector resides in. Changing this forces a new Office IRM Data Connector to be created. | 
-| **var.name** | string  The name which should be used for this Office IRM Data Connector. Changing this forces a new Office IRM Data Connector to be created. | 
+| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Office IRM Data Connector resides in. Changing this forces a new Office IRM Data Connector to be created. | 
+| **var.name** | string |  The name which should be used for this Office IRM Data Connector. Changing this forces a new Office IRM Data Connector to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tenant_id** | string  The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created. | 
+| **var.tenant_id** | string |  The ID of the tenant that this Office IRM Data Connector connects to. Changing this forces a new Office IRM Data Connector to be created. | 
 
 
 

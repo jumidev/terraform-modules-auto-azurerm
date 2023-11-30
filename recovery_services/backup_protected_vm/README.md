@@ -27,18 +27,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string  The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string  Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Recovery Services Vault. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string |  Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.source_vm_id** | string  -  |  Specifies the ID of the VM to backup. Changing this forces a new resource to be created. | 
-| **var.backup_policy_id** | string  -  |  Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified. | 
-| **var.exclude_disk_luns** | list  -  |  A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection. | 
-| **var.include_disk_luns** | list  -  |  A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection. | 
-| **var.protection_state** | string  `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError`, `ProtectionPaused`  |  Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`. | 
+| **var.source_vm_id** | string |  -  |  Specifies the ID of the VM to backup. Changing this forces a new resource to be created. | 
+| **var.backup_policy_id** | string |  -  |  Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified. | 
+| **var.exclude_disk_luns** | list |  -  |  A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection. | 
+| **var.include_disk_luns** | list |  -  |  A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection. | 
+| **var.protection_state** | string |  `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError`, `ProtectionPaused`  |  Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`. | 
 
 
 

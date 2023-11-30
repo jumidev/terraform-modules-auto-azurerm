@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created. | 
-| **var.spring_cloud_service_id** | string  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created. | 
+| **var.name** | string |  The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created. | 
+| **var.spring_cloud_service_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.generation** | string  `Gen1`, `Gen2`  |  The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`. | 
-| **var.repository** | block  -  |  One or more `repository` blocks. | 
+| **var.generation** | string |  `Gen1`, `Gen2`  |  The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`. | 
+| **var.repository** | block |  -  |  One or more `repository` blocks. | 
 
 ### `repository` block structure
 

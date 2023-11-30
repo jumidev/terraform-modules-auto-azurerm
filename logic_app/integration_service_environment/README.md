@@ -30,18 +30,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created. | 
-| **var.location** | string  The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created. | 
-| **var.access_endpoint_type** | string  The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created. | 
-| **var.virtual_network_subnet_ids** | list  A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created. | 
+| **var.name** | string |  The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created. | 
+| **var.location** | string |  The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created. | 
+| **var.access_endpoint_type** | string |  The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created. | 
+| **var.virtual_network_subnet_ids** | list |  A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.sku_name** | string  `Developer_0`  |  `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9`, `Premium_10`  |  The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags which should be assigned to the Integration Service Environment. | 
+| **var.sku_name** | string |  `Developer_0`  |  `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9`, `Premium_10`  |  The SKU name and capacity of the Integration Service Environment. Possible values are `Developer_0`, `Premium_0`, `Premium_1`, `Premium_2`, `Premium_3`, `Premium_4`, `Premium_5`, `Premium_6`, `Premium_7`, `Premium_8`, `Premium_9` and `Premium_10`. Defaults to `Developer_0`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Integration Service Environment. | 
 
 
 

@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Azure Maps Creator. Changing this forces a new resource to be created. | 
-| **var.maps_account_id** | string  The ID of the Azure Maps Creator. Changing this forces a new resource to be created. | 
-| **var.location** | string  The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created. | 
-| **var.storage_units** | string  The storage units to be allocated. Integer values from 1 to 100, inclusive. | 
+| **var.name** | string |  The name of the Azure Maps Creator. Changing this forces a new resource to be created. | 
+| **var.maps_account_id** | string |  The ID of the Azure Maps Creator. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The Azure Region where the Azure Maps Creator should exist. Changing this forces a new resource to be created. | 
+| **var.storage_units** | string |  The storage units to be allocated. Integer values from 1 to 100, inclusive. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Azure Maps Creator. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Azure Maps Creator. | 
 
 
 

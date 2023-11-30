@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created. | 
-| **var.network_group_id** | string  Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created. | 
-| **var.target_virtual_network_id** | string  Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created. | 
+| **var.network_group_id** | string |  Specifies the ID of the Network Manager Group. Changing this forces a new Network Manager Static Member to be created. | 
+| **var.target_virtual_network_id** | string |  Specifies the Resource ID of the Virtual Network using as the Static Member. Changing this forces a new Network Manager Static Member to be created. | 
 
 
 

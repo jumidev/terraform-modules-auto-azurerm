@@ -44,20 +44,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
-| **var.location** | string  The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
-| **var.sku_name** | string  The name which should be used for this sku. | 
-| **var.user** | block  A `user` block. | 
-| **var.datadog_organization** | block  A `datadog_organization` block. | 
+| **var.name** | string |  The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
+| **var.location** | string |  The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
+| **var.sku_name** | string |  The name which should be used for this sku. | 
+| **var.user** | block |  A `user` block. | 
+| **var.datadog_organization** | block |  A `datadog_organization` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.identity** | block  -  |  A `identity` block. | 
-| **var.monitoring_enabled** | bool  `True`  |  Is monitoring enabled? Defaults to `true`. | 
-| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
+| **var.identity** | block |  -  |  A `identity` block. | 
+| **var.monitoring_enabled** | bool |  `True`  |  Is monitoring enabled? Defaults to `true`. | 
+| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
 
 ### `identity` block structure
 

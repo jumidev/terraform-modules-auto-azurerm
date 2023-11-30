@@ -28,18 +28,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created. | 
-| **var.location** | string  The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created. | 
+| **var.name** | string |  The name of the Virtual Desktop Workspace. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Virtual Desktop Workspace. Changing this forces a new resource to be created. | 
+| **var.location** | string |  The location/region where the Virtual Desktop Workspace is located. Changing the location/region forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.friendly_name** | string  -  |  A friendly name for the Virtual Desktop Workspace. | 
-| **var.description** | string  -  |  A description for the Virtual Desktop Workspace. | 
-| **var.public_network_access_enabled** | bool  `True`  |  Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.friendly_name** | string |  -  |  A friendly name for the Virtual Desktop Workspace. | 
+| **var.description** | string |  -  |  A description for the Virtual Desktop Workspace. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  Whether public network access is allowed for this Virtual Desktop Workspace. Defaults to `true`. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 
 

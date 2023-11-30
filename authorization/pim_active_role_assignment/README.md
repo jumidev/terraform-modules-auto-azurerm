@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.principal_id** | string  The principal id. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.role_definition_id** | string  The role definition id. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.scope** | string  The scope. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.principal_id** | string |  The principal id. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.role_definition_id** | string |  The role definition id. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.scope** | string |  The scope. Changing this forces a new Pim Active Role Assignment to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.justification** | string  The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.schedule** | block  A `schedule` block. Changing this forces a new Pim Active Role Assignment to be created. | 
-| **var.ticket** | block  A `ticket` block. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.justification** | string |  The justification of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.schedule** | block |  A `schedule` block. Changing this forces a new Pim Active Role Assignment to be created. | 
+| **var.ticket** | block |  A `ticket` block. Changing this forces a new Pim Active Role Assignment to be created. | 
 
 ### `schedule` block structure
 

@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.soa_record** | block  An `soa_record` block. Changing this forces a new resource to be created. | 
-| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.soa_record** | block |  An `soa_record` block. Changing this forces a new resource to be created. | 
+| **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `soa_record` block structure
 

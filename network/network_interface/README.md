@@ -37,23 +37,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.ip_configuration** | block  One or more `ip_configuration` blocks. | 
-| **var.location** | string  The location where the Network Interface should exist. Changing this forces a new resource to be created. | 
-| **var.name** | string  The name of the Network Interface. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created. | 
+| **var.ip_configuration** | block |  One or more `ip_configuration` blocks. | 
+| **var.location** | string |  The location where the Network Interface should exist. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name of the Network Interface. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.auxiliary_mode** | string  -  |  `AcceleratedConnections`, `Floating`, `MaxConnections`, `None`  |  Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`. | 
-| **var.auxiliary_sku** | string  -  |  `A8`, `A4`, `A1`, `A2`, `None`  |  Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`. | 
-| **var.dns_servers** | list  -  |  -  |  A list of IP Addresses defining the DNS Servers which should be used for this Network Interface. | 
-| **var.edge_zone** | string  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created. | 
-| **var.enable_ip_forwarding** | bool  `False`  |  -  |  Should IP Forwarding be enabled? Defaults to `false`. | 
-| **var.enable_accelerated_networking** | bool  `False`  |  -  |  Should Accelerated Networking be enabled? Defaults to `false`. | 
-| **var.internal_dns_name_label** | string  -  |  -  |  The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.auxiliary_mode** | string |  -  |  `AcceleratedConnections`, `Floating`, `MaxConnections`, `None`  |  Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections`, `Floating`, `MaxConnections` and `None`. | 
+| **var.auxiliary_sku** | string |  -  |  `A8`, `A4`, `A1`, `A2`, `None`  |  Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A8`, `A4`, `A1`, `A2` and `None`. | 
+| **var.dns_servers** | list |  -  |  -  |  A list of IP Addresses defining the DNS Servers which should be used for this Network Interface. | 
+| **var.edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Network Interface should exist. Changing this forces a new Network Interface to be created. | 
+| **var.enable_ip_forwarding** | bool |  `False`  |  -  |  Should IP Forwarding be enabled? Defaults to `false`. | 
+| **var.enable_accelerated_networking** | bool |  `False`  |  -  |  Should Accelerated Networking be enabled? Defaults to `false`. | 
+| **var.internal_dns_name_label** | string |  -  |  -  |  The (relative) DNS Name used for internal communications between Virtual Machines in the same Virtual Network. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `ip_configuration` block structure
 

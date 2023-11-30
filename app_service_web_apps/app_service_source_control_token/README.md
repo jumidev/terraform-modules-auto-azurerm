@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.type** | string  `BitBucket`, `Dropbox`, `GitHub`, `OneDrive`  |  The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`. | 
-| **var.token** | string  -  |  The OAuth access token. | 
+| **var.type** | string |  `BitBucket`, `Dropbox`, `GitHub`, `OneDrive`  |  The source control type. Possible values are `BitBucket`, `Dropbox`, `GitHub` and `OneDrive`. | 
+| **var.token** | string |  -  |  The OAuth access token. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.token_secret** | string  The OAuth access token secret. | 
+| **var.token_secret** | string |  The OAuth access token secret. | 
 
 
 

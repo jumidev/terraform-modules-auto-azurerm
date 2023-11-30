@@ -29,24 +29,24 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to Changing this forces a new resource to be created. create the namespace. | 
-| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | string  Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource. | 
+| **var.name** | string |  Specifies the name of the ServiceBus Namespace resource . Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to Changing this forces a new resource to be created. create the namespace. | 
+| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.sku** | string |  Defines which tier to use. Options are `Basic`, `Standard` or `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.identity** | block  -  |  -  |  An `identity` block. | 
-| **var.capacity** | string  -  |  -  |  Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only. | 
-| **var.customer_managed_key** | block  -  |  -  |  An `customer_managed_key` block. | 
-| **var.local_auth_enabled** | bool  `True`  |  -  |  Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`. | 
-| **var.public_network_access_enabled** | bool  `True`  |  -  |  Is public network access enabled for the Service Bus Namespace? Defaults to `true`. | 
-| **var.minimum_tls_version** | string  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
-| **var.zone_redundant** | string  -  |  -  |  Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created. | 
-| **var.network_rule_set** | block  -  |  -  |  An `network_rule_set` block. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.capacity** | string |  -  |  -  |  Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only. | 
+| **var.customer_managed_key** | block |  -  |  -  |  An `customer_managed_key` block. | 
+| **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`. | 
+| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the Service Bus Namespace? Defaults to `true`. | 
+| **var.minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
+| **var.zone_redundant** | string |  -  |  -  |  Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created. | 
+| **var.network_rule_set** | block |  -  |  -  |  An `network_rule_set` block. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 

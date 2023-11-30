@@ -28,20 +28,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the image. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create. Changing this forces a new resource to be created. the image. Changing this forces a new resource to be created. | 
-| **var.location** | string  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the image. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create. Changing this forces a new resource to be created. the image. Changing this forces a new resource to be created. | 
+| **var.location** | string |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.source_virtual_machine_id** | string  -  |  The Virtual Machine ID from which to create the image. | 
-| **var.os_disk** | block  -  |  One or more `os_disk` blocks. Changing this forces a new resource to be created. | 
-| **var.data_disk** | block  -  |  One or more `data_disk` blocks. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
-| **var.zone_resilient** | bool  `False`  |  Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.hyper_v_generation** | string  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. | 
+| **var.source_virtual_machine_id** | string |  -  |  The Virtual Machine ID from which to create the image. | 
+| **var.os_disk** | block |  -  |  One or more `os_disk` blocks. Changing this forces a new resource to be created. | 
+| **var.data_disk** | block |  -  |  One or more `data_disk` blocks. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **var.zone_resilient** | bool |  `False`  |  Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. | 
 
 ### `os_disk` block structure
 

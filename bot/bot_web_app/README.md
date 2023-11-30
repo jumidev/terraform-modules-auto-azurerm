@@ -30,24 +30,24 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique. | 
-| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | string  `F0`, `S1`  |  The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created. | 
-| **var.microsoft_app_id** | string  -  |  The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created. | 
+| **var.name** | string |  -  |  Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique. | 
+| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.sku** | string |  `F0`, `S1`  |  The SKU of the Web App Bot. Valid values include `F0` or `S1`. Changing this forces a new resource to be created. | 
+| **var.microsoft_app_id** | string |  -  |  The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.display_name** | string  `name`  |  The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. | 
-| **var.endpoint** | string  -  |  The Web App Bot endpoint. | 
-| **var.developer_app_insights_key** | string  -  |  The Application Insights Key to associate with the Web App Bot. | 
-| **var.developer_app_insights_api_key** | string  -  |  The Application Insights API Key to associate with the Web App Bot. | 
-| **var.developer_app_insights_application_id** | string  -  |  The Application Insights Application ID to associate with the Web App Bot. | 
-| **var.luis_app_ids** | list  -  |  A list of LUIS App IDs to associate with the Web App Bot. | 
-| **var.luis_key** | string  -  |  The LUIS key to associate with the Web App Bot. | 
-| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.display_name** | string |  `name`  |  The name of the Web App Bot will be displayed as. This defaults to `name` if not specified. | 
+| **var.endpoint** | string |  -  |  The Web App Bot endpoint. | 
+| **var.developer_app_insights_key** | string |  -  |  The Application Insights Key to associate with the Web App Bot. | 
+| **var.developer_app_insights_api_key** | string |  -  |  The Application Insights API Key to associate with the Web App Bot. | 
+| **var.developer_app_insights_application_id** | string |  -  |  The Application Insights Application ID to associate with the Web App Bot. | 
+| **var.luis_app_ids** | list |  -  |  A list of LUIS App IDs to associate with the Web App Bot. | 
+| **var.luis_key** | string |  -  |  The LUIS key to associate with the Web App Bot. | 
+| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 
 

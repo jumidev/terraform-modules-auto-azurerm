@@ -27,20 +27,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created. | 
-| **var.spring_cloud_gateway_id** | string  The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created. | 
+| **var.name** | string |  The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created. | 
+| **var.spring_cloud_gateway_id** | string |  The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.filters** | string  -  |  -  |  Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level. | 
-| **var.predicates** | string  -  |  -  |  Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. | 
-| **var.sso_validation_enabled** | bool  -  |  -  |  Should the sso validation be enabled in app level? | 
-| **var.route** | block  -  |  -  |  One or more `route` blocks. | 
-| **var.open_api** | block  -  |  -  |  One or more `open_api` blocks. | 
-| **var.protocol** | string  `HTTP`  |  `HTTP`, `HTTPS`  |  Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. | 
-| **var.spring_cloud_app_id** | string  -  |  -  |  The ID of the Spring Cloud App. | 
+| **var.filters** | string |  -  |  -  |  Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level. | 
+| **var.predicates** | string |  -  |  -  |  Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. | 
+| **var.sso_validation_enabled** | bool |  -  |  -  |  Should the sso validation be enabled in app level? | 
+| **var.route** | block |  -  |  -  |  One or more `route` blocks. | 
+| **var.open_api** | block |  -  |  -  |  One or more `open_api` blocks. | 
+| **var.protocol** | string |  `HTTP`  |  `HTTP`, `HTTPS`  |  Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. | 
+| **var.spring_cloud_app_id** | string |  -  |  -  |  The ID of the Spring Cloud App. | 
 
 ### `route` block structure
 

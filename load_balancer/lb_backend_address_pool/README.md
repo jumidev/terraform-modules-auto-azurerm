@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created. | 
-| **var.loadbalancer_id** | string  The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created. | 
+| **var.name** | string |  Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created. | 
+| **var.loadbalancer_id** | string |  The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tunnel_interface** | block  One or more `tunnel_interface` blocks. | 
-| **var.virtual_network_id** | string  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
+| **var.tunnel_interface** | block |  One or more `tunnel_interface` blocks. | 
+| **var.virtual_network_id** | string |  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
 
 ### `tunnel_interface` block structure
 

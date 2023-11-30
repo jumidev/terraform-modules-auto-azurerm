@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.server_name** | string  The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created. | 
-| **var.login** | string  The login name of the principal to set as the server administrator | 
-| **var.object_id** | string  The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity. | 
-| **var.tenant_id** | string  The Azure Tenant ID | 
+| **var.server_name** | string |  The name of the PostgreSQL Server on which to set the administrator. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group for the PostgreSQL server. Changing this forces a new resource to be created. | 
+| **var.login** | string |  The login name of the principal to set as the server administrator | 
+| **var.object_id** | string |  The ID of the principal to set as the server administrator. For a managed identity this should be the Client ID of the identity. | 
+| **var.tenant_id** | string |  The Azure Tenant ID | 
 
 
 

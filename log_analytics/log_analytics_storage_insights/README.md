@@ -30,18 +30,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created. | 
-| **var.resource_group_name** | string  The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created. | 
-| **var.workspace_id** | string  The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created. | 
-| **var.storage_account_id** | string  The ID of the Storage Account used by this Log Analytics Storage Insights. | 
-| **var.storage_account_key** | string  The storage access key to be used to connect to the storage account. | 
+| **var.name** | string |  The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created. | 
+| **var.resource_group_name** | string |  The name of the Resource Group where the Log Analytics Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created. | 
+| **var.workspace_id** | string |  The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created. | 
+| **var.storage_account_id** | string |  The ID of the Storage Account used by this Log Analytics Storage Insights. | 
+| **var.storage_account_key** | string |  The storage access key to be used to connect to the storage account. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.blob_container_names** | string  The names of the blob containers that the workspace should read. | 
-| **var.table_names** | string  The names of the Azure tables that the workspace should read. | 
+| **var.blob_container_names** | string |  The names of the blob containers that the workspace should read. | 
+| **var.table_names** | string |  The names of the Azure tables that the workspace should read. | 
 
 
 

@@ -29,22 +29,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created. | 
-| **var.cdn_frontdoor_origin_group_id** | string  The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created. | 
-| **var.host_name** | string  The IPv4 address, IPv6 address or Domain name of the Origin. | 
-| **var.certificate_name_check_enabled** | bool  Specifies whether certificate name checks are enabled for this origin. | 
+| **var.name** | string |  The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created. | 
+| **var.cdn_frontdoor_origin_group_id** | string |  The ID of the Front Door Origin Group within which this Front Door Origin should exist. Changing this forces a new Front Door Origin to be created. | 
+| **var.host_name** | string |  The IPv4 address, IPv6 address or Domain name of the Origin. | 
+| **var.certificate_name_check_enabled** | bool |  Specifies whether certificate name checks are enabled for this origin. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.enabled** | bool  `True`  |  `true`, `false`  |  Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`. | 
-| **var.http_port** | string  `80`  |  -  |  The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`. | 
-| **var.https_port** | string  `443`  |  -  |  The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`. | 
-| **var.origin_host_header** | string  -  |  -  |  The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used. | 
-| **var.priority** | string  `1`  |  -  |  Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`. | 
-| **var.private_link** | block  -  |  -  |  A `private_link` block. | 
-| **var.weight** | int  `500`  |  -  |  The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`. | 
+| **var.enabled** | bool |  `True`  |  `true`, `false`  |  Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`. | 
+| **var.http_port** | string |  `80`  |  -  |  The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`. | 
+| **var.https_port** | string |  `443`  |  -  |  The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`. | 
+| **var.origin_host_header** | string |  -  |  -  |  The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used. | 
+| **var.priority** | string |  `1`  |  -  |  Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`. | 
+| **var.private_link** | block |  -  |  -  |  A `private_link` block. | 
+| **var.weight** | int |  `500`  |  -  |  The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`. | 
 
 ### `private_link` block structure
 

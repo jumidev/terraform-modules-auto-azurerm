@@ -26,14 +26,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.managed_instance_id** | string  Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created. | 
+| **var.managed_instance_id** | string |  Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.key_vault_key_id** | string  To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field. | 
-| **var.auto_rotation_enabled** | bool  When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes. | 
+| **var.key_vault_key_id** | string |  To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field. | 
+| **var.auto_rotation_enabled** | bool |  When enabled, the SQL Managed Instance will continuously check the key vault for any new versions of the key being used as the TDE protector. If a new version of the key is detected, the TDE protector on the SQL Managed Instance will be automatically rotated to the latest key version within 60 minutes. | 
 
 
 

@@ -27,17 +27,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created. | 
-| **var.name** | string  The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created. | 
+| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Office 365 Data Connector resides in. Changing this forces a new Office 365 Data Connector to be created. | 
+| **var.name** | string |  The name which should be used for this Office 365 Data Connector. Changing this forces a new Office 365 Data Connector to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.exchange_enabled** | bool  `True`  |  Should the Exchange data connector be enabled? Defaults to `true`. | 
-| **var.sharepoint_enabled** | bool  `True`  |  Should the SharePoint data connector be enabled? Defaults to `true`. | 
-| **var.teams_enabled** | bool  `True`  |  Should the Microsoft Teams data connector be enabled? Defaults to `true`. | 
-| **var.tenant_id** | string  -  |  The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created. | 
+| **var.exchange_enabled** | bool |  `True`  |  Should the Exchange data connector be enabled? Defaults to `true`. | 
+| **var.sharepoint_enabled** | bool |  `True`  |  Should the SharePoint data connector be enabled? Defaults to `true`. | 
+| **var.teams_enabled** | bool |  `True`  |  Should the Microsoft Teams data connector be enabled? Defaults to `true`. | 
+| **var.tenant_id** | string |  -  |  The ID of the Tenant that this Office 365 Data Connector connects to. Changing this forces a new Office 365 Data Connector to be created. | 
 
 
 

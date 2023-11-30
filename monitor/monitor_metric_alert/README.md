@@ -28,27 +28,27 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name of the Metric Alert. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created. | 
-| **var.scopes** | string  A set of strings of resource IDs at which the metric criteria should be applied. | 
+| **var.name** | string |  The name of the Metric Alert. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created. | 
+| **var.scopes** | string |  A set of strings of resource IDs at which the metric criteria should be applied. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.criteria** | block  -  |  -  |  One or more (static) `criteria` blocks. | 
-| **var.dynamic_criteria** | block  -  |  -  |  A `dynamic_criteria` block. | 
-| **var.application_insights_web_test_location_availability_criteria** | block  -  |  -  |  A `application_insights_web_test_location_availability_criteria` block. | 
-| **var.action** | block  -  |  -  |  One or more `action` blocks. | 
-| **var.enabled** | bool  `True`  |  -  |  Should this Metric Alert be enabled? Defaults to `true`. | 
-| **var.auto_mitigate** | bool  `True`  |  -  |  Should the alerts in this Metric Alert be auto resolved? Defaults to `true`. | 
-| **var.description** | string  -  |  -  |  The description of this Metric Alert. | 
-| **var.frequency** | string  `PT1M`  |  `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`  |  The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`. | 
-| **var.severity** | string  `3`  |  `0`, `1`, `2`, `3`, `4`  |  The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`. | 
-| **var.target_resource_type** | string  -  |  -  |  The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource. | 
-| **var.target_resource_location** | string  -  |  -  |  The location of the target resource. | 
-| **var.window_size** | string  `PT5M`  |  `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H`, `P1D`  |  The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`. | 
-| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.criteria** | block |  -  |  -  |  One or more (static) `criteria` blocks. | 
+| **var.dynamic_criteria** | block |  -  |  -  |  A `dynamic_criteria` block. | 
+| **var.application_insights_web_test_location_availability_criteria** | block |  -  |  -  |  A `application_insights_web_test_location_availability_criteria` block. | 
+| **var.action** | block |  -  |  -  |  One or more `action` blocks. | 
+| **var.enabled** | bool |  `True`  |  -  |  Should this Metric Alert be enabled? Defaults to `true`. | 
+| **var.auto_mitigate** | bool |  `True`  |  -  |  Should the alerts in this Metric Alert be auto resolved? Defaults to `true`. | 
+| **var.description** | string |  -  |  -  |  The description of this Metric Alert. | 
+| **var.frequency** | string |  `PT1M`  |  `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`  |  The evaluation frequency of this Metric Alert, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M` and `PT1H`. Defaults to `PT1M`. | 
+| **var.severity** | string |  `3`  |  `0`, `1`, `2`, `3`, `4`  |  The severity of this Metric Alert. Possible values are `0`, `1`, `2`, `3` and `4`. Defaults to `3`. | 
+| **var.target_resource_type** | string |  -  |  -  |  The resource type (e.g. `Microsoft.Compute/virtualMachines`) of the target resource. | 
+| **var.target_resource_location** | string |  -  |  -  |  The location of the target resource. | 
+| **var.window_size** | string |  `PT5M`  |  `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H`, `P1D`  |  The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`. | 
+| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `criteria` block structure
 

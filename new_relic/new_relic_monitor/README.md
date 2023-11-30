@@ -45,22 +45,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.resource_group_name** | string  Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.location** | string  Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.plan** | block  A `plan` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.user** | block  A `user` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.name** | string |  Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.location** | string |  Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.plan** | block |  A `plan` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.user** | block |  A `user` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.account_creation_source** | string  `LIFTR`  |  `LIFTR`, `NEWRELIC`  |  Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.account_id** | string  -  |  -  |  Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.ingestion_key** | string  -  |  -  |  Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.organization_id** | string  -  |  -  |  Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.org_creation_source** | string  `LIFTR`  |  `LIFTR`, `NEWRELIC`  |  Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.user_id** | string  -  |  -  |  Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.account_creation_source** | string |  `LIFTR`  |  `LIFTR`, `NEWRELIC`  |  Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.account_id** | string |  -  |  -  |  Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.ingestion_key** | string |  -  |  -  |  Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.organization_id** | string |  -  |  -  |  Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.org_creation_source** | string |  `LIFTR`  |  `LIFTR`, `NEWRELIC`  |  Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.user_id** | string |  -  |  -  |  Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 
 ### `plan` block structure
 

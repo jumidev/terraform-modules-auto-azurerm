@@ -39,18 +39,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string  -  |  The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  -  |  The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string  -  |  The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created. | 
-| **var.sql_image_offer** | string  -  |  The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created. | 
-| **var.sql_image_sku** | string  `Developer`, `Enterprise`  |  The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`. | 
-| **var.wsfc_domain_profile** | block  -  |  A `wsfc_domain_profile` block. | 
+| **var.name** | string |  -  |  The name which should be used for the Microsoft SQL Virtual Machine Group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string |  -  |  The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created. | 
+| **var.sql_image_offer** | string |  -  |  The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created. | 
+| **var.sql_image_sku** | string |  `Developer`, `Enterprise`  |  The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`. | 
+| **var.wsfc_domain_profile** | block |  -  |  A `wsfc_domain_profile` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map  A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group. | 
+| **var.tags** | map |  A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group. | 
 
 ### `wsfc_domain_profile` block structure
 

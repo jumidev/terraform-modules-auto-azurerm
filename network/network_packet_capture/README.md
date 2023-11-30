@@ -36,20 +36,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string  The name to use for this Network Packet Capture. Changing this forces a new resource to be created. | 
-| **var.network_watcher_name** | string  The name of the Network Watcher. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string  The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created. | 
-| **var.target_resource_id** | string  The ID of the Resource to capture packets from. Changing this forces a new resource to be created. | 
-| **var.storage_location** | block  A `storage_location` block. Changing this forces a new resource to be created. | 
+| **var.name** | string |  The name to use for this Network Packet Capture. Changing this forces a new resource to be created. | 
+| **var.network_watcher_name** | string |  The name of the Network Watcher. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string |  The name of the resource group in which the Network Watcher exists. Changing this forces a new resource to be created. | 
+| **var.target_resource_id** | string |  The ID of the Resource to capture packets from. Changing this forces a new resource to be created. | 
+| **var.storage_location** | block |  A `storage_location` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.maximum_bytes_per_packet** | int  `0`  |  The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created. | 
-| **var.maximum_bytes_per_session** | int  `1073741824`  |  Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created. | 
-| **var.maximum_capture_duration** | int  `18000`  |  The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created. | 
-| **var.filter** | block  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
+| **var.maximum_bytes_per_packet** | int |  `0`  |  The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created. | 
+| **var.maximum_bytes_per_session** | int |  `1073741824`  |  Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created. | 
+| **var.maximum_capture_duration** | int |  `18000`  |  The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created. | 
+| **var.filter** | block |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
 
 ### `storage_location` block structure
 
