@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -37,7 +36,10 @@ tfstate_store = {
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.sku_name** | string | True | Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created. | 
 | **var.warm_store_data_retention_time** | int | False | Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. | 
-| **var.storage** | block | True | A `storage` block. | 
+| **var.storage** | block | True | A `storage` block. | | `storage` block structure: || 
+|   name (string): (REQUIRED) Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. ||
+|   key (string): (REQUIRED) Access key of storage account for Azure IoT Time Series Insights Gen2 Environment ||
+
 | **var.id_properties** | list | True | A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 

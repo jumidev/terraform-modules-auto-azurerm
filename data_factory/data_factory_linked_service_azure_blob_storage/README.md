@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -38,7 +37,11 @@ tfstate_store = {
 | **var.connection_string** | string | False | The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`. | 
 | **var.connection_string_insecure** | string | False | The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`. | 
 | **var.sas_uri** | string | False | The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`. | 
-| **var.key_vault_sas_token** | block | False | A `key_vault_sas_token` block. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required. | 
+| **var.key_vault_sas_token** | block | False | A `key_vault_sas_token` block. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required. | | `key_vault_sas_token` block structure: || 
+|   linked_service_name (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service. ||
+|   secret_name (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores the SAS token. ||
+|   service_principal_linked_key_vault_key (block): A 'service_principal_linked_key_vault_key' block. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. ||
+
 
 
 

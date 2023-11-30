@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -31,11 +30,25 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- |
 | **var.name** | string | True | -  |  Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created. | 
-| **var.suppression** | block | True | -  |  A `suppression` block. | 
+| **var.suppression** | block | True | -  |  A `suppression` block. | | `suppression` block structure: || 
+|   recurrence_type (string): (REQUIRED) Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'. ||
+|   schedule (block): A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'. ||
+
 | **var.description** | string | False | -  |  Specifies a description for the Action Rule. | 
 | **var.enabled** | bool | False | `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
-| **var.scope** | block | False | -  |  A `scope` block. | 
-| **var.condition** | block | False | -  |  A `condition` block. | 
+| **var.scope** | block | False | -  |  A `scope` block. | | `scope` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'. ||
+|   resource_ids (list): (REQUIRED) A list of resource IDs of the given scope type which will be the target of action rule. ||
+
+| **var.condition** | block | False | -  |  A `condition` block. | | `condition` block structure: || 
+|   alert_context (block): A 'alert_context' block. ||
+|   alert_rule_id (block): A 'alert_rule_id' block. ||
+|   description (block): A 'description' block. ||
+|   monitor (block): A 'monitor' block. ||
+|   monitor_service (block): A 'monitor_service' block. ||
+|   severity (block): A 'severity' block. ||
+|   target_resource_type (block): A 'target_resource_type' block. ||
+
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 

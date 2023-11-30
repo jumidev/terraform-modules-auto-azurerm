@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -39,15 +38,33 @@ tfstate_store = {
 | **var.enable_node_public_ip** | bool | False | -  |  -  |  Should each node have a Public IP Address? Changing this forces a new resource to be created. | 
 | **var.eviction_policy** | string | False | -  |  `Deallocate`, `Delete`  |  The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created. | 
 | **var.host_group_id** | string | False | -  |  -  |  The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created. | 
-| **var.kubelet_config** | block | False | -  |  -  |  A `kubelet_config` block. Changing this forces a new resource to be created. | 
-| **var.linux_os_config** | block | False | -  |  -  |  A `linux_os_config` block. Changing this forces a new resource to be created. | 
+| **var.kubelet_config** | block | False | -  |  -  |  A `kubelet_config` block. Changing this forces a new resource to be created. | | `kubelet_config` block structure: || 
+|   allowed_unsafe_sysctls (string): Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). Changing this forces a new resource to be created. ||
+|   container_log_max_line (int): Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created. ||
+|   container_log_max_size_mb (int): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created. ||
+|   cpu_cfs_quota_enabled (bool): Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created. ||
+|   cpu_cfs_quota_period (string): Specifies the CPU CFS quota period value. Changing this forces a new resource to be created. ||
+|   cpu_manager_policy (string): Specifies the CPU Manager policy to use. Possible values are 'none' and 'static', Changing this forces a new resource to be created. ||
+|   image_gc_high_threshold (string): Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. Changing this forces a new resource to be created. ||
+|   image_gc_low_threshold (string): Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created. ||
+|   pod_max_pid (int): Specifies the maximum number of processes per pod. Changing this forces a new resource to be created. ||
+|   topology_manager_policy (string): Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created. ||
+
+| **var.linux_os_config** | block | False | -  |  -  |  A `linux_os_config` block. Changing this forces a new resource to be created. | | `linux_os_config` block structure: || 
+|   swap_file_size_mb (int): Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. ||
+|   sysctl_config (block): A 'sysctl_config' block. Changing this forces a new resource to be created. ||
+|   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. ||
+|   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. ||
+
 | **var.fips_enabled** | bool | False | -  |  -  |  Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created. | 
 | **var.gpu_instance** | string | False | -  |  `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g`, `MIG7g`  |  Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created. | 
 | **var.kubelet_disk_type** | string | False | -  |  `OS`, `Temporary`  |  The type of disk used by kubelet. Possible values are `OS` and `Temporary`. | 
 | **var.max_pods** | int | False | -  |  -  |  The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. | 
 | **var.message_of_the_day** | string | False | -  |  -  |  A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created. | 
 | **var.mode** | string | False | `User`  |  `System`, `User`  |  Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`. | 
-| **var.node_network_profile** | block | False | -  |  -  |  A `node_network_profile` block. | 
+| **var.node_network_profile** | block | False | -  |  -  |  A `node_network_profile` block. | | `node_network_profile` block structure: || 
+|   node_public_ip_tags (map): Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. ||
+
 | **var.node_labels** | string | False | -  |  -  |  A map of Kubernetes labels which should be applied to nodes in this Node Pool. | 
 | **var.node_public_ip_prefix_id** | string | False | -  |  -  |  Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created. | 
 | **var.node_taints** | list | False | -  |  -  |  A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created. | 
@@ -64,9 +81,13 @@ tfstate_store = {
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.scale_down_mode** | string | False | `Delete`  |  `Delete`, `Deallocate`  |  Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`. | 
 | **var.ultra_ssd_enabled** | bool | False | `False`  |  -  |  Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created. | 
-| **var.upgrade_settings** | block | False | -  |  -  |  A `upgrade_settings` block. | 
+| **var.upgrade_settings** | block | False | -  |  -  |  A `upgrade_settings` block. | | `upgrade_settings` block structure: || 
+|   max_surge (string): (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. ||
+
 | **var.vnet_subnet_id** | string | False | -  |  -  |  The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created. | 
-| **var.windows_profile** | block | False | -  |  -  |  A `windows_profile` block. Changing this forces a new resource to be created. | 
+| **var.windows_profile** | block | False | -  |  -  |  A `windows_profile` block. Changing this forces a new resource to be created. | | `windows_profile` block structure: || 
+|   outbound_nat_enabled (bool): Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. ||
+
 | **var.workload_runtime** | string | False | -  |  `OCIContainer`, `WasmWasi`, `KataMshvVmIsolation`  |  Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`. | 
 | **var.zones** | string | False | -  |  -  |  Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created. | 
 | **var.max_count** | string | False | -  |  `0`, `1000`, `min_count`  |  The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`. | 

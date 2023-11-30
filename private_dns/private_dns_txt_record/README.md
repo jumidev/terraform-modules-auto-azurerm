@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -34,7 +33,9 @@ tfstate_store = {
 | **var.name** | string | True | The name of the DNS TXT Record. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 | **var.zone_name** | string | True | Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.record** | block | True | One or more `record` blocks. | 
+| **var.record** | block | True | One or more `record` blocks. | | `record` block structure: || 
+|   value (string): (REQUIRED) The value of the TXT record. Max length: 1024 characters ||
+
 | **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 

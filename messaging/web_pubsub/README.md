@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -37,8 +36,16 @@ tfstate_store = {
 | **var.capacity** | string | False | -  |  `1`, `2`, `5`, `10`, `20`, `50`, `100`  |  Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether to enable public network access? Defaults to `true`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.live_trace** | block | False | -  |  -  |  A `live_trace` block. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.live_trace** | block | False | -  |  -  |  A `live_trace` block. | | `live_trace` block structure: || 
+|   enabled (bool): Whether the live trace is enabled? Defaults to 'true'. ||
+|   messaging_logs_enabled (bool): Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' ||
+|   connectivity_logs_enabled (bool): Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' ||
+|   http_request_logs_enabled (bool): Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' ||
+
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'. ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub. ||
+
 | **var.local_auth_enabled** | bool | False | `True`  |  -  |  Whether to enable local auth? Defaults to `true`. | 
 | **var.aad_auth_enabled** | bool | False | `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
 | **var.tls_client_cert_enabled** | bool | False | `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 

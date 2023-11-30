@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,12 @@ tfstate_store = {
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
 | **var.site_names** | list | False | A list of Web Chat Site names. | 
-| **var.site** | block | False | A site represents a client application that you want to connect to your bot. One or more `site` blocks. | 
+| **var.site** | block | False | A site represents a client application that you want to connect to your bot. One or more `site` blocks. | | `site` block structure: || 
+|   name (string): (REQUIRED) The name of the site. ||
+|   user_upload_enabled (bool): Is the user upload enabled for this site? Defaults to 'true'. ||
+|   endpoint_parameters_enabled (bool): Is the endpoint parameters enabled for this site? ||
+|   storage_enabled (bool): Is the storage site enabled for detailed logging? Defaults to 'true'. ||
+
 
 
 

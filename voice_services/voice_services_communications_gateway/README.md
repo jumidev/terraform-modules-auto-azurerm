@@ -27,7 +27,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -41,7 +40,13 @@ tfstate_store = {
 | **var.codecs** | string | True | -  |  `PCMA`, `PCMU`, `G722`, `G722_2`, `SILK_8`, `SILK_16`  |  The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`. | 
 | **var.e911_type** | string | True | -  |  `Standard`, `DirectToEsrp`  |  How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`. | 
 | **var.platforms** | string | True | -  |  `OperatorConnect`, `TeamsPhoneMobile`  |  The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`. | 
-| **var.service_location** | block | True | -  |  -  |  A `service_location` block. | 
+| **var.service_location** | block | True | -  |  -  |  A `service_location` block. | | `service_location` block structure: || 
+|   location (string): (REQUIRED) Specifies the region in which the resources needed for Teams Calling will be deployed. ||
+|   operator_addresses (string): (REQUIRED) IP address to use to contact the operator network from this region. ||
+|   allowed_media_source_address_prefixes (string): Specifies the allowed source IP address or CIDR ranges for media. ||
+|   allowed_signaling_source_address_prefixes (string): Specifies the allowed source IP address or CIDR ranges for signaling. ||
+|   esrp_addresses (string): IP address to use to contact the ESRP from this region. ||
+
 | **var.auto_generated_domain_name_label_scope** | string | False | `TenantReuse`  |  `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse`, `NoReuse`  |  Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`. | 
 | **var.api_bridge** | string | False | -  |  -  |  Details of API bridge functionality, if required. | 
 | **var.emergency_dial_strings** | list | False | -  |  -  |  A list of dial strings used for emergency calling. | 

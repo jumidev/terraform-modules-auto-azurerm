@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,14 @@ tfstate_store = {
 | **var.virtual_hub_id** | string | True | -  |  The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created. | 
 | **var.remote_virtual_network_id** | string | True | -  |  The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created. | 
 | **var.internet_security_enabled** | bool | False | `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
-| **var.routing** | block | False | -  |  A `routing` block. | 
+| **var.routing** | block | False | -  |  A `routing` block. | | `routing` block structure: || 
+|   associated_route_table_id (string): The ID of the route table associated with this Virtual Hub connection. ||
+|   inbound_route_map_id (string): The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. ||
+|   outbound_route_map_id (string): The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. ||
+|   propagated_route_table (block): A 'propagated_route_table' block. ||
+|   static_vnet_local_route_override_criteria (string): The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created. ||
+|   static_vnet_route (block): A 'static_vnet_route' block. ||
+
 
 
 

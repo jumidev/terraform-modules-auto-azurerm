@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -39,7 +38,11 @@ tfstate_store = {
 | **var.not_before_date** | datetime | False | -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
 | **var.expiration_date** | datetime | False | -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.rotation_policy** | block | False | -  |  -  |  A `rotation_policy` block. | 
+| **var.rotation_policy** | block | False | -  |  -  |  A `rotation_policy` block. | | `rotation_policy` block structure: || 
+|   expire_after (string): Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). ||
+|   automatic (block): An 'automatic' block. ||
+|   notify_before_expiry (string): Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). ||
+
 
 
 

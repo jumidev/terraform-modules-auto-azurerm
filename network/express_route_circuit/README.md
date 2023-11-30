@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,10 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name of the ExpressRoute circuit. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | block | True | -  |  A `sku` block for the ExpressRoute circuit as documented below. | 
+| **var.sku** | block | True | -  |  A `sku` block for the ExpressRoute circuit as documented below. | | `sku` block structure: || 
+|   tier (string): (REQUIRED) The service tier. Possible values are 'Basic', 'Local', 'Standard' or 'Premium'. ||
+|   family (string): (REQUIRED) The billing mode for bandwidth. Possible values are 'MeteredData' or 'UnlimitedData'. ||
+
 | **var.service_provider_name** | string | False | -  |  The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created. | 
 | **var.peering_location** | string | False | -  |  The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created. | 
 | **var.bandwidth_in_mbps** | int | False | -  |  The bandwidth in Mbps of the circuit being created on the Service Provider. | 

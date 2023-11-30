@@ -29,7 +29,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -48,7 +47,10 @@ tfstate_store = {
 | **var.vcores** | int | True | -  |  -  |  Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `8`, `16`, `24`, `32`, `40`, `64`, or `80` for Gen5 SKUs. | 
 | **var.collation** | string | False | -  |  -  |  Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created. | 
 | **var.dns_zone_partner_id** | string | False | -  |  -  |  The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. Possible values are 'SystemAssigned', 'UserAssigned'. ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Managed Instance. Required when 'type' is set to 'UserAssigned'. ||
+
 | **var.maintenance_configuration_name** | string | False | `SQL_Default`  |  `SQL_Default`, `SQL_{Location}_MI_{Size}`, `SQL_EastUS_MI_1`  |  The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default` or an Azure Location in the format `SQL_{Location}_MI_{Size}`(for example `SQL_EastUS_MI_1`). Defaults to `SQL_Default`. | 
 | **var.minimum_tls_version** | string | False | -  |  `1.0`, `1.1`, `1.2`  |  The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`. | 
 | **var.proxy_override** | string | False | -  |  `Default`, `Proxy`, `Redirect`  |  Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`. | 

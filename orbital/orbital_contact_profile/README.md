@@ -26,7 +26,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -39,7 +38,12 @@ tfstate_store = {
 | **var.minimum_variable_contact_duration** | string | True | -  |  Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station. | 
 | **var.auto_tracking** | string | True | `disabled`, `xBand`, `sBand`  |  Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`. | 
 | **var.network_configuration_subnet_id** | string | True | -  |  ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created. | 
-| **var.links** | block | True | -  |  A list of spacecraft links. A `links` block. Changing this forces a new resource to be created. | 
+| **var.links** | block | True | -  |  A list of spacecraft links. A `links` block. Changing this forces a new resource to be created. | | `links` block structure: || 
+|   channels (block): (REQUIRED) A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. ||
+|   direction (string): (REQUIRED) Direction of the link. Possible values are 'Uplink' and 'Downlink'. ||
+|   name (string): (REQUIRED) Name of the link. ||
+|   polarization (string): (REQUIRED) Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. ||
+
 | **var.event_hub_uri** | string | False | -  |  ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub. | 
 | **var.minimum_elevation_degrees** | string | False | -  |  Maximum elevation of the antenna during the contact in decimal degrees. | 
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 

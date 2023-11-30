@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,10 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of the Network Profile. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
-| **var.container_network_interface** | block | True | A `container_network_interface` block. | 
+| **var.container_network_interface** | block | True | A `container_network_interface` block. | | `container_network_interface` block structure: || 
+|   name (string): (REQUIRED) Specifies the name of the IP Configuration. ||
+|   ip_configuration (list): (REQUIRED) One or more 'ip_configuration' blocks. ||
+
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

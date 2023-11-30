@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -36,8 +35,16 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created. | 
 | **var.scopes** | list | True | -  |  A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes. | 
-| **var.source** | block | True | -  |  One or more `source` blocks. A `source` defines what data types will be processed and a set of rules to filter that data. | 
-| **var.action** | block | True | -  |  One or more `action` blocks. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`. | 
+| **var.source** | block | True | -  |  One or more `source` blocks. A `source` defines what data types will be processed and a set of rules to filter that data. | | `source` block structure: || 
+|   event_source (string): (REQUIRED) Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations ||
+|   rule_set (block): A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks. ||
+
+| **var.action** | block | True | -  |  One or more `action` blocks. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`. | | `action` block structure: || 
+|   type (string): (REQUIRED) Type of Azure resource to send data to. Must be set to one of: 'LogicApp', 'EventHub' or 'LogAnalytics'. ||
+|   resource_id (string): (REQUIRED) The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace. ||
+|   connection_string (string): (Optional, but required when 'type' is 'EventHub') A connection string to send data to the target Event Hub namespace, this should include a key with send permissions. ||
+|   trigger_url (string): (Optional, but required when 'type' is 'LogicApp') The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under 'See trigger history' ||
+
 | **var.description** | string | False | -  |  Specifies the description for the Security Center Automation. | 
 | **var.enabled** | bool | False | `True`  |  Boolean to enable or disable this Security Center Automation. Defaults to `true`. | 
 | **var.tags** | map | False | -  |  A mapping of tags assigned to the resource. | 

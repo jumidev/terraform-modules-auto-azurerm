@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,10 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of the Module. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | The name of the resource group in which the Module is created. Changing this forces a new resource to be created. | 
 | **var.automation_account_name** | string | True | The name of the automation account in which the Module is created. Changing this forces a new resource to be created. | 
-| **var.module_link** | block | True | A `module_link` block. | 
+| **var.module_link** | block | True | A `module_link` block. | | `module_link` block structure: || 
+|   uri (string): (REQUIRED) The URI of the module content (zip or nupkg). ||
+|   hash (block): A 'hash' block. ||
+
 
 
 

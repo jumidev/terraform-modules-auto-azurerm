@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -36,8 +35,14 @@ tfstate_store = {
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Linked Service SQL Server. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Linked Service SQL Server. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Linked Service SQL Server. | 
-| **var.key_vault_connection_string** | block | False | A `key_vault_connection_string` block. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
-| **var.key_vault_password** | block | False | A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
+| **var.key_vault_connection_string** | block | False | A `key_vault_connection_string` block. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | | `key_vault_connection_string` block structure: || 
+|   linked_service_name (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service. ||
+|   secret_name (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores SQL Server connection string. ||
+
+| **var.key_vault_password** | block | False | A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | | `key_vault_password` block structure: || 
+|   linked_service_name (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service. ||
+|   secret_name (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores SQL Server password. ||
+
 | **var.user_name** | string | False | The on-premises Windows authentication user name. | 
 
 

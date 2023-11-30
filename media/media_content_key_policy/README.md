@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -32,7 +31,16 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.media_services_account_name** | string | True | The Media Services account name. Changing this forces a new Content Key Policy to be created. | 
 | **var.name** | string | True | The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created. | 
-| **var.policy_option** | block | True | One or more `policy_option` blocks. | 
+| **var.policy_option** | block | True | One or more `policy_option` blocks. | | `policy_option` block structure: || 
+|   name (string): (REQUIRED) The name which should be used for this Policy Option. ||
+|   clear_key_configuration_enabled (bool): Enable a configuration for non-DRM keys. ||
+|   fairplay_configuration (block): A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. ||
+|   open_restriction_enabled (bool): Enable an open restriction. License or key will be delivered on every request. ||
+|   playready_configuration_license (list): One or more 'playready_configuration_license' blocks. ||
+|   playready_response_custom_data (string): The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. ||
+|   token_restriction (block): A 'token_restriction' block. ||
+|   widevine_configuration_template (string): The Widevine template. ||
+
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created. | 
 | **var.description** | string | False | A description for the Policy. | 
 

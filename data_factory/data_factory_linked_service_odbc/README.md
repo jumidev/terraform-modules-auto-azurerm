@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -32,7 +31,10 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of the Data Factory Linked Service ODBC. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
 | **var.data_factory_id** | string | True | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 | **var.connection_string** | string | True | The connection string in which to authenticate with ODBC. | 
-| **var.basic_authentication** | block | False | A `basic_authentication` block. | 
+| **var.basic_authentication** | block | False | A `basic_authentication` block. | | `basic_authentication` block structure: || 
+|   username (string): (REQUIRED) The username which can be used to authenticate to the ODBC endpoint. ||
+|   password (string): (REQUIRED) The password associated with the username, which can be used to authenticate to the ODBC endpoint. ||
+
 | **var.description** | string | False | The description for the Data Factory Linked Service ODBC. | 
 | **var.integration_runtime_name** | string | False | The integration runtime reference to associate with the Data Factory Linked Service ODBC. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Linked Service ODBC. | 

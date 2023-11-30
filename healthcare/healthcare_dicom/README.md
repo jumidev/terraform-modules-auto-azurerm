@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -32,7 +31,10 @@ tfstate_store = {
 | **var.name** | string | True | -  |  Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created. | 
 | **var.workspace_id** | string | True | -  |  Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created. | 
 | **var.location** | string | True | -  |  Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) The type of identity used for the Healthcare DICOM service. Possible values are 'UserAssigned', 'SystemAssigned' and 'SystemAssigned, UserAssigned'. If 'UserAssigned' is set, an 'identity_ids' must be set as well. ||
+|   identity_ids (list): A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service. ||
+
 | **var.public_network_access_enabled** | bool | False | `True`  |  Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`. | 
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the Healthcare DICOM Service. | 
 

@@ -20,7 +20,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -28,7 +27,12 @@ tfstate_store = {
 | Name | Type | Required? |  Description |
 | ---- | ---- | --------- |  ----------- |
 | **var.storage_account_id** | string | True | Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created. | 
-| **var.rule** | block | False | A `rule` block. | 
+| **var.rule** | block | False | A `rule` block. | | `rule` block structure: || 
+|   name (string): (REQUIRED) The name of the rule. Rule name is case-sensitive. It must be unique within a policy. ||
+|   enabled (bool): (REQUIRED) Boolean to specify whether the rule is enabled. ||
+|   filters (block): (REQUIRED) A 'filters' block. ||
+|   actions (block): (REQUIRED) An 'actions' block. ||
+
 
 
 

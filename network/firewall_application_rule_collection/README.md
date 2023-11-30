@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -37,7 +36,15 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
 | **var.priority** | string | True | `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **var.action** | string | True | `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
-| **var.rule** | block | True | -  |  One or more `rule` blocks. | 
+| **var.rule** | block | True | -  |  One or more `rule` blocks. | | `rule` block structure: || 
+|   name (string): (REQUIRED) Specifies the name of the rule. ||
+|   description (string): Specifies a description for the rule. ||
+|   source_addresses (list): A list of source IP addresses and/or IP ranges. ||
+|   source_ip_groups (list): A list of source IP Group IDs for the rule. ||
+|   fqdn_tags (string): A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. ||
+|   target_fqdns (list): A list of FQDNs. ||
+|   protocol (block): One or more 'protocol' blocks. ||
+
 
 
 

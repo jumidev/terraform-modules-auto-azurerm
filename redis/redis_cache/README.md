@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -39,12 +38,34 @@ tfstate_store = {
 | **var.family** | string | True | -  |  `C`, `P`, `Premium`  |  The SKU family/pricing group to use. Valid values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`) | 
 | **var.sku_name** | string | True | -  |  `Basic`, `Standard`, `Premium`  |  The SKU of Redis to use. Possible values are `Basic`, `Standard` and `Premium`. | 
 | **var.enable_non_ssl_port** | bool | False | -  |  -  |  Enable the non-SSL port (6379) - disabled by default. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
+|   identity_ids (list): A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. ||
+
 | **var.minimum_tls_version** | string | False | `1.0`  |  `1.0`, `1.1`, `1.2`  |  The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`. | 
-| **var.patch_schedule** | block | False | -  |  -  |  A list of `patch_schedule` blocks. | 
+| **var.patch_schedule** | block | False | -  |  -  |  A list of `patch_schedule` blocks. | | `patch_schedule` block structure: || 
+|   day_of_week (string): (REQUIRED) the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. ||
+|   start_hour_utc (string): the Start Hour for maintenance in UTC - possible values range from '0 - 23'. ||
+|   maintenance_window (string): The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. ||
+
 | **var.private_static_ip_address** | string | False | -  |  -  |  The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`. | 
-| **var.redis_configuration** | block | False | -  |  -  |  A `redis_configuration` block - with some limitations by SKU - defaults/details are shown below. | 
+| **var.redis_configuration** | block | False | -  |  -  |  A `redis_configuration` block - with some limitations by SKU - defaults/details are shown below. | | `redis_configuration` block structure: || 
+|   aof_backup_enabled (bool): Enable or disable AOF persistence for this Redis Cache. Defaults to 'false'. ||
+|   aof_storage_connection_string_0 (string): First Storage Account connection string for AOF persistence. ||
+|   aof_storage_connection_string_1 (string): Second Storage Account connection string for AOF persistence. ||
+|   enable_authentication (bool): If set to 'false', the Redis instance will be accessible without authentication. Defaults to 'true'. ||
+|   active_directory_authentication_enabled (bool): Enable Microsoft Entra (AAD) authentication. Defaults to 'false'. ||
+|   maxmemory_reserved (string): Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below. ||
+|   maxmemory_delta (string): The max-memory delta for this Redis instance. Defaults are shown below. ||
+|   maxmemory_policy (string): How Redis will select what to remove when 'maxmemory' is reached. Defaults to 'volatile-lru'. ||
+|   maxfragmentationmemory_reserved (string): Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below. ||
+|   rdb_backup_enabled (bool): Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'. ||
+|   rdb_backup_frequency (string): The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'. ||
+|   rdb_backup_max_snapshot_count (int): The maximum number of snapshots to create as a backup. Only supported for Premium SKUs. ||
+|   rdb_storage_connection_string (string): The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. ||
+|   notify_keyspace_events (string): Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) ||
+
 | **var.replicas_per_master** | int | False | -  |  -  |  Amount of replicas to create per master for this Redis Cache. | 
 | **var.replicas_per_primary** | int | False | -  |  -  |  Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal. | 
 | **var.redis_version** | string | False | -  |  `4`, `6`  |  Redis version. Only major version needed. Valid values: `4`, `6`. | 

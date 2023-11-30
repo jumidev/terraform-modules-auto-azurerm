@@ -28,7 +28,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -40,9 +39,15 @@ tfstate_store = {
 | **var.integration_account_name** | string | True | -  |  The name of the Logic App Integration Account. Changing this forces a new resource to be created. | 
 | **var.agreement_type** | string | True | `AS2`, `X12`, `Edifact`  |  The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`. | 
 | **var.content** | string | True | -  |  The content of the Logic App Integration Account Agreement. | 
-| **var.guest_identity** | block | True | -  |  A `guest_identity` block. | 
+| **var.guest_identity** | block | True | -  |  A `guest_identity` block. | | `guest_identity` block structure: || 
+|   qualifier (string): (REQUIRED) The authenticating body that provides unique guest identities to organizations. ||
+|   value (string): (REQUIRED) The value that identifies the documents that your logic apps receive. ||
+
 | **var.guest_partner_name** | string | True | -  |  The name of the guest Logic App Integration Account Partner. | 
-| **var.host_identity** | block | True | -  |  A `host_identity` block. | 
+| **var.host_identity** | block | True | -  |  A `host_identity` block. | | `host_identity` block structure: || 
+|   qualifier (string): (REQUIRED) The authenticating body that provides unique host identities to organizations. ||
+|   value (string): (REQUIRED) The value that identifies the documents that your logic apps receive. ||
+
 | **var.host_partner_name** | string | True | -  |  The name of the host Logic App Integration Account Partner. | 
 | **var.metadata** | string | False | -  |  The metadata of the Logic App Integration Account Agreement. | 
 

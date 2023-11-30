@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -34,7 +33,12 @@ tfstate_store = {
 | **var.https_only_enabled** | bool | False | -  |  is only https is allowed? | 
 | **var.instance_count** | int | False | `1`  |  Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **var.public_network_access_enabled** | bool | False | -  |  Is the public network access enabled? | 
-| **var.sso** | block | False | -  |  A `sso` block. | 
+| **var.sso** | block | False | -  |  A `sso` block. | | `sso` block structure: || 
+|   client_id (string): The public identifier for the application. ||
+|   client_secret (string): The secret known only to the application and the authorization server. ||
+|   issuer_uri (string): The URI of Issuer Identifier. ||
+|   scope (string): It defines the specific actions applications can be allowed to do on a user's behalf. ||
+
 
 
 

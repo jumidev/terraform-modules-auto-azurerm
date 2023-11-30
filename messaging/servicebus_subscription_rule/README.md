@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,16 @@ tfstate_store = {
 | **var.subscription_id** | string | True | -  |  The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created. | 
 | **var.filter_type** | string | True | `SqlFilter`, `CorrelationFilter`  |  Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`. | 
 | **var.sql_filter** | string | False | -  |  Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`. | 
-| **var.correlation_filter** | block | False | -  |  A `correlation_filter` block to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`. | 
+| **var.correlation_filter** | block | False | -  |  A `correlation_filter` block to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`. | | `correlation_filter` block structure: || 
+|   content_type (string): Content type of the message. ||
+|   correlation_id (string): Identifier of the correlation. ||
+|   label (string): Application specific label. ||
+|   message_id (string): Identifier of the message. ||
+|   reply_to (string): Address of the queue to reply to. ||
+|   reply_to_session_id (string): Session identifier to reply to. ||
+|   session_id (string): Session identifier. ||
+|   properties (list): A list of user defined properties to be included in the filter. Specified as a map of name/value pairs. ||
+
 | **var.action** | string | False | -  |  Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage. | 
 
 

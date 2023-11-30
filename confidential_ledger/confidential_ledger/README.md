@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -34,9 +33,16 @@ tfstate_store = {
 | **var.name** | string | True | -  |  Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created. | 
-| **var.azuread_based_service_principal** | block | True | -  |  A list of `azuread_based_service_principal` blocks. | 
+| **var.azuread_based_service_principal** | block | True | -  |  A list of `azuread_based_service_principal` blocks. | | `azuread_based_service_principal` block structure: || 
+|   ledger_role_name (string): (REQUIRED) Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are 'Administrator', 'Contributor' and 'Reader'. ||
+|   principal_id (string): (REQUIRED) Specifies the Principal ID of the AzureAD Service Principal. ||
+|   tenant_id (string): (REQUIRED) Specifies the Tenant ID for this AzureAD Service Principal. ||
+
 | **var.ledger_type** | string | True | `Private`, `Public`  |  Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created. | 
-| **var.certificate_based_security_principal** | block | False | -  |  A list of `certificate_based_security_principal` blocks. | 
+| **var.certificate_based_security_principal** | block | False | -  |  A list of `certificate_based_security_principal` blocks. | | `certificate_based_security_principal` block structure: || 
+|   ledger_role_name (string): (REQUIRED) Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are 'Administrator', 'Contributor' and 'Reader'. ||
+|   pem_public_key (string): (REQUIRED) The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger. ||
+
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the Confidential Ledger. | 
 
 

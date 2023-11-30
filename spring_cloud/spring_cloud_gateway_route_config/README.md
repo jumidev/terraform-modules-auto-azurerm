@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,8 +32,20 @@ tfstate_store = {
 | **var.filters** | string | False | -  |  -  |  Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level. | 
 | **var.predicates** | string | False | -  |  -  |  Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. | 
 | **var.sso_validation_enabled** | bool | False | -  |  -  |  Should the sso validation be enabled in app level? | 
-| **var.route** | block | False | -  |  -  |  One or more `route` blocks. | 
-| **var.open_api** | block | False | -  |  -  |  One or more `open_api` blocks. | 
+| **var.route** | block | False | -  |  -  |  One or more `route` blocks. | | `route` block structure: || 
+|   order (string): (REQUIRED) Specifies the route processing order. ||
+|   description (string): Specifies the description which will be applied to methods in the generated OpenAPI documentation. ||
+|   filters (string): Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response. ||
+|   predicates (string): Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. ||
+|   sso_validation_enabled (bool): Should the sso validation be enabled? ||
+|   classification_tags (map): Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation. ||
+|   title (string): Specifies the title which will be applied to methods in the generated OpenAPI documentation. ||
+|   token_relay (string): Should pass currently-authenticated user's identity token to application service? ||
+|   uri (string): Specifies the full uri which will override 'appName'. ||
+
+| **var.open_api** | block | False | -  |  -  |  One or more `open_api` blocks. | | `open_api` block structure: || 
+|   uri (string): The URI of OpenAPI specification. ||
+
 | **var.protocol** | string | False | `HTTP`  |  `HTTP`, `HTTPS`  |  Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. | 
 | **var.spring_cloud_app_id** | string | False | -  |  -  |  The ID of the Spring Cloud App. | 
 

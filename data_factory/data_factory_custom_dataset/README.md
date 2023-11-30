@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,10 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
 | **var.data_factory_id** | string | True | The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource. | 
-| **var.linked_service** | block | True | A `linked_service` block. | 
+| **var.linked_service** | block | True | A `linked_service` block. | | `linked_service` block structure: || 
+|   name (string): (REQUIRED) The name of the Data Factory Linked Service. ||
+|   parameters (string): A map of parameters to associate with the Data Factory Linked Service. ||
+
 | **var.type** | string | True | The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created. | 
 | **var.type_properties_json** | string | True | A JSON object that contains the properties of the Data Factory Dataset. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Dataset. | 

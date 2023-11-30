@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -36,9 +35,17 @@ tfstate_store = {
 | **var.version** | string | True | -  |  -  |  The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created. | 
 | **var.administrator_login** | string | False | -  |  -  |  The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created. | 
 | **var.administrator_login_password** | string | False | -  |  -  |  The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. | 
-| **var.azuread_administrator** | block | False | -  |  -  |  An `azuread_administrator` block. | 
+| **var.azuread_administrator** | block | False | -  |  -  |  An `azuread_administrator` block. | | `azuread_administrator` block structure: || 
+|   login_username (string): (REQUIRED) The login username of the Azure AD Administrator of this SQL Server. ||
+|   object_id (string): (REQUIRED) The object id of the Azure AD Administrator of this SQL Server. ||
+|   tenant_id (string): The tenant id of the Azure AD Administrator of this SQL Server. ||
+|   azuread_authentication_only (string): Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. ||
+
 | **var.connection_policy** | string | False | `Default`  |  `Default`, `Proxy`, `Redirect`  |  The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. ||
+
 | **var.transparent_data_encryption_key_vault_key_id** | string | False | -  |  -  |  The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer. | 
 | **var.minimum_tls_version** | string | False | `1.2`  |  `1.0`, `1.1`, `1.2`, `Disabled`  |  The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether public network access is allowed for this server. Defaults to `true`. | 

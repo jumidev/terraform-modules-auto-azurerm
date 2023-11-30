@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -29,8 +28,12 @@ tfstate_store = {
 | Name | Type | Required? |  Description |
 | ---- | ---- | --------- |  ----------- |
 | **var.container_registry_token_id** | string | True | The ID of the Container Registry Token that this Container Registry Token Password resides in. Changing this forces a new Container Registry Token Password to be created. | 
-| **var.password1** | block | True | One `password` block. | 
-| **var.password2** | block | False | One `password` block. | 
+| **var.password1** | block | True | One `password` block. | | `password1` block structure: || 
+|   expiry (string): The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created. ||
+
+| **var.password2** | block | False | One `password` block. | | `password2` block structure: || 
+|   expiry (string): The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created. ||
+
 
 
 

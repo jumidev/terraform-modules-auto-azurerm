@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -43,7 +42,11 @@ tfstate_store = {
 | **var.forward_dead_lettered_messages_to** | string | False | -  |  -  |  The name of a Queue or Topic to automatically forward Dead Letter messages to. | 
 | **var.status** | string | False | `Active`  |  `Active`, `ReceiveDisabled`, `Disabled`  |  The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`. | 
 | **var.client_scoped_subscription_enabled** | bool | False | `False`  |  -  |  whether the subscription is scoped to a client id. Defaults to `false`. | 
-| **var.client_scoped_subscription** | block | False | -  |  -  |  A `client_scoped_subscription` block. | 
+| **var.client_scoped_subscription** | block | False | -  |  -  |  A `client_scoped_subscription` block. | | `client_scoped_subscription` block structure: || 
+|   client_id (string): Specifies the Client ID of the application that created the client-scoped subscription. Changing this forces a new resource to be created. ||
+|   is_client_scoped_subscription_shareable (bool): Whether the client scoped subscription is shareable. Defaults to 'true' Changing this forces a new resource to be created. ||
+|   is_client_scoped_subscription_durable (bool): Whether the client scoped subscription is durable. This property can only be controlled from the application side. ||
+
 
 
 

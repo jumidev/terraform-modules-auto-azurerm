@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -42,12 +41,29 @@ tfstate_store = {
 | **var.default_local_network_gateway_id** | string | False | -  |  -  |  The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled. | 
 | **var.edge_zone** | string | False | -  |  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created. | 
 | **var.enable_bgp** | bool | False | `False`  |  -  |  If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`. | 
-| **var.bgp_settings** | block | False | -  |  -  |  A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined. | 
-| **var.custom_route** | block | False | -  |  -  |  A `custom_route` block. Specifies a custom routes address space for a virtual network gateway and a VpnClient. | 
+| **var.bgp_settings** | block | False | -  |  -  |  A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined. | | `bgp_settings` block structure: || 
+|   asn (string): The Autonomous System Number (ASN) to use as part of the BGP. ||
+|   peering_addresses (block): A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'. ||
+|   peer_weight (string): The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'. ||
+
+| **var.custom_route** | block | False | -  |  -  |  A `custom_route` block. Specifies a custom routes address space for a virtual network gateway and a VpnClient. | | `custom_route` block structure: || 
+|   address_prefixes (list): A list of address blocks reserved for this virtual network in CIDR notation. ||
+
 | **var.generation** | string | False | -  |  `Generation1`, `Generation2`, `None`  |  The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created. | 
 | **var.private_ip_address_enabled** | bool | False | -  |  -  |  Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.vpn_client_configuration** | block | False | -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
+| **var.vpn_client_configuration** | block | False | -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | | `vpn_client_configuration` block structure: || 
+|   address_space (string): (REQUIRED) The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation. ||
+|   aad_tenant (string): AzureAD Tenant URL ||
+|   aad_audience (string): The client id of the Azure VPN application. See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values ||
+|   aad_issuer (string): The STS url for your tenant ||
+|   root_certificate (list): One or more 'root_certificate' blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway. ||
+|   revoked_certificate (list): One or more 'revoked_certificate' blocks which are defined below. ||
+|   radius_server_address (string): The address of the Radius server. ||
+|   radius_server_secret (string): The secret used by the Radius server. ||
+|   vpn_client_protocols (string): List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'. ||
+|   vpn_auth_types (string): List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. ||
+
 | **var.vpn_type** | string | False | `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
 
 

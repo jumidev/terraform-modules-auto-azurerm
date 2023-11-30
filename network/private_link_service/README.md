@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -34,7 +33,13 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of this Private Link Service. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.nat_ip_configuration** | block | True | One or more (up to 8) `nat_ip_configuration` block. | 
+| **var.nat_ip_configuration** | block | True | One or more (up to 8) `nat_ip_configuration` block. | | `nat_ip_configuration` block structure: || 
+|   name (string): (REQUIRED) Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created. ||
+|   subnet_id (string): (REQUIRED) Specifies the ID of the Subnet which should be used for the Private Link Service. ||
+|   primary (bool): (REQUIRED) Is this is the Primary IP Configuration? Changing this forces a new resource to be created. ||
+|   private_ip_address (string): Specifies a Private Static IP Address for this IP Configuration. ||
+|   private_ip_address_version (string): The version of the IP Protocol which should be used. At this time the only supported value is 'IPv4'. Defaults to 'IPv4'. ||
+
 | **var.load_balancer_frontend_ip_configuration_ids** | list | True | A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created. | 
 | **var.auto_approval_subscription_ids** | list | False | A list of Subscription UUID/GUID's that will be automatically be able to use this Private Link Service. | 
 | **var.enable_proxy_protocol** | bool | False | Should the Private Link Service support the Proxy Protocol? | 

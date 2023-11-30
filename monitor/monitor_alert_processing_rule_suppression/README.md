@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -32,10 +31,27 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name which should be used for this Alert Processing Rule. Changing this forces a new Alert Processing Rule to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Alert Processing Rule should exist. Changing this forces a new Alert Processing Rule to be created. | 
 | **var.scopes** | list | True | -  |  A list of resource IDs which will be the target of Alert Processing Rule. | 
-| **var.condition** | block | False | -  |  A `condition` block. | 
+| **var.condition** | block | False | -  |  A `condition` block. | | `condition` block structure: || 
+|   alert_context (block): A 'alert_context' block. ||
+|   alert_rule_id (block): A 'alert_rule_id' block. ||
+|   alert_rule_name (block): A 'alert_rule_name' block. ||
+|   description (block): A 'description' block. ||
+|   monitor_condition (block): A 'monitor_condition' block. ||
+|   monitor_service (block): A 'monitor_service' block. ||
+|   severity (block): A 'severity' block. ||
+|   signal_type (block): A 'signal_type' block. ||
+|   target_resource (block): A 'target_resource' block. ||
+|   target_resource_group (block): A 'target_resource_group' block. ||
+|   target_resource_type (block): A 'target_resource_type' block. ||
+
 | **var.description** | string | False | -  |  Specifies a description for the Alert Processing Rule. | 
 | **var.enabled** | bool | False | `True`  |  Should the Alert Processing Rule be enabled? Defaults to `true`. | 
-| **var.schedule** | block | False | -  |  A `schedule` block. | 
+| **var.schedule** | block | False | -  |  A `schedule` block. | | `schedule` block structure: || 
+|   effective_from (string): Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S). ||
+|   effective_until (string): Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S). ||
+|   recurrence (block): A 'recurrence' block. ||
+|   time_zone (string): The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to 'UTC'. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)). ||
+
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Alert Processing Rule. | 
 
 

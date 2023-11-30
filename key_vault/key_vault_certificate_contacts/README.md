@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -29,7 +28,11 @@ tfstate_store = {
 | Name | Type | Required? |  Description |
 | ---- | ---- | --------- |  ----------- |
 | **var.key_vault_id** | string | True | The ID of the Key Vault. Changing this forces a new resource to be created. | 
-| **var.contact** | block | True | One or more `contact` blocks. | 
+| **var.contact** | block | True | One or more `contact` blocks. | | `contact` block structure: || 
+|   email (string): (REQUIRED) E-mail address of the contact. ||
+|   name (string): Name of the contact. ||
+|   phone (int): Phone number of the contact. ||
+
 
 
 

@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -37,7 +36,12 @@ tfstate_store = {
 | **var.timezone** | string | True | -  |  -  |  The time zone ID (e.g. Pacific Standard time). Refer to this guide for a [full list of accepted time zone names](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.daily_recurrence_time** | string | True | -  |  -  |  The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.) | 
-| **var.notification_settings** | block | True | -  |  -  |  The notification setting of a schedule. A `notification_settings` block. | 
+| **var.notification_settings** | block | True | -  |  -  |  The notification setting of a schedule. A `notification_settings` block. | | `notification_settings` block structure: || 
+|   enabled (string): (REQUIRED) Whether to enable pre-shutdown notifications. Possible values are 'true' and 'false'. ||
+|   email (string): E-mail address to which the notification will be sent. ||
+|   time_in_minutes (int): Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to '30'. ||
+|   webhook_url (string): The webhook URL to which the notification will be sent. ||
+
 
 
 

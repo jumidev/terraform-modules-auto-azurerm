@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,9 +32,35 @@ tfstate_store = {
 | **var.name** | string | True | -  |  -  |  The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created. | 
 | **var.cdn_frontdoor_rule_set_id** | string | True | -  |  -  |  The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created. | 
 | **var.order** | string | True | -  |  -  |  The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value. | 
-| **var.actions** | block | True | -  |  -  |  An `actions` block. | 
+| **var.actions** | block | True | -  |  -  |  An `actions` block. | | `actions` block structure: || 
+|   url_rewrite_action (block): A 'url_rewrite_action' block. You may **not** have a 'url_rewrite_action' **and** a 'url_redirect_action' defined in the same 'actions' block. ||
+|   url_redirect_action (block): A 'url_redirect_action' block. You may **not** have a 'url_redirect_action' **and** a 'url_rewrite_action' defined in the same 'actions' block. ||
+|   route_configuration_override_action (block): A 'route_configuration_override_action' block. ||
+|   request_header_action (block): A 'request_header_action' block. ||
+|   response_header_action (block): A 'response_header_action' block. ||
+
 | **var.behavior_on_match** | string | False | `Continue`  |  `Continue`, `Stop`  |  If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`. | 
-| **var.conditions** | block | False | -  |  -  |  A `conditions` block. | 
+| **var.conditions** | block | False | -  |  -  |  A `conditions` block. | | `conditions` block structure: || 
+|   remote_address_condition (block): A 'remote_address_condition' block. ||
+|   request_method_condition (block): A 'request_method_condition' block. ||
+|   query_string_condition (block): A 'query_string_condition' block. ||
+|   post_args_condition (block): A 'post_args_condition' block. ||
+|   request_uri_condition (block): A 'request_uri_condition' block. ||
+|   request_header_condition (block): A 'request_header_condition' block. ||
+|   request_body_condition (block): A 'request_body_condition' block. ||
+|   request_scheme_condition (block): A 'request_scheme_condition' block. ||
+|   url_path_condition (block): A 'url_path_condition' block. ||
+|   url_file_extension_condition (block): A 'url_file_extension_condition' block. ||
+|   url_filename_condition (block): A 'url_filename_condition' block. ||
+|   http_version_condition (block): A 'http_version_condition' block. ||
+|   cookies_condition (block): A 'cookies_condition' block. ||
+|   is_device_condition (block): A 'is_device_condition' block. ||
+|   socket_address_condition (block): A 'socket_address_condition' block. ||
+|   client_port_condition (block): A 'client_port_condition' block. ||
+|   server_port_condition (block): A 'server_port_condition' block. ||
+|   host_name_condition (block): A 'host_name_condition' block. ||
+|   ssl_protocol_condition (block): A 'ssl_protocol_condition' block. ||
+
 
 
 

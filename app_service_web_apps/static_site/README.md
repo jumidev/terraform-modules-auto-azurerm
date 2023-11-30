@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -34,7 +33,10 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created. | 
 | **var.sku_tier** | string | False | `Free`  |  `Free`, `Standard`  |  Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
 | **var.sku_size** | string | False | `Free`  |  `Free`, `Standard`  |  Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) The Type of Managed Identity assigned to this Static Site resource. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. ||
+|   identity_ids (list): A list of Managed Identity IDs which should be assigned to this Static Site resource. ||
+
 | **var.app_settings** | string | False | -  |  -  |  A key-value pair of App Settings. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 

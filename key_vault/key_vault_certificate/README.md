@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -30,8 +29,17 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created. | 
 | **var.key_vault_id** | string | True | The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created. | 
-| **var.certificate** | block | False | A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
-| **var.certificate_policy** | block | False | A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.certificate** | block | False | A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | | `certificate` block structure: || 
+|   contents (string): (REQUIRED) The base64-encoded certificate contents. ||
+|   password (string): The password associated with the certificate. ||
+
+| **var.certificate_policy** | block | False | A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | | `certificate_policy` block structure: || 
+|   issuer_parameters (block): (REQUIRED) A 'issuer_parameters' block. ||
+|   key_properties (block): (REQUIRED) A 'key_properties' block. ||
+|   lifetime_action (block): A 'lifetime_action' block. ||
+|   secret_properties (block): (REQUIRED) A 'secret_properties' block. ||
+|   x509_certificate_properties (block): A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. ||
+
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

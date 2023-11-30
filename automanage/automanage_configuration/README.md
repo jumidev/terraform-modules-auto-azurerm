@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -32,9 +31,24 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name which should be used for this Automanage Configuration. Changing this forces a new Automanage Configuration to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created. | 
 | **var.location** | string | True | -  |  The Azure Region where the Automanage Configuration should exist. Changing this forces a new Automanage Configuration to be created. | 
-| **var.antimalware** | block | False | -  |  A `antimalware` block. | 
-| **var.azure_security_baseline** | block | False | -  |  A `azure_security_baseline` block. | 
-| **var.backup** | block | False | -  |  A `backup` block. | 
+| **var.antimalware** | block | False | -  |  A `antimalware` block. | | `antimalware` block structure: || 
+|   exclusions (block): A 'exclusions' block. ||
+|   real_time_protection_enabled (bool): Whether the real time protection is enabled. Defaults to 'false'. ||
+|   scheduled_scan_enabled (bool): Whether the scheduled scan is enabled. Defaults to 'false'. ||
+|   scheduled_scan_type (string): The type of the scheduled scan. Possible values are 'Quick' and 'Full'. Defaults to 'Quick'. ||
+|   scheduled_scan_day (string): The day of the scheduled scan. Possible values are '0' to '8' where '0' is daily, '1' to '7' are the days of the week and '8' is Disabled. Defaults to '8'. ||
+|   scheduled_scan_time_in_minutes (string): The time of the scheduled scan in minutes. Possible values are '0' to '1439' where '0' is 12:00 AM and '1439' is 11:59 PM. ||
+
+| **var.azure_security_baseline** | block | False | -  |  A `azure_security_baseline` block. | | `azure_security_baseline` block structure: || 
+|   assignment_type (string): The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'. ||
+
+| **var.backup** | block | False | -  |  A `backup` block. | | `backup` block structure: || 
+|   policy_name (string): The name of the backup policy. ||
+|   time_zone (string): The timezone of the backup policy. Defaults to 'UTC'. ||
+|   instant_rp_retention_range_in_days (int): The retention range in days of the backup policy. Defaults to '5'. ||
+|   schedule_policy (block): A 'schedule_policy' block. ||
+|   retention_policy (block): A 'retention_policy' block. ||
+
 | **var.automation_account_enabled** | bool | False | `False`  |  Whether the automation account is enabled. Defaults to `false`. | 
 | **var.boot_diagnostics_enabled** | bool | False | `False`  |  Whether the boot diagnostics are enabled. Defaults to `false`. | 
 | **var.defender_for_cloud_enabled** | bool | False | `False`  |  Whether the defender for cloud is enabled. Defaults to `false`. | 

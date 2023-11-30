@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -38,21 +37,34 @@ tfstate_store = {
 | **var.sku_name** | string | True | -  |  `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0`, `DC0`  |  Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S0`, `S`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, `P2`, `E0` and `DC0`. | 
 | **var.custom_subdomain_name** | string | False | -  |  -  |  The subdomain name used for token-based authentication. Changing this forces a new resource to be created. | 
 | **var.dynamic_throttling_enabled** | bool | False | -  |  -  |  Whether to enable the dynamic throttling for this Cognitive Service Account. | 
-| **var.customer_managed_key** | block | False | -  |  -  |  A `customer_managed_key` block. | 
+| **var.customer_managed_key** | block | False | -  |  -  |  A `customer_managed_key` block. | | `customer_managed_key` block structure: || 
+|   key_vault_key_id (string): (REQUIRED) The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. ||
+|   identity_client_id (string): The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. ||
+
 | **var.fqdns** | string | False | -  |  -  |  List of FQDNs allowed for the Cognitive Account. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. ||
+
 | **var.local_auth_enabled** | bool | False | `True`  |  -  |  Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`. | 
 | **var.metrics_advisor_aad_client_id** | string | False | -  |  -  |  The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **var.metrics_advisor_aad_tenant_id** | string | False | -  |  -  |  The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **var.metrics_advisor_super_user_name** | string | False | -  |  -  |  The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **var.metrics_advisor_website_name** | string | False | -  |  -  |  The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
-| **var.network_acls** | block | False | -  |  -  |  A `network_acls` block. | 
+| **var.network_acls** | block | False | -  |  -  |  A `network_acls` block. | | `network_acls` block structure: || 
+|   default_action (string): (REQUIRED) The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'. ||
+|   ip_rules (list): One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. ||
+|   virtual_network_rules (block): A 'virtual_network_rules' block. ||
+
 | **var.outbound_network_access_restricted** | bool | False | `False`  |  -  |  Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether public network access is allowed for the Cognitive Account. Defaults to `true`. | 
 | **var.qna_runtime_endpoint** | string | False | -  |  -  |  A URL to link a QnAMaker cognitive account to a QnA runtime. | 
 | **var.custom_question_answering_search_service_id** | string | False | -  |  -  |  If `kind` is `TextAnalytics` this specifies the ID of the Search service. | 
 | **var.custom_question_answering_search_service_key** | string | False | -  |  -  |  If `kind` is `TextAnalytics` this specifies the key of the Search service. | 
-| **var.storage** | block | False | -  |  -  |  A `storage` block. | 
+| **var.storage** | block | False | -  |  -  |  A `storage` block. | | `storage` block structure: || 
+|   storage_account_id (string): (REQUIRED) Full resource id of a Microsoft.Storage resource. ||
+|   identity_client_id (string): The client ID of the managed identity associated with the storage resource. ||
+
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 
 

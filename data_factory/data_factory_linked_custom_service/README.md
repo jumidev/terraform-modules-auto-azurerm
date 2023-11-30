@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -37,7 +36,10 @@ tfstate_store = {
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Linked Service. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Linked Service. | 
 | **var.description** | string | False | The description for the Data Factory Linked Service. | 
-| **var.integration_runtime** | block | False | An `integration_runtime` block. | 
+| **var.integration_runtime** | block | False | An `integration_runtime` block. | | `integration_runtime` block structure: || 
+|   name (string): (REQUIRED) The integration runtime reference to associate with the Data Factory Linked Service. ||
+|   parameters (string): A map of parameters to associate with the integration runtime. ||
+
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Linked Service. | 
 
 

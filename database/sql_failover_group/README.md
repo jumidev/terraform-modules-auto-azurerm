@@ -24,7 +24,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -35,9 +34,15 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
 | **var.server_name** | string | True | The name of the primary SQL server. Changing this forces a new resource to be created. | 
 | **var.databases** | list | False | A list of database ids to add to the failover group | 
-| **var.partner_servers** | block | True | A list of `partner_servers` blocks. | 
-| **var.read_write_endpoint_failover_policy** | block | True | A `read_write_endpoint_failover_policy` block. | 
-| **var.readonly_endpoint_failover_policy** | block | False | A `readonly_endpoint_failover_policy` block. | 
+| **var.partner_servers** | block | True | A list of `partner_servers` blocks. | | `partner_servers` block structure: || 
+
+| **var.read_write_endpoint_failover_policy** | block | True | A `read_write_endpoint_failover_policy` block. | | `read_write_endpoint_failover_policy` block structure: || 
+|   mode (string): (REQUIRED) the failover mode. Possible values are 'Manual', 'Automatic' ||
+|   grace_minutes (int): Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted ||
+
+| **var.readonly_endpoint_failover_policy** | block | False | A `readonly_endpoint_failover_policy` block. | | `readonly_endpoint_failover_policy` block structure: || 
+|   mode (string): (REQUIRED) Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' ||
+
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

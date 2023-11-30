@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -39,7 +38,9 @@ tfstate_store = {
 | **var.administrator_login** | string | True | -  |  -  |  The administrator login name for the new server. Changing this forces a new resource to be created. | 
 | **var.administrator_login_password** | string | True | -  |  -  |  The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx) | 
 | **var.connection_policy** | string | False | `Default`  |  `Default`, `Proxy`, `Redirect`  |  The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is 'SystemAssigned'. ||
+
 
 
 

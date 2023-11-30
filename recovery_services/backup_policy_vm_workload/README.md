@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -35,8 +34,19 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name of the VM Workload Backup Policy. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created. | 
 | **var.recovery_vault_name** | string | True | -  |  The name of the Recovery Services Vault to use. Changing this forces a new resource to be created. | 
-| **var.protection_policy** | block | True | -  |  One or more `protection_policy` blocks. | 
-| **var.settings** | block | True | -  |  A `settings` block. | 
+| **var.protection_policy** | block | True | -  |  One or more `protection_policy` blocks. | | `protection_policy` block structure: || 
+|   policy_type (string): (REQUIRED) The type of the VM Workload Backup Policy. Possible values are 'Differential', 'Full', 'Incremental' and 'Log'. ||
+|   backup (block): (REQUIRED) A 'backup' block. ||
+|   retention_daily (block): A 'retention_daily' block. ||
+|   retention_weekly (block): A 'retention_weekly' block. ||
+|   retention_monthly (block): A 'retention_monthly' block. ||
+|   retention_yearly (block): A 'retention_yearly' block. ||
+|   simple_retention (block): A 'simple_retention' block. ||
+
+| **var.settings** | block | True | -  |  A `settings` block. | | `settings` block structure: || 
+|   time_zone (string): (REQUIRED) The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). ||
+|   compression_enabled (bool): The compression setting for the VM Workload Backup Policy. Defaults to 'false'. ||
+
 | **var.workload_type** | string | True | `SQLDataBase`, `SAPHanaDatabase`  |  The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created. | 
 
 

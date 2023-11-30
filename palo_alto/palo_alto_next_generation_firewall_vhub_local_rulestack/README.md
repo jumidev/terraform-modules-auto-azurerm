@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,9 +32,22 @@ tfstate_store = {
 | **var.name** | string | True | The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
 | **var.rulestack_id** | string | True | The ID of the Local Rulestack to be used for this Next Generation Firewall. | 
-| **var.network_profile** | block | True | A `network_profile` block. | 
-| **var.destination_nat** | block | False | One or more `destination_nat` blocks. | 
-| **var.dns_settings** | block | False | A `dns_settings` block. | 
+| **var.network_profile** | block | True | A `network_profile` block. | | `network_profile` block structure: || 
+|   network_virtual_appliance_id (string): (REQUIRED) The ID of the Palo Alto Network Virtual Appliance in the VHub. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. ||
+|   public_ip_address_ids (string): (REQUIRED) Specifies a list of Public IP IDs to use for this Next Generation Firewall. ||
+|   virtual_hub_id (string): (REQUIRED) The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. ||
+|   egress_nat_ip_address_ids (string): Specifies a list of Public IP IDs to use for Egress NAT. ||
+
+| **var.destination_nat** | block | False | One or more `destination_nat` blocks. | | `destination_nat` block structure: || 
+|   name (string): (REQUIRED) The name which should be used for this NAT. ||
+|   protocol (string): (REQUIRED) The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. ||
+|   backend_config (block): A 'backend_config' block. ||
+|   frontend_config (block): A 'frontend_config' block. ||
+
+| **var.dns_settings** | block | False | A `dns_settings` block. | | `dns_settings` block structure: || 
+|   dns_servers (string): Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'. ||
+|   use_azure_dns (bool): Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. ||
+
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack. | 
 
 

@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -38,7 +37,10 @@ tfstate_store = {
 | **var.init_timeout** | string | False | `5s`  |  The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`. | 
 | **var.metadata** | list | False | -  |  One or more `metadata` blocks as detailed below. | 
 | **var.scopes** | list | False | -  |  A list of scopes to which this component applies. | 
-| **var.secret** | block | False | -  |  A `secret` block as detailed below. | 
+| **var.secret** | block | False | -  |  A `secret` block as detailed below. | | `secret` block structure: || 
+|   name (string): (REQUIRED) The Secret name. ||
+|   value (string): (REQUIRED) The value for this secret. ||
+
 
 
 

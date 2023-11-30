@@ -28,7 +28,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -51,8 +50,15 @@ tfstate_store = {
 | **var.storage_quota_in_gb** | int | True | -  |  -  |  The maximum Storage Quota allowed for a file system in Gigabytes. | 
 | **var.snapshot_directory_visible** | bool | False | -  |  -  |  Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true. | 
 | **var.create_from_snapshot_resource_id** | string | False | -  |  -  |  Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created. | 
-| **var.data_protection_replication** | block | False | -  |  -  |  A `data_protection_replication` block. Changing this forces a new resource to be created. | 
-| **var.data_protection_snapshot_policy** | block | False | -  |  -  |  A `data_protection_snapshot_policy` block. | 
+| **var.data_protection_replication** | block | False | -  |  -  |  A `data_protection_replication` block. Changing this forces a new resource to be created. | | `data_protection_replication` block structure: || 
+|   endpoint_type (string): The endpoint type, default value is 'dst' for destination. ||
+|   remote_volume_location (string): (REQUIRED) Location of the primary volume. Changing this forces a new resource to be created. ||
+|   remote_volume_resource_id (string): (REQUIRED) Resource ID of the primary volume. ||
+|   replication_frequency (string): (REQUIRED) Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive. ||
+
+| **var.data_protection_snapshot_policy** | block | False | -  |  -  |  A `data_protection_snapshot_policy` block. | | `data_protection_snapshot_policy` block structure: || 
+|   snapshot_policy_id (string): (REQUIRED) Resource ID of the snapshot policy to apply to the volume. ||
+
 | **var.export_policy_rule** | list | False | -  |  -  |  One or more `export_policy_rule` block defined below. | 
 | **var.throughput_in_mibps** | string | False | -  |  -  |  Throughput of this volume in Mibps. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 

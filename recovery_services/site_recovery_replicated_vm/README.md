@@ -29,7 +29,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -48,8 +47,20 @@ tfstate_store = {
 | **var.target_recovery_protection_container_id** | string | True | Id of protection container where the VM replication should be created when a failover is done. Changing this forces a new resource to be created. | 
 | **var.target_availability_set_id** | string | False | Id of availability set that the new VM should belong to when a failover is done. | 
 | **var.target_zone** | string | False | Specifies the Availability Zone where the Failover VM should exist. Changing this forces a new resource to be created. | 
-| **var.managed_disk** | block | False | One or more `managed_disk` block. Changing this forces a new resource to be created. | 
-| **var.unmanaged_disk** | block | False | One or more `unmanaged_disk` block. Changing this forces a new resource to be created. | 
+| **var.managed_disk** | block | False | One or more `managed_disk` block. Changing this forces a new resource to be created. | | `managed_disk` block structure: || 
+|   disk_id (string): (REQUIRED) Id of disk that should be replicated. Changing this forces a new resource to be created. ||
+|   staging_storage_account_id (string): (REQUIRED) Storage account that should be used for caching. Changing this forces a new resource to be created. ||
+|   target_resource_group_id (string): (REQUIRED) Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created. ||
+|   target_disk_type (string): (REQUIRED) What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. ||
+|   target_replica_disk_type (string): (REQUIRED) What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. ||
+|   target_disk_encryption_set_id (string): The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. ||
+|   target_disk_encryption (block): A 'target_disk_encryption' block. ||
+
+| **var.unmanaged_disk** | block | False | One or more `unmanaged_disk` block. Changing this forces a new resource to be created. | | `unmanaged_disk` block structure: || 
+|   disk_uri (string): (REQUIRED) Id of disk that should be replicated. Changing this forces a new resource to be created. ||
+|   staging_storage_account_id (string): (REQUIRED) Storage account that should be used for caching. Changing this forces a new resource to be created. ||
+|   target_storage_account_id (string): (REQUIRED) Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. ||
+
 | **var.target_edge_zone** | string | False | Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
 | **var.target_proximity_placement_group_id** | string | False | Id of Proximity Placement Group the new VM should belong to when a failover is done. | 
 | **var.target_boot_diagnostic_storage_account_id** | string | False | Id of the storage account which the new VM should used for boot diagnostic when a failover is done. | 
@@ -57,7 +68,15 @@ tfstate_store = {
 | **var.target_virtual_machine_scale_set_id** | string | False | Id of the Virtual Machine Scale Set which the new Vm should belong to when a failover is done. | 
 | **var.target_network_id** | string | False | Network to use when a failover is done (recommended to set if any network_interface is configured for failover). | 
 | **var.test_network_id** | string | False | Network to use when a test failover is done. | 
-| **var.network_interface** | block | False | One or more `network_interface` block. | 
+| **var.network_interface** | block | False | One or more `network_interface` block. | | `network_interface` block structure: || 
+|   source_network_interface_id (string): (Required if the network_interface block is specified) Id source network interface. ||
+|   target_static_ip (string): Static IP to assign when a failover is done. ||
+|   target_subnet_name (string): Name of the subnet to to use when a failover is done. ||
+|   recovery_public_ip_address_id (string): Id of the public IP object to use when a failover is done. ||
+|   failover_test_static_ip (string): Static IP to assign when a test failover is done. ||
+|   failover_test_subnet_name (string): Name of the subnet to to use when a test failover is done. ||
+|   failover_test_public_ip_address_id (string): Id of the public IP object to use when a test failover is done. ||
+
 | **var.multi_vm_group_name** | string | False | Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. | 
 
 

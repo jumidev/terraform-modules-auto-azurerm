@@ -21,7 +21,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -31,7 +30,9 @@ tfstate_store = {
 | **var.data_factory_id** | string | True | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 | **var.name** | string | True | The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created. | 
 | **var.description** | string | False | Integration runtime description. | 
-| **var.rbac_authorization** | block | False | A `rbac_authorization` block. Changing this forces a new resource to be created. | 
+| **var.rbac_authorization** | block | False | A `rbac_authorization` block. Changing this forces a new resource to be created. | | `rbac_authorization` block structure: || 
+|   resource_id (string): (REQUIRED) The resource identifier of the integration runtime to be shared. ||
+
 
 
 

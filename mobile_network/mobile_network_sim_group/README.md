@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,10 @@ tfstate_store = {
 | **var.location** | string | True | Specifies the Azure Region where the Mobile Network Sim Groups should exist. Changing this forces a new Mobile Network Sim Group to be created. | 
 | **var.mobile_network_id** | string | True | The ID of Mobile Network which the Mobile Network Sim Group belongs to. Changing this forces a new Mobile Network Slice to be created. | 
 | **var.encryption_key_url** | string | False | A key to encrypt the SIM data that belongs to this SIM group. | 
-| **var.identity** | block | False | An `identity` block. | 
+| **var.identity** | block | False | An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity. Possible value is 'UserAssigned'. ||
+|   identity_ids (list): (REQUIRED) A list of IDs for User Assigned Managed Identity resources to be assigned. ||
+
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Mobile Network Sim Groups. | 
 
 

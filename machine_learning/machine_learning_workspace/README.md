@@ -26,7 +26,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -39,13 +38,20 @@ tfstate_store = {
 | **var.application_insights_id** | string | True | -  |  -  |  The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
 | **var.key_vault_id** | string | True | -  |  -  |  The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
 | **var.storage_account_id** | string | True | -  |  -  |  The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.identity** | block | True | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | True | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace. ||
+
 | **var.container_registry_id** | string | False | -  |  -  |  The ID of the container registry associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
 | **var.public_access_behind_virtual_network_enabled** | bool | False | -  |  -  |  Enable public access when this Machine Learning Workspace is behind a VNet. Changing this forces a new resource to be created. | 
 | **var.public_network_access_enabled** | bool | False | -  |  -  |  Enable public access when this Machine Learning Workspace is behind VNet. | 
 | **var.image_build_compute_name** | string | False | -  |  -  |  The compute name for image build of the Machine Learning Workspace. | 
 | **var.description** | string | False | -  |  -  |  The description of this Machine Learning Workspace. | 
-| **var.encryption** | block | False | -  |  -  |  An `encryption` block. Changing this forces a new resource to be created. | 
+| **var.encryption** | block | False | -  |  -  |  An `encryption` block. Changing this forces a new resource to be created. | | `encryption` block structure: || 
+|   key_vault_id (string): (REQUIRED) The ID of the keyVault where the customer owned encryption key is present. ||
+|   key_id (string): (REQUIRED) The Key Vault URI to access the encryption key. ||
+|   user_assigned_identity_id (string): The Key Vault URI to access the encryption key. ||
+
 | **var.friendly_name** | string | False | -  |  -  |  Display name for this Machine Learning Workspace. | 
 | **var.high_business_impact** | string | False | -  |  -  |  Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service | 
 | **var.primary_user_assigned_identity** | string | False | -  |  -  |  The user assigned identity id that represents the workspace identity. | 

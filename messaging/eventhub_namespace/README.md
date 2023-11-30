@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -37,11 +36,20 @@ tfstate_store = {
 | **var.capacity** | string | False | `1`  |  -  |  Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`. | 
 | **var.auto_inflate_enabled** | bool | False | -  |  -  |  Is Auto Inflate enabled for the EventHub Namespace? | 
 | **var.dedicated_cluster_id** | string | False | -  |  -  |  Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. ||
+
 | **var.maximum_throughput_units** | string | False | -  |  `1`, `20`  |  Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`. | 
 | **var.zone_redundant** | bool | False | `False`  |  -  |  Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.network_rulesets** | block | False | -  |  -  |  A `network_rulesets` block. | 
+| **var.network_rulesets** | block | False | -  |  -  |  A `network_rulesets` block. | | `network_rulesets` block structure: || 
+|   default_action (string): (REQUIRED) The default action to take when a rule is not matched. Possible values are 'Allow' and 'Deny'. ||
+|   public_network_access_enabled (bool): Is public network access enabled for the EventHub Namespace? Defaults to 'true'. ||
+|   trusted_service_access_enabled (bool): Whether Trusted Microsoft Services are allowed to bypass firewall. ||
+|   virtual_network_rule (block): One or more 'virtual_network_rule' blocks. ||
+|   ip_rule (block): One or more 'ip_rule' blocks. ||
+
 | **var.local_authentication_enabled** | bool | False | `True`  |  -  |  Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
 | **var.minimum_tls_version** | string | False | -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 

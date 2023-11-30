@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,12 @@ tfstate_store = {
 | **var.name** | string | True | The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created. | 
 | **var.automation_account_name** | string | True | The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.field** | block | True | One or more `field` blocks. Changing this forces a new Automation to be created. | 
+| **var.field** | block | True | One or more `field` blocks. Changing this forces a new Automation to be created. | | `field` block structure: || 
+|   name (string): (REQUIRED) The name which should be used for this connection field definition. ||
+|   type (string): (REQUIRED) The type of the connection field definition. ||
+|   is_encrypted (string): Whether to set the isEncrypted flag of the connection field definition. ||
+|   is_optional (string): Whether to set the isOptional flag of the connection field definition. ||
+
 | **var.is_global** | bool | False | Whether the connection type is global. Changing this forces a new Automation to be created. | 
 
 

@@ -29,7 +29,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -52,7 +51,9 @@ tfstate_store = {
 | **var.proxy_override** | string | False | -  |  `Default`, `Proxy`, `Redirect`  |  Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`. | 
 | **var.timezone_id** | string | False | -  |  -  |  The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created. | 
 | **var.dns_zone_partner_id** | string | False | -  |  -  |  The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Managed Instance. The only possible value is 'SystemAssigned'. ||
+
 | **var.storage_account_type** | string | False | `GRS`  |  `GRS`, `LRS`, `ZRS`  |  Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 

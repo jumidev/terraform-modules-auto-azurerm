@@ -25,7 +25,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -38,10 +37,25 @@ tfstate_store = {
 | **var.bandwidth_in_gbps** | int | True | -  |  Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created. | 
 | **var.encapsulation** | string | True | `Dot1Q`, `QinQ`  |  The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`. | 
 | **var.peering_location** | string | True | -  |  The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created. | 
-| **var.link1** | block | False | -  |  A list of `link` blocks. | 
-| **var.link2** | block | False | -  |  A list of `link` blocks. | 
+| **var.link1** | block | False | -  |  A list of `link` blocks. | | `link1` block structure: || 
+|   admin_enabled (bool): Whether enable administration state on the Express Route Port Link? Defaults to 'false'. ||
+|   macsec_cipher (string): The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'. ||
+|   macsec_ckn_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link. ||
+|   macsec_cak_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link. ||
+|   macsec_sci_enabled (bool): Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'. ||
+
+| **var.link2** | block | False | -  |  A list of `link` blocks. | | `link2` block structure: || 
+|   admin_enabled (bool): Whether enable administration state on the Express Route Port Link? Defaults to 'false'. ||
+|   macsec_cipher (string): The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'. ||
+|   macsec_ckn_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link. ||
+|   macsec_cak_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link. ||
+|   macsec_sci_enabled (bool): Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'. ||
+
 | **var.billing_type** | string | False | `MeteredData`, `UnlimitedData`  |  The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'. ||
+|   identity_ids (string): (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port. ||
+
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Express Route Port. | 
 
 

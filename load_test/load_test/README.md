@@ -22,7 +22,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,7 +32,10 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of this Load Test. Changing this forces a new Load Test to be created. | 
 | **var.resource_group_name** | string | True | Specifies the name of the Resource Group within which this Load Test should exist. Changing this forces a new Load Test to be created. | 
 | **var.description** | string | False | Description of the resource. Changing this forces a new Load Test to be created. | 
-| **var.identity** | block | False | An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
+| **var.identity** | block | False | An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | | `identity` block structure: || 
+|   principal_id (string): The Principal ID for the System-Assigned Managed Identity assigned to this Load Test. ||
+|   tenant_id (string): The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test. ||
+
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Load Test. | 
 
 

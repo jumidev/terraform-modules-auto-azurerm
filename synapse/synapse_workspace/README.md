@@ -23,7 +23,6 @@ tfstate_store = {
    container_path = "${COMPONENT_PATH}" 
 }
 
-
 ```
 
 ## Variables
@@ -33,23 +32,52 @@ tfstate_store = {
 | **var.name** | string | True | -  |  Specifies the name which should be used for this synapse Workspace. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  Specifies the name of the Resource Group where the synapse Workspace should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  Specifies the Azure Region where the synapse Workspace should exist. Changing this forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
+| **var.identity** | block | False | -  |  An `identity` block. | | `identity` block structure: || 
+|   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). ||
+|   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. ||
+
 | **var.storage_data_lake_gen2_filesystem_id** | string | True | -  |  Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created. | 
 | **var.sql_administrator_login** | string | False | -  |  Specifies The login name of the SQL administrator. Changing this forces a new resource to be created. If this is not provided `aad_admin` or `customer_managed_key` must be provided. | 
 | **var.sql_administrator_login_password** | string | False | -  |  The Password associated with the `sql_administrator_login` for the SQL administrator. If this is not provided `aad_admin` or `customer_managed_key` must be provided. | 
 | **var.azuread_authentication_only** | bool | False | `False`  |  Is Azure Active Directory Authentication the only way to authenticate with resources inside this synapse Workspace. Defaults to `false`. | 
-| **var.aad_admin** | block | False | -  |  An `aad_admin` block. Conflicts with `customer_managed_key`. | 
+| **var.aad_admin** | block | False | -  |  An `aad_admin` block. Conflicts with `customer_managed_key`. | | `aad_admin` block structure: || 
+|   login (string): (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace. ||
+|   object_id (string): (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace. ||
+|   tenant_id (string): (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace. ||
+
 | **var.compute_subnet_id** | string | False | -  |  Subnet ID used for computes in workspace Changing this forces a new resource to be created. | 
-| **var.azure_devops_repo** | block | False | -  |  An `azure_devops_repo` block. | 
+| **var.azure_devops_repo** | block | False | -  |  An `azure_devops_repo` block. | | `azure_devops_repo` block structure: || 
+|   account_name (string): (REQUIRED) Specifies the Azure DevOps account name. ||
+|   branch_name (string): (REQUIRED) Specifies the collaboration branch of the repository to get code from. ||
+|   last_commit_id (string): The last commit ID. ||
+|   project_name (string): (REQUIRED) Specifies the name of the Azure DevOps project. ||
+|   repository_name (string): (REQUIRED) Specifies the name of the git repository. ||
+|   root_folder (string): (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level. ||
+|   tenant_id (string): the ID of the tenant for the Azure DevOps account. ||
+
 | **var.data_exfiltration_protection_enabled** | bool | False | -  |  Is data exfiltration protection enabled in this workspace? If set to `true`, `managed_virtual_network_enabled` must also be set to `true`. Changing this forces a new resource to be created. | 
-| **var.customer_managed_key** | block | False | -  |  A `customer_managed_key` block. Conflicts with `aad_admin`. | 
-| **var.github_repo** | block | False | -  |  A `github_repo` block. | 
+| **var.customer_managed_key** | block | False | -  |  A `customer_managed_key` block. Conflicts with `aad_admin`. | | `customer_managed_key` block structure: || 
+|   key_versionless_id (string): (REQUIRED) The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. 'https://example-keyvault.vault.azure.net/type/cmk/'). ||
+|   key_name (string): An identifier for the key. Name needs to match the name of the key used with the 'azurerm_synapse_workspace_key' resource. Defaults to 'cmk' if not specified. ||
+
+| **var.github_repo** | block | False | -  |  A `github_repo` block. | | `github_repo` block structure: || 
+|   account_name (string): (REQUIRED) Specifies the GitHub account name. ||
+|   branch_name (string): (REQUIRED) Specifies the collaboration branch of the repository to get code from. ||
+|   last_commit_id (string): The last commit ID. ||
+|   repository_name (string): (REQUIRED) Specifies the name of the git repository. ||
+|   root_folder (string): (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level. ||
+|   git_url (string): Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. ||
+
 | **var.linking_allowed_for_aad_tenant_ids** | string | False | -  |  Allowed AAD Tenant Ids For Linking. | 
 | **var.managed_resource_group_name** | string | False | -  |  Workspace managed resource group. Changing this forces a new resource to be created. | 
 | **var.managed_virtual_network_enabled** | bool | False | -  |  Is Virtual Network enabled for all computes in this workspace? Changing this forces a new resource to be created. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  Whether public network access is allowed for the Cognitive Account. Defaults to `true`. | 
 | **var.purview_id** | string | False | -  |  The ID of purview account. | 
-| **var.sql_aad_admin** | block | False | -  |  An `sql_aad_admin` block. | 
+| **var.sql_aad_admin** | block | False | -  |  An `sql_aad_admin` block. | | `sql_aad_admin` block structure: || 
+|   login (string): (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace SQL. ||
+|   object_id (string): (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace SQL. ||
+|   tenant_id (string): (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. ||
+
 | **var.sql_identity_control_enabled** | bool | False | -  |  Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools? | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Synapse Workspace. | 
 
