@@ -22,11 +22,11 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.auto_provision** | string | True | `On`, `Off`  |  Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically). | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.auto_provision** | string  `On`, `Off`  |  Should the security agent be automatically provisioned on Virtual Machines in this subscription? Possible values are `On` (to install the security agent automatically, if it's missing) or `Off` (to not install the security agent automatically). | 
 
 
 

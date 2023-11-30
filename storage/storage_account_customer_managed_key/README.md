@@ -23,17 +23,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.storage_account_id** | string | True | The ID of the Storage Account. Changing this forces a new resource to be created. | 
-| **var.key_name** | string | True | The name of Key Vault Key. | 
-| **var.key_vault_id** | string | False | The ID of the Key Vault. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified. | 
-| **var.key_vault_uri** | string | False | URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified. | 
-| **var.key_version** | string | False | The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation. | 
-| **var.user_assigned_identity_id** | string | False | The ID of a user assigned identity. | 
-| **var.federated_identity_client_id** | string | False | The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.storage_account_id** | string  The ID of the Storage Account. Changing this forces a new resource to be created. | 
+| **var.key_name** | string  The name of Key Vault Key. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.key_vault_id** | string  The ID of the Key Vault. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified. | 
+| **var.key_vault_uri** | string  URI pointing at the Key Vault. Required when using `federated_identity_client_id`. Exactly one of `key_vault_id`, or `key_vault_uri` must be specified. | 
+| **var.key_version** | string  The version of Key Vault Key. Remove or omit this argument to enable Automatic Key Rotation. | 
+| **var.user_assigned_identity_id** | string  The ID of a user assigned identity. | 
+| **var.federated_identity_client_id** | string  The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account. | 
 
 
 

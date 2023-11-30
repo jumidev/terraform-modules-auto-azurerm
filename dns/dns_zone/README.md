@@ -23,14 +23,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
-| **var.soa_record** | block | False | An `soa_record` block. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.soa_record** | block  An `soa_record` block. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 ### `soa_record` block structure
 

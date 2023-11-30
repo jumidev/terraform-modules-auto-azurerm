@@ -29,20 +29,25 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created. | 
-| **var.digital_twins_id** | string | True | -  |  The ID of the Digital Twins. Changing this forces a new resource to be created. | 
-| **var.eventhub_name** | string | True | -  |  Name of the Event Hub. Changing this forces a new resource to be created. | 
-| **var.eventhub_namespace_endpoint_uri** | string | True | -  |  URI of the Event Hub Namespace. Changing this forces a new resource to be created. | 
-| **var.eventhub_namespace_id** | string | True | -  |  The ID of the Event Hub Namespace. Changing this forces a new resource to be created. | 
-| **var.kusto_cluster_id** | string | True | -  |  The ID of the Kusto Cluster. Changing this forces a new resource to be created. | 
-| **var.kusto_cluster_uri** | string | True | -  |  URI of the Kusto Cluster. Changing this forces a new resource to be created. | 
-| **var.kusto_database_name** | string | True | -  |  Name of the Kusto Database. Changing this forces a new resource to be created. | 
-| **var.eventhub_consumer_group_name** | string | False | `$Default`  |  Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`. | 
-| **var.kusto_table_name** | string | False | -  |  Name of the Kusto Table. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created. | 
+| **var.digital_twins_id** | string  The ID of the Digital Twins. Changing this forces a new resource to be created. | 
+| **var.eventhub_name** | string  Name of the Event Hub. Changing this forces a new resource to be created. | 
+| **var.eventhub_namespace_endpoint_uri** | string  URI of the Event Hub Namespace. Changing this forces a new resource to be created. | 
+| **var.eventhub_namespace_id** | string  The ID of the Event Hub Namespace. Changing this forces a new resource to be created. | 
+| **var.kusto_cluster_id** | string  The ID of the Kusto Cluster. Changing this forces a new resource to be created. | 
+| **var.kusto_cluster_uri** | string  URI of the Kusto Cluster. Changing this forces a new resource to be created. | 
+| **var.kusto_database_name** | string  Name of the Kusto Database. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.eventhub_consumer_group_name** | string  `$Default`  |  Name of the Event Hub Consumer Group. Changing this forces a new resource to be created. Defaults to `$Default`. | 
+| **var.kusto_table_name** | string  -  |  Name of the Kusto Table. Changing this forces a new resource to be created. | 
 
 
 

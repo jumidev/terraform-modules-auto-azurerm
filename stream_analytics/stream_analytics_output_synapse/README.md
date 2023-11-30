@@ -29,18 +29,18 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the Stream Output. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string | True | The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.server** | string | True | The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created. | 
-| **var.database** | string | True | The name of the Azure SQL database. Changing this forces a new resource to be created. | 
-| **var.user** | string | True | The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created. | 
-| **var.password** | string | True | The password that will be used to connect to the Azure SQL database. | 
-| **var.table** | string | True | The name of the table in the Azure SQL database. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the Stream Output. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **var.stream_analytics_job_name** | string  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **var.server** | string  The name of the SQL server containing the Azure SQL database. Changing this forces a new resource to be created. | 
+| **var.database** | string  The name of the Azure SQL database. Changing this forces a new resource to be created. | 
+| **var.user** | string  The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created. | 
+| **var.password** | string  The password that will be used to connect to the Azure SQL database. | 
+| **var.table** | string  The name of the table in the Azure SQL database. Changing this forces a new resource to be created. | 
 
 
 

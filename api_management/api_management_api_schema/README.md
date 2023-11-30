@@ -26,18 +26,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.schema_id** | string | True | A unique identifier for this API Schema. Changing this forces a new resource to be created. | 
-| **var.api_name** | string | True | The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string | True | The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.content_type** | string | True | The content type of the API Schema. | 
-| **var.value** | string | False | The JSON escaped string defining the document representing the Schema. | 
-| **var.components** | string | False | Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only. | 
-| **var.definitions** | string | False | Types definitions. Used for Swagger/OpenAPI v1 schemas only. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.schema_id** | string  A unique identifier for this API Schema. Changing this forces a new resource to be created. | 
+| **var.api_name** | string  The name of the API within the API Management Service where this API Schema should be created. Changing this forces a new resource to be created. | 
+| **var.api_management_name** | string  The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.content_type** | string  The content type of the API Schema. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.value** | string  The JSON escaped string defining the document representing the Schema. | 
+| **var.components** | string  Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only. | 
+| **var.definitions** | string  Types definitions. Used for Swagger/OpenAPI v1 schemas only. | 
 
 
 

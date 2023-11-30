@@ -24,17 +24,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created. | 
-| **var.value** | string | True | Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. | 
-| **var.key_vault_id** | string | True | The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created. | 
-| **var.content_type** | string | False | Specifies the content type for the Key Vault Secret. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
-| **var.not_before_date** | datetime | False | Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **var.expiration_date** | datetime | False | Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created. | 
+| **var.value** | string  Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. | 
+| **var.key_vault_id** | string  The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.content_type** | string  Specifies the content type for the Key Vault Secret. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
+| **var.not_before_date** | datetime  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **var.expiration_date** | datetime  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
 
 
 

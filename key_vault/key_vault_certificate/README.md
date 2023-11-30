@@ -23,15 +23,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created. | 
-| **var.key_vault_id** | string | True | The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created. | 
-| **var.certificate** | block | False | A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
-| **var.certificate_policy** | block | False | A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created. | 
+| **var.key_vault_id** | string  The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.certificate** | block  A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.certificate_policy** | block  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 ### `certificate` block structure
 

@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created. | 
-| **var.location** | string | True | The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created. | 
-| **var.definition** | block | False | A `definition` block | 
-| **var.tags** | map | False | A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Subnet Service Endpoint Storage Policy. Changing this forces a new Subnet Service Endpoint Storage Policy to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created. | 
+| **var.location** | string  The Azure Region where the Subnet Service Endpoint Storage Policy should exist. Changing this forces a new Subnet Service Endpoint Storage Policy to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.definition** | block  A `definition` block | 
+| **var.tags** | map  A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy. | 
 
 ### `definition` block structure
 

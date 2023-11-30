@@ -30,13 +30,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created. | 
-| **var.cdn_frontdoor_profile_id** | string | True | The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created. | 
-| **var.secret** | block | True | A `secret` block. Changing this forces a new Front Door Secret to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Front Door Secret. Possible values must start with a letter or a number, only contain letters, numbers and hyphens and have a length of between 2 and 260 characters. Changing this forces a new Front Door Secret to be created. | 
+| **var.cdn_frontdoor_profile_id** | string  The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created. | 
+| **var.secret** | block  A `secret` block. Changing this forces a new Front Door Secret to be created. | 
 
 ### `secret` block structure
 

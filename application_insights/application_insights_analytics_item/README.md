@@ -26,16 +26,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created. | 
-| **var.application_insights_id** | string | True | The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created. | 
-| **var.type** | string | True | The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created. | 
-| **var.scope** | string | True | The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions. | 
-| **var.content** | string | True | The content for the Analytics Item, for example the query text if `type` is `query`. | 
-| **var.function_alias** | string | False | The alias to use for the function. Required when `type` is `function`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created. | 
+| **var.application_insights_id** | string  The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created. | 
+| **var.type** | string  The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created. | 
+| **var.scope** | string  The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions. | 
+| **var.content** | string  The content for the Analytics Item, for example the query text if `type` is `query`. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.function_alias** | string  The alias to use for the function. Required when `type` is `function`. | 
 
 
 

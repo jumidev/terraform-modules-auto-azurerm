@@ -25,17 +25,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the DNS CNAME Record. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
-| **var.record** | string | False | The target of the CNAME. | 
-| **var.target_resource_id** | string | False | The Azure resource id of the target object. Conflicts with `record`. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the DNS CNAME Record. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int  The Time To Live (TTL) of the DNS record in seconds. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.record** | string  The target of the CNAME. | 
+| **var.target_resource_id** | string  The Azure resource id of the target object. Conflicts with `record`. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 
 

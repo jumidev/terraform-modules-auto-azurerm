@@ -23,12 +23,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.server_id** | string | True | The ID of the PostgreSQL Server. Changing this forces a new resource to be created. | 
-| **var.key_vault_key_id** | string | True | The URL to a Key Vault Key. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.server_id** | string  The ID of the PostgreSQL Server. Changing this forces a new resource to be created. | 
+| **var.key_vault_key_id** | string  The URL to a Key Vault Key. | 
 
 
 

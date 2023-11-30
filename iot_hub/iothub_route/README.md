@@ -27,17 +27,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  The name of the route. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_name** | string | True | -  |  -  |  The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created. | 
-| **var.source** | string | True | -  |  `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`  |  The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. | 
-| **var.condition** | bool | False | `True`  |  -  |  The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`. | 
-| **var.endpoint_names** | string | True | -  |  -  |  The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed. | 
-| **var.enabled** | bool | True | -  |  -  |  Specifies whether a route is enabled. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name of the route. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the resource group under which the IotHub Route resource has to be created. Changing this forces a new resource to be created. | 
+| **var.iothub_name** | string  -  |  The name of the IoTHub to which this Route belongs. Changing this forces a new resource to be created. | 
+| **var.source** | string  `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`  |  The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. | 
+| **var.endpoint_names** | string  -  |  The list of endpoints to which messages that satisfy the condition are routed. Currently only one endpoint is allowed. | 
+| **var.enabled** | bool  -  |  Specifies whether a route is enabled. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.condition** | bool  `True`  |  The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`. | 
 
 
 

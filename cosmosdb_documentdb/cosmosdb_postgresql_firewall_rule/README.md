@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created. | 
-| **var.cluster_id** | string | True | The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
-| **var.end_ip_address** | string | True | The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule. | 
-| **var.start_ip_address** | string | True | The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Rule. Changing this forces a new resource to be created. | 
+| **var.cluster_id** | string  The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
+| **var.end_ip_address** | string  The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule. | 
+| **var.start_ip_address** | string  The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule. | 
 
 
 

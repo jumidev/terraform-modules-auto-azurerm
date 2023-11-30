@@ -24,17 +24,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the NAT Gateway. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created. | 
-| **var.idle_timeout_in_minutes** | int | False | `4`  |  The idle timeout which should be used in minutes. Defaults to `4`. | 
-| **var.sku_name** | string | False | `Standard`  |  The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
-| **var.zones** | list | False | -  |  A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the NAT Gateway. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  Specifies the name of the Resource Group in which the NAT Gateway should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the NAT Gateway should exist. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.idle_timeout_in_minutes** | int  `4`  |  The idle timeout which should be used in minutes. Defaults to `4`. | 
+| **var.sku_name** | string  `Standard`  |  The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`. | 
+| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.zones** | list  -  |  A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created. | 
 
 
 ### 3 optional associated resources

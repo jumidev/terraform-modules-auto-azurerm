@@ -24,16 +24,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name of the Automation Variable. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string | True | -  |  The name of the automation account in which the Variable is created. Changing this forces a new resource to be created. | 
-| **var.description** | string | False | -  |  The description of the Automation Variable. | 
-| **var.encrypted** | bool | False | `False`  |  Specifies if the Automation Variable is encrypted. Defaults to `false`. | 
-| **var.value** | string | False | -  |  The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6). | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the Automation Variable. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the Automation Variable. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string  The name of the automation account in which the Variable is created. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.description** | string  -  |  The description of the Automation Variable. | 
+| **var.encrypted** | bool  `False`  |  Specifies if the Automation Variable is encrypted. Defaults to `false`. | 
+| **var.value** | string  -  |  The value of the Automation Variable in the [RFC3339 Section 5.6 Internet Date/Time Format](https://tools.ietf.org/html/rfc3339#section-5.6). | 
 
 
 

@@ -22,16 +22,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.api_management_id** | string | True | The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created. | 
-| **var.developer_portal** | block | False | One or more `developer_portal` blocks. | 
-| **var.management** | block | False | One or more `management` blocks. | 
-| **var.portal** | block | False | One or more `portal` blocks. | 
-| **var.gateway** | block | False | One or more `gateway` blocks. | 
-| **var.scm** | block | False | One or more `scm` blocks. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.api_management_id** | string  The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.developer_portal** | block  One or more `developer_portal` blocks. | 
+| **var.management** | block  One or more `management` blocks. | 
+| **var.portal** | block  One or more `portal` blocks. | 
+| **var.gateway** | block  One or more `gateway` blocks. | 
+| **var.scm** | block  One or more `scm` blocks. | 
 
 ### `developer_portal` block structure
 

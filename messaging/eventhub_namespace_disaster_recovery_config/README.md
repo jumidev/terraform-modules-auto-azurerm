@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string | True | Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created. | 
-| **var.partner_namespace_id** | string | True | The ID of the EventHub Namespace to replicate to. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created. | 
+| **var.namespace_name** | string  Specifies the name of the primary EventHub Namespace to replicate. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which the Disaster Recovery Config exists. Changing this forces a new resource to be created. | 
+| **var.partner_namespace_id** | string  The ID of the EventHub Namespace to replicate to. | 
 
 
 

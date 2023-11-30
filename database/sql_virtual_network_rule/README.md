@@ -25,15 +25,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. | 
-| **var.resource_group_name** | string | True | The name of the resource group where the SQL server resides. Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string | True | The ID of the subnet that the SQL server will be connected to. | 
-| **var.ignore_missing_vnet_service_endpoint** | string | False | Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the SQL virtual network rule. Changing this forces a new resource to be created. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. | 
+| **var.resource_group_name** | string  The name of the resource group where the SQL server resides. Changing this forces a new resource to be created. | 
+| **var.server_name** | string  The name of the SQL Server to which this SQL virtual network rule will be applied to. Changing this forces a new resource to be created. | 
+| **var.subnet_id** | string  The ID of the subnet that the SQL server will be connected to. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.ignore_missing_vnet_service_endpoint** | string  Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false. | 
 
 
 

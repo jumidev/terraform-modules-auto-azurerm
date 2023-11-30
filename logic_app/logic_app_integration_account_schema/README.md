@@ -25,16 +25,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created. | 
-| **var.integration_account_name** | string | True | The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Schema to be created. | 
-| **var.content** | string | True | The content of the Logic App Integration Account Schema. | 
-| **var.file_name** | string | False | The file name of the Logic App Integration Account Schema. | 
-| **var.metadata** | string | False | The metadata of the Logic App Integration Account Schema. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Logic App Integration Account Schema. Changing this forces a new Logic App Integration Account Schema to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Logic App Integration Account Schema should exist. Changing this forces a new Logic App Integration Account Schema to be created. | 
+| **var.integration_account_name** | string  The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Schema to be created. | 
+| **var.content** | string  The content of the Logic App Integration Account Schema. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.file_name** | string  The file name of the Logic App Integration Account Schema. | 
+| **var.metadata** | string  The metadata of the Logic App Integration Account Schema. | 
 
 
 

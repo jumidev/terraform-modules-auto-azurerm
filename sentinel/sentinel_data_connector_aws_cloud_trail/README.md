@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.aws_role_arn** | string | True | The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector. | 
-| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created. | 
-| **var.name** | string | True | The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.aws_role_arn** | string  The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector. | 
+| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace that this AWS CloudTrail Data Connector resides in. Changing this forces a new AWS CloudTrail Data Connector to be created. | 
+| **var.name** | string  The name which should be used for this AWS CloudTrail Data Connector. Changing this forces a new AWS CloudTrail Data Connector to be created. | 
 
 
 

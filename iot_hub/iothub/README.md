@@ -31,28 +31,33 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the IotHub resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
-| **var.sku** | block | True | -  |  A `sku` block. | 
-| **var.local_authentication_enabled** | bool | False | `True`  |  If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`. | 
-| **var.event_hub_partition_count** | int | False | -  |  The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. | 
-| **var.event_hub_retention_in_days** | int | False | -  |  The event hub retention to use in days. Must be between `1` and `7`. | 
-| **var.endpoint** | block | False | -  |  An `endpoint` block. | 
-| **var.fallback_route** | block | False | -  |  A `fallback_route` block. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events. | 
-| **var.file_upload** | block | False | -  |  A `file_upload` block. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
-| **var.network_rule_set** | block | False | -  |  A `network_rule_set` block. | 
-| **var.route** | block | False | -  |  A `route` block. | 
-| **var.enrichment** | block | False | -  |  A `enrichment` block. | 
-| **var.cloud_to_device** | block | False | -  |  A `cloud_to_device` block. | 
-| **var.public_network_access_enabled** | bool | False | -  |  Is the IotHub resource accessible from a public network? | 
-| **var.min_tls_version** | string | False | -  |  Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the IotHub resource. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group under which the IotHub resource has to be created. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
+| **var.sku** | block  A `sku` block. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.local_authentication_enabled** | bool  `True`  |  If false, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication. Defaults to `true`. | 
+| **var.event_hub_partition_count** | int  -  |  The number of device-to-cloud partitions used by backing event hubs. Must be between `2` and `128`. | 
+| **var.event_hub_retention_in_days** | int  -  |  The event hub retention to use in days. Must be between `1` and `7`. | 
+| **var.endpoint** | block  -  |  An `endpoint` block. | 
+| **var.fallback_route** | block  -  |  A `fallback_route` block. If the fallback route is enabled, messages that don't match any of the supplied routes are automatically sent to this route. Defaults to messages/events. | 
+| **var.file_upload** | block  -  |  A `file_upload` block. | 
+| **var.identity** | block  -  |  An `identity` block. | 
+| **var.network_rule_set** | block  -  |  A `network_rule_set` block. | 
+| **var.route** | block  -  |  A `route` block. | 
+| **var.enrichment** | block  -  |  A `enrichment` block. | 
+| **var.cloud_to_device** | block  -  |  A `cloud_to_device` block. | 
+| **var.public_network_access_enabled** | bool  -  |  Is the IotHub resource accessible from a public network? | 
+| **var.min_tls_version** | string  -  |  Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created. | 
+| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
 
 ### `sku` block structure
 

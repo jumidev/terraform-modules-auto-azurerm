@@ -22,12 +22,17 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.storage_account_id** | string | True | Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created. | 
-| **var.rule** | block | False | A `rule` block. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.storage_account_id** | string  Specifies the id of the storage account to apply the management policy to. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.rule** | block  A `rule` block. | 
 
 ### `rule` block structure
 

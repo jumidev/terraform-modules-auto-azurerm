@@ -25,20 +25,25 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name of the virtual network. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created. | 
-| **var.address_space** | string | True | -  |  The address space that is used the virtual network. You can supply more than one address space. | 
-| **var.location** | string | True | -  |  The location/region where the virtual network is created. Changing this forces a new resource to be created. | 
-| **var.bgp_community** | string | False | -  |  The BGP community attribute in format `<as-number>:<community-value>`. | 
-| **var.ddos_protection_plan** | block | False | -  |  A `ddos_protection_plan` block. | 
-| **var.encryption** | block | False | -  |  A `encryption` block. | 
-| **var.dns_servers** | string | False | -  |  List of IP addresses of DNS servers | 
-| **var.edge_zone** | string | False | -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
-| **var.flow_timeout_in_minutes** | string | False | `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the virtual network. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the virtual network. Changing this forces a new resource to be created. | 
+| **var.address_space** | string  The address space that is used the virtual network. You can supply more than one address space. | 
+| **var.location** | string  The location/region where the virtual network is created. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.bgp_community** | string  -  |  The BGP community attribute in format `<as-number>:<community-value>`. | 
+| **var.ddos_protection_plan** | block  -  |  A `ddos_protection_plan` block. | 
+| **var.encryption** | block  -  |  A `encryption` block. | 
+| **var.dns_servers** | string  -  |  List of IP addresses of DNS servers | 
+| **var.edge_zone** | string  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
+| **var.flow_timeout_in_minutes** | string  `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 
 
 ### `ddos_protection_plan` block structure
 

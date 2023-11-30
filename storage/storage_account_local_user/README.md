@@ -23,17 +23,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created. | 
-| **var.storage_account_id** | string | True | -  |  The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created. | 
-| **var.home_directory** | string | False | -  |  The home directory of the Storage Account Local User. | 
-| **var.permission_scope** | block | False | -  |  One or more `permission_scope` blocks. | 
-| **var.ssh_authorized_key** | block | False | -  |  One or more `ssh_authorized_key` blocks. | 
-| **var.ssh_key_enabled** | bool | False | `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
-| **var.ssh_password_enabled** | bool | False | `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created. | 
+| **var.storage_account_id** | string  The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.home_directory** | string  -  |  The home directory of the Storage Account Local User. | 
+| **var.permission_scope** | block  -  |  One or more `permission_scope` blocks. | 
+| **var.ssh_authorized_key** | block  -  |  One or more `ssh_authorized_key` blocks. | 
+| **var.ssh_key_enabled** | bool  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
+| **var.ssh_password_enabled** | bool  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
 
 ### `permission_scope` block structure
 

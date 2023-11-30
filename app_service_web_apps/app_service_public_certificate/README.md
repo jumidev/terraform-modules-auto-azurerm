@@ -26,15 +26,15 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.app_service_name** | string | True | -  |  The name of the App Service. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.certificate_name** | string | True | -  |  The name of the public certificate. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.certificate_location** | string | True | `CurrentUserMy`, `LocalMachineMy`, `Unknown`  |  The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.blob** | string | True | -  |  The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.app_service_name** | string  -  |  The name of the App Service. Changing this forces a new App Service Public Certificate to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created. | 
+| **var.certificate_name** | string  -  |  The name of the public certificate. Changing this forces a new App Service Public Certificate to be created. | 
+| **var.certificate_location** | string  `CurrentUserMy`, `LocalMachineMy`, `Unknown`  |  The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created. | 
+| **var.blob** | string  -  |  The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created. | 
 
 
 

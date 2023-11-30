@@ -23,12 +23,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.scope** | string | True | The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope. | 
-| **var.workspace_id** | string | True | The ID of the Log Analytics Workspace to save the data in. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.scope** | string  The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope. | 
+| **var.workspace_id** | string  The ID of the Log Analytics Workspace to save the data in. | 
 
 
 

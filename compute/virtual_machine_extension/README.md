@@ -26,23 +26,28 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  The name of the virtual machine extension peering. Changing this forces a new resource to be created. | 
-| **var.virtual_machine_id** | string | True | -  |  -  |  The ID of the Virtual Machine. Changing this forces a new resource to be created | 
-| **var.publisher** | string | True | -  |  -  |  The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created. | 
-| **var.type** | string | True | -  |  -  |  The type of extension, available types for a publisher can be found using the Azure CLI. | 
-| **var.type_handler_version** | string | True | -  |  -  |  Specifies the version of the extension to use, available versions can be found using the Azure CLI. | 
-| **var.auto_upgrade_minor_version** | string | False | -  |  -  |  Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified. | 
-| **var.automatic_upgrade_enabled** | bool | False | -  |  -  |  Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? | 
-| **var.settings** | string | False | -  |  -  |  The settings passed to the extension, these are specified as a JSON object in a string. | 
-| **var.failure_suppression_enabled** | bool | False | `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
-| **var.protected_settings** | string | False | -  |  -  |  The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string. | 
-| **var.protected_settings_from_key_vault** | block | False | -  |  -  |  A `protected_settings_from_key_vault` block. | 
-| **var.provision_after_extensions** | string | False | -  |  -  |  Specifies the collection of extension names after which this extension needs to be provisioned. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the virtual machine extension peering. Changing this forces a new resource to be created. | 
+| **var.virtual_machine_id** | string  The ID of the Virtual Machine. Changing this forces a new resource to be created | 
+| **var.publisher** | string  The publisher of the extension, available publishers can be found by using the Azure CLI. Changing this forces a new resource to be created. | 
+| **var.type** | string  The type of extension, available types for a publisher can be found using the Azure CLI. | 
+| **var.type_handler_version** | string  Specifies the version of the extension to use, available versions can be found using the Azure CLI. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.auto_upgrade_minor_version** | string  -  |  -  |  Specifies if the platform deploys the latest minor version update to the `type_handler_version` specified. | 
+| **var.automatic_upgrade_enabled** | bool  -  |  -  |  Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? | 
+| **var.settings** | string  -  |  -  |  The settings passed to the extension, these are specified as a JSON object in a string. | 
+| **var.failure_suppression_enabled** | bool  `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
+| **var.protected_settings** | string  -  |  -  |  The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string. | 
+| **var.protected_settings_from_key_vault** | block  -  |  -  |  A `protected_settings_from_key_vault` block. | 
+| **var.provision_after_extensions** | string  -  |  -  |  Specifies the collection of extension names after which this extension needs to be provisioned. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `protected_settings_from_key_vault` block structure
 

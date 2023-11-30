@@ -25,18 +25,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name of the API Management Named Value. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string | True | -  |  The name of the [API Management Service](api_management.html) in which the API Management Named Value should exist. Changing this forces a new resource to be created. | 
-| **var.display_name** | string | True | -  |  The display name of this API Management Named Value. | 
-| **var.value** | string | False | -  |  The value of this API Management Named Value. | 
-| **var.value_from_key_vault** | block | False | -  |  A `value_from_key_vault` block. | 
-| **var.secret** | string | False | `true`, `false`  |  Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`. | 
-| **var.tags** | map | False | -  |  A list of tags to be applied to the API Management Named Value. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the API Management Named Value. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group in which the API Management Named Value should exist. Changing this forces a new resource to be created. | 
+| **var.api_management_name** | string  The name of the [API Management Service](api_management.html) in which the API Management Named Value should exist. Changing this forces a new resource to be created. | 
+| **var.display_name** | string  The display name of this API Management Named Value. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.value** | string  -  |  The value of this API Management Named Value. | 
+| **var.value_from_key_vault** | block  -  |  A `value_from_key_vault` block. | 
+| **var.secret** | string  `true`, `false`  |  Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`. | 
+| **var.tags** | map  -  |  A list of tags to be applied to the API Management Named Value. | 
 
 ### `value_from_key_vault` block structure
 

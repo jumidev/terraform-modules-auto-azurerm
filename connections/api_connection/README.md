@@ -24,16 +24,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.managed_api_id** | string | True | The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created. | 
-| **var.name** | string | True | The Name which should be used for this API Connection. Changing this forces a new API Connection to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created. | 
-| **var.display_name** | string | False | A display name for this API Connection. Changing this forces a new API Connection to be created. | 
-| **var.parameter_values** | string | False | A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created. | 
-| **var.tags** | map | False | A mapping of tags which should be assigned to the API Connection. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.managed_api_id** | string  The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created. | 
+| **var.name** | string  The Name which should be used for this API Connection. Changing this forces a new API Connection to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.display_name** | string  A display name for this API Connection. Changing this forces a new API Connection to be created. | 
+| **var.parameter_values** | string  A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created. | 
+| **var.tags** | map  A mapping of tags which should be assigned to the API Connection. | 
 
 
 

@@ -27,23 +27,28 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.admin_object_ids** | string | True | -  |  Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string | True | -  |  The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created. | 
-| **var.tenant_id** | string | True | -  |  The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
-| **var.purge_protection_enabled** | bool | False | -  |  Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created. | 
-| **var.soft_delete_retention_days** | int | False | `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created. | 
-| **var.public_network_access_enabled** | bool | False | `True`  |  Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created. | 
-| **var.network_acls** | block | False | -  |  A `network_acls` block. | 
-| **var.security_domain_key_vault_certificate_ids** | list | False | -  |  A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) | 
-| **var.security_domain_quorum** | string | False | -  |  Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.admin_object_ids** | string  Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string  The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created. | 
+| **var.tenant_id** | string  The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.purge_protection_enabled** | bool  -  |  Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created. | 
+| **var.soft_delete_retention_days** | int  `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created. | 
+| **var.public_network_access_enabled** | bool  `True`  |  Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created. | 
+| **var.network_acls** | block  -  |  A `network_acls` block. | 
+| **var.security_domain_key_vault_certificate_ids** | list  -  |  A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) | 
+| **var.security_domain_quorum** | string  -  |  Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10. | 
+| **var.tags** | map  -  |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
 ### `network_acls` block structure
 

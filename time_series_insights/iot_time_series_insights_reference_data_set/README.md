@@ -31,16 +31,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique. | 
-| **var.time_series_insights_environment_id** | string | True | -  |  -  |  The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.data_string_comparison_behavior** | string | False | `Ordinal`  |  `Ordinal`, `OrdinalIgnoreCase`  |  The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created. | 
-| **var.key_property** | block | True | -  |  -  |  A `key_property` block. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique. | 
+| **var.time_series_insights_environment_id** | string  The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.key_property** | block  A `key_property` block. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.data_string_comparison_behavior** | string  `Ordinal`  |  `Ordinal`, `OrdinalIgnoreCase`  |  The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `key_property` block structure
 

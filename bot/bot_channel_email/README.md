@@ -26,15 +26,15 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string | True | The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string | True | The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.email_address** | string | True | The email address that the Bot will authenticate with. | 
-| **var.email_password** | string | True | The email password that the Bot will authenticate with. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.resource_group_name** | string  The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
+| **var.location** | string  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.bot_name** | string  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **var.email_address** | string  The email address that the Bot will authenticate with. | 
+| **var.email_password** | string  The email password that the Bot will authenticate with. | 
 
 
 

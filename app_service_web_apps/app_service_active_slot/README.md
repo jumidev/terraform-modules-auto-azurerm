@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string | True | The name of the resource group in which the App Service exists. Changing this forces a new resource to be created. | 
-| **var.app_service_name** | string | True | The name of the App Service within which the Slot exists. Changing this forces a new resource to be created. | 
-| **var.app_service_slot_name** | string | True | The name of the App Service Slot which should be promoted to the Production Slot within the App Service. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.resource_group_name** | string  The name of the resource group in which the App Service exists. Changing this forces a new resource to be created. | 
+| **var.app_service_name** | string  The name of the App Service within which the Slot exists. Changing this forces a new resource to be created. | 
+| **var.app_service_slot_name** | string  The name of the App Service Slot which should be promoted to the Production Slot within the App Service. | 
 
 
 

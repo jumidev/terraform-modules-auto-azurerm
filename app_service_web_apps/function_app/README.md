@@ -27,31 +27,36 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb). | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which to create the Function App. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.app_service_plan_id** | string | True | -  |  -  |  The ID of the App Service Plan within which to create this Function App. | 
-| **var.app_settings** | string | False | -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | block | False | -  |  -  |  A `auth_settings` block. | 
-| **var.connection_string** | block | False | -  |  -  |  An `connection_string` block. | 
-| **var.client_cert_mode** | string | False | -  |  `Required`, `Optional`  |  The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`. | 
-| **var.daily_memory_time_quota** | string | False | -  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. | 
-| **var.enabled** | bool | False | `True`  |  -  |  Is the Function App enabled? Defaults to `true`. | 
-| **var.enable_builtin_logging** | bool | False | `True`  |  -  |  Should the built-in logging of this Function App be enabled? Defaults to `true`. | 
-| **var.https_only** | bool | False | `False`  |  -  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
-| **var.key_vault_reference_identity_id** | string | False | -  |  -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
-| **var.os_type** | string | False | ``  |  `linux`, ``  |  A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`. | 
-| **var.site_config** | block | False | -  |  -  |  A `site_config` object as defined below. | 
-| **var.source_control** | block | False | -  |  -  |  A `source_control` block, as defined below. | 
-| **var.storage_account_name** | string | True | -  |  -  |  The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created. | 
-| **var.storage_account_access_key** | string | True | -  |  -  |  The access key which will be used to access the backend storage account for the Function App. | 
-| **var.version** | string | False | `~1`  |  -  |  The runtime version associated with the Function App. Defaults to `~1`. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Function App. Changing this forces a new resource to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftweb). | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the Function App. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.app_service_plan_id** | string  The ID of the App Service Plan within which to create this Function App. | 
+| **var.storage_account_name** | string  The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created. | 
+| **var.storage_account_access_key** | string  The access key which will be used to access the backend storage account for the Function App. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.app_settings** | string  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
+| **var.auth_settings** | block  -  |  -  |  A `auth_settings` block. | 
+| **var.connection_string** | block  -  |  -  |  An `connection_string` block. | 
+| **var.client_cert_mode** | string  -  |  `Required`, `Optional`  |  The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`. | 
+| **var.daily_memory_time_quota** | string  -  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. | 
+| **var.enabled** | bool  `True`  |  -  |  Is the Function App enabled? Defaults to `true`. | 
+| **var.enable_builtin_logging** | bool  `True`  |  -  |  Should the built-in logging of this Function App be enabled? Defaults to `true`. | 
+| **var.https_only** | bool  `False`  |  -  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
+| **var.identity** | block  -  |  -  |  An `identity` block. | 
+| **var.key_vault_reference_identity_id** | string  -  |  -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
+| **var.os_type** | string  ``  |  `linux`, ``  |  A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`. | 
+| **var.site_config** | block  -  |  -  |  A `site_config` object as defined below. | 
+| **var.source_control** | block  -  |  -  |  A `source_control` block, as defined below. | 
+| **var.version** | string  `~1`  |  -  |  The runtime version associated with the Function App. Defaults to `~1`. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `auth_settings` block structure
 

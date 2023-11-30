@@ -25,20 +25,25 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created. | 
-| **var.sku** | string | True | `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2`, `S9v2`  |  SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`. | 
-| **var.admin_users** | string | False | -  |  List of email addresses of admin users. | 
-| **var.querypool_connection_mode** | string | False | -  |  Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. | 
-| **var.backup_blob_container_uri** | string | False | -  |  URI and SAS token for a blob container to store backups. | 
-| **var.enable_power_bi_service** | bool | False | -  |  Indicates if the Power BI service is allowed to access or not. | 
-| **var.ipv4_firewall_rule** | list | False | -  |  One or more `ipv4_firewall_rule` block(s) as defined below. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name of the Analysis Services Server. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created. | 
+| **var.location** | string  -  |  The Azure location where the Analysis Services Server exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the Resource Group in which the Analysis Services Server should be exist. Changing this forces a new resource to be created. | 
+| **var.sku** | string  `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2`, `S9v2`  |  SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.admin_users** | string  List of email addresses of admin users. | 
+| **var.querypool_connection_mode** | string  Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations. | 
+| **var.backup_blob_container_uri** | string  URI and SAS token for a blob container to store backups. | 
+| **var.enable_power_bi_service** | bool  Indicates if the Power BI service is allowed to access or not. | 
+| **var.ipv4_firewall_rule** | list  One or more `ipv4_firewall_rule` block(s) as defined below. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 
 

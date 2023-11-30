@@ -23,13 +23,18 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created. | 
-| **var.spring_cloud_api_portal_id** | string | True | The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created. | 
-| **var.thumbprint** | string | False | Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created. | 
+| **var.spring_cloud_api_portal_id** | string  The ID of the Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal Domain to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.thumbprint** | string  Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud API Portal Domain. | 
 
 
 

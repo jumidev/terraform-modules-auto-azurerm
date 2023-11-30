@@ -24,18 +24,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_dps_name** | string | True | The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created. | 
-| **var.enrollment_read** | string | False | Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data. | 
-| **var.enrollment_write** | string | False | Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data. | 
-| **var.registration_read** | string | False | Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations. | 
-| **var.registration_write** | string | False | Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations. | 
-| **var.service_config** | string | False | Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the IotHub Shared Access Policy resource. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group under which the IotHub Shared Access Policy resource has to be created. Changing this forces a new resource to be created. | 
+| **var.iothub_dps_name** | string  The name of the IoT Hub Device Provisioning service to which this Shared Access Policy belongs. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.enrollment_read** | string  Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data. | 
+| **var.enrollment_write** | string  Adds `EnrollmentWrite` permission to this Shared Access Account. It allows write access to enrollment data. | 
+| **var.registration_read** | string  Adds `RegistrationStatusRead` permission to this Shared Access Account. It allows read access to device registrations. | 
+| **var.registration_write** | string  Adds `RegistrationStatusWrite` permission to this Shared Access Account. It allows write access to device registrations. | 
+| **var.service_config** | string  Adds `ServiceConfig` permission to this Shared Access Account. It allows configuration of the Device Provisioning Service. | 
 
 
 

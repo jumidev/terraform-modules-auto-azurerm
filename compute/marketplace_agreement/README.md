@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.offer** | string | True | The Offer of the Marketplace Image. Changing this forces a new resource to be created. | 
-| **var.plan** | string | True | The Plan of the Marketplace Image. Changing this forces a new resource to be created. | 
-| **var.publisher** | string | True | The Publisher of the Marketplace Image. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.offer** | string  The Offer of the Marketplace Image. Changing this forces a new resource to be created. | 
+| **var.plan** | string  The Plan of the Marketplace Image. Changing this forces a new resource to be created. | 
+| **var.publisher** | string  The Publisher of the Marketplace Image. Changing this forces a new resource to be created. | 
 
 
 

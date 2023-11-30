@@ -23,12 +23,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created. | 
-| **var.cdn_frontdoor_profile_id** | string | True | The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Front Door Rule Set. Changing this forces a new Front Door Rule Set to be created. | 
+| **var.cdn_frontdoor_profile_id** | string  The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created. | 
 
 
 

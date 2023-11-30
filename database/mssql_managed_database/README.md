@@ -23,14 +23,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the Managed Database to create. Changing this forces a new resource to be created. | 
-| **var.managed_instance_id** | string | True | The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created. | 
-| **var.long_term_retention_policy** | block | False | A `long_term_retention_policy` block. | 
-| **var.short_term_retention_days** | int | False | The backup retention period in days. This is how many days Point-in-Time Restore will be supported. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the Managed Database to create. Changing this forces a new resource to be created. | 
+| **var.managed_instance_id** | string  The ID of the Azure SQL Managed Instance on which to create this Managed Database. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.long_term_retention_policy** | block  A `long_term_retention_policy` block. | 
+| **var.short_term_retention_days** | int  The backup retention period in days. This is how many days Point-in-Time Restore will be supported. | 
 
 ### `long_term_retention_policy` block structure
 

@@ -32,15 +32,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created. | 
-| **var.integration_account_name** | string | True | The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created. | 
-| **var.business_identity** | block | True | A `business_identity` block. | 
-| **var.metadata** | string | False | A JSON mapping of any Metadata for this Logic App Integration Account Partner. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created. | 
+| **var.integration_account_name** | string  The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created. | 
+| **var.business_identity** | block  A `business_identity` block. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.metadata** | string  A JSON mapping of any Metadata for this Logic App Integration Account Partner. | 
 
 ### `business_identity` block structure
 

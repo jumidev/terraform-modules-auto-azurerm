@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string | True | Name of the resource group where the vault is located. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string | True | The name of the vault where the storage account will be registered. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string | True | The ID of the Storage Account to be registered Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.resource_group_name** | string  Name of the resource group where the vault is located. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string  The name of the vault where the storage account will be registered. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string  The ID of the Storage Account to be registered Changing this forces a new resource to be created. | 
 
 
 

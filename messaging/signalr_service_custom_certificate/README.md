@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the SignalR Custom Certificate. Changing this forces a new resource to be created. | 
-| **var.signalr_service_id** | string | True | The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created. | 
-| **var.custom_certificate_id** | string | True | The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the SignalR Custom Certificate. Changing this forces a new resource to be created. | 
+| **var.signalr_service_id** | string  The SignalR ID of the SignalR Custom Certificate. Changing this forces a new resource to be created. | 
+| **var.custom_certificate_id** | string  The certificate id of the SignalR Custom Certificate service. Changing this forces a new resource to be created. | 
 
 
 

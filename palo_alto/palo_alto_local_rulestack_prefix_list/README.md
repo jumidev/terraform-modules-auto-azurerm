@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Palo Alto Local Rulestack Prefix List. | 
-| **var.rulestack_id** | string | True | The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created. | 
-| **var.prefix_list** | string | True | Specifies a list of Prefixes. | 
-| **var.audit_comment** | string | False | The comment for Audit purposes. | 
-| **var.description** | string | False | The description for the Prefix List. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Palo Alto Local Rulestack Prefix List. | 
+| **var.rulestack_id** | string  The ID of the Local Rulestack on which to create this Prefix List. Changing this forces a new Palo Alto Local Rulestack Prefix List to be created. | 
+| **var.prefix_list** | string  Specifies a list of Prefixes. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.audit_comment** | string  The comment for Audit purposes. | 
+| **var.description** | string  The description for the Prefix List. | 
 
 
 

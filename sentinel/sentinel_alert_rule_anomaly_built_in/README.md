@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | False | The Name of the built-in Anomaly Alert Rule. | 
-| **var.display_name** | string | False | The Display Name of the built-in Anomaly Alert Rule. | 
-| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created. | 
-| **var.enabled** | bool | True | Should the Built-in Anomaly Alert Rule be enabled? | 
-| **var.mode** | string | True | mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace. Changing this forces a new Built-in Anomaly Alert Rule to be created. | 
+| **var.enabled** | bool  Should the Built-in Anomaly Alert Rule be enabled? | 
+| **var.mode** | string  mode of the Built-in Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The Name of the built-in Anomaly Alert Rule. | 
+| **var.display_name** | string  The Display Name of the built-in Anomaly Alert Rule. | 
 
 
 

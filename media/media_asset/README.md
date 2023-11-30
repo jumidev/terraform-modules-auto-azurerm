@@ -24,17 +24,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.media_services_account_name** | string | True | Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created. | 
-| **var.name** | string | True | The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created. | 
-| **var.alternate_id** | string | False | The alternate ID of the Asset. | 
-| **var.container** | string | False | The name of the asset blob container. Changing this forces a new Media Asset to be created. | 
-| **var.description** | string | False | The Asset description. | 
-| **var.storage_account_name** | string | False | The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.media_services_account_name** | string  Specifies the name of the Media Services Account. Changing this forces a new Media Asset to be created. | 
+| **var.name** | string  The name which should be used for this Media Asset. Changing this forces a new Media Asset to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Media Asset should exist. Changing this forces a new Media Asset to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.alternate_id** | string  The alternate ID of the Asset. | 
+| **var.container** | string  The name of the asset blob container. Changing this forces a new Media Asset to be created. | 
+| **var.description** | string  The Asset description. | 
+| **var.storage_account_name** | string  The name of the storage account where to store the media asset. Changing this forces a new Media Asset to be created. | 
 
 
 

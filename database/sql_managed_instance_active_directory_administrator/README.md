@@ -26,16 +26,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.managed_instance_name** | string | True | -  |  The name of the SQL Managed Instance on which to set the administrator. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group for the SQL Managed Instance. Changing this forces a new resource to be created. | 
-| **var.login** | string | True | -  |  The login name of the principal to set as the Managed Instance administrator | 
-| **var.object_id** | string | True | -  |  The ID of the principal to set as the Managed Instance administrator | 
-| **var.tenant_id** | string | True | -  |  The Azure Tenant ID | 
-| **var.azuread_authentication_only** | bool | False | `False`  |  Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.managed_instance_name** | string  The name of the SQL Managed Instance on which to set the administrator. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group for the SQL Managed Instance. Changing this forces a new resource to be created. | 
+| **var.login** | string  The login name of the principal to set as the Managed Instance administrator | 
+| **var.object_id** | string  The ID of the principal to set as the Managed Instance administrator | 
+| **var.tenant_id** | string  The Azure Tenant ID | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.azuread_authentication_only** | bool  `False`  |  Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`. | 
 
 
 

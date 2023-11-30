@@ -25,20 +25,25 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Key Vault Key. Changing this forces a new resource to be created. | 
-| **var.key_vault_id** | string | True | -  |  -  |  The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created. | 
-| **var.key_type** | string | True | -  |  `EC`, `EC-HSM`, `RSA`, `RSA-HSM`  |  Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created. | 
-| **var.key_size** | string | False | -  |  -  |  Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created. | 
-| **var.curve** | string | False | `P-256`  |  `P-256`, `P-256K`, `P-384`, `P-521`  |  Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created. | 
-| **var.key_opts** | string | True | -  |  `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey`  |  A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive. | 
-| **var.not_before_date** | datetime | False | -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **var.expiration_date** | datetime | False | -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.rotation_policy** | block | False | -  |  -  |  A `rotation_policy` block. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the Key Vault Key. Changing this forces a new resource to be created. | 
+| **var.key_vault_id** | string  -  |  The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created. | 
+| **var.key_type** | string  `EC`, `EC-HSM`, `RSA`, `RSA-HSM`  |  Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created. | 
+| **var.key_opts** | string  `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey`  |  A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.key_size** | string  -  |  -  |  Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created. | 
+| **var.curve** | string  `P-256`  |  `P-256`, `P-256K`, `P-384`, `P-521`  |  Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created. | 
+| **var.not_before_date** | datetime  -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **var.expiration_date** | datetime  -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **var.rotation_policy** | block  -  |  -  |  A `rotation_policy` block. | 
 
 ### `rotation_policy` block structure
 

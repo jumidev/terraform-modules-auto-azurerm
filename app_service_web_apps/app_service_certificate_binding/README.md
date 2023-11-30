@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.certificate_id** | string | True | -  |  The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created. | 
-| **var.hostname_binding_id** | string | True | -  |  The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created. | 
-| **var.ssl_state** | string | True | `IpBasedEnabled`, `SniEnabled`  |  The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.certificate_id** | string  -  |  The ID of the certificate to bind to the custom domain. Changing this forces a new App Service Certificate Binding to be created. | 
+| **var.hostname_binding_id** | string  -  |  The ID of the Custom Domain/Hostname Binding. Changing this forces a new App Service Certificate Binding to be created. | 
+| **var.ssl_state** | string  `IpBasedEnabled`, `SniEnabled`  |  The type of certificate binding. Allowed values are `IpBasedEnabled` or `SniEnabled`. Changing this forces a new App Service Certificate Binding to be created. | 
 
 
 

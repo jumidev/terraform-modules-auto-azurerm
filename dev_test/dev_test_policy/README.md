@@ -27,19 +27,24 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount`, `UserOwnedLabVmCountInSubnet`  |  Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created. | 
-| **var.policy_set_name** | string | True | -  |  Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created. | 
-| **var.lab_name** | string | True | -  |  Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created. | 
-| **var.description** | string | False | -  |  A description for the Policy. | 
-| **var.evaluator_type** | string | True | -  |  The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created. | 
-| **var.threshold** | string | True | -  |  The Threshold for this Policy. | 
-| **var.fact_data** | string | False | -  |  The Fact Data for this Policy. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount`, `UserOwnedLabVmCountInSubnet`  |  Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created. | 
+| **var.policy_set_name** | string  -  |  Specifies the name of the Policy Set within the Dev Test Lab where this policy should be created. Changing this forces a new resource to be created. | 
+| **var.lab_name** | string  -  |  Specifies the name of the Dev Test Lab in which the Policy should be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created. | 
+| **var.evaluator_type** | string  -  |  The Evaluation Type used for this Policy. Possible values include: 'AllowedValuesPolicy', 'MaxValuePolicy'. Changing this forces a new resource to be created. | 
+| **var.threshold** | string  -  |  The Threshold for this Policy. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  A description for the Policy. | 
+| **var.fact_data** | string  The Fact Data for this Policy. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 
 

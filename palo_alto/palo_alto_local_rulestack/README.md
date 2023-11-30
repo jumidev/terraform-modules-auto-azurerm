@@ -24,20 +24,25 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created. | 
-| **var.location** | string | True | -  |  The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created. | 
-| **var.anti_spyware_profile** | string | False | `BestPractice`, `Custom`  |  The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`. | 
-| **var.anti_virus_profile** | string | False | `BestPractice`, `Custom`  |  The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`. | 
-| **var.description** | string | False | -  |  The description for this Local Rulestack. | 
-| **var.dns_subscription** | string | False | `BestPractice`, `Custom`  |  TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`. | 
-| **var.file_blocking_profile** | string | False | `BestPractice`, `Custom`  |  The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`. | 
-| **var.url_filtering_profile** | string | False | `BestPractice`, `Custom`  |  The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`. | 
-| **var.vulnerability_profile** | string | False | `BestPractice`, `Custom`  |  The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Palo Alto Networks Rulestack. Changing this forces a new Palo Alto Networks Rulestack to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created. | 
+| **var.location** | string  The Azure Region where the Palo Alto Networks Rulestack should exist. Changing this forces a new Palo Alto Networks Rulestack to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.anti_spyware_profile** | string  `BestPractice`, `Custom`  |  The setting to use for Anti-Spyware. Possible values include `BestPractice`, and `Custom`. | 
+| **var.anti_virus_profile** | string  `BestPractice`, `Custom`  |  The setting to use for Anti-Virus. Possible values include `BestPractice`, and `Custom`. | 
+| **var.description** | string  -  |  The description for this Local Rulestack. | 
+| **var.dns_subscription** | string  `BestPractice`, `Custom`  |  TThe setting to use for DNS Subscription. Possible values include `BestPractice`, and `Custom`. | 
+| **var.file_blocking_profile** | string  `BestPractice`, `Custom`  |  The setting to use for the File Blocking Profile. Possible values include `BestPractice`, and `Custom`. | 
+| **var.url_filtering_profile** | string  `BestPractice`, `Custom`  |  The setting to use for the URL Filtering Profile. Possible values include `BestPractice`, and `Custom`. | 
+| **var.vulnerability_profile** | string  `BestPractice`, `Custom`  |  The setting to use for the Vulnerability Profile. Possible values include `BestPractice`, and `Custom`. | 
 
 
 

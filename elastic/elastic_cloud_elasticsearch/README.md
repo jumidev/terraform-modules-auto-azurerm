@@ -26,18 +26,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.elastic_cloud_email_address** | string | True | -  |  Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created. | 
-| **var.location** | string | True | -  |  The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
-| **var.name** | string | True | -  |  The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
-| **var.sku_name** | string | True | -  |  Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created. | 
-| **var.logs** | block | False | -  |  A `logs` block. | 
-| **var.monitoring_enabled** | bool | False | `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.elastic_cloud_email_address** | string  Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created. | 
+| **var.location** | string  The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
+| **var.name** | string  The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
+| **var.sku_name** | string  Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.logs** | block  -  |  A `logs` block. | 
+| **var.monitoring_enabled** | bool  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
 
 ### `logs` block structure
 

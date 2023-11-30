@@ -24,16 +24,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created. | 
-| **var.subscription_id** | string | True | -  |  The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created. | 
-| **var.filter_type** | string | True | `SqlFilter`, `CorrelationFilter`  |  Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`. | 
-| **var.sql_filter** | string | False | -  |  Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`. | 
-| **var.correlation_filter** | block | False | -  |  A `correlation_filter` block to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`. | 
-| **var.action** | string | False | -  |  Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created. | 
+| **var.subscription_id** | string  -  |  The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created. | 
+| **var.filter_type** | string  `SqlFilter`, `CorrelationFilter`  |  Type of filter to be applied to a BrokeredMessage. Possible values are `SqlFilter` and `CorrelationFilter`. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.sql_filter** | string  Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`. | 
+| **var.correlation_filter** | block  A `correlation_filter` block to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`. | 
+| **var.action** | string  Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage. | 
 
 ### `correlation_filter` block structure
 

@@ -83,43 +83,48 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name of the Application Gateway. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created. | 
-| **var.backend_address_pool** | block | True | -  |  One or more `backend_address_pool` blocks. | 
-| **var.backend_http_settings** | block | True | -  |  One or more `backend_http_settings` blocks. | 
-| **var.frontend_ip_configuration** | block | True | -  |  One or more `frontend_ip_configuration` blocks. | 
-| **var.frontend_port** | block | True | -  |  One or more `frontend_port` blocks. | 
-| **var.gateway_ip_configuration** | block | True | -  |  One or more `gateway_ip_configuration` blocks. | 
-| **var.http_listener** | block | True | -  |  One or more `http_listener` blocks. | 
-| **var.request_routing_rule** | block | True | -  |  One or more `request_routing_rule` blocks. | 
-| **var.sku** | block | True | -  |  A `sku` block. | 
-| **var.fips_enabled** | bool | False | -  |  Is FIPS enabled on the Application Gateway? | 
-| **var.global** | block | False | -  |  A `global` block. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
-| **var.private_link_configuration** | block | False | -  |  One or more `private_link_configuration` blocks. | 
-| **var.zones** | string | False | -  |  Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created. | 
-| **var.trusted_client_certificate** | block | False | -  |  One or more `trusted_client_certificate` blocks. | 
-| **var.ssl_profile** | block | False | -  |  One or more `ssl_profile` blocks. | 
-| **var.authentication_certificate** | block | False | -  |  One or more `authentication_certificate` blocks. | 
-| **var.trusted_root_certificate** | block | False | -  |  One or more `trusted_root_certificate` blocks. | 
-| **var.ssl_policy** | block | False | -  |  a `ssl_policy` block. | 
-| **var.enable_http2** | bool | False | `False`  |  Is HTTP2 enabled on the application gateway resource? Defaults to `false`. | 
-| **var.force_firewall_policy_association** | string | False | -  |  Is the Firewall Policy associated with the Application Gateway? | 
-| **var.probe** | block | False | -  |  One or more `probe` blocks. | 
-| **var.ssl_certificate** | block | False | -  |  One or more `ssl_certificate` blocks. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
-| **var.url_path_map** | block | False | -  |  One or more `url_path_map` blocks. | 
-| **var.waf_configuration** | block | False | -  |  A `waf_configuration` block. | 
-| **var.custom_error_configuration** | block | False | -  |  One or more `custom_error_configuration` blocks. | 
-| **var.firewall_policy_id** | string | False | -  |  The ID of the Web Application Firewall Policy. | 
-| **var.redirect_configuration** | block | False | -  |  One or more `redirect_configuration` blocks. | 
-| **var.autoscale_configuration** | block | False | -  |  An `autoscale_configuration` block. | 
-| **var.rewrite_rule_set** | block | False | -  |  One or more `rewrite_rule_set` blocks. Only valid for v2 SKUs. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the Application Gateway. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created. | 
+| **var.location** | string  The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created. | 
+| **var.backend_address_pool** | block  One or more `backend_address_pool` blocks. | 
+| **var.backend_http_settings** | block  One or more `backend_http_settings` blocks. | 
+| **var.frontend_ip_configuration** | block  One or more `frontend_ip_configuration` blocks. | 
+| **var.frontend_port** | block  One or more `frontend_port` blocks. | 
+| **var.gateway_ip_configuration** | block  One or more `gateway_ip_configuration` blocks. | 
+| **var.http_listener** | block  One or more `http_listener` blocks. | 
+| **var.request_routing_rule** | block  One or more `request_routing_rule` blocks. | 
+| **var.sku** | block  A `sku` block. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.fips_enabled** | bool  -  |  Is FIPS enabled on the Application Gateway? | 
+| **var.global** | block  -  |  A `global` block. | 
+| **var.identity** | block  -  |  An `identity` block. | 
+| **var.private_link_configuration** | block  -  |  One or more `private_link_configuration` blocks. | 
+| **var.zones** | string  -  |  Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created. | 
+| **var.trusted_client_certificate** | block  -  |  One or more `trusted_client_certificate` blocks. | 
+| **var.ssl_profile** | block  -  |  One or more `ssl_profile` blocks. | 
+| **var.authentication_certificate** | block  -  |  One or more `authentication_certificate` blocks. | 
+| **var.trusted_root_certificate** | block  -  |  One or more `trusted_root_certificate` blocks. | 
+| **var.ssl_policy** | block  -  |  a `ssl_policy` block. | 
+| **var.enable_http2** | bool  `False`  |  Is HTTP2 enabled on the application gateway resource? Defaults to `false`. | 
+| **var.force_firewall_policy_association** | string  -  |  Is the Firewall Policy associated with the Application Gateway? | 
+| **var.probe** | block  -  |  One or more `probe` blocks. | 
+| **var.ssl_certificate** | block  -  |  One or more `ssl_certificate` blocks. | 
+| **var.tags** | map  -  |  A mapping of tags to assign to the resource. | 
+| **var.url_path_map** | block  -  |  One or more `url_path_map` blocks. | 
+| **var.waf_configuration** | block  -  |  A `waf_configuration` block. | 
+| **var.custom_error_configuration** | block  -  |  One or more `custom_error_configuration` blocks. | 
+| **var.firewall_policy_id** | string  -  |  The ID of the Web Application Firewall Policy. | 
+| **var.redirect_configuration** | block  -  |  One or more `redirect_configuration` blocks. | 
+| **var.autoscale_configuration** | block  -  |  An `autoscale_configuration` block. | 
+| **var.rewrite_rule_set** | block  -  |  One or more `rewrite_rule_set` blocks. Only valid for v2 SKUs. | 
 
 ### `backend_address_pool` block structure
 

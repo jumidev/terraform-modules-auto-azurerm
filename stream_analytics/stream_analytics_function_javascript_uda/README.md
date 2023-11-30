@@ -38,15 +38,15 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the JavaScript UDA Function. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_id** | string | True | The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
-| **var.input** | block | True | One or more `input` blocks. | 
-| **var.output** | block | True | An `output` block. | 
-| **var.script** | string | True | The JavaScript of this UDA Function. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the JavaScript UDA Function. Changing this forces a new resource to be created. | 
+| **var.stream_analytics_job_id** | string  The resource ID of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
+| **var.input** | block  One or more `input` blocks. | 
+| **var.output** | block  An `output` block. | 
+| **var.script** | string  The JavaScript of this UDA Function. | 
 
 ### `input` block structure
 

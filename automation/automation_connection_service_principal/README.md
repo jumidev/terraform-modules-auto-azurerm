@@ -28,18 +28,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Connection. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string | True | The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.application_id** | string | True | The (Client) ID of the Service Principal. | 
-| **var.certificate_thumbprint** | string | True | The thumbprint of the Service Principal Certificate. | 
-| **var.subscription_id** | string | True | The subscription GUID. | 
-| **var.tenant_id** | string | True | The ID of the Tenant the Service Principal is assigned in. | 
-| **var.description** | string | False | A description for this Connection. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Connection. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
+| **var.application_id** | string  The (Client) ID of the Service Principal. | 
+| **var.certificate_thumbprint** | string  The thumbprint of the Service Principal Certificate. | 
+| **var.subscription_id** | string  The subscription GUID. | 
+| **var.tenant_id** | string  The ID of the Tenant the Service Principal is assigned in. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  A description for this Connection. | 
 
 
 

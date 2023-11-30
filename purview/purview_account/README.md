@@ -31,17 +31,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.location** | string | True | -  |  The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
-| **var.identity** | block | True | -  |  An `identity` block. | 
-| **var.name** | string | True | -  |  The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
-| **var.public_network_enabled** | bool | False | `True`  |  Should the Purview Account be visible to the public network? Defaults to `true`. | 
-| **var.managed_resource_group_name** | string | False | -  |  The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Purview Account. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.location** | string  The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
+| **var.identity** | block  An `identity` block. | 
+| **var.name** | string  The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.public_network_enabled** | bool  `True`  |  Should the Purview Account be visible to the public network? Defaults to `true`. | 
+| **var.managed_resource_group_name** | string  -  |  The name which should be used for the new Resource Group where Purview Account creates the managed resources. Changing this forces a new Purview Account to be created. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Purview Account. | 
 
 ### `identity` block structure
 

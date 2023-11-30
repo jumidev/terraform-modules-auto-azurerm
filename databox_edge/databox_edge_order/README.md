@@ -43,14 +43,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created. | 
-| **var.device_name** | string | True | The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created. | 
-| **var.contact** | block | True | A `contact` block. | 
-| **var.shipment_address** | block | True | A `shipment_address` block. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.resource_group_name** | string  The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created. | 
+| **var.device_name** | string  The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created. | 
+| **var.contact** | block  A `contact` block. | 
+| **var.shipment_address** | block  A `shipment_address` block. | 
 
 ### `contact` block structure
 

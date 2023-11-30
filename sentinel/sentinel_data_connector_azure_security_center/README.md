@@ -23,13 +23,18 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string | True | The ID of the Log Analytics Workspace that this Azure Security Center Data Connector resides in. Changing this forces a new Azure Security Center Data Connector to be created. | 
-| **var.name** | string | True | The name which should be used for this Azure Security Center Data Connector. Changing this forces a new Azure Security Center Data Connector to be created. | 
-| **var.subscription_id** | string | False | The ID of the subscription that this Azure Security Center Data Connector connects to. Changing this forces a new Azure Security Center Data Connector to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.log_analytics_workspace_id** | string  The ID of the Log Analytics Workspace that this Azure Security Center Data Connector resides in. Changing this forces a new Azure Security Center Data Connector to be created. | 
+| **var.name** | string  The name which should be used for this Azure Security Center Data Connector. Changing this forces a new Azure Security Center Data Connector to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.subscription_id** | string  The ID of the subscription that this Azure Security Center Data Connector connects to. Changing this forces a new Azure Security Center Data Connector to be created. | 
 
 
 

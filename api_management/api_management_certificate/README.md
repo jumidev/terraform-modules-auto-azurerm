@@ -24,17 +24,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the API Management Certificate. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string | True | The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.data** | string | False | The base-64 encoded certificate data, which must be a PFX file. | 
-| **var.password** | string | False | The password used for this certificate. | 
-| **var.key_vault_secret_id** | string | False | The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`. | 
-| **var.key_vault_identity_client_id** | string | False | The Client ID of the User Assigned Managed Identity to use for retrieving certificate. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the API Management Certificate. Changing this forces a new resource to be created. | 
+| **var.api_management_name** | string  The Name of the API Management Service where this Service should be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.data** | string  The base-64 encoded certificate data, which must be a PFX file. | 
+| **var.password** | string  The password used for this certificate. | 
+| **var.key_vault_secret_id** | string  The ID of the Key Vault Secret containing the SSL Certificate, which must be of the type `application/x-pkcs12`. | 
+| **var.key_vault_identity_client_id** | string  The Client ID of the User Assigned Managed Identity to use for retrieving certificate. | 
 
 
 

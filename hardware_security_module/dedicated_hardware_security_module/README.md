@@ -33,19 +33,24 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created. | 
-| **var.location** | string | True | -  |  The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created. | 
-| **var.network_profile** | block | True | -  |  A `network_profile` block. | 
-| **var.sku_name** | string | True | `payShield10K_LMK1_CPS60`, `payShield10K_LMK1_CPS250`, `payShield10K_LMK1_CPS2500`, `payShield10K_LMK2_CPS60`, `payShield10K_LMK2_CPS250`, `payShield10K_LMK2_CPS2500`, `SafeNet Luna Network HSM A790`  |  The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created. | 
-| **var.management_network_profile** | block | False | -  |  A `management_network_profile` block. | 
-| **var.stamp_id** | string | False | `stamp1`, `stamp2`  |  The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created. | 
-| **var.zones** | string | False | -  |  Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Dedicated Hardware Security Module. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name which should be used for this Dedicated Hardware Security Module. Changing this forces a new Dedicated Hardware Security Module to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the Resource Group where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created. | 
+| **var.location** | string  -  |  The Azure Region where the Dedicated Hardware Security Module should exist. Changing this forces a new Dedicated Hardware Security Module to be created. | 
+| **var.network_profile** | block  -  |  A `network_profile` block. | 
+| **var.sku_name** | string  `payShield10K_LMK1_CPS60`, `payShield10K_LMK1_CPS250`, `payShield10K_LMK1_CPS2500`, `payShield10K_LMK2_CPS60`, `payShield10K_LMK2_CPS250`, `payShield10K_LMK2_CPS2500`, `SafeNet Luna Network HSM A790`  |  The SKU name of the dedicated hardware security module. Possible values are `payShield10K_LMK1_CPS60`,`payShield10K_LMK1_CPS250`,`payShield10K_LMK1_CPS2500`,`payShield10K_LMK2_CPS60`,`payShield10K_LMK2_CPS250`,`payShield10K_LMK2_CPS2500` and `SafeNet Luna Network HSM A790`. Changing this forces a new Dedicated Hardware Security Module to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.management_network_profile** | block  -  |  A `management_network_profile` block. | 
+| **var.stamp_id** | string  `stamp1`, `stamp2`  |  The ID of the stamp. Possible values are `stamp1` or `stamp2`. Changing this forces a new Dedicated Hardware Security Module to be created. | 
+| **var.zones** | string  -  |  Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Dedicated Hardware Security Module. | 
 
 ### `network_profile` block structure
 

@@ -23,17 +23,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.location** | string | True | -  |  The Azure Region where the Template should exist. Changing this forces a new Template to be created. | 
-| **var.name** | string | True | -  |  The name which should be used for this Template. Changing this forces a new Template to be created. | 
-| **var.debug_level** | string | False | `none`, `requestContent`, `responseContent`, `requestContent, responseContent`  |  The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`. | 
-| **var.parameters_content** | string | False | -  |  The contents of the ARM Template parameters file - containing a JSON list of parameters. | 
-| **var.template_content** | string | False | -  |  The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`. | 
-| **var.template_spec_version_id** | string | False | -  |  The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Template. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.location** | string  The Azure Region where the Template should exist. Changing this forces a new Template to be created. | 
+| **var.name** | string  The name which should be used for this Template. Changing this forces a new Template to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.debug_level** | string  `none`, `requestContent`, `responseContent`, `requestContent, responseContent`  |  The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`. | 
+| **var.parameters_content** | string  -  |  The contents of the ARM Template parameters file - containing a JSON list of parameters. | 
+| **var.template_content** | string  -  |  The contents of the ARM Template which should be deployed into this Resource Group. Cannot be specified with `template_spec_version_id`. | 
+| **var.template_spec_version_id** | string  -  |  The ID of the Template Spec Version to deploy. Cannot be specified with `template_content`. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Template. | 
 
 
 

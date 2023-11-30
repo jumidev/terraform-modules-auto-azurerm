@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.api_management_name** | string | True | The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.client_id** | string | True | Client Id of the Azure AD Application. | 
-| **var.client_secret** | string | True | Client secret of the Azure AD Application. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.api_management_name** | string  The Name of the API Management Service where this Microsoft Identity Provider should be created. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.client_id** | string  Client Id of the Azure AD Application. | 
+| **var.client_secret** | string  Client secret of the Azure AD Application. | 
 
 
 

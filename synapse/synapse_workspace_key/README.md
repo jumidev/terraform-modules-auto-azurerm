@@ -24,14 +24,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.customer_managed_key_name** | string | True | Specifies the name of the workspace key. Should match the name of the key in the synapse workspace. | 
-| **var.customer_managed_key_versionless_id** | string | False | The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption | 
-| **var.synapse_workspace_id** | string | True | The ID of the Synapse Workspace where the encryption key should be configured. | 
-| **var.active** | string | True | Specifies if the workspace should be encrypted with this key. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.customer_managed_key_name** | string  Specifies the name of the workspace key. Should match the name of the key in the synapse workspace. | 
+| **var.synapse_workspace_id** | string  The ID of the Synapse Workspace where the encryption key should be configured. | 
+| **var.active** | string  Specifies if the workspace should be encrypted with this key. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.customer_managed_key_versionless_id** | string  The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption | 
 
 
 

@@ -24,17 +24,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Custom Provider. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.resource_type** | block | False | Any number of `resource_type` block. One of `resource_type` or `action` must be specified. | 
-| **var.action** | block | False | Any number of `action` block. One of `resource_type` or `action` must be specified. | 
-| **var.validation** | block | False | Any number of `validation` block. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Custom Provider. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the Custom Provider. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.resource_type** | block  Any number of `resource_type` block. One of `resource_type` or `action` must be specified. | 
+| **var.action** | block  Any number of `action` block. One of `resource_type` or `action` must be specified. | 
+| **var.validation** | block  Any number of `validation` block. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
 ### `resource_type` block structure
 

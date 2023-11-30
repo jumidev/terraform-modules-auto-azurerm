@@ -37,18 +37,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the failover group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | The name of the primary SQL server. Changing this forces a new resource to be created. | 
-| **var.databases** | list | False | A list of database ids to add to the failover group | 
-| **var.partner_servers** | block | True | A list of `partner_servers` blocks. | 
-| **var.read_write_endpoint_failover_policy** | block | True | A `read_write_endpoint_failover_policy` block. | 
-| **var.readonly_endpoint_failover_policy** | block | False | A `readonly_endpoint_failover_policy` block. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the failover group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
+| **var.server_name** | string  The name of the primary SQL server. Changing this forces a new resource to be created. | 
+| **var.partner_servers** | block  A list of `partner_servers` blocks. | 
+| **var.read_write_endpoint_failover_policy** | block  A `read_write_endpoint_failover_policy` block. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.databases** | list  A list of database ids to add to the failover group | 
+| **var.readonly_endpoint_failover_policy** | block  A `readonly_endpoint_failover_policy` block. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 ### `partner_servers` block structure
 

@@ -30,31 +30,36 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  The name of the NetApp Volume. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.zone** | string | False | -  |  `1`, `2`, `3`  |  Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature). | 
-| **var.account_name** | string | True | -  |  -  |  The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created. | 
-| **var.volume_path** | string | True | -  |  -  |  A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created. | 
-| **var.pool_name** | string | True | -  |  -  |  The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created. | 
-| **var.service_level** | string | True | -  |  `Premium`, `Standard`, `Ultra`  |  The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created. | 
-| **var.azure_vmware_data_store_enabled** | bool | False | `False`  |  -  |  Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.protocols** | string | False | `NFSv3`  |  -  |  The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document. | 
-| **var.security_style** | string | False | `ntfs`  |  -  |  Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string | True | -  |  -  |  The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created. | 
-| **var.network_features** | string | False | `Basic`  |  -  |  Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created. | 
-| **var.storage_quota_in_gb** | int | True | -  |  -  |  The maximum Storage Quota allowed for a file system in Gigabytes. | 
-| **var.snapshot_directory_visible** | bool | False | -  |  -  |  Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true. | 
-| **var.create_from_snapshot_resource_id** | string | False | -  |  -  |  Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created. | 
-| **var.data_protection_replication** | block | False | -  |  -  |  A `data_protection_replication` block. Changing this forces a new resource to be created. | 
-| **var.data_protection_snapshot_policy** | block | False | -  |  -  |  A `data_protection_snapshot_policy` block. | 
-| **var.export_policy_rule** | list | False | -  |  -  |  One or more `export_policy_rule` block defined below. | 
-| **var.throughput_in_mibps** | string | False | -  |  -  |  Throughput of this volume in Mibps. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name of the NetApp Volume. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the resource group where the NetApp Volume should be created. Changing this forces a new resource to be created. | 
+| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.account_name** | string  -  |  The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created. | 
+| **var.volume_path** | string  -  |  A unique file path for the volume. Used when creating mount targets. Changing this forces a new resource to be created. | 
+| **var.pool_name** | string  -  |  The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created. | 
+| **var.service_level** | string  `Premium`, `Standard`, `Ultra`  |  The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created. | 
+| **var.subnet_id** | string  -  |  The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created. | 
+| **var.storage_quota_in_gb** | int  -  |  The maximum Storage Quota allowed for a file system in Gigabytes. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.zone** | string  -  |  `1`, `2`, `3`  |  Specifies the Availability Zone in which the Volume should be located. Possible values are `1`, `2` and `3`. Changing this forces a new resource to be created. This feature is currently in preview, for more information on how to enable it, please refer to [Manage availability zone volume placement for Azure NetApp Files](https://learn.microsoft.com/en-us/azure/azure-netapp-files/manage-availability-zone-volume-placement#register-the-feature). | 
+| **var.azure_vmware_data_store_enabled** | bool  `False`  |  -  |  Is the NetApp Volume enabled for Azure VMware Solution (AVS) datastore purpose. Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.protocols** | string  `NFSv3`  |  -  |  The target volume protocol expressed as a list. Supported single value include `CIFS`, `NFSv3`, or `NFSv4.1`. If argument is not defined it will default to `NFSv3`. Changing this forces a new resource to be created and data will be lost. Dual protocol scenario is supported for CIFS and NFSv3, for more information, please refer to [Create a dual-protocol volume for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) document. | 
+| **var.security_style** | string  `ntfs`  |  -  |  Volume security style, accepted values are `unix` or `ntfs`. If not provided, single-protocol volume is created defaulting to `unix` if it is `NFSv3` or `NFSv4.1` volume, if `CIFS`, it will default to `ntfs`. In a dual-protocol volume, if not provided, its value will be `ntfs`. Changing this forces a new resource to be created. | 
+| **var.network_features** | string  `Basic`  |  -  |  Indicates which network feature to use, accepted values are `Basic` or `Standard`, it defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). Changing this forces a new resource to be created. | 
+| **var.snapshot_directory_visible** | bool  -  |  -  |  Specifies whether the .snapshot (NFS clients) or ~snapshot (SMB clients) path of a volume is visible, default value is true. | 
+| **var.create_from_snapshot_resource_id** | string  -  |  -  |  Creates volume from snapshot. Following properties must be the same as the original volume where the snapshot was taken from: `protocols`, `subnet_id`, `location`, `service_level`, `resource_group_name`, `account_name` and `pool_name`. Changing this forces a new resource to be created. | 
+| **var.data_protection_replication** | block  -  |  -  |  A `data_protection_replication` block. Changing this forces a new resource to be created. | 
+| **var.data_protection_snapshot_policy** | block  -  |  -  |  A `data_protection_snapshot_policy` block. | 
+| **var.export_policy_rule** | list  -  |  -  |  One or more `export_policy_rule` block defined below. | 
+| **var.throughput_in_mibps** | string  -  |  -  |  Throughput of this volume in Mibps. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `data_protection_replication` block structure
 

@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string | True | Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int | True | The Time To Live (TTL) of the DNS record in seconds. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **var.zone_name** | string  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **var.ttl** | int  The Time To Live (TTL) of the DNS record in seconds. | 
 
 
 

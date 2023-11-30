@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created. | 
-| **var.source** | string | True | `Microsoft.KeyVault`, `Microsoft.Storage`  |  The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`. | 
-| **var.storage_account_id** | string | True | -  |  The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created. | 
-| **var.infrastructure_encryption_required** | string | False | -  |  Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created. | 
-| **var.key_vault_key_id** | string | False | -  |  The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name which should be used for this Storage Encryption Scope. Changing this forces a new Storage Encryption Scope to be created. | 
+| **var.source** | string  `Microsoft.KeyVault`, `Microsoft.Storage`  |  The source of the Storage Encryption Scope. Possible values are `Microsoft.KeyVault` and `Microsoft.Storage`. | 
+| **var.storage_account_id** | string  -  |  The ID of the Storage Account where this Storage Encryption Scope is created. Changing this forces a new Storage Encryption Scope to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.infrastructure_encryption_required** | string  Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created. | 
+| **var.key_vault_key_id** | string  The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`. | 
 
 
 

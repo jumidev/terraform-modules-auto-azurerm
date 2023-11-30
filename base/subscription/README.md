@@ -22,16 +22,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.subscription_name** | string | True | -  |  The Name of the Subscription. This is the Display Name in the portal. | 
-| **var.alias** | string | False | -  |  The Alias name for the subscription. Terraform will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created. | 
-| **var.billing_scope_id** | string | False | -  |  The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID. | 
-| **var.subscription_id** | string | False | -  |  The ID of the Subscription. Changing this forces a new Subscription to be created. | 
-| **var.workload** | string | False | `Production`, `DevTest`  |  The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assign to the Subscription. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.subscription_name** | string  The Name of the Subscription. This is the Display Name in the portal. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.alias** | string  -  |  The Alias name for the subscription. Terraform will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created. | 
+| **var.billing_scope_id** | string  -  |  The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID. | 
+| **var.subscription_id** | string  -  |  The ID of the Subscription. Changing this forces a new Subscription to be created. | 
+| **var.workload** | string  `Production`, `DevTest`  |  The workload type of the Subscription. Possible values are `Production` (default) and `DevTest`. Changing this forces a new Subscription to be created. | 
+| **var.tags** | map  -  |  A mapping of tags to assign to the Subscription. | 
 
 
 

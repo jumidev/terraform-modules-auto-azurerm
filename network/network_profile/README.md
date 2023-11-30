@@ -31,15 +31,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Network Profile. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
-| **var.container_network_interface** | block | True | A `container_network_interface` block. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Network Profile. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
+| **var.container_network_interface** | block  A `container_network_interface` block. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 ### `container_network_interface` block structure
 

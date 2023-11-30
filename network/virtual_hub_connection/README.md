@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string | True | -  |  The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created. | 
-| **var.remote_virtual_network_id** | string | True | -  |  The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created. | 
-| **var.internet_security_enabled** | bool | False | `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
-| **var.routing** | block | False | -  |  A `routing` block. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created. | 
+| **var.virtual_hub_id** | string  The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created. | 
+| **var.remote_virtual_network_id** | string  The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.internet_security_enabled** | bool  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
+| **var.routing** | block  -  |  A `routing` block. | 
 
 ### `routing` block structure
 

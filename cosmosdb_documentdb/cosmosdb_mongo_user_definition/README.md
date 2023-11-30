@@ -24,14 +24,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.cosmos_mongo_database_id** | string | True | The resource ID of the Mongo DB. Changing this forces a new resource to be created. | 
-| **var.username** | string | True | The username for the Mongo User Definition. Changing this forces a new resource to be created. | 
-| **var.password** | string | True | The password for the Mongo User Definition. | 
-| **var.inherited_role_names** | list | False | A list of Mongo Roles that are inherited to the Mongo User Definition. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.cosmos_mongo_database_id** | string  The resource ID of the Mongo DB. Changing this forces a new resource to be created. | 
+| **var.username** | string  The username for the Mongo User Definition. Changing this forces a new resource to be created. | 
+| **var.password** | string  The password for the Mongo User Definition. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.inherited_role_names** | list  A list of Mongo Roles that are inherited to the Mongo User Definition. | 
 
 
 

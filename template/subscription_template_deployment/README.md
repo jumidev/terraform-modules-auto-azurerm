@@ -23,17 +23,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.location** | string | True | -  |  The Azure Region where the Subscription Template Deployment should exist. Changing this forces a new Subscription Template Deployment to be created. | 
-| **var.name** | string | True | -  |  The name which should be used for this Subscription Template Deployment. Changing this forces a new Subscription Template Deployment to be created. | 
-| **var.debug_level** | string | False | `none`, `requestContent`, `responseContent`, `requestContent, responseContent`  |  The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`. | 
-| **var.template_content** | string | False | -  |  The contents of the ARM Template which should be deployed into this Subscription. | 
-| **var.template_spec_version_id** | string | False | -  |  The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`. | 
-| **var.parameters_content** | string | False | -  |  The contents of the ARM Template parameters file - containing a JSON list of parameters. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Subscription Template Deployment. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.location** | string  The Azure Region where the Subscription Template Deployment should exist. Changing this forces a new Subscription Template Deployment to be created. | 
+| **var.name** | string  The name which should be used for this Subscription Template Deployment. Changing this forces a new Subscription Template Deployment to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.debug_level** | string  `none`, `requestContent`, `responseContent`, `requestContent, responseContent`  |  The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`. | 
+| **var.template_content** | string  -  |  The contents of the ARM Template which should be deployed into this Subscription. | 
+| **var.template_spec_version_id** | string  -  |  The ID of the Template Spec Version to deploy into the Subscription. Cannot be specified with `template_content`. | 
+| **var.parameters_content** | string  -  |  The contents of the ARM Template parameters file - containing a JSON list of parameters. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Subscription Template Deployment. | 
 
 
 

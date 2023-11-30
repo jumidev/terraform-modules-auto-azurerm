@@ -21,14 +21,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Optional Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | False | The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created. | 
-| **var.display_name** | string | False | A friendly name for this Management Group. If not specified, this will be the same as the `name`. | 
-| **var.parent_management_group_id** | string | False | The ID of the Parent Management Group. | 
-| **var.subscription_ids** | list | False | A list of Subscription GUIDs which should be assigned to the Management Group. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name or UUID for this Management Group, which needs to be unique across your tenant. A new UUID will be generated if not provided. Changing this forces a new resource to be created. | 
+| **var.display_name** | string  A friendly name for this Management Group. If not specified, this will be the same as the `name`. | 
+| **var.parent_management_group_id** | string  The ID of the Parent Management Group. | 
+| **var.subscription_ids** | list  A list of Subscription GUIDs which should be assigned to the Management Group. | 
 
 
 ### 1 optional associated resource

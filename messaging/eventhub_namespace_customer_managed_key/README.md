@@ -23,14 +23,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.eventhub_namespace_id** | string | True | The ID of the EventHub Namespace. Changing this forces a new resource to be created. | 
-| **var.key_vault_key_ids** | string | True | The list of keys of Key Vault. | 
-| **var.infrastructure_encryption_enabled** | bool | False | Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. | 
-| **var.user_assigned_identity_id** | string | False | The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.eventhub_namespace_id** | string  The ID of the EventHub Namespace. Changing this forces a new resource to be created. | 
+| **var.key_vault_key_ids** | string  The list of keys of Key Vault. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.infrastructure_encryption_enabled** | bool  Whether to enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. | 
+| **var.user_assigned_identity_id** | string  The ID of a User Managed Identity that will be used to access Key Vaults that contain the encryption keys. | 
 
 
 

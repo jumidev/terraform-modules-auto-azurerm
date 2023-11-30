@@ -36,9 +36,9 @@ variable "template" {
 #   revision_suffix (string)      : The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 #   volume (block)                : A 'volume' block as detailed below.
 #
-# http_scale_rule block structure:
-#   concurrent_requests (int)      : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)         : Zero or more 'authentication' blocks.
+# authentication block structure:
+#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
+#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
 #
 # azure_queue_scale_rule block structure:
 #   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
@@ -54,9 +54,9 @@ variable "template" {
 #   concurrent_requests (int)     : (REQUIRED) - The number of concurrent requests to trigger scaling.
 #   authentication (block)        : Zero or more 'authentication' blocks.
 #
-# authentication block structure:
-#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
-#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
+# http_scale_rule block structure:
+#   concurrent_requests (int)      : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)         : Zero or more 'authentication' blocks.
 #
 # volume block structure:
 #   storage_name (string) : The name of the 'AzureFile' storage.

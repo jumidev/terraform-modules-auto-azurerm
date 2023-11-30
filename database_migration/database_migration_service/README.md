@@ -26,16 +26,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specify the name of the database migration service. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string | True | -  |  The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string | True | `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores`, `Standard_4vCores`  |  The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags to assigned to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specify the name of the database migration service. Changing this forces a new resource to be created. | 
+| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  Name of the resource group in which to create the database migration service. Changing this forces a new resource to be created. | 
+| **var.subnet_id** | string  -  |  The ID of the virtual subnet resource to which the database migration service should be joined. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string  `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores`, `Standard_4vCores`  |  The SKU name of the database migration service. Possible values are `Premium_4vCores`, `Standard_1vCores`, `Standard_2vCores` and `Standard_4vCores`. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.tags** | map  A mapping of tags to assigned to the resource. | 
 
 
 

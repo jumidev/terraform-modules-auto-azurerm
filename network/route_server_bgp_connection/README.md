@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created. | 
-| **var.route_server_id** | string | True | The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created. | 
-| **var.peer_asn** | string | True | The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created. | 
-| **var.peer_ip** | string | True | The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created. | 
+| **var.route_server_id** | string  The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created. | 
+| **var.peer_asn** | string  The peer autonomous system number for the Route Server Bgp Connection. Changing this forces a new resource to be created. | 
+| **var.peer_ip** | string  The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created. | 
 
 
 

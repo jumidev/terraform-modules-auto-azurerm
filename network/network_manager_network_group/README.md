@@ -23,13 +23,18 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created. | 
-| **var.network_manager_id** | string | True | Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created. | 
-| **var.description** | string | False | A description of the Network Manager Network Group. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name which should be used for this Network Manager Network Group. Changing this forces a new Network Manager Network Group to be created. | 
+| **var.network_manager_id** | string  Specifies the ID of the Network Manager. Changing this forces a new Network Manager Network Group to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  A description of the Network Manager Network Group. | 
 
 
 

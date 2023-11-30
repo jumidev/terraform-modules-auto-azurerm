@@ -22,11 +22,11 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.container_registry_task_id** | string | True | The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.container_registry_task_id** | string  The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created. | 
 
 
 

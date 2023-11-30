@@ -24,16 +24,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.location** | string | True | -  |  The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created. | 
-| **var.name** | string | True | -  |  The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Fluid Relay Server. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
-| **var.storage_sku** | string | False | `standard`, `basic`  |  Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.location** | string  The Azure Region where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created. | 
+| **var.name** | string  The name which should be used for this Fluid Relay Server. Changing this forces a new Fluid Relay Server to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Fluid Relay Server should exist. Changing this forces a new Fluid Relay Server to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Fluid Relay Server. | 
+| **var.identity** | block  -  |  An `identity` block. | 
+| **var.storage_sku** | string  `standard`, `basic`  |  Sku of the storage associated with the resource, Possible values are `standard` and `basic`. Changing this forces a new Fluid Relay Server to be created. | 
 
 ### `identity` block structure
 

@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.location** | string | True | The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created. | 
-| **var.name** | string | True | Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created. | 
-| **var.resource_group_name** | string | True | Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created. | 
-| **var.identity** | block | False | An `identity` block. Specifies the Managed Identity which should be assigned to this Dev Center. | 
-| **var.tags** | map | False | A mapping of tags which should be assigned to the Dev Center. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.location** | string  The Azure Region where the Dev Center should exist. Changing this forces a new Dev Center to be created. | 
+| **var.name** | string  Specifies the name of this Dev Center. Changing this forces a new Dev Center to be created. | 
+| **var.resource_group_name** | string  Specifies the name of the Resource Group within which this Dev Center should exist. Changing this forces a new Dev Center to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.identity** | block  An `identity` block. Specifies the Managed Identity which should be assigned to this Dev Center. | 
+| **var.tags** | map  A mapping of tags which should be assigned to the Dev Center. | 
 
 ### `identity` block structure
 

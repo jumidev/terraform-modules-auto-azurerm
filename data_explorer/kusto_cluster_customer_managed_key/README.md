@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.cluster_id** | string | True | The ID of the Kusto Cluster. Changing this forces a new resource to be created. | 
-| **var.key_vault_id** | string | True | The ID of the Key Vault. | 
-| **var.key_name** | string | True | The name of Key Vault Key. | 
-| **var.key_version** | string | False | The version of Key Vault Key. | 
-| **var.user_identity** | string | False | The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.cluster_id** | string  The ID of the Kusto Cluster. Changing this forces a new resource to be created. | 
+| **var.key_vault_id** | string  The ID of the Key Vault. | 
+| **var.key_name** | string  The name of Key Vault Key. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.key_version** | string  The version of Key Vault Key. | 
+| **var.user_identity** | string  The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used. | 
 
 
 

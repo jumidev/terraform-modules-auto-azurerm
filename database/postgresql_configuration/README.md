@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created. | 
-| **var.value** | string | True | Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created. | 
+| **var.server_name** | string  Specifies the name of the PostgreSQL Server. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which the PostgreSQL Server exists. Changing this forces a new resource to be created. | 
+| **var.value** | string  Specifies the value of the PostgreSQL Configuration. See the PostgreSQL documentation for valid values. Changing this forces a new resource to be created. | 
 
 
 

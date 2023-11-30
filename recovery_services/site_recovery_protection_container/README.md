@@ -25,14 +25,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the protection container. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string | True | The name of the vault that should be updated. Changing this forces a new resource to be created. | 
-| **var.recovery_fabric_name** | string | True | Name of fabric that should contain this protection container. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the protection container. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string  The name of the vault that should be updated. Changing this forces a new resource to be created. | 
+| **var.recovery_fabric_name** | string  Name of fabric that should contain this protection container. Changing this forces a new resource to be created. | 
 
 
 

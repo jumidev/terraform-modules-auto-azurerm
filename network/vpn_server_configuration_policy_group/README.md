@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created. | 
-| **var.vpn_server_configuration_id** | string | True | -  |  The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created. | 
-| **var.policy** | list | True | -  |  One or more `policy` blocks. | 
-| **var.is_default** | bool | False | `False`  |  Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.priority** | string | False | `0`  |  The priority of this VPN Server Configuration Policy Group. Defaults to `0`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created. | 
+| **var.vpn_server_configuration_id** | string  The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created. | 
+| **var.policy** | list  One or more `policy` blocks. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.is_default** | bool  `False`  |  Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created. | 
+| **var.priority** | string  `0`  |  The priority of this VPN Server Configuration Policy Group. Defaults to `0`. | 
 
 
 

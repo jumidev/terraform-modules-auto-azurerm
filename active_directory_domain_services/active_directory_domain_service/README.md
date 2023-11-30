@@ -33,22 +33,27 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.domain_name** | string | True | -  |  -  |  The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created. | 
-| **var.domain_configuration_type** | string | False | -  |  `FullySynced`, `ResourceTrusting`  |  The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created. | 
-| **var.filtered_sync_enabled** | bool | False | `False`  |  -  |  Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`. | 
-| **var.secure_ldap** | block | False | -  |  -  |  A `secure_ldap` block. | 
-| **var.location** | string | True | -  |  -  |  The Azure location where the Domain Service exists. Changing this forces a new resource to be created. | 
-| **var.name** | string | True | -  |  -  |  The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created. | 
-| **var.notifications** | block | False | -  |  -  |  A `notifications` block. | 
-| **var.initial_replica_set** | block | True | -  |  -  |  An `initial_replica_set` block. The initial replica set inherits the same location as the Domain Service resource. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created. | 
-| **var.security** | block | False | -  |  -  |  A `security` block. | 
-| **var.sku** | string | True | -  |  -  |  The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags assigned to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.domain_name** | string  The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created. | 
+| **var.location** | string  The Azure location where the Domain Service exists. Changing this forces a new resource to be created. | 
+| **var.name** | string  The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created. | 
+| **var.initial_replica_set** | block  An `initial_replica_set` block. The initial replica set inherits the same location as the Domain Service resource. | 
+| **var.resource_group_name** | string  The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created. | 
+| **var.sku** | string  The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.domain_configuration_type** | string  -  |  `FullySynced`, `ResourceTrusting`  |  The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created. | 
+| **var.filtered_sync_enabled** | bool  `False`  |  -  |  Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`. | 
+| **var.secure_ldap** | block  -  |  -  |  A `secure_ldap` block. | 
+| **var.notifications** | block  -  |  -  |  A `notifications` block. | 
+| **var.security** | block  -  |  -  |  A `security` block. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags assigned to the resource. | 
 
 ### `secure_ldap` block structure
 

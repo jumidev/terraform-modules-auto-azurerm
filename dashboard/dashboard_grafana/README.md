@@ -21,11 +21,6 @@ tfstate_store = {
 
 ```
 
-## Variables
-
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-
 
 
 ## Outputs

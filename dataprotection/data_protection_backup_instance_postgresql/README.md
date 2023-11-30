@@ -26,16 +26,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created. | 
-| **var.location** | string | True | The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created. | 
-| **var.vault_id** | string | True | The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created. | 
-| **var.database_id** | string | True | The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created. | 
-| **var.backup_policy_id** | string | True | The ID of the Backup Policy. | 
-| **var.database_credential_key_vault_secret_id** | string | False | The ID or versionless ID of the key vault secret which stores the connection string of the database. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Backup Instance PostgreSQL. Changing this forces a new Backup Instance PostgreSQL to be created. | 
+| **var.location** | string  The location of the source database. Changing this forces a new Backup Instance PostgreSQL to be created. | 
+| **var.vault_id** | string  The ID of the Backup Vault within which the PostgreSQL Backup Instance should exist. Changing this forces a new Backup Instance PostgreSQL to be created. | 
+| **var.database_id** | string  The ID of the source database. Changing this forces a new Backup Instance PostgreSQL to be created. | 
+| **var.backup_policy_id** | string  The ID of the Backup Policy. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.database_credential_key_vault_secret_id** | string  The ID or versionless ID of the key vault secret which stores the connection string of the database. | 
 
 
 

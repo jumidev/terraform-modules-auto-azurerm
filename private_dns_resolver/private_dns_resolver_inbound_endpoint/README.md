@@ -31,15 +31,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **var.private_dns_resolver_id** | string | True | Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **var.ip_configurations** | block | True | Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
-| **var.location** | string | True | Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **var.tags** | map | False | A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
+| **var.private_dns_resolver_id** | string  Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
+| **var.ip_configurations** | block  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
+| **var.location** | string  Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.tags** | map  A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint. | 
 
 ### `ip_configurations` block structure
 

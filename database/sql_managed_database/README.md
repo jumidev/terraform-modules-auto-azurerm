@@ -24,13 +24,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the SQL Managed Instance. Changing this forces a new resource to be created. | 
-| **var.sql_managed_instance_id** | string | True | The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the SQL Managed Instance. Changing this forces a new resource to be created. | 
+| **var.sql_managed_instance_id** | string  The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 
 

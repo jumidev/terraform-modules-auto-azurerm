@@ -31,22 +31,27 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created. | 
-| **var.data_factory_id** | string | True | -  |  -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
-| **var.storage_account_id** | string | True | -  |  -  |  The ID of Storage Account in which blob event will be listened. Changing this forces a new resource. | 
-| **var.events** | string | True | -  |  `Microsoft.Storage.BlobCreated`, `Microsoft.Storage.BlobDeleted`  |  List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`. | 
-| **var.pipeline** | block | True | -  |  -  |  One or more `pipeline` blocks. | 
-| **var.activated** | bool | False | `True`  |  -  |  Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`. | 
-| **var.additional_properties** | string | False | -  |  -  |  A map of additional properties to associate with the Data Factory Blob Event Trigger. | 
-| **var.annotations** | string | False | -  |  -  |  List of tags that can be used for describing the Data Factory Blob Event Trigger. | 
-| **var.blob_path_begins_with** | string | False | -  |  -  |  The pattern that blob path starts with for trigger to fire. | 
-| **var.blob_path_ends_with** | string | False | -  |  -  |  The pattern that blob path ends with for trigger to fire. | 
-| **var.description** | string | False | -  |  -  |  The description for the Data Factory Blob Event Trigger. | 
-| **var.ignore_empty_blobs** | string | False | -  |  -  |  are blobs with zero bytes ignored? | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created. | 
+| **var.data_factory_id** | string  -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
+| **var.storage_account_id** | string  -  |  The ID of Storage Account in which blob event will be listened. Changing this forces a new resource. | 
+| **var.events** | string  `Microsoft.Storage.BlobCreated`, `Microsoft.Storage.BlobDeleted`  |  List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`. | 
+| **var.pipeline** | block  -  |  One or more `pipeline` blocks. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.activated** | bool  `True`  |  Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`. | 
+| **var.additional_properties** | string  -  |  A map of additional properties to associate with the Data Factory Blob Event Trigger. | 
+| **var.annotations** | string  -  |  List of tags that can be used for describing the Data Factory Blob Event Trigger. | 
+| **var.blob_path_begins_with** | string  -  |  The pattern that blob path starts with for trigger to fire. | 
+| **var.blob_path_ends_with** | string  -  |  The pattern that blob path ends with for trigger to fire. | 
+| **var.description** | string  -  |  The description for the Data Factory Blob Event Trigger. | 
+| **var.ignore_empty_blobs** | string  -  |  are blobs with zero bytes ignored? | 
 
 ### `pipeline` block structure
 

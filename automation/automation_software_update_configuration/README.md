@@ -30,21 +30,26 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this Automation. Changing this forces a new Automation to be created. | 
-| **var.automation_account_id** | string | True | -  |  The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created. | 
-| **var.duration** | string | False | `PT2H`  |  Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`. | 
-| **var.linux** | block | False | -  |  A `linux` block. | 
-| **var.windows** | block | False | -  |  A `windows` block. | 
-| **var.virtual_machine_ids** | string | False | -  |  Specifies a list of Azure Resource IDs of azure virtual machines. | 
-| **var.non_azure_computer_names** | string | False | -  |  Specifies a list of names of non-Azure machines for the software update configuration. | 
-| **var.target** | block | False | -  |  A `target` blocks. | 
-| **var.post_task** | block | False | -  |  A `post_task` blocks. | 
-| **var.pre_task** | block | False | -  |  A `pre_task` blocks. | 
-| **var.schedule** | block | True | -  |  A `schedule` blocks. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Automation. Changing this forces a new Automation to be created. | 
+| **var.automation_account_id** | string  The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created. | 
+| **var.schedule** | block  A `schedule` blocks. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.duration** | string  `PT2H`  |  Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`. | 
+| **var.linux** | block  -  |  A `linux` block. | 
+| **var.windows** | block  -  |  A `windows` block. | 
+| **var.virtual_machine_ids** | string  -  |  Specifies a list of Azure Resource IDs of azure virtual machines. | 
+| **var.non_azure_computer_names** | string  -  |  Specifies a list of names of non-Azure machines for the software update configuration. | 
+| **var.target** | block  -  |  A `target` blocks. | 
+| **var.post_task** | block  -  |  A `post_task` blocks. | 
+| **var.pre_task** | block  -  |  A `pre_task` blocks. | 
 
 ### `linux` block structure
 

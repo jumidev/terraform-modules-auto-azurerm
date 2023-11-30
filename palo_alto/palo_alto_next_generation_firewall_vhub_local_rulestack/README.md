@@ -33,17 +33,22 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
-| **var.resource_group_name** | string | True | The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
-| **var.rulestack_id** | string | True | The ID of the Local Rulestack to be used for this Next Generation Firewall. | 
-| **var.network_profile** | block | True | A `network_profile` block. | 
-| **var.destination_nat** | block | False | One or more `destination_nat` blocks. | 
-| **var.dns_settings** | block | False | A `dns_settings` block. | 
-| **var.tags** | map | False | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Palo Alto Next Generation Firewall VHub Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. | 
+| **var.rulestack_id** | string  The ID of the Local Rulestack to be used for this Next Generation Firewall. | 
+| **var.network_profile** | block  A `network_profile` block. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.destination_nat** | block  One or more `destination_nat` blocks. | 
+| **var.dns_settings** | block  A `dns_settings` block. | 
+| **var.tags** | map  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack. | 
 
 ### `network_profile` block structure
 

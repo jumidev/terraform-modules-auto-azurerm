@@ -23,12 +23,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.api_id** | string | True | The ID of the API Management API. Changing this forces a new API Management API Tag to be created. | 
-| **var.name** | string | True | The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.api_id** | string  The ID of the API Management API. Changing this forces a new API Management API Tag to be created. | 
+| **var.name** | string  The name of the tag. It must be known in the API Management instance. Changing this forces a new API Management API Tag to be created. | 
 
 
 

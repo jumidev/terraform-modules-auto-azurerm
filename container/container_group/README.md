@@ -26,31 +26,36 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Container Group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | string | False | `Standard`  |  `Confidential`, `Dedicated`, `Standard`  |  Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
-| **var.init_container** | string | False | -  |  -  |  The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created. | 
-| **var.container** | string | True | -  |  -  |  The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created. | 
-| **var.os_type** | string | True | -  |  `Linux`, `Windows`  |  The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created. | 
-| **var.dns_config** | block | False | -  |  -  |  A `dns_config` block. Changing this forces a new resource to be created. | 
-| **var.diagnostics** | block | False | -  |  -  |  A `diagnostics` block. Changing this forces a new resource to be created. | 
-| **var.dns_name_label** | string | False | -  |  -  |  The DNS label/name for the container group's IP. Changing this forces a new resource to be created. | 
-| **var.dns_name_label_reuse_policy** | string | False | `Unsecure`  |  -  |  The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. | 
-| **var.exposed_port** | block | False | -  |  -  |  Zero or more `exposed_port` blocks. Changing this forces a new resource to be created. | 
-| **var.ip_address_type** | string | False | `Public`  |  -  |  Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`. | 
-| **var.key_vault_key_id** | string | False | -  |  -  |  The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created. | 
-| **var.key_vault_user_assigned_identity_id** | string | False | -  |  -  |  The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`. | 
-| **var.subnet_ids** | string | False | -  |  -  |  The subnet resource IDs for a container group. Changing this forces a new resource to be created. | 
-| **var.image_registry_credential** | block | False | -  |  -  |  An `image_registry_credential` block. Changing this forces a new resource to be created. | 
-| **var.restart_policy** | string | False | `Always`  |  `Always`, `Never`, `OnFailure`  |  Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created. | 
-| **var.zones** | list | False | -  |  -  |  A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the Container Group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the resource group in which to create the Container Group. Changing this forces a new resource to be created. | 
+| **var.location** | string  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.container** | string  -  |  The definition of a container that is part of the group as documented in the `container` block below. Changing this forces a new resource to be created. | 
+| **var.os_type** | string  `Linux`, `Windows`  |  The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.sku** | string  `Standard`  |  `Confidential`, `Dedicated`, `Standard`  |  Specifies the sku of the Container Group. Possible values are `Confidential`, `Dedicated` and `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. | 
+| **var.identity** | block  -  |  -  |  An `identity` block. | 
+| **var.init_container** | string  -  |  -  |  The definition of an init container that is part of the group as documented in the `init_container` block below. Changing this forces a new resource to be created. | 
+| **var.dns_config** | block  -  |  -  |  A `dns_config` block. Changing this forces a new resource to be created. | 
+| **var.diagnostics** | block  -  |  -  |  A `diagnostics` block. Changing this forces a new resource to be created. | 
+| **var.dns_name_label** | string  -  |  -  |  The DNS label/name for the container group's IP. Changing this forces a new resource to be created. | 
+| **var.dns_name_label_reuse_policy** | string  `Unsecure`  |  -  |  The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. | 
+| **var.exposed_port** | block  -  |  -  |  Zero or more `exposed_port` blocks. Changing this forces a new resource to be created. | 
+| **var.ip_address_type** | string  `Public`  |  -  |  Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`. | 
+| **var.key_vault_key_id** | string  -  |  -  |  The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created. | 
+| **var.key_vault_user_assigned_identity_id** | string  -  |  -  |  The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`. | 
+| **var.subnet_ids** | string  -  |  -  |  The subnet resource IDs for a container group. Changing this forces a new resource to be created. | 
+| **var.image_registry_credential** | block  -  |  -  |  An `image_registry_credential` block. Changing this forces a new resource to be created. | 
+| **var.restart_policy** | string  `Always`  |  `Always`, `Never`, `OnFailure`  |  Restart policy for the container group. Allowed values are `Always`, `Never`, `OnFailure`. Defaults to `Always`. Changing this forces a new resource to be created. | 
+| **var.zones** | list  -  |  -  |  A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 

@@ -26,15 +26,15 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | Specifies the name of the MySQL Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created. | 
-| **var.start_ip_address** | string | True | Specifies the Start IP Address associated with this Firewall Rule. | 
-| **var.end_ip_address** | string | True | Specifies the End IP Address associated with this Firewall Rule. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created. | 
+| **var.server_name** | string  Specifies the name of the MySQL Server. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which the MySQL Server exists. Changing this forces a new resource to be created. | 
+| **var.start_ip_address** | string  Specifies the Start IP Address associated with this Firewall Rule. | 
+| **var.end_ip_address** | string  Specifies the End IP Address associated with this Firewall Rule. | 
 
 
 

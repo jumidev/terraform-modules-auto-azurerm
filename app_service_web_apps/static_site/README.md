@@ -24,18 +24,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created. | 
-| **var.location** | string | True | -  |  -  |  The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created. | 
-| **var.sku_tier** | string | False | `Free`  |  `Free`, `Standard`  |  Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
-| **var.sku_size** | string | False | `Free`  |  `Free`, `Standard`  |  Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
-| **var.app_settings** | string | False | -  |  -  |  A key-value pair of App Settings. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created. | 
+| **var.location** | string  The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Static Web App should exist. Changing this forces a new Static Web App to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.sku_tier** | string  `Free`  |  `Free`, `Standard`  |  Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
+| **var.sku_size** | string  `Free`  |  `Free`, `Standard`  |  Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
+| **var.identity** | block  -  |  -  |  An `identity` block. | 
+| **var.app_settings** | string  -  |  -  |  A key-value pair of App Settings. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 

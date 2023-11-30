@@ -27,37 +27,42 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  The name of the API Management Service. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  -  |  The Azure location where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created. | 
-| **var.publisher_name** | string | True | -  |  -  |  The name of publisher/company. | 
-| **var.publisher_email** | string | True | -  |  -  |  The email of publisher/company. | 
-| **var.sku_name** | string | True | -  |  `Consumption`, `Developer`, `Basic`, `Standard`, `Premium`  |  `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`). | 
-| **var.additional_location** | block | False | -  |  -  |  One or more `additional_location` blocks. | 
-| **var.certificate** | list | False | -  |  -  |  One or more `certificate` blocks (up to 10) as defined below. | 
-| **var.client_certificate_enabled** | bool | False | -  |  -  |  Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`. | 
-| **var.delegation** | block | False | -  |  -  |  A `delegation` block. | 
-| **var.gateway_disabled** | bool | False | -  |  -  |  Disable the gateway in main region? This is only supported when `additional_location` is set. | 
-| **var.min_api_version** | string | False | -  |  -  |  The version which the control plane API calls to API Management service are limited with version equal to or newer than. | 
-| **var.zones** | string | False | -  |  -  |  Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
-| **var.hostname_configuration** | block | False | -  |  -  |  A `hostname_configuration` block. | 
-| **var.notification_sender_email** | string | False | -  |  -  |  Email address from which the notification will be sent. | 
-| **var.policy** | block | False | -  |  -  |  A `policy` block. | 
-| **var.protocols** | block | False | -  |  -  |  A `protocols` block. | 
-| **var.security** | block | False | -  |  -  |  A `security` block. | 
-| **var.sign_in** | block | False | -  |  -  |  A `sign_in` block. | 
-| **var.sign_up** | block | False | -  |  -  |  A `sign_up` block. | 
-| **var.tenant_access** | block | False | -  |  -  |  A `tenant_access` block. | 
-| **var.public_ip_address_id** | string | False | -  |  -  |  ID of a standard SKU IPv4 Public IP. | 
-| **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Is public access to the service allowed? Defaults to `true`. | 
-| **var.virtual_network_type** | string | False | `None`  |  `None`, `External`, `Internal`  |  The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`. | 
-| **var.virtual_network_configuration** | block | False | -  |  -  |  A `virtual_network_configuration` block. Required when `virtual_network_type` is `External` or `Internal`. | 
-| **var.tags** | map | False | -  |  -  |  A mapping of tags assigned to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name of the API Management Service. Changing this forces a new resource to be created. | 
+| **var.location** | string  -  |  The Azure location where the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created. | 
+| **var.publisher_name** | string  -  |  The name of publisher/company. | 
+| **var.publisher_email** | string  -  |  The email of publisher/company. | 
+| **var.sku_name** | string  `Consumption`, `Developer`, `Basic`, `Standard`, `Premium`  |  `sku_name` is a string consisting of two parts separated by an underscore(\_). The first part is the `name`, valid values include: `Consumption`, `Developer`, `Basic`, `Standard` and `Premium`. The second part is the `capacity` (e.g. the number of deployed units of the `sku`), which must be a positive `integer` (e.g. `Developer_1`). | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.additional_location** | block  -  |  -  |  One or more `additional_location` blocks. | 
+| **var.certificate** | list  -  |  -  |  One or more `certificate` blocks (up to 10) as defined below. | 
+| **var.client_certificate_enabled** | bool  -  |  -  |  Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`. | 
+| **var.delegation** | block  -  |  -  |  A `delegation` block. | 
+| **var.gateway_disabled** | bool  -  |  -  |  Disable the gateway in main region? This is only supported when `additional_location` is set. | 
+| **var.min_api_version** | string  -  |  -  |  The version which the control plane API calls to API Management service are limited with version equal to or newer than. | 
+| **var.zones** | string  -  |  -  |  Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created. | 
+| **var.identity** | block  -  |  -  |  An `identity` block. | 
+| **var.hostname_configuration** | block  -  |  -  |  A `hostname_configuration` block. | 
+| **var.notification_sender_email** | string  -  |  -  |  Email address from which the notification will be sent. | 
+| **var.policy** | block  -  |  -  |  A `policy` block. | 
+| **var.protocols** | block  -  |  -  |  A `protocols` block. | 
+| **var.security** | block  -  |  -  |  A `security` block. | 
+| **var.sign_in** | block  -  |  -  |  A `sign_in` block. | 
+| **var.sign_up** | block  -  |  -  |  A `sign_up` block. | 
+| **var.tenant_access** | block  -  |  -  |  A `tenant_access` block. | 
+| **var.public_ip_address_id** | string  -  |  -  |  ID of a standard SKU IPv4 Public IP. | 
+| **var.public_network_access_enabled** | bool  `True`  |  -  |  Is public access to the service allowed? Defaults to `true`. | 
+| **var.virtual_network_type** | string  `None`  |  `None`, `External`, `Internal`  |  The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`. | 
+| **var.virtual_network_configuration** | block  -  |  -  |  A `virtual_network_configuration` block. Required when `virtual_network_type` is `External` or `Internal`. | 
+| **var.tags** | map  -  |  -  |  A mapping of tags assigned to the resource. | 
 
 ### `additional_location` block structure
 

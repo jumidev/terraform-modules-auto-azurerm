@@ -23,12 +23,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.cdn_frontdoor_route_id** | string | True | The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created. | 
-| **var.cdn_frontdoor_custom_domain_ids** | string | True | The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.cdn_frontdoor_route_id** | string  The resource ID of the Front Door Route where the Link To Default Domain property should be `disabled`. Changing this forces a new Front Door Route Disable Link To Default Domain to be created. | 
+| **var.cdn_frontdoor_custom_domain_ids** | string  The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
 
 
 

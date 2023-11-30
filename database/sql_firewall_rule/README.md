@@ -26,15 +26,15 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the firewall rule. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created. | 
-| **var.server_name** | string | True | The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created. | 
-| **var.start_ip_address** | string | True | The starting IP address to allow through the firewall for this rule. | 
-| **var.end_ip_address** | string | True | The ending IP address to allow through the firewall for this rule. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the firewall rule. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created. | 
+| **var.server_name** | string  The name of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created. | 
+| **var.start_ip_address** | string  The starting IP address to allow through the firewall for this rule. | 
+| **var.end_ip_address** | string  The ending IP address to allow through the firewall for this rule. | 
 
 
 

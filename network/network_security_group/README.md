@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the network security group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which to create the network security group. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.security_rule** | block | False | List of `security_rule` objects representing security rules, as defined below. | 
-| **var.tags** | map | False | A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the network security group. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the network security group. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.security_rule** | block  List of `security_rule` objects representing security rules, as defined below. | 
+| **var.tags** | map  A mapping of tags to assign to the resource. | 
 
 ### `security_rule` block structure
 

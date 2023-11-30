@@ -31,13 +31,13 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string | True | The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
-| **var.routing_policy** | block | True | One or more `routing_policy` blocks. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created. | 
+| **var.virtual_hub_id** | string  The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
+| **var.routing_policy** | block  One or more `routing_policy` blocks. | 
 
 ### `routing_policy` block structure
 

@@ -27,16 +27,16 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created. | 
-| **var.medtech_service_id** | string | True | -  |  Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created. | 
-| **var.location** | string | True | -  |  Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created. | 
-| **var.destination_fhir_service_id** | string | True | -  |  Specifies the destination fhir service id of the Med Tech Service Fhir Destination. | 
-| **var.destination_identity_resolution_type** | string | True | `Create`, `Lookup`  |  Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. | 
-| **var.destination_fhir_mapping_json** | string | True | -  |  Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created. | 
+| **var.medtech_service_id** | string  -  |  Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created. | 
+| **var.location** | string  -  |  Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created. | 
+| **var.destination_fhir_service_id** | string  -  |  Specifies the destination fhir service id of the Med Tech Service Fhir Destination. | 
+| **var.destination_identity_resolution_type** | string  `Create`, `Lookup`  |  Specifies the destination identity resolution type where the Healthcare Med Tech Service Fhir Destination should be created. Possible values are `Create`, `Lookup`. | 
+| **var.destination_fhir_mapping_json** | string  -  |  Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination. | 
 
 
 

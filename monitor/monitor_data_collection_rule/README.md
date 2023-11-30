@@ -38,22 +38,27 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.data_flow** | block | True | -  |  One or more `data_flow` blocks. | 
-| **var.destinations** | block | True | -  |  A `destinations` block. | 
-| **var.location** | string | True | -  |  The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created. | 
-| **var.name** | string | True | -  |  The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created. | 
-| **var.data_collection_endpoint_id** | string | False | -  |  The resource ID of the Data Collection Endpoint that this rule can be used with. | 
-| **var.data_sources** | block | False | -  |  A `data_sources` block. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint. | 
-| **var.description** | string | False | -  |  The description of the Data Collection Rule. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
-| **var.kind** | string | False | `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`  |  The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. | 
-| **var.stream_declaration** | block | False | -  |  A `stream_declaration` block. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Data Collection Rule. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.data_flow** | block  One or more `data_flow` blocks. | 
+| **var.destinations** | block  A `destinations` block. | 
+| **var.location** | string  The Azure Region where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created. | 
+| **var.name** | string  The name which should be used for this Data Collection Rule. Changing this forces a new Data Collection Rule to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the Data Collection Rule should exist. Changing this forces a new Data Collection Rule to be created. | 
+
+## Optional Variables
+
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.data_collection_endpoint_id** | string  -  |  The resource ID of the Data Collection Endpoint that this rule can be used with. | 
+| **var.data_sources** | block  -  |  A `data_sources` block. This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint. | 
+| **var.description** | string  -  |  The description of the Data Collection Rule. | 
+| **var.identity** | block  -  |  An `identity` block. | 
+| **var.kind** | string  `Linux`, `Windows`, `AgentDirectToStore`, `WorkspaceTransforms`  |  The kind of the Data Collection Rule. Possible values are `Linux`, `Windows`, `AgentDirectToStore` and `WorkspaceTransforms`. A rule of kind `Linux` does not allow for `windows_event_log` data sources. And a rule of kind `Windows` does not allow for `syslog` data sources. If kind is not specified, all kinds of data sources are allowed. | 
+| **var.stream_declaration** | block  -  |  A `stream_declaration` block. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the Data Collection Rule. | 
 
 ### `data_flow` block structure
 

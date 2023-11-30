@@ -26,16 +26,21 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Connection. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string | True | The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.automation_certificate_name** | string | True | The name of the automation certificate. | 
-| **var.subscription_id** | string | True | The id of subscription where the automation certificate exists. | 
-| **var.description** | string | False | A description for this Connection. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Connection. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
+| **var.automation_account_name** | string  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
+| **var.automation_certificate_name** | string  The name of the automation certificate. | 
+| **var.subscription_id** | string  The id of subscription where the automation certificate exists. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  A description for this Connection. | 
 
 
 

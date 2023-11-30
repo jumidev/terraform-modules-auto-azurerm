@@ -23,15 +23,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
-| **var.queue_id** | string | True | -  |  Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created. | 
-| **var.listen** | bool | False | `False`  |  Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`. | 
-| **var.send** | bool | False | `False`  |  Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`. | 
-| **var.manage** | bool | False | `False`  |  Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
+| **var.queue_id** | string  Specifies the ID of the ServiceBus Queue. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.listen** | bool  `False`  |  Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`. | 
+| **var.send** | bool  `False`  |  Does this Authorization Rule have Send permissions to the ServiceBus Queue? Defaults to `false`. | 
+| **var.manage** | bool  `False`  |  Does this Authorization Rule have Manage permissions to the ServiceBus Queue? When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
 
 
 

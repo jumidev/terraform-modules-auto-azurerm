@@ -36,14 +36,14 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created. | 
-| **var.spring_cloud_service_id** | string | True | The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created. | 
-| **var.build_pack_group** | block | True | One or more `build_pack_group` blocks. | 
-| **var.stack** | block | True | A `stack` block. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this Spring Cloud Builder. Changing this forces a new Spring Cloud Builder to be created. | 
+| **var.spring_cloud_service_id** | string  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Builder to be created. | 
+| **var.build_pack_group** | block  One or more `build_pack_group` blocks. | 
+| **var.stack** | block  A `stack` block. | 
 
 ### `build_pack_group` block structure
 

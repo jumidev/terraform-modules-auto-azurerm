@@ -33,12 +33,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.storage_account_id** | string | True | The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created. | 
-| **var.rules** | block | True | One or more `rules` blocks. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.storage_account_id** | string  The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created. | 
+| **var.rules** | block  One or more `rules` blocks. | 
 
 ### `rules` block structure
 

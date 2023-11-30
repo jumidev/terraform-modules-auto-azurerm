@@ -28,17 +28,17 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name of the network mapping. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_name** | string | True | The name of the vault that should be updated. Changing this forces a new resource to be created. | 
-| **var.source_recovery_fabric_name** | string | True | Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created. | 
-| **var.target_recovery_fabric_name** | string | True | The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created. | 
-| **var.source_network_id** | string | True | The id of the primary network. Changing this forces a new resource to be created. | 
-| **var.target_network_id** | string | True | The id of the recovery network. Changing this forces a new resource to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name of the network mapping. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
+| **var.recovery_vault_name** | string  The name of the vault that should be updated. Changing this forces a new resource to be created. | 
+| **var.source_recovery_fabric_name** | string  Specifies the ASR fabric where mapping should be created. Changing this forces a new resource to be created. | 
+| **var.target_recovery_fabric_name** | string  The Azure Site Recovery fabric object corresponding to the recovery Azure region. Changing this forces a new resource to be created. | 
+| **var.source_network_id** | string  The id of the primary network. Changing this forces a new resource to be created. | 
+| **var.target_network_id** | string  The id of the recovery network. Changing this forces a new resource to be created. | 
 
 
 

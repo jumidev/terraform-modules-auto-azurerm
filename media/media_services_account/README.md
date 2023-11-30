@@ -30,20 +30,25 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created. | 
-| **var.location** | string | True | -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.storage_account** | block | True | -  |  One or more `storage_account` blocks. | 
-| **var.encryption** | block | False | -  |  An `encryption` block. | 
-| **var.identity** | block | False | -  |  An `identity` block. | 
-| **var.public_network_access_enabled** | bool | False | `True`  |  Whether public network access is allowed for this server. Defaults to `true`. | 
-| **var.storage_authentication_type** | string | False | -  |  Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`. | 
-| **var.key_delivery_access_control** | block | False | -  |  A `key_delivery_access_control` block. | 
-| **var.tags** | map | False | -  |  A mapping of tags assigned to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Media Services Account. Only lowercase Alphanumeric characters allowed. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the Media Services Account. Changing this forces a new resource to be created. | 
+| **var.location** | string  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **var.storage_account** | block  One or more `storage_account` blocks. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.encryption** | block  -  |  An `encryption` block. | 
+| **var.identity** | block  -  |  An `identity` block. | 
+| **var.public_network_access_enabled** | bool  `True`  |  Whether public network access is allowed for this server. Defaults to `true`. | 
+| **var.storage_authentication_type** | string  -  |  Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`. | 
+| **var.key_delivery_access_control** | block  -  |  A `key_delivery_access_control` block. | 
+| **var.tags** | map  -  |  A mapping of tags assigned to the resource. | 
 
 ### `storage_account` block structure
 

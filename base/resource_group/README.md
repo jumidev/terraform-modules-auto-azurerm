@@ -23,14 +23,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.location** | string | True | The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created. | 
-| **var.name** | string | True | The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created. | 
-| **var.managed_by** | string | False | The ID of the resource or application that manages this Resource Group. | 
-| **var.tags** | map | False | A mapping of tags which should be assigned to the Resource Group. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.location** | string  The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created. | 
+| **var.name** | string  The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.managed_by** | string  The ID of the resource or application that manages this Resource Group. | 
+| **var.tags** | map  A mapping of tags which should be assigned to the Resource Group. | 
 
 
 

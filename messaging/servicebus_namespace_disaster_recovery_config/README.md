@@ -24,14 +24,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created. | 
-| **var.primary_namespace_id** | string | True | The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created. | 
-| **var.partner_namespace_id** | string | True | The ID of the Service Bus Namespace to replicate to. | 
-| **var.alias_authorization_rule_id** | string | False | The Shared access policies used to access the connection string for the alias. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created. | 
+| **var.primary_namespace_id** | string  The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created. | 
+| **var.partner_namespace_id** | string  The ID of the Service Bus Namespace to replicate to. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.alias_authorization_rule_id** | string  The Shared access policies used to access the connection string for the alias. | 
 
 
 

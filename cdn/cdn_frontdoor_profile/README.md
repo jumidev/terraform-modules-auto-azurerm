@@ -24,15 +24,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Front Door Profile. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string | True | -  |  `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`  |  Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created. | 
-| **var.response_timeout_seconds** | string | False | `120`  |  `16`, `240`  |  Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds. | 
-| **var.tags** | map | False | -  |  -  |  Specifies a mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the Front Door Profile. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  -  |  The name of the Resource Group where this Front Door Profile should exist. Changing this forces a new resource to be created. | 
+| **var.sku_name** | string  `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`  |  Specifies the SKU for this Front Door Profile. Possible values include `Standard_AzureFrontDoor` and `Premium_AzureFrontDoor`. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **var.response_timeout_seconds** | string  `120`  |  `16`, `240`  |  Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds. | 
+| **var.tags** | map  -  |  -  |  Specifies a mapping of tags to assign to the resource. | 
 
 
 

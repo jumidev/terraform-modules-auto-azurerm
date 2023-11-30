@@ -29,12 +29,12 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.key_vault_id** | string | True | The ID of the Key Vault. Changing this forces a new resource to be created. | 
-| **var.contact** | block | True | One or more `contact` blocks. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.key_vault_id** | string  The ID of the Key Vault. Changing this forces a new resource to be created. | 
+| **var.contact** | block  One or more `contact` blocks. | 
 
 ### `contact` block structure
 

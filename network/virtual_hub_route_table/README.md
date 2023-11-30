@@ -23,14 +23,19 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string | True | The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created. | 
-| **var.labels** | string | False | List of labels associated with this route table. | 
-| **var.route** | block | False | One or more `route` blocks. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for Virtual Hub Route Table. Changing this forces a new resource to be created. | 
+| **var.virtual_hub_id** | string  The ID of the Virtual Hub within which this route table should be created. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.labels** | string  List of labels associated with this route table. | 
+| **var.route** | block  One or more `route` blocks. | 
 
 ### `route` block structure
 

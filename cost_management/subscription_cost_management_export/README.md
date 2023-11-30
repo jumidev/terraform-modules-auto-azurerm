@@ -42,18 +42,23 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.name** | string | True | -  |  -  |  Specifies the name of the Cost Management Export. Changing this forces a new resource to be created. | 
-| **var.subscription_id** | string | True | -  |  -  |  The id of the subscription on which to create an export. Changing this forces a new resource to be created. | 
-| **var.recurrence_type** | string | True | -  |  `Annually`, `Daily`, `Monthly`, `Weekly`  |  How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`. | 
-| **var.recurrence_period_start_date** | datetime | True | -  |  -  |  The date the export will start capturing information. | 
-| **var.recurrence_period_end_date** | datetime | True | -  |  -  |  The date the export will stop capturing information. | 
-| **var.export_data_storage_location** | block | True | -  |  -  |  A `export_data_storage_location` block. | 
-| **var.export_data_options** | block | True | -  |  -  |  A `export_data_options` block. | 
-| **var.active** | bool | False | `True`  |  -  |  Is the cost management export active? Default is `true`. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  Specifies the name of the Cost Management Export. Changing this forces a new resource to be created. | 
+| **var.subscription_id** | string  -  |  The id of the subscription on which to create an export. Changing this forces a new resource to be created. | 
+| **var.recurrence_type** | string  `Annually`, `Daily`, `Monthly`, `Weekly`  |  How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`. | 
+| **var.recurrence_period_start_date** | datetime  -  |  The date the export will start capturing information. | 
+| **var.recurrence_period_end_date** | datetime  -  |  The date the export will stop capturing information. | 
+| **var.export_data_storage_location** | block  -  |  A `export_data_storage_location` block. | 
+| **var.export_data_options** | block  -  |  A `export_data_options` block. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.active** | bool  `True`  |  Is the cost management export active? Default is `true`. | 
 
 ### `export_data_storage_location` block structure
 

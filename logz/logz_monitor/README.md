@@ -43,19 +43,24 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
-| **var.location** | string | True | -  |  The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
-| **var.plan** | block | True | -  |  A `plan` block. Changing this forces a new resource to be created. | 
-| **var.user** | block | True | -  |  A `user` block. Changing this forces a new resource to be created. | 
-| **var.company_name** | string | False | -  |  Name of the Logz organization. Changing this forces a new logz Monitor to be created. | 
-| **var.enterprise_app_id** | string | False | -  |  The ID of the Enterprise App. Changing this forces a new logz Monitor to be created. | 
-| **var.enabled** | bool | False | `True`  |  Whether the resource monitoring is enabled? Defaults to `true`. | 
-| **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the logz Monitor. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created. | 
+| **var.resource_group_name** | string  The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
+| **var.location** | string  The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
+| **var.plan** | block  A `plan` block. Changing this forces a new resource to be created. | 
+| **var.user** | block  A `user` block. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.company_name** | string  -  |  Name of the Logz organization. Changing this forces a new logz Monitor to be created. | 
+| **var.enterprise_app_id** | string  -  |  The ID of the Enterprise App. Changing this forces a new logz Monitor to be created. | 
+| **var.enabled** | bool  `True`  |  Whether the resource monitoring is enabled? Defaults to `true`. | 
+| **var.tags** | map  -  |  A mapping of tags which should be assigned to the logz Monitor. | 
 
 ### `plan` block structure
 

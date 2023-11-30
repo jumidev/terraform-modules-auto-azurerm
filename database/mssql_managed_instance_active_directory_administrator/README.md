@@ -25,15 +25,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.managed_instance_id** | string | True | The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created. | 
-| **var.login_username** | string | True | The login name of the principal to set as the Managed Instance Administrator. | 
-| **var.object_id** | string | True | The Object ID of the principal to set as the Managed Instance Administrator. | 
-| **var.tenant_id** | string | True | The Azure Active Directory Tenant ID. | 
-| **var.azuread_authentication_only** | string | False | When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.managed_instance_id** | string  The ID of the Azure SQL Managed Instance for which to set the administrator. Changing this forces a new resource to be created. | 
+| **var.login_username** | string  The login name of the principal to set as the Managed Instance Administrator. | 
+| **var.object_id** | string  The Object ID of the principal to set as the Managed Instance Administrator. | 
+| **var.tenant_id** | string  The Azure Active Directory Tenant ID. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.azuread_authentication_only** | string  When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. | 
 
 
 

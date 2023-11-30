@@ -25,15 +25,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
-| **var.storage_mover_id** | string | True | Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string | True | Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
-| **var.storage_container_name** | string | True | Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
-| **var.description** | string | False | Specifies a description for the Storage Mover Target Endpoint. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name which should be used for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **var.storage_mover_id** | string  Specifies the ID of the storage mover for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **var.storage_account_id** | string  Specifies the ID of the storage account for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+| **var.storage_container_name** | string  Specifies the name of the storage blob container for this Storage Mover Target Endpoint. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  Specifies a description for the Storage Mover Target Endpoint. | 
 
 
 

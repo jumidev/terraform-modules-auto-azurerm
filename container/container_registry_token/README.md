@@ -25,15 +25,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Default  |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  Specifies the name of the token. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | -  |  The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created. | 
-| **var.container_registry_name** | string | True | -  |  The name of the Container Registry. Changing this forces a new resource to be created. | 
-| **var.scope_map_id** | string | True | -  |  The ID of the Container Registry Scope Map associated with the token. | 
-| **var.enabled** | bool | False | `True`  |  Should the Container Registry token be enabled? Defaults to `true`. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specifies the name of the token. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created. | 
+| **var.container_registry_name** | string  The name of the Container Registry. Changing this forces a new resource to be created. | 
+| **var.scope_map_id** | string  The ID of the Container Registry Scope Map associated with the token. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.enabled** | bool  `True`  |  Should the Container Registry token be enabled? Defaults to `true`. | 
 
 
 

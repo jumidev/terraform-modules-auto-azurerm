@@ -25,15 +25,20 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.name** | string | True | Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created. | 
-| **var.web_pubsub_id** | string | True | Specify the id of the Web Pubsub. Changing this forces a new resource to be created. | 
-| **var.subresource_name** | string | True | Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created. | 
-| **var.target_resource_id** | string | True | Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created. | 
-| **var.request_message** | string | False | Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.name** | string  Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created. | 
+| **var.web_pubsub_id** | string  Specify the id of the Web Pubsub. Changing this forces a new resource to be created. | 
+| **var.subresource_name** | string  Specify the sub resource name which the Web Pubsub Private Endpoint is able to connect to. Changing this forces a new resource to be created. | 
+| **var.target_resource_id** | string  Specify the ID of the Shared Private Link Enabled Remote Resource which this Web Pubsub Private Endpoint should be connected to. Changing this forces a new resource to be created. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.request_message** | string  Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource. | 
 
 
 

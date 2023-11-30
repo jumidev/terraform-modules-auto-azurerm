@@ -25,19 +25,24 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string | True | -  |  The name of the Policy Exemption. Changing this forces a new resource to be created. | 
-| **var.management_group_id** | string | True | -  |  The Management Group ID where the Policy Exemption should be applied. Changing this forces a new resource to be created. | 
-| **var.exemption_category** | string | True | `Waiver`, `Mitigated`  |  The category of this policy exemption. Possible values are `Waiver` and `Mitigated`. | 
-| **var.policy_assignment_id** | string | True | -  |  The ID of the Policy Assignment to be exempted at the specified Scope. | 
-| **var.description** | string | False | -  |  A description to use for this Policy Exemption. | 
-| **var.display_name** | string | False | -  |  A friendly display name to use for this Policy Exemption. | 
-| **var.expires_on** | string | False | -  |  The expiration date and time in UTC ISO 8601 format of this policy exemption. | 
-| **var.policy_definition_reference_ids** | string | False | -  |  The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition. | 
-| **var.metadata** | string | False | -  |  The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.name** | string  -  |  The name of the Policy Exemption. Changing this forces a new resource to be created. | 
+| **var.management_group_id** | string  -  |  The Management Group ID where the Policy Exemption should be applied. Changing this forces a new resource to be created. | 
+| **var.exemption_category** | string  `Waiver`, `Mitigated`  |  The category of this policy exemption. Possible values are `Waiver` and `Mitigated`. | 
+| **var.policy_assignment_id** | string  -  |  The ID of the Policy Assignment to be exempted at the specified Scope. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  A description to use for this Policy Exemption. | 
+| **var.display_name** | string  A friendly display name to use for this Policy Exemption. | 
+| **var.expires_on** | string  The expiration date and time in UTC ISO 8601 format of this policy exemption. | 
+| **var.policy_definition_reference_ids** | string  The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition. | 
+| **var.metadata** | string  The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption. | 
 
 
 

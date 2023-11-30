@@ -23,13 +23,18 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  possible values |  Description |
-| ---- | ---- | --------- |  ----------- | ----------- |
-| **var.stream_analytics_job_id** | string | True | -  |  The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created. | 
-| **var.start_mode** | string | True | `JobStartTime`, `CustomTime`, `LastOutputEventTime`  |  The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`. | 
-| **var.start_time** | string | False | -  |  The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime` | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **var.stream_analytics_job_id** | string  -  |  The ID of the Stream Analytics Job that should be scheduled or started. Changing this forces a new resource to be created. | 
+| **var.start_mode** | string  `JobStartTime`, `CustomTime`, `LastOutputEventTime`  |  The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.start_time** | string  The time in ISO8601 format at which the Stream Analytics Job should be started e.g. `2022-04-01T00:00:00Z`. This property can only be specified if `start_mode` is set to `CustomTime` | 
 
 
 

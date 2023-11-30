@@ -28,21 +28,26 @@ tfstate_store = {
 
 ```
 
-## Variables
+## Required Variables
 
-| Name | Type | Required? |  Description |
-| ---- | ---- | --------- |  ----------- |
-| **var.operation_id** | string | True | A unique identifier for this API Operation. Changing this forces a new resource to be created. | 
-| **var.api_name** | string | True | The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string | True | The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string | True | The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.display_name** | string | True | The Display Name for this API Management Operation. | 
-| **var.method** | string | True | The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values. | 
-| **var.url_template** | string | True | The relative URL Template identifying the target resource for this operation, which may include parameters. | 
-| **var.description** | string | False | A description for this API Operation, which may include HTML formatting tags. | 
-| **var.request** | block | False | A `request` block. | 
-| **var.response** | block | False | One or more `response` blocks. | 
-| **var.template_parameter** | block | False | One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.operation_id** | string  A unique identifier for this API Operation. Changing this forces a new resource to be created. | 
+| **var.api_name** | string  The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created. | 
+| **var.api_management_name** | string  The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
+| **var.resource_group_name** | string  The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **var.display_name** | string  The Display Name for this API Management Operation. | 
+| **var.method** | string  The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values. | 
+| **var.url_template** | string  The relative URL Template identifying the target resource for this operation, which may include parameters. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **var.description** | string  A description for this API Operation, which may include HTML formatting tags. | 
+| **var.request** | block  A `request` block. | 
+| **var.response** | block  One or more `response` blocks. | 
+| **var.template_parameter** | block  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
 ### `request` block structure
 
