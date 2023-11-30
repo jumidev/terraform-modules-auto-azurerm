@@ -15,7 +15,6 @@ inputs = {
    name = "name of media_content_key_policy" 
    policy_option = {
       example_policy_option = {
-         ...
       }
   
    }

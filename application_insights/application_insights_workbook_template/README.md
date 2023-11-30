@@ -15,7 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}" 
    galleries = {
       example_galleries = {
-         ...
+         category = "..."   
       }
   
    }

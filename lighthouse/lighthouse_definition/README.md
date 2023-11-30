@@ -16,7 +16,8 @@ inputs = {
    scope = "scope of lighthouse_definition" 
    authorization = {
       example_authorization = {
-         ...
+         principal_id = "..."   
+         role_definition_id = "TODO link to authorization.role_definition.id"   
       }
   
    }

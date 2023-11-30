@@ -15,7 +15,7 @@ inputs = {
    target_resource_id = "target_resource_id of security_center_assessment" 
    status = {
       example_status = {
-         ...
+         code = "..."   
       }
   
    }

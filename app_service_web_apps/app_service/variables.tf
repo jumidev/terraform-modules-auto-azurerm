@@ -50,6 +50,20 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'.
 #
+# twitter block structure :
+#   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
+#   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
+#
+# google block structure:
+#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
+#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+#
+# active_directory block structure:
+#   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+#   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+#   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+#
 # facebook block structure:
 #   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
 #   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
@@ -59,20 +73,6 @@ variable "auth_settings" {
 #   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
 #   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
 #   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
-#
-# twitter block structure :
-#   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
-#   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
-#
-# active_directory block structure:
-#   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-#   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-#   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-#
-# google block structure:
-#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
-#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 
 
 variable "backup" {
@@ -82,7 +82,6 @@ variable "backup" {
 }
 #
 # backup block structure      :
-#   name (string)               : (REQUIRED) Specifies the name for this Backup.
 #   enabled (bool)              : Is this Backup enabled? Defaults to 'true'.
 #   storage_account_url (string): (REQUIRED) The SAS URL to a Storage Container where Backups should be saved.
 #   schedule (block)            : (REQUIRED) A 'schedule' block.
@@ -102,7 +101,6 @@ variable "connection_string" {
 }
 #
 # connection_string block structure:
-#   name (string)                    : (REQUIRED) The name of the Connection String.
 #   type (string)                    : (REQUIRED) The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'.
 #   value (string)                   : (REQUIRED) The value for the Connection String.
 
@@ -160,10 +158,6 @@ variable "logs" {
 #   detailed_error_messages_enabled (bool): Should 'Detailed error messages' be enabled on this App Service? Defaults to 'false'.
 #   failed_request_tracing_enabled (bool) : Should 'Failed request tracing' be enabled on this App Service? Defaults to 'false'.
 #
-# file_system block structure:
-#   retention_in_days (int)    : (REQUIRED) The number of days to retain logs for.
-#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
-#
 # http_logs block structure :
 #   file_system (block)       : A 'file_system' block.
 #   azure_blob_storage (block): An 'azure_blob_storage' block.
@@ -176,6 +170,10 @@ variable "logs" {
 # application_logs block structure:
 #   azure_blob_storage (block)      : An 'azure_blob_storage' block.
 #   file_system_level (string)      : Log level for filesystem based logging. Supported values are 'Error', 'Information', 'Verbose', 'Warning' and 'Off'. Defaults to 'Off'.
+#
+# file_system block structure:
+#   retention_in_days (int)    : (REQUIRED) The number of days to retain logs for.
+#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
 
 
 variable "storage_account" {
@@ -185,7 +183,6 @@ variable "storage_account" {
 }
 #
 # storage_account block structure:
-#   name (string)                  : (REQUIRED) The name of the storage account identifier.
 #   type (string)                  : (REQUIRED) The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'.
 #   account_name (string)          : (REQUIRED) The name of the storage account.
 #   share_name (string)            : (REQUIRED) The name of the file share (container name, for Blob storage).
@@ -240,7 +237,6 @@ variable "site_config" {
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
 #   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
-#   name (string)                     : The name for this IP Restriction.
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
@@ -249,7 +245,6 @@ variable "site_config" {
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
 #   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
-#   name (string)                     : The name for this IP Restriction.
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.

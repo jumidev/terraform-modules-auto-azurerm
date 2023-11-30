@@ -90,7 +90,6 @@ variable "template_parameter" {
 }
 #
 # template_parameter block structure:
-#   name (string)                     : (REQUIRED) The Name of this Template Parameter.
 #   required (bool)                   : (REQUIRED) Is this Template Parameter Required?
 #   type (string)                     : (REQUIRED) The Type of this Template Parameter, such as a 'string'.
 #   description (string)              : A description of this Template Parameter.

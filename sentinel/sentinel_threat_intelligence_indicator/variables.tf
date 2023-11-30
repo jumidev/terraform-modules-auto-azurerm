@@ -85,7 +85,6 @@ variable "kill_chain_phase" {
 }
 #
 # kill_chain_phase block structure:
-#   name (string)                   : The name which should be used for the Lockheed Martin cyber kill chain phase.
 
 
 variable "tags" {

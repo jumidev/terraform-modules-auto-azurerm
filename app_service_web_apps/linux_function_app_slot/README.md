@@ -15,7 +15,7 @@ inputs = {
    function_app_id = "function_app_id of linux_function_app_slot" 
    site_config = {
       example_site_config = {
-         ...
+         api_management_api_id = "TODO link to api_management.api_management_api.id"   
       }
   
    }

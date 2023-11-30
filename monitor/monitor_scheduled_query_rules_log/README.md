@@ -16,7 +16,8 @@ inputs = {
    location = "${location}" 
    criteria = {
       example_criteria = {
-         ...
+         dimension = "..."   
+         metric_name = "..."   
       }
   
    }

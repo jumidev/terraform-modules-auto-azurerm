@@ -16,7 +16,8 @@ inputs = {
    location = "${location}" 
    sku = {
       example_sku = {
-         ...
+         tier = "..."   
+         family = "..."   
       }
   
    }

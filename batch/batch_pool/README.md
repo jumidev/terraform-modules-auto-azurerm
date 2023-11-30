@@ -18,7 +18,6 @@ inputs = {
    vm_size = "vm_size of batch_pool" 
    storage_image_reference = {
       example_storage_image_reference = {
-         ...
       }
   
    }

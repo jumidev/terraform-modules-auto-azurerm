@@ -21,7 +21,7 @@ inputs = {
    time_format = "time_format of stream_analytics_output_blob" 
    serialization = {
       example_serialization = {
-         ...
+         type = "..."   
       }
   
    }

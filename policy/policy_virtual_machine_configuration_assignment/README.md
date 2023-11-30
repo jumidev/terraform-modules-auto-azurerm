@@ -16,7 +16,6 @@ inputs = {
    virtual_machine_id = "virtual_machine_id of policy_virtual_machine_configuration_assignment" 
    configuration = {
       example_configuration = {
-         ...
       }
   
    }

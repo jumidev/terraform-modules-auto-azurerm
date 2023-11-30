@@ -11,7 +11,6 @@ variable "rules" {
 }
 #
 # rules block structure          :
-#   name (string)                  : (REQUIRED) The name which should be used for this Blob Inventory Policy Rule.
 #   storage_container_name (string): (REQUIRED) The storage container name to store the blob inventory files for this rule.
 #   format (string)                : (REQUIRED) The format of the inventory files. Possible values are 'Csv' and 'Parquet'.
 #   schedule (string)              : (REQUIRED) The inventory schedule applied by this rule. Possible values are 'Daily' and 'Weekly'.

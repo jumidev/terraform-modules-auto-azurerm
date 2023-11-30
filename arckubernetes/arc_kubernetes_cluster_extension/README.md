@@ -16,7 +16,7 @@ inputs = {
    extension_type = "extension_type of arc_kubernetes_cluster_extension" 
    identity = {
       example_identity = {
-         ...
+         type = "..."   
       }
   
    }

@@ -17,7 +17,7 @@ inputs = {
    service_plan_id = "service_plan_id of windows_web_app" 
    site_config = {
       example_site_config = {
-         ...
+         api_management_api_id = "TODO link to api_management.api_management_api.id"   
       }
   
    }

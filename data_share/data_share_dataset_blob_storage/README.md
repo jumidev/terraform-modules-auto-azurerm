@@ -16,7 +16,8 @@ inputs = {
    container_name = "container_name of data_share_dataset_blob_storage" 
    storage_account = {
       example_storage_account = {
-         ...
+         resource_group_name = "TODO link to base.resource_group.name"   
+         subscription_id = "TODO link to base.subscription.subscription_id"   
       }
   
    }

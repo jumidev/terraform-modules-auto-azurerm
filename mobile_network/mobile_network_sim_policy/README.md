@@ -17,14 +17,17 @@ inputs = {
    location = "${location}" 
    user_equipment_aggregate_maximum_bit_rate = {
       example_user_equipment_aggregate_maximum_bit_rate = {
-         ...
+         downlink = "..."   
+         uplink = "..."   
       }
   
    }
  
    slice = {
       example_slice = {
-         ...
+         data_network = "..."   
+         default_data_network_id = "..."   
+         slice_id = "..."   
       }
   
    }

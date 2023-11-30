@@ -17,7 +17,6 @@ inputs = {
    events = "events of data_factory_trigger_blob_event" 
    pipeline = {
       example_pipeline = {
-         ...
       }
   
    }

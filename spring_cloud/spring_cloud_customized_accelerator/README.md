@@ -13,7 +13,7 @@ source = {
 inputs = {
    git_repository = {
       example_git_repository = {
-         ...
+         url = "..."   
       }
   
    }

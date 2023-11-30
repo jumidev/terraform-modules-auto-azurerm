@@ -18,14 +18,12 @@ inputs = {
    name = "name of palo_alto_local_rulestack_rule" 
    destination = {
       example_destination = {
-         ...
       }
   
    }
  
    source = {
       example_source = {
-         ...
       }
   
    }

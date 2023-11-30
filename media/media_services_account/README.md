@@ -16,7 +16,6 @@ inputs = {
    location = "${location}" 
    storage_account = {
       example_storage_account = {
-         ...
       }
   
    }

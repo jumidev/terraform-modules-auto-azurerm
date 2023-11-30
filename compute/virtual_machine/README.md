@@ -18,7 +18,8 @@ inputs = {
    vm_size = "vm_size of virtual_machine" 
    storage_os_disk = {
       example_storage_os_disk = {
-         ...
+         create_option = "..."   
+         managed_disk_id = "TODO link to compute.managed_disk.id"   
       }
   
    }

@@ -15,8 +15,9 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    ip_configuration = {
-      example_ip_configuration = {
-         ...
+      primary = {
+         subnet_id = "TODO link to network.subnet.id"   
+         public_ip_address_id = "TODO link to network.public_ip.id"   
       }
   
    }

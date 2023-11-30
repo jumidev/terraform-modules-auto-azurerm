@@ -30,7 +30,6 @@ variable "link" {
 }
 #
 # link block structure  :
-#   name (string)         : (REQUIRED) The name which should be used for this VPN Site Link.
 #   bgp (block)           : A 'bgp' block.
 #   fqdn (string)         : The FQDN of this VPN Site Link.
 #   ip_address (string)   : The IP address of this VPN Site Link.

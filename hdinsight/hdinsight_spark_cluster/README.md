@@ -17,21 +17,24 @@ inputs = {
    cluster_version = "cluster_version of hdinsight_spark_cluster" 
    component_version = {
       example_component_version = {
-         ...
+         spark = "..."   
       }
   
    }
  
    gateway = {
       example_gateway = {
-         ...
+         password = "..."   
+         username = "..."   
       }
   
    }
  
    roles = {
       example_roles = {
-         ...
+         head_node = "..."   
+         worker_node = "..."   
+         zookeeper_node = "..."   
       }
   
    }

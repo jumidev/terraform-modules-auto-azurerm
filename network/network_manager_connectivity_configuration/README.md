@@ -15,7 +15,8 @@ inputs = {
    network_manager_id = "network_manager_id of network_manager_connectivity_configuration" 
    applies_to_group = {
       example_applies_to_group = {
-         ...
+         group_connectivity = "..."   
+         network_group_id = "..."   
       }
   
    }

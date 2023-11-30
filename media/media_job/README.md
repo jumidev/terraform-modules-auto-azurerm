@@ -13,7 +13,6 @@ source = {
 inputs = {
    input_asset = {
       example_input_asset = {
-         ...
       }
   
    }
@@ -22,7 +21,6 @@ inputs = {
    name = "name of media_job" 
    output_asset = {
       example_output_asset = {
-         ...
       }
   
    }

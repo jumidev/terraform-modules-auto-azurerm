@@ -18,7 +18,7 @@ inputs = {
    facebook_application_secret = "facebook_application_secret of bot_channel_facebook" 
    page = {
       example_page = {
-         ...
+         access_token = "..."   
       }
   
    }

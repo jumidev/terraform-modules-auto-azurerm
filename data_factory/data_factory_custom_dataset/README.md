@@ -15,7 +15,6 @@ inputs = {
    data_factory_id = "data_factory_id of data_factory_custom_dataset" 
    linked_service = {
       example_linked_service = {
-         ...
       }
   
    }

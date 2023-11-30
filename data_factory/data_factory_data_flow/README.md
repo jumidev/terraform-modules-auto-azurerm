@@ -15,14 +15,12 @@ inputs = {
    data_factory_id = "data_factory_id of data_factory_data_flow" 
    source = {
       example_source = {
-         ...
       }
   
    }
  
    sink = {
       example_sink = {
-         ...
       }
   
    }

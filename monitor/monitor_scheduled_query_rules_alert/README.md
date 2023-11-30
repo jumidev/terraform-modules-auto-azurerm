@@ -20,14 +20,15 @@ inputs = {
    time_window = "time_window of monitor_scheduled_query_rules_alert" 
    trigger = {
       example_trigger = {
-         ...
+         operator = "..."   
+         threshold = "..."   
       }
   
    }
  
    action = {
       example_action = {
-         ...
+         action_group = "..."   
       }
   
    }

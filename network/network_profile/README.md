@@ -16,7 +16,7 @@ inputs = {
    resource_group_name = "${resource_group}" 
    container_network_interface = {
       example_container_network_interface = {
-         ...
+         ip_configuration = "..."   
       }
   
    }

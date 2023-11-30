@@ -16,7 +16,8 @@ inputs = {
    target_resource_id = "target_resource_id of function_app_connection" 
    authentication = {
       example_authentication = {
-         ...
+         type = "..."   
+         subscription_id = "TODO link to base.subscription.subscription_id"   
       }
   
    }

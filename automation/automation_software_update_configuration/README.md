@@ -15,7 +15,7 @@ inputs = {
    automation_account_id = "automation_account_id of automation_software_update_configuration" 
    schedule = {
       example_schedule = {
-         ...
+         frequency = "..."   
       }
   
    }

@@ -40,7 +40,6 @@ variable "access_control" {
 #
 # ip_allow block structure     :
 #   address (string)             : The IP address to allow.
-#   name (string)                : The friendly name for the IP address range.
 #   subnet_prefix_length (string): The subnet mask prefix length (see CIDR notation).
 #
 # akamai_signature_header_authentication_key block structure:

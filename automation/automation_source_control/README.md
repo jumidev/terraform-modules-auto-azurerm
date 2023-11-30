@@ -17,7 +17,8 @@ inputs = {
    repository_url = "repository_url of automation_source_control" 
    security = {
       example_security = {
-         ...
+         token = "..."   
+         token_type = "..."   
       }
   
    }

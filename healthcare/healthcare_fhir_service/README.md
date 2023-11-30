@@ -17,7 +17,8 @@ inputs = {
    location = "${location}" 
    authentication = {
       example_authentication = {
-         ...
+         authority = "..."   
+         audience = "..."   
       }
   
    }

@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    connection_configuration = {
       example_connection_configuration = {
-         ...
+         vpn_client_address_pool = "..."   
       }
   
    }

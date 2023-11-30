@@ -17,7 +17,7 @@ inputs = {
    target_resource_id = "target_resource_id of network_packet_capture" 
    storage_location = {
       example_storage_location = {
-         ...
+         storage_account_id = "TODO link to storage.storage_account.id"   
       }
   
    }

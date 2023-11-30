@@ -14,7 +14,11 @@ inputs = {
    storage_account_id = "storage_account_id of storage_blob_inventory_policy" 
    rules = {
       example_rules = {
-         ...
+         storage_container_name = "TODO link to storage.storage_container.name"   
+         format = "..."   
+         schedule = "..."   
+         scope = "..."   
+         schema_fields = "..."   
       }
   
    }

@@ -40,7 +40,6 @@ variable "custom_rule" {
 }
 #
 # custom_rule block structure         :
-#   name (string)                       : (REQUIRED) Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 #   action (string)                     : (REQUIRED) The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
 #   enabled (bool)                      : Is the rule is enabled or disabled? Defaults to 'true'.
 #   priority (string)                   : The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'.

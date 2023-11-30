@@ -18,7 +18,8 @@ inputs = {
    content = "content of logic_app_integration_account_agreement" 
    guest_identity = {
       example_guest_identity = {
-         ...
+         qualifier = "..."   
+         value = "..."   
       }
   
    }
@@ -26,7 +27,8 @@ inputs = {
    guest_partner_name = "guest_partner_name of logic_app_integration_account_agreement" 
    host_identity = {
       example_host_identity = {
-         ...
+         qualifier = "..."   
+         value = "..."   
       }
   
    }

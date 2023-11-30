@@ -15,14 +15,13 @@ inputs = {
    spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_builder" 
    build_pack_group = {
       example_build_pack_group = {
-         ...
       }
   
    }
  
    stack = {
       example_stack = {
-         ...
+         version = "..."   
       }
   
    }

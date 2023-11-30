@@ -16,28 +16,31 @@ inputs = {
    location = "${location}" 
    network_profile = {
       example_network_profile = {
-         ...
+         primary = "..."   
+         ip_configuration = "..."   
+         network_security_group_id = "TODO link to network.network_security_group.id"   
       }
   
    }
  
    os_profile = {
       example_os_profile = {
-         ...
+         computer_name_prefix = "..."   
+         admin_username = "..."   
       }
   
    }
  
    sku = {
       example_sku = {
-         ...
+         capacity = "..."   
       }
   
    }
  
    storage_profile_os_disk = {
       example_storage_profile_os_disk = {
-         ...
+         create_option = "..."   
       }
   
    }

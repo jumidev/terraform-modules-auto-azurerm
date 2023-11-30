@@ -16,7 +16,7 @@ inputs = {
    locations = "locations of monitor_log_profile" 
    retention_policy = {
       example_retention_policy = {
-         ...
+         enabled = "..."   
       }
   
    }

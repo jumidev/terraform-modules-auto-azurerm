@@ -16,7 +16,7 @@ inputs = {
    virtual_machine_id = "virtual_machine_id of virtual_machine_packet_capture" 
    storage_location = {
       example_storage_location = {
-         ...
+         storage_account_id = "TODO link to storage.storage_account.id"   
       }
   
    }

@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    management_cluster = {
       example_management_cluster = {
-         ...
+         size = "..."   
       }
   
    }

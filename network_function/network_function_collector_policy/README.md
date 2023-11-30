@@ -16,14 +16,14 @@ inputs = {
    location = "${location}" 
    ipfx_emission = {
       example_ipfx_emission = {
-         ...
+         destination_types = "..."   
       }
   
    }
  
    ipfx_ingestion = {
       example_ipfx_ingestion = {
-         ...
+         source_resource_ids = "..."   
       }
   
    }

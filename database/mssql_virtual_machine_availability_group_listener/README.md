@@ -15,7 +15,11 @@ inputs = {
    sql_virtual_machine_group_id = "sql_virtual_machine_group_id of mssql_virtual_machine_availability_group_listener" 
    replica = {
       example_replica = {
-         ...
+         commit = "..."   
+         failover_mode = "..."   
+         readable_secondary = "..."   
+         role = "..."   
+         sql_virtual_machine_id = "..."   
       }
   
    }

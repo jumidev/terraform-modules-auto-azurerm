@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    managed_rules = {
       example_managed_rules = {
-         ...
+         managed_rule_set = "..."   
       }
   
    }

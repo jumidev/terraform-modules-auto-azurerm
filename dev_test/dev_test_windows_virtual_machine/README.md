@@ -17,7 +17,10 @@ inputs = {
    location = "${location}" 
    gallery_image_reference = {
       example_gallery_image_reference = {
-         ...
+         offer = "..."   
+         publisher = "..."   
+         sku = "..."   
+         version = "..."   
       }
   
    }

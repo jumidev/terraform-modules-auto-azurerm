@@ -16,7 +16,9 @@ inputs = {
    location = "${location}" 
    azuread_based_service_principal = {
       example_azuread_based_service_principal = {
-         ...
+         ledger_role_name = "..."   
+         principal_id = "..."   
+         tenant_id = "TODO link to aad_b2c.aadb2c_directory.tenant_id"   
       }
   
    }

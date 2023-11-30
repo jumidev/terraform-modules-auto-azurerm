@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    identity = {
       example_identity = {
-         ...
+         type = "..."   
       }
   
    }

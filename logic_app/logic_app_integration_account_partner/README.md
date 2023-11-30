@@ -16,7 +16,8 @@ inputs = {
    integration_account_name = "integration_account_name of logic_app_integration_account_partner" 
    business_identity = {
       example_business_identity = {
-         ...
+         qualifier = "..."   
+         value = "..."   
       }
   
    }

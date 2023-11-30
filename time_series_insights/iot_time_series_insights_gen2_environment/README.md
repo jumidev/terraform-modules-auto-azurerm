@@ -17,7 +17,7 @@ inputs = {
    sku_name = "sku_name of iot_time_series_insights_gen2_environment" 
    storage = {
       example_storage = {
-         ...
+         key = "..."   
       }
   
    }

@@ -16,7 +16,14 @@ inputs = {
    resource_group_name = "${resource_group}" 
    default_node_pool = {
       example_default_node_pool = {
-         ...
+         vm_size = "..."   
+         capacity_reservation_group_id = "TODO link to compute.capacity_reservation_group.id"   
+         host_group_id = "TODO link to compute.dedicated_host_group.id"   
+         node_public_ip_prefix_id = "TODO link to network.public_ip_prefix.id"   
+         pod_subnet_id = "TODO link to network.subnet.id"   
+         proximity_placement_group_id = "TODO link to compute.proximity_placement_group.id"   
+         snapshot_id = "TODO link to compute.snapshot.id"   
+         vnet_subnet_id = "TODO link to network.subnet.id"   
       }
   
    }

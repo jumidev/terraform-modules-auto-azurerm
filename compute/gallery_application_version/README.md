@@ -16,21 +16,22 @@ inputs = {
    location = "${location}" 
    manage_action = {
       example_manage_action = {
-         ...
+         install = "..."   
+         remove = "..."   
       }
   
    }
  
    source = {
       example_source = {
-         ...
+         media_link = "..."   
       }
   
    }
  
    target_region = {
       example_target_region = {
-         ...
+         regional_replica_count = "..."   
       }
   
    }

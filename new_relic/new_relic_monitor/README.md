@@ -16,14 +16,17 @@ inputs = {
    location = "${location}" 
    plan = {
       example_plan = {
-         ...
+         effective_date = "..."   
       }
   
    }
  
    user = {
       example_user = {
-         ...
+         email = "..."   
+         first_name = "..."   
+         last_name = "..."   
+         phone_number = "..."   
       }
   
    }

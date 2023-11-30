@@ -15,7 +15,8 @@ inputs = {
    destination_storage_account_id = "destination_storage_account_id of storage_object_replication" 
    rules = {
       example_rules = {
-         ...
+         source_container_name = "..."   
+         destination_container_name = "..."   
       }
   
    }

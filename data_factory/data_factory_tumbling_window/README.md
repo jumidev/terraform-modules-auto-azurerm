@@ -17,7 +17,6 @@ inputs = {
    interval = "interval of data_factory_tumbling_window" 
    pipeline = {
       example_pipeline = {
-         ...
       }
   
    }

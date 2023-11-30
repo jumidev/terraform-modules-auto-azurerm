@@ -117,7 +117,6 @@ variable "capabilities" {
 }
 #
 # capabilities block structure:
-#   name (string)               : (REQUIRED) The capability to enable - Possible values are 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'EnableCassandra', 'EnableGremlin', 'EnableMongo', 'EnableMongo16MBDocumentSupport', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnablePartialUniqueIndex', 'EnableServerless', 'EnableTable', 'EnableTtlOnCustomPath', 'EnableUniqueCompoundNestedDocs', 'MongoDBv3.4' and 'mongoEnableDocLevelTTL'.
 
 
 variable "is_virtual_network_filter_enabled" {
@@ -220,7 +219,6 @@ variable "restore" {
 #   database (block)                   : A 'database' block. Changing this forces a new resource to be created.
 #
 # database block structure:
-#   name (string)           : (REQUIRED) The database name for the restore request. Changing this forces a new resource to be created.
 #   collection_names (list) : A list of the collection names for the restore request. Changing this forces a new resource to be created.
 
 

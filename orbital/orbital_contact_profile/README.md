@@ -19,7 +19,9 @@ inputs = {
    network_configuration_subnet_id = "network_configuration_subnet_id of orbital_contact_profile" 
    links = {
       example_links = {
-         ...
+         channels = "..."   
+         direction = "..."   
+         polarization = "..."   
       }
   
    }

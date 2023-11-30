@@ -15,7 +15,8 @@ inputs = {
    virtual_hub_id = "virtual_hub_id of virtual_hub_routing_intent" 
    routing_policy = {
       example_routing_policy = {
-         ...
+         destinations = "..."   
+         next_hop = "..."   
       }
   
    }

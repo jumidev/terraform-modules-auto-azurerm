@@ -55,7 +55,6 @@ variable "environment_variable" {
 }
 #
 # environment_variable block structure:
-#   name (string)                       : (REQUIRED) Specifies the name of the environment variable.
 #   secure_value (string)               : Specifies the value of the secure environment variable.
 #   value (string)                      : Specifies the value of the environment variable.
 
@@ -94,7 +93,6 @@ variable "storage_account" {
 #
 # storage_account block structure:
 #   key (string)                   : (REQUIRED) Specifies the storage account access key.
-#   name (string)                  : (REQUIRED) Specifies the storage account name.
 
 
 variable "supporting_script_uris" {

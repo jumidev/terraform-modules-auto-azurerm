@@ -99,7 +99,6 @@ variable "node_type" {
 #   application_port_range (string)         : (REQUIRED) Sets the port range available for applications. Format is '<from_port>-<to_port>', for example '10000-20000'.
 #   data_disk_size_gb (int)                 : (REQUIRED) The size of the data disk in gigabytes..
 #   ephemeral_port_range (string)           : (REQUIRED) Sets the port range available for the OS. Format is '<from_port>-<to_port>', for example '10000-20000'. There has to be at least 255 ports available and cannot overlap with 'application_port_range'..
-#   name (string)                           : (REQUIRED) The name which should be used for this node type.
 #   vm_image_offer (string)                 : (REQUIRED) The offer type of the marketplace image cluster VMs will use.
 #   vm_image_publisher (string)             : (REQUIRED) The publisher of the marketplace image cluster VMs will use.
 #   vm_image_sku (string)                   : (REQUIRED) The SKU of the marketplace image cluster VMs will use.

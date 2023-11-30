@@ -16,7 +16,7 @@ inputs = {
    host_name = "host_name of cdn_frontdoor_custom_domain" 
    tls = {
       example_tls = {
-         ...
+         cdn_frontdoor_secret_id = "TODO link to cdn.cdn_frontdoor_secret.id"   
       }
   
    }

@@ -45,7 +45,6 @@ variable "integration_runtime" {
 }
 #
 # integration_runtime block structure:
-#   name (string)                      : (REQUIRED) The integration runtime reference to associate with the Synapse Linked Service.
 #   parameters (string)                : A map of parameters to associate with the integration runtime.
 
 

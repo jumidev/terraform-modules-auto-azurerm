@@ -21,7 +21,6 @@ variable "backend_address_pool" {
 }
 #
 # backend_address_pool block structure:
-#   name (string)                       : (REQUIRED) The name of the Backend Address Pool.
 #   fqdns (list)                        : A list of FQDN's which should be part of the Backend Address Pool.
 #   ip_addresses (list)                 : A list of IP Addresses which should be part of the Backend Address Pool.
 
@@ -32,7 +31,6 @@ variable "backend_http_settings" {
 }
 #
 # backend_http_settings block structure:
-#   name (string)                        : (REQUIRED) The name of the Authentication Certificate.
 
 
 variable "frontend_ip_configuration" {
@@ -41,7 +39,6 @@ variable "frontend_ip_configuration" {
 }
 #
 # frontend_ip_configuration block structure:
-#   name (string)                            : (REQUIRED) The name of the Frontend IP Configuration.
 #   subnet_id (string)                       : The ID of the Subnet.
 #   private_ip_address (string)              : The Private IP Address to use for the Application Gateway.
 #   public_ip_address_id (string)            : The ID of a Public IP Address which the Application Gateway should use. The allocation method for the Public IP Address depends on the 'sku' of this Application Gateway. Please refer to the [Azure documentation for public IP addresses](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#application-gateways) for details.
@@ -55,7 +52,6 @@ variable "frontend_port" {
 }
 #
 # frontend_port block structure:
-#   name (string)                : (REQUIRED) The name of the Frontend Port.
 #   port (string)                : (REQUIRED) The port used for this Frontend Port.
 
 
@@ -65,7 +61,6 @@ variable "gateway_ip_configuration" {
 }
 #
 # gateway_ip_configuration block structure:
-#   name (string)                           : (REQUIRED) The Name of this Gateway IP Configuration.
 #   subnet_id (string)                      : (REQUIRED) The ID of the Subnet which the Application Gateway should be connected to.
 
 
@@ -75,7 +70,6 @@ variable "http_listener" {
 }
 #
 # http_listener block structure          :
-#   name (string)                          : (REQUIRED) The Name of the HTTP Listener.
 #   frontend_ip_configuration_name (string): (REQUIRED) The Name of the Frontend IP Configuration used for this HTTP Listener.
 #   frontend_port_name (string)            : (REQUIRED) The Name of the Frontend Port use for this HTTP Listener.
 #   host_name (string)                     : The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
@@ -98,7 +92,6 @@ variable "request_routing_rule" {
 }
 #
 # request_routing_rule block structure:
-#   name (string)                       : (REQUIRED) The Name of this Request Routing Rule.
 #   rule_type (string)                  : (REQUIRED) The Type of Routing that should be used for this Rule. Possible values are 'Basic' and 'PathBasedRouting'.
 #   http_listener_name (string)         : (REQUIRED) The Name of the HTTP Listener which should be used for this Routing Rule.
 #   backend_address_pool_name (string)  : The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set.
@@ -115,7 +108,6 @@ variable "sku" {
 }
 #
 # sku block structure:
-#   name (string)      : (REQUIRED) The Name of the SKU to use for this Application Gateway. Possible values are 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'Standard_v2', 'WAF_Medium', 'WAF_Large', and 'WAF_v2'.
 #   tier (string)      : (REQUIRED) The Tier of the SKU to use for this Application Gateway. Possible values are 'Standard', 'Standard_v2', 'WAF' and 'WAF_v2'.
 #   capacity (string)  : The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between '1' and '32', and '1' to '125' for a V2 SKU. This property is optional if 'autoscale_configuration' is set.
 
@@ -157,11 +149,9 @@ variable "private_link_configuration" {
 }
 #
 # private_link_configuration block structure:
-#   name (string)                             : (REQUIRED) The name of the private link configuration.
 #   ip_configuration (block)                  : (REQUIRED) One or more 'ip_configuration' blocks.
 #
 # ip_configuration block structure      :
-#   name (string)                         : (REQUIRED) The name of the IP configuration.
 #   subnet_id (string)                    : (REQUIRED) The ID of the subnet the private link configuration should connect to.
 #   private_ip_address_allocation (string): (REQUIRED) The allocation method used for the Private IP Address. Possible values are 'Dynamic' and 'Static'.
 #   primary (bool)                        : (REQUIRED) Is this the Primary IP Configuration?
@@ -180,7 +170,6 @@ variable "trusted_client_certificate" {
 }
 #
 # trusted_client_certificate block structure:
-#   name (string)                             : (REQUIRED) The name of the Trusted Client Certificate that is unique within this Application Gateway.
 #   data (string)                             : (REQUIRED) The base-64 encoded certificate.
 
 
@@ -191,7 +180,6 @@ variable "ssl_profile" {
 }
 #
 # ssl_profile block structure                  :
-#   name (string)                                : (REQUIRED) The name of the SSL Profile that is unique within this Application Gateway.
 #   trusted_client_certificate_names (string)    : The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 #   verify_client_cert_issuer_dn (bool)          : Should client certificate issuer DN be verified? Defaults to 'false'.
 #   verify_client_certificate_revocation (string): Specify the method to check client certificate revocation status. Possible value is 'OCSP'.
@@ -212,7 +200,6 @@ variable "authentication_certificate" {
 }
 #
 # authentication_certificate block structure:
-#   name (string)                             : (REQUIRED) The Name of the Authentication Certificate to use.
 #   data (string)                             : (REQUIRED) The contents of the Authentication Certificate which should be used.
 
 
@@ -223,7 +210,6 @@ variable "trusted_root_certificate" {
 }
 #
 # trusted_root_certificate block structure:
-#   name (string)                           : (REQUIRED) The Name of the Trusted Root Certificate to use.
 #   data (string)                           : The contents of the Trusted Root Certificate which should be used. Required if 'key_vault_secret_id' is not set.
 #   key_vault_secret_id (string)            : The Secret ID of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if 'data' is not set.
 
@@ -261,7 +247,6 @@ variable "probe" {
 # probe block structure                           :
 #   host (string)                                   : The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe. Cannot be set if 'pick_host_name_from_backend_http_settings' is set to 'true'.
 #   interval (string)                               : (REQUIRED) The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds.
-#   name (string)                                   : (REQUIRED) The Name of the Probe.
 #   protocol (string)                               : (REQUIRED) The Protocol used for this Probe. Possible values are 'Http' and 'Https'.
 #   path (string)                                   : (REQUIRED) The Path used for this Probe.
 #   timeout (string)                                : (REQUIRED) The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds.
@@ -283,7 +268,6 @@ variable "ssl_certificate" {
 }
 #
 # ssl_certificate block structure:
-#   name (string)                  : (REQUIRED) The Name of the SSL certificate that is unique within this Application Gateway
 #   data (string)                  : The base64-encoded PFX certificate data. Required if 'key_vault_secret_id' is not set.
 #   password (string)              : Password for the pfx file specified in data. Required if 'data' is set.
 #   key_vault_secret_id (string)   : The Secret ID of (base-64 encoded unencrypted pfx) the 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if 'data' is not set.
@@ -301,7 +285,6 @@ variable "url_path_map" {
 }
 #
 # url_path_map block structure                :
-#   name (string)                               : (REQUIRED) The Name of the URL Path Map.
 #   default_backend_address_pool_name (string)  : The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set.
 #   default_backend_http_settings_name (string) : The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set.
 #   default_redirect_configuration_name (string): The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set.
@@ -359,7 +342,6 @@ variable "redirect_configuration" {
 }
 #
 # redirect_configuration block structure:
-#   name (string)                         : (REQUIRED) Unique name of the redirect configuration block
 #   redirect_type (string)                : (REQUIRED) The type of redirect. Possible values are 'Permanent', 'Temporary', 'Found' and 'SeeOther'
 #   target_listener_name (string)         : The name of the listener to redirect to. Cannot be set if 'target_url' is set.
 #   target_url (string)                   : The URL to redirect the request to. Cannot be set if 'target_listener_name' is set.
@@ -385,21 +367,19 @@ variable "rewrite_rule_set" {
 }
 #
 # rewrite_rule_set block structure:
-#   name (string)                   : (REQUIRED) Unique name of the rewrite rule set block
 #   rewrite_rule (block)            : One or more 'rewrite_rule' blocks.
-#
-# rewrite_rule block structure        :
-#   name (string)                       : (REQUIRED) Unique name of the rewrite rule block
-#   rule_sequence (string)              : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
-#   condition (list)                    : One or more 'condition' blocks.
-#   request_header_configuration (list) : One or more 'request_header_configuration' blocks.
-#   response_header_configuration (list): One or more 'response_header_configuration' blocks.
-#   url (block)                         : One 'url' block
 #
 # url block structure  :
 #   path (string)        : The URL path to rewrite.
 #   query_string (string): The query string to rewrite.
 #   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
 #   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+#
+# rewrite_rule block structure        :
+#   rule_sequence (string)              : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
+#   condition (list)                    : One or more 'condition' blocks.
+#   request_header_configuration (list) : One or more 'request_header_configuration' blocks.
+#   response_header_configuration (list): One or more 'response_header_configuration' blocks.
+#   url (block)                         : One 'url' block
 
 

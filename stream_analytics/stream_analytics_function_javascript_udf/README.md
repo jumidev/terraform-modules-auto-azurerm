@@ -16,14 +16,14 @@ inputs = {
    stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_function_javascript_udf" 
    input = {
       example_input = {
-         ...
+         type = "..."   
       }
   
    }
  
    output = {
       example_output = {
-         ...
+         type = "..."   
       }
   
    }

@@ -16,7 +16,6 @@ inputs = {
    resource_group_name = "${resource_group}" 
    sku = {
       example_sku = {
-         ...
       }
   
    }

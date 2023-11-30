@@ -17,7 +17,7 @@ inputs = {
    revision_mode = "revision_mode of container_app" 
    template = {
       example_template = {
-         ...
+         container = "..."   
       }
   
    }

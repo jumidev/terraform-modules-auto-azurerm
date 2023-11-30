@@ -25,7 +25,6 @@ variable "log_tag_filter" {
 }
 #
 # log_tag_filter block structure:
-#   name (string)                 : (REQUIRED) Specifies the name (also known as the key) of the tag.
 #   action (string)               : (REQUIRED) Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion.
 #   value (string)                : (REQUIRED) Specifies the value of the tag.
 
@@ -42,7 +41,6 @@ variable "metric_tag_filter" {
 }
 #
 # metric_tag_filter block structure:
-#   name (string)                    : (REQUIRED) Specifies the name (also known as the key) of the tag.
 #   action (string)                  : (REQUIRED) Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion.
 #   value (string)                   : (REQUIRED) Specifies the value of the tag.
 

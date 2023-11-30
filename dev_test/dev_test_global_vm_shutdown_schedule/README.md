@@ -17,7 +17,7 @@ inputs = {
    daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule" 
    notification_settings = {
       example_notification_settings = {
-         ...
+         enabled = "..."   
       }
   
    }

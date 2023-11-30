@@ -18,7 +18,7 @@ inputs = {
    sku = "sku of mobile_network_packet_core_control_plane" 
    local_diagnostics_access = {
       example_local_diagnostics_access = {
-         ...
+         authentication_type = "..."   
       }
   
    }

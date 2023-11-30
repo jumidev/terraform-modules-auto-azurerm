@@ -16,14 +16,15 @@ inputs = {
    amount = "amount of consumption_budget_subscription" 
    time_period = {
       example_time_period = {
-         ...
+         start_date = "..."   
       }
   
    }
  
    notification = {
       example_notification = {
-         ...
+         operator = "..."   
+         threshold = "..."   
       }
   
    }

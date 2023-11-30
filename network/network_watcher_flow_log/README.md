@@ -19,7 +19,8 @@ inputs = {
    enabled = "enabled of network_watcher_flow_log" 
    retention_policy = {
       example_retention_policy = {
-         ...
+         enabled = "..."   
+         days = "..."   
       }
   
    }

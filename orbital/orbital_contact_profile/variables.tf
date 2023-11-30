@@ -38,11 +38,9 @@ variable "links" {
 # links block structure:
 #   channels (block)     : (REQUIRED) A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created.
 #   direction (string)   : (REQUIRED) Direction of the link. Possible values are 'Uplink' and 'Downlink'.
-#   name (string)        : (REQUIRED) Name of the link.
 #   polarization (string): (REQUIRED) Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'.
 #
 # channels block structure           :
-#   name (string)                      : (REQUIRED) Name of the channel.
 #   center_frequency_mhz (string)      : (REQUIRED) Center frequency in MHz.
 #   bandwidth_mhz (string)             : (REQUIRED) Bandwidth in MHz.
 #   end_point (block)                  : (REQUIRED) Customer End point to store/retrieve data during a contact. An 'end_point' block.

@@ -17,7 +17,7 @@ inputs = {
    partner_managed_instance_id = "partner_managed_instance_id of mssql_managed_instance_failover_group" 
    read_write_endpoint_failover_policy = {
       example_read_write_endpoint_failover_policy = {
-         ...
+         mode = "..."   
       }
   
    }

@@ -51,7 +51,6 @@ variable "contact" {
 #
 # contact block structure:
 #   email (string)         : The email address of the contact person/organization.
-#   name (string)          : The name of the contact person/organization.
 #   url (string)           : Absolute URL of the contact information.
 
 
@@ -83,7 +82,6 @@ variable "license" {
 }
 #
 # license block structure:
-#   name (string)          : The name of the license .
 #   url (string)           : Absolute URL of the license.
 
 

@@ -17,7 +17,9 @@ inputs = {
    location = "${location}" 
    identifier = {
       example_identifier = {
-         ...
+         offer = "..."   
+         publisher = "..."   
+         sku = "..."   
       }
   
    }

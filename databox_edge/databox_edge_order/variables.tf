@@ -17,7 +17,6 @@ variable "contact" {
 #
 # contact block structure:
 #   company_name (string)  : (REQUIRED) The name of the company. Changing this forces a new Databox Edge Order to be created.
-#   name (string)          : (REQUIRED) The contact person name. Changing this forces a new Databox Edge Order to be created.
 #   emails (list)          : (REQUIRED) A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created.
 #   phone_number (string)  : (REQUIRED) The phone number. Changing this forces a new Databox Edge Order to be created.
 

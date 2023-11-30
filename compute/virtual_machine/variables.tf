@@ -31,7 +31,6 @@ variable "storage_os_disk" {
 }
 #
 # storage_os_disk block structure :
-#   name (string)                   : (REQUIRED) Specifies the name of the OS Disk.
 #   create_option (string)          : (REQUIRED) Specifies how the OS Disk should be created. Possible values are 'Attach' (managed disks only) and 'FromImage'.
 #   caching (string)                : Specifies the caching requirements for the OS Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'.
 #   disk_size_gb (int)              : Specifies the size of the OS Disk in gigabytes.
@@ -74,15 +73,15 @@ variable "os_profile_windows_config" {
 #   winrm (block)                            : One or more 'winrm' blocks.
 #   additional_unattend_config (block)       : An 'additional_unattend_config' block.
 #
+# winrm block structure   :
+#   protocol (string)       : (REQUIRED) Specifies the protocol of listener. Possible values are 'HTTP' or 'HTTPS'.
+#   certificate_url (string): The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the 'vault_certificates' block within the 'os_profile_secrets' block.
+#
 # additional_unattend_config block structure:
 #   pass (string)                             : (REQUIRED) Specifies the name of the pass that the content applies to. The only allowable value is 'oobeSystem'.
 #   component (string)                        : (REQUIRED) Specifies the name of the component to configure with the added content. The only allowable value is 'Microsoft-Windows-Shell-Setup'.
 #   setting_name (string)                     : (REQUIRED) Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'.
 #   content (string)                          : (REQUIRED) Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
-#
-# winrm block structure   :
-#   protocol (string)       : (REQUIRED) Specifies the protocol of listener. Possible values are 'HTTP' or 'HTTPS'.
-#   certificate_url (string): The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the 'vault_certificates' block within the 'os_profile_secrets' block.
 
 
 variable "availability_set_id" {
@@ -172,7 +171,6 @@ variable "plan" {
 }
 #
 # plan block structure:
-#   name (string)       : (REQUIRED) Specifies the name of the image from the marketplace.
 #   publisher (string)  : (REQUIRED) Specifies the publisher of the image.
 #   product (string)    : (REQUIRED) Specifies the product of the image from the marketplace.
 
@@ -194,7 +192,6 @@ variable "storage_data_disk" {
 }
 #
 # storage_data_disk block structure:
-#   name (string)                    : (REQUIRED) The name of the Data Disk.
 #   caching (string)                 : Specifies the caching requirements for the Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'.
 #   create_option (string)           : (REQUIRED) Specifies how the data disk should be created. Possible values are 'Attach', 'FromImage' and 'Empty'.
 #   disk_size_gb (int)               : Specifies the size of the data disk in gigabytes.

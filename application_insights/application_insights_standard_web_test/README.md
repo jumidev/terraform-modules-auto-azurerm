@@ -18,7 +18,7 @@ inputs = {
    geo_locations = "geo_locations of application_insights_standard_web_test" 
    request = {
       example_request = {
-         ...
+         url = "..."   
       }
   
    }

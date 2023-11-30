@@ -15,7 +15,6 @@ variable "feature" {
 }
 #
 # feature block structure:
-#   name (string)          : (REQUIRED) Specifies the name of the feature to register.
 #   registered (string)    : (REQUIRED) Should this feature be Registered or Unregistered?
 
 

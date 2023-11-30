@@ -17,14 +17,16 @@ inputs = {
    vpn_authentication_types = "vpn_authentication_types of vpn_server_configuration" 
    azure_active_directory_authentication = {
       example_azure_active_directory_authentication = {
-         ...
+         audience = "..."   
+         issuer = "..."   
+         tenant = "..."   
       }
   
    }
  
    client_root_certificate = {
       example_client_root_certificate = {
-         ...
+         thumbprint = "..."   
       }
   
    }

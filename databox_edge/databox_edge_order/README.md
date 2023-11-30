@@ -15,14 +15,20 @@ inputs = {
    device_name = "device_name of databox_edge_order" 
    contact = {
       example_contact = {
-         ...
+         company_name = "..."   
+         emails = "..."   
+         phone_number = "..."   
       }
   
    }
  
    shipment_address = {
       example_shipment_address = {
-         ...
+         address = "..."   
+         city = "..."   
+         country = "..."   
+         postal_code = "..."   
+         state = "..."   
       }
   
    }

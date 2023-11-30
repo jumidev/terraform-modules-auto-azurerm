@@ -15,7 +15,8 @@ inputs = {
    cassandra_keyspace_id = "cassandra_keyspace_id of cosmosdb_cassandra_table" 
    schema = {
       example_schema = {
-         ...
+         column = "..."   
+         partition_key = "..."   
       }
   
    }

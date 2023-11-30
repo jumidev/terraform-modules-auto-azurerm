@@ -18,14 +18,17 @@ inputs = {
    sku = "sku of linux_virtual_machine_scale_set" 
    network_interface = {
       example_network_interface = {
-         ...
+         ip_configuration = "..."   
+         network_security_group_id = "TODO link to network.network_security_group.id"   
       }
   
    }
  
    os_disk = {
       example_os_disk = {
-         ...
+         caching = "..."   
+         storage_account_type = "..."   
+         disk_encryption_set_id = "TODO link to compute.disk_encryption_set.id"   
       }
   
    }

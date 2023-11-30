@@ -17,7 +17,8 @@ inputs = {
    service_precedence = "service_precedence of mobile_network_service" 
    pcc_rule = {
       example_pcc_rule = {
-         ...
+         precedence = "..."   
+         service_data_flow_template = "..."   
       }
   
    }

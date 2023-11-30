@@ -15,7 +15,10 @@ inputs = {
    http_gateway_port = "http_gateway_port of service_fabric_managed_cluster" 
    lb_rule = {
       example_lb_rule = {
-         ...
+         backend_port = "..."   
+         frontend_port = "..."   
+         probe_protocol = "..."   
+         protocol = "..."   
       }
   
    }

@@ -16,7 +16,6 @@ variable "source" {
 }
 #
 # source block structure         :
-#   name (string)                  : (REQUIRED) The name for the Data Flow Source.
 #   description (string)           : The description for the Data Flow Source.
 #   dataset (block)                : A 'dataset' block.
 #   flowlet (block)                : A 'flowlet' block.
@@ -24,26 +23,21 @@ variable "source" {
 #   rejected_linked_service (block): A 'rejected_linked_service' block.
 #   schema_linked_service (block)  : A 'schema_linked_service' block.
 #
-# dataset block structure:
-#   name (string)          : (REQUIRED) The name for the Data Factory Dataset.
-#   parameters (string)    : A map of parameters to associate with the Data Factory dataset.
-#
-# rejected_linked_service block structure:
-#   name (string)                          : (REQUIRED) The name for the Data Factory Linked Service with schema.
-#   parameters (string)                    : A map of parameters to associate with the Data Factory Linked Service.
+# linked_service block structure:
+#   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
 #
 # flowlet block structure    :
-#   name (string)              : (REQUIRED) The name for the Data Factory Flowlet.
 #   dataset_parameters (string): Specifies the reference data flow parameters from dataset.
 #   parameters (string)        : A map of parameters to associate with the Data Factory Flowlet.
 #
-# linked_service block structure:
-#   name (string)                 : (REQUIRED) The name for the Data Factory Linked Service.
-#   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
+# dataset block structure:
+#   parameters (string)    : A map of parameters to associate with the Data Factory dataset.
 #
 # schema_linked_service block structure:
-#   name (string)                        : (REQUIRED) The name for the Data Factory Linked Service with schema.
 #   parameters (string)                  : A map of parameters to associate with the Data Factory Linked Service.
+#
+# rejected_linked_service block structure:
+#   parameters (string)                    : A map of parameters to associate with the Data Factory Linked Service.
 
 
 variable "sink" {
@@ -52,7 +46,6 @@ variable "sink" {
 }
 #
 # sink block structure           :
-#   name (string)                  : (REQUIRED) The name for the Data Flow Source.
 #   description (string)           : The description for the Data Flow Source.
 #   dataset (block)                : A 'dataset' block.
 #   flowlet (block)                : A 'flowlet' block.
@@ -60,26 +53,21 @@ variable "sink" {
 #   rejected_linked_service (block): A 'rejected_linked_service' block.
 #   schema_linked_service (block)  : A 'schema_linked_service' block.
 #
-# dataset block structure:
-#   name (string)          : (REQUIRED) The name for the Data Factory Dataset.
-#   parameters (string)    : A map of parameters to associate with the Data Factory dataset.
-#
-# rejected_linked_service block structure:
-#   name (string)                          : (REQUIRED) The name for the Data Factory Linked Service with schema.
-#   parameters (string)                    : A map of parameters to associate with the Data Factory Linked Service.
+# linked_service block structure:
+#   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
 #
 # flowlet block structure    :
-#   name (string)              : (REQUIRED) The name for the Data Factory Flowlet.
 #   dataset_parameters (string): Specifies the reference data flow parameters from dataset.
 #   parameters (string)        : A map of parameters to associate with the Data Factory Flowlet.
 #
-# linked_service block structure:
-#   name (string)                 : (REQUIRED) The name for the Data Factory Linked Service.
-#   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
+# dataset block structure:
+#   parameters (string)    : A map of parameters to associate with the Data Factory dataset.
 #
 # schema_linked_service block structure:
-#   name (string)                        : (REQUIRED) The name for the Data Factory Linked Service with schema.
 #   parameters (string)                  : A map of parameters to associate with the Data Factory Linked Service.
+#
+# rejected_linked_service block structure:
+#   parameters (string)                    : A map of parameters to associate with the Data Factory Linked Service.
 
 
 
@@ -117,23 +105,19 @@ variable "transformation" {
 }
 #
 # transformation block structure:
-#   name (string)                 : (REQUIRED) The name for the Data Flow transformation.
 #   description (string)          : The description for the Data Flow transformation.
 #   dataset (block)               : A 'dataset' block.
 #   flowlet (block)               : A 'flowlet' block.
 #   linked_service (block)        : A 'linked_service' block.
 #
+# linked_service block structure:
+#   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
+#
 # flowlet block structure    :
-#   name (string)              : (REQUIRED) The name for the Data Factory Flowlet.
 #   dataset_parameters (string): Specifies the reference data flow parameters from dataset.
 #   parameters (string)        : A map of parameters to associate with the Data Factory Flowlet.
 #
 # dataset block structure:
-#   name (string)          : (REQUIRED) The name for the Data Factory Dataset.
 #   parameters (string)    : A map of parameters to associate with the Data Factory dataset.
-#
-# linked_service block structure:
-#   name (string)                 : (REQUIRED) The name for the Data Factory Linked Service.
-#   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
 
 

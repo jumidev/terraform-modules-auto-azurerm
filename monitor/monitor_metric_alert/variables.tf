@@ -34,7 +34,6 @@ variable "criteria" {
 #   skip_metric_validation (bool): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'.
 #
 # dimension block structure:
-#   name (string)            : (REQUIRED) One of the dimension names.
 #   operator (string)        : (REQUIRED) The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'.
 #   values (string)          : (REQUIRED) The list of dimension values.
 
@@ -58,7 +57,6 @@ variable "dynamic_criteria" {
 #   skip_metric_validation (string) : Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted?
 #
 # dimension block structure:
-#   name (string)            : (REQUIRED) One of the dimension names.
 #   operator (string)        : (REQUIRED) The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'.
 #   values (string)          : (REQUIRED) The list of dimension values.
 

@@ -17,7 +17,7 @@ inputs = {
    name = "name of cosmosdb_sql_role_definition" 
    permissions = {
       example_permissions = {
-         ...
+         data_actions = "..."   
       }
   
    }

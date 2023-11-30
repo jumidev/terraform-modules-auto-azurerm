@@ -18,7 +18,9 @@ inputs = {
    sql_image_sku = "sql_image_sku of mssql_virtual_machine_group" 
    wsfc_domain_profile = {
       example_wsfc_domain_profile = {
-         ...
+         cluster_subnet_type = "..."   
+         fqdn = "..."   
+         storage_account_url = "TODO link to storage.storage_account.url"   
       }
   
    }

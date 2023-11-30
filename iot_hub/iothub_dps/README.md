@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    sku = {
       example_sku = {
-         ...
+         capacity = "..."   
       }
   
    }

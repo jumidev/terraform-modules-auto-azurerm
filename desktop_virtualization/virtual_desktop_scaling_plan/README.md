@@ -16,7 +16,21 @@ inputs = {
    resource_group_name = "${resource_group}" 
    schedule = {
       example_schedule = {
-         ...
+         days_of_week = "..."   
+         off_peak_load_balancing_algorithm = "..."   
+         off_peak_start_time = "..."   
+         peak_load_balancing_algorithm = "..."   
+         peak_start_time = "..."   
+         ramp_down_capacity_threshold_percent = "..."   
+         ramp_down_force_logoff_users = "..."   
+         ramp_down_load_balancing_algorithm = "..."   
+         ramp_down_minimum_hosts_percent = "..."   
+         ramp_down_notification_message = "..."   
+         ramp_down_start_time = "..."   
+         ramp_down_stop_hosts_when = "..."   
+         ramp_down_wait_time_minutes = "..."   
+         ramp_up_load_balancing_algorithm = "..."   
+         ramp_up_start_time = "..."   
       }
   
    }

@@ -96,7 +96,6 @@ variable "resource_selectors" {
 }
 #
 # resource_selectors block structure:
-#   name (string)                     : Specifies a name for the resource selector.
 #   selectors (block)                 : (REQUIRED) One or more 'resource_selector' block.
 #
 # resource_selector block structure:

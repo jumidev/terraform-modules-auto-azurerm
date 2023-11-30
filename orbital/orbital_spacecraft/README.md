@@ -17,7 +17,10 @@ inputs = {
    norad_id = "norad_id of orbital_spacecraft" 
    links = {
       example_links = {
-         ...
+         bandwidth_mhz = "..."   
+         center_frequency_mhz = "..."   
+         direction = "..."   
+         polarization = "..."   
       }
   
    }

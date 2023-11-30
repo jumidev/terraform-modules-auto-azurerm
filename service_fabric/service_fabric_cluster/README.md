@@ -18,7 +18,10 @@ inputs = {
    management_endpoint = "management_endpoint of service_fabric_cluster" 
    node_type = {
       example_node_type = {
-         ...
+         instance_count = "..."   
+         is_primary = "..."   
+         client_endpoint_port = "..."   
+         http_endpoint_port = "..."   
       }
   
    }

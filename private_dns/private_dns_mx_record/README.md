@@ -15,7 +15,8 @@ inputs = {
    zone_name = "zone_name of private_dns_mx_record" 
    record = {
       example_record = {
-         ...
+         preference = "..."   
+         exchange = "..."   
       }
   
    }

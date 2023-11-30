@@ -16,21 +16,23 @@ inputs = {
    network_watcher_id = "network_watcher_id of network_connection_monitor" 
    endpoint = {
       example_endpoint = {
-         ...
+         target_resource_id = "TODO link to base.any_resource.id"   
       }
   
    }
  
    test_configuration = {
       example_test_configuration = {
-         ...
+         protocol = "..."   
       }
   
    }
  
    test_group = {
       example_test_group = {
-         ...
+         destination_endpoints = "..."   
+         source_endpoints = "..."   
+         test_configuration_names = "..."   
       }
   
    }

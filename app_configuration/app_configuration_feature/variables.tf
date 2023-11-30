@@ -55,7 +55,6 @@ variable "targeting_filter" {
 }
 #
 # targeting_filter block structure:
-#   name (string)                   : (REQUIRED) The name of the group.
 #   rollout_percentage (string)     : (REQUIRED) Rollout percentage of the group.
 
 

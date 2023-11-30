@@ -17,7 +17,7 @@ inputs = {
    key_vault_key_id = "key_vault_key_id of disk_encryption_set" 
    identity = {
       example_identity = {
-         ...
+         type = "..."   
       }
   
    }

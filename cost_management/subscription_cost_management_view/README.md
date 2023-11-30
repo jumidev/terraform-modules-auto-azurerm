@@ -15,7 +15,8 @@ inputs = {
    chart_type = "chart_type of subscription_cost_management_view" 
    dataset = {
       example_dataset = {
-         ...
+         aggregation = "..."   
+         granularity = "..."   
       }
   
    }

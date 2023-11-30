@@ -17,7 +17,7 @@ inputs = {
    distro = "distro of arc_resource_bridge_appliance" 
    identity = {
       example_identity = {
-         ...
+         type = "..."   
       }
   
    }

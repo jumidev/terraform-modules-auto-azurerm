@@ -16,7 +16,8 @@ inputs = {
    location = "${location}" 
    maintenance_window = {
       example_maintenance_window = {
-         ...
+         day_of_week = "..."   
+         time_of_day_in_utc = "..."   
       }
   
    }

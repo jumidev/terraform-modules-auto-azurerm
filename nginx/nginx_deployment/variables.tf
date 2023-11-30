@@ -84,7 +84,6 @@ variable "logging_storage_account" {
 #
 # logging_storage_account block structure:
 #   container_name (string)                : Specify the container name of Stoage Account for logging.
-#   name (string)                          : The account name of the StorageAccount for Nginx Logging.
 
 
 variable "network_interface" {

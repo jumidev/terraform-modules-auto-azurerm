@@ -15,14 +15,14 @@ inputs = {
    stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_function_javascript_uda" 
    input = {
       example_input = {
-         ...
+         type = "..."   
       }
   
    }
  
    output = {
       example_output = {
-         ...
+         type = "..."   
       }
   
    }

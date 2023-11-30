@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    profile = {
       example_profile = {
-         ...
+         capacity = "..."   
       }
   
    }

@@ -16,7 +16,8 @@ inputs = {
    bot_name = "bot_name of bot_channel_line" 
    line_channel = {
       example_line_channel = {
-         ...
+         access_token = "..."   
+         secret = "..."   
       }
   
    }

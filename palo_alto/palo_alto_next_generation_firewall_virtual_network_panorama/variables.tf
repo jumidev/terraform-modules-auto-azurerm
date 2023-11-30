@@ -46,7 +46,6 @@ variable "destination_nat" {
 }
 #
 # destination_nat block structure:
-#   name (string)                  : (REQUIRED) The name which should be used for this Destination NAT.
 #   protocol (string)              : (REQUIRED) The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'.
 #   backend_config (block)         : A 'backend_config' block.
 #   frontend_config (block)        : A 'frontend_config' block.

@@ -16,7 +16,7 @@ inputs = {
    vpn_gateway_id = "vpn_gateway_id of vpn_gateway_connection" 
    vpn_link = {
       example_vpn_link = {
-         ...
+         vpn_site_link_id = "..."   
       }
   
    }

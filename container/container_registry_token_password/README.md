@@ -13,8 +13,7 @@ source = {
 inputs = {
    container_registry_token_id = "container_registry_token_id of container_registry_token_password" 
    password1 = {
-      example_password1 = {
-         ...
+      example_password = {
       }
   
    }

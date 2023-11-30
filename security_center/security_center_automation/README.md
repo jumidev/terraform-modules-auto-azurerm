@@ -17,14 +17,15 @@ inputs = {
    scopes = "scopes of security_center_automation" 
    source = {
       example_source = {
-         ...
+         event_source = "..."   
       }
   
    }
  
    action = {
       example_action = {
-         ...
+         type = "..."   
+         resource_id = "..."   
       }
   
    }

@@ -15,7 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}" 
    suppression = {
       example_suppression = {
-         ...
+         recurrence_type = "..."   
       }
   
    }

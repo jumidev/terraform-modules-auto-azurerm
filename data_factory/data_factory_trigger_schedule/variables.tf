@@ -73,7 +73,6 @@ variable "pipeline" {
 }
 #
 # pipeline block structure:
-#   name (string)           : (REQUIRED) Reference pipeline name.
 #   parameters (string)     : The pipeline parameters that the trigger will act upon.
 
 

@@ -17,14 +17,16 @@ inputs = {
    server_name = "server_name of mssql_elasticpool" 
    sku = {
       example_sku = {
-         ...
+         capacity = "..."   
+         tier = "..."   
       }
   
    }
  
    per_database_settings = {
       example_per_database_settings = {
-         ...
+         min_capacity = "..."   
+         max_capacity = "..."   
       }
   
    }

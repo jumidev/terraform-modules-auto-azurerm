@@ -16,14 +16,15 @@ inputs = {
    location = "${location}" 
    storage_account = {
       example_storage_account = {
-         ...
+         user_assigned_identity_id = "..."   
       }
   
    }
  
    identity = {
       example_identity = {
-         ...
+         type = "..."   
+         identity_ids = "..."   
       }
   
    }

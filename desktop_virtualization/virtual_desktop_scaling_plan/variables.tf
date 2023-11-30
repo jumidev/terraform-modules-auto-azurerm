@@ -22,7 +22,6 @@ variable "schedule" {
 #
 # schedule block structure                     :
 #   days_of_week (string)                        : (REQUIRED) A list of Days of the Week on which this schedule will be used. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'
-#   name (string)                                : (REQUIRED) The name of the schedule.
 #   off_peak_load_balancing_algorithm (string)   : (REQUIRED) The load Balancing Algorithm to use during Off-Peak Hours. Possible values are 'DepthFirst' and 'BreadthFirst'.
 #   off_peak_start_time (string)                 : (REQUIRED) The time at which Off-Peak scaling will begin. This is also the end-time for the Ramp-Down period. The time must be specified in 'HH:MM' format.
 #   peak_load_balancing_algorithm (string)       : (REQUIRED) The load Balancing Algorithm to use during Peak Hours. Possible values are 'DepthFirst' and 'BreadthFirst'.

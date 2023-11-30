@@ -28,7 +28,6 @@ variable "configuration" {
 #   version (string)             : The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
 #
 # parameter block structure:
-#   name (string)            : (REQUIRED) The name of the configuration parameter to check.
 #   value (string)           : (REQUIRED) The value to check the configuration parameter with.
 
 

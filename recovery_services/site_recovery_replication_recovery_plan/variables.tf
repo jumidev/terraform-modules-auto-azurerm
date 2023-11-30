@@ -39,7 +39,6 @@ variable "shutdown_recovery_group" {
 #   post_action (block)                    : one or more 'action' block. which will be executed after the group recovery.
 #
 # action block structure            :
-#   name (string)                     : (REQUIRED) Name of the Action.
 #   type (string)                     : (REQUIRED) Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'.
 #   fail_over_directions (string)     : (REQUIRED) Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary'
 #   fail_over_types (string)          : (REQUIRED) Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover'
@@ -60,7 +59,6 @@ variable "failover_recovery_group" {
 #   post_action (block)                    : one or more 'action' block. which will be executed after the group recovery.
 #
 # action block structure            :
-#   name (string)                     : (REQUIRED) Name of the Action.
 #   type (string)                     : (REQUIRED) Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'.
 #   fail_over_directions (string)     : (REQUIRED) Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary'
 #   fail_over_types (string)          : (REQUIRED) Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover'
@@ -82,7 +80,6 @@ variable "boot_recovery_group" {
 #   post_action (block)                : one or more 'action' block. which will be executed after the group recovery.
 #
 # action block structure            :
-#   name (string)                     : (REQUIRED) Name of the Action.
 #   type (string)                     : (REQUIRED) Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'.
 #   fail_over_directions (string)     : (REQUIRED) Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary'
 #   fail_over_types (string)          : (REQUIRED) Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover'

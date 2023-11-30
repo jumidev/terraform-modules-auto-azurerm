@@ -17,7 +17,6 @@ inputs = {
    batch_group_name = "batch_group_name of logic_app_integration_account_batch_configuration" 
    release_criteria = {
       example_release_criteria = {
-         ...
       }
   
    }

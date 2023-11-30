@@ -16,7 +16,8 @@ inputs = {
    location = "${location}" 
    nat_ip_configuration = {
       example_nat_ip_configuration = {
-         ...
+         subnet_id = "TODO link to network.subnet.id"   
+         primary =    
       }
   
    }

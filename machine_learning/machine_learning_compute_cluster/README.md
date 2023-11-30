@@ -18,7 +18,9 @@ inputs = {
    vm_size = "vm_size of machine_learning_compute_cluster" 
    scale_settings = {
       example_scale_settings = {
-         ...
+         max_node_count = "..."   
+         min_node_count = "..."   
+         scale_down_nodes_after_idle_duration = "..."   
       }
   
    }

@@ -16,7 +16,10 @@ inputs = {
    zone_name = "zone_name of private_dns_srv_record" 
    record = {
       example_record = {
-         ...
+         priority = "..."   
+         weight = "..."   
+         port = "..."   
+         target = "..."   
       }
   
    }

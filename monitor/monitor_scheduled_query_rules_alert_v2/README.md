@@ -16,7 +16,10 @@ inputs = {
    location = "${location}" 
    criteria = {
       example_criteria = {
-         ...
+         operator = "..."   
+         query = "..."   
+         threshold = "..."   
+         time_aggregation_method = "..."   
       }
   
    }

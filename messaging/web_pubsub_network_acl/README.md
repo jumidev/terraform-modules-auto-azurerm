@@ -14,7 +14,6 @@ inputs = {
    web_pubsub_id = "web_pubsub_id of web_pubsub_network_acl" 
    public_network = {
       example_public_network = {
-         ...
       }
   
    }

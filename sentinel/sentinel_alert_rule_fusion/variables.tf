@@ -30,12 +30,10 @@ variable "source" {
 }
 #
 # source block structure:
-#   name (string)         : (REQUIRED) The name of the Fusion source signal. Refer to Fusion alert rule template for supported values.
 #   enabled (bool)        : Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'.
 #   sub_type (block)      : One or more 'sub_type' blocks.
 #
 # sub_type block structure   :
-#   name (string)              : (REQUIRED) The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values.
 #   enabled (bool)             : Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to 'true'.
 #   severities_allowed (string): (REQUIRED) A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are 'High', 'Medium', 'Low', 'Informational'.
 

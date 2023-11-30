@@ -19,7 +19,6 @@ inputs = {
    time_zone_id = "time_zone_id of dev_test_schedule" 
    notification_settings = {
       example_notification_settings = {
-         ...
       }
   
    }

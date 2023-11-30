@@ -19,7 +19,18 @@ inputs = {
    resource_group_name = "${resource_group}" 
    volume = {
       example_volume = {
-         ...
+         capacity_pool_id = "..."   
+         protocols = "..."   
+         proximity_placement_group_id = "TODO link to compute.proximity_placement_group.id"   
+         security_style = "..."   
+         service_level = "..."   
+         snapshot_directory_visible = "..."   
+         storage_quota_in_gb = "..."   
+         subnet_id = "TODO link to network.subnet.id"   
+         throughput_in_mibps = "..."   
+         volume_path = "..."   
+         volume_spec_name = "..."   
+         export_policy_rule = "..."   
       }
   
    }

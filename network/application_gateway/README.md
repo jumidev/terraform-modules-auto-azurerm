@@ -16,56 +16,59 @@ inputs = {
    location = "${location}" 
    backend_address_pool = {
       example_backend_address_pool = {
-         ...
       }
   
    }
  
    backend_http_settings = {
       example_backend_http_settings = {
-         ...
       }
   
    }
  
    frontend_ip_configuration = {
       example_frontend_ip_configuration = {
-         ...
+         subnet_id = "TODO link to network.subnet.id"   
+         public_ip_address_id = "TODO link to network.public_ip.id"   
       }
   
    }
  
    frontend_port = {
       example_frontend_port = {
-         ...
+         port = "..."   
       }
   
    }
  
    gateway_ip_configuration = {
       example_gateway_ip_configuration = {
-         ...
+         subnet_id = "TODO link to network.subnet.id"   
       }
   
    }
  
    http_listener = {
       example_http_listener = {
-         ...
+         frontend_ip_configuration_name = "TODO link to load_balancer.lb_outbound_rule.frontend_ip_configuration"   
+         frontend_port_name = "..."   
+         protocol = "..."   
+         firewall_policy_id = "TODO link to network.firewall_policy.id"   
       }
   
    }
  
    request_routing_rule = {
       example_request_routing_rule = {
-         ...
+         rule_type = "..."   
+         http_listener_name = "..."   
       }
   
    }
  
    sku = {
       example_sku = {
-         ...
+         tier = "..."   
       }
   
    }

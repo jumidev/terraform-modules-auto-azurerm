@@ -36,7 +36,6 @@ variable "custom_rules" {
 #
 # custom_rules block structure :
 #   enabled (bool)               : Describes if the policy is in enabled state or disabled state. Defaults to 'true'.
-#   name (string)                : Gets name of the resource that is unique within a policy. This name can be used to access the resource.
 #   priority (string)            : (REQUIRED) Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
 #   rule_type (string)           : (REQUIRED) Describes the type of rule. Possible values are 'MatchRule', 'RateLimitRule' and 'Invalid'.
 #   match_conditions (block)     : (REQUIRED) One or more 'match_conditions' blocks.

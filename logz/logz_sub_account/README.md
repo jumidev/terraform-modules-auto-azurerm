@@ -15,7 +15,10 @@ inputs = {
    logz_monitor_id = "logz_monitor_id of logz_sub_account" 
    user = {
       example_user = {
-         ...
+         email = "..."   
+         first_name = "..."   
+         last_name = "..."   
+         phone_number = "..."   
       }
   
    }

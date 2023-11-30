@@ -15,7 +15,7 @@ inputs = {
    capacity_reservation_group_id = "capacity_reservation_group_id of capacity_reservation" 
    sku = {
       example_sku = {
-         ...
+         capacity = "..."   
       }
   
    }

@@ -17,14 +17,15 @@ inputs = {
    sku_name = "sku_name of datadog_monitors" 
    user = {
       example_user = {
-         ...
+         email = "..."   
       }
   
    }
  
    datadog_organization = {
       example_datadog_organization = {
-         ...
+         api_key = "..."   
+         application_key = "..."   
       }
   
    }

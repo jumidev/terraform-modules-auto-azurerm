@@ -18,7 +18,6 @@ inputs = {
    action = "action of firewall_application_rule_collection" 
    rule = {
       example_rule = {
-         ...
       }
   
    }

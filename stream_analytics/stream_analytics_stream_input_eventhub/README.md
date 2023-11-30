@@ -18,7 +18,7 @@ inputs = {
    servicebus_namespace = "servicebus_namespace of stream_analytics_stream_input_eventhub" 
    serialization = {
       example_serialization = {
-         ...
+         type = "..."   
       }
   
    }

@@ -17,14 +17,15 @@ inputs = {
    offer_type = "offer_type of cosmosdb_account" 
    consistency_policy = {
       example_consistency_policy = {
-         ...
+         consistency_level = "..."   
       }
   
    }
  
    geo_location = {
       example_geo_location = {
-         ...
+         location = "..."   
+         failover_priority = "..."   
       }
   
    }

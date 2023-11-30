@@ -17,7 +17,9 @@ inputs = {
    panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_vhub_panorama" 
    network_profile = {
       example_network_profile = {
-         ...
+         network_virtual_appliance_id = "..."   
+         public_ip_address_ids = "TODO link to network.public_ip.id"   
+         virtual_hub_id = "TODO link to network.virtual_hub.id"   
       }
   
    }

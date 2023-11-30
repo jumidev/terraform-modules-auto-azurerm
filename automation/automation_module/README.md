@@ -16,7 +16,7 @@ inputs = {
    automation_account_name = "automation_account_name of automation_module" 
    module_link = {
       example_module_link = {
-         ...
+         uri = "..."   
       }
   
    }

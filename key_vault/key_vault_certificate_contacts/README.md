@@ -14,7 +14,7 @@ inputs = {
    key_vault_id = "key_vault_id of key_vault_certificate_contacts" 
    contact = {
       example_contact = {
-         ...
+         email = "..."   
       }
   
    }

@@ -16,14 +16,16 @@ inputs = {
    traffic_routing_method = "traffic_routing_method of traffic_manager_profile" 
    dns_config = {
       example_dns_config = {
-         ...
+         relative_name = "..."   
+         ttl = "..."   
       }
   
    }
  
    monitor_config = {
       example_monitor_config = {
-         ...
+         protocol = "..."   
+         port = "..."   
       }
   
    }

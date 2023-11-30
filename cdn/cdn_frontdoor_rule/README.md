@@ -16,7 +16,6 @@ inputs = {
    order = "order of cdn_frontdoor_rule" 
    actions = {
       example_actions = {
-         ...
       }
   
    }

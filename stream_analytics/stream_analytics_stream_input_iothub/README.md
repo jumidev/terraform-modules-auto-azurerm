@@ -19,7 +19,7 @@ inputs = {
    iothub_namespace = "iothub_namespace of stream_analytics_stream_input_iothub" 
    serialization = {
       example_serialization = {
-         ...
+         type = "..."   
       }
   
    }

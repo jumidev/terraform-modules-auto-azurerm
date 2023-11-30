@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    key_property = {
       example_key_property = {
-         ...
+         type = "..."   
       }
   
    }

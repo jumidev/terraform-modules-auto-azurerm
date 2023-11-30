@@ -18,7 +18,11 @@ inputs = {
    action = "action of firewall_nat_rule_collection" 
    rule = {
       example_rule = {
-         ...
+         destination_addresses = "..."   
+         destination_ports = "..."   
+         protocols = "..."   
+         translated_address = "..."   
+         translated_port = "..."   
       }
   
    }

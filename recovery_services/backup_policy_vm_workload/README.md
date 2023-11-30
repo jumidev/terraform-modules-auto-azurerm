@@ -16,14 +16,15 @@ inputs = {
    recovery_vault_name = "recovery_vault_name of backup_policy_vm_workload" 
    protection_policy = {
       example_protection_policy = {
-         ...
+         policy_type = "..."   
+         backup = "..."   
       }
   
    }
  
    settings = {
       example_settings = {
-         ...
+         time_zone = "..."   
       }
   
    }

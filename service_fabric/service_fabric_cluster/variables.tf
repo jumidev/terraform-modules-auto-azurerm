@@ -31,7 +31,6 @@ variable "node_type" {
 }
 #
 # node_type block structure           :
-#   name (string)                       : (REQUIRED) The name of the Node Type.
 #   placement_properties (string)       : The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
 #   capacities (string)                 : The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
 #   instance_count (int)                : (REQUIRED) The number of nodes for this Node Type.
@@ -187,7 +186,6 @@ variable "fabric_settings" {
 }
 #
 # fabric_settings block structure:
-#   name (string)                  : (REQUIRED) The name of the Fabric Setting, such as 'Security' or 'Federation'.
 #   parameters (string)            : A map containing settings for the specified Fabric Setting.
 
 

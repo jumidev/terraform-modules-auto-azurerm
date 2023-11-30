@@ -13,7 +13,6 @@ source = {
 inputs = {
    input = {
       example_input = {
-         ...
       }
   
    }

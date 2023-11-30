@@ -15,7 +15,8 @@ inputs = {
    name = "name of palo_alto_next_generation_firewall_virtual_network_panorama" 
    network_profile = {
       example_network_profile = {
-         ...
+         public_ip_address_ids = "TODO link to network.public_ip.id"   
+         vnet_configuration = "..."   
       }
   
    }

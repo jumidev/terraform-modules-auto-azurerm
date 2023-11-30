@@ -18,7 +18,8 @@ inputs = {
    workspace_name = "workspace_name of log_analytics_solution" 
    plan = {
       example_plan = {
-         ...
+         publisher = "..."   
+         product = "..."   
       }
   
    }

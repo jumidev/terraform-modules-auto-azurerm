@@ -31,7 +31,6 @@ variable "network_interface" {
 }
 #
 # network_interface block structure   :
-#   name (string)                       : (REQUIRED) The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
 #   ip_configuration (list)             : (REQUIRED) One or more 'ip_configuration' blocks.
 #   dns_servers (list)                  : A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 #   enable_accelerated_networking (bool): Does this Network Interface support Accelerated Networking? Defaults to 'false'.
@@ -143,7 +142,6 @@ variable "data_disk" {
 }
 #
 # data_disk block structure              :
-#   name (string)                          : The name of the Data Disk.
 #   caching (string)                       : (REQUIRED) The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.
 #   create_option (string)                 : The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks).
 #   disk_size_gb (int)                     : (REQUIRED) The size of the Data Disk which should be created.
@@ -182,7 +180,6 @@ variable "extension" {
 }
 #
 # extension block structure                :
-#   name (string)                            : (REQUIRED) The name for the Virtual Machine Scale Set Extension.
 #   publisher (string)                       : (REQUIRED) Specifies the Publisher of the Extension.
 #   type (string)                            : (REQUIRED) Specifies the Type of the Extension.
 #   type_handler_version (string)            : (REQUIRED) Specifies the version of the extension to use, available versions can be found using the Azure CLI.
@@ -265,7 +262,6 @@ variable "plan" {
 }
 #
 # plan block structure:
-#   name (string)       : (REQUIRED) Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
 #   publisher (string)  : (REQUIRED) Specifies the publisher of the image. Changing this forces a new resource to be created.
 #   product (string)    : (REQUIRED) Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.
 

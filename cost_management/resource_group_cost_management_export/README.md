@@ -18,14 +18,16 @@ inputs = {
    recurrence_period_end_date = "recurrence_period_end_date of resource_group_cost_management_export" 
    export_data_storage_location = {
       example_export_data_storage_location = {
-         ...
+         container_id = "..."   
+         root_folder_path = "..."   
       }
   
    }
  
    export_data_options = {
       example_export_data_options = {
-         ...
+         type = "..."   
+         time_frame = "..."   
       }
   
    }

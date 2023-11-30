@@ -16,7 +16,6 @@ inputs = {
    bot_name = "bot_name of bot_channel_directline" 
    site = {
       example_site = {
-         ...
       }
   
    }

@@ -15,7 +15,6 @@ inputs = {
    cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_origin_group" 
    load_balancing = {
       example_load_balancing = {
-         ...
       }
   
    }

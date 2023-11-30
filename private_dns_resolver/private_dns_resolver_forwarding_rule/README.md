@@ -16,7 +16,7 @@ inputs = {
    domain_name = "domain_name of private_dns_resolver_forwarding_rule" 
    target_dns_servers = {
       example_target_dns_servers = {
-         ...
+         ip_address = "..."   
       }
   
    }

@@ -15,7 +15,6 @@ inputs = {
    cluster_id = "cluster_id of kubernetes_flux_configuration" 
    kustomizations = {
       example_kustomizations = {
-         ...
       }
   
    }

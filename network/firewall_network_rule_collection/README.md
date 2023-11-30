@@ -18,7 +18,8 @@ inputs = {
    action = "action of firewall_network_rule_collection" 
    rule = {
       example_rule = {
-         ...
+         destination_ports = "..."   
+         protocols = "..."   
       }
   
    }

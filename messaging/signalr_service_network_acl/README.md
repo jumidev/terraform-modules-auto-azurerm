@@ -15,7 +15,6 @@ inputs = {
    default_action = "default_action of signalr_service_network_acl" 
    public_network = {
       example_public_network = {
-         ...
       }
   
    }

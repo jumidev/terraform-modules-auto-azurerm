@@ -13,14 +13,14 @@ source = {
 inputs = {
    data_flow = {
       example_data_flow = {
-         ...
+         destinations = "..."   
+         streams = "..."   
       }
   
    }
  
    destinations = {
       example_destinations = {
-         ...
       }
   
    }

@@ -26,7 +26,6 @@ variable "log" {
 #   filter (block)                 : A 'filter' block.
 #
 # filter block structure:
-#   name (string)         : (REQUIRED) Name of the Tag.
 #   value (string)        : (REQUIRED) Value of the Tag.
 #   action (string)       : (REQUIRED) Allowed values Include or Exclude.
 
@@ -41,7 +40,6 @@ variable "metric" {
 #   filter (block)        : A 'filter' block.
 #
 # filter block structure:
-#   name (string)         : (REQUIRED) Name of the Tag.
 #   value (string)        : (REQUIRED) Value of the Tag.
 #   action (string)       : (REQUIRED) Allowed values Include or Exclude.
 

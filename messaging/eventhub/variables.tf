@@ -43,7 +43,6 @@ variable "capture_description" {
 #   destination (block)                : (REQUIRED) A 'destination' block.
 #
 # destination block structure :
-#   name (string)               : (REQUIRED) The Name of the Destination where the capture should take place. At this time the only supported value is 'EventHubArchive.AzureBlockBlob'.
 #   archive_name_format (string): (REQUIRED) The Blob naming convention for archiving. e.g. '{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}'. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
 #   blob_container_name (string): (REQUIRED) The name of the Container within the Blob Storage Account where messages should be archived.
 #   storage_account_id (string) : (REQUIRED) The ID of the Blob Storage Account where messages should be archived.

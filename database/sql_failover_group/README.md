@@ -16,14 +16,13 @@ inputs = {
    server_name = "server_name of sql_failover_group" 
    partner_servers = {
       example_partner_servers = {
-         ...
       }
   
    }
  
    read_write_endpoint_failover_policy = {
       example_read_write_endpoint_failover_policy = {
-         ...
+         mode = "..."   
       }
   
    }

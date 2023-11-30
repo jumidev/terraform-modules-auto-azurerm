@@ -20,7 +20,8 @@ inputs = {
    platforms = "platforms of voice_services_communications_gateway" 
    service_location = {
       example_service_location = {
-         ...
+         location = "..."   
+         operator_addresses = "..."   
       }
   
    }

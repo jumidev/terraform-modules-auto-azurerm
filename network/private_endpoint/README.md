@@ -17,7 +17,7 @@ inputs = {
    subnet_id = "subnet_id of private_endpoint" 
    private_service_connection = {
       example_private_service_connection = {
-         ...
+         is_manual_connection = "..."   
       }
   
    }

@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    security = {
       example_security = {
-         ...
+         open_access_enabled = "..."   
       }
   
    }
@@ -24,7 +24,9 @@ inputs = {
    title = "title of lab_service_lab" 
    virtual_machine = {
       example_virtual_machine = {
-         ...
+         admin_user = "..."   
+         image_reference = "..."   
+         sku = "..."   
       }
   
    }

@@ -90,7 +90,6 @@ variable "token_body_parameter" {
 }
 #
 # token_body_parameter block structure:
-#   name (string)                       : (REQUIRED) The Name of the Parameter.
 #   value (string)                      : (REQUIRED) The Value of the Parameter.
 
 

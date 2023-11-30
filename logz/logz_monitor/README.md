@@ -16,14 +16,19 @@ inputs = {
    location = "${location}" 
    plan = {
       example_plan = {
-         ...
+         billing_cycle = "..."   
+         effective_date = "..."   
+         usage_type = "..."   
       }
   
    }
  
    user = {
       example_user = {
-         ...
+         email = "..."   
+         first_name = "..."   
+         last_name = "..."   
+         phone_number = "..."   
       }
   
    }

@@ -15,7 +15,6 @@ inputs = {
    api_management_id = "api_management_id of api_management_gateway" 
    location_data = {
       example_location_data = {
-         ...
       }
   
    }

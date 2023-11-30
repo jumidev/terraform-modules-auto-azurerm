@@ -16,7 +16,7 @@ inputs = {
    zone_name = "zone_name of private_dns_txt_record" 
    record = {
       example_record = {
-         ...
+         value = "..."   
       }
   
    }

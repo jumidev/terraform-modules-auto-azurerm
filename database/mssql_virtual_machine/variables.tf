@@ -55,7 +55,6 @@ variable "key_vault_credential" {
 }
 #
 # key_vault_credential block structure:
-#   name (string)                       : (REQUIRED) The credential name.
 #   key_vault_url (string)              : (REQUIRED) The Azure Key Vault url. Changing this forces a new resource to be created.
 #   service_principal_name (string)     : (REQUIRED) The service principal name to access key vault. Changing this forces a new resource to be created.
 #   service_principal_secret (string)   : (REQUIRED) The service principal name secret to access key vault. Changing this forces a new resource to be created.
@@ -111,6 +110,10 @@ variable "storage_configuration" {
 #   system_db_on_data_disk_enabled (bool): Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'.
 #   temp_db_settings (block)             : An 'temp_db_settings' block.
 #
+# storage_settings block structure:
+#   default_file_path (string)      : (REQUIRED) The SQL Server default path
+#   luns (list)                     : (REQUIRED) A list of Logical Unit Numbers for the disks.
+#
 # temp_db_settings block structure:
 #   default_file_path (string)      : (REQUIRED) The SQL Server default path
 #   luns (list)                     : (REQUIRED) A list of Logical Unit Numbers for the disks.
@@ -119,10 +122,6 @@ variable "storage_configuration" {
 #   data_file_growth_in_mb (int)    : The SQL Server default file size - This value defaults to '512'
 #   log_file_size_mb (int)          : The SQL Server default file size - This value defaults to '256'
 #   log_file_growth_mb (int)        : The SQL Server default file size - This value defaults to '512'
-#
-# storage_settings block structure:
-#   default_file_path (string)      : (REQUIRED) The SQL Server default path
-#   luns (list)                     : (REQUIRED) A list of Logical Unit Numbers for the disks.
 
 
 variable "assessment" {

@@ -16,7 +16,6 @@ variable "linked_service" {
 }
 #
 # linked_service block structure:
-#   name (string)                 : (REQUIRED) The name of the Data Factory Linked Service.
 #   parameters (string)           : A map of parameters to associate with the Data Factory Linked Service.
 
 

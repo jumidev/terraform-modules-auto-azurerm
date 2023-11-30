@@ -15,14 +15,15 @@ inputs = {
    cognitive_account_id = "cognitive_account_id of cognitive_deployment" 
    model = {
       example_model = {
-         ...
+         format = "..."   
+         version = "..."   
       }
   
    }
  
    scale = {
       example_scale = {
-         ...
+         type = "..."   
       }
   
    }

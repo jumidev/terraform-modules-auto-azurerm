@@ -16,7 +16,7 @@ inputs = {
    scopes = "scopes of monitor_activity_log_alert" 
    criteria = {
       example_criteria = {
-         ...
+         category = "..."   
       }
   
    }

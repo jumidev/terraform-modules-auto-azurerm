@@ -12,8 +12,10 @@ source = {
 
 inputs = {
    ip_configuration = {
-      example_ip_configuration = {
-         ...
+      primary = {
+         subnet_id = "TODO link to network.subnet.id"   
+         private_ip_address_allocation = "Dynamic"   
+         public_ip_address_id = "TODO link to network.public_ip.id"   
       }
   
    }

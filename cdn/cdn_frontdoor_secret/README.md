@@ -15,7 +15,7 @@ inputs = {
    cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_secret" 
    secret = {
       example_secret = {
-         ...
+         customer_certificate = "..."   
       }
   
    }

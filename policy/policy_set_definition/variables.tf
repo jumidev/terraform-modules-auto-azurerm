@@ -37,7 +37,6 @@ variable "policy_definition_group" {
 }
 #
 # policy_definition_group block structure :
-#   name (string)                           : (REQUIRED) The name of this policy definition group.
 #   display_name (string)                   : The display name of this policy definition group.
 #   category (string)                       : The category of this policy definition group.
 #   description (string)                    : The description of this policy definition group.

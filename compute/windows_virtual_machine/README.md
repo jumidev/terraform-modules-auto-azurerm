@@ -18,7 +18,9 @@ inputs = {
    network_interface_ids = "network_interface_ids of windows_virtual_machine" 
    os_disk = {
       example_os_disk = {
-         ...
+         caching = "..."   
+         storage_account_type = "..."   
+         disk_encryption_set_id = "TODO link to compute.disk_encryption_set.id"   
       }
   
    }

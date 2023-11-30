@@ -21,7 +21,6 @@ variable "sku" {
 }
 #
 # sku block structure:
-#   name (string)      : (REQUIRED) The name of the sku. Possible values are 'B1', 'B2', 'B3', 'F1', 'S1', 'S2', and 'S3'.
 #   capacity (int)     : (REQUIRED) The number of provisioned IoT Hub units.
 
 
@@ -51,7 +50,6 @@ variable "endpoint" {
 #
 # endpoint block structure        :
 #   type (string)                   : (REQUIRED) The type of the endpoint. Possible values are 'AzureIotHub.StorageContainer', 'AzureIotHub.ServiceBusQueue', 'AzureIotHub.ServiceBusTopic' or 'AzureIotHub.EventHub'.
-#   name (string)                   : (REQUIRED) The name of the endpoint. The name must be unique across endpoint types. The following names are reserved: 'events', 'operationsMonitoringEvents', 'fileNotifications' and '$default'.
 #   authentication_type (string)    : The type used to authenticate against the endpoint. Possible values are 'keyBased' and 'identityBased'. Defaults to 'keyBased'.
 #   identity_id (string)            : The ID of the User Managed Identity used to authenticate against the endpoint.
 #   endpoint_uri (string)           : URI of the Service Bus or Event Hubs Namespace endpoint. This attribute can only be specified and is mandatory when 'authentication_type' is 'identityBased' for endpoint type 'AzureIotHub.ServiceBusQueue', 'AzureIotHub.ServiceBusTopic' or 'AzureIotHub.EventHub'.
@@ -119,7 +117,6 @@ variable "network_rule_set" {
 #   ip_rule (block)                          : One or more 'ip_rule' blocks.
 #
 # ip_rule block structure:
-#   name (string)          : (REQUIRED) The name of the IP rule.
 #   ip_mask (string)       : (REQUIRED) The IP address range in CIDR notation for the IP rule.
 #   action (string)        : The desired action for requests captured by this rule. Possible values are 'Allow'. Defaults to 'Allow'.
 
@@ -131,7 +128,6 @@ variable "route" {
 }
 #
 # route block structure  :
-#   name (string)          : (REQUIRED) The name of the route.
 #   source (string)        : (REQUIRED) The source that the routing rule is to be applied to, such as 'DeviceMessages'. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents', 'DeviceConnectionStateEvents', 'DeviceJobLifecycleEvents' and 'DigitalTwinChangeEvents'.
 #   condition (bool)       : The condition that is evaluated to apply the routing rule. Defaults to 'true'. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>.
 #   endpoint_names (string): (REQUIRED) The list of endpoints to which messages that satisfy the condition are routed.

@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    single_network_slice_selection_assistance_information = {
       example_single_network_slice_selection_assistance_information = {
-         ...
+         slice_service_type = "..."   
       }
   
    }

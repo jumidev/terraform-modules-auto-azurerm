@@ -17,7 +17,7 @@ inputs = {
    scope_resource_ids = "scope_resource_ids of monitor_smart_detector_alert_rule" 
    action_group = {
       example_action_group = {
-         ...
+         ids = "..."   
       }
   
    }

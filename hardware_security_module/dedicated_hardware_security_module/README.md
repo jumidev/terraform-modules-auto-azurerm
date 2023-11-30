@@ -16,7 +16,8 @@ inputs = {
    location = "${location}" 
    network_profile = {
       example_network_profile = {
-         ...
+         network_interface_private_ip_addresses = "..."   
+         subnet_id = "TODO link to network.subnet.id"   
       }
   
    }

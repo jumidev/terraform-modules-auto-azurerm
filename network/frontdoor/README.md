@@ -15,35 +15,37 @@ inputs = {
    resource_group_name = "${resource_group}" 
    backend_pool = {
       example_backend_pool = {
-         ...
+         backend = "..."   
+         load_balancing_name = "..."   
+         health_probe_name = "..."   
       }
   
    }
  
    backend_pool_health_probe = {
       example_backend_pool_health_probe = {
-         ...
       }
   
    }
  
    backend_pool_load_balancing = {
       example_backend_pool_load_balancing = {
-         ...
       }
   
    }
  
    frontend_endpoint = {
       example_frontend_endpoint = {
-         ...
+         host_name = "..."   
       }
   
    }
  
    routing_rule = {
       example_routing_rule = {
-         ...
+         frontend_endpoints = "..."   
+         accepted_protocols = "..."   
+         patterns_to_match = "..."   
       }
   
    }

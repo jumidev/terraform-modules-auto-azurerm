@@ -19,7 +19,7 @@ inputs = {
    storage_account_id = "storage_account_id of machine_learning_workspace" 
    identity = {
       example_identity = {
-         ...
+         type = "..."   
       }
   
    }

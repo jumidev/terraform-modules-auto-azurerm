@@ -16,7 +16,7 @@ inputs = {
    name = "name of active_directory_domain_service" 
    initial_replica_set = {
       example_initial_replica_set = {
-         ...
+         subnet_id = "TODO link to network.subnet.id"   
       }
   
    }

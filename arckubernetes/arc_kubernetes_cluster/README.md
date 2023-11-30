@@ -16,7 +16,7 @@ inputs = {
    agent_public_key_certificate = "agent_public_key_certificate of arc_kubernetes_cluster" 
    identity = {
       example_identity = {
-         ...
+         type = "..."   
       }
   
    }

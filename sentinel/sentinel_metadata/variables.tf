@@ -35,7 +35,6 @@ variable "author" {
 }
 #
 # author block structure:
-#   name (string)         : The name of the author, company or person.
 #   email (string)        : The email address of the author contact.
 #   link (string)         : The link for author/vendor page.
 
@@ -112,7 +111,6 @@ variable "source" {
 }
 #
 # source block structure:
-#   name (string)         : The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.
 #   kind (string)         : (REQUIRED) The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'.
 
 
@@ -126,7 +124,6 @@ variable "support" {
 #   tier (string)          : (REQUIRED) The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'.
 #   email (string)         : The email address of the support contact.
 #   link (string)          : The link for support help.
-#   name (string)          : The name of the support contact.
 
 
 variable "threat_analysis_tactics" {

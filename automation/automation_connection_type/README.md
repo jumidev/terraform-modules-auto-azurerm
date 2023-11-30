@@ -16,7 +16,7 @@ inputs = {
    automation_account_name = "automation_account_name of automation_connection_type" 
    field = {
       example_field = {
-         ...
+         type = "..."   
       }
   
    }
