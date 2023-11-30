@@ -32,11 +32,11 @@ tfstate_store = {
 | **var.account_id** | string | True | -  |  The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created. | 
 | **var.kind** | string | True | `CopyBased`, `InPlace`  |  The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created. | 
 | **var.description** | string | False | -  |  The Data Share's description. | 
-| **var.snapshot_schedule** | block | False | -  |  A `snapshot_schedule` block. | | `snapshot_schedule` block structure: || 
+| **var.snapshot_schedule** | block | False | -  |  A `snapshot_schedule` block. | 
+| `snapshot_schedule` block structure: || 
 |   name (string): (REQUIRED) The name of the snapshot schedule. ||
 |   recurrence (string): (REQUIRED) The interval of the synchronization with the source data. Possible values are 'Hour' and 'Day'. ||
 |   start_time (string): (REQUIRED) The synchronization with the source data's start time. ||
-
 | **var.terms** | string | False | -  |  The terms of the Data Share. | 
 
 

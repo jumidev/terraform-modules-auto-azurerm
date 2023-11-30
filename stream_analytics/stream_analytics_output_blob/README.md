@@ -42,12 +42,12 @@ tfstate_store = {
 | **var.storage_account_name** | string | True | -  |  -  |  The name of the Storage Account. | 
 | **var.storage_container_name** | string | True | -  |  -  |  The name of the Container within the Storage Account. | 
 | **var.time_format** | string | True | -  |  -  |  The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead. | 
-| **var.serialization** | block | True | -  |  -  |  A `serialization` block. | | `serialization` block structure: || 
+| **var.serialization** | block | True | -  |  -  |  A `serialization` block. | 
+| `serialization` block structure: || 
 |   type (string): (REQUIRED) The serialization format used for outgoing data streams. Possible values are 'Avro', 'Csv', 'Json' and 'Parquet'. ||
 |   encoding (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'. ||
 |   field_delimiter (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'. ||
 |   format (string): Specifies the format of the JSON the output will be written in. Possible values are 'Array' and 'LineSeparated'. ||
-
 | **var.authentication_mode** | string | False | `ConnectionString`  |  `Msi`, `ConnectionString`  |  The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
 | **var.batch_max_wait_time** | string | False | -  |  -  |  The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes. | 
 | **var.batch_min_rows** | int | False | -  |  -  |  The minimum number of rows per batch (must be between `0` and `1000000`). | 

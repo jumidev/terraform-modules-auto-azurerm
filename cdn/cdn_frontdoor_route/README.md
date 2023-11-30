@@ -38,12 +38,12 @@ tfstate_store = {
 | **var.forwarding_protocol** | string | False | `MatchRequest`  |  `HttpOnly`, `HttpsOnly`, `MatchRequest`  |  The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`. | 
 | **var.patterns_to_match** | string | True | -  |  -  |  The route patterns of the rule. | 
 | **var.supported_protocols** | string | True | -  |  `Http`, `Https`  |  One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`. | 
-| **var.cache** | block | False | -  |  -  |  A `cache` block. | | `cache` block structure: || 
+| **var.cache** | block | False | -  |  -  |  A `cache` block. | 
+| `cache` block structure: || 
 |   query_string_caching_behavior (string): Defines how the Front Door Route will cache requests that include query strings. Possible values include 'IgnoreQueryString', 'IgnoreSpecifiedQueryStrings', 'IncludeSpecifiedQueryStrings' or 'UseQueryString'. Defaults to 'IgnoreQueryString'. ||
 |   query_strings (string): Query strings to include or ignore. ||
 |   compression_enabled (bool): Is content compression enabled? Possible values are 'true' or 'false'. Defaults to 'false'. ||
 |   content_types_to_compress (string): A list of one or more 'Content types' (formerly known as 'MIME types') to compress. Possible values include 'application/eot', 'application/font', 'application/font-sfnt', 'application/javascript', 'application/json', 'application/opentype', 'application/otf', 'application/pkcs7-mime', 'application/truetype', 'application/ttf', 'application/vnd.ms-fontobject', 'application/xhtml+xml', 'application/xml', 'application/xml+rss', 'application/x-font-opentype', 'application/x-font-truetype', 'application/x-font-ttf', 'application/x-httpd-cgi', 'application/x-mpegurl', 'application/x-opentype', 'application/x-otf', 'application/x-perl', 'application/x-ttf', 'application/x-javascript', 'font/eot', 'font/ttf', 'font/otf', 'font/opentype', 'image/svg+xml', 'text/css', 'text/csv', 'text/html', 'text/javascript', 'text/js', 'text/plain', 'text/richtext', 'text/tab-separated-values', 'text/xml', 'text/x-script', 'text/x-component' or 'text/x-java-source'. ||
-
 | **var.cdn_frontdoor_custom_domain_ids** | string | False | -  |  -  |  The IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
 | **var.cdn_frontdoor_origin_path** | string | False | -  |  -  |  A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`). | 
 | **var.cdn_frontdoor_rule_set_ids** | list | False | -  |  -  |  A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route. | 

@@ -34,7 +34,8 @@ tfstate_store = {
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.server_name** | string | True | -  |  -  |  The name of the SQL Server on which to create the database. Changing this forces a new resource to be created. | 
 | **var.create_mode** | string | False | `Default`  |  `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreLongTermRetentionBackup`  |  Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode) | 
-| **var.import** | block | False | -  |  -  |  A `import` block. `create_mode` must be set to `Default`. | | `import` block structure: || 
+| **var.import** | block | False | -  |  -  |  A `import` block. `create_mode` must be set to `Default`. | 
+| `import` block structure: || 
 |   storage_uri (string): (REQUIRED) Specifies the blob URI of the .bacpac file. ||
 |   storage_key (string): (REQUIRED) Specifies the access key for the storage account. ||
 |   storage_key_type (string): (REQUIRED) Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'. ||
@@ -42,7 +43,6 @@ tfstate_store = {
 |   administrator_login_password (string): (REQUIRED) Specifies the password of the SQL administrator. ||
 |   authentication_type (string): (REQUIRED) Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'. ||
 |   operation_mode (string): Specifies the type of import operation being performed. The only allowable value is 'Import'. Defaults to 'Import'. ||
-
 | **var.source_database_id** | string | False | -  |  -  |  The URI of the source database if `create_mode` value is not `Default`. | 
 | **var.restore_point_in_time** | string | False | -  |  -  |  The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`. | 
 | **var.edition** | string | False | -  |  `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `PremiumRS`, `Stretch`, `System`, `System2`, `Web`  |  The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 

@@ -34,7 +34,8 @@ tfstate_store = {
 | **var.name** | string | True | -  |  -  |  The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions) | 
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created. | 
 | **var.service_plan_id** | string | True | -  |  -  |  The ID of the App Service Plan within which to create this Function App. | 
-| **var.site_config** | block | True | -  |  -  |  A `site_config` block. | | `site_config` block structure: || 
+| **var.site_config** | block | True | -  |  -  |  A `site_config` block. | 
+| `site_config` block structure: || 
 |   always_on (bool): If this Linux Web App is Always On enabled. Defaults to 'false'. ||
 |   api_definition_url (string): The URL of the API definition that describes this Linux Function App. ||
 |   api_management_api_id (string): The ID of the API Management API for this Linux Function App. ||
@@ -68,9 +69,9 @@ tfstate_store = {
 |   vnet_route_all_enabled (bool): Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to 'false'. ||
 |   websockets_enabled (bool): Should Web Sockets be enabled. Defaults to 'false'. ||
 |   worker_count (int): The number of Workers for this Linux Function App. ||
-
 | **var.app_settings** | string | False | -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | block | False | -  |  -  |  A `auth_settings` block. | | `auth_settings` block structure: || 
+| **var.auth_settings** | block | False | -  |  -  |  A `auth_settings` block. | 
+| `auth_settings` block structure: || 
 |   enabled (bool): (REQUIRED) Should the Authentication / Authorization feature be enabled for the Linux Web App? ||
 |   active_directory (block): An 'active_directory' block. ||
 |   additional_login_parameters (string): Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in. ||
@@ -86,8 +87,8 @@ tfstate_store = {
 |   token_store_enabled (bool): Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to 'false'. ||
 |   twitter (block): A 'twitter' block. ||
 |   unauthenticated_client_action (string): The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'. ||
-
-| **var.auth_settings_v2** | block | False | -  |  -  |  An `auth_settings_v2` block. | | `auth_settings_v2` block structure: || 
+| **var.auth_settings_v2** | block | False | -  |  -  |  An `auth_settings_v2` block. | 
+| `auth_settings_v2` block structure: || 
 |   auth_enabled (bool): Should the AuthV2 Settings be enabled. Defaults to 'false'. ||
 |   runtime_version (string): The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to '~1'. ||
 |   config_file_path (string): The path to the App Auth settings. ||
@@ -110,22 +111,21 @@ tfstate_store = {
 |   microsoft_v2 (block): A 'microsoft_v2' block. ||
 |   twitter_v2 (block): A 'twitter_v2' block. ||
 |   login (block): (REQUIRED) A 'login' block. ||
-
-| **var.backup** | block | False | -  |  -  |  A `backup` block. | | `backup` block structure: || 
+| **var.backup** | block | False | -  |  -  |  A `backup` block. | 
+| `backup` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this Backup. ||
 |   schedule (block): (REQUIRED) A 'schedule' block. ||
 |   storage_account_url (string): (REQUIRED) The SAS URL to the container. ||
 |   enabled (bool): Should this backup job be enabled? Defaults to 'true'. ||
-
 | **var.builtin_logging_enabled** | bool | False | `True`  |  -  |  Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`. | 
 | **var.client_certificate_enabled** | bool | False | -  |  -  |  Should the function app use Client Certificates. | 
 | **var.client_certificate_mode** | string | False | `Optional`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`. | 
 | **var.client_certificate_exclusion_paths** | string | False | -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
-| **var.connection_string** | block | False | -  |  -  |  One or more `connection_string` blocks. | | `connection_string` block structure: || 
+| **var.connection_string** | block | False | -  |  -  |  One or more `connection_string` blocks. | 
+| `connection_string` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this Connection. ||
 |   type (string): (REQUIRED) Type of database. Possible values include: 'MySQL', 'SQLServer', 'SQLAzure', 'Custom', 'NotificationHub', 'ServiceBus', 'EventHub', 'APIHub', 'DocDb', 'RedisCache', and 'PostgreSQL'. ||
 |   value (string): (REQUIRED) The connection string value. ||
-
 | **var.daily_memory_time_quota** | string | False | `0`  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Is the Function App enabled? Defaults to `true`. | 
 | **var.content_share_force_disabled** | bool | False | -  |  -  |  Should the settings for linking the Function App to storage be suppressed. | 
@@ -133,23 +133,23 @@ tfstate_store = {
 | **var.ftp_publish_basic_authentication_enabled** | bool | False | `True`  |  -  |  Should the default FTP Basic Authentication publishing profile be enabled. Defaults to `true`. | 
 | **var.https_only** | bool | False | `False`  |  -  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Should public network access be enabled for the Function App. Defaults to `true`. | 
-| **var.identity** | block | False | -  |  -  |  A `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  A `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Linux Function App. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
 |   identity_ids (list): A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App. ||
-
 | **var.key_vault_reference_identity_id** | string | False | -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) | 
-| **var.storage_account** | block | False | -  |  -  |  One or more `storage_account` blocks. | | `storage_account` block structure: || 
+| **var.storage_account** | block | False | -  |  -  |  One or more `storage_account` blocks. | 
+| `storage_account` block structure: || 
 |   access_key (string): (REQUIRED) The Access key for the storage account. ||
 |   account_name (string): (REQUIRED) The Name of the Storage Account. ||
 |   name (string): (REQUIRED) The name which should be used for this Storage Account. ||
 |   share_name (string): (REQUIRED) The Name of the File Share or Container Name for Blob storage. ||
 |   type (string): (REQUIRED) The Azure Storage Type. Possible values include 'AzureFiles' and 'AzureBlob'. ||
 |   mount_path (string): The path at which to mount the storage share. ||
-
-| **var.sticky_settings** | block | False | -  |  -  |  A `sticky_settings` block. | | `sticky_settings` block structure: || 
+| **var.sticky_settings** | block | False | -  |  -  |  A `sticky_settings` block. | 
+| `sticky_settings` block structure: || 
 |   app_setting_names (list): A list of 'app_setting' names that the Linux Function App will not swap between Slots when a swap operation is triggered. ||
 |   connection_string_names (list): A list of 'connection_string' names that the Linux Function App will not swap between Slots when a swap operation is triggered. ||
-
 | **var.storage_account_access_key** | string | False | -  |  -  |  The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`. | 
 | **var.storage_account_name** | string | False | -  |  -  |  The backend storage account name which will be used by this Function App. | 
 | **var.storage_uses_managed_identity** | string | False | -  |  -  |  Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`. | 

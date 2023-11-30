@@ -33,10 +33,10 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name of the Blueprint Assignment. Changing this forces a new resource to be created. | 
 | **var.target_subscription_id** | string | True | -  |  The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  The Azure location of the Assignment. Changing this forces a new resource to be created. | 
-| **var.identity** | block | True | -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | True | -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Blueprint. Possible values are 'SystemAssigned' and 'UserAssigned'. ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint. ||
-
 | **var.version_id** | string | True | -  |  The ID of the Published Version of the blueprint to be assigned. | 
 | **var.parameter_values** | string | False | -  |  a JSON string to supply Blueprint Assignment parameter values. | 
 | **var.resource_groups** | string | False | -  |  a JSON string to supply the Blueprint Resource Group information. | 

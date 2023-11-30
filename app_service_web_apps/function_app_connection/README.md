@@ -32,7 +32,8 @@ tfstate_store = {
 | **var.name** | string | True | The name of the service connection. Changing this forces a new resource to be created. | 
 | **var.function_app_id** | string | True | The ID of the data source function app. Changing this forces a new resource to be created. | 
 | **var.target_resource_id** | string | True | The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres). | 
-| **var.authentication** | block | True | The authentication info. An `authentication` block. | | `authentication` block structure: || 
+| **var.authentication** | block | True | The authentication info. An `authentication` block. | 
+| `authentication` block structure: || 
 |   type (string): (REQUIRED) The authentication type. Possible values are 'systemAssignedIdentity', 'userAssignedIdentity', 'servicePrincipalSecret', 'servicePrincipalCertificate', 'secret'. Changing this forces a new resource to be created. ||
 |   name (string): Username or account name for secret auth. 'name' and 'secret' should be either both specified or both not specified when 'type' is set to 'secret'. ||
 |   secret (string): Password or account key for secret auth. 'secret' and 'name' should be either both specified or both not specified when 'type' is set to 'secret'. ||
@@ -43,7 +44,6 @@ tfstate_store = {
 |   client_type (string): The application client type. Possible values are 'none', 'dotnet', 'java', 'python', 'go', 'php', 'ruby', 'django', 'nodejs' and 'springBoot'. Defaults to 'none'. ||
 |   vnet_solution (string): The type of the VNet solution. Possible values are 'serviceEndpoint', 'privateLink'. ||
 |   secret_store (block): An option to store secret value in secure place. An 'secret_store' block. ||
-
 
 
 

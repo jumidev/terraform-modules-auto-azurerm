@@ -29,12 +29,12 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | The name which should be used for this Route Map. Changing this forces a new resource to be created. | 
 | **var.virtual_hub_id** | string | True | The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
-| **var.rule** | block | False | A `rule` block. | | `rule` block structure: || 
+| **var.rule** | block | False | A `rule` block. | 
+| `rule` block structure: || 
 |   name (string): (REQUIRED) The unique name for the rule. ||
 |   action (block): An 'action' block. ||
 |   match_criterion (block): A 'match_criterion' block. ||
 |   next_step_if_matched (string): The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. ||
-
 
 
 

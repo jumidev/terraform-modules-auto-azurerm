@@ -31,24 +31,25 @@ tfstate_store = {
 | **var.name** | string | True | -  |  -  |  Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.container_registry** | block | False | -  |  -  |  One or more `container_registry` block. This field is applicable only for Spring Cloud Service with enterprise tier. | | `container_registry` block structure: || 
+| **var.container_registry** | block | False | -  |  -  |  One or more `container_registry` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| `container_registry` block structure: || 
 |   name (string): (REQUIRED) Specifies the name of the container registry. ||
 |   username (string): (REQUIRED) Specifies the username of the container registry. ||
 |   password (string): (REQUIRED) Specifies the password of the container registry. ||
 |   server (string): (REQUIRED) Specifies the login server of the container registry. ||
-
 | **var.log_stream_public_endpoint_enabled** | bool | False | -  |  -  |  Should the log stream in vnet injection instance could be accessed from Internet? | 
 | **var.build_agent_pool_size** | string | False | -  |  `S1`, `S2`, `S3`, `S4`, `S5`  |  Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.default_build_service** | block | False | -  |  -  |  A `default_build_service` block. This field is applicable only for Spring Cloud Service with enterprise tier. | | `default_build_service` block structure: || 
+| **var.default_build_service** | block | False | -  |  -  |  A `default_build_service` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| `default_build_service` block structure: || 
 |   container_registry_name (string): Specifies the name of the container registry used in the default build service. ||
-
 | **var.sku_name** | string | False | `S0`  |  `B0`, `S0`, `E0`  |  Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created. | 
-| **var.marketplace** | block | False | -  |  -  |  A `marketplace` block. Can only be specified when `sku` is set to `E0`. | | `marketplace` block structure: || 
+| **var.marketplace** | block | False | -  |  -  |  A `marketplace` block. Can only be specified when `sku` is set to `E0`. | 
+| `marketplace` block structure: || 
 |   plan (string): (REQUIRED) Specifies the plan ID of the 3rd Party Artifact that is being procured. ||
 |   publisher (string): (REQUIRED) Specifies the publisher ID of the 3rd Party Artifact that is being procured. ||
 |   product (string): (REQUIRED) Specifies the 3rd Party artifact that is being procured. ||
-
-| **var.network** | block | False | -  |  -  |  A `network` block. Changing this forces a new resource to be created. | | `network` block structure: || 
+| **var.network** | block | False | -  |  -  |  A `network` block. Changing this forces a new resource to be created. | 
+| `network` block structure: || 
 |   app_subnet_id (string): (REQUIRED) Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created. ||
 |   service_runtime_subnet_id (string): (REQUIRED) Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created. ||
 |   cidr_ranges (list): (REQUIRED) A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created. ||
@@ -56,20 +57,19 @@ tfstate_store = {
 |   outbound_type (string): Specifies the egress traffic type of the Spring Cloud Service. Possible values are 'loadBalancer' and 'userDefinedRouting'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created. ||
 |   read_timeout_seconds (int): Ingress read time out in seconds. ||
 |   service_runtime_network_resource_group (string): Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created. ||
-
-| **var.config_server_git_setting** | block | False | -  |  -  |  A `config_server_git_setting` block. This field is applicable only for Spring Cloud Service with basic and standard tier. | | `config_server_git_setting` block structure: || 
+| **var.config_server_git_setting** | block | False | -  |  -  |  A `config_server_git_setting` block. This field is applicable only for Spring Cloud Service with basic and standard tier. | 
+| `config_server_git_setting` block structure: || 
 |   uri (string): (REQUIRED) The URI of the default Git repository used as the Config Server back end, should be started with 'http://', 'https://', 'git@', or 'ssh://'. ||
 |   label (string): The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository. ||
 |   search_paths (string): An array of strings used to search subdirectories of the Git repository. ||
 |   http_basic_auth (block): A 'http_basic_auth' block. ||
 |   ssh_auth (block): A 'ssh_auth' block. ||
 |   repository (block): One or more 'repository' blocks. ||
-
 | **var.service_registry_enabled** | bool | False | -  |  -  |  Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.trace** | block | False | -  |  -  |  A `trace` block. | | `trace` block structure: || 
+| **var.trace** | block | False | -  |  -  |  A `trace` block. | 
+| `trace` block structure: || 
 |   connection_string (string): The connection string used for Application Insights. ||
 |   sample_rate (string): The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. ||
-
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.zone_redundant** | bool | False | `False`  |  -  |  Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`. | 
 

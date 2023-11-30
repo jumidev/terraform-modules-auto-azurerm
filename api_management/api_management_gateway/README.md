@@ -30,12 +30,12 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created. | 
 | **var.api_management_id** | string | True | The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created. | 
-| **var.location_data** | block | True | A `location_data` block. | | `location_data` block structure: || 
+| **var.location_data** | block | True | A `location_data` block. | 
+| `location_data` block structure: || 
 |   name (string): (REQUIRED) A canonical name for the geographic or physical location. ||
 |   city (string): The city or locality where the resource is located. ||
 |   district (string): The district, state, or province where the resource is located. ||
 |   region (string): The country or region where the resource is located. ||
-
 | **var.description** | string | False | The description of the API Management Gateway. | 
 
 

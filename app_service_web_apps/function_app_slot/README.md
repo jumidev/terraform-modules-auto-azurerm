@@ -40,7 +40,8 @@ tfstate_store = {
 | **var.storage_account_name** | string | True | -  |  The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created. | 
 | **var.storage_account_access_key** | string | True | -  |  The access key which will be used to access the backend storage account for the Function App. | 
 | **var.app_settings** | string | False | -  |  A key-value pair of App Settings. | 
-| **var.auth_settings** | block | False | -  |  An `auth_settings` block. | | `auth_settings` block structure: || 
+| **var.auth_settings** | block | False | -  |  An `auth_settings` block. | 
+| `auth_settings` block structure: || 
 |   enabled (bool): (REQUIRED) Is Authentication enabled? ||
 |   active_directory (block): An 'active_directory' block. ||
 |   additional_login_params (string): login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form 'key=value'. ||
@@ -55,19 +56,19 @@ tfstate_store = {
 |   token_store_enabled (bool): If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to 'false'. ||
 |   twitter (block): A 'twitter' block. ||
 |   unauthenticated_client_action (string): The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'. ||
-
 | **var.enable_builtin_logging** | bool | False | `True`  |  Should the built-in logging of the Function App be enabled? Defaults to `true`. | 
-| **var.connection_string** | block | False | -  |  A `connection_string` block. | | `connection_string` block structure: || 
+| **var.connection_string** | block | False | -  |  A `connection_string` block. | 
+| `connection_string` block structure: || 
 |   name (string): (REQUIRED) The name of the Connection String. ||
 |   type (string): (REQUIRED) The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. ||
 |   value (string): (REQUIRED) The value for the Connection String. ||
-
 | **var.os_type** | string | False | -  |  A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created. | 
 | **var.enabled** | bool | False | `True`  |  Is the Function App enabled? Defaults to `true`. | 
 | **var.https_only** | bool | False | `False`  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
 | **var.version** | string | False | `~1`  |  The runtime version associated with the Function App. Defaults to `~1`. | 
 | **var.daily_memory_time_quota** | string | False | -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. | 
-| **var.site_config** | block | False | -  |  A `site_config` object as defined below. | | `site_config` block structure: || 
+| **var.site_config** | block | False | -  |  A `site_config` object as defined below. | 
+| `site_config` block structure: || 
 |   always_on (bool): Should the Function App be loaded at all times? Defaults to 'false'. ||
 |   use_32_bit_worker_process (bool): Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to 'true'. ||
 |   websockets_enabled (bool): Should WebSockets be enabled? ||
@@ -88,11 +89,10 @@ tfstate_store = {
 |   cors (block): A 'cors' block. ||
 |   ip_restriction (block): A list of 'ip_restriction' objects representing IP restrictions as defined below. ||
 |   auto_swap_slot_name (string): The name of the slot to automatically swap to during deployment ||
-
-| **var.identity** | block | False | -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the identity type of the Function App. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. ||
 |   identity_ids (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. ||
-
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 

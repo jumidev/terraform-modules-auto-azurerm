@@ -35,17 +35,17 @@ tfstate_store = {
 | **var.gallery_name** | string | True | -  |  -  |  Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
-| **var.identifier** | block | True | -  |  -  |  An `identifier` block. | | `identifier` block structure: || 
+| **var.identifier** | block | True | -  |  -  |  An `identifier` block. | 
+| `identifier` block structure: || 
 |   offer (string): (REQUIRED) The Offer Name for this Shared Image. Changing this forces a new resource to be created. ||
 |   publisher (string): (REQUIRED) The Publisher Name for this Gallery Image. Changing this forces a new resource to be created. ||
 |   sku (string): (REQUIRED) The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created. ||
-
 | **var.os_type** | string | True | -  |  `Linux`, `Windows`  |  The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created. | 
-| **var.purchase_plan** | block | False | -  |  -  |  A `purchase_plan` block. | | `purchase_plan` block structure: || 
+| **var.purchase_plan** | block | False | -  |  -  |  A `purchase_plan` block. | 
+| `purchase_plan` block structure: || 
 |   name (string): (REQUIRED) The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created. ||
 |   publisher (string): The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created. ||
 |   product (string): The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. ||
-
 | **var.description** | string | False | -  |  -  |  A description of this Shared Image. | 
 | **var.disk_types_not_allowed** | string | False | -  |  `Standard_LRS`, `Premium_LRS`  |  One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`. | 
 | **var.end_of_life_date** | datetime | False | -  |  -  |  The end of life date in RFC3339 format of the Image. | 

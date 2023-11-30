@@ -30,17 +30,17 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- |
 | **var.name** | string | True | -  |  Specifies the name of the Cosmos DB Cassandra Table. Changing this forces a new resource to be created. | 
 | **var.cassandra_keyspace_id** | string | True | -  |  The ID of the Cosmos DB Cassandra Keyspace to create the table within. Changing this forces a new resource to be created. | 
-| **var.schema** | block | True | -  |  A `schema` block. | | `schema` block structure: || 
+| **var.schema** | block | True | -  |  A `schema` block. | 
+| `schema` block structure: || 
 |   column (block): (REQUIRED) One or more 'column' blocks. ||
 |   partition_key (block): (REQUIRED) One or more 'partition_key' blocks. ||
 |   cluster_key (block): One or more 'cluster_key' blocks. ||
-
 | **var.throughput** | string | False | -  |  The throughput of Cassandra KeySpace (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 | **var.default_ttl** | string | False | `-1`  |  Time to live of the Cosmos DB Cassandra table. Possible values are at least `-1`. `-1` means the Cassandra table never expires. | 
 | **var.analytical_storage_ttl** | string | False | `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
-| **var.autoscale_settings** | block | False | -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | | `autoscale_settings` block structure: || 
+| **var.autoscale_settings** | block | False | -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| `autoscale_settings` block structure: || 
 |   max_throughput (string): The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. ||
-
 
 
 

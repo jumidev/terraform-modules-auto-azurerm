@@ -35,37 +35,37 @@ tfstate_store = {
 | **var.sku** | string | True | -  |  `Basic`, `Standard`, `Premium`  |  The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`. | 
 | **var.admin_enabled** | bool | False | `False`  |  -  |  Specifies whether the admin user is enabled. Defaults to `false`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.georeplications** | block | False | -  |  -  |  A `georeplications` block. | | `georeplications` block structure: || 
+| **var.georeplications** | block | False | -  |  -  |  A `georeplications` block. | 
+| `georeplications` block structure: || 
 |   location (string): (REQUIRED) A location where the container registry should be geo-replicated. ||
 |   regional_endpoint_enabled (bool): Whether regional endpoint is enabled for this Container Registry? ||
 |   zone_redundancy_enabled (bool): Whether zone redundancy is enabled for this replication location? Defaults to 'false'. ||
 |   tags (map): A mapping of tags to assign to this replication location. ||
-
-| **var.network_rule_set** | block | False | -  |  -  |  A `network_rule_set` block. | | `network_rule_set` block structure: || 
+| **var.network_rule_set** | block | False | -  |  -  |  A `network_rule_set` block. | 
+| `network_rule_set` block structure: || 
 |   default_action (string): The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' ||
 |   ip_rule (block): One or more 'ip_rule' blocks. ||
 |   virtual_network (block): One or more 'virtual_network' blocks. ||
-
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether public network access is allowed for the container registry. Defaults to `true`. | 
 | **var.quarantine_policy_enabled** | bool | False | -  |  -  |  Boolean value that indicates whether quarantine policy is enabled. | 
-| **var.retention_policy** | block | False | -  |  -  |  A `retention_policy` block. | | `retention_policy` block structure: || 
+| **var.retention_policy** | block | False | -  |  -  |  A `retention_policy` block. | 
+| `retention_policy` block structure: || 
 |   days (int): The number of days to retain an untagged manifest after which it gets purged. Default is '7'. ||
 |   enabled (bool): Boolean value that indicates whether the policy is enabled. ||
-
-| **var.trust_policy** | block | False | -  |  -  |  A `trust_policy` block. | | `trust_policy` block structure: || 
+| **var.trust_policy** | block | False | -  |  -  |  A `trust_policy` block. | 
+| `trust_policy` block structure: || 
 |   enabled (bool): Boolean value that indicates whether the policy is enabled. ||
-
 | **var.zone_redundancy_enabled** | bool | False | `False`  |  -  |  Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`. | 
 | **var.export_policy_enabled** | bool | False | `True`  |  -  |  Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. ||
-
-| **var.encryption** | block | False | -  |  -  |  An `encryption` block. | | `encryption` block structure: || 
+| **var.encryption** | block | False | -  |  -  |  An `encryption` block. | 
+| `encryption` block structure: || 
 |   enabled (bool): Boolean value that indicates whether encryption is enabled. ||
 |   key_vault_key_id (string): (REQUIRED) The ID of the Key Vault Key. ||
 |   identity_client_id (string): (REQUIRED) The client ID of the managed identity associated with the encryption key. ||
-
 | **var.anonymous_pull_enabled** | bool | False | -  |  -  |  Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU. | 
 | **var.data_endpoint_enabled** | bool | False | -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **var.network_rule_bypass_option** | string | False | `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 

@@ -34,9 +34,9 @@ tfstate_store = {
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource has to be create. Changing this forces a new resource to be created. | 
 | **var.sub_domain** | string | True | -  |  -  |  A `sub_domain` name. Subdomain for the IoT Central URL. Each application must have a unique subdomain. | 
 | **var.display_name** | string | False | -  |  -  |  A `display_name` name. Custom display name for the IoT Central application. Default is resource name. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this IoT Central Application. The only possible value is 'SystemAssigned'. ||
-
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether public network access is allowed for the IoT Central Application. Defaults to `true`. | 
 | **var.sku** | string | False | -  |  `ST0`, `ST1`, `ST2`  |  A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1` | 
 | **var.template** | string | False | -  |  -  |  A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created. | 

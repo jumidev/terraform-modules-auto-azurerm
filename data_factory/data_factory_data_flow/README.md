@@ -33,7 +33,8 @@ tfstate_store = {
 | **var.data_factory_id** | string | True | The ID of Data Factory in which to associate the Data Flow with. Changing this forces a new resource. | 
 | **var.script** | string | False | The script for the Data Factory Data Flow. | 
 | **var.script_lines** | string | False | The script lines for the Data Factory Data Flow. | 
-| **var.source** | block | True | One or more `source` blocks. | | `source` block structure: || 
+| **var.source** | block | True | One or more `source` blocks. | 
+| `source` block structure: || 
 |   name (string): (REQUIRED) The name for the Data Flow Source. ||
 |   description (string): The description for the Data Flow Source. ||
 |   dataset (block): A 'dataset' block. ||
@@ -41,8 +42,8 @@ tfstate_store = {
 |   linked_service (block): A 'linked_service' block. ||
 |   rejected_linked_service (block): A 'rejected_linked_service' block. ||
 |   schema_linked_service (block): A 'schema_linked_service' block. ||
-
-| **var.sink** | block | True | One or more `sink` blocks. | | `sink` block structure: || 
+| **var.sink** | block | True | One or more `sink` blocks. | 
+| `sink` block structure: || 
 |   name (string): (REQUIRED) The name for the Data Flow Source. ||
 |   description (string): The description for the Data Flow Source. ||
 |   dataset (block): A 'dataset' block. ||
@@ -50,17 +51,16 @@ tfstate_store = {
 |   linked_service (block): A 'linked_service' block. ||
 |   rejected_linked_service (block): A 'rejected_linked_service' block. ||
 |   schema_linked_service (block): A 'schema_linked_service' block. ||
-
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Data Flow. | 
 | **var.description** | string | False | The description for the Data Factory Data Flow. | 
 | **var.folder** | string | False | The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
-| **var.transformation** | block | False | One or more `transformation` blocks. | | `transformation` block structure: || 
+| **var.transformation** | block | False | One or more `transformation` blocks. | 
+| `transformation` block structure: || 
 |   name (string): (REQUIRED) The name for the Data Flow transformation. ||
 |   description (string): The description for the Data Flow transformation. ||
 |   dataset (block): A 'dataset' block. ||
 |   flowlet (block): A 'flowlet' block. ||
 |   linked_service (block): A 'linked_service' block. ||
-
 
 
 

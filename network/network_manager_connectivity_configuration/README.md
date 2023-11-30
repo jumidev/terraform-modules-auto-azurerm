@@ -31,20 +31,20 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- |
 | **var.name** | string | True | -  |  Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
 | **var.network_manager_id** | string | True | -  |  Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
-| **var.applies_to_group** | block | True | -  |  An `applies_to_group` block. | | `applies_to_group` block structure: || 
+| **var.applies_to_group** | block | True | -  |  An `applies_to_group` block. | 
+| `applies_to_group` block structure: || 
 |   group_connectivity (string): (REQUIRED) Specifies the group connectivity type. Possible values are 'None' and 'DirectlyConnected'. ||
 |   network_group_id (string): (REQUIRED) Specifies the resource ID of Network Group which the configuration applies to. ||
 |   global_mesh_enabled (string): Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'. ||
 |   use_hub_gateway (string): Indicates whether the hub gateway is used. Possible values are 'true' and 'false'. ||
-
 | **var.connectivity_topology** | string | True | `HubAndSpoke`, `Mesh`  |  Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`. | 
 | **var.delete_existing_peering_enabled** | string | False | `true`, `false`  |  Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`. | 
 | **var.description** | string | False | -  |  A description of the Connectivity Configuration. | 
 | **var.global_mesh_enabled** | string | False | `true`, `false`  |  Indicates whether to global mesh is supported. Possible values are `true` and `false`. | 
-| **var.hub** | block | False | -  |  A `hub` block. | | `hub` block structure: || 
+| **var.hub** | block | False | -  |  A `hub` block. | 
+| `hub` block structure: || 
 |   resource_id (string): (REQUIRED) Specifies the resource ID used as hub in Hub And Spoke topology. ||
 |   resource_type (string): (REQUIRED) Specifies the resource Type used as hub in Hub And Spoke topology. ||
-
 
 
 

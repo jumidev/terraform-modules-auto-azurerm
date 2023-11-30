@@ -36,14 +36,14 @@ tfstate_store = {
 | **var.name** | string | True | The name of the App Configuration Feature. Changing this forces a new resource to be created. | 
 | **var.percentage_filter_value** | string | False | A number representing the value of the percentage required to enable this feature. | 
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
-| **var.targeting_filter** | block | False | A `targeting_filter` block. | | `targeting_filter` block structure: || 
+| **var.targeting_filter** | block | False | A `targeting_filter` block. | 
+| `targeting_filter` block structure: || 
 |   name (string): (REQUIRED) The name of the group. ||
 |   rollout_percentage (string): (REQUIRED) Rollout percentage of the group. ||
-
-| **var.timewindow_filter** | block | False | A `timewindow_filter` block. | | `timewindow_filter` block structure: || 
+| **var.timewindow_filter** | block | False | A `timewindow_filter` block. | 
+| `timewindow_filter` block structure: || 
 |   start (string): The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format. ||
 |   end (string): The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format. ||
-
 
 
 

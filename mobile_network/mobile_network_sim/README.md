@@ -39,11 +39,11 @@ tfstate_store = {
 | **var.operator_key_code** | string | True | The Opc value for the SIM. | 
 | **var.device_type** | string | False | An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value. | 
 | **var.sim_policy_id** | string | False | The ID of SIM policy used by this SIM. | 
-| **var.static_ip_configuration** | block | False | A `static_ip_configuration` block. | | `static_ip_configuration` block structure: || 
+| **var.static_ip_configuration** | block | False | A `static_ip_configuration` block. | 
+| `static_ip_configuration` block structure: || 
 |   attached_data_network_id (string): (REQUIRED) The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. ||
 |   slice_id (string): (REQUIRED) The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. ||
 |   static_ipv4_address (string): The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network. ||
-
 
 
 

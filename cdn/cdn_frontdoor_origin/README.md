@@ -38,12 +38,12 @@ tfstate_store = {
 | **var.https_port** | string | False | `443`  |  -  |  The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`. | 
 | **var.origin_host_header** | string | False | -  |  -  |  The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used. | 
 | **var.priority** | string | False | `1`  |  -  |  Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`. | 
-| **var.private_link** | block | False | -  |  -  |  A `private_link` block. | | `private_link` block structure: || 
+| **var.private_link** | block | False | -  |  -  |  A `private_link` block. | 
+| `private_link` block structure: || 
 |   request_message (string): Specifies the request message that will be submitted to the 'private_link_target_id' when requesting the private link endpoint connection. Values must be between '1' and '140' characters in length. Defaults to 'Access request for CDN FrontDoor Private Link Origin'. ||
 |   target_type (string): Specifies the type of target for this Private Link Endpoint. Possible values are 'blob', 'blob_secondary', 'web' and 'sites'. ||
 |   location (string): (REQUIRED) Specifies the location where the Private Link resource should exist. Changing this forces a new resource to be created. ||
 |   private_link_target_id (string): (REQUIRED) The ID of the Azure Resource to connect to via the Private Link. ||
-
 | **var.weight** | int | False | `500`  |  -  |  The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`. | 
 
 

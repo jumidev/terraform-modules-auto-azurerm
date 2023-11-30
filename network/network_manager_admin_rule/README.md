@@ -39,15 +39,15 @@ tfstate_store = {
 | **var.protocol** | string | True | `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, `Udp`  |  Specifies which network protocol this Network Manager Admin Rule applies to. Possible values are `Ah`, `Any`, `Esp`, `Icmp`, `Tcp`, and `Udp`. | 
 | **var.description** | string | False | -  |  A description of the Network Manager Admin Rule. | 
 | **var.destination_port_ranges** | list | False | -  |  A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
-| **var.destination** | block | False | -  |  One or more `destination` blocks. | | `destination` block structure: || 
+| **var.destination** | block | False | -  |  One or more `destination` blocks. | 
+| `destination` block structure: || 
 |   address_prefix (string): (REQUIRED) Specifies the address prefix. ||
 |   address_prefix_type (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types). ||
-
 | **var.source_port_ranges** | list | False | -  |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
-| **var.source** | block | False | -  |  One or more `source` blocks. | | `source` block structure: || 
+| **var.source** | block | False | -  |  One or more `source` blocks. | 
+| `source` block structure: || 
 |   address_prefix (string): (REQUIRED) Specifies the address prefix. ||
 |   address_prefix_type (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types). ||
-
 
 
 

@@ -36,7 +36,8 @@ tfstate_store = {
 | **var.location** | string | True | -  |  The Azure Region where the Microsoft SQL Virtual Machine Group should exist. Changing this forces a new resource to be created. | 
 | **var.sql_image_offer** | string | True | -  |  The offer type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Changing this forces a new resource to be created. | 
 | **var.sql_image_sku** | string | True | `Developer`, `Enterprise`  |  The sku type of the marketplace image cluster to be used by the SQL Virtual Machine Group. Possible values are `Developer` and `Enterprise`. | 
-| **var.wsfc_domain_profile** | block | True | -  |  A `wsfc_domain_profile` block. | | `wsfc_domain_profile` block structure: || 
+| **var.wsfc_domain_profile** | block | True | -  |  A `wsfc_domain_profile` block. | 
+| `wsfc_domain_profile` block structure: || 
 |   cluster_subnet_type (string): (REQUIRED) The subnet type of the SQL Virtual Machine cluster. Possible values are 'MultiSubnet' and 'SingleSubnet'. Changing this forces a new resource to be created. ||
 |   fqdn (string): (REQUIRED) The fully qualified name of the domain. Changing this forces a new resource to be created. ||
 |   cluster_bootstrap_account_name (string): The account name used for creating cluster. Changing this forces a new resource to be created. ||
@@ -45,7 +46,6 @@ tfstate_store = {
 |   sql_service_account_name (string): The account name under which SQL service will run on all participating SQL virtual machines in the cluster. Changing this forces a new resource to be created. ||
 |   storage_account_primary_key (string): The primary key of the Storage Account. ||
 |   storage_account_url (string): The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created. ||
-
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Microsoft SQL Virtual Machine Group. | 
 
 

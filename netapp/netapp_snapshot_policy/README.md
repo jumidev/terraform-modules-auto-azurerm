@@ -35,27 +35,27 @@ tfstate_store = {
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.account_name** | string | True | The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created. | 
 | **var.enabled** | bool | True | Defines that the NetApp Snapshot Policy is enabled or not. | 
-| **var.hourly_schedule** | block | False | Sets an hourly snapshot schedule. A `hourly_schedule` block. | | `hourly_schedule` block structure: || 
+| **var.hourly_schedule** | block | False | Sets an hourly snapshot schedule. A `hourly_schedule` block. | 
+| `hourly_schedule` block structure: || 
 |   snapshots_to_keep (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255. ||
 |   minute (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59. ||
-
-| **var.daily_schedule** | block | False | Sets a daily snapshot schedule. A `daily_schedule` block. | | `daily_schedule` block structure: || 
+| **var.daily_schedule** | block | False | Sets a daily snapshot schedule. A `daily_schedule` block. | 
+| `daily_schedule` block structure: || 
 |   snapshots_to_keep (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255. ||
 |   hour (string): (REQUIRED) Hour of the day that the snapshots will be created, valid range is from 0 to 23. ||
 |   minute (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59. ||
-
-| **var.weekly_schedule** | block | False | Sets a weekly snapshot schedule. A `weekly_schedule` block. | | `weekly_schedule` block structure: || 
+| **var.weekly_schedule** | block | False | Sets a weekly snapshot schedule. A `weekly_schedule` block. | 
+| `weekly_schedule` block structure: || 
 |   snapshots_to_keep (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255. ||
 |   days_of_week (int): (REQUIRED) List of the week days using English names when the snapshots will be created. ||
 |   hour (string): (REQUIRED) Hour of the day that the snapshots will be created, valid range is from 0 to 23. ||
 |   minute (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59. ||
-
-| **var.monthly_schedule** | block | False | Sets a monthly snapshot schedule. A `monthly_schedule` block. | | `monthly_schedule` block structure: || 
+| **var.monthly_schedule** | block | False | Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
+| `monthly_schedule` block structure: || 
 |   snapshots_to_keep (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255. ||
 |   days_of_month (int): (REQUIRED) List of the days of the month when the snapshots will be created, valid range is from 1 to 30. ||
 |   hour (string): (REQUIRED) Hour of the day that the snapshots will be created, valid range is from 0 to 23. ||
 |   minute (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59. ||
-
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

@@ -35,11 +35,11 @@ tfstate_store = {
 | **var.copy_paste_enabled** | bool | False | `True`  |  -  |  Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`. | 
 | **var.file_copy_enabled** | bool | False | `False`  |  -  |  Is File Copy feature enabled for the Bastion Host. Defaults to `false`. | 
 | **var.sku** | string | False | `Basic`  |  -  |  The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. | 
-| **var.ip_configuration** | block | True | -  |  -  |  A `ip_configuration` block. Changing this forces a new resource to be created. | | `ip_configuration` block structure: || 
+| **var.ip_configuration** | block | True | -  |  -  |  A `ip_configuration` block. Changing this forces a new resource to be created. | 
+| `ip_configuration` block structure: || 
 |   name (string): (REQUIRED) The name of the IP configuration. Changing this forces a new resource to be created. ||
 |   subnet_id (string): (REQUIRED) Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created. ||
 |   public_ip_address_id (string): (REQUIRED) Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created. ||
-
 | **var.ip_connect_enabled** | bool | False | `False`  |  -  |  Is IP Connect feature enabled for the Bastion Host. Defaults to `false`. | 
 | **var.scale_units** | string | False | `2`  |  `2`, `50`  |  The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`. | 
 | **var.shareable_link_enabled** | bool | False | `False`  |  -  |  Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`. | 

@@ -37,25 +37,25 @@ tfstate_store = {
 | **var.capacity** | int | False | `20`  |  Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`. | 
 | **var.diagnose_support_enabled** | bool | False | -  |  Should the diagnosis support be enabled? | 
 | **var.email** | string | False | -  |  Specify the preferred support contact email address of the user used for sending alerts and notification. | 
-| **var.identity** | block | False | -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. ||
 |   identity_ids (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. ||
-
-| **var.frontend_private** | block | False | -  |  One or more `frontend_private` blocks. Changing this forces a new Nginx Deployment to be created. | | `frontend_private` block structure: || 
+| **var.frontend_private** | block | False | -  |  One or more `frontend_private` blocks. Changing this forces a new Nginx Deployment to be created. | 
+| `frontend_private` block structure: || 
 |   allocation_method (string): (REQUIRED) Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. ||
 |   ip_address (string): (REQUIRED) Specify the IP Address of this private IP. ||
 |   subnet_id (string): (REQUIRED) Specify the SubNet Resource ID to this Nginx Deployment. ||
-
-| **var.frontend_public** | block | False | -  |  A `frontend_public` block. Changing this forces a new Nginx Deployment to be created. | | `frontend_public` block structure: || 
+| **var.frontend_public** | block | False | -  |  A `frontend_public` block. Changing this forces a new Nginx Deployment to be created. | 
+| `frontend_public` block structure: || 
 |   ip_address (string): Specifies a list of Public IP Resouce ID to this Nginx Deployment. ||
-
-| **var.logging_storage_account** | block | False | -  |  One or more `logging_storage_account` blocks. | | `logging_storage_account` block structure: || 
+| **var.logging_storage_account** | block | False | -  |  One or more `logging_storage_account` blocks. | 
+| `logging_storage_account` block structure: || 
 |   container_name (string): Specify the container name of Stoage Account for logging. ||
 |   name (string): The account name of the StorageAccount for Nginx Logging. ||
-
-| **var.network_interface** | block | False | -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | | `network_interface` block structure: || 
+| **var.network_interface** | block | False | -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
+| `network_interface` block structure: || 
 |   subnet_id (string): (REQUIRED) Specify The SubNet Resource ID to this Nginx Deployment. ||
-
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Nginx Deployment. | 
 
 

@@ -36,10 +36,10 @@ tfstate_store = {
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Synapse Linked Service. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Synapse Linked Service. | 
 | **var.description** | string | False | The description for the Synapse Linked Service. | 
-| **var.integration_runtime** | block | False | A `integration_runtime` block. | | `integration_runtime` block structure: || 
+| **var.integration_runtime** | block | False | A `integration_runtime` block. | 
+| `integration_runtime` block structure: || 
 |   name (string): (REQUIRED) The integration runtime reference to associate with the Synapse Linked Service. ||
 |   parameters (string): A map of parameters to associate with the integration runtime. ||
-
 | **var.parameters** | string | False | A map of parameters to associate with the Synapse Linked Service. | 
 
 

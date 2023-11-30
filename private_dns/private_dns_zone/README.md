@@ -29,7 +29,8 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
-| **var.soa_record** | block | False | An `soa_record` block. Changing this forces a new resource to be created. | | `soa_record` block structure: || 
+| **var.soa_record** | block | False | An `soa_record` block. Changing this forces a new resource to be created. | 
+| `soa_record` block structure: || 
 |   email (string): (REQUIRED) The email contact for the SOA record. ||
 |   expire_time (string): The expire time for the SOA record. Defaults to '2419200'. ||
 |   minimum_ttl (string): The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '10'. ||
@@ -37,7 +38,6 @@ tfstate_store = {
 |   retry_time (string): The retry time for the SOA record. Defaults to '300'. ||
 |   ttl (int): The Time To Live of the SOA Record in seconds. Defaults to '3600'. ||
 |   tags (map): A mapping of tags to assign to the Record Set. ||
-
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

@@ -36,7 +36,8 @@ tfstate_store = {
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.app_service_plan_id** | string | True | -  |  -  |  The ID of the App Service Plan within which to create this Function App. | 
 | **var.app_settings** | string | False | -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | block | False | -  |  -  |  A `auth_settings` block. | | `auth_settings` block structure: || 
+| **var.auth_settings** | block | False | -  |  -  |  A `auth_settings` block. | 
+| `auth_settings` block structure: || 
 |   enabled (bool): (REQUIRED) Is Authentication enabled? ||
 |   active_directory (block): A 'active_directory' block. ||
 |   additional_login_params (string): Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form 'key=value'. ||
@@ -51,24 +52,24 @@ tfstate_store = {
 |   token_store_enabled (bool): If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to 'false'. ||
 |   twitter (block): A 'twitter' block. ||
 |   unauthenticated_client_action (string): The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'. ||
-
-| **var.connection_string** | block | False | -  |  -  |  An `connection_string` block. | | `connection_string` block structure: || 
+| **var.connection_string** | block | False | -  |  -  |  An `connection_string` block. | 
+| `connection_string` block structure: || 
 |   name (string): (REQUIRED) The name of the Connection String. ||
 |   type (string): (REQUIRED) The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. ||
 |   value (string): (REQUIRED) The value for the Connection String. ||
-
 | **var.client_cert_mode** | string | False | -  |  `Required`, `Optional`  |  The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`. | 
 | **var.daily_memory_time_quota** | string | False | -  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Is the Function App enabled? Defaults to `true`. | 
 | **var.enable_builtin_logging** | bool | False | `True`  |  -  |  Should the built-in logging of this Function App be enabled? Defaults to `true`. | 
 | **var.https_only** | bool | False | `False`  |  -  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the identity type of the Function App. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. ||
 |   identity_ids (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. ||
-
 | **var.key_vault_reference_identity_id** | string | False | -  |  -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
 | **var.os_type** | string | False | ``  |  `linux`, ``  |  A string indicating the Operating System type for this function app. Possible values are `linux` and ``(empty string). Changing this forces a new resource to be created. Defaults to `""`. | 
-| **var.site_config** | block | False | -  |  -  |  A `site_config` object as defined below. | | `site_config` block structure: || 
+| **var.site_config** | block | False | -  |  -  |  A `site_config` object as defined below. | 
+| `site_config` block structure: || 
 |   always_on (bool): Should the Function App be loaded at all times? Defaults to 'false'. ||
 |   app_scale_limit (int): The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan. ||
 |   cors (block): A 'cors' block. ||
@@ -90,14 +91,13 @@ tfstate_store = {
 |   vnet_route_all_enabled (bool): Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to 'false'. ||
 |   websockets_enabled (bool): Should WebSockets be enabled? ||
 |   auto_swap_slot_name (string): The name of the slot to automatically swap to during deployment ||
-
-| **var.source_control** | block | False | -  |  -  |  A `source_control` block, as defined below. | | `source_control` block structure: || 
+| **var.source_control** | block | False | -  |  -  |  A `source_control` block, as defined below. | 
+| `source_control` block structure: || 
 |   repo_url (string): The URL of the source code repository. ||
 |   branch (string): The branch of the remote repository to use. Defaults to 'master'. ||
 |   manual_integration (bool): Limits to manual integration. Defaults to 'false' if not specified. ||
 |   rollback_enabled (bool): Enable roll-back for the repository. Defaults to 'false' if not specified. ||
 |   use_mercurial (bool): Use Mercurial if 'true', otherwise uses Git. ||
-
 | **var.storage_account_name** | string | True | -  |  -  |  The backend storage account name which will be used by this Function App (such as the dashboard, logs). Changing this forces a new resource to be created. | 
 | **var.storage_account_access_key** | string | True | -  |  -  |  The access key which will be used to access the backend storage account for the Function App. | 
 | **var.version** | string | False | `~1`  |  -  |  The runtime version associated with the Function App. Defaults to `~1`. | 

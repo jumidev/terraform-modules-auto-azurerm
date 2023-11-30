@@ -41,16 +41,16 @@ tfstate_store = {
 | **var.frequency** | string | True | -  |  -  |  Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive). | 
 | **var.query** | string | True | -  |  -  |  Log search query. | 
 | **var.time_window** | string | True | -  |  -  |  Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive). | 
-| **var.trigger** | block | True | -  |  -  |  A `trigger` block. | | `trigger` block structure: || 
+| **var.trigger** | block | True | -  |  -  |  A `trigger` block. | 
+| `trigger` block structure: || 
 |   metric_trigger (block): A 'metric_trigger' block. Trigger condition for metric query rule. ||
 |   operator (string): (REQUIRED) Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. ||
 |   threshold (string): (REQUIRED) Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. ||
-
-| **var.action** | block | True | -  |  -  |  An `action` block. | | `action` block structure: || 
+| **var.action** | block | True | -  |  -  |  An `action` block. | 
+| `action` block structure: || 
 |   action_group (string): (REQUIRED) List of action group reference resource IDs. ||
 |   custom_webhook_payload (string): Custom payload to be sent for all webhook payloads in alerting action. ||
 |   email_subject (string): Custom subject override for all email ids in Azure action group. ||
-
 | **var.authorized_resource_ids** | string | False | -  |  -  |  List of Resource IDs referred into query. | 
 | **var.auto_mitigation_enabled** | bool | False | `False`  |  -  |  Should the alerts in this Metric Alert be auto resolved? Defaults to `false`. -> **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set. | 
 | **var.description** | string | False | -  |  -  |  The description of the scheduled query rule. | 

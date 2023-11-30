@@ -37,10 +37,10 @@ tfstate_store = {
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Linked Service. | 
 | **var.url** | string | True | The url of the Azure Function. | 
 | **var.key** | string | False | The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required | 
-| **var.key_vault_key** | block | False | A `key_vault_key` block. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required. | | `key_vault_key` block structure: || 
+| **var.key_vault_key** | block | False | A `key_vault_key` block. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required. | 
+| `key_vault_key` block structure: || 
 |   linked_service_name (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service. ||
 |   secret_name (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores the system key of the Azure Function. ||
-
 
 
 

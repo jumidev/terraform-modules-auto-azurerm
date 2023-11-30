@@ -34,10 +34,10 @@ tfstate_store = {
 | **var.data_factory_id** | string | True | -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
 | **var.eventgrid_topic_id** | string | True | -  |  The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource. | 
 | **var.events** | string | True | -  |  List of events that will fire this trigger. At least one event must be specified. | 
-| **var.pipeline** | block | True | -  |  One or more `pipeline` blocks. | | `pipeline` block structure: || 
+| **var.pipeline** | block | True | -  |  One or more `pipeline` blocks. | 
+| `pipeline` block structure: || 
 |   name (string): (REQUIRED) The Data Factory Pipeline name that the trigger will act on. ||
 |   parameters (string): The Data Factory Pipeline parameters that the trigger will act on. ||
-
 | **var.activated** | bool | False | `True`  |  Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`. | 
 | **var.additional_properties** | string | False | -  |  A map of additional properties to associate with the Data Factory Custom Event Trigger. | 
 | **var.annotations** | string | False | -  |  List of tags that can be used for describing the Data Factory Custom Event Trigger. | 

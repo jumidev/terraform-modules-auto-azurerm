@@ -35,10 +35,10 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created. | 
 | **var.workspace_id** | string | True | Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created. | 
 | **var.location** | string | True | Specifies the Azure Region where the Healthcare Med Tech Service should be created. Changing this forces a new Healthcare Med Tech Service to be created. | 
-| **var.identity** | block | False | An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Healthcare Med Tech Service. Possible values are 'SystemAssigned'. ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Healthcare Med Tech Service. ||
-
 | **var.eventhub_namespace_name** | string | True | Specifies the namespace name of the Event Hub to connect to. | 
 | **var.eventhub_name** | string | True | Specifies the name of the Event Hub to connect to. | 
 | **var.eventhub_consumer_group_name** | string | True | Specifies the Consumer Group of the Event Hub to connect to. | 

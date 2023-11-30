@@ -38,19 +38,19 @@ tfstate_store = {
 | **var.events_out_of_order_max_delay_in_seconds** | int | False | `0`  |  -  |  Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`. | 
 | **var.events_out_of_order_policy** | string | False | `Adjust`  |  `Adjust`, `Drop`  |  Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`. | 
 | **var.type** | string | False | `Cloud`  |  `Cloud`, `Edge`  |  The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is 'SystemAssigned'. ||
-
 | **var.output_error_policy** | string | False | `Drop`  |  `Drop`, `Stop`  |  Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`. | 
 | **var.streaming_units** | int | False | -  |  -  |  Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. | 
 | **var.content_storage_policy** | string | False | `SystemAccount`  |  `JobStorageAccount`, `SystemAccount`  |  The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`. | 
-| **var.job_storage_account** | block | False | -  |  -  |  The details of the job storage account. A `job_storage_account` block. | | `job_storage_account` block structure: || 
+| **var.job_storage_account** | block | False | -  |  -  |  The details of the job storage account. A `job_storage_account` block. | 
+| `job_storage_account` block structure: || 
 |   authentication_mode (string): The authentication mode of the storage account. The only supported value is 'ConnectionString'. Defaults to 'ConnectionString'. ||
 |   account_name (string): (REQUIRED) The name of the Azure storage account. ||
 |   account_key (string): (REQUIRED) The account key for the Azure storage account. ||
 |   transformation_query (string): (REQUIRED) Specifies the query that will be run in the streaming job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998). ||
 |   tags (map): A mapping of tags assigned to the resource. ||
-
 
 
 

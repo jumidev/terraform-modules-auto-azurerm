@@ -38,7 +38,8 @@ tfstate_store = {
 | **var.location** | string | True | The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **var.name** | string | True | The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.volume** | block | True | One or more `volume` blocks. | | `volume` block structure: || 
+| **var.volume** | block | True | One or more `volume` blocks. | 
+| `volume` block structure: || 
 |   capacity_pool_id (string): (REQUIRED) The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost. ||
 |   name (string): (REQUIRED) The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost. ||
 |   protocols (string): (REQUIRED) The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include 'NFSv3' or 'NFSv4.1', multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details. ||
@@ -55,7 +56,6 @@ tfstate_store = {
 |   export_policy_rule (block): (REQUIRED) One or more 'export_policy_rule' blocks. ||
 |   data_protection_replication (block): A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. ||
 |   data_protection_snapshot_policy (block): A 'data_protection_snapshot_policy' block. ||
-
 
 
 

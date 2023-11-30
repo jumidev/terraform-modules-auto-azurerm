@@ -31,7 +31,8 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.name** | string | True | -  |  -  |  Specifies the name which should be used for this Kubernetes Flux Configuration. Changing this forces a new Kubernetes Flux Configuration to be created. | 
 | **var.cluster_id** | string | True | -  |  -  |  Specifies the Cluster ID. Changing this forces a new Kubernetes Cluster Extension to be created. | 
-| **var.kustomizations** | block | True | -  |  -  |  A `kustomizations` block. | | `kustomizations` block structure: || 
+| **var.kustomizations** | block | True | -  |  -  |  A `kustomizations` block. | 
+| `kustomizations` block structure: || 
 |   name (string): (REQUIRED) Specifies the name of the kustomization. ||
 |   path (string): Specifies the path in the source reference to reconcile on the cluster. ||
 |   timeout_in_seconds (int): The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to '600'. ||
@@ -40,9 +41,9 @@ tfstate_store = {
 |   recreating_enabled (bool): Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to 'false'. ||
 |   garbage_collection_enabled (bool): Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to 'false'. ||
 |   depends_on (string): Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation. ||
-
 | **var.namespace** | string | True | -  |  -  |  Specifies the namespace to which this configuration is installed to. Changing this forces a new Kubernetes Flux Configuration to be created. | 
-| **var.blob_storage** | block | False | -  |  -  |  An `blob_storage` block. | | `blob_storage` block structure: || 
+| **var.blob_storage** | block | False | -  |  -  |  An `blob_storage` block. | 
+| `blob_storage` block structure: || 
 |   container_id (string): (REQUIRED) Specifies the Azure Blob container ID. ||
 |   account_key (string): Specifies the account key (shared key) to access the storage account. ||
 |   local_auth_reference (string): Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. ||
@@ -51,8 +52,8 @@ tfstate_store = {
 |   service_principal (block): A 'service_principal' block. ||
 |   sync_interval_in_seconds (int): Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. ||
 |   timeout_in_seconds (int): Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. ||
-
-| **var.bucket** | block | False | -  |  -  |  A `bucket` block. | | `bucket` block structure: || 
+| **var.bucket** | block | False | -  |  -  |  A `bucket` block. | 
+| `bucket` block structure: || 
 |   bucket_name (string): (REQUIRED) Specifies the bucket name to sync from the url endpoint for the flux configuration. ||
 |   url (string): (REQUIRED) Specifies the URL to sync for the flux configuration S3 bucket. It must start with 'http://' or 'https://'. ||
 |   access_key (string): Specifies the plaintext access key used to securely access the S3 bucket. ||
@@ -61,8 +62,8 @@ tfstate_store = {
 |   local_auth_reference (string): Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number. ||
 |   sync_interval_in_seconds (int): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. ||
 |   timeout_in_seconds (int): Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. ||
-
-| **var.git_repository** | block | False | -  |  -  |  A `git_repository` block. | | `git_repository` block structure: || 
+| **var.git_repository** | block | False | -  |  -  |  A `git_repository` block. | 
+| `git_repository` block structure: || 
 |   url (string): (REQUIRED) Specifies the URL to sync for the flux configuration git repository. It must start with 'http://', 'https://', 'git@' or 'ssh://'. ||
 |   reference_type (string): (REQUIRED) Specifies the source reference type for the GitRepository object. Possible values are 'branch', 'commit', 'semver' and 'tag'. ||
 |   reference_value (string): (REQUIRED) Specifies the source reference value for the GitRepository object. ||
@@ -74,7 +75,6 @@ tfstate_store = {
 |   ssh_known_hosts_base64 (string): Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH. ||
 |   sync_interval_in_seconds (int): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. ||
 |   timeout_in_seconds (int): Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. ||
-
 | **var.scope** | string | False | `namespace`  |  `cluster`, `namespace`  |  Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Kubernetes Flux Configuration to be created. | 
 | **var.continuous_reconciliation_enabled** | bool | False | `True`  |  -  |  Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`. | 
 

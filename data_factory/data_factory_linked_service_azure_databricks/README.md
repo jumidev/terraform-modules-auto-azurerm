@@ -32,10 +32,10 @@ tfstate_store = {
 | **var.data_factory_id** | string | True | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 | **var.name** | string | True | Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
 | **var.access_token** | string | False | Authenticate to ADB via an access token. | 
-| **var.key_vault_password** | block | False | Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below. | | `key_vault_password` block structure: || 
+| **var.key_vault_password** | block | False | Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below. | 
+| `key_vault_password` block structure: || 
 |   linked_service_name (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service. ||
 |   secret_name (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores ADB access token. ||
-
 | **var.msi_work_space_resource_id** | string | False | Authenticate to ADB via managed service identity. | 
 | **var.existing_cluster_id** | string | False | The cluster_id of an existing cluster within the linked ADB instance. | 
 | **var.instance_pool** | string | False | Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below. | 

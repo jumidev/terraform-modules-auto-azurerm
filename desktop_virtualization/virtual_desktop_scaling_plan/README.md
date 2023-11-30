@@ -33,7 +33,8 @@ tfstate_store = {
 | **var.location** | string | True | The Azure Region where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
 | **var.name** | string | True | The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Virtual Desktop Scaling Plan should exist. Changing this forces a new Virtual Desktop Scaling Plan to be created. | 
-| **var.schedule** | block | True | One or more `schedule` blocks. | | `schedule` block structure: || 
+| **var.schedule** | block | True | One or more `schedule` blocks. | 
+| `schedule` block structure: || 
 |   days_of_week (string): (REQUIRED) A list of Days of the Week on which this schedule will be used. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday' ||
 |   name (string): (REQUIRED) The name of the schedule. ||
 |   off_peak_load_balancing_algorithm (string): (REQUIRED) The load Balancing Algorithm to use during Off-Peak Hours. Possible values are 'DepthFirst' and 'BreadthFirst'. ||
@@ -52,11 +53,10 @@ tfstate_store = {
 |   ramp_up_start_time (string): (REQUIRED) The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in 'HH:MM' format. ||
 |   ramp_up_capacity_threshold_percent (string): This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as '60%' and your total host pool capacity is '100' sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of '60' sessions. ||
 |   ramp_up_minimum_hosts_percent (int): Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as '10%' and total number of session hosts in your host pool is '10', autoscale will ensure a minimum of '1' session host is available to take user connections. ||
-
-| **var.host_pool** | block | False | One or more `host_pool` blocks. | | `host_pool` block structure: || 
+| **var.host_pool** | block | False | One or more `host_pool` blocks. | 
+| `host_pool` block structure: || 
 |   hostpool_id (string): (REQUIRED) The ID of the HostPool to assign the Scaling Plan to. ||
 |   scaling_plan_enabled (bool): (REQUIRED) Specifies if the scaling plan is enabled or disabled for the HostPool. ||
-
 | **var.time_zone** | string | True | Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). | 
 | **var.description** | string | False | A description of the Scaling Plan. | 
 | **var.exclusion_tag** | string | False | The name of the tag associated with the VMs you want to exclude from autoscaling. | 

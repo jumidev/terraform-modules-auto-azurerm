@@ -32,7 +32,8 @@ tfstate_store = {
 | **var.name** | string | True | -  |  -  |  The name of the Managed Kubernetes Cluster to create. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | -  |  -  |  The location where the Managed Kubernetes Cluster should be created. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  Specifies the Resource Group where the Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.default_node_pool** | block | True | -  |  -  |  A `default_node_pool` block. | | `default_node_pool` block structure: || 
+| **var.default_node_pool** | block | True | -  |  -  |  A `default_node_pool` block. | 
+| `default_node_pool` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for the default Kubernetes Node Pool. ||
 |   vm_size (string): (REQUIRED) The size of the Virtual Machine, such as 'Standard_DS2_v2'. 'temporary_name_for_rotation' must be specified when attempting a resize. ||
 |   capacity_reservation_group_id (string): Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created. ||
@@ -72,19 +73,19 @@ tfstate_store = {
 |   max_count (int): The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. ||
 |   min_count (int): The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. ||
 |   node_count (int): The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'. ||
-
 | **var.dns_prefix** | string | False | -  |  -  |  DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created. | 
 | **var.dns_prefix_private_cluster** | string | False | -  |  -  |  Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created. | 
-| **var.aci_connector_linux** | block | False | -  |  -  |  A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). | | `aci_connector_linux` block structure: || 
+| **var.aci_connector_linux** | block | False | -  |  -  |  A `aci_connector_linux` block. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). | 
+| `aci_connector_linux` block structure: || 
 |   subnet_name (string): (REQUIRED) The subnet name for the virtual nodes to run. ||
-
 | **var.automatic_channel_upgrade** | string | False | -  |  `patch`, `rapid`, `node-image`, `stable`  |  The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`. | 
-| **var.api_server_access_profile** | block | False | -  |  -  |  An `api_server_access_profile` block. | | `api_server_access_profile` block structure: || 
+| **var.api_server_access_profile** | block | False | -  |  -  |  An `api_server_access_profile` block. | 
+| `api_server_access_profile` block structure: || 
 |   authorized_ip_ranges (string): Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. ||
 |   subnet_id (string): The ID of the Subnet where the API server endpoint is delegated to. ||
 |   vnet_integration_enabled (bool): Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). ||
-
-| **var.auto_scaler_profile** | block | False | -  |  -  |  A `auto_scaler_profile` block. | | `auto_scaler_profile` block structure: || 
+| **var.auto_scaler_profile** | block | False | -  |  -  |  A `auto_scaler_profile` block. | 
+| `auto_scaler_profile` block structure: || 
 |   balance_similar_node_groups (bool): Detect similar node groups and balance the number of nodes between them. Defaults to 'false'. ||
 |   expander (string): Expander to use. Possible values are 'least-waste', 'priority', 'most-pods' and 'random'. Defaults to 'random'. ||
 |   max_graceful_termination_sec (int): Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to '600'. ||
@@ -102,8 +103,8 @@ tfstate_store = {
 |   empty_bulk_delete_max (int): Maximum number of empty nodes that can be deleted at the same time. Defaults to '10'. ||
 |   skip_nodes_with_local_storage (bool): If 'true' cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to 'true'. ||
 |   skip_nodes_with_system_pods (bool): If 'true' cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to 'true'. ||
-
-| **var.azure_active_directory_role_based_access_control** | block | False | -  |  -  |  A `azure_active_directory_role_based_access_control` block. | | `azure_active_directory_role_based_access_control` block structure: || 
+| **var.azure_active_directory_role_based_access_control** | block | False | -  |  -  |  A `azure_active_directory_role_based_access_control` block. | 
+| `azure_active_directory_role_based_access_control` block structure: || 
 |   managed (string): Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. ||
 |   tenant_id (string): The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used. ||
 |   admin_group_object_ids (list): A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster. ||
@@ -111,57 +112,57 @@ tfstate_store = {
 |   client_app_id (string): The Client ID of an Azure Active Directory Application. ||
 |   server_app_id (string): The Server ID of an Azure Active Directory Application. ||
 |   server_app_secret (string): The Server Secret of an Azure Active Directory Application. ||
-
 | **var.azure_policy_enabled** | bool | False | -  |  -  |  Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks) | 
-| **var.confidential_computing** | block | False | -  |  -  |  A `confidential_computing` block. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview) | | `confidential_computing` block structure: || 
+| **var.confidential_computing** | block | False | -  |  -  |  A `confidential_computing` block. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview) | 
+| `confidential_computing` block structure: || 
 |   sgx_quote_helper_enabled (bool): (REQUIRED) Should the SGX quote helper be enabled? ||
-
 | **var.custom_ca_trust_certificates_base64** | list | False | -  |  -  |  A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled. | 
 | **var.disk_encryption_set_id** | string | False | -  |  -  |  The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created. | 
 | **var.edge_zone** | string | False | -  |  -  |  Specifies the Edge Zone within the Azure Region where this Managed Kubernetes Cluster should exist. Changing this forces a new resource to be created. | 
 | **var.http_application_routing_enabled** | bool | False | -  |  -  |  Should HTTP Application Routing be enabled? | 
-| **var.http_proxy_config** | block | False | -  |  -  |  A `http_proxy_config` block. | | `http_proxy_config` block structure: || 
+| **var.http_proxy_config** | block | False | -  |  -  |  A `http_proxy_config` block. | 
+| `http_proxy_config` block structure: || 
 |   http_proxy (string): The proxy address to be used when communicating over HTTP. ||
 |   https_proxy (string): The proxy address to be used when communicating over HTTPS. ||
 |   no_proxy (string): The list of domains that will not use the proxy for communication. ||
 |   trusted_ca (string): The base64 encoded alternative CA certificate content in PEM format. ||
-
-| **var.identity** | block | False | -  |  -  |  An `identity` block. One of either `identity` or `service_principal` must be specified. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. One of either `identity` or `service_principal` must be specified. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. ||
-
 | **var.image_cleaner_enabled** | bool | False | -  |  -  |  Specifies whether Image Cleaner is enabled. | 
 | **var.image_cleaner_interval_hours** | string | False | `48`  |  -  |  Specifies the interval in hours when images should be cleaned up. Defaults to `48`. | 
-| **var.ingress_application_gateway** | block | False | -  |  -  |  A `ingress_application_gateway` block. | | `ingress_application_gateway` block structure: || 
+| **var.ingress_application_gateway** | block | False | -  |  -  |  A `ingress_application_gateway` block. | 
+| `ingress_application_gateway` block structure: || 
 |   gateway_id (string): The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details. ||
 |   gateway_name (string): The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. ||
 |   subnet_cidr (string): The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. ||
 |   subnet_id (string): The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. ||
-
-| **var.key_management_service** | block | False | -  |  -  |  A `key_management_service` block. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption). | | `key_management_service` block structure: || 
+| **var.key_management_service** | block | False | -  |  -  |  A `key_management_service` block. For more details, please visit [Key Management Service (KMS) etcd encryption to an AKS cluster](https://learn.microsoft.com/en-us/azure/aks/use-kms-etcd-encryption). | 
+| `key_management_service` block structure: || 
 |   key_vault_key_id (string): (REQUIRED) Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When 'enabled' is 'false', leave the field empty. ||
 |   key_vault_network_access (string): Network access of the key vault Network access of key vault. The possible values are 'Public' and 'Private'. 'Public' means the key vault allows public access from all networks. 'Private' means the key vault disables public access and enables private link. Defaults to 'Public'. ||
-
-| **var.key_vault_secrets_provider** | block | False | -  |  -  |  A `key_vault_secrets_provider` block. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver). | | `key_vault_secrets_provider` block structure: || 
+| **var.key_vault_secrets_provider** | block | False | -  |  -  |  A `key_vault_secrets_provider` block. For more details, please visit [Azure Keyvault Secrets Provider for AKS](https://docs.microsoft.com/azure/aks/csi-secrets-store-driver). | 
+| `key_vault_secrets_provider` block structure: || 
 |   secret_rotation_enabled (bool): Should the secret store CSI driver on the AKS cluster be enabled? ||
 |   secret_rotation_interval (string): The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. ||
-
-| **var.kubelet_identity** | block | False | -  |  -  |  A `kubelet_identity` block. | | `kubelet_identity` block structure: || 
+| **var.kubelet_identity** | block | False | -  |  -  |  A `kubelet_identity` block. | 
+| `kubelet_identity` block structure: || 
 |   client_id (string): The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. ||
 |   object_id (string): The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. ||
 |   user_assigned_identity_id (string): The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. ||
-
 | **var.kubernetes_version** | string | False | -  |  -  |  Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). | 
-| **var.linux_profile** | block | False | -  |  -  |  A `linux_profile` block. | | `linux_profile` block structure: || 
+| **var.linux_profile** | block | False | -  |  -  |  A `linux_profile` block. | 
+| `linux_profile` block structure: || 
 |   admin_username (string): (REQUIRED) The Admin Username for the Cluster. Changing this forces a new resource to be created. ||
 |   ssh_key (block): (REQUIRED) An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). ||
-
 | **var.local_account_disabled** | bool | False | -  |  -  |  If `true` local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information. | 
-| **var.maintenance_window** | block | False | -  |  -  |  A `maintenance_window` block. | | `maintenance_window` block structure: || 
+| **var.maintenance_window** | block | False | -  |  -  |  A `maintenance_window` block. | 
+| `maintenance_window` block structure: || 
 |   allowed (block): One or more 'allowed' blocks. ||
 |   not_allowed (block): One or more 'not_allowed' block. ||
-
-| **var.maintenance_window_auto_upgrade** | block | False | -  |  -  |  A `maintenance_window_auto_upgrade` block. | | `maintenance_window_auto_upgrade` block structure: || 
+| **var.maintenance_window_auto_upgrade** | block | False | -  |  -  |  A `maintenance_window_auto_upgrade` block. | 
+| `maintenance_window_auto_upgrade` block structure: || 
 |   frequency (string): (REQUIRED) Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. ||
 |   interval (string): (REQUIRED) The interval for maintenance runs. Depending on the frequency this interval is week or month based. ||
 |   duration (string): (REQUIRED) The duration of the window for maintenance to run in hours. ||
@@ -172,8 +173,8 @@ tfstate_store = {
 |   utc_offset (string): Used to determine the timezone for cluster maintenance. ||
 |   start_date (datetime): The date on which the maintenance window begins to take effect. ||
 |   not_allowed (block): One or more 'not_allowed' block. ||
-
-| **var.maintenance_window_node_os** | block | False | -  |  -  |  A `maintenance_window_node_os` block. | | `maintenance_window_node_os` block structure: || 
+| **var.maintenance_window_node_os** | block | False | -  |  -  |  A `maintenance_window_node_os` block. | 
+| `maintenance_window_node_os` block structure: || 
 |   frequency (string): (REQUIRED) Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. ||
 |   interval (string): (REQUIRED) The interval for maintenance runs. Depending on the frequency this interval is week or month based. ||
 |   duration (string): (REQUIRED) The duration of the window for maintenance to run in hours. ||
@@ -184,15 +185,15 @@ tfstate_store = {
 |   utc_offset (string): Used to determine the timezone for cluster maintenance. ||
 |   start_date (datetime): The date on which the maintenance window begins to take effect. ||
 |   not_allowed (block): One or more 'not_allowed' block. ||
-
-| **var.microsoft_defender** | block | False | -  |  -  |  A `microsoft_defender` block. | | `microsoft_defender` block structure: || 
+| **var.microsoft_defender** | block | False | -  |  -  |  A `microsoft_defender` block. | 
+| `microsoft_defender` block structure: || 
 |   log_analytics_workspace_id (string): (REQUIRED) Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. ||
-
-| **var.monitor_metrics** | block | False | -  |  -  |  Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block. | | `monitor_metrics` block structure: || 
+| **var.monitor_metrics** | block | False | -  |  -  |  Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block. | 
+| `monitor_metrics` block structure: || 
 |   annotations_allowed (bool): Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. ||
 |   labels_allowed (bool): Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. ||
-
-| **var.network_profile** | block | False | -  |  -  |  A `network_profile` block. Changing this forces a new resource to be created. | | `network_profile` block structure: || 
+| **var.network_profile** | block | False | -  |  -  |  A `network_profile` block. Changing this forces a new resource to be created. | 
+| `network_profile` block structure: || 
 |   network_plugin (string): (REQUIRED) Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. ||
 |   network_mode (string): Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. ||
 |   network_policy (string): Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ||
@@ -209,53 +210,52 @@ tfstate_store = {
 |   load_balancer_sku (string): Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are 'basic' and 'standard'. Defaults to 'standard'. Changing this forces a new resource to be created. ||
 |   load_balancer_profile (block): A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created. ||
 |   nat_gateway_profile (block): A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created. ||
-
 | **var.node_os_channel_upgrade** | string | False | -  |  `Unmanaged`, `SecurityPatch`, `NodeImage`, `None`  |  The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are `Unmanaged`, `SecurityPatch`, `NodeImage` and `None`. | 
 | **var.node_resource_group** | string | False | -  |  -  |  The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. | 
 | **var.oidc_issuer_enabled** | bool | False | -  |  -  |  Enable or Disable the [OIDC issuer URL](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer) | 
-| **var.oms_agent** | block | False | -  |  -  |  A `oms_agent` block. | | `oms_agent` block structure: || 
+| **var.oms_agent** | block | False | -  |  -  |  A `oms_agent` block. | 
+| `oms_agent` block structure: || 
 |   log_analytics_workspace_id (string): (REQUIRED) The ID of the Log Analytics Workspace which the OMS Agent should send data to. ||
 |   msi_auth_for_monitoring_enabled (bool): Is managed identity authentication for monitoring enabled? ||
-
 | **var.open_service_mesh_enabled** | bool | False | -  |  -  |  Is Open Service Mesh enabled? For more details, please visit [Open Service Mesh for AKS](https://docs.microsoft.com/azure/aks/open-service-mesh-about). | 
 | **var.private_cluster_enabled** | bool | False | `False`  |  -  |  Should this Kubernetes Cluster have its API server only exposed on internal IP addresses? This provides a Private IP Address for the Kubernetes API on the Virtual Network where the Kubernetes Cluster is located. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **var.private_dns_zone_id** | string | False | -  |  -  |  Either the ID of Private DNS Zone which should be delegated to this Cluster, `System` to have AKS manage this or `None`. In case of `None` you will need to bring your own DNS server and set up resolving, otherwise, the cluster will have issues after provisioning. Changing this forces a new resource to be created. | 
 | **var.private_cluster_public_fqdn_enabled** | bool | False | `False`  |  -  |  Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to `false`. | 
-| **var.service_mesh_profile** | block | False | -  |  -  |  A `service_mesh_profile` block. | | `service_mesh_profile` block structure: || 
+| **var.service_mesh_profile** | block | False | -  |  -  |  A `service_mesh_profile` block. | 
+| `service_mesh_profile` block structure: || 
 |   mode (string): (REQUIRED) The mode of the service mesh. Possible value is 'Istio'. ||
 |   internal_ingress_gateway_enabled (bool): Is Istio Internal Ingress Gateway enabled? ||
 |   external_ingress_gateway_enabled (bool): Is Istio External Ingress Gateway enabled? ||
-
-| **var.workload_autoscaler_profile** | block | False | -  |  -  |  A `workload_autoscaler_profile` block defined below. | | `workload_autoscaler_profile` block structure: || 
+| **var.workload_autoscaler_profile** | block | False | -  |  -  |  A `workload_autoscaler_profile` block defined below. | 
+| `workload_autoscaler_profile` block structure: || 
 |   keda_enabled (bool): Specifies whether KEDA Autoscaler can be used for workloads. ||
 |   vertical_pod_autoscaler_enabled (bool): Specifies whether Vertical Pod Autoscaler should be enabled. ||
-
 | **var.workload_identity_enabled** | bool | False | `False`  |  -  |  Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to `false`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Whether public network access is allowed for this Kubernetes Cluster. Defaults to `true`. | 
 | **var.role_based_access_control_enabled** | bool | False | `True`  |  -  |  Whether Role Based Access Control for the Kubernetes Cluster should be enabled. Defaults to `true`. Changing this forces a new resource to be created. | 
 | **var.run_command_enabled** | bool | False | `True`  |  -  |  Whether to enable run command for the cluster or not. Defaults to `true`. | 
-| **var.service_principal** | block | False | -  |  -  |  A `service_principal` block. One of either `identity` or `service_principal` must be specified. | | `service_principal` block structure: || 
+| **var.service_principal** | block | False | -  |  -  |  A `service_principal` block. One of either `identity` or `service_principal` must be specified. | 
+| `service_principal` block structure: || 
 |   client_id (string): (REQUIRED) The Client ID for the Service Principal. ||
 |   client_secret (string): (REQUIRED) The Client Secret for the Service Principal. ||
-
 | **var.sku_tier** | string | False | `Free`  |  `Free`, `Standard`  |  The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, and `Standard` (which includes the Uptime SLA). Defaults to `Free`. | 
-| **var.storage_profile** | block | False | -  |  -  |  A `storage_profile` block. | | `storage_profile` block structure: || 
+| **var.storage_profile** | block | False | -  |  -  |  A `storage_profile` block. | 
+| `storage_profile` block structure: || 
 |   blob_driver_enabled (bool): Is the Blob CSI driver enabled? Defaults to 'false'. ||
 |   disk_driver_enabled (bool): Is the Disk CSI driver enabled? Defaults to 'true'. ||
 |   disk_driver_version (string): Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'. ||
 |   file_driver_enabled (bool): Is the File CSI driver enabled? Defaults to 'true'. ||
 |   snapshot_controller_enabled (bool): Is the Snapshot Controller enabled? Defaults to 'true'. ||
-
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.web_app_routing** | block | False | -  |  -  |  A `web_app_routing` block. | | `web_app_routing` block structure: || 
+| **var.web_app_routing** | block | False | -  |  -  |  A `web_app_routing` block. | 
+| `web_app_routing` block structure: || 
 |   dns_zone_id (string): (REQUIRED) Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''. ||
-
-| **var.windows_profile** | block | False | -  |  -  |  A `windows_profile` block. | | `windows_profile` block structure: || 
+| **var.windows_profile** | block | False | -  |  -  |  A `windows_profile` block. | 
+| `windows_profile` block structure: || 
 |   admin_username (string): (REQUIRED) The Admin Username for Windows VMs. Changing this forces a new resource to be created. ||
 |   admin_password (string): The Admin Password for Windows VMs. Length must be between 14 and 123 characters. ||
 |   license (string): Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. ||
 |   gmsa (block): A 'gmsa' block. ||
-
 
 
 

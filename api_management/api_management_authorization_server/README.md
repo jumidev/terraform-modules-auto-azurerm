@@ -51,10 +51,10 @@ tfstate_store = {
 | **var.resource_owner_password** | string | False | -  |  The password associated with the Resource Owner. | 
 | **var.resource_owner_username** | string | False | -  |  The username associated with the Resource Owner. | 
 | **var.support_state** | string | False | -  |  Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security. | 
-| **var.token_body_parameter** | block | False | -  |  A `token_body_parameter` block. | | `token_body_parameter` block structure: || 
+| **var.token_body_parameter** | block | False | -  |  A `token_body_parameter` block. | 
+| `token_body_parameter` block structure: || 
 |   name (string): (REQUIRED) The Name of the Parameter. ||
 |   value (string): (REQUIRED) The Value of the Parameter. ||
-
 | **var.token_endpoint** | string | False | -  |  The OAUTH Token Endpoint. | 
 
 

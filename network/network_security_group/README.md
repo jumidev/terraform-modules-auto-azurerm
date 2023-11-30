@@ -31,7 +31,8 @@ tfstate_store = {
 | **var.name** | string | True | Specifies the name of the network security group. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | The name of the resource group in which to create the network security group. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.security_rule** | block | False | List of `security_rule` objects representing security rules, as defined below. | | `security_rule` block structure: || 
+| **var.security_rule** | block | False | List of `security_rule` objects representing security rules, as defined below. | 
+| `security_rule` block structure: || 
 |   name (string): (REQUIRED) The name of the security rule. ||
 |   description (string): A description for this rule. Restricted to 140 characters. ||
 |   protocol (string): (REQUIRED) Network protocol this rule applies to. Possible values include 'Tcp', 'Udp', 'Icmp', 'Esp', 'Ah' or '*' (which matches all). ||
@@ -44,7 +45,6 @@ tfstate_store = {
 |   access (string): (REQUIRED) Specifies whether network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'. ||
 |   priority (string): (REQUIRED) Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule. ||
 |   direction (string): (REQUIRED) The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are 'Inbound' and 'Outbound'. ||
-
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

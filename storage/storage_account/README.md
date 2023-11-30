@@ -47,19 +47,20 @@ tfstate_store = {
 | **var.default_to_oauth_authentication** | bool | False | `False`  |  -  |  Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false` | 
 | **var.is_hns_enabled** | bool | False | -  |  -  |  Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created. | 
 | **var.nfsv3_enabled** | bool | False | `False`  |  -  |  Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`. | 
-| **var.custom_domain** | block | False | -  |  -  |  A `custom_domain` block. | | `custom_domain` block structure: || 
+| **var.custom_domain** | block | False | -  |  -  |  A `custom_domain` block. | 
+| `custom_domain` block structure: || 
 |   name (string): (REQUIRED) The Custom Domain Name to use for the Storage Account, which will be validated by Azure. ||
 |   use_subdomain (bool): Should the Custom Domain Name be validated by using indirect CNAME validation? ||
-
-| **var.customer_managed_key** | block | False | -  |  -  |  A `customer_managed_key` block. | | `customer_managed_key` block structure: || 
+| **var.customer_managed_key** | block | False | -  |  -  |  A `customer_managed_key` block. | 
+| `customer_managed_key` block structure: || 
 |   key_vault_key_id (string): (REQUIRED) The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. ||
 |   user_assigned_identity_id (string): (REQUIRED) The ID of a user assigned identity. ||
-
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account. ||
-
-| **var.blob_properties** | block | False | -  |  -  |  A `blob_properties` block. | | `blob_properties` block structure: || 
+| **var.blob_properties** | block | False | -  |  -  |  A `blob_properties` block. | 
+| `blob_properties` block structure: || 
 |   cors_rule (block): A 'cors_rule' block. ||
 |   delete_retention_policy (block): A 'delete_retention_policy' block. ||
 |   restore_policy (block): A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'. ||
@@ -69,51 +70,50 @@ tfstate_store = {
 |   default_service_version (string): The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. ||
 |   last_access_time_enabled (bool): Is the last access time based tracking enabled? Default to 'false'. ||
 |   container_delete_retention_policy (block): A 'container_delete_retention_policy' block. ||
-
-| **var.queue_properties** | block | False | -  |  -  |  A `queue_properties` block. | | `queue_properties` block structure: || 
+| **var.queue_properties** | block | False | -  |  -  |  A `queue_properties` block. | 
+| `queue_properties` block structure: || 
 |   cors_rule (block): A 'cors_rule' block. ||
 |   logging (block): A 'logging' block. ||
 |   minute_metrics (block): A 'minute_metrics' block. ||
 |   hour_metrics (block): A 'hour_metrics' block. ||
-
-| **var.static_website** | block | False | -  |  -  |  A `static_website` block. | | `static_website` block structure: || 
+| **var.static_website** | block | False | -  |  -  |  A `static_website` block. | 
+| `static_website` block structure: || 
 |   index_document (string): The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive. ||
 |   error_404_document (string): The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file. ||
-
-| **var.share_properties** | block | False | -  |  -  |  A `share_properties` block. | | `share_properties` block structure: || 
+| **var.share_properties** | block | False | -  |  -  |  A `share_properties` block. | 
+| `share_properties` block structure: || 
 |   cors_rule (block): A 'cors_rule' block. ||
 |   retention_policy (block): A 'retention_policy' block. ||
 |   smb (block): A 'smb' block. ||
-
-| **var.network_rules** | block | False | -  |  -  |  A `network_rules` block. | | `network_rules` block structure: || 
+| **var.network_rules** | block | False | -  |  -  |  A `network_rules` block. | 
+| `network_rules` block structure: || 
 |   default_action (string): (REQUIRED) Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'. ||
 |   bypass (string): Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'. ||
 |   ip_rules (string): List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed. ||
 |   virtual_network_subnet_ids (list): A list of resource ids for subnets. ||
 |   private_link_access (block): One or more 'private_link_access' block. ||
-
 | **var.large_file_share_enabled** | bool | False | -  |  -  |  Is Large File Share Enabled? | 
-| **var.azure_files_authentication** | block | False | -  |  -  |  A `azure_files_authentication` block. | | `azure_files_authentication` block structure: || 
+| **var.azure_files_authentication** | block | False | -  |  -  |  A `azure_files_authentication` block. | 
+| `azure_files_authentication` block structure: || 
 |   directory_type (string): (REQUIRED) Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. ||
 |   active_directory (block): A 'active_directory' block. Required when 'directory_type' is 'AD'. ||
-
-| **var.routing** | block | False | -  |  -  |  A `routing` block. | | `routing` block structure: || 
+| **var.routing** | block | False | -  |  -  |  A `routing` block. | 
+| `routing` block structure: || 
 |   publish_internet_endpoints (bool): Should internet routing storage endpoints be published? Defaults to 'false'. ||
 |   publish_microsoft_endpoints (bool): Should Microsoft routing storage endpoints be published? Defaults to 'false'. ||
 |   choice (string): Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. ||
-
 | **var.queue_encryption_key_type** | string | False | -  |  `Service`, `Account`  |  The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`. | 
 | **var.table_encryption_key_type** | string | False | -  |  `Service`, `Account`  |  The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`. | 
 | **var.infrastructure_encryption_enabled** | bool | False | `False`  |  -  |  Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`. | 
-| **var.immutability_policy** | block | False | -  |  -  |  An `immutability_policy` block. Changing this forces a new resource to be created. | | `immutability_policy` block structure: || 
+| **var.immutability_policy** | block | False | -  |  -  |  An `immutability_policy` block. Changing this forces a new resource to be created. | 
+| `immutability_policy` block structure: || 
 |   allow_protected_append_writes (bool): (REQUIRED) When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. ||
 |   state (string): (REQUIRED) Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. ||
 |   period_since_creation_in_days (int): (REQUIRED) The immutability period for the blobs in the container since the policy creation, in days. ||
-
-| **var.sas_policy** | block | False | -  |  -  |  A `sas_policy` block. | | `sas_policy` block structure: || 
+| **var.sas_policy** | block | False | -  |  -  |  A `sas_policy` block. | 
+| `sas_policy` block structure: || 
 |   expiration_period (string): (REQUIRED) The SAS expiration period in format of 'DD.HH:MM:SS'. ||
 |   expiration_action (string): The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. ||
-
 | **var.allowed_copy_scope** | string | False | -  |  `AAD`, `PrivateLink`  |  Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`. | 
 | **var.sftp_enabled** | bool | False | -  |  -  |  Boolean, enable SFTP for the storage account | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 

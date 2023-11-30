@@ -40,21 +40,21 @@ tfstate_store = {
 | **var.task_type** | string | True | -  |  `LabVmsShutdownTask`, `LabVmAutoStart`  |  The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`. | 
 | **var.time_zone_id** | string | True | -  |  -  |  The time zone ID (e.g. Pacific Standard time). | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.notification_settings** | block | True | -  |  -  |  The notification setting of a schedule. A `notification_settings` block. | | `notification_settings` block structure: || 
+| **var.notification_settings** | block | True | -  |  -  |  The notification setting of a schedule. A `notification_settings` block. | 
+| `notification_settings` block structure: || 
 |   status (string): The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled' ||
 |   time_in_minutes (int): Time in minutes before event at which notification will be sent. ||
 |   webhook_url (string): The webhook URL to which the notification will be sent. ||
-
-| **var.weekly_recurrence** | block | False | -  |  -  |  The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block. | | `weekly_recurrence` block structure: || 
+| **var.weekly_recurrence** | block | False | -  |  -  |  The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block. | 
+| `weekly_recurrence` block structure: || 
 |   time (string): (REQUIRED) The time when the schedule takes effect. ||
 |   week_days (string): A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. ||
-
-| **var.daily_recurrence** | block | False | -  |  -  |  The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block. | | `daily_recurrence` block structure: || 
+| **var.daily_recurrence** | block | False | -  |  -  |  The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block. | 
+| `daily_recurrence` block structure: || 
 |   time (string): (REQUIRED) The time each day when the schedule takes effect. ||
-
-| **var.hourly_recurrence** | block | False | -  |  -  |  The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block. | | `hourly_recurrence` block structure: || 
+| **var.hourly_recurrence** | block | False | -  |  -  |  The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block. | 
+| `hourly_recurrence` block structure: || 
 |   minute (string): (REQUIRED) Minutes of the hour the schedule will run. ||
-
 
 
 

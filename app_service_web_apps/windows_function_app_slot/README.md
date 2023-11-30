@@ -30,7 +30,8 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.name** | string | True | -  |  -  |  Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created. | 
 | **var.function_app_id** | string | True | -  |  -  |  The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created. | 
-| **var.site_config** | block | True | -  |  -  |  a `site_config` block as detailed below. | | `site_config` block structure: || 
+| **var.site_config** | block | True | -  |  -  |  a `site_config` block as detailed below. | 
+| `site_config` block structure: || 
 |   always_on (bool): If this Windows Web App is Always On enabled. Defaults to 'false'. ||
 |   api_definition_url (string): The URL of the API definition that describes this Windows Function App. ||
 |   api_management_api_id (string): The ID of the API Management API for this Windows Function App. ||
@@ -66,9 +67,9 @@ tfstate_store = {
 |   websockets_enabled (bool): Should Web Sockets be enabled. Defaults to 'false'. ||
 |   windows_fx_version (string): The Windows FX Version string. ||
 |   worker_count (int): The number of Workers for this Windows Function App. ||
-
 | **var.app_settings** | string | False | -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | block | False | -  |  -  |  an `auth_settings` block as detailed below. | | `auth_settings` block structure: || 
+| **var.auth_settings** | block | False | -  |  -  |  an `auth_settings` block as detailed below. | 
+| `auth_settings` block structure: || 
 |   enabled (bool): (REQUIRED) Should the Authentication / Authorization feature be enabled? ||
 |   active_directory (block): an 'active_directory' block as detailed below. ||
 |   additional_login_parameters (string): Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in. ||
@@ -84,8 +85,8 @@ tfstate_store = {
 |   token_store_enabled (bool): Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to 'false'. ||
 |   twitter (block): a 'twitter' block as detailed below. ||
 |   unauthenticated_client_action (string): The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'. ||
-
-| **var.auth_settings_v2** | block | False | -  |  -  |  an `auth_settings_v2` block as detailed below. | | `auth_settings_v2` block structure: || 
+| **var.auth_settings_v2** | block | False | -  |  -  |  an `auth_settings_v2` block as detailed below. | 
+| `auth_settings_v2` block structure: || 
 |   auth_enabled (bool): Should the AuthV2 Settings be enabled. Defaults to 'false'. ||
 |   runtime_version (string): The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to '~1'. ||
 |   config_file_path (string): The path to the App Auth settings. ||
@@ -108,22 +109,21 @@ tfstate_store = {
 |   microsoft_v2 (block): A 'microsoft_v2' block. ||
 |   twitter_v2 (block): A 'twitter_v2' block. ||
 |   login (block): (REQUIRED) A 'login' block. ||
-
-| **var.backup** | block | False | -  |  -  |  a `backup` block as detailed below. | | `backup` block structure: || 
+| **var.backup** | block | False | -  |  -  |  a `backup` block as detailed below. | 
+| `backup` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this Backup. ||
 |   schedule (block): (REQUIRED) a 'schedule' block as detailed below. ||
 |   storage_account_url (string): (REQUIRED) The SAS URL to the container. ||
 |   enabled (bool): Should this backup job be enabled? Defaults to 'true'. ||
-
 | **var.builtin_logging_enabled** | bool | False | `True`  |  -  |  Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`. | 
 | **var.client_certificate_enabled** | bool | False | -  |  -  |  Should the Function App Slot use Client Certificates. | 
 | **var.client_certificate_mode** | string | False | `Optional`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`. | 
 | **var.client_certificate_exclusion_paths** | string | False | -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
-| **var.connection_string** | block | False | -  |  -  |  a `connection_string` block as detailed below. | | `connection_string` block structure: || 
+| **var.connection_string** | block | False | -  |  -  |  a `connection_string` block as detailed below. | 
+| `connection_string` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this Connection. ||
 |   type (string): (REQUIRED) Type of database. Possible values include: 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'. ||
 |   value (string): (REQUIRED) The connection string value. ||
-
 | **var.content_share_force_disabled** | bool | False | -  |  -  |  Force disable the content share settings. | 
 | **var.daily_memory_time_quota** | string | False | `0`  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Is the Windows Function App Slot enabled. Defaults to `true`. | 
@@ -131,22 +131,22 @@ tfstate_store = {
 | **var.functions_extension_version** | string | False | `~4`  |  -  |  The runtime version associated with the Function App Slot. Defaults to `~4`. | 
 | **var.https_only** | string | False | -  |  -  |  Can the Function App Slot only be accessed via HTTPS? | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Should public network access be enabled for the Function App. Defaults to `true`. | 
-| **var.identity** | block | False | -  |  -  |  an `identity` block as detailed below. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  an `identity` block as detailed below. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Windows Function App Slot. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
 |   identity_ids (list): A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App Slot. ||
-
 | **var.key_vault_reference_identity_id** | string | False | -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) | 
 | **var.service_plan_id** | string | False | -  |  -  |  The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used. | 
 | **var.storage_account_access_key** | string | False | -  |  -  |  The access key which will be used to access the storage account for the Function App Slot. | 
 | **var.storage_account_name** | string | False | -  |  -  |  The backend storage account name which will be used by this Function App Slot. | 
-| **var.storage_account** | block | False | -  |  -  |  One or more `storage_account` blocks. | | `storage_account` block structure: || 
+| **var.storage_account** | block | False | -  |  -  |  One or more `storage_account` blocks. | 
+| `storage_account` block structure: || 
 |   access_key (string): (REQUIRED) The Access key for the storage account. ||
 |   account_name (string): (REQUIRED) The Name of the Storage Account. ||
 |   name (string): (REQUIRED) The name which should be used for this Storage Account. ||
 |   share_name (string): (REQUIRED) The Name of the File Share or Container Name for Blob storage. ||
 |   type (string): (REQUIRED) The Azure Storage Type. Possible values include 'AzureFiles'. ||
 |   mount_path (string): The path at which to mount the storage share. ||
-
 | **var.storage_uses_managed_identity** | string | False | -  |  -  |  Should the Function App Slot use its Managed Identity to access storage. | 
 | **var.storage_key_vault_secret_id** | string | False | -  |  -  |  The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Windows Function App Slot. | 

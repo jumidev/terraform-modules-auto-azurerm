@@ -36,21 +36,21 @@ tfstate_store = {
 | **var.location** | string | True | -  |  The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.vm_priority** | string | True | -  |  The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`. | 
 | **var.vm_size** | string | True | -  |  The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.scale_settings** | block | True | -  |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | | `scale_settings` block structure: || 
+| **var.scale_settings** | block | True | -  |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| `scale_settings` block structure: || 
 |   max_node_count (int): (REQUIRED) Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created. ||
 |   min_node_count (int): (REQUIRED) Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created. ||
 |   scale_down_nodes_after_idle_duration (string): (REQUIRED) Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created. ||
-
-| **var.ssh** | block | False | -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | | `ssh` block structure: || 
+| **var.ssh** | block | False | -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| `ssh` block structure: || 
 |   admin_username (string): (REQUIRED) Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created. ||
 |   admin_password (string): Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. ||
 |   key_value (string): SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. ||
-
 | **var.description** | string | False | -  |  The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.identity** | block | False | -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created. ||
-
 | **var.local_auth_enabled** | bool | False | `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.node_public_ip_enabled** | bool | False | `True`  |  Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.ssh_public_access_enabled** | bool | False | -  |  A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created. | 

@@ -32,14 +32,14 @@ tfstate_store = {
 | **var.role_definition_id** | string | True | The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 | **var.scope** | string | True | The scope. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 | **var.justification** | string | False | The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.schedule** | block | False | A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | | `schedule` block structure: || 
+| **var.schedule** | block | False | A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| `schedule` block structure: || 
 |   expiration (block): A 'expiration' block. ||
 |   start_date_time (string): The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. ||
-
-| **var.ticket** | block | False | A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | | `ticket` block structure: || 
+| **var.ticket** | block | False | A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| `ticket` block structure: || 
 |   number (string): The ticket number. ||
 |   system (string): The ticket system. ||
-
 
 
 

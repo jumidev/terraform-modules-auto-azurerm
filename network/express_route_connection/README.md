@@ -34,12 +34,12 @@ tfstate_store = {
 | **var.authorization_key** | string | False | -  |  The authorization key to establish the Express Route Connection. | 
 | **var.enable_internet_security** | bool | False | -  |  Is Internet security enabled for this Express Route Connection? | 
 | **var.express_route_gateway_bypass_enabled** | bool | False | `False`  |  Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`. | 
-| **var.routing** | block | False | -  |  A `routing` block. | | `routing` block structure: || 
+| **var.routing** | block | False | -  |  A `routing` block. | 
+| `routing` block structure: || 
 |   associated_route_table_id (string): The ID of the Virtual Hub Route Table associated with this Express Route Connection. ||
 |   inbound_route_map_id (string): The ID of the Route Map associated with this Express Route Connection for inbound routes. ||
 |   outbound_route_map_id (string): The ID of the Route Map associated with this Express Route Connection for outbound routes. ||
 |   propagated_route_table (block): A 'propagated_route_table' block. ||
-
 | **var.routing_weight** | string | False | `0`  |  The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`. | 
 
 

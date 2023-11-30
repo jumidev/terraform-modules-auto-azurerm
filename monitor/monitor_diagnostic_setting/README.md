@@ -31,23 +31,23 @@ tfstate_store = {
 | **var.target_resource_id** | string | True | -  |  The ID of an existing Resource on which to configure Diagnostic Settings. Changing this forces a new resource to be created. | 
 | **var.eventhub_name** | string | False | -  |  Specifies the name of the Event Hub where Diagnostics Data should be sent. | 
 | **var.eventhub_authorization_rule_id** | string | False | -  |  Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. | 
-| **var.log** | block | False | -  |  One or more `log` blocks. | | `log` block structure: || 
+| **var.log** | block | False | -  |  One or more `log` blocks. | 
+| `log` block structure: || 
 |   category (string): The name of a Diagnostic Log Category for this Resource. ||
 |   category_group (string): The name of a Diagnostic Log Category Group for this Resource. ||
 |   retention_policy (block): A 'retention_policy' block. ||
 |   enabled (bool): Is this Diagnostic Log enabled? Defaults to 'true'. ||
-
-| **var.enabled_log** | block | False | -  |  One or more `enabled_log` blocks. | | `enabled_log` block structure: || 
+| **var.enabled_log** | block | False | -  |  One or more `enabled_log` blocks. | 
+| `enabled_log` block structure: || 
 |   category (string): The name of a Diagnostic Log Category for this Resource. ||
 |   category_group (string): The name of a Diagnostic Log Category Group for this Resource. ||
 |   retention_policy (block): A 'retention_policy' block. ||
-
 | **var.log_analytics_workspace_id** | string | False | -  |  Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. | 
-| **var.metric** | block | False | -  |  One or more `metric` blocks. | | `metric` block structure: || 
+| **var.metric** | block | False | -  |  One or more `metric` blocks. | 
+| `metric` block structure: || 
 |   category (string): (REQUIRED) The name of a Diagnostic Metric Category for this Resource. ||
 |   retention_policy (block): A 'retention_policy' block. ||
 |   enabled (bool): Is this Diagnostic Metric enabled? Defaults to 'true'. ||
-
 | **var.storage_account_id** | string | False | -  |  The ID of the Storage Account where logs should be sent. | 
 | **var.log_analytics_destination_type** | string | False | `AzureDiagnostics`, `Dedicated`  |  Possible values are `AzureDiagnostics` and `Dedicated`. When set to `Dedicated`, logs sent to a Log Analytics workspace will go into resource specific tables, instead of the legacy `AzureDiagnostics` table. | 
 | **var.partner_solution_id** | string | False | -  |  The ID of the market partner solution where Diagnostics Data should be sent. For potential partner integrations, [click to learn more about partner integration](https://learn.microsoft.com/en-us/azure/partner-solutions/overview). | 

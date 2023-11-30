@@ -34,12 +34,12 @@ tfstate_store = {
 | **var.address_space** | string | True | -  |  The address space that is used the virtual network. You can supply more than one address space. | 
 | **var.location** | string | True | -  |  The location/region where the virtual network is created. Changing this forces a new resource to be created. | 
 | **var.bgp_community** | string | False | -  |  The BGP community attribute in format `<as-number>:<community-value>`. | 
-| **var.ddos_protection_plan** | block | False | -  |  A `ddos_protection_plan` block. | | `ddos_protection_plan` block structure: || 
+| **var.ddos_protection_plan** | block | False | -  |  A `ddos_protection_plan` block. | 
+| `ddos_protection_plan` block structure: || 
 |   enable (string): (REQUIRED) Enable/disable DDoS Protection Plan on Virtual Network. ||
-
-| **var.encryption** | block | False | -  |  A `encryption` block. | | `encryption` block structure: || 
+| **var.encryption** | block | False | -  |  A `encryption` block. | 
+| `encryption` block structure: || 
 |   enforcement (string): (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. ||
-
 | **var.dns_servers** | string | False | -  |  List of IP addresses of DNS servers | 
 | **var.edge_zone** | string | False | -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
 | **var.flow_timeout_in_minutes** | string | False | `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 

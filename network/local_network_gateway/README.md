@@ -32,11 +32,11 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | The location/region where the local network gateway is created. Changing this forces a new resource to be created. | 
 | **var.address_space** | string | False | The list of string CIDRs representing the address spaces the gateway exposes. | 
-| **var.bgp_settings** | block | False | A `bgp_settings` block containing the Local Network Gateway's BGP speaker settings. | | `bgp_settings` block structure: || 
+| **var.bgp_settings** | block | False | A `bgp_settings` block containing the Local Network Gateway's BGP speaker settings. | 
+| `bgp_settings` block structure: || 
 |   asn (string): (REQUIRED) The BGP speaker's ASN. ||
 |   bgp_peering_address (string): (REQUIRED) The BGP peering address and BGP identifier of this BGP speaker. ||
 |   peer_weight (string): The weight added to routes learned from this BGP speaker. ||
-
 | **var.gateway_address** | string | False | The gateway IP address to connect with. | 
 | **var.gateway_fqdn** | string | False | The gateway FQDN to connect with. | 
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 

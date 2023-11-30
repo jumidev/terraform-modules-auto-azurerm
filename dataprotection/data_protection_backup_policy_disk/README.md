@@ -33,12 +33,12 @@ tfstate_store = {
 | **var.vault_id** | string | True | The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created. | 
 | **var.backup_repeating_time_intervals** | string | True | Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created. | 
 | **var.default_retention_duration** | string | True | The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created. | 
-| **var.retention_rule** | block | False | One or more `retention_rule` blocks. Changing this forces a new Backup Policy Disk to be created. | | `retention_rule` block structure: || 
+| **var.retention_rule** | block | False | One or more `retention_rule` blocks. Changing this forces a new Backup Policy Disk to be created. | 
+| `retention_rule` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created. ||
 |   duration (string): (REQUIRED) Duration of deletion after given timespan. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy Disk to be created. ||
 |   criteria (block): (REQUIRED) A 'criteria' block. Changing this forces a new Backup Policy Disk to be created. ||
 |   priority (string): (REQUIRED) Retention Tag priority. Changing this forces a new Backup Policy Disk to be created. ||
-
 
 
 

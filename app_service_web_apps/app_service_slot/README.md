@@ -36,7 +36,8 @@ tfstate_store = {
 | **var.app_service_plan_id** | string | True | -  |  The ID of the App Service Plan within which to create this App Service Slot. Changing this forces a new resource to be created. | 
 | **var.app_service_name** | string | True | -  |  The name of the App Service within which to create the App Service Slot. Changing this forces a new resource to be created. | 
 | **var.app_settings** | string | False | -  |  A key-value pair of App Settings. | 
-| **var.auth_settings** | block | False | -  |  A `auth_settings` block. | | `auth_settings` block structure: || 
+| **var.auth_settings** | block | False | -  |  A `auth_settings` block. | 
+| `auth_settings` block structure: || 
 |   enabled (bool): (REQUIRED) Is Authentication enabled? ||
 |   active_directory (block): A 'active_directory' block. ||
 |   additional_login_params (string): Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form 'key=value'. ||
@@ -51,16 +52,16 @@ tfstate_store = {
 |   token_store_enabled (bool): If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to 'false'. ||
 |   twitter (block): A 'twitter' block. ||
 |   unauthenticated_client_action (string): The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'. ||
-
-| **var.connection_string** | block | False | -  |  An `connection_string` block. | | `connection_string` block structure: || 
+| **var.connection_string** | block | False | -  |  An `connection_string` block. | 
+| `connection_string` block structure: || 
 |   name (string): (REQUIRED) The name of the Connection String. ||
 |   type (string): (REQUIRED) The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'. ||
 |   value (string): (REQUIRED) The value for the Connection String. ||
-
 | **var.client_affinity_enabled** | bool | False | -  |  Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? | 
 | **var.enabled** | bool | False | `True`  |  Is the App Service Slot Enabled? Defaults to `true`. | 
 | **var.https_only** | bool | False | `False`  |  Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. | 
-| **var.site_config** | block | False | -  |  A `site_config` object as defined below. | | `site_config` block structure: || 
+| **var.site_config** | block | False | -  |  A `site_config` object as defined below. | 
+| `site_config` block structure: || 
 |   acr_use_managed_identity_credentials (string): Are Managed Identity Credentials used for Azure Container Registry pull ||
 |   acr_user_managed_identity_client_id (string): If using User Managed Identity, the User Managed Identity Client Id ||
 |   always_on (bool): Should the slot be loaded at all times? Defaults to 'false'. ||
@@ -92,25 +93,24 @@ tfstate_store = {
 |   use_32_bit_worker_process (bool): Should the App Service Slot run in 32 bit mode, rather than 64 bit mode? ||
 |   vnet_route_all_enabled (bool): Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to 'false'. ||
 |   websockets_enabled (bool): Should WebSockets be enabled? ||
-
-| **var.storage_account** | block | False | -  |  One or more `storage_account` blocks. | | `storage_account` block structure: || 
+| **var.storage_account** | block | False | -  |  One or more `storage_account` blocks. | 
+| `storage_account` block structure: || 
 |   name (string): (REQUIRED) The name of the storage account identifier. ||
 |   type (string): (REQUIRED) The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'. ||
 |   account_name (string): (REQUIRED) The name of the storage account. ||
 |   share_name (string): (REQUIRED) The name of the file share (container name, for Blob storage). ||
 |   access_key (string): (REQUIRED) The access key for the storage account. ||
 |   mount_path (string): The path to mount the storage within the site's runtime environment. ||
-
-| **var.logs** | block | False | -  |  A `logs` block. | | `logs` block structure: || 
+| **var.logs** | block | False | -  |  A `logs` block. | 
+| `logs` block structure: || 
 |   application_logs (block): An 'application_logs' block. ||
 |   http_logs (block): An 'http_logs' block. ||
 |   detailed_error_messages_enabled (bool): Should 'Detailed error messages' be enabled on this App Service slot? Defaults to 'false'. ||
 |   failed_request_tracing_enabled (bool): Should 'Failed request tracing' be enabled on this App Service slot? Defaults to 'false'. ||
-
-| **var.identity** | block | False | -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the identity type of the App Service. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. ||
 |   identity_ids (string): Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. ||
-
 | **var.key_vault_reference_identity_id** | string | False | -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 

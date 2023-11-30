@@ -40,19 +40,20 @@ tfstate_store = {
 | **var.method** | string | True | The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values. | 
 | **var.url_template** | string | True | The relative URL Template identifying the target resource for this operation, which may include parameters. | 
 | **var.description** | string | False | A description for this API Operation, which may include HTML formatting tags. | 
-| **var.request** | block | False | A `request` block. | | `request` block structure: || 
+| **var.request** | block | False | A `request` block. | 
+| `request` block structure: || 
 |   description (string): A description of the HTTP Request, which may include HTML tags. ||
 |   header (list): One or more 'header' blocks. ||
 |   query_parameter (list): One or more 'query_parameter' blocks. ||
 |   representation (block): One or more 'representation' blocks. ||
-
-| **var.response** | block | False | One or more `response` blocks. | | `response` block structure: || 
+| **var.response** | block | False | One or more `response` blocks. | 
+| `response` block structure: || 
 |   status_code (string): (REQUIRED) The HTTP Status Code. ||
 |   description (string): A description of the HTTP Response, which may include HTML tags. ||
 |   header (list): One or more 'header' blocks. ||
 |   representation (block): One or more 'representation' blocks. ||
-
-| **var.template_parameter** | block | False | One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | | `template_parameter` block structure: || 
+| **var.template_parameter** | block | False | One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
+| `template_parameter` block structure: || 
 |   name (string): (REQUIRED) The Name of this Template Parameter. ||
 |   required (bool): (REQUIRED) Is this Template Parameter Required? ||
 |   type (string): (REQUIRED) The Type of this Template Parameter, such as a 'string'. ||
@@ -62,7 +63,6 @@ tfstate_store = {
 |   example (list): One or more 'example' blocks. ||
 |   schema_id (string): The name of the Schema. ||
 |   type_name (string): The type name defined by the Schema. ||
-
 
 
 

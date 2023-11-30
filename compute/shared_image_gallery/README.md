@@ -32,10 +32,10 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | The name of the resource group in which to create the Shared Image Gallery. Changing this forces a new resource to be created. | 
 | **var.location** | string | True | Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.description** | string | False | A description for this Shared Image Gallery. | 
-| **var.sharing** | block | False | A `sharing` block. Changing this forces a new resource to be created. | | `sharing` block structure: || 
+| **var.sharing** | block | False | A `sharing` block. Changing this forces a new resource to be created. | 
+| `sharing` block structure: || 
 |   permission (string): (REQUIRED) The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. ||
 |   community_gallery (block): A 'community_gallery' block. Changing this forces a new resource to be created. ||
-
 | **var.tags** | map | False | A mapping of tags to assign to the Shared Image Gallery. | 
 
 

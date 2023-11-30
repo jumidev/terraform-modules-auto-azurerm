@@ -37,25 +37,25 @@ tfstate_store = {
 | **var.retention_interval** | string | True | -  |  -  |  Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. The time duration should be between `1` hour and `26` hours (inclusive) and should be specified in ISO 8601 format. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.command_line** | string | False | -  |  -  |  Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.cleanup_preference** | string | False | `Always`  |  `Always`, `OnExpiration`, `OnSuccess`  |  Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.container** | block | False | -  |  -  |  A `container` block. Changing this forces a new Resource Deployment Script to be created. | | `container` block structure: || 
+| **var.container** | block | False | -  |  -  |  A `container` block. Changing this forces a new Resource Deployment Script to be created. | 
+| `container` block structure: || 
 |   container_group_name (string): Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. ||
-
-| **var.environment_variable** | block | False | -  |  -  |  An `environment_variable` block. Changing this forces a new Resource Deployment Script to be created. | | `environment_variable` block structure: || 
+| **var.environment_variable** | block | False | -  |  -  |  An `environment_variable` block. Changing this forces a new Resource Deployment Script to be created. | 
+| `environment_variable` block structure: || 
 |   name (string): (REQUIRED) Specifies the name of the environment variable. ||
 |   secure_value (string): Specifies the value of the secure environment variable. ||
 |   value (string): Specifies the value of the environment variable. ||
-
 | **var.force_update_tag** | string | False | -  |  -  |  Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. Changing this forces a new Resource Deployment Script to be created. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. Changing this forces a new Resource Deployment Script to be created. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. ||
 |   identity_ids (string): (REQUIRED) Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. ||
-
 | **var.primary_script_uri** | string | False | -  |  -  |  Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.script_content** | string | False | -  |  -  |  Script body. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.storage_account** | block | False | -  |  -  |  A `storage_account` block. Changing this forces a new Resource Deployment Script to be created. | | `storage_account` block structure: || 
+| **var.storage_account** | block | False | -  |  -  |  A `storage_account` block. Changing this forces a new Resource Deployment Script to be created. | 
+| `storage_account` block structure: || 
 |   key (string): (REQUIRED) Specifies the storage account access key. ||
 |   name (string): (REQUIRED) Specifies the storage account name. ||
-
 | **var.supporting_script_uris** | string | False | -  |  -  |  Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.timeout** | string | False | `P1D`  |  -  |  Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Resource Deployment Script. | 

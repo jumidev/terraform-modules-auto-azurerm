@@ -31,9 +31,9 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.name** | string | True | -  |  -  |  Specifies the name of the Outbound Rule. Changing this forces a new resource to be created. | 
 | **var.loadbalancer_id** | string | True | -  |  -  |  The ID of the Load Balancer in which to create the Outbound Rule. Changing this forces a new resource to be created. | 
-| **var.frontend_ip_configuration** | block | False | -  |  -  |  One or more `frontend_ip_configuration` blocks. | | `frontend_ip_configuration` block structure: || 
+| **var.frontend_ip_configuration** | block | False | -  |  -  |  One or more `frontend_ip_configuration` blocks. | 
+| `frontend_ip_configuration` block structure: || 
 |   name (string): (REQUIRED) The name of the Frontend IP Configuration. ||
-
 | **var.backend_address_pool_id** | string | True | -  |  -  |  The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs. | 
 | **var.protocol** | string | True | -  |  `Udp`, `Tcp`, `All`  |  The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`. | 
 | **var.enable_tcp_reset** | bool | False | -  |  -  |  Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP. | 

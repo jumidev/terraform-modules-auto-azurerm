@@ -36,26 +36,26 @@ tfstate_store = {
 | **var.identifier** | string | True | -  |  `applicationinsights`, `azuremonitor`  |  Identifier of the Diagnostics Logs. Possible values are `applicationinsights` and `azuremonitor`. Changing this forces a new API Management Service API Diagnostics Logs to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group where the API Management Service API Diagnostics Logs should exist. Changing this forces a new API Management Service API Diagnostics Logs to be created. | 
 | **var.always_log_errors** | string | False | -  |  -  |  Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings. | 
-| **var.backend_request** | block | False | -  |  -  |  A `backend_request` block. | | `backend_request` block structure: || 
+| **var.backend_request** | block | False | -  |  -  |  A `backend_request` block. | 
+| `backend_request` block structure: || 
 |   body_bytes (int): Number of payload bytes to log (up to 8192). ||
 |   headers_to_log (string): Specifies a list of headers to log. ||
 |   data_masking (block): A 'data_masking' block. ||
-
-| **var.backend_response** | block | False | -  |  -  |  A `backend_response` block. | | `backend_response` block structure: || 
+| **var.backend_response** | block | False | -  |  -  |  A `backend_response` block. | 
+| `backend_response` block structure: || 
 |   body_bytes (int): Number of payload bytes to log (up to 8192). ||
 |   headers_to_log (string): Specifies a list of headers to log. ||
 |   data_masking (block): A 'data_masking' block. ||
-
-| **var.frontend_request** | block | False | -  |  -  |  A `frontend_request` block. | | `frontend_request` block structure: || 
+| **var.frontend_request** | block | False | -  |  -  |  A `frontend_request` block. | 
+| `frontend_request` block structure: || 
 |   body_bytes (int): Number of payload bytes to log (up to 8192). ||
 |   headers_to_log (string): Specifies a list of headers to log. ||
 |   data_masking (block): A 'data_masking' block. ||
-
-| **var.frontend_response** | block | False | -  |  -  |  A `frontend_response` block. | | `frontend_response` block structure: || 
+| **var.frontend_response** | block | False | -  |  -  |  A `frontend_response` block. | 
+| `frontend_response` block structure: || 
 |   body_bytes (int): Number of payload bytes to log (up to 8192). ||
 |   headers_to_log (string): Specifies a list of headers to log. ||
 |   data_masking (block): A 'data_masking' block. ||
-
 | **var.http_correlation_protocol** | string | False | -  |  `None`, `Legacy`, `W3C`  |  The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`. | 
 | **var.log_client_ip** | string | False | -  |  -  |  Log client IP address. | 
 | **var.sampling_percentage** | string | False | -  |  `0.0`, `100.0`  |  Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`. | 

@@ -34,13 +34,13 @@ tfstate_store = {
 | **var.name** | string | True | The name of the JavaScript UDF Function. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
 | **var.stream_analytics_job_name** | string | True | The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
-| **var.input** | block | True | One or more `input` blocks. | | `input` block structure: || 
+| **var.input** | block | True | One or more `input` blocks. | 
+| `input` block structure: || 
 |   type (string): (REQUIRED) The Data Type for the Input Argument of this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. ||
 |   configuration_parameter (bool): Is this input parameter a configuration parameter? Defaults to 'false'. ||
-
-| **var.output** | block | True | An `output` blocks. | | `output` block structure: || 
+| **var.output** | block | True | An `output` blocks. | 
+| `output` block structure: || 
 |   type (string): (REQUIRED) The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. ||
-
 | **var.script** | string | True | The JavaScript of this UDF Function. | 
 
 

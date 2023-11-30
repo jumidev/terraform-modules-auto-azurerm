@@ -36,10 +36,10 @@ tfstate_store = {
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Linked Service. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Linked Service. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Linked Service. | 
-| **var.key_vault_password** | block | False | A `key_vault_password` block. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | | `key_vault_password` block structure: || 
+| **var.key_vault_password** | block | False | A `key_vault_password` block. Use this argument to store Snowflake password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
+| `key_vault_password` block structure: || 
 |   linked_service_name (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service. ||
 |   secret_name (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores Snowflake password. ||
-
 
 
 

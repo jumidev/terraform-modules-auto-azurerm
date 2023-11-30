@@ -37,9 +37,9 @@ tfstate_store = {
 | **var.authentication_failure_mode** | string | False | -  |  `http401WithBearerChallenge`, `http403`  |  Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`. | 
 | **var.customer_managed_key_enforcement_enabled** | bool | False | `False`  |  -  |  Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`. | 
 | **var.hosting_mode** | string | False | `default`  |  `highDensity`, `default`  |  Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is 'SystemAssigned'. ||
-
 | **var.local_authentication_enabled** | bool | False | `True`  |  -  |  Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`. | 
 | **var.partition_count** | string | False | `1`  |  `1`, `2`, `3`, `4`, `6`, `12`  |  Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`. | 
 | **var.public_network_access_enabled** | bool | False | `True`  |  -  |  Specifies whether Public Network Access is allowed for this resource. Defaults to `true`. | 

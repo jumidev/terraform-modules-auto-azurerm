@@ -29,17 +29,17 @@ tfstate_store = {
 | **var.monitor_id** | string | True | -  |  Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created. | 
 | **var.azure_active_directory_log_enabled** | bool | False | `False`  |  Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`. | 
 | **var.activity_log_enabled** | bool | False | `False`  |  Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`. | 
-| **var.log_tag_filter** | block | False | -  |  A `log_tag_filter` block. | | `log_tag_filter` block structure: || 
+| **var.log_tag_filter** | block | False | -  |  A `log_tag_filter` block. | 
+| `log_tag_filter` block structure: || 
 |   name (string): (REQUIRED) Specifies the name (also known as the key) of the tag. ||
 |   action (string): (REQUIRED) Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. ||
 |   value (string): (REQUIRED) Specifies the value of the tag. ||
-
 | **var.metric_enabled** | bool | False | `False`  |  Whether metrics should be sent for the Monitor resource. Defaults to `false`. | 
-| **var.metric_tag_filter** | block | False | -  |  A `metric_tag_filter` block. | | `metric_tag_filter` block structure: || 
+| **var.metric_tag_filter** | block | False | -  |  A `metric_tag_filter` block. | 
+| `metric_tag_filter` block structure: || 
 |   name (string): (REQUIRED) Specifies the name (also known as the key) of the tag. ||
 |   action (string): (REQUIRED) Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. ||
 |   value (string): (REQUIRED) Specifies the value of the tag. ||
-
 | **var.subscription_log_enabled** | bool | False | `False`  |  Whether subscription logs should be sent for the Monitor resource. Defaults to `false`. | 
 
 

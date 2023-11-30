@@ -35,16 +35,17 @@ tfstate_store = {
 | **var.location** | string | True | -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.display_name** | string | True | -  |  -  |  Specifies the Display Name for this Iot Security Solution. | 
 | **var.iothub_ids** | string | True | -  |  -  |  Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied. | 
-| **var.additional_workspace** | block | False | -  |  -  |  A `additional_workspace` block. | | `additional_workspace` block structure: || 
+| **var.additional_workspace** | block | False | -  |  -  |  A `additional_workspace` block. | 
+| `additional_workspace` block structure: || 
 |   data_types (string): (REQUIRED) A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'. ||
 |   workspace_id (string): (REQUIRED) The resource ID of the Log Analytics Workspace. ||
-
 | **var.disabled_data_sources** | bool | False | -  |  -  |  A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Is the Iot Security Solution enabled? Defaults to `true`. | 
 | **var.events_to_export** | string | False | -  |  `RawEvents`  |  A list of data which is to exported to analytic workspace. Valid values include `RawEvents`. | 
 | **var.log_analytics_workspace_id** | string | False | -  |  -  |  Specifies the Log Analytics Workspace ID to which the security data will be sent. | 
 | **var.log_unmasked_ips_enabled** | bool | False | `False`  |  -  |  Should IP addressed be unmasked in the log? Defaults to `false`. | 
-| **var.recommendations_enabled** | block | False | -  |  -  |  A `recommendations_enabled` block of options to enable or disable as defined below. | | `recommendations_enabled` block structure: || 
+| **var.recommendations_enabled** | block | False | -  |  -  |  A `recommendations_enabled` block of options to enable or disable as defined below. | 
+| `recommendations_enabled` block structure: || 
 |   acr_authentication (bool): Is Principal Authentication enabled for the ACR repository? Defaults to 'true'. ||
 |   agent_send_unutilized_msg (bool): Is Agent send underutilized messages enabled? Defaults to 'true'. ||
 |   baseline (bool): Is Security related system configuration issues identified? Defaults to 'true'. ||
@@ -61,7 +62,6 @@ tfstate_store = {
 |   privileged_docker_options (bool): Is high level permissions are needed for the module? Defaults to 'true'. ||
 |   shared_credentials (bool): Is any credentials shared among devices? Defaults to 'true'. ||
 |   vulnerable_tls_cipher_suite (bool): Does TLS cipher suite need to be updated? Defaults to 'true'. ||
-
 | **var.query_for_resources** | string | False | -  |  -  |  An Azure Resource Graph query used to set the resources monitored. | 
 | **var.query_subscription_ids** | list | False | -  |  -  |  A list of subscription Ids on which the user defined resources query should be executed. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the resource. | 

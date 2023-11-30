@@ -27,10 +27,10 @@ tfstate_store = {
 | Name | Type | Required? |  Description |
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created. | 
-| **var.feature** | block | False | A list of `feature` blocks. | | `feature` block structure: || 
+| **var.feature** | block | False | A list of `feature` blocks. | 
+| `feature` block structure: || 
 |   name (string): (REQUIRED) Specifies the name of the feature to register. ||
 |   registered (string): (REQUIRED) Should this feature be Registered or Unregistered? ||
-
 
 
 

@@ -33,11 +33,11 @@ tfstate_store = {
 | **var.cdn_frontdoor_profile_id** | string | True | The ID of the Front Door Profile. Changing this forces a new Front Door Profile to be created. | 
 | **var.host_name** | string | True | The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created. | 
 | **var.dns_zone_id** | string | False | The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually. | 
-| **var.tls** | block | True | A `tls` block. | | `tls` block structure: || 
+| **var.tls** | block | True | A `tls` block. | 
+| `tls` block structure: || 
 |   certificate_type (string): Defines the source of the SSL certificate. Possible values include 'CustomerCertificate' and 'ManagedCertificate'. Defaults to 'ManagedCertificate'. ||
 |   minimum_tls_version (string): TLS protocol version that will be used for Https. Possible values include 'TLS10' and 'TLS12'. Defaults to 'TLS12'. ||
 |   cdn_frontdoor_secret_id (string): Resource ID of the Front Door Secret. ||
-
 
 
 ### 1 optional associated resource

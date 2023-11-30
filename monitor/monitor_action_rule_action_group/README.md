@@ -33,11 +33,12 @@ tfstate_store = {
 | **var.action_group_id** | string | True | -  |  Specifies the resource id of monitor action group. | 
 | **var.description** | string | False | -  |  Specifies a description for the Action Rule. | 
 | **var.enabled** | bool | False | `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
-| **var.scope** | block | False | -  |  A `scope` block. | | `scope` block structure: || 
+| **var.scope** | block | False | -  |  A `scope` block. | 
+| `scope` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'. ||
 |   resource_ids (list): (REQUIRED) A list of resource IDs of the given scope type which will be the target of action rule. ||
-
-| **var.condition** | block | False | -  |  A `condition` block. | | `condition` block structure: || 
+| **var.condition** | block | False | -  |  A `condition` block. | 
+| `condition` block structure: || 
 |   alert_context (block): A 'alert_context' block. ||
 |   alert_rule_id (block): A 'alert_rule_id' block. ||
 |   description (block): A 'description' block. ||
@@ -45,7 +46,6 @@ tfstate_store = {
 |   monitor_service (block): A 'monitor_service' block. ||
 |   severity (block): A 'severity' block. ||
 |   target_resource_type (block): A 'target_resource_type' block. ||
-
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 

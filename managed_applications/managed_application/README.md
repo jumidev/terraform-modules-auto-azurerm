@@ -38,13 +38,13 @@ tfstate_store = {
 | **var.application_definition_id** | string | False | -  |  The application definition ID to deploy. | 
 | **var.parameters** | string | False | -  |  A mapping of name and value pairs to pass to the managed application as parameters. | 
 | **var.parameter_values** | string | False | -  |  The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application. | 
-| **var.plan** | block | False | -  |  One `plan` block. Changing this forces a new resource to be created. | | `plan` block structure: || 
+| **var.plan** | block | False | -  |  One `plan` block. Changing this forces a new resource to be created. | 
+| `plan` block structure: || 
 |   name (string): (REQUIRED) Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created. ||
 |   product (string): (REQUIRED) Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created. ||
 |   publisher (string): (REQUIRED) Specifies the publisher of the plan. Changing this forces a new resource to be created. ||
 |   version (string): (REQUIRED) Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created. ||
 |   promotion_code (string): Specifies the promotion code to use with the plan. Changing this forces a new resource to be created. ||
-
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 

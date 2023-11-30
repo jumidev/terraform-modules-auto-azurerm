@@ -34,10 +34,10 @@ tfstate_store = {
 | **var.location** | string | True | -  |  The Azure Region where the Machine Learning Synapse Spark should exist. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 | **var.synapse_spark_pool_id** | string | True | -  |  The ID of the linked Synapse Spark Pool. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 | **var.description** | string | False | -  |  The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.identity** | block | False | -  |  An `identity` block. Changing this forces a new Machine Learning Synapse Spark to be created. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  An `identity` block. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Machine Learning Synapse Spark. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Synapse Spark. Changing this forces a new resource to be created. ||
-
 | **var.local_auth_enabled** | bool | False | `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 | **var.tags** | map | False | -  |  A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 

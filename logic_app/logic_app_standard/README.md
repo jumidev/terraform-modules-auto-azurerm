@@ -38,20 +38,21 @@ tfstate_store = {
 | **var.app_settings** | string | False | -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
 | **var.use_extension_bundle** | bool | False | `True`  |  -  |  Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`. | 
 | **var.bundle_version** | string | False | `[1.*, 2.0.0)`  |  -  |  If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`. | 
-| **var.connection_string** | block | False | -  |  -  |  An `connection_string` block. | | `connection_string` block structure: || 
+| **var.connection_string** | block | False | -  |  -  |  An `connection_string` block. | 
+| `connection_string` block structure: || 
 |   name (string): (REQUIRED) The name of the Connection String. ||
 |   type (string): (REQUIRED) The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. ||
 |   value (string): (REQUIRED) The value for the Connection String. ||
-
 | **var.client_affinity_enabled** | bool | False | -  |  -  |  Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance? | 
 | **var.client_certificate_mode** | string | False | -  |  `Required`, `Optional`  |  The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`. | 
 | **var.enabled** | bool | False | `True`  |  -  |  Is the Logic App enabled? Defaults to `true`. | 
 | **var.https_only** | bool | False | `False`  |  -  |  Can the Logic App only be accessed via HTTPS? Defaults to `false`. | 
-| **var.identity** | block | False | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | False | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). ||
 |   identity_ids (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. ||
-
-| **var.site_config** | block | False | -  |  -  |  A `site_config` object as defined below. | | `site_config` block structure: || 
+| **var.site_config** | block | False | -  |  -  |  A `site_config` object as defined below. | 
+| `site_config` block structure: || 
 |   always_on (bool): Should the Logic App be loaded at all times? Defaults to 'false'. ||
 |   app_scale_limit (int): The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan. ||
 |   cors (block): A 'cors' block. ||
@@ -72,7 +73,6 @@ tfstate_store = {
 |   use_32_bit_worker_process (bool): Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to 'true'. ||
 |   vnet_route_all_enabled (bool): Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. ||
 |   websockets_enabled (bool): Should WebSockets be enabled? ||
-
 | **var.storage_account_name** | string | True | -  |  -  |  The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created. | 
 | **var.storage_account_access_key** | string | True | -  |  -  |  The access key which will be used to access the backend storage account for the Logic App | 
 | **var.storage_account_share_name** | string | False | -  |  -  |  The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share | 

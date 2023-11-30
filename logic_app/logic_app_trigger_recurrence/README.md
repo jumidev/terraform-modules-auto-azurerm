@@ -35,11 +35,11 @@ tfstate_store = {
 | **var.interval** | string | True | -  |  Specifies interval used for the Frequency, for example a value of `4` for `interval` and `hour` for `frequency` would run the Trigger every 4 hours. | 
 | **var.start_time** | string | False | -  |  Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`. | 
 | **var.time_zone** | string | False | -  |  Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values) | 
-| **var.schedule** | block | False | -  |  A `schedule` block as specified below. | | `schedule` block structure: || 
+| **var.schedule** | block | False | -  |  A `schedule` block as specified below. | 
+| `schedule` block structure: || 
 |   at_these_minutes (string): Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59. ||
 |   at_these_hours (string): Specifies a list of hours when the trigger should run. Valid values are between 0 and 23. ||
 |   on_these_days (string): Specifies a list of days when the trigger should run. Valid values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'. ||
-
 
 
 

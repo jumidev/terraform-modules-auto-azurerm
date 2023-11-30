@@ -39,11 +39,11 @@ tfstate_store = {
 | **var.recovery_source_protection_container_name** | string | True | Name of the source protection container to map. Changing this forces a new resource to be created. | 
 | **var.recovery_target_protection_container_id** | string | True | Id of target protection container to map to. Changing this forces a new resource to be created. | 
 | **var.recovery_replication_policy_id** | string | True | Id of the policy to use for this mapping. Changing this forces a new resource to be created. | 
-| **var.automatic_update** | block | False | a `automatic_update` block defined as below. | | `automatic_update` block structure: || 
+| **var.automatic_update** | block | False | a `automatic_update` block defined as below. | 
+| `automatic_update` block structure: || 
 |   enabled (bool): Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to 'false'. ||
 |   automation_account_id (string): The automation account ID which holds the automatic update runbook and authenticates to Azure resources. ||
 |   authentication_type (string): The authentication type used for automation account. Possible values are 'RunAsAccount' and 'SystemAssignedIdentity'. ||
-
 
 
 

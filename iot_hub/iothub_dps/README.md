@@ -34,24 +34,24 @@ tfstate_store = {
 | **var.location** | string | True | -  |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
 | **var.allocation_policy** | string | False | `Hashed`  |  The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`. | 
 | **var.data_residency_enabled** | bool | False | `False`  |  Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.sku** | block | True | -  |  A `sku` block. | | `sku` block structure: || 
+| **var.sku** | block | True | -  |  A `sku` block. | 
+| `sku` block structure: || 
 |   name (string): (REQUIRED) The name of the sku. Currently can only be set to 'S1'. ||
 |   capacity (int): (REQUIRED) The number of provisioned IoT Device Provisioning Service units. ||
-
-| **var.linked_hub** | block | False | -  |  A `linked_hub` block. | | `linked_hub` block structure: || 
+| **var.linked_hub** | block | False | -  |  A `linked_hub` block. | 
+| `linked_hub` block structure: || 
 |   connection_string (string): (REQUIRED) The connection string to connect to the IoT Hub. ||
 |   location (string): (REQUIRED) The location of the IoT hub. ||
 |   apply_allocation_policy (bool): Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. ||
 |   allocation_weight (string): The weight applied to the IoT Hub. Defaults to '1'. ||
 |   hostname (string): (Computed) The IoT Hub hostname. ||
-
 | **var.public_network_access_enabled** | bool | False | `True`  |  Whether requests from Public Network are allowed. Defaults to `true`. | 
-| **var.ip_filter_rule** | block | False | -  |  An `ip_filter_rule` block. | | `ip_filter_rule` block structure: || 
+| **var.ip_filter_rule** | block | False | -  |  An `ip_filter_rule` block. | 
+| `ip_filter_rule` block structure: || 
 |   name (string): (REQUIRED) The name of the filter. ||
 |   ip_mask (string): (REQUIRED) The IP address range in CIDR notation for the rule. ||
 |   action (string): (REQUIRED) The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' ||
 |   target (string): Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. ||
-
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 
 

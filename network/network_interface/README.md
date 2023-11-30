@@ -29,7 +29,8 @@ tfstate_store = {
 
 | Name | Type | Required? |  Default  |  possible values |  Description |
 | ---- | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.ip_configuration** | block | True | -  |  -  |  One or more `ip_configuration` blocks. | | `ip_configuration` block structure: || 
+| **var.ip_configuration** | block | True | -  |  -  |  One or more `ip_configuration` blocks. | 
+| `ip_configuration` block structure: || 
 |   name (string): (REQUIRED) A name used for this IP Configuration. ||
 |   gateway_load_balancer_frontend_ip_configuration_id (string): The Frontend IP Configuration ID of a Gateway SKU Load Balancer. ||
 |   subnet_id (string): The ID of the Subnet where this Network Interface should be located in. ||
@@ -38,7 +39,6 @@ tfstate_store = {
 |   public_ip_address_id (string): Reference to a Public IP Address to associate with this NIC ||
 |   primary (bool): Is this the Primary IP Configuration? Must be 'true' for the first 'ip_configuration' when multiple are specified. Defaults to 'false'. ||
 |   private_ip_address (string): The Static IP Address which should be used. ||
-
 | **var.location** | string | True | -  |  -  |  The location where the Network Interface should exist. Changing this forces a new resource to be created. | 
 | **var.name** | string | True | -  |  -  |  The name of the Network Interface. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created. | 

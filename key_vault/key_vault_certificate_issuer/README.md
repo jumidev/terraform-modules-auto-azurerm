@@ -33,12 +33,12 @@ tfstate_store = {
 | **var.provider_name** | string | True | `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA`, `SslAdminV2`  |  The name of the third-party Certificate Issuer. Possible values are: `DigiCert`, `GlobalSign`, `OneCertV2-PrivateCA`, `OneCertV2-PublicCA` and `SslAdminV2`. | 
 | **var.org_id** | string | False | -  |  The ID of the organization as provided to the issuer. | 
 | **var.account_id** | string | False | -  |  The account number with the third-party Certificate Issuer. | 
-| **var.admin** | block | False | -  |  One or more `admin` blocks. | | `admin` block structure: || 
+| **var.admin** | block | False | -  |  One or more `admin` blocks. | 
+| `admin` block structure: || 
 |   email_address (string): (REQUIRED) E-mail address of the admin. ||
 |   first_name (string): First name of the admin. ||
 |   last_name (string): Last name of the admin. ||
 |   phone (int): Phone number of the admin. ||
-
 | **var.password** | string | False | -  |  The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value. | 
 
 

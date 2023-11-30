@@ -32,7 +32,8 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created. | 
 | **var.remote_vpn_site_id** | string | True | -  |  The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created. | 
 | **var.vpn_gateway_id** | string | True | -  |  The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.vpn_link** | block | True | -  |  One or more `vpn_link` blocks. | | `vpn_link` block structure: || 
+| **var.vpn_link** | block | True | -  |  One or more `vpn_link` blocks. | 
+| `vpn_link` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this VPN Link Connection. ||
 |   egress_nat_rule_ids (list): A list of the egress NAT Rule Ids. ||
 |   ingress_nat_rule_ids (list): A list of the ingress NAT Rule Ids. ||
@@ -48,18 +49,17 @@ tfstate_store = {
 |   local_azure_ip_address_enabled (bool): Whether to use local Azure IP to initiate connection? Defaults to 'false'. ||
 |   policy_based_traffic_selector_enabled (bool): Whether to enable policy-based traffic selectors? Defaults to 'false'. ||
 |   custom_bgp_address (block): One or more 'custom_bgp_address' blocks. ||
-
 | **var.internet_security_enabled** | bool | False | `False`  |  Whether Internet Security is enabled for this VPN Connection. Defaults to `false`. | 
-| **var.routing** | block | False | -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | | `routing` block structure: || 
+| **var.routing** | block | False | -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
+| `routing` block structure: || 
 |   associated_route_table (string): (REQUIRED) The ID of the Route Table associated with this VPN Connection. ||
 |   propagated_route_table (block): A 'propagated_route_table' block. ||
 |   inbound_route_map_id (string): The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. ||
 |   outbound_route_map_id (string): The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. ||
-
-| **var.traffic_selector_policy** | block | False | -  |  One or more `traffic_selector_policy` blocks. | | `traffic_selector_policy` block structure: || 
+| **var.traffic_selector_policy** | block | False | -  |  One or more `traffic_selector_policy` blocks. | 
+| `traffic_selector_policy` block structure: || 
 |   local_address_ranges (list): (REQUIRED) A list of local address spaces in CIDR format for this VPN Gateway Connection. ||
 |   remote_address_ranges (list): (REQUIRED) A list of remote address spaces in CIDR format for this VPN Gateway Connection. ||
-
 
 
 

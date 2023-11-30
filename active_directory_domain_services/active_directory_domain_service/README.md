@@ -34,24 +34,25 @@ tfstate_store = {
 | **var.domain_name** | string | True | -  |  -  |  The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created. | 
 | **var.domain_configuration_type** | string | False | -  |  `FullySynced`, `ResourceTrusting`  |  The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created. | 
 | **var.filtered_sync_enabled** | bool | False | `False`  |  -  |  Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`. | 
-| **var.secure_ldap** | block | False | -  |  -  |  A `secure_ldap` block. | | `secure_ldap` block structure: || 
+| **var.secure_ldap** | block | False | -  |  -  |  A `secure_ldap` block. | 
+| `secure_ldap` block structure: || 
 |   enabled (bool): (REQUIRED) Whether to enable secure LDAP for the managed domain. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks. ||
 |   external_access_enabled (bool): Whether to enable external access to LDAPS over the Internet. Defaults to 'false'. ||
 |   pfx_certificate (string): (REQUIRED) The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file). ||
 |   pfx_certificate_password (string): (REQUIRED) The password to use for decrypting the PKCS#12 bundle (PFX file). ||
-
 | **var.location** | string | True | -  |  -  |  The Azure location where the Domain Service exists. Changing this forces a new resource to be created. | 
 | **var.name** | string | True | -  |  -  |  The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created. | 
-| **var.notifications** | block | False | -  |  -  |  A `notifications` block. | | `notifications` block structure: || 
+| **var.notifications** | block | False | -  |  -  |  A `notifications` block. | 
+| `notifications` block structure: || 
 |   additional_recipients (list): A list of additional email addresses to notify when there are alerts in the managed domain. ||
 |   notify_dc_admins (string): Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. ||
 |   notify_global_admins (string): Whether to notify all Global Administrators when there are alerts in the managed domain. ||
-
-| **var.initial_replica_set** | block | True | -  |  -  |  An `initial_replica_set` block. The initial replica set inherits the same location as the Domain Service resource. | | `initial_replica_set` block structure: || 
+| **var.initial_replica_set** | block | True | -  |  -  |  An `initial_replica_set` block. The initial replica set inherits the same location as the Domain Service resource. | 
+| `initial_replica_set` block structure: || 
 |   subnet_id (string): (REQUIRED) The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. ||
-
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created. | 
-| **var.security** | block | False | -  |  -  |  A `security` block. | | `security` block structure: || 
+| **var.security** | block | False | -  |  -  |  A `security` block. | 
+| `security` block structure: || 
 |   kerberos_armoring_enabled (bool): Whether to enable Kerberos Armoring. Defaults to 'false'. ||
 |   kerberos_rc4_encryption_enabled (bool): Whether to enable Kerberos RC4 Encryption. Defaults to 'false'. ||
 |   ntlm_v1_enabled (bool): Whether to enable legacy NTLM v1 support. Defaults to 'false'. ||
@@ -59,7 +60,6 @@ tfstate_store = {
 |   sync_ntlm_passwords (bool): Whether to synchronize NTLM password hashes to the managed domain. Defaults to 'false'. ||
 |   sync_on_prem_passwords (bool): Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. ||
 |   tls_v1_enabled (bool): Whether to enable legacy TLS v1 support. Defaults to 'false'. ||
-
 | **var.sku** | string | True | -  |  -  |  The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags assigned to the resource. | 
 

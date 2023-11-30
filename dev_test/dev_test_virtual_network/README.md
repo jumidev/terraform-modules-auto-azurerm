@@ -32,10 +32,10 @@ tfstate_store = {
 | **var.lab_name** | string | True | Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created. | 
 | **var.description** | string | False | A description for the Virtual Network. | 
-| **var.subnet** | block | False | A `subnet` block. | | `subnet` block structure: || 
+| **var.subnet** | block | False | A `subnet` block. | 
+| `subnet` block structure: || 
 |   use_public_ip_address (string): Can Virtual Machines in this Subnet use Public IP Addresses? Possible values are 'Allow', 'Default' and 'Deny'. Defaults to 'Allow'. ||
 |   use_in_virtual_machine_creation (string): Can this subnet be used for creating Virtual Machines? Possible values are 'Allow', 'Default' and 'Deny'. Defaults to 'Allow'. ||
-
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 
 

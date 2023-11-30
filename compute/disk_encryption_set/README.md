@@ -37,10 +37,10 @@ tfstate_store = {
 | **var.auto_key_rotation_enabled** | bool | False | `False`  |  `true`, `false`  |  Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`. | 
 | **var.encryption_type** | string | False | `EncryptionAtRestWithCustomerKey`  |  `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys`, `ConfidentialVmEncryptedWithCustomerKey`  |  The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created. | 
 | **var.federated_client_id** | string | False | -  |  -  |  Multi-tenant application client id to access key vault in a different tenant. | 
-| **var.identity** | block | True | -  |  -  |  An `identity` block. | | `identity` block structure: || 
+| **var.identity** | block | True | -  |  -  |  An `identity` block. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ||
 |   identity_ids (list): A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set. ||
-
 | **var.tags** | map | False | -  |  -  |  A mapping of tags to assign to the Disk Encryption Set. | 
 
 

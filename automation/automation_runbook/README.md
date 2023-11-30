@@ -39,21 +39,21 @@ tfstate_store = {
 | **var.runbook_type** | string | True | -  |  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
 | **var.log_progress** | string | True | -  |  Progress log option. | 
 | **var.log_verbose** | string | True | -  |  Verbose log option. | 
-| **var.publish_content_link** | block | False | -  |  One `publish_content_link` block. | | `publish_content_link` block structure: || 
+| **var.publish_content_link** | block | False | -  |  One `publish_content_link` block. | 
+| `publish_content_link` block structure: || 
 |   uri (string): (REQUIRED) The URI of the runbook content. ||
 |   version (string): Specifies the version of the content ||
 |   hash (block): A 'hash' block. ||
-
 | **var.description** | string | False | -  |  A description for this credential. | 
 | **var.content** | string | False | -  |  The desired content of the runbook. | 
 | **var.tags** | map | False | -  |  A mapping of tags to assign to the resource. | 
 | **var.log_activity_trace_level** | string | False | `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
-| **var.draft** | block | False | -  |  A `draft` block . | | `draft` block structure: || 
+| **var.draft** | block | False | -  |  A `draft` block . | 
+| `draft` block structure: || 
 |   edit_mode_enabled (bool): Whether the draft in edit mode. ||
 |   content_link (block): A 'publish_content_link' block. ||
 |   output_types (string): Specifies the output types of the runbook. ||
 |   parameters (block): A list of 'parameters' block. ||
-
 
 
 

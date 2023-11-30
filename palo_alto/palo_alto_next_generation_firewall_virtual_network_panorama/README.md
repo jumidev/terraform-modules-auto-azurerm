@@ -32,23 +32,23 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.location** | string | True | The Azure Region where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created. | 
 | **var.name** | string | True | The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Panorama. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created. | 
-| **var.network_profile** | block | True | A `network_profile` block. | | `network_profile` block structure: || 
+| **var.network_profile** | block | True | A `network_profile` block. | 
+| `network_profile` block structure: || 
 |   public_ip_address_ids (string): (REQUIRED) Specifies a list of Azure Public IP Address IDs. ||
 |   vnet_configuration (block): (REQUIRED) A 'vnet_configuration' block. ||
 |   egress_nat_ip_address_ids (string): Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation. ||
-
 | **var.panorama_base64_config** | string | True | The base64 encoded configuration registration string as defined by your Panorama Server for your Cloud Device Group. | 
 | **var.resource_group_name** | string | True | The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Panorama to be created. | 
-| **var.destination_nat** | block | False | One or more `destination_nat` blocks. | | `destination_nat` block structure: || 
+| **var.destination_nat** | block | False | One or more `destination_nat` blocks. | 
+| `destination_nat` block structure: || 
 |   name (string): (REQUIRED) The name which should be used for this Destination NAT. ||
 |   protocol (string): (REQUIRED) The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. ||
 |   backend_config (block): A 'backend_config' block. ||
 |   frontend_config (block): A 'frontend_config' block. ||
-
-| **var.dns_settings** | block | False | A `dns_settings` block. | | `dns_settings` block structure: || 
+| **var.dns_settings** | block | False | A `dns_settings` block. | 
+| `dns_settings` block structure: || 
 |   dns_servers (string): Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. ||
 |   use_azure_dns (bool): Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. ||
-
 | **var.tags** | map | False | A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama. | 
 
 

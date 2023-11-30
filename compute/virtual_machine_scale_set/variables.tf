@@ -101,15 +101,15 @@ variable "os_profile_windows_config" {
 #   winrm (block)                            : A collection of 'winrm' blocks.
 #   additional_unattend_config (block)       : An 'additional_unattend_config' block.
 #
+# winrm block structure   :
+#   protocol (string)       : (REQUIRED) Specifies the protocol of listener
+#   certificate_url (string): Specifies URL of the certificate with which new Virtual Machines is provisioned.
+#
 # additional_unattend_config block structure:
 #   pass (string)                             : (REQUIRED) Specifies the name of the pass that the content applies to. The only allowable value is 'oobeSystem'.
 #   component (string)                        : (REQUIRED) Specifies the name of the component to configure with the added content. The only allowable value is 'Microsoft-Windows-Shell-Setup'.
 #   setting_name (string)                     : (REQUIRED) Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'.
 #   content (string)                          : (REQUIRED) Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
-#
-# winrm block structure   :
-#   protocol (string)       : (REQUIRED) Specifies the protocol of listener
-#   certificate_url (string): Specifies URL of the certificate with which new Virtual Machines is provisioned.
 
 
 variable "os_profile_linux_config" {

@@ -32,9 +32,9 @@ tfstate_store = {
 | **var.name** | string | True | -  |  -  |  The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
 | **var.location** | string | True | -  |  -  |  The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
-| **var.identity** | block | True | -  |  -  |  An `identity` block. Changing this forces a new Log Analytics Cluster to be created. | | `identity` block structure: || 
+| **var.identity** | block | True | -  |  -  |  An `identity` block. Changing this forces a new Log Analytics Cluster to be created. | 
+| `identity` block structure: || 
 |   type (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. ||
-
 | **var.size_gb** | string | False | `1000`  |  `500`, `1000`, `2000`, `5000`  |  The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`. | 
 | **var.tags** | map | False | -  |  -  |  A mapping of tags which should be assigned to the Log Analytics Cluster. | 
 

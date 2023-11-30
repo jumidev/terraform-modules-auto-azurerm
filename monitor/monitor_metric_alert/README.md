@@ -31,7 +31,8 @@ tfstate_store = {
 | **var.name** | string | True | -  |  -  |  The name of the Metric Alert. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created. | 
 | **var.scopes** | string | True | -  |  -  |  A set of strings of resource IDs at which the metric criteria should be applied. | 
-| **var.criteria** | block | False | -  |  -  |  One or more (static) `criteria` blocks. | | `criteria` block structure: || 
+| **var.criteria** | block | False | -  |  -  |  One or more (static) `criteria` blocks. | 
+| `criteria` block structure: || 
 |   metric_namespace (string): (REQUIRED) One of the metric namespaces to be monitored. ||
 |   metric_name (string): (REQUIRED) One of the metric names to be monitored. ||
 |   aggregation (string): (REQUIRED) The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. ||
@@ -39,8 +40,8 @@ tfstate_store = {
 |   threshold (string): (REQUIRED) The criteria threshold value that activates the alert. ||
 |   dimension (block): One or more 'dimension' blocks. ||
 |   skip_metric_validation (bool): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. ||
-
-| **var.dynamic_criteria** | block | False | -  |  -  |  A `dynamic_criteria` block. | | `dynamic_criteria` block structure: || 
+| **var.dynamic_criteria** | block | False | -  |  -  |  A `dynamic_criteria` block. | 
+| `dynamic_criteria` block structure: || 
 |   metric_namespace (string): (REQUIRED) One of the metric namespaces to be monitored. ||
 |   metric_name (string): (REQUIRED) One of the metric names to be monitored. ||
 |   aggregation (string): (REQUIRED) The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. ||
@@ -51,16 +52,15 @@ tfstate_store = {
 |   evaluation_failure_count (int): The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. ||
 |   ignore_data_before (string): The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. ||
 |   skip_metric_validation (string): Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? ||
-
-| **var.application_insights_web_test_location_availability_criteria** | block | False | -  |  -  |  A `application_insights_web_test_location_availability_criteria` block. | | `application_insights_web_test_location_availability_criteria` block structure: || 
+| **var.application_insights_web_test_location_availability_criteria** | block | False | -  |  -  |  A `application_insights_web_test_location_availability_criteria` block. | 
+| `application_insights_web_test_location_availability_criteria` block structure: || 
 |   web_test_id (string): (REQUIRED) The ID of the Application Insights Web Test. ||
 |   component_id (string): (REQUIRED) The ID of the Application Insights Resource. ||
 |   failed_location_count (int): (REQUIRED) The number of failed locations. ||
-
-| **var.action** | block | False | -  |  -  |  One or more `action` blocks. | | `action` block structure: || 
+| **var.action** | block | False | -  |  -  |  One or more `action` blocks. | 
+| `action` block structure: || 
 |   action_group_id (string): (REQUIRED) The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) ||
 |   webhook_properties (string): The map of custom string properties to include with the post operation. These data are appended to the webhook payload. ||
-
 | **var.enabled** | bool | False | `True`  |  -  |  Should this Metric Alert be enabled? Defaults to `true`. | 
 | **var.auto_mitigate** | bool | False | `True`  |  -  |  Should the alerts in this Metric Alert be auto resolved? Defaults to `true`. | 
 | **var.description** | string | False | -  |  -  |  The description of this Metric Alert. | 

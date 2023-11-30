@@ -44,11 +44,11 @@ tfstate_store = {
 | **var.storage_account_key** | string | True | The Access Key which should be used to connect to this Storage Account. | 
 | **var.storage_container_name** | string | True | The name of the Container within the Storage Account. | 
 | **var.time_format** | string | True | The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead. | 
-| **var.serialization** | block | True | A `serialization` block. | | `serialization` block structure: || 
+| **var.serialization** | block | True | A `serialization` block. | 
+| `serialization` block structure: || 
 |   type (string): (REQUIRED) The serialization format used for incoming data streams. Possible values are 'Avro', 'Csv' and 'Json'. ||
 |   encoding (string): The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to 'UTF8'. ||
 |   field_delimiter (string): The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ' ' (space), ',' (comma), '	' (tab), '|' (pipe) and ';'. ||
-
 
 
 

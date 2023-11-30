@@ -30,10 +30,10 @@ tfstate_store = {
 | ---- | ---- | --------- |  ----------- |
 | **var.name** | string | True | Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created. | 
 | **var.capacity_reservation_group_id** | string | True | The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created. | 
-| **var.sku** | block | True | A `sku` block. | | `sku` block structure: || 
+| **var.sku** | block | True | A `sku` block. | 
+| `sku` block structure: || 
 |   name (string): (REQUIRED) Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created. ||
 |   capacity (int): (REQUIRED) Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. ||
-
 | **var.zone** | string | False | Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created. | 
 | **var.tags** | map | False | A mapping of tags to assign to the resource. | 
 

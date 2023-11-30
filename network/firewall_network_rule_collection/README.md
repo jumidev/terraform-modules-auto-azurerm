@@ -36,7 +36,8 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
 | **var.priority** | string | True | `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **var.action** | string | True | `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
-| **var.rule** | block | True | -  |  One or more `rule` blocks. | | `rule` block structure: || 
+| **var.rule** | block | True | -  |  One or more `rule` blocks. | 
+| `rule` block structure: || 
 |   name (string): (REQUIRED) Specifies the name of the rule. ||
 |   description (string): Specifies a description for the rule. ||
 |   source_addresses (list): A list of source IP addresses and/or IP ranges. ||
@@ -46,7 +47,6 @@ tfstate_store = {
 |   destination_fqdns (list): A list of destination FQDNS for the rule. ||
 |   destination_ports (list): (REQUIRED) A list of destination ports. ||
 |   protocols (string): (REQUIRED) A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. ||
-
 
 
 

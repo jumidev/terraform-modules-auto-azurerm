@@ -35,14 +35,14 @@ tfstate_store = {
 | **var.resource_group_name** | string | True | -  |  -  |  The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created. | 
 | **var.partition_count** | int | True | -  |  -  |  Specifies the current number of shards on the Event Hub. | 
 | **var.message_retention** | int | True | -  |  -  |  Specifies the number of days to retain the events for this Event Hub. | 
-| **var.capture_description** | block | False | -  |  -  |  A `capture_description` block. | | `capture_description` block structure: || 
+| **var.capture_description** | block | False | -  |  -  |  A `capture_description` block. | 
+| `capture_description` block structure: || 
 |   enabled (bool): (REQUIRED) Specifies if the Capture Description is Enabled. ||
 |   encoding (string): (REQUIRED) Specifies the Encoding used for the Capture Description. Possible values are 'Avro' and 'AvroDeflate'. ||
 |   interval_in_seconds (int): Specifies the time interval in seconds at which the capture will happen. Values can be between '60' and '900' seconds. Defaults to '300' seconds. ||
 |   size_limit_in_bytes (string): Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between '10485760' and '524288000' bytes. Defaults to '314572800' bytes. ||
 |   skip_empty_archives (bool): Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'. ||
 |   destination (block): (REQUIRED) A 'destination' block. ||
-
 | **var.status** | string | False | `Active`  |  `Active`, `Disabled`, `SendDisabled`  |  Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`. | 
 
 

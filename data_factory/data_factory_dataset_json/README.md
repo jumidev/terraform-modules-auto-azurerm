@@ -32,30 +32,30 @@ tfstate_store = {
 | **var.data_factory_id** | string | True | The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 | **var.linked_service_name** | string | True | The Data Factory Linked Service name in which to associate the Dataset with. | 
 | **var.folder** | string | False | The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.schema_column** | block | False | A `schema_column` block. | | `schema_column` block structure: || 
+| **var.schema_column** | block | False | A `schema_column` block. | 
+| `schema_column` block structure: || 
 |   name (string): (REQUIRED) The name of the column. ||
 |   type (string): Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. ||
 |   description (string): The description of the column. ||
-
 | **var.description** | string | False | The description for the Data Factory Dataset. | 
 | **var.annotations** | string | False | List of tags that can be used for describing the Data Factory Dataset. | 
 | **var.parameters** | string | False | A map of parameters to associate with the Data Factory Dataset. | 
 | **var.additional_properties** | string | False | A map of additional properties to associate with the Data Factory Dataset. | 
-| **var.http_server_location** | block | False | A `http_server_location` block. | | `http_server_location` block structure: || 
+| **var.http_server_location** | block | False | A `http_server_location` block. | 
+| `http_server_location` block structure: || 
 |   relative_url (string): (REQUIRED) The base URL to the web server hosting the file. ||
 |   path (string): (REQUIRED) The folder path to the file on the web server. ||
 |   filename (string): (REQUIRED) The filename of the file on the web server. ||
 |   dynamic_path_enabled (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. ||
 |   dynamic_filename_enabled (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. ||
-
-| **var.azure_blob_storage_location** | block | False | A `azure_blob_storage_location` block. | | `azure_blob_storage_location` block structure: || 
+| **var.azure_blob_storage_location** | block | False | A `azure_blob_storage_location` block. | 
+| `azure_blob_storage_location` block structure: || 
 |   container (string): (REQUIRED) The container on the Azure Blob Storage Account hosting the file. ||
 |   path (string): (REQUIRED) The folder path to the file on the web server. ||
 |   filename (string): (REQUIRED) The filename of the file on the web server. ||
 |   dynamic_container_enabled (bool): Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. ||
 |   dynamic_path_enabled (bool): Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. ||
 |   dynamic_filename_enabled (bool): Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. ||
-
 | **var.encoding** | string | False | The encoding format for the file. | 
 
 

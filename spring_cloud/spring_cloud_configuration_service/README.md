@@ -30,7 +30,8 @@ tfstate_store = {
 | **var.name** | string | True | -  |  The name which should be used for this Spring Cloud Configuration Service. The only possible value is `default`. Changing this forces a new Spring Cloud Configuration Service to be created. | 
 | **var.spring_cloud_service_id** | string | True | -  |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Configuration Service to be created. | 
 | **var.generation** | string | False | `Gen1`, `Gen2`  |  The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`. | 
-| **var.repository** | block | False | -  |  One or more `repository` blocks. | | `repository` block structure: || 
+| **var.repository** | block | False | -  |  One or more `repository` blocks. | 
+| `repository` block structure: || 
 |   label (string): (REQUIRED) Specifies the label of the repository. ||
 |   name (string): (REQUIRED) Specifies the name which should be used for this repository. ||
 |   patterns (string): (REQUIRED) Specifies the collection of patterns of the repository. ||
@@ -43,7 +44,6 @@ tfstate_store = {
 |   search_paths (string): Specifies a list of searching path of the repository ||
 |   strict_host_key_checking (string): Specifies whether enable the strict host key checking. ||
 |   username (string): Specifies the username of git repository basic auth. ||
-
 
 
 
