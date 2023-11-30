@@ -42,17 +42,21 @@ tfstate_store = {
 
 ### `authentication_configuration` block structure
 
-> `authority` (string): The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.\
-> `audience` (string): The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com>\
-> `smart_proxy_enabled` (bool): (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authority` | string | No | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
+| `audience` | string | No | - | The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com> |
+| `smart_proxy_enabled` | bool | No | - | (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations. |
 
 ### `cors_configuration` block structure
 
-> `allowed_origins` (string): A set of origins to be allowed via CORS.\
-> `allowed_headers` (string): A set of headers to be allowed via CORS.\
-> `allowed_methods` (string): The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'.\
-> `max_age_in_seconds` (int): The max age to be allowed via CORS.\
-> `allow_credentials` (bool): (Boolean) If credentials are allowed via CORS.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | No | - | A set of origins to be allowed via CORS. |
+| `allowed_headers` | string | No | - | A set of headers to be allowed via CORS. |
+| `allowed_methods` | string | No | - | The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'. |
+| `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
+| `allow_credentials` | bool | No | - | (Boolean) If credentials are allowed via CORS. |
 
 
 

@@ -41,9 +41,11 @@ tfstate_store = {
 
 ### `key_vault_sas_token` block structure
 
-> `linked_service_name` (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.\
-> `secret_name` (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores the SAS token.\
-> `service_principal_linked_key_vault_key` (block): A 'service_principal_linked_key_vault_key' block. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores the SAS token. |
+| `service_principal_linked_key_vault_key` | block | No | - | A 'service_principal_linked_key_vault_key' block. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. |
 
 
 

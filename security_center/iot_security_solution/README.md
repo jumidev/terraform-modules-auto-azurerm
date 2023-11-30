@@ -48,27 +48,31 @@ tfstate_store = {
 
 ### `additional_workspace` block structure
 
-> `data_types` (string): (REQUIRED) A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'.\
-> `workspace_id` (string): (REQUIRED) The resource ID of the Log Analytics Workspace.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `data_types` | string | Yes | - | A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'. |
+| `workspace_id` | string | Yes | - | The resource ID of the Log Analytics Workspace. |
 
 ### `recommendations_enabled` block structure
 
-> `acr_authentication` (bool): Is Principal Authentication enabled for the ACR repository? Defaults to 'true'.\
-> `agent_send_unutilized_msg` (bool): Is Agent send underutilized messages enabled? Defaults to 'true'.\
-> `baseline` (bool): Is Security related system configuration issues identified? Defaults to 'true'.\
-> `edge_hub_mem_optimize` (bool): Is IoT Edge Hub memory optimized? Defaults to 'true'.\
-> `edge_logging_option` (bool): Is logging configured for IoT Edge module? Defaults to 'true'.\
-> `inconsistent_module_settings` (bool): Is inconsistent module settings enabled for SecurityGroup? Defaults to 'true'.\
-> `install_agent` (bool): is Azure IoT Security agent installed? Defaults to 'true'.\
-> `ip_filter_deny_all` (bool): Is Default IP filter policy denied? Defaults to 'true'.\
-> `ip_filter_permissive_rule` (bool): Is IP filter rule source allowable IP range too large? Defaults to 'true'.\
-> `open_ports` (bool): Is any ports open on the device? Defaults to 'true'.\
-> `permissive_firewall_policy` (bool): Does firewall policy exist which allow necessary communication to/from the device? Defaults to 'true'.\
-> `permissive_input_firewall_rules` (bool): Is only necessary addresses or ports are permitted in? Defaults to 'true'.\
-> `permissive_output_firewall_rules` (bool): Is only necessary addresses or ports are permitted out? Defaults to 'true'.\
-> `privileged_docker_options` (bool): Is high level permissions are needed for the module? Defaults to 'true'.\
-> `shared_credentials` (bool): Is any credentials shared among devices? Defaults to 'true'.\
-> `vulnerable_tls_cipher_suite` (bool): Does TLS cipher suite need to be updated? Defaults to 'true'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `acr_authentication` | bool | No | True | Is Principal Authentication enabled for the ACR repository? Defaults to 'true'. |
+| `agent_send_unutilized_msg` | bool | No | True | Is Agent send underutilized messages enabled? Defaults to 'true'. |
+| `baseline` | bool | No | True | Is Security related system configuration issues identified? Defaults to 'true'. |
+| `edge_hub_mem_optimize` | bool | No | True | Is IoT Edge Hub memory optimized? Defaults to 'true'. |
+| `edge_logging_option` | bool | No | True | Is logging configured for IoT Edge module? Defaults to 'true'. |
+| `inconsistent_module_settings` | bool | No | True | Is inconsistent module settings enabled for SecurityGroup? Defaults to 'true'. |
+| `install_agent` | bool | No | True | is Azure IoT Security agent installed? Defaults to 'true'. |
+| `ip_filter_deny_all` | bool | No | True | Is Default IP filter policy denied? Defaults to 'true'. |
+| `ip_filter_permissive_rule` | bool | No | True | Is IP filter rule source allowable IP range too large? Defaults to 'true'. |
+| `open_ports` | bool | No | True | Is any ports open on the device? Defaults to 'true'. |
+| `permissive_firewall_policy` | bool | No | True | Does firewall policy exist which allow necessary communication to/from the device? Defaults to 'true'. |
+| `permissive_input_firewall_rules` | bool | No | True | Is only necessary addresses or ports are permitted in? Defaults to 'true'. |
+| `permissive_output_firewall_rules` | bool | No | True | Is only necessary addresses or ports are permitted out? Defaults to 'true'. |
+| `privileged_docker_options` | bool | No | True | Is high level permissions are needed for the module? Defaults to 'true'. |
+| `shared_credentials` | bool | No | True | Is any credentials shared among devices? Defaults to 'true'. |
+| `vulnerable_tls_cipher_suite` | bool | No | True | Does TLS cipher suite need to be updated? Defaults to 'true'. |
 
 
 

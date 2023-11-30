@@ -37,9 +37,11 @@ tfstate_store = {
 
 ### `key_vault_key` block structure
 
-> `key_name` (string): (REQUIRED) The name of Key Vault Key.\
-> `key_vault_id` (string): (REQUIRED) The ID of the Key Vault.\
-> `key_version` (string): The version of Key Vault Key.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_name` | string | Yes | - | The name of Key Vault Key. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault. |
+| `key_version` | string | No | - | The version of Key Vault Key. |
 
 
 

@@ -42,8 +42,10 @@ tfstate_store = {
 
 ### `storage` block structure
 
-> `name` (string): (REQUIRED) Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created.\
-> `key` (string): (REQUIRED) Access key of storage account for Azure IoT Time Series Insights Gen2 Environment\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. |
+| `key` | string | Yes | - | Access key of storage account for Azure IoT Time Series Insights Gen2 Environment |
 
 
 

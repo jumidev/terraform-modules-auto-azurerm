@@ -44,15 +44,19 @@ tfstate_store = {
 
 ### `access_control` block structure
 
-> `action` (block): A 'action' block.\
-> `content` (block): A 'content' block.\
-> `trigger` (block): A 'trigger' block.\
-> `workflow_management` (block): A 'workflow_management' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | block | No | - | A 'action' block. |
+| `content` | block | No | - | A 'content' block. |
+| `trigger` | block | No | - | A 'trigger' block. |
+| `workflow_management` | block | No | - | A 'workflow_management' block. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'.\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow. |
 
 
 

@@ -47,7 +47,9 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is 'SystemAssigned'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Search Service. The only possible value is 'SystemAssigned'. |
 
 
 

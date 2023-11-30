@@ -34,8 +34,10 @@ tfstate_store = {
 
 ### `launch` block structure
 
-> `properties` (string): Specifies a map of non-sensitive properties for launchProperties.\
-> `secrets` (string): Specifies a map of sensitive properties for launchProperties.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `properties` | string | No | - | Specifies a map of non-sensitive properties for launchProperties. |
+| `secrets` | string | No | - | Specifies a map of sensitive properties for launchProperties. |
 
 
 

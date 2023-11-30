@@ -45,13 +45,17 @@ tfstate_store = {
 
 ### `destination` block structure
 
-> `address_prefix` (string): (REQUIRED) Specifies the address prefix.\
-> `address_prefix_type` (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefix` | string | Yes | - | Specifies the address prefix. |
+| `address_prefix_type` | string | Yes | - | Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types). |
 
 ### `source` block structure
 
-> `address_prefix` (string): (REQUIRED) Specifies the address prefix.\
-> `address_prefix_type` (string): (REQUIRED) Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types).\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefix` | string | Yes | - | Specifies the address prefix. |
+| `address_prefix_type` | string | Yes | - | Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types). |
 
 
 

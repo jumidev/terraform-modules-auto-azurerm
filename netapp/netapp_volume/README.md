@@ -58,14 +58,18 @@ tfstate_store = {
 
 ### `data_protection_replication` block structure
 
-> `endpoint_type` (string): The endpoint type, default value is 'dst' for destination.\
-> `remote_volume_location` (string): (REQUIRED) Location of the primary volume. Changing this forces a new resource to be created.\
-> `remote_volume_resource_id` (string): (REQUIRED) Resource ID of the primary volume.\
-> `replication_frequency` (string): (REQUIRED) Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `endpoint_type` | string | No | - | The endpoint type, default value is 'dst' for destination. |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. Changing this forces a new resource to be created. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive. |
 
 ### `data_protection_snapshot_policy` block structure
 
-> `snapshot_policy_id` (string): (REQUIRED) Resource ID of the snapshot policy to apply to the volume.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 
 

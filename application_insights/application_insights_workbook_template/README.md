@@ -42,11 +42,13 @@ tfstate_store = {
 
 ### `galleries` block structure
 
-> `name` (string): (REQUIRED) Name of the workbook template in the gallery.\
-> `category` (string): (REQUIRED) Category for the gallery.\
-> `order` (string): Order of the template within the gallery. Defaults to '0'.\
-> `resource_type` (string): Azure resource type supported by the gallery. Defaults to 'Azure Monitor'.\
-> `type` (string): Type of workbook supported by the workbook template. Defaults to 'workbook'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the workbook template in the gallery. |
+| `category` | string | Yes | - | Category for the gallery. |
+| `order` | string | No | 0 | Order of the template within the gallery. Defaults to '0'. |
+| `resource_type` | string | No | Azure Monitor | Azure resource type supported by the gallery. Defaults to 'Azure Monitor'. |
+| `type` | string | No | workbook | Type of workbook supported by the workbook template. Defaults to 'workbook'. |
 
 
 

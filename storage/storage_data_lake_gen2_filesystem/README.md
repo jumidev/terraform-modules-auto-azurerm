@@ -36,9 +36,11 @@ tfstate_store = {
 
 ### `ace` block structure
 
-> `scope` (bool): Specifies whether the ACE represents an 'access' entry or a 'default' entry. Default value is 'access'.\
-> `type` (string): (REQUIRED) Specifies the type of entry. Can be 'user', 'group', 'mask' or 'other'.\
-> `permissions` (string): (REQUIRED) Specifies the permissions for the entry in 'rwx' form. For example, 'rwx' gives full permissions but 'r--' only gives read permissions.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `scope` | bool | No | - | Specifies whether the ACE represents an 'access' entry or a 'default' entry. Default value is 'access'. |
+| `type` | string | Yes | - | Specifies the type of entry. Can be 'user', 'group', 'mask' or 'other'. |
+| `permissions` | string | Yes | - | Specifies the permissions for the entry in 'rwx' form. For example, 'rwx' gives full permissions but 'r--' only gives read permissions. |
 
 
 

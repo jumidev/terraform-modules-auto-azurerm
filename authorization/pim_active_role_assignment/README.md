@@ -37,13 +37,17 @@ tfstate_store = {
 
 ### `schedule` block structure
 
-> `expiration` (block): A 'expiration' block.\
-> `start_date_time` (string): The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiration` | block | No | - | A 'expiration' block. |
+| `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. |
 
 ### `ticket` block structure
 
-> `number` (string): The ticket number.\
-> `system` (string): The ticket system.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `number` | string | No | - | The ticket number. |
+| `system` | string | No | - | The ticket system. |
 
 
 

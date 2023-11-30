@@ -43,9 +43,11 @@ tfstate_store = {
 
 ### `static_ip_configuration` block structure
 
-> `attached_data_network_id` (string): (REQUIRED) The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.\
-> `slice_id` (string): (REQUIRED) The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.\
-> `static_ipv4_address` (string): The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `attached_data_network_id` | string | Yes | - | The ID of attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. |
+| `slice_id` | string | Yes | - | The ID of network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. |
+| `static_ipv4_address` | string | No | - | The IPv4 address assigned to the SIM at this network scope. This address must be in the userEquipmentStaticAddressPoolPrefix defined in the attached data network. |
 
 
 

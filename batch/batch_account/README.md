@@ -45,21 +45,29 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
-> `identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this Batch Account.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
 
 ### `network_profile` block structure
 
-> `account_access` (block): An 'account_access' block.\
-> `node_management_access` (block): A 'node_management_access' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `account_access` | block | No | - | An 'account_access' block. |
+| `node_management_access` | block | No | - | A 'node_management_access' block. |
 
 ### `key_vault_reference` block structure
 
-> `url` (string): (REQUIRED) The HTTPS URL of the Azure KeyVault to use.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
 
 ### `encryption` block structure
 
-> `key_vault_key_id` (string): (REQUIRED) The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
 
 
 

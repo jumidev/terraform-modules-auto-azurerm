@@ -41,8 +41,10 @@ tfstate_store = {
 
 ### `delegation` block structure
 
-> `name` (string): (REQUIRED) A name for this delegation.\
-> `service_delegation` (block): (REQUIRED) A 'service_delegation' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A name for this delegation. |
+| `service_delegation` | block | Yes | - | A 'service_delegation' block. |
 
 
 

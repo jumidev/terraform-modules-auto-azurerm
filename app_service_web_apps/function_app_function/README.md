@@ -38,8 +38,10 @@ tfstate_store = {
 
 ### `file` block structure
 
-> `name` (string): (REQUIRED) The filename of the file to be uploaded. Changing this forces a new resource to be created.\
-> `content` (string): (REQUIRED) The content of the file. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The filename of the file to be uploaded. Changing this forces a new resource to be created. |
+| `content` | string | Yes | - | The content of the file. Changing this forces a new resource to be created. |
 
 
 

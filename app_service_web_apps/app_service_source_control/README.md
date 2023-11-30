@@ -37,9 +37,11 @@ tfstate_store = {
 
 ### `github_action_configuration` block structure
 
-> `code_configuration` (block): A 'code_configuration' block. Changing this forces a new resource to be created.\
-> `container_configuration` (block): A 'container_configuration' block.\
-> `generate_workflow_file` (bool): Whether to generate the GitHub work flow file. Defaults to 'true'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `code_configuration` | block | No | - | A 'code_configuration' block. Changing this forces a new resource to be created. |
+| `container_configuration` | block | No | - | A 'container_configuration' block. |
+| `generate_workflow_file` | bool | No | True | Whether to generate the GitHub work flow file. Defaults to 'true'. Changing this forces a new resource to be created. |
 
 
 

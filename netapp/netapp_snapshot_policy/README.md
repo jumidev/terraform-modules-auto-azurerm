@@ -43,28 +43,36 @@ tfstate_store = {
 
 ### `hourly_schedule` block structure
 
-> `snapshots_to_keep` (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255.\
-> `minute` (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
+| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
 ### `daily_schedule` block structure
 
-> `snapshots_to_keep` (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255.\
-> `hour` (string): (REQUIRED) Hour of the day that the snapshots will be created, valid range is from 0 to 23.\
-> `minute` (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
+| `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
+| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
 ### `weekly_schedule` block structure
 
-> `snapshots_to_keep` (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255.\
-> `days_of_week` (int): (REQUIRED) List of the week days using English names when the snapshots will be created.\
-> `hour` (string): (REQUIRED) Hour of the day that the snapshots will be created, valid range is from 0 to 23.\
-> `minute` (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
+| `days_of_week` | int | Yes | - | List of the week days using English names when the snapshots will be created. |
+| `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
+| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
 ### `monthly_schedule` block structure
 
-> `snapshots_to_keep` (string): (REQUIRED) How many hourly snapshots to keep, valid range is from 0 to 255.\
-> `days_of_month` (int): (REQUIRED) List of the days of the month when the snapshots will be created, valid range is from 1 to 30.\
-> `hour` (string): (REQUIRED) Hour of the day that the snapshots will be created, valid range is from 0 to 23.\
-> `minute` (string): (REQUIRED) Minute of the hour that the snapshots will be created, valid range is from 0 to 59.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
+| `days_of_month` | int | Yes | - | List of the days of the month when the snapshots will be created, valid range is from 1 to 30. |
+| `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
+| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
 
 

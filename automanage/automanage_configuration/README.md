@@ -44,24 +44,30 @@ tfstate_store = {
 
 ### `antimalware` block structure
 
-> `exclusions` (block): A 'exclusions' block.\
-> `real_time_protection_enabled` (bool): Whether the real time protection is enabled. Defaults to 'false'.\
-> `scheduled_scan_enabled` (bool): Whether the scheduled scan is enabled. Defaults to 'false'.\
-> `scheduled_scan_type` (string): The type of the scheduled scan. Possible values are 'Quick' and 'Full'. Defaults to 'Quick'.\
-> `scheduled_scan_day` (string): The day of the scheduled scan. Possible values are '0' to '8' where '0' is daily, '1' to '7' are the days of the week and '8' is Disabled. Defaults to '8'.\
-> `scheduled_scan_time_in_minutes` (string): The time of the scheduled scan in minutes. Possible values are '0' to '1439' where '0' is 12:00 AM and '1439' is 11:59 PM.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `exclusions` | block | No | - | A 'exclusions' block. |
+| `real_time_protection_enabled` | bool | No | False | Whether the real time protection is enabled. Defaults to 'false'. |
+| `scheduled_scan_enabled` | bool | No | False | Whether the scheduled scan is enabled. Defaults to 'false'. |
+| `scheduled_scan_type` | string | No | Quick | The type of the scheduled scan. Possible values are 'Quick' and 'Full'. Defaults to 'Quick'. |
+| `scheduled_scan_day` | string | No | 8 | The day of the scheduled scan. Possible values are '0' to '8' where '0' is daily, '1' to '7' are the days of the week and '8' is Disabled. Defaults to '8'. |
+| `scheduled_scan_time_in_minutes` | string | No | - | The time of the scheduled scan in minutes. Possible values are '0' to '1439' where '0' is 12:00 AM and '1439' is 11:59 PM. |
 
 ### `azure_security_baseline` block structure
 
-> `assignment_type` (string): The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `assignment_type` | string | No | ApplyAndAutoCorrect | The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'. |
 
 ### `backup` block structure
 
-> `policy_name` (string): The name of the backup policy.\
-> `time_zone` (string): The timezone of the backup policy. Defaults to 'UTC'.\
-> `instant_rp_retention_range_in_days` (int): The retention range in days of the backup policy. Defaults to '5'.\
-> `schedule_policy` (block): A 'schedule_policy' block.\
-> `retention_policy` (block): A 'retention_policy' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `policy_name` | string | No | - | The name of the backup policy. |
+| `time_zone` | string | No | UTC | The timezone of the backup policy. Defaults to 'UTC'. |
+| `instant_rp_retention_range_in_days` | int | No | 5 | The retention range in days of the backup policy. Defaults to '5'. |
+| `schedule_policy` | block | No | - | A 'schedule_policy' block. |
+| `retention_policy` | block | No | - | A 'retention_policy' block. |
 
 
 

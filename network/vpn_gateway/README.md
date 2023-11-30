@@ -41,10 +41,12 @@ tfstate_store = {
 
 ### `bgp_settings` block structure
 
-> `asn` (string): (REQUIRED) The ASN of the BGP Speaker. Changing this forces a new resource to be created.\
-> `peer_weight` (string): (REQUIRED) The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created.\
-> `instance_0_bgp_peering_address` (block): An 'instance_bgp_peering_address' block.\
-> `instance_1_bgp_peering_address` (block): An 'instance_bgp_peering_address' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `asn` | string | Yes | - | The ASN of the BGP Speaker. Changing this forces a new resource to be created. |
+| `peer_weight` | string | Yes | - | The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created. |
+| `instance_0_bgp_peering_address` | block | No | - | An 'instance_bgp_peering_address' block. |
+| `instance_1_bgp_peering_address` | block | No | - | An 'instance_bgp_peering_address' block. |
 
 
 

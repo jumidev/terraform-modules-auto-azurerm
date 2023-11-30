@@ -40,8 +40,10 @@ tfstate_store = {
 
 ### `key_vault_password` block structure
 
-> `linked_service_name` (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.\
-> `secret_name` (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores Snowflake password.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores Snowflake password. |
 
 
 

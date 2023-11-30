@@ -42,12 +42,16 @@ tfstate_store = {
 
 ### `index` block structure
 
-> `keys` (string): (REQUIRED) Specifies the list of user settable keys for each Cosmos DB Mongo Collection.\
-> `unique` (bool): Is the index unique or not? Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `keys` | string | Yes | - | Specifies the list of user settable keys for each Cosmos DB Mongo Collection. |
+| `unique` | bool | No | False | Is the index unique or not? Defaults to 'false'. |
 
 ### `autoscale_settings` block structure
 
-> `max_throughput` (string): The maximum throughput of the MongoDB collection (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the MongoDB collection (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 
 

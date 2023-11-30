@@ -35,8 +35,10 @@ tfstate_store = {
 
 ### `network_rules` block structure
 
-> `subnet_id` (string): (REQUIRED) The Subnet ID which should be able to access this ServiceBus Namespace.\
-> `ignore_missing_vnet_service_endpoint` (bool): Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
+| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
 
 
 

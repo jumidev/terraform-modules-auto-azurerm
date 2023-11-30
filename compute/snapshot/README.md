@@ -43,8 +43,10 @@ tfstate_store = {
 
 ### `encryption_settings` block structure
 
-> `disk_encryption_key` (block): A 'disk_encryption_key' block.\
-> `key_encryption_key` (block): A 'key_encryption_key' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_encryption_key` | block | No | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | block | No | - | A 'key_encryption_key' block. |
 
 
 

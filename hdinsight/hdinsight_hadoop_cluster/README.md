@@ -55,76 +55,100 @@ tfstate_store = {
 
 ### `component_version` block structure
 
-> `hadoop` (string): (REQUIRED) The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `hadoop` | string | Yes | - | The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created. |
 
 ### `gateway` block structure
 
-> `password` (string): (REQUIRED) The password used for the Ambari Portal.\
-> `username` (string): (REQUIRED) The username used for the Ambari Portal. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | The password used for the Ambari Portal. |
+| `username` | string | Yes | - | The username used for the Ambari Portal. Changing this forces a new resource to be created. |
 
 ### `roles` block structure
 
-> `head_node` (block): (REQUIRED) A 'head_node' block.\
-> `worker_node` (block): (REQUIRED) A 'worker_node' block.\
-> `zookeeper_node` (block): (REQUIRED) A 'zookeeper_node' block.\
-> `edge_node` (block): A 'edge_node' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `head_node` | block | Yes | - | A 'head_node' block. |
+| `worker_node` | block | Yes | - | A 'worker_node' block. |
+| `zookeeper_node` | block | Yes | - | A 'zookeeper_node' block. |
+| `edge_node` | block | No | - | A 'edge_node' block. |
 
 ### `storage_account` block structure
 
-> `is_default` (bool): (REQUIRED) Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.\
-> `storage_account_key` (string): (REQUIRED) The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.\
-> `storage_container_id` (string): (REQUIRED) The ID of the Storage Container. Changing this forces a new resource to be created.\
-> `storage_resource_id` (string): The ID of the Storage Account. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `is_default` | bool | Yes | - | Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created. |
+| `storage_account_key` | string | Yes | - | The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created. |
+| `storage_container_id` | string | Yes | - | The ID of the Storage Container. Changing this forces a new resource to be created. |
+| `storage_resource_id` | string | No | - | The ID of the Storage Account. Changing this forces a new resource to be created. |
 
 ### `network` block structure
 
-> `connection_direction` (string): The direction of the resource provider connection. Possible values include 'Inbound' or 'Outbound'. Defaults to 'Inbound'. Changing this forces a new resource to be created.\
-> `private_link_enabled` (bool): Is the private link enabled? Possible values include 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `connection_direction` | string | No | Inbound | The direction of the resource provider connection. Possible values include 'Inbound' or 'Outbound'. Defaults to 'Inbound'. Changing this forces a new resource to be created. |
+| `private_link_enabled` | bool | No | False | Is the private link enabled? Possible values include 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
 
 ### `disk_encryption` block structure
 
-> `encryption_algorithm` (string): This is an algorithm identifier for encryption. Possible values are 'RSA1_5', 'RSA-OAEP', 'RSA-OAEP-256'.\
-> `encryption_at_host_enabled` (bool): This is indicator to show whether resource disk encryption is enabled.\
-> `key_vault_key_id` (string): The ID of the key vault key.\
-> `key_vault_managed_identity_id` (string): This is the resource ID of Managed Identity used to access the key vault.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `encryption_algorithm` | string | No | - | This is an algorithm identifier for encryption. Possible values are 'RSA1_5', 'RSA-OAEP', 'RSA-OAEP-256'. |
+| `encryption_at_host_enabled` | bool | No | - | This is indicator to show whether resource disk encryption is enabled. |
+| `key_vault_key_id` | string | No | - | The ID of the key vault key. |
+| `key_vault_managed_identity_id` | string | No | - | This is the resource ID of Managed Identity used to access the key vault. |
 
 ### `compute_isolation` block structure
 
-> `compute_isolation_enabled` (string): This field indicates whether enable compute isolation or not. Possible values are 'true' or 'false'.\
-> `host_sku` (string): The name of the host SKU.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `compute_isolation_enabled` | string | No | - | This field indicates whether enable compute isolation or not. Possible values are 'true' or 'false'. |
+| `host_sku` | string | No | - | The name of the host SKU. |
 
 ### `storage_account_gen2` block structure
 
-> `is_default` (bool): (REQUIRED) Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.\
-> `storage_resource_id` (string): (REQUIRED) The ID of the Storage Account. Changing this forces a new resource to be created.\
-> `filesystem_id` (string): (REQUIRED) The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.\
-> `managed_identity_resource_id` (string): (REQUIRED) The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `is_default` | bool | Yes | - | Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created. |
+| `storage_resource_id` | string | Yes | - | The ID of the Storage Account. Changing this forces a new resource to be created. |
+| `filesystem_id` | string | Yes | - | The ID of the Gen2 Filesystem. Changing this forces a new resource to be created. |
+| `managed_identity_resource_id` | string | Yes | - | The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created. |
 
 ### `metastores` block structure
 
-> `hive` (block): A 'hive' block.\
-> `oozie` (block): An 'oozie' block.\
-> `ambari` (block): An 'ambari' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `hive` | block | No | - | A 'hive' block. |
+| `oozie` | block | No | - | An 'oozie' block. |
+| `ambari` | block | No | - | An 'ambari' block. |
 
 ### `monitor` block structure
 
-> `log_analytics_workspace_id` (string): (REQUIRED) The Operations Management Suite (OMS) workspace ID.\
-> `primary_key` (string): (REQUIRED) The Operations Management Suite (OMS) workspace key.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | The Operations Management Suite (OMS) workspace ID. |
+| `primary_key` | string | Yes | - | The Operations Management Suite (OMS) workspace key. |
 
 ### `extension` block structure
 
-> `log_analytics_workspace_id` (string): (REQUIRED) The workspace ID of the log analytics extension.\
-> `primary_key` (string): (REQUIRED) The workspace key of the log analytics extension.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | The workspace ID of the log analytics extension. |
+| `primary_key` | string | Yes | - | The workspace key of the log analytics extension. |
 
 ### `security_profile` block structure
 
-> `aadds_resource_id` (string): (REQUIRED) The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.\
-> `domain_name` (string): (REQUIRED) The name of the Azure Active Directory Domain. Changing this forces a new resource to be created.\
-> `domain_username` (string): (REQUIRED) The username of the Azure Active Directory Domain. Changing this forces a new resource to be created.\
-> `domain_user_password` (string): (REQUIRED) The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created.\
-> `ldaps_urls` (list): (REQUIRED) A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created.\
-> `msi_resource_id` (string): (REQUIRED) The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created.\
-> `cluster_users_group_dns` (list): A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aadds_resource_id` | string | Yes | - | The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created. |
+| `domain_name` | string | Yes | - | The name of the Azure Active Directory Domain. Changing this forces a new resource to be created. |
+| `domain_username` | string | Yes | - | The username of the Azure Active Directory Domain. Changing this forces a new resource to be created. |
+| `domain_user_password` | string | Yes | - | The user password of the Azure Active Directory Domain. Changing this forces a new resource to be created. |
+| `ldaps_urls` | list | Yes | - | A list of the LDAPS URLs to communicate with the Azure Active Directory. Changing this forces a new resource to be created. |
+| `msi_resource_id` | string | Yes | - | The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created. |
+| `cluster_users_group_dns` | list | No | - | A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created. |
 
 
 

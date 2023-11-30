@@ -41,8 +41,10 @@ tfstate_store = {
 
 ### `secret` block structure
 
-> `name` (string): (REQUIRED) The Secret name.\
-> `value` (string): (REQUIRED) The value for this secret.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Secret name. |
+| `value` | string | Yes | - | The value for this secret. |
 
 
 

@@ -38,8 +38,10 @@ tfstate_store = {
 
 ### `target_dns_servers` block structure
 
-> `ip_address` (string): (REQUIRED) DNS server IP address.\
-> `port` (string): DNS server port.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | Yes | - | DNS server IP address. |
+| `port` | string | No | - | DNS server port. |
 
 
 

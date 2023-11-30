@@ -39,10 +39,12 @@ tfstate_store = {
 
 ### `retention_rule` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.\
-> `duration` (string): (REQUIRED) Duration after which the backup is deleted. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy PostgreSQL to be created.\
-> `criteria` (block): (REQUIRED) A 'criteria' block. Changing this forces a new Backup Policy PostgreSQL to be created.\
-> `priority` (string): (REQUIRED) Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `duration` | string | Yes | - | Duration after which the backup is deleted. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `criteria` | block | Yes | - | A 'criteria' block. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `priority` | string | Yes | - | Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created. |
 
 
 

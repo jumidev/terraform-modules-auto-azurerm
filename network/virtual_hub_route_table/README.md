@@ -34,11 +34,13 @@ tfstate_store = {
 
 ### `route` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this route.\
-> `destinations` (list): (REQUIRED) A list of destination addresses for this route.\
-> `destinations_type` (string): (REQUIRED) The type of destinations. Possible values are 'CIDR', 'ResourceId' and 'Service'.\
-> `next_hop` (string): (REQUIRED) The next hop's resource ID.\
-> `next_hop_type` (string): The type of next hop. Currently the only possible value is 'ResourceId'. Defaults to 'ResourceId'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this route. |
+| `destinations` | list | Yes | - | A list of destination addresses for this route. |
+| `destinations_type` | string | Yes | - | The type of destinations. Possible values are 'CIDR', 'ResourceId' and 'Service'. |
+| `next_hop` | string | Yes | - | The next hop's resource ID. |
+| `next_hop_type` | string | No | ResourceId | The type of next hop. Currently the only possible value is 'ResourceId'. Defaults to 'ResourceId'. |
 
 
 

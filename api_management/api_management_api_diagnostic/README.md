@@ -48,27 +48,35 @@ tfstate_store = {
 
 ### `backend_request` block structure
 
-> `body_bytes` (int): Number of payload bytes to log (up to 8192).\
-> `headers_to_log` (string): Specifies a list of headers to log.\
-> `data_masking` (block): A 'data_masking' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | block | No | - | A 'data_masking' block. |
 
 ### `backend_response` block structure
 
-> `body_bytes` (int): Number of payload bytes to log (up to 8192).\
-> `headers_to_log` (string): Specifies a list of headers to log.\
-> `data_masking` (block): A 'data_masking' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | block | No | - | A 'data_masking' block. |
 
 ### `frontend_request` block structure
 
-> `body_bytes` (int): Number of payload bytes to log (up to 8192).\
-> `headers_to_log` (string): Specifies a list of headers to log.\
-> `data_masking` (block): A 'data_masking' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | block | No | - | A 'data_masking' block. |
 
 ### `frontend_response` block structure
 
-> `body_bytes` (int): Number of payload bytes to log (up to 8192).\
-> `headers_to_log` (string): Specifies a list of headers to log.\
-> `data_masking` (block): A 'data_masking' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | block | No | - | A 'data_masking' block. |
 
 
 

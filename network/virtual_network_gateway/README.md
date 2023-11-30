@@ -51,26 +51,32 @@ tfstate_store = {
 
 ### `bgp_settings` block structure
 
-> `asn` (string): The Autonomous System Number (ASN) to use as part of the BGP.\
-> `peering_addresses` (block): A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'.\
-> `peer_weight` (string): The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `asn` | string | No | - | The Autonomous System Number (ASN) to use as part of the BGP. |
+| `peering_addresses` | block | No | - | A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'. |
+| `peer_weight` | string | No | - | The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'. |
 
 ### `custom_route` block structure
 
-> `address_prefixes` (list): A list of address blocks reserved for this virtual network in CIDR notation.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 ### `vpn_client_configuration` block structure
 
-> `address_space` (string): (REQUIRED) The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation.\
-> `aad_tenant` (string): AzureAD Tenant URL\
-> `aad_audience` (string): The client id of the Azure VPN application. See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values\
-> `aad_issuer` (string): The STS url for your tenant\
-> `root_certificate` (list): One or more 'root_certificate' blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.\
-> `revoked_certificate` (list): One or more 'revoked_certificate' blocks which are defined below.\
-> `radius_server_address` (string): The address of the Radius server.\
-> `radius_server_secret` (string): The secret used by the Radius server.\
-> `vpn_client_protocols` (string): List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'.\
-> `vpn_auth_types` (string): List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_space` | string | Yes | - | The address space out of which IP addresses for vpn clients will be taken. You can provide more than one address space, e.g. in CIDR notation. |
+| `aad_tenant` | string | No | - | AzureAD Tenant URL |
+| `aad_audience` | string | No | - | The client id of the Azure VPN application. See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values |
+| `aad_issuer` | string | No | - | The STS url for your tenant |
+| `root_certificate` | list | No | - | One or more 'root_certificate' blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway. |
+| `revoked_certificate` | list | No | - | One or more 'revoked_certificate' blocks which are defined below. |
+| `radius_server_address` | string | No | - | The address of the Radius server. |
+| `radius_server_secret` | string | No | - | The secret used by the Radius server. |
+| `vpn_client_protocols` | string | No | - | List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'. |
+| `vpn_auth_types` | string | No | - | List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. |
 
 
 

@@ -38,13 +38,17 @@ tfstate_store = {
 
 ### `schema` block structure
 
-> `column` (block): (REQUIRED) One or more 'column' blocks.\
-> `partition_key` (block): (REQUIRED) One or more 'partition_key' blocks.\
-> `cluster_key` (block): One or more 'cluster_key' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column` | block | Yes | - | One or more 'column' blocks. |
+| `partition_key` | block | Yes | - | One or more 'partition_key' blocks. |
+| `cluster_key` | block | No | - | One or more 'cluster_key' blocks. |
 
 ### `autoscale_settings` block structure
 
-> `max_throughput` (string): The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 
 

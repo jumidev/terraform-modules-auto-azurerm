@@ -48,13 +48,17 @@ tfstate_store = {
 
 ### `access_control` block structure
 
-> `akamai_signature_header_authentication_key` (block): One or more 'akamai_signature_header_authentication_key' blocks.\
-> `ip_allow` (block): A 'ip_allow' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | block | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | block | No | - | A 'ip_allow' block. |
 
 ### `cross_site_access_policy` block structure
 
-> `client_access_policy` (string): The content of 'clientaccesspolicy.xml' used by Silverlight.\
-> `cross_domain_policy` (string): The content of 'crossdomain.xml' used by Silverlight.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
+| `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
 
 
 

@@ -33,10 +33,12 @@ tfstate_store = {
 
 ### `rule` block structure
 
-> `name` (string): (REQUIRED) The unique name for the rule.\
-> `action` (block): An 'action' block.\
-> `match_criterion` (block): A 'match_criterion' block.\
-> `next_step_if_matched` (string): The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The unique name for the rule. |
+| `action` | block | No | - | An 'action' block. |
+| `match_criterion` | block | No | - | A 'match_criterion' block. |
+| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
 
 
 

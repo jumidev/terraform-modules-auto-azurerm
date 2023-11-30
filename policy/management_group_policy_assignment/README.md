@@ -45,23 +45,31 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'.\
-> `identity_ids` (list): A list of User Managed Identity IDs which should be assigned to the Policy Definition.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
 
 ### `non_compliance_message` block structure
 
-> `content` (string): (REQUIRED) The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies.\
-> `policy_definition_reference_id` (string): When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
+| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
 
 ### `overrides` block structure
 
-> `value` (string): (REQUIRED) Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).\
-> `selectors` (block): One or more 'override_selector' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
+| `selectors` | block | No | - | One or more 'override_selector' block. |
 
 ### `resource_selectors` block structure
 
-> `name` (string): Specifies a name for the resource selector.\
-> `selectors` (block): (REQUIRED) One or more 'resource_selector' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | Specifies a name for the resource selector. |
+| `selectors` | block | Yes | - | One or more 'resource_selector' block. |
 
 
 

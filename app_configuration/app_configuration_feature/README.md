@@ -41,13 +41,17 @@ tfstate_store = {
 
 ### `targeting_filter` block structure
 
-> `name` (string): (REQUIRED) The name of the group.\
-> `rollout_percentage` (string): (REQUIRED) Rollout percentage of the group.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the group. |
+| `rollout_percentage` | string | Yes | - | Rollout percentage of the group. |
 
 ### `timewindow_filter` block structure
 
-> `start` (string): The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.\
-> `end` (string): The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start` | string | No | - | The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
+| `end` | string | No | - | The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
 
 
 

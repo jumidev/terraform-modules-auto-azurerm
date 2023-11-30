@@ -39,18 +39,22 @@ tfstate_store = {
 
 ### `scope` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'.\
-> `resource_ids` (list): (REQUIRED) A list of resource IDs of the given scope type which will be the target of action rule.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'. |
+| `resource_ids` | list | Yes | - | A list of resource IDs of the given scope type which will be the target of action rule. |
 
 ### `condition` block structure
 
-> `alert_context` (block): A 'alert_context' block.\
-> `alert_rule_id` (block): A 'alert_rule_id' block.\
-> `description` (block): A 'description' block.\
-> `monitor` (block): A 'monitor' block.\
-> `monitor_service` (block): A 'monitor_service' block.\
-> `severity` (block): A 'severity' block.\
-> `target_resource_type` (block): A 'target_resource_type' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alert_context` | block | No | - | A 'alert_context' block. |
+| `alert_rule_id` | block | No | - | A 'alert_rule_id' block. |
+| `description` | block | No | - | A 'description' block. |
+| `monitor` | block | No | - | A 'monitor' block. |
+| `monitor_service` | block | No | - | A 'monitor_service' block. |
+| `severity` | block | No | - | A 'severity' block. |
+| `target_resource_type` | block | No | - | A 'target_resource_type' block. |
 
 
 

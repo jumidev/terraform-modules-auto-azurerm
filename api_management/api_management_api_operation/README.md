@@ -46,29 +46,35 @@ tfstate_store = {
 
 ### `request` block structure
 
-> `description` (string): A description of the HTTP Request, which may include HTML tags.\
-> `header` (list): One or more 'header' blocks.\
-> `query_parameter` (list): One or more 'query_parameter' blocks.\
-> `representation` (block): One or more 'representation' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
+| `representation` | block | No | - | One or more 'representation' blocks. |
 
 ### `response` block structure
 
-> `status_code` (string): (REQUIRED) The HTTP Status Code.\
-> `description` (string): A description of the HTTP Response, which may include HTML tags.\
-> `header` (list): One or more 'header' blocks.\
-> `representation` (block): One or more 'representation' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `status_code` | string | Yes | - | The HTTP Status Code. |
+| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `representation` | block | No | - | One or more 'representation' blocks. |
 
 ### `template_parameter` block structure
 
-> `name` (string): (REQUIRED) The Name of this Template Parameter.\
-> `required` (bool): (REQUIRED) Is this Template Parameter Required?\
-> `type` (string): (REQUIRED) The Type of this Template Parameter, such as a 'string'.\
-> `description` (string): A description of this Template Parameter.\
-> `default_value` (string): The default value for this Template Parameter.\
-> `values` (list): One or more acceptable values for this Template Parameter.\
-> `example` (list): One or more 'example' blocks.\
-> `schema_id` (string): The name of the Schema.\
-> `type_name` (string): The type name defined by the Schema.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name of this Template Parameter. |
+| `required` | bool | Yes | - | Is this Template Parameter Required? |
+| `type` | string | Yes | - | The Type of this Template Parameter, such as a 'string'. |
+| `description` | string | No | - | A description of this Template Parameter. |
+| `default_value` | string | No | - | The default value for this Template Parameter. |
+| `values` | list | No | - | One or more acceptable values for this Template Parameter. |
+| `example` | list | No | - | One or more 'example' blocks. |
+| `schema_id` | string | No | - | The name of the Schema. |
+| `type_name` | string | No | - | The type name defined by the Schema. |
 
 
 

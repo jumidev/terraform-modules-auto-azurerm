@@ -40,8 +40,10 @@ tfstate_store = {
 
 ### `basic_authentication` block structure
 
-> `username` (string): (REQUIRED) The username which can be used to authenticate to the OData endpoint.\
-> `password` (string): (REQUIRED) The password associated with the username, which can be used to authenticate to the OData endpoint.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | The username which can be used to authenticate to the OData endpoint. |
+| `password` | string | Yes | - | The password associated with the username, which can be used to authenticate to the OData endpoint. |
 
 
 

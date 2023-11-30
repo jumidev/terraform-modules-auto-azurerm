@@ -36,8 +36,10 @@ tfstate_store = {
 
 ### `line_channel` block structure
 
-> `access_token` (string): (REQUIRED) The access token which is used to call the Line Channel API.\
-> `secret` (string): (REQUIRED) The secret which is used to access the Line Channel.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_token` | string | Yes | - | The access token which is used to call the Line Channel API. |
+| `secret` | string | Yes | - | The secret which is used to access the Line Channel. |
 
 
 

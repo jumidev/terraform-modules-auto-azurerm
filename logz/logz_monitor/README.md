@@ -42,17 +42,21 @@ tfstate_store = {
 
 ### `plan` block structure
 
-> `billing_cycle` (string): (REQUIRED) Different billing cycles. Possible values are 'MONTHLY' or 'WEEKLY'. Changing this forces a new logz Monitor to be created.\
-> `effective_date` (datetime): (REQUIRED) Date when plan was applied. Changing this forces a new logz Monitor to be created.\
-> `usage_type` (string): (REQUIRED) Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created.\
-> `plan_id` (string): Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `billing_cycle` | string | Yes | - | Different billing cycles. Possible values are 'MONTHLY' or 'WEEKLY'. Changing this forces a new logz Monitor to be created. |
+| `effective_date` | datetime | Yes | - | Date when plan was applied. Changing this forces a new logz Monitor to be created. |
+| `usage_type` | string | Yes | - | Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created. |
+| `plan_id` | string | No | 100gb14days | Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created. |
 
 ### `user` block structure
 
-> `email` (string): (REQUIRED) Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.\
-> `first_name` (string): (REQUIRED) First Name of the user. Changing this forces a new logz Monitor to be created.\
-> `last_name` (string): (REQUIRED) Last Name of the user. Changing this forces a new logz Monitor to be created.\
-> `phone_number` (int): (REQUIRED) Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
+| `first_name` | string | Yes | - | First Name of the user. Changing this forces a new logz Monitor to be created. |
+| `last_name` | string | Yes | - | Last Name of the user. Changing this forces a new logz Monitor to be created. |
+| `phone_number` | int | Yes | - | Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
 
 
 

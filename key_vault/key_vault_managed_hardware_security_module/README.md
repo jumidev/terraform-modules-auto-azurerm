@@ -47,8 +47,10 @@ tfstate_store = {
 
 ### `network_acls` block structure
 
-> `bypass` (string): (REQUIRED) Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'.\
-> `default_action` (string): (REQUIRED) The Default Action to use. Possible values are 'Allow' and 'Deny'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
+| `default_action` | string | Yes | - | The Default Action to use. Possible values are 'Allow' and 'Deny'. |
 
 
 

@@ -43,38 +43,48 @@ tfstate_store = {
 
 ### `api_metadata` block structure
 
-> `description` (string): Detailed description of the APIs available on the Gateway instance.\
-> `documentation_url` (string): Location of additional documentation for the APIs available on the Gateway instance.\
-> `server_url` (string): Base URL that API consumers will use to access APIs on the Gateway instance.\
-> `title` (string): Specifies the title describing the context of the APIs available on the Gateway instance.\
-> `version` (string): Specifies the version of APIs available on this Gateway instance.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
+| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
+| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
+| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
+| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
 
 ### `client_authorization` block structure
 
-> `certificate_ids` (string): Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.\
-> `verification_enabled` (bool): Specifies whether the client certificate verification is enabled.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
+| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
 
 ### `cors` block structure
 
-> `credentials_allowed` (bool): is user credentials are supported on cross-site requests?\
-> `allowed_headers` (string): Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header.\
-> `allowed_methods` (string): Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'.\
-> `allowed_origins` (string): Allowed origins to make cross-site requests. The special value '*' allows all domains.\
-> `allowed_origin_patterns` (string): Allowed origin patterns to make cross-site requests.\
-> `exposed_headers` (string): HTTP response headers to expose for cross-site requests.\
-> `max_age_seconds` (int): How long, in seconds, the response from a pre-flight request can be cached by clients.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
+| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
+| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
+| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
+| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
+| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
+| `max_age_seconds` | int | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
 
 ### `quota` block structure
 
-> `cpu` (string): Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified.\
-> `memory` (string): Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
+| `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
 
 ### `sso` block structure
 
-> `client_id` (string): The public identifier for the application.\
-> `client_secret` (string): The secret known only to the application and the authorization server.\
-> `issuer_uri` (string): The URI of Issuer Identifier.\
-> `scope` (string): It defines the specific actions applications can be allowed to do on a user's behalf.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | No | - | The public identifier for the application. |
+| `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
+| `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
+| `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
 
 
 

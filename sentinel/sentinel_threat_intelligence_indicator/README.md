@@ -54,20 +54,26 @@ tfstate_store = {
 
 ### `external_reference` block structure
 
-> `description` (string): The description of the external reference of the Threat Intelligence Indicator.\
-> `hashes` (string): The list of hashes of the external reference of the Threat Intelligence Indicator.\
-> `source_name` (string): The source name of the external reference of the Threat Intelligence Indicator.\
-> `url` (string): The url of the external reference of the Threat Intelligence Indicator.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description of the external reference of the Threat Intelligence Indicator. |
+| `hashes` | string | No | - | The list of hashes of the external reference of the Threat Intelligence Indicator. |
+| `source_name` | string | No | - | The source name of the external reference of the Threat Intelligence Indicator. |
+| `url` | string | No | - | The url of the external reference of the Threat Intelligence Indicator. |
 
 ### `granular_marking` block structure
 
-> `language` (string): The language of granular marking of the Threat Intelligence Indicator.\
-> `marking_ref` (string): The reference of the granular marking of the Threat Intelligence Indicator.\
-> `selectors` (list): A list of selectors of the granular marking of the Threat Intelligence Indicator.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `language` | string | No | - | The language of granular marking of the Threat Intelligence Indicator. |
+| `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
+| `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
 
 ### `kill_chain_phase` block structure
 
-> `name` (string): The name which should be used for the Lockheed Martin cyber kill chain phase.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
 
 
 

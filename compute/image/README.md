@@ -40,21 +40,25 @@ tfstate_store = {
 
 ### `os_disk` block structure
 
-> `os_type` (string): Specifies the type of operating system contained in the virtual machine image. Possible values are: 'Windows' or 'Linux'.\
-> `os_state` (string): Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are 'Generalized' and 'Specialized'.\
-> `managed_disk_id` (string): Specifies the ID of the managed disk resource that you want to use to create the image.\
-> `blob_uri` (string): Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created.\
-> `caching` (string): Specifies the caching mode as 'ReadWrite', 'ReadOnly', or 'None'. The default is 'None'.\
-> `size_gb` (int): Specifies the size of the image to be created. Changing this forces a new resource to be created.\
-> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `os_type` | string | No | - | Specifies the type of operating system contained in the virtual machine image. Possible values are: 'Windows' or 'Linux'. |
+| `os_state` | string | No | - | Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized. Possible values are 'Generalized' and 'Specialized'. |
+| `managed_disk_id` | string | No | - | Specifies the ID of the managed disk resource that you want to use to create the image. |
+| `blob_uri` | string | No | - | Specifies the URI in Azure storage of the blob that you want to use to create the image. Changing this forces a new resource to be created. |
+| `caching` | string | No | None | Specifies the caching mode as 'ReadWrite', 'ReadOnly', or 'None'. The default is 'None'. |
+| `size_gb` | int | No | - | Specifies the size of the image to be created. Changing this forces a new resource to be created. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created. |
 
 ### `data_disk` block structure
 
-> `lun` (int): Specifies the logical unit number of the data disk.\
-> `managed_disk_id` (string): Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created.\
-> `blob_uri` (string): Specifies the URI in Azure storage of the blob that you want to use to create the image.\
-> `caching` (string): Specifies the caching mode as 'ReadWrite', 'ReadOnly', or 'None'. Defaults to 'None'.\
-> `size_gb` (int): Specifies the size of the image to be created. The target size can't be smaller than the source size.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `lun` | int | No | - | Specifies the logical unit number of the data disk. |
+| `managed_disk_id` | string | No | - | Specifies the ID of the managed disk resource that you want to use to create the image. Changing this forces a new resource to be created. |
+| `blob_uri` | string | No | - | Specifies the URI in Azure storage of the blob that you want to use to create the image. |
+| `caching` | string | No | None | Specifies the caching mode as 'ReadWrite', 'ReadOnly', or 'None'. Defaults to 'None'. |
+| `size_gb` | int | No | - | Specifies the size of the image to be created. The target size can't be smaller than the source size. |
 
 
 

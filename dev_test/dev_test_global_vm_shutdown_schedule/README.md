@@ -40,10 +40,12 @@ tfstate_store = {
 
 ### `notification_settings` block structure
 
-> `enabled` (string): (REQUIRED) Whether to enable pre-shutdown notifications. Possible values are 'true' and 'false'.\
-> `email` (string): E-mail address to which the notification will be sent.\
-> `time_in_minutes` (int): Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to '30'.\
-> `webhook_url` (string): The webhook URL to which the notification will be sent.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | string | Yes | - | Whether to enable pre-shutdown notifications. Possible values are 'true' and 'false'. |
+| `email` | string | No | - | E-mail address to which the notification will be sent. |
+| `time_in_minutes` | int | No | 30 | Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to '30'. |
+| `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
 
 
 

@@ -44,9 +44,11 @@ tfstate_store = {
 
 ### `security` block structure
 
-> `token` (string): (REQUIRED) The access token of specified repo.\
-> `token_type` (string): (REQUIRED) Specify the token type, possible values are 'PersonalAccessToken' and 'Oauth'.\
-> `refresh_token` (string): The refresh token of specified rpeo.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `token` | string | Yes | - | The access token of specified repo. |
+| `token_type` | string | Yes | - | Specify the token type, possible values are 'PersonalAccessToken' and 'Oauth'. |
+| `refresh_token` | string | No | - | The refresh token of specified rpeo. |
 
 
 

@@ -40,21 +40,25 @@ tfstate_store = {
 
 ### `custom_rule` block structure
 
-> `name` (string): (REQUIRED) Gets name of the resource that is unique within a policy. This name can be used to access the resource.\
-> `action` (string): (REQUIRED) The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.\
-> `enabled` (bool): Is the rule is enabled or disabled? Defaults to 'true'.\
-> `priority` (string): The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'.\
-> `type` (string): (REQUIRED) The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'.\
-> `match_condition` (list): One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks.\
-> `rate_limit_duration_in_minutes` (int): The rate limit duration in minutes. Defaults to '1'.\
-> `rate_limit_threshold` (string): The rate limit threshold. Defaults to '10'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Gets name of the resource that is unique within a policy. This name can be used to access the resource. |
+| `action` | string | Yes | - | The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
+| `enabled` | bool | No | True | Is the rule is enabled or disabled? Defaults to 'true'. |
+| `priority` | string | No | 1 | The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'. |
+| `type` | string | Yes | - | The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'. |
+| `match_condition` | list | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
+| `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
+| `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
 ### `managed_rule` block structure
 
-> `type` (string): (REQUIRED) The name of the managed rule to use with this resource.\
-> `version` (string): (REQUIRED) The version on the managed rule to use with this resource.\
-> `exclusion` (block): One or more 'exclusion' blocks.\
-> `override` (block): One or more 'override' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
+| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
+| `exclusion` | block | No | - | One or more 'exclusion' blocks. |
+| `override` | block | No | - | One or more 'override' blocks. |
 
 
 

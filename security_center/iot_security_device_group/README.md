@@ -34,17 +34,21 @@ tfstate_store = {
 
 ### `allow_rule` block structure
 
-> `connection_from_ips_not_allowed` (bool): Specifies which IP is not allowed to be connected to in current device group for inbound connection.\
-> `connection_to_ips_not_allowed` (bool): Specifies which IP is not allowed to be connected to in current device group for outbound connection.\
-> `local_users_not_allowed` (bool): Specifies which local user is not allowed to login in current device group.\
-> `processes_not_allowed` (bool): Specifies which process is not allowed to be executed in current device group.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `connection_from_ips_not_allowed` | bool | No | - | Specifies which IP is not allowed to be connected to in current device group for inbound connection. |
+| `connection_to_ips_not_allowed` | bool | No | - | Specifies which IP is not allowed to be connected to in current device group for outbound connection. |
+| `local_users_not_allowed` | bool | No | - | Specifies which local user is not allowed to login in current device group. |
+| `processes_not_allowed` | bool | No | - | Specifies which process is not allowed to be executed in current device group. |
 
 ### `range_rule` block structure
 
-> `duration` (string): (REQUIRED) Specifies the time range. represented in ISO 8601 duration format.\
-> `max` (string): (REQUIRED) The maximum threshold in the given time window.\
-> `min` (string): (REQUIRED) The minimum threshold in the given time window.\
-> `type` (string): (REQUIRED) The type of supported rule type. Possible Values are 'ActiveConnectionsNotInAllowedRange', 'AmqpC2DMessagesNotInAllowedRange', 'MqttC2DMessagesNotInAllowedRange', 'HttpC2DMessagesNotInAllowedRange', 'AmqpC2DRejectedMessagesNotInAllowedRange', 'MqttC2DRejectedMessagesNotInAllowedRange', 'HttpC2DRejectedMessagesNotInAllowedRange', 'AmqpD2CMessagesNotInAllowedRange', 'MqttD2CMessagesNotInAllowedRange', 'HttpD2CMessagesNotInAllowedRange', 'DirectMethodInvokesNotInAllowedRange', 'FailedLocalLoginsNotInAllowedRange', 'FileUploadsNotInAllowedRange', 'QueuePurgesNotInAllowedRange', 'TwinUpdatesNotInAllowedRange' and 'UnauthorizedOperationsNotInAllowedRange'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `duration` | string | Yes | - | Specifies the time range. represented in ISO 8601 duration format. |
+| `max` | string | Yes | - | The maximum threshold in the given time window. |
+| `min` | string | Yes | - | The minimum threshold in the given time window. |
+| `type` | string | Yes | - | The type of supported rule type. Possible Values are 'ActiveConnectionsNotInAllowedRange', 'AmqpC2DMessagesNotInAllowedRange', 'MqttC2DMessagesNotInAllowedRange', 'HttpC2DMessagesNotInAllowedRange', 'AmqpC2DRejectedMessagesNotInAllowedRange', 'MqttC2DRejectedMessagesNotInAllowedRange', 'HttpC2DRejectedMessagesNotInAllowedRange', 'AmqpD2CMessagesNotInAllowedRange', 'MqttD2CMessagesNotInAllowedRange', 'HttpD2CMessagesNotInAllowedRange', 'DirectMethodInvokesNotInAllowedRange', 'FailedLocalLoginsNotInAllowedRange', 'FileUploadsNotInAllowedRange', 'QueuePurgesNotInAllowedRange', 'TwinUpdatesNotInAllowedRange' and 'UnauthorizedOperationsNotInAllowedRange'. |
 
 
 

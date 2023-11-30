@@ -93,138 +93,178 @@ tfstate_store = {
 
 ### `network_interface` block structure
 
-> `name` (string): (REQUIRED) The Name which should be used for this Network Interface. Changing this forces a new resource to be created.\
-> `ip_configuration` (list): (REQUIRED) One or more 'ip_configuration' blocks.\
-> `dns_servers` (list): A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.\
-> `enable_accelerated_networking` (bool): Does this Network Interface support Accelerated Networking? Defaults to 'false'.\
-> `enable_ip_forwarding` (bool): Does this Network Interface support IP Forwarding? Defaults to 'false'.\
-> `network_security_group_id` (string): The ID of a Network Security Group which should be assigned to this Network Interface.\
-> `primary` (bool): Is this the Primary IP Configuration?\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name which should be used for this Network Interface. Changing this forces a new resource to be created. |
+| `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
+| `dns_servers` | list | No | - | A list of IP Addresses of DNS Servers which should be assigned to the Network Interface. |
+| `enable_accelerated_networking` | bool | No | False | Does this Network Interface support Accelerated Networking? Defaults to 'false'. |
+| `enable_ip_forwarding` | bool | No | False | Does this Network Interface support IP Forwarding? Defaults to 'false'. |
+| `network_security_group_id` | string | No | - | The ID of a Network Security Group which should be assigned to this Network Interface. |
+| `primary` | bool | No | - | Is this the Primary IP Configuration? |
 
 ### `os_disk` block structure
 
-> `caching` (string): (REQUIRED) The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.\
-> `storage_account_type` (string): (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.\
-> `diff_disk_settings` (block): A 'diff_disk_settings' block. Changing this forces a new resource to be created.\
-> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'. Changing this forces a new resource to be created.\
-> `disk_size_gb` (int): The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.\
-> `secure_vm_disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created.\
-> `security_encryption_type` (string): Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created.\
-> `write_accelerator_enabled` (bool): Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `caching` | string | Yes | - | The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
+| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created. |
+| `diff_disk_settings` | block | No | - | A 'diff_disk_settings' block. Changing this forces a new resource to be created. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'. Changing this forces a new resource to be created. |
+| `disk_size_gb` | int | No | - | The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from. |
+| `secure_vm_disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created. |
+| `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
+| `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
 
 ### `additional_capabilities` block structure
 
-> `ultra_ssd_enabled` (bool): Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine Scale Set? Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine Scale Set? Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
 
 ### `additional_unattend_content` block structure
 
-> `content` (string): (REQUIRED) The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.\
-> `setting` (string): (REQUIRED) The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
+| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
 
 ### `automatic_os_upgrade_policy` block structure
 
-> `disable_automatic_rollback` (bool): (REQUIRED) Should automatic rollbacks be disabled?\
-> `enable_automatic_os_upgrade` (bool): (REQUIRED) Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disable_automatic_rollback` | bool | Yes | - | Should automatic rollbacks be disabled? |
+| `enable_automatic_os_upgrade` | bool | Yes | - | Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? |
 
 ### `automatic_instance_repair` block structure
 
-> `enabled` (bool): (REQUIRED) Should the automatic instance repair be enabled on this Virtual Machine Scale Set?\
-> `grace_period` (int): Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to 'PT30M'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the automatic instance repair be enabled on this Virtual Machine Scale Set? |
+| `grace_period` | int | No | PT30M | Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to 'PT30M'. |
 
 ### `boot_diagnostics` block structure
 
-> `storage_account_uri` (string): The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
 
 ### `data_disk` block structure
 
-> `name` (string): The name of the Data Disk.\
-> `caching` (string): (REQUIRED) The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.\
-> `create_option` (string): The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks).\
-> `disk_size_gb` (int): (REQUIRED) The size of the Data Disk which should be created.\
-> `lun` (int): (REQUIRED) The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.\
-> `storage_account_type` (string): (REQUIRED) The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'.\
-> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.\
-> `ultra_ssd_disk_iops_read_write` (string): Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.\
-> `ultra_ssd_disk_mbps_read_write` (int): Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.\
-> `write_accelerator_enabled` (bool): Should Write Accelerator be enabled for this Data Disk? Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the Data Disk. |
+| `caching` | string | Yes | - | The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
+| `create_option` | string | No | Empty | The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks). |
+| `disk_size_gb` | int | Yes | - | The size of the Data Disk which should be created. |
+| `lun` | int | Yes | - | The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. |
+| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created. |
+| `ultra_ssd_disk_iops_read_write` | string | No | - | Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
+| `ultra_ssd_disk_mbps_read_write` | int | No | - | Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
+| `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be enabled for this Data Disk? Defaults to 'false'. |
 
 ### `extension` block structure
 
-> `name` (string): (REQUIRED) The name for the Virtual Machine Scale Set Extension.\
-> `publisher` (string): (REQUIRED) Specifies the Publisher of the Extension.\
-> `type` (string): (REQUIRED) Specifies the Type of the Extension.\
-> `type_handler_version` (string): (REQUIRED) Specifies the version of the extension to use, available versions can be found using the Azure CLI.\
-> `auto_upgrade_minor_version` (bool): Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to 'true'.\
-> `automatic_upgrade_enabled` (bool): Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension?\
-> `force_update_tag` (string): A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.\
-> `protected_settings` (string): A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.\
-> `protected_settings_from_key_vault` (block): A 'protected_settings_from_key_vault' block.\
-> `provision_after_extensions` (string): An ordered list of Extension names which this should be provisioned after.\
-> `settings` (string): A JSON String which specifies Settings for the Extension.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
+| `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
+| `type` | string | Yes | - | Specifies the Type of the Extension. |
+| `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
+| `auto_upgrade_minor_version` | bool | No | True | Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to 'true'. |
+| `automatic_upgrade_enabled` | bool | No | - | Should the Extension be automatically updated whenever the Publisher releases a new version of this VM Extension? |
+| `force_update_tag` | string | No | - | A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. |
+| `protected_settings` | string | No | - | A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. |
+| `protected_settings_from_key_vault` | block | No | - | A 'protected_settings_from_key_vault' block. |
+| `provision_after_extensions` | string | No | - | An ordered list of Extension names which this should be provisioned after. |
+| `settings` | string | No | - | A JSON String which specifies Settings for the Extension. |
 
 ### `gallery_application` block structure
 
-> `version_id` (string): (REQUIRED) Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.\
-> `configuration_blob_uri` (string): Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.\
-> `order` (string): Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. Changing this forces a new resource to be created.\
-> `tag` (string): Specifies a passthrough value for more generic context. This field can be any valid 'string' value. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `version_id` | string | Yes | - | Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created. |
+| `configuration_blob_uri` | string | No | - | Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created. |
+| `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. Changing this forces a new resource to be created. |
+| `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. Changing this forces a new resource to be created. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set. |
 
 ### `plan` block structure
 
-> `name` (string): (REQUIRED) Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.\
-> `publisher` (string): (REQUIRED) Specifies the publisher of the image. Changing this forces a new resource to be created.\
-> `product` (string): (REQUIRED) Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
+| `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
 
 ### `rolling_upgrade_policy` block structure
 
-> `cross_zone_upgrades_enabled` (string): Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are 'true' or 'false'.\
-> `max_batch_instance_percent` (string): (REQUIRED) The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.\
-> `max_unhealthy_instance_percent` (string): (REQUIRED) The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.\
-> `max_unhealthy_upgraded_instance_percent` (string): (REQUIRED) The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.\
-> `pause_time_between_batches` (string): (REQUIRED) The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.\
-> `prioritize_unhealthy_instances_enabled` (string): Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are 'true' or 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cross_zone_upgrades_enabled` | string | No | - | Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are 'true' or 'false'. |
+| `max_batch_instance_percent` | string | Yes | - | The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. |
+| `max_unhealthy_instance_percent` | string | Yes | - | The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. |
+| `max_unhealthy_upgraded_instance_percent` | string | Yes | - | The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. |
+| `pause_time_between_batches` | string | Yes | - | The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. |
+| `prioritize_unhealthy_instances_enabled` | string | No | - | Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are 'true' or 'false'. |
 
 ### `scale_in` block structure
 
-> `rule` (string): The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are 'Default', 'NewestVM' and 'OldestVM', defaults to 'Default'. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy).\
-> `force_deletion_enabled` (bool): Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are 'true' or 'false'. Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule` | string | No | Default | The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are 'Default', 'NewestVM' and 'OldestVM', defaults to 'Default'. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy). |
+| `force_deletion_enabled` | bool | No | False | Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are 'true' or 'false'. Defaults to 'false'. |
 
 ### `secret` block structure
 
-> `certificate` (list): (REQUIRED) One or more 'certificate' blocks.\
-> `key_vault_id` (string): (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
 
 ### `source_image_reference` block structure
 
-> `publisher` (string): (REQUIRED) Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.\
-> `offer` (string): (REQUIRED) Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.\
-> `sku` (string): (REQUIRED) Specifies the SKU of the image used to create the virtual machines.\
-> `version` (string): (REQUIRED) Specifies the version of the image used to create the virtual machines.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publisher` | string | Yes | - | Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `offer` | string | Yes | - | Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. |
+| `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. |
 
 ### `spot_restore` block structure
 
-> `enabled` (bool): Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created.\
-> `timeout` (string): The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between '15' minutes and '120' minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to 'PT1H'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | False | Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `timeout` | string | No | PT1H | The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between '15' minutes and '120' minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to 'PT1H'. Changing this forces a new resource to be created. |
 
 ### `terminate_notification` block structure
 
-> `enabled` (bool): (REQUIRED) Should the terminate notification be enabled on this Virtual Machine Scale Set?\
-> `timeout` (string): Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the terminate notification be enabled on this Virtual Machine Scale Set? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
 
 ### `termination_notification` block structure
 
-> `enabled` (bool): (REQUIRED) Should the termination notification be enabled on this Virtual Machine Scale Set?\
-> `timeout` (string): Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine Scale Set? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
 
 ### `winrm_listener` block structure
 
-> `certificate_url` (string): The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created.\
-> `protocol` (string): (REQUIRED) The Protocol of the WinRM Listener. Possible values are 'Http' and 'Https'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
+| `protocol` | string | Yes | - | The Protocol of the WinRM Listener. Possible values are 'Http' and 'Https'. Changing this forces a new resource to be created. |
 
 
 

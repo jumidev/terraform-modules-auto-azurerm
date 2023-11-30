@@ -40,21 +40,27 @@ tfstate_store = {
 
 ### `time_period` block structure
 
-> `start_date` (datetime): (REQUIRED) The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created.\
-> `end_date` (datetime): The end date for the budget. If not set this will be 10 years after the start date.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created. |
+| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
 
 ### `notification` block structure
 
-> `operator` (string): (REQUIRED) The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'.\
-> `threshold` (string): (REQUIRED) Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.\
-> `contact_emails` (string): (REQUIRED) Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.\
-> `threshold_type` (string): The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created.\
-> `enabled` (bool): Should the notification be enabled? Defaults to 'true'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
+| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
+| `contact_emails` | string | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
+| `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
+| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
 ### `filter` block structure
 
-> `dimension` (block): One or more 'dimension' blocks to filter the budget on.\
-> `tag` (block): One or more 'tag' blocks to filter the budget on.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dimension` | block | No | - | One or more 'dimension' blocks to filter the budget on. |
+| `tag` | block | No | - | One or more 'tag' blocks to filter the budget on. |
 
 
 

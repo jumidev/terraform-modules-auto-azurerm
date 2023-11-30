@@ -40,8 +40,10 @@ tfstate_store = {
 
 ### `route` block structure
 
-> `address_prefixes` (list): (REQUIRED) A list of Address Prefixes.\
-> `next_hop_ip_address` (string): (REQUIRED) The IP Address that Packets should be forwarded to as the Next Hop.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | Yes | - | A list of Address Prefixes. |
+| `next_hop_ip_address` | string | Yes | - | The IP Address that Packets should be forwarded to as the Next Hop. |
 
 
 

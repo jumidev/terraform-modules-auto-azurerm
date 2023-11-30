@@ -48,16 +48,20 @@ tfstate_store = {
 
 ### `publish_content_link` block structure
 
-> `uri` (string): (REQUIRED) The URI of the runbook content.\
-> `version` (string): Specifies the version of the content\
-> `hash` (block): A 'hash' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `uri` | string | Yes | - | The URI of the runbook content. |
+| `version` | string | No | - | Specifies the version of the content |
+| `hash` | block | No | - | A 'hash' block. |
 
 ### `draft` block structure
 
-> `edit_mode_enabled` (bool): Whether the draft in edit mode.\
-> `content_link` (block): A 'publish_content_link' block.\
-> `output_types` (string): Specifies the output types of the runbook.\
-> `parameters` (block): A list of 'parameters' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
+| `content_link` | block | No | - | A 'publish_content_link' block. |
+| `output_types` | string | No | - | Specifies the output types of the runbook. |
+| `parameters` | block | No | - | A list of 'parameters' block. |
 
 
 

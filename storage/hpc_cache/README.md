@@ -51,41 +51,53 @@ tfstate_store = {
 
 ### `default_access_policy` block structure
 
-> `access_rule` (list): (REQUIRED) One or more 'access_rule' blocks (up to three).\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_rule` | list | Yes | - | One or more 'access_rule' blocks (up to three). |
 
 ### `dns` block structure
 
-> `servers` (list): (REQUIRED) A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.\
-> `search_domain` (string): The DNS search domain for the HPC Cache.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
+| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
 
 ### `directory_active_directory` block structure
 
-> `dns_primary_ip` (string): (REQUIRED) The primary DNS IP address used to resolve the Active Directory domain controller's FQDN.\
-> `domain_name` (string): (REQUIRED) The fully qualified domain name of the Active Directory domain controller.\
-> `cache_netbios_name` (string): (REQUIRED) The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.\
-> `domain_netbios_name` (string): (REQUIRED) The Active Directory domain's NetBIOS name.\
-> `username` (string): (REQUIRED) The username of the Active Directory domain administrator.\
-> `password` (string): (REQUIRED) The password of the Active Directory domain administrator.\
-> `dns_secondary_ip` (string): The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
+| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
+| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
+| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
+| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
+| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
 
 ### `directory_flat_file` block structure
 
-> `group_file_uri` (string): (REQUIRED) The URI of the file containing group information ('/etc/group' file format in Unix-like OS).\
-> `password_file_uri` (string): (REQUIRED) The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS).\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
+| `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
 
 ### `directory_ldap` block structure
 
-> `server` (string): (REQUIRED) The FQDN or IP address of the LDAP server.\
-> `base_dn` (string): (REQUIRED) The base distinguished name (DN) for the LDAP domain.\
-> `encrypted` (bool): Whether the LDAP connection should be encrypted?\
-> `certificate_validation_uri` (string): The URI of the CA certificate to validate the LDAP secure connection.\
-> `download_certificate_automatically` (bool): Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided.\
-> `bind` (block): A 'bind' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `server` | string | Yes | - | The FQDN or IP address of the LDAP server. |
+| `base_dn` | string | Yes | - | The base distinguished name (DN) for the LDAP domain. |
+| `encrypted` | bool | No | - | Whether the LDAP connection should be encrypted? |
+| `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
+| `download_certificate_automatically` | bool | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
+| `bind` | block | No | - | A 'bind' block. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created.\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. |
 
 
 

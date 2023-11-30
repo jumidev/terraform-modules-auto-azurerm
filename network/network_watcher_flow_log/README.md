@@ -46,16 +46,20 @@ tfstate_store = {
 
 ### `retention_policy` block structure
 
-> `enabled` (bool): (REQUIRED) Boolean flag to enable/disable retention.\
-> `days` (int): (REQUIRED) The number of days to retain flow log records.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Boolean flag to enable/disable retention. |
+| `days` | int | Yes | - | The number of days to retain flow log records. |
 
 ### `traffic_analytics` block structure
 
-> `enabled` (bool): (REQUIRED) Boolean flag to enable/disable traffic analytics.\
-> `workspace_id` (string): (REQUIRED) The resource GUID of the attached workspace.\
-> `workspace_region` (string): (REQUIRED) The location of the attached workspace.\
-> `workspace_resource_id` (string): (REQUIRED) The resource ID of the attached workspace.\
-> `interval_in_minutes` (int): How frequently service should do flow analytics in minutes. Defaults to '60'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Boolean flag to enable/disable traffic analytics. |
+| `workspace_id` | string | Yes | - | The resource GUID of the attached workspace. |
+| `workspace_region` | string | Yes | - | The location of the attached workspace. |
+| `workspace_resource_id` | string | Yes | - | The resource ID of the attached workspace. |
+| `interval_in_minutes` | int | No | 60 | How frequently service should do flow analytics in minutes. Defaults to '60'. |
 
 
 

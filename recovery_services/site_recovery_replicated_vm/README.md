@@ -61,29 +61,35 @@ tfstate_store = {
 
 ### `managed_disk` block structure
 
-> `disk_id` (string): (REQUIRED) Id of disk that should be replicated. Changing this forces a new resource to be created.\
-> `staging_storage_account_id` (string): (REQUIRED) Storage account that should be used for caching. Changing this forces a new resource to be created.\
-> `target_resource_group_id` (string): (REQUIRED) Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.\
-> `target_disk_type` (string): (REQUIRED) What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created.\
-> `target_replica_disk_type` (string): (REQUIRED) What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created.\
-> `target_disk_encryption_set_id` (string): The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.\
-> `target_disk_encryption` (block): A 'target_disk_encryption' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_id` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_resource_group_id` | string | Yes | - | Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+| `target_disk_type` | string | Yes | - | What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
+| `target_replica_disk_type` | string | Yes | - | What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
+| `target_disk_encryption_set_id` | string | No | - | The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. |
+| `target_disk_encryption` | block | No | - | A 'target_disk_encryption' block. |
 
 ### `unmanaged_disk` block structure
 
-> `disk_uri` (string): (REQUIRED) Id of disk that should be replicated. Changing this forces a new resource to be created.\
-> `staging_storage_account_id` (string): (REQUIRED) Storage account that should be used for caching. Changing this forces a new resource to be created.\
-> `target_storage_account_id` (string): (REQUIRED) Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
 
 ### `network_interface` block structure
 
-> `source_network_interface_id` (string): (Required if the network_interface block is specified) Id source network interface.\
-> `target_static_ip` (string): Static IP to assign when a failover is done.\
-> `target_subnet_name` (string): Name of the subnet to to use when a failover is done.\
-> `recovery_public_ip_address_id` (string): Id of the public IP object to use when a failover is done.\
-> `failover_test_static_ip` (string): Static IP to assign when a test failover is done.\
-> `failover_test_subnet_name` (string): Name of the subnet to to use when a test failover is done.\
-> `failover_test_public_ip_address_id` (string): Id of the public IP object to use when a test failover is done.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_network_interface_id` | string | No | - | (Required if the network_interface block is specified) Id source network interface. |
+| `target_static_ip` | string | No | - | Static IP to assign when a failover is done. |
+| `target_subnet_name` | string | No | - | Name of the subnet to to use when a failover is done. |
+| `recovery_public_ip_address_id` | string | No | - | Id of the public IP object to use when a failover is done. |
+| `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
+| `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
+| `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
 
 
 

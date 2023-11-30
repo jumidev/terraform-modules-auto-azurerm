@@ -36,12 +36,14 @@ tfstate_store = {
 
 ### `active_directory` block structure
 
-> `dns_servers` (list): (REQUIRED) A list of DNS server IP addresses for the Active Directory domain. Only allows 'IPv4' address.\
-> `domain` (string): (REQUIRED) The name of the Active Directory domain.\
-> `smb_server_name` (string): (REQUIRED) The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.\
-> `username` (string): (REQUIRED) The Username of Active Directory Domain Administrator.\
-> `password` (string): (REQUIRED) The password associated with the 'username'.\
-> `organizational_unit` (string): The Organizational Unit (OU) within the Active Directory Domain.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | list | Yes | - | A list of DNS server IP addresses for the Active Directory domain. Only allows 'IPv4' address. |
+| `domain` | string | Yes | - | The name of the Active Directory domain. |
+| `smb_server_name` | string | Yes | - | The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes. |
+| `username` | string | Yes | - | The Username of Active Directory Domain Administrator. |
+| `password` | string | Yes | - | The password associated with the 'username'. |
+| `organizational_unit` | string | No | - | The Organizational Unit (OU) within the Active Directory Domain. |
 
 
 

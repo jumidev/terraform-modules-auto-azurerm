@@ -37,24 +37,30 @@ tfstate_store = {
 
 ### `application_rule_collection` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this application rule collection.\
-> `action` (string): (REQUIRED) The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'.\
-> `priority` (string): (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.\
-> `rule` (block): (REQUIRED) One or more 'application_rule' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this application rule collection. |
+| `action` | string | Yes | - | The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'. |
+| `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
+| `rule` | block | Yes | - | One or more 'application_rule' blocks. |
 
 ### `nat_rule_collection` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this NAT rule collection.\
-> `action` (string): (REQUIRED) The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'.\
-> `priority` (string): (REQUIRED) The priority of the NAT rule collection. The range is '100' - '65000'.\
-> `rule` (block): (REQUIRED) A 'nat_rule' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this NAT rule collection. |
+| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
+| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
+| `rule` | block | Yes | - | A 'nat_rule' block. |
 
 ### `network_rule_collection` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this network rule collection.\
-> `action` (string): (REQUIRED) The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'.\
-> `priority` (string): (REQUIRED) The priority of the network rule collection. The range is '100' - '65000'.\
-> `rule` (block): (REQUIRED) One or more 'network_rule' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this network rule collection. |
+| `action` | string | Yes | - | The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'. |
+| `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
+| `rule` | block | Yes | - | One or more 'network_rule' blocks. |
 
 
 

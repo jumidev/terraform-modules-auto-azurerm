@@ -34,9 +34,11 @@ tfstate_store = {
 
 ### `tag_filter` block structure
 
-> `name` (string): (REQUIRED) The name of this 'tag_filter'.\
-> `action` (string): (REQUIRED) The action for a filtering tag. Possible values are 'Include' and 'Exclude' is allowed. Note that the 'Exclude' takes priority over the 'Include'.\
-> `value` (string): The value of this 'tag_filter'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of this 'tag_filter'. |
+| `action` | string | Yes | - | The action for a filtering tag. Possible values are 'Include' and 'Exclude' is allowed. Note that the 'Exclude' takes priority over the 'Include'. |
+| `value` | string | No | - | The value of this 'tag_filter'. |
 
 
 

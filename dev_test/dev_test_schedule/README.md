@@ -47,22 +47,30 @@ tfstate_store = {
 
 ### `notification_settings` block structure
 
-> `status` (string): The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled'\
-> `time_in_minutes` (int): Time in minutes before event at which notification will be sent.\
-> `webhook_url` (string): The webhook URL to which the notification will be sent.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `status` | string | No | Disabled | The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled' |
+| `time_in_minutes` | int | No | - | Time in minutes before event at which notification will be sent. |
+| `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
 
 ### `weekly_recurrence` block structure
 
-> `time` (string): (REQUIRED) The time when the schedule takes effect.\
-> `week_days` (string): A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time` | string | Yes | - | The time when the schedule takes effect. |
+| `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
 
 ### `daily_recurrence` block structure
 
-> `time` (string): (REQUIRED) The time each day when the schedule takes effect.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time` | string | Yes | - | The time each day when the schedule takes effect. |
 
 ### `hourly_recurrence` block structure
 
-> `minute` (string): (REQUIRED) Minutes of the hour the schedule will run.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
 
 

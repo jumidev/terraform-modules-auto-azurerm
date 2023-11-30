@@ -38,8 +38,10 @@ tfstate_store = {
 
 ### `record` block structure
 
-> `preference` (string): (REQUIRED) The preference of the MX record.\
-> `exchange` (string): (REQUIRED) The FQDN of the exchange to MX record points to.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `preference` | string | Yes | - | The preference of the MX record. |
+| `exchange` | string | Yes | - | The FQDN of the exchange to MX record points to. |
 
 
 

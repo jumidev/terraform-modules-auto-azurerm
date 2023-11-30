@@ -59,83 +59,105 @@ tfstate_store = {
 
 ### `node_type` block structure
 
-> `name` (string): (REQUIRED) The name of the Node Type.\
-> `placement_properties` (string): The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.\
-> `capacities` (string): The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.\
-> `instance_count` (int): (REQUIRED) The number of nodes for this Node Type.\
-> `is_primary` (bool): (REQUIRED) Is this the Primary Node Type?\
-> `is_stateless` (string): Should this node type run only stateless services?\
-> `multiple_availability_zones` (string): Does this node type span availability zones?\
-> `client_endpoint_port` (string): (REQUIRED) The Port used for the Client Endpoint for this Node Type.\
-> `http_endpoint_port` (string): (REQUIRED) The Port used for the HTTP Endpoint for this Node Type.\
-> `durability_level` (string): The Durability Level for this Node Type. Possible values include 'Bronze', 'Gold' and 'Silver'. Defaults to 'Bronze'.\
-> `application_ports` (block): A 'application_ports' block.\
-> `ephemeral_ports` (block): A 'ephemeral_ports' block.\
-> `reverse_proxy_endpoint_port` (string): The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Node Type. |
+| `placement_properties` | string | No | - | The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run. |
+| `capacities` | string | No | - | The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has. |
+| `instance_count` | int | Yes | - | The number of nodes for this Node Type. |
+| `is_primary` | bool | Yes | - | Is this the Primary Node Type? |
+| `is_stateless` | string | No | - | Should this node type run only stateless services? |
+| `multiple_availability_zones` | string | No | - | Does this node type span availability zones? |
+| `client_endpoint_port` | string | Yes | - | The Port used for the Client Endpoint for this Node Type. |
+| `http_endpoint_port` | string | Yes | - | The Port used for the HTTP Endpoint for this Node Type. |
+| `durability_level` | string | No | Bronze | The Durability Level for this Node Type. Possible values include 'Bronze', 'Gold' and 'Silver'. Defaults to 'Bronze'. |
+| `application_ports` | block | No | - | A 'application_ports' block. |
+| `ephemeral_ports` | block | No | - | A 'ephemeral_ports' block. |
+| `reverse_proxy_endpoint_port` | string | No | - | The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster. |
 
 ### `azure_active_directory` block structure
 
-> `tenant_id` (string): (REQUIRED) The Azure Active Directory Tenant ID.\
-> `cluster_application_id` (string): (REQUIRED) The Azure Active Directory Cluster Application ID.\
-> `client_application_id` (string): (REQUIRED) The Azure Active Directory Client ID which should be used for the Client Application.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tenant_id` | string | Yes | - | The Azure Active Directory Tenant ID. |
+| `cluster_application_id` | string | Yes | - | The Azure Active Directory Cluster Application ID. |
+| `client_application_id` | string | Yes | - | The Azure Active Directory Client ID which should be used for the Client Application. |
 
 ### `certificate_common_names` block structure
 
-> `common_names` (block): (REQUIRED) A 'common_names' block.\
-> `x509_store_name` (string): (REQUIRED) The X509 Store where the Certificate Exists, such as 'My'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_names` | block | Yes | - | A 'common_names' block. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
 
 ### `certificate` block structure
 
-> `thumbprint` (string): (REQUIRED) The Thumbprint of the Certificate.\
-> `thumbprint_secondary` (string): The Secondary Thumbprint of the Certificate.\
-> `x509_store_name` (string): (REQUIRED) The X509 Store where the Certificate Exists, such as 'My'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
 
 ### `reverse_proxy_certificate` block structure
 
-> `thumbprint` (string): (REQUIRED) The Thumbprint of the Certificate.\
-> `thumbprint_secondary` (string): The Secondary Thumbprint of the Certificate.\
-> `x509_store_name` (string): (REQUIRED) The X509 Store where the Certificate Exists, such as 'My'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
 
 ### `reverse_proxy_certificate_common_names` block structure
 
-> `common_names` (block): (REQUIRED) A 'common_names' block.\
-> `x509_store_name` (string): (REQUIRED) The X509 Store where the Certificate Exists, such as 'My'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_names` | block | Yes | - | A 'common_names' block. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
 
 ### `client_certificate_thumbprint` block structure
 
-> `thumbprint` (string): (REQUIRED) The Thumbprint associated with the Client Certificate.\
-> `is_admin` (string): (REQUIRED) Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint associated with the Client Certificate. |
+| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
 
 ### `client_certificate_common_name` block structure
 
-> `common_name` (string): (REQUIRED) The common or subject name of the certificate.\
-> `issuer_thumbprint` (string): The Issuer Thumbprint of the Certificate.\
-> `is_admin` (string): (REQUIRED) Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
 
 ### `diagnostics_config` block structure
 
-> `storage_account_name` (string): (REQUIRED) The name of the Storage Account where the Diagnostics should be sent to.\
-> `protected_account_key_name` (string): (REQUIRED) The protected diagnostics storage key name, such as 'StorageAccountKey1'.\
-> `blob_endpoint` (string): (REQUIRED) The Blob Endpoint of the Storage Account.\
-> `queue_endpoint` (string): (REQUIRED) The Queue Endpoint of the Storage Account.\
-> `table_endpoint` (string): (REQUIRED) The Table Endpoint of the Storage Account.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_name` | string | Yes | - | The name of the Storage Account where the Diagnostics should be sent to. |
+| `protected_account_key_name` | string | Yes | - | The protected diagnostics storage key name, such as 'StorageAccountKey1'. |
+| `blob_endpoint` | string | Yes | - | The Blob Endpoint of the Storage Account. |
+| `queue_endpoint` | string | Yes | - | The Queue Endpoint of the Storage Account. |
+| `table_endpoint` | string | Yes | - | The Table Endpoint of the Storage Account. |
 
 ### `fabric_settings` block structure
 
-> `name` (string): (REQUIRED) The name of the Fabric Setting, such as 'Security' or 'Federation'.\
-> `parameters` (string): A map containing settings for the specified Fabric Setting.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Fabric Setting, such as 'Security' or 'Federation'. |
+| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
 
 ### `upgrade_policy` block structure
 
-> `force_restart_enabled` (bool): Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed.\
-> `health_check_retry_timeout` (string): Specifies the duration, in 'hh:mm:ss' string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to '00:45:00'.\
-> `health_check_stable_duration` (string): Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to '00:01:00'.\
-> `health_check_wait_duration` (string): Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to '00:00:30'.\
-> `upgrade_domain_timeout` (string): Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to '02:00:00'.\
-> `upgrade_replica_set_check_timeout` (string): Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to '10675199.02:48:05.4775807'.\
-> `upgrade_timeout` (string): Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to '12:00:00'.\
-> `health_policy` (block): A 'health_policy' block\
-> `delta_health_policy` (block): A 'delta_health_policy' block\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `force_restart_enabled` | bool | No | - | Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed. |
+| `health_check_retry_timeout` | string | No | 00:45:00 | Specifies the duration, in 'hh:mm:ss' string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to '00:45:00'. |
+| `health_check_stable_duration` | string | No | 00:01:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to '00:01:00'. |
+| `health_check_wait_duration` | string | No | 00:00:30 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to '00:00:30'. |
+| `upgrade_domain_timeout` | string | No | 02:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to '02:00:00'. |
+| `upgrade_replica_set_check_timeout` | string | No | 10675199.02:48:05.4775807 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to '10675199.02:48:05.4775807'. |
+| `upgrade_timeout` | string | No | 12:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to '12:00:00'. |
+| `health_policy` | block | No | - | A 'health_policy' block |
+| `delta_health_policy` | block | No | - | A 'delta_health_policy' block |
 
 
 

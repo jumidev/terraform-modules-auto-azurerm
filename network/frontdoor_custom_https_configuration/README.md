@@ -33,10 +33,12 @@ tfstate_store = {
 
 ### `custom_https_configuration` block structure
 
-> `certificate_source` (string): Certificate source to encrypted 'HTTPS' traffic with. Allowed values are 'FrontDoor' or 'AzureKeyVault'. Defaults to 'FrontDoor'.\
-> `azure_key_vault_certificate_vault_id` (string): The ID of the Key Vault containing the SSL certificate.\
-> `azure_key_vault_certificate_secret_name` (string): The name of the Key Vault secret representing the full certificate PFX.\
-> `azure_key_vault_certificate_secret_version` (string): The version of the Key Vault secret representing the full certificate PFX.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_source` | string | No | FrontDoor | Certificate source to encrypted 'HTTPS' traffic with. Allowed values are 'FrontDoor' or 'AzureKeyVault'. Defaults to 'FrontDoor'. |
+| `azure_key_vault_certificate_vault_id` | string | No | - | The ID of the Key Vault containing the SSL certificate. |
+| `azure_key_vault_certificate_secret_name` | string | No | - | The name of the Key Vault secret representing the full certificate PFX. |
+| `azure_key_vault_certificate_secret_version` | string | No | - | The version of the Key Vault secret representing the full certificate PFX. |
 
 
 

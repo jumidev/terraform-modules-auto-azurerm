@@ -56,24 +56,32 @@ tfstate_store = {
 
 ### `customer_managed_key` block structure
 
-> `key_vault_key_id` (string): (REQUIRED) The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account.\
-> `identity_client_id` (string): The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. |
+| `identity_client_id` | string | No | - | The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
 
 ### `network_acls` block structure
 
-> `default_action` (string): (REQUIRED) The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'.\
-> `ip_rules` (list): One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.\
-> `virtual_network_rules` (block): A 'virtual_network_rules' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'. |
+| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. |
+| `virtual_network_rules` | block | No | - | A 'virtual_network_rules' block. |
 
 ### `storage` block structure
 
-> `storage_account_id` (string): (REQUIRED) Full resource id of a Microsoft.Storage resource.\
-> `identity_client_id` (string): The client ID of the managed identity associated with the storage resource.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
+| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
 
 
 

@@ -47,16 +47,20 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'.\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
 
 ### `network_rulesets` block structure
 
-> `default_action` (string): (REQUIRED) The default action to take when a rule is not matched. Possible values are 'Allow' and 'Deny'.\
-> `public_network_access_enabled` (bool): Is public network access enabled for the EventHub Namespace? Defaults to 'true'.\
-> `trusted_service_access_enabled` (bool): Whether Trusted Microsoft Services are allowed to bypass firewall.\
-> `virtual_network_rule` (block): One or more 'virtual_network_rule' blocks.\
-> `ip_rule` (block): One or more 'ip_rule' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | Yes | - | The default action to take when a rule is not matched. Possible values are 'Allow' and 'Deny'. |
+| `public_network_access_enabled` | bool | No | True | Is public network access enabled for the EventHub Namespace? Defaults to 'true'. |
+| `trusted_service_access_enabled` | bool | No | - | Whether Trusted Microsoft Services are allowed to bypass firewall. |
+| `virtual_network_rule` | block | No | - | One or more 'virtual_network_rule' blocks. |
+| `ip_rule` | block | No | - | One or more 'ip_rule' blocks. |
 
 
 

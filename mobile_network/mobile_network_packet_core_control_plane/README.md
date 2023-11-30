@@ -51,21 +51,27 @@ tfstate_store = {
 
 ### `local_diagnostics_access` block structure
 
-> `authentication_type` (string): (REQUIRED) How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'.\
-> `https_server_certificate_url` (string): The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authentication_type` | string | Yes | - | How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'. |
+| `https_server_certificate_url` | string | No | - | The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress. |
 
 ### `platform` block structure
 
-> `type` (string): (REQUIRED) Specifies the platform type where the packet core is deployed. Possible values are 'AKS-HCI', '3P-AZURE-STACK-HCI' and 'BaseVM'.\
-> `edge_device_id` (string): The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified.\
-> `arc_kubernetes_cluster_id` (string): The ID of the Azure Arc connected cluster where the packet core is deployed.\
-> `stack_hci_cluster_id` (string): The ID of the Azure Stack HCI cluster where the packet core is deployed.\
-> `custom_location_id` (string): The ID of the Azure Arc custom location where the packet core is deployed.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the platform type where the packet core is deployed. Possible values are 'AKS-HCI', '3P-AZURE-STACK-HCI' and 'BaseVM'. |
+| `edge_device_id` | string | No | - | The ID of the Azure Stack Edge device where the packet core is deployed. If the device is part of a fault-tolerant pair, either device in the pair can be specified. |
+| `arc_kubernetes_cluster_id` | string | No | - | The ID of the Azure Arc connected cluster where the packet core is deployed. |
+| `stack_hci_cluster_id` | string | No | - | The ID of the Azure Stack HCI cluster where the packet core is deployed. |
+| `custom_location_id` | string | No | - | The ID of the Azure Arc custom location where the packet core is deployed. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).\
-> `identity_ids` (list): (REQUIRED) A list of the IDs for User Assigned Managed Identity resources to be assigned.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
 
 
 

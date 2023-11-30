@@ -34,9 +34,11 @@ tfstate_store = {
 
 ### `tag_filter` block structure
 
-> `name` (string): (REQUIRED) The name of the tag to match.\
-> `action` (string): (REQUIRED) The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are 'Include' and 'Exclude'. Note that the 'Exclude' takes priority over the 'Include'.\
-> `value` (string): The value of the tag to match.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the tag to match. |
+| `action` | string | Yes | - | The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are 'Include' and 'Exclude'. Note that the 'Exclude' takes priority over the 'Include'. |
+| `value` | string | No | - | The value of the tag to match. |
 
 
 

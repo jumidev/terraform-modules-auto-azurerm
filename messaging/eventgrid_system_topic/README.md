@@ -39,9 +39,11 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are 'SystemAssigned', 'UserAssigned'.\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.\
-> `tags` (map): A mapping of tags which should be assigned to the Event Grid System Topic.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic. |
+| `tags` | map | No | - | A mapping of tags which should be assigned to the Event Grid System Topic. |
 
 
 

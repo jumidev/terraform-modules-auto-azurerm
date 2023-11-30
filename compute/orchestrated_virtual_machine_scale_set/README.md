@@ -66,95 +66,121 @@ tfstate_store = {
 
 ### `additional_capabilities` block structure
 
-> `ultra_ssd_enabled` (bool): Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to 'false'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to 'false'. Changing this forces a new resource to be created. |
 
 ### `network_interface` block structure
 
-> `name` (string): (REQUIRED) The Name which should be used for this Network Interface. Changing this forces a new resource to be created.\
-> `ip_configuration` (list): (REQUIRED) One or more 'ip_configuration' blocks.\
-> `dns_servers` (list): A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.\
-> `enable_accelerated_networking` (bool): Does this Network Interface support Accelerated Networking? Possible values are 'true' and 'false'. Defaults to 'false'.\
-> `enable_ip_forwarding` (bool): Does this Network Interface support IP Forwarding? Possible values are 'true' and 'false'. Defaults to 'false'.\
-> `network_security_group_id` (string): The ID of a Network Security Group which should be assigned to this Network Interface.\
-> `primary` (bool): Is this the Primary IP Configuration? Possible values are 'true' and 'false'. Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name which should be used for this Network Interface. Changing this forces a new resource to be created. |
+| `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
+| `dns_servers` | list | No | - | A list of IP Addresses of DNS Servers which should be assigned to the Network Interface. |
+| `enable_accelerated_networking` | bool | No | False | Does this Network Interface support Accelerated Networking? Possible values are 'true' and 'false'. Defaults to 'false'. |
+| `enable_ip_forwarding` | bool | No | False | Does this Network Interface support IP Forwarding? Possible values are 'true' and 'false'. Defaults to 'false'. |
+| `network_security_group_id` | string | No | - | The ID of a Network Security Group which should be assigned to this Network Interface. |
+| `primary` | bool | No | False | Is this the Primary IP Configuration? Possible values are 'true' and 'false'. Defaults to 'false'. |
 
 ### `os_profile` block structure
 
-> `custom_data` (string): The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.\
-> `windows_configuration` (block): A 'windows_configuration' block.\
-> `linux_configuration` (block): A 'linux_configuration' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_data` | string | No | - | The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set. |
+| `windows_configuration` | block | No | - | A 'windows_configuration' block. |
+| `linux_configuration` | block | No | - | A 'linux_configuration' block. |
 
 ### `os_disk` block structure
 
-> `caching` (string): (REQUIRED) The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.\
-> `storage_account_type` (string): (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.\
-> `diff_disk_settings` (block): A 'diff_disk_settings' block. Changing this forces a new resource to be created.\
-> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.\
-> `disk_size_gb` (int): The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.\
-> `write_accelerator_enabled` (bool): Specifies if Write Accelerator is enabled on the OS Disk. Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `caching` | string | Yes | - | The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
+| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created. |
+| `diff_disk_settings` | block | No | - | A 'diff_disk_settings' block. Changing this forces a new resource to be created. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created. |
+| `disk_size_gb` | int | No | - | The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from. |
+| `write_accelerator_enabled` | bool | No | False | Specifies if Write Accelerator is enabled on the OS Disk. Defaults to 'false'. |
 
 ### `automatic_instance_repair` block structure
 
-> `enabled` (string): (REQUIRED) Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are 'true' and 'false'.\
-> `grace_period` (string): Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between '30' and '90' minutes. The time duration should be specified in 'ISO 8601' format (e.g. 'PT30M' to 'PT90M'). Defaults to 'PT30M'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | string | Yes | - | Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are 'true' and 'false'. |
+| `grace_period` | string | No | PT30M | Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between '30' and '90' minutes. The time duration should be specified in 'ISO 8601' format (e.g. 'PT30M' to 'PT90M'). Defaults to 'PT30M'. |
 
 ### `boot_diagnostics` block structure
 
-> `storage_account_uri` (string): The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a 'boot_diagnostics' block without passing the 'storage_account_uri' field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a 'boot_diagnostics' block without passing the 'storage_account_uri' field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output. |
 
 ### `data_disk` block structure
 
-> `caching` (string): (REQUIRED) The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.\
-> `create_option` (string): The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to 'Empty'. (FromImage should only be used if the source image includes data disks).\
-> `disk_size_gb` (int): (REQUIRED) The size of the Data Disk which should be created.\
-> `lun` (int): (REQUIRED) The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.\
-> `storage_account_type` (string): (REQUIRED) The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'.\
-> `disk_encryption_set_id` (string): The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.\
-> `ultra_ssd_disk_iops_read_write` (string): Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.\
-> `ultra_ssd_disk_mbps_read_write` (int): Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.\
-> `write_accelerator_enabled` (bool): Specifies if Write Accelerator is enabled on the Data Disk. Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `caching` | string | Yes | - | The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite. |
+| `create_option` | string | No | Empty | The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to 'Empty'. (FromImage should only be used if the source image includes data disks). |
+| `disk_size_gb` | int | Yes | - | The size of the Data Disk which should be created. |
+| `lun` | int | Yes | - | The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. |
+| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created. |
+| `ultra_ssd_disk_iops_read_write` | string | No | - | Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
+| `ultra_ssd_disk_mbps_read_write` | int | No | - | Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
+| `write_accelerator_enabled` | bool | No | False | Specifies if Write Accelerator is enabled on the Data Disk. Defaults to 'false'. |
 
 ### `extension` block structure
 
-> `name` (string): (REQUIRED) The name for the Virtual Machine Scale Set Extension.\
-> `publisher` (string): (REQUIRED) Specifies the Publisher of the Extension.\
-> `type` (string): (REQUIRED) Specifies the Type of the Extension.\
-> `type_handler_version` (string): (REQUIRED) Specifies the version of the extension to use, available versions can be found using the Azure CLI.\
-> `auto_upgrade_minor_version_enabled` (bool): Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to 'true'.\
-> `extensions_to_provision_after_vm_creation` (string): An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation.\
-> `force_extension_execution_on_change` (string): A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed.\
-> `protected_settings` (string): A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.\
-> `protected_settings_from_key_vault` (block): A 'protected_settings_from_key_vault' block.\
-> `failure_suppression_enabled` (string): Should failures from the extension be suppressed? Possible values are 'true' or 'false'.\
-> `settings` (string): A JSON String which specifies Settings for the Extension.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
+| `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
+| `type` | string | Yes | - | Specifies the Type of the Extension. |
+| `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
+| `auto_upgrade_minor_version_enabled` | bool | No | True | Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to 'true'. |
+| `extensions_to_provision_after_vm_creation` | string | No | - | An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation. |
+| `force_extension_execution_on_change` | string | No | - | A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. |
+| `protected_settings` | string | No | - | A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. |
+| `protected_settings_from_key_vault` | block | No | - | A 'protected_settings_from_key_vault' block. |
+| `failure_suppression_enabled` | string | No | - | Should failures from the extension be suppressed? Possible values are 'true' or 'false'. |
+| `settings` | string | No | - | A JSON String which specifies Settings for the Extension. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is 'UserAssigned'.\
-> `identity_ids` (string): (REQUIRED) Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is 'UserAssigned'. |
+| `identity_ids` | string | Yes | - | Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set. |
 
 ### `plan` block structure
 
-> `name` (string): (REQUIRED) Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.\
-> `publisher` (string): (REQUIRED) Specifies the publisher of the image. Changing this forces a new resource to be created.\
-> `product` (string): (REQUIRED) Specifies the product of the image from the marketplace. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
+| `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
 
 ### `source_image_reference` block structure
 
-> `publisher` (string): (REQUIRED) Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created.\
-> `offer` (string): (REQUIRED) Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created.\
-> `sku` (string): (REQUIRED) Specifies the SKU of the image used to create the virtual machines.\
-> `version` (string): (REQUIRED) Specifies the version of the image used to create the virtual machines.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publisher` | string | Yes | - | Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `offer` | string | Yes | - | Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. |
+| `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. |
 
 ### `termination_notification` block structure
 
-> `enabled` (string): (REQUIRED) Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values 'true' or 'false'\
-> `timeout` (string): Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in 'ISO 8601' format. Defaults to 'PT5M'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | string | Yes | - | Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values 'true' or 'false' |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in 'ISO 8601' format. Defaults to 'PT5M'. |
 
 ### `priority_mix` block structure
 
-> `base_regular_count` (string): Specifies the base number of VMs of 'Regular' priority that will be created before any VMs of priority 'Spot' are created. Possible values are integers between '0' and '1000'. Defaults to '0'.\
-> `regular_percentage_above_base` (string): Specifies the desired percentage of VM instances that are of 'Regular' priority after the base count has been reached. Possible values are integers between '0' and '100'. Defaults to '0'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `base_regular_count` | string | No | 0 | Specifies the base number of VMs of 'Regular' priority that will be created before any VMs of priority 'Spot' are created. Possible values are integers between '0' and '1000'. Defaults to '0'. |
+| `regular_percentage_above_base` | string | No | 0 | Specifies the desired percentage of VM instances that are of 'Regular' priority after the base count has been reached. Possible values are integers between '0' and '100'. Defaults to '0'. |
 
 
 

@@ -44,13 +44,17 @@ tfstate_store = {
 
 ### `key_vault_connection_string` block structure
 
-> `linked_service_name` (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.\
-> `secret_name` (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores SQL Server connection string.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores SQL Server connection string. |
 
 ### `key_vault_password` block structure
 
-> `linked_service_name` (string): (REQUIRED) Specifies the name of an existing Key Vault Data Factory Linked Service.\
-> `secret_name` (string): (REQUIRED) Specifies the secret name in Azure Key Vault that stores SQL Server password.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores SQL Server password. |
 
 
 

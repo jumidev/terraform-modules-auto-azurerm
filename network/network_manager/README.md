@@ -40,8 +40,10 @@ tfstate_store = {
 
 ### `scope` block structure
 
-> `management_group_ids` (list): A list of management group IDs.\
-> `subscription_ids` (list): A list of subscription IDs.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `management_group_ids` | list | No | - | A list of management group IDs. |
+| `subscription_ids` | list | No | - | A list of subscription IDs. |
 
 
 

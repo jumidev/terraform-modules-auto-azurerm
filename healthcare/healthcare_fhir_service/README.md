@@ -46,28 +46,36 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'.\
-> `identity_ids` (list): A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
+| `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
 
 ### `cors` block structure
 
-> `allowed_origins` (string): (REQUIRED) A set of origins to be allowed via CORS.\
-> `allowed_headers` (string): (REQUIRED) A set of headers to be allowed via CORS.\
-> `allowed_methods` (string): (REQUIRED) The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'.\
-> `max_age_in_seconds` (int): The max age to be allowed via CORS.\
-> `credentials_allowed` (bool): If credentials are allowed via CORS.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | Yes | - | A set of origins to be allowed via CORS. |
+| `allowed_headers` | string | Yes | - | A set of headers to be allowed via CORS. |
+| `allowed_methods` | string | Yes | - | The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'. |
+| `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
+| `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
 
 ### `oci_artifact` block structure
 
-> `login_server` (string): (REQUIRED) An Azure container registry used for export operations of the service instance.\
-> `image_name` (string): An image within Azure container registry used for export operations of the service instance.\
-> `digest` (string): A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
+| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
+| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
 
 ### `authentication` block structure
 
-> `authority` (string): (REQUIRED) The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}.\
-> `audience` (string): (REQUIRED) The intended audience to receive authentication tokens for the service.\
-> `smart_proxy_enabled` (bool): Whether smart proxy is enabled.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authority` | string | Yes | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
+| `audience` | string | Yes | - | The intended audience to receive authentication tokens for the service. |
+| `smart_proxy_enabled` | bool | No | - | Whether smart proxy is enabled. |
 
 
 

@@ -42,8 +42,10 @@ tfstate_store = {
 
 ### `restore` block structure
 
-> `source_database_id` (string): (REQUIRED) The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.\
-> `point_in_time` (string): (REQUIRED) Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_database_id` | string | Yes | - | The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created. |
+| `point_in_time` | string | Yes | - | Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created. |
 
 
 

@@ -39,8 +39,10 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) The Type of Managed Identity assigned to this Static Site resource. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'.\
-> `identity_ids` (list): A list of Managed Identity IDs which should be assigned to this Static Site resource.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Type of Managed Identity assigned to this Static Site resource. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
+| `identity_ids` | list | No | - | A list of Managed Identity IDs which should be assigned to this Static Site resource. |
 
 
 

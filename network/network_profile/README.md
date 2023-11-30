@@ -37,8 +37,10 @@ tfstate_store = {
 
 ### `container_network_interface` block structure
 
-> `name` (string): (REQUIRED) Specifies the name of the IP Configuration.\
-> `ip_configuration` (list): (REQUIRED) One or more 'ip_configuration' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
+| `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
 
 
 

@@ -34,7 +34,9 @@ tfstate_store = {
 
 ### `security_policies` block structure
 
-> `firewall` (block): (REQUIRED) An 'firewall' block. Changing this forces a new Front Door Security Policy to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `firewall` | block | Yes | - | An 'firewall' block. Changing this forces a new Front Door Security Policy to be created. |
 
 
 

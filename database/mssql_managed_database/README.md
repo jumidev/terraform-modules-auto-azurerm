@@ -34,10 +34,12 @@ tfstate_store = {
 
 ### `long_term_retention_policy` block structure
 
-> `weekly_retention` (string): The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'.\
-> `monthly_retention` (string): The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'.\
-> `yearly_retention` (string): The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'.\
-> `week_of_year` (string): The week of year to take the yearly backup. Value has to be between '1' and '52'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_retention` | string | No | - | The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'. |
+| `monthly_retention` | string | No | - | The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'. |
+| `yearly_retention` | string | No | - | The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'. |
+| `week_of_year` | string | No | - | The week of year to take the yearly backup. Value has to be between '1' and '52'. |
 
 
 

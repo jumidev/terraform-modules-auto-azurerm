@@ -47,42 +47,54 @@ tfstate_store = {
 
 ### `security` block structure
 
-> `open_access_enabled` (bool): (REQUIRED) Is open access enabled to allow any user or only specified users to register to a Lab Service Lab?\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
 
 ### `virtual_machine` block structure
 
-> `admin_user` (block): (REQUIRED) An 'admin_user' block.\
-> `image_reference` (block): (REQUIRED) An 'image_reference' block.\
-> `sku` (block): (REQUIRED) A 'sku' block.\
-> `additional_capability_gpu_drivers_installed` (bool): Is flagged to pre-install dedicated GPU drivers? Defaults to 'false'. Changing this forces a new resource to be created.\
-> `create_option` (string): The create option to indicate what Lab Service Lab VMs are created from. Possible values are 'Image' and 'TemplateVM'. Defaults to 'Image'. Changing this forces a new resource to be created.\
-> `non_admin_user` (block): A 'non_admin_user' block.\
-> `shared_password_enabled` (bool): Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created.\
-> `usage_quota` (string): The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_user` | block | Yes | - | An 'admin_user' block. |
+| `image_reference` | block | Yes | - | An 'image_reference' block. |
+| `sku` | block | Yes | - | A 'sku' block. |
+| `additional_capability_gpu_drivers_installed` | bool | No | False | Is flagged to pre-install dedicated GPU drivers? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `create_option` | string | No | Image | The create option to indicate what Lab Service Lab VMs are created from. Possible values are 'Image' and 'TemplateVM'. Defaults to 'Image'. Changing this forces a new resource to be created. |
+| `non_admin_user` | block | No | - | A 'non_admin_user' block. |
+| `shared_password_enabled` | bool | No | False | Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `usage_quota` | string | No | PT0S | The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string. |
 
 ### `auto_shutdown` block structure
 
-> `disconnect_delay` (string): The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string.\
-> `idle_delay` (string): The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string.\
-> `no_connect_delay` (string): The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string.\
-> `shutdown_on_idle` (string): A VM will get shutdown when it has idled for a period of time. Possible values are 'LowUsage' and 'UserAbsence'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `shutdown_on_idle` | string | No | - | A VM will get shutdown when it has idled for a period of time. Possible values are 'LowUsage' and 'UserAbsence'. |
 
 ### `connection_setting` block structure
 
-> `client_rdp_access` (string): The enabled access level for Client Access over RDP. Possible value is 'Public'.\
-> `client_ssh_access` (string): The enabled access level for Client Access over SSH. Possible value is 'Public'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
 
 ### `network` block structure
 
-> `subnet_id` (string): The resource ID of the Subnet for the network profile of the Lab Service Lab.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
 
 ### `roster` block structure
 
-> `active_directory_group_id` (string): The AAD group ID which this Lab Service Lab roster is populated from.\
-> `lms_instance` (string): The base URI identifying the lms instance.\
-> `lti_client_id` (string): The unique id of the Azure Lab Service tool in the lms.\
-> `lti_context_id` (string): The unique context identifier for the Lab Service Lab in the lms.\
-> `lti_roster_endpoint` (string): The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory_group_id` | string | No | - | The AAD group ID which this Lab Service Lab roster is populated from. |
+| `lms_instance` | string | No | - | The base URI identifying the lms instance. |
+| `lti_client_id` | string | No | - | The unique id of the Azure Lab Service tool in the lms. |
+| `lti_context_id` | string | No | - | The unique context identifier for the Lab Service Lab in the lms. |
+| `lti_roster_endpoint` | string | No | - | The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab. |
 
 
 

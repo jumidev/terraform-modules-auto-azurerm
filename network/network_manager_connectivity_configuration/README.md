@@ -40,15 +40,19 @@ tfstate_store = {
 
 ### `applies_to_group` block structure
 
-> `group_connectivity` (string): (REQUIRED) Specifies the group connectivity type. Possible values are 'None' and 'DirectlyConnected'.\
-> `network_group_id` (string): (REQUIRED) Specifies the resource ID of Network Group which the configuration applies to.\
-> `global_mesh_enabled` (string): Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'.\
-> `use_hub_gateway` (string): Indicates whether the hub gateway is used. Possible values are 'true' and 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `group_connectivity` | string | Yes | - | Specifies the group connectivity type. Possible values are 'None' and 'DirectlyConnected'. |
+| `network_group_id` | string | Yes | - | Specifies the resource ID of Network Group which the configuration applies to. |
+| `global_mesh_enabled` | string | No | - | Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'. |
+| `use_hub_gateway` | string | No | - | Indicates whether the hub gateway is used. Possible values are 'true' and 'false'. |
 
 ### `hub` block structure
 
-> `resource_id` (string): (REQUIRED) Specifies the resource ID used as hub in Hub And Spoke topology.\
-> `resource_type` (string): (REQUIRED) Specifies the resource Type used as hub in Hub And Spoke topology.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `resource_id` | string | Yes | - | Specifies the resource ID used as hub in Hub And Spoke topology. |
+| `resource_type` | string | Yes | - | Specifies the resource Type used as hub in Hub And Spoke topology. |
 
 
 

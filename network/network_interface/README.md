@@ -44,14 +44,16 @@ tfstate_store = {
 
 ### `ip_configuration` block structure
 
-> `name` (string): (REQUIRED) A name used for this IP Configuration.\
-> `gateway_load_balancer_frontend_ip_configuration_id` (string): The Frontend IP Configuration ID of a Gateway SKU Load Balancer.\
-> `subnet_id` (string): The ID of the Subnet where this Network Interface should be located in.\
-> `private_ip_address_version` (string): The IP Version to use. Possible values are 'IPv4' or 'IPv6'. Defaults to 'IPv4'.\
-> `private_ip_address_allocation` (string): (REQUIRED) The allocation method used for the Private IP Address. Possible values are 'Dynamic' and 'Static'.\
-> `public_ip_address_id` (string): Reference to a Public IP Address to associate with this NIC\
-> `primary` (bool): Is this the Primary IP Configuration? Must be 'true' for the first 'ip_configuration' when multiple are specified. Defaults to 'false'.\
-> `private_ip_address` (string): The Static IP Address which should be used.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A name used for this IP Configuration. |
+| `gateway_load_balancer_frontend_ip_configuration_id` | string | No | - | The Frontend IP Configuration ID of a Gateway SKU Load Balancer. |
+| `subnet_id` | string | No | - | The ID of the Subnet where this Network Interface should be located in. |
+| `private_ip_address_version` | string | No | IPv4 | The IP Version to use. Possible values are 'IPv4' or 'IPv6'. Defaults to 'IPv4'. |
+| `private_ip_address_allocation` | string | Yes | Dynamic | The allocation method used for the Private IP Address. Possible values are 'Dynamic' and 'Static'. |
+| `public_ip_address_id` | string | No | - | Reference to a Public IP Address to associate with this NIC |
+| `primary` | bool | No | True | Is this the Primary IP Configuration? Must be 'true' for the first 'ip_configuration' when multiple are specified. Defaults to 'false'. |
+| `private_ip_address` | string | No | - | The Static IP Address which should be used. |
 
 
 ### 2 optional associated resources

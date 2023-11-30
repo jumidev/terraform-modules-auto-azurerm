@@ -36,8 +36,10 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `principal_id` (string): The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center.\
-> `tenant_id` (string): The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | No | - | The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center. |
+| `tenant_id` | string | No | - | The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center. |
 
 
 

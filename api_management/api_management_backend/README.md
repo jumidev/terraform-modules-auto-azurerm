@@ -45,30 +45,38 @@ tfstate_store = {
 
 ### `credentials` block structure
 
-> `authorization` (block): An 'authorization' block.\
-> `certificate` (list): A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.\
-> `header` (string): A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.\
-> `query` (string): A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorization` | block | No | - | An 'authorization' block. |
+| `certificate` | list | No | - | A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service. |
+| `header` | string | No | - | A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API. |
+| `query` | string | No | - | A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API. |
 
 ### `proxy` block structure
 
-> `password` (string): The password to connect to the proxy server.\
-> `url` (string): (REQUIRED) The URL of the proxy server.\
-> `username` (string): (REQUIRED) The username to connect to the proxy server.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | No | - | The password to connect to the proxy server. |
+| `url` | string | Yes | - | The URL of the proxy server. |
+| `username` | string | Yes | - | The username to connect to the proxy server. |
 
 ### `service_fabric_cluster` block structure
 
-> `client_certificate_thumbprint` (string): The client certificate thumbprint for the management endpoint.\
-> `client_certificate_id` (string): The client certificate resource id for the management endpoint.\
-> `management_endpoints` (list): (REQUIRED) A list of cluster management endpoints.\
-> `max_partition_resolution_retries` (int): (REQUIRED) The maximum number of retries when attempting resolve the partition.\
-> `server_certificate_thumbprints` (list): A list of thumbprints of the server certificates of the Service Fabric cluster.\
-> `server_x509_name` (list): One or more 'server_x509_name' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_certificate_thumbprint` | string | No | - | The client certificate thumbprint for the management endpoint. |
+| `client_certificate_id` | string | No | - | The client certificate resource id for the management endpoint. |
+| `management_endpoints` | list | Yes | - | A list of cluster management endpoints. |
+| `max_partition_resolution_retries` | int | Yes | - | The maximum number of retries when attempting resolve the partition. |
+| `server_certificate_thumbprints` | list | No | - | A list of thumbprints of the server certificates of the Service Fabric cluster. |
+| `server_x509_name` | list | No | - | One or more 'server_x509_name' blocks. |
 
 ### `tls` block structure
 
-> `validate_certificate_chain` (string): Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host.\
-> `validate_certificate_name` (string): Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `validate_certificate_chain` | string | No | - | Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host. |
+| `validate_certificate_name` | string | No | - | Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host. |
 
 
 

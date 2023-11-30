@@ -36,12 +36,16 @@ tfstate_store = {
 
 ### `build_pack_group` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this build pack group.\
-> `build_pack_ids` (string): Specifies a list of the build pack's ID.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this build pack group. |
+| `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
 
 ### `stack` block structure
 
-> `version` (string): (REQUIRED) Specifies the version of the ClusterStack\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `version` | string | Yes | - | Specifies the version of the ClusterStack |
 
 
 

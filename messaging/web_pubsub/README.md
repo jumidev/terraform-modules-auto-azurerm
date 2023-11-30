@@ -44,15 +44,19 @@ tfstate_store = {
 
 ### `live_trace` block structure
 
-> `enabled` (bool): Whether the live trace is enabled? Defaults to 'true'.\
-> `messaging_logs_enabled` (bool): Whether the log category 'MessagingLogs' is enabled? Defaults to 'true'\
-> `connectivity_logs_enabled` (bool): Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true'\
-> `http_request_logs_enabled` (bool): Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true'\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Whether the live trace is enabled? Defaults to 'true'. |
+| `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
+| `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
+| `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'.\
-> `identity_ids` (string): Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub. |
 
 
 

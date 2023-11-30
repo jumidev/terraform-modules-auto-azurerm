@@ -45,10 +45,12 @@ tfstate_store = {
 
 ### `links` block structure
 
-> `channels` (block): (REQUIRED) A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created.\
-> `direction` (string): (REQUIRED) Direction of the link. Possible values are 'Uplink' and 'Downlink'.\
-> `name` (string): (REQUIRED) Name of the link.\
-> `polarization` (string): (REQUIRED) Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `channels` | block | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
+| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
+| `name` | string | Yes | - | Name of the link. |
+| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
 
 
 

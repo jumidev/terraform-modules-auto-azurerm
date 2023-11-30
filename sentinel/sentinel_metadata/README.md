@@ -54,34 +54,44 @@ tfstate_store = {
 
 ### `author` block structure
 
-> `name` (string): The name of the author, company or person.\
-> `email` (string): The email address of the author contact.\
-> `link` (string): The link for author/vendor page.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the author, company or person. |
+| `email` | string | No | - | The email address of the author contact. |
+| `link` | string | No | - | The link for author/vendor page. |
 
 ### `category` block structure
 
-> `domains` (string): Specifies a list of domains for the solution content item.\
-> `verticals` (string): Specifies a list of industry verticals for the solution content item.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
+| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
 ### `dependency` block structure
 
-> `contentId` (string): ID of the content item that is depended on.\
-> `kind` (string): Type of the content item that is depended on.\
-> `version` (string): Version of the content item that is depended on.\
-> `operator` (string): Operator used for list of dependencies in 'criteria' array.\
-> `criteria` (string): Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `contentId` | string | No | - | ID of the content item that is depended on. |
+| `kind` | string | No | - | Type of the content item that is depended on. |
+| `version` | string | No | - | Version of the content item that is depended on. |
+| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
+| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
 
 ### `source` block structure
 
-> `name` (string): The name of the content source, repo name, solution name, Log Analytics Workspace name, etc.\
-> `kind` (string): (REQUIRED) The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 ### `support` block structure
 
-> `tier` (string): (REQUIRED) The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'.\
-> `email` (string): The email address of the support contact.\
-> `link` (string): The link for support help.\
-> `name` (string): The name of the support contact.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
+| `email` | string | No | - | The email address of the support contact. |
+| `link` | string | No | - | The link for support help. |
+| `name` | string | No | - | The name of the support contact. |
 
 
 

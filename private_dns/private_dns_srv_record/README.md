@@ -39,10 +39,12 @@ tfstate_store = {
 
 ### `record` block structure
 
-> `priority` (string): (REQUIRED) The priority of the SRV record.\
-> `weight` (int): (REQUIRED) The Weight of the SRV record.\
-> `port` (string): (REQUIRED) The Port the service is listening on.\
-> `target` (string): (REQUIRED) The FQDN of the service.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `priority` | string | Yes | - | The priority of the SRV record. |
+| `weight` | int | Yes | - | The Weight of the SRV record. |
+| `port` | string | Yes | - | The Port the service is listening on. |
+| `target` | string | Yes | - | The FQDN of the service. |
 
 
 

@@ -39,33 +39,39 @@ tfstate_store = {
 
 ### `vpn_link` block structure
 
-> `name` (string): (REQUIRED) The name which should be used for this VPN Link Connection.\
-> `egress_nat_rule_ids` (list): A list of the egress NAT Rule Ids.\
-> `ingress_nat_rule_ids` (list): A list of the ingress NAT Rule Ids.\
-> `vpn_site_link_id` (string): (REQUIRED) The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.\
-> `bandwidth_mbps` (int): The expected connection bandwidth in MBPS. Defaults to '10'.\
-> `bgp_enabled` (bool): Should the BGP be enabled? Defaults to 'false'. Changing this forces a new VPN Gateway Connection to be created.\
-> `connection_mode` (string): The connection mode of this VPN Link. Possible values are 'Default', 'InitiatorOnly' and 'ResponderOnly'. Defaults to 'Default'.\
-> `ipsec_policy` (list): One or more 'ipsec_policy' blocks.\
-> `protocol` (string): The protocol used for this VPN Link Connection. Possible values are 'IKEv1' and 'IKEv2'. Defaults to 'IKEv2'.\
-> `ratelimit_enabled` (bool): Should the rate limit be enabled? Defaults to 'false'.\
-> `route_weight` (string): Routing weight for this VPN Link Connection. Defaults to '0'.\
-> `shared_key` (string): SharedKey for this VPN Link Connection.\
-> `local_azure_ip_address_enabled` (bool): Whether to use local Azure IP to initiate connection? Defaults to 'false'.\
-> `policy_based_traffic_selector_enabled` (bool): Whether to enable policy-based traffic selectors? Defaults to 'false'.\
-> `custom_bgp_address` (block): One or more 'custom_bgp_address' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this VPN Link Connection. |
+| `egress_nat_rule_ids` | list | No | - | A list of the egress NAT Rule Ids. |
+| `ingress_nat_rule_ids` | list | No | - | A list of the ingress NAT Rule Ids. |
+| `vpn_site_link_id` | string | Yes | - | The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created. |
+| `bandwidth_mbps` | int | No | 10 | The expected connection bandwidth in MBPS. Defaults to '10'. |
+| `bgp_enabled` | bool | No | False | Should the BGP be enabled? Defaults to 'false'. Changing this forces a new VPN Gateway Connection to be created. |
+| `connection_mode` | string | No | Default | The connection mode of this VPN Link. Possible values are 'Default', 'InitiatorOnly' and 'ResponderOnly'. Defaults to 'Default'. |
+| `ipsec_policy` | list | No | - | One or more 'ipsec_policy' blocks. |
+| `protocol` | string | No | IKEv2 | The protocol used for this VPN Link Connection. Possible values are 'IKEv1' and 'IKEv2'. Defaults to 'IKEv2'. |
+| `ratelimit_enabled` | bool | No | False | Should the rate limit be enabled? Defaults to 'false'. |
+| `route_weight` | string | No | 0 | Routing weight for this VPN Link Connection. Defaults to '0'. |
+| `shared_key` | string | No | - | SharedKey for this VPN Link Connection. |
+| `local_azure_ip_address_enabled` | bool | No | False | Whether to use local Azure IP to initiate connection? Defaults to 'false'. |
+| `policy_based_traffic_selector_enabled` | bool | No | False | Whether to enable policy-based traffic selectors? Defaults to 'false'. |
+| `custom_bgp_address` | block | No | - | One or more 'custom_bgp_address' blocks. |
 
 ### `routing` block structure
 
-> `associated_route_table` (string): (REQUIRED) The ID of the Route Table associated with this VPN Connection.\
-> `propagated_route_table` (block): A 'propagated_route_table' block.\
-> `inbound_route_map_id` (string): The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.\
-> `outbound_route_map_id` (string): The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
+| `propagated_route_table` | block | No | - | A 'propagated_route_table' block. |
+| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
+| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 
 ### `traffic_selector_policy` block structure
 
-> `local_address_ranges` (list): (REQUIRED) A list of local address spaces in CIDR format for this VPN Gateway Connection.\
-> `remote_address_ranges` (list): (REQUIRED) A list of remote address spaces in CIDR format for this VPN Gateway Connection.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
+| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
 
 
 

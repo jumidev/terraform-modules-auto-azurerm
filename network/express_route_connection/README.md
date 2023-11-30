@@ -39,10 +39,12 @@ tfstate_store = {
 
 ### `routing` block structure
 
-> `associated_route_table_id` (string): The ID of the Virtual Hub Route Table associated with this Express Route Connection.\
-> `inbound_route_map_id` (string): The ID of the Route Map associated with this Express Route Connection for inbound routes.\
-> `outbound_route_map_id` (string): The ID of the Route Map associated with this Express Route Connection for outbound routes.\
-> `propagated_route_table` (block): A 'propagated_route_table' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `associated_route_table_id` | string | No | - | The ID of the Virtual Hub Route Table associated with this Express Route Connection. |
+| `inbound_route_map_id` | string | No | - | The ID of the Route Map associated with this Express Route Connection for inbound routes. |
+| `outbound_route_map_id` | string | No | - | The ID of the Route Map associated with this Express Route Connection for outbound routes. |
+| `propagated_route_table` | block | No | - | A 'propagated_route_table' block. |
 
 
 

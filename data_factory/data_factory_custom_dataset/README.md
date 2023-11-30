@@ -44,8 +44,10 @@ tfstate_store = {
 
 ### `linked_service` block structure
 
-> `name` (string): (REQUIRED) The name of the Data Factory Linked Service.\
-> `parameters` (string): A map of parameters to associate with the Data Factory Linked Service.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Data Factory Linked Service. |
+| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
 
 

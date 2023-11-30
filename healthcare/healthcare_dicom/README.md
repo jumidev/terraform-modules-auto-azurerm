@@ -37,8 +37,10 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) The type of identity used for the Healthcare DICOM service. Possible values are 'UserAssigned', 'SystemAssigned' and 'SystemAssigned, UserAssigned'. If 'UserAssigned' is set, an 'identity_ids' must be set as well.\
-> `identity_ids` (list): A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of identity used for the Healthcare DICOM service. Possible values are 'UserAssigned', 'SystemAssigned' and 'SystemAssigned, UserAssigned'. If 'UserAssigned' is set, an 'identity_ids' must be set as well. |
+| `identity_ids` | list | No | - | A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service. |
 
 
 

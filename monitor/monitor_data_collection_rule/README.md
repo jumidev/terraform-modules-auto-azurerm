@@ -45,45 +45,55 @@ tfstate_store = {
 
 ### `data_flow` block structure
 
-> `destinations` (string): (REQUIRED) Specifies a list of destination names. A 'azure_monitor_metrics' data source only allows for stream of kind 'Microsoft-InsightsMetrics'.\
-> `streams` (string): (REQUIRED) Specifies a list of streams. Possible values include but not limited to 'Microsoft-Event', 'Microsoft-InsightsMetrics', 'Microsoft-Perf', 'Microsoft-Syslog', 'Microsoft-WindowsEvent', and 'Microsoft-PrometheusMetrics'.\
-> `built_in_transform` (string): The built-in transform to transform stream data.\
-> `output_stream` (string): The output stream of the transform. Only required if the data flow changes data to a different stream.\
-> `transform_kql` (string): The KQL query to transform stream data.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `destinations` | string | Yes | - | Specifies a list of destination names. A 'azure_monitor_metrics' data source only allows for stream of kind 'Microsoft-InsightsMetrics'. |
+| `streams` | string | Yes | - | Specifies a list of streams. Possible values include but not limited to 'Microsoft-Event', 'Microsoft-InsightsMetrics', 'Microsoft-Perf', 'Microsoft-Syslog', 'Microsoft-WindowsEvent', and 'Microsoft-PrometheusMetrics'. |
+| `built_in_transform` | string | No | - | The built-in transform to transform stream data. |
+| `output_stream` | string | No | - | The output stream of the transform. Only required if the data flow changes data to a different stream. |
+| `transform_kql` | string | No | - | The KQL query to transform stream data. |
 
 ### `destinations` block structure
 
-> `azure_monitor_metrics` (block): A 'azure_monitor_metrics' block.\
-> `event_hub` (block): One or more 'event_hub' blocks.\
-> `event_hub_direct` (block): One or more 'event_hub' blocks.\
-> `log_analytics` (block): One or more 'log_analytics' blocks.\
-> `monitor_account` (block): One or more 'monitor_account' blocks.\
-> `storage_blob` (block): One or more 'storage_blob' blocks.\
-> `storage_blob_direct` (block): One or more 'storage_blob_direct' blocks.\
-> `storage_table_direct` (block): One or more 'storage_table_direct' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `azure_monitor_metrics` | block | No | - | A 'azure_monitor_metrics' block. |
+| `event_hub` | block | No | - | One or more 'event_hub' blocks. |
+| `event_hub_direct` | block | No | - | One or more 'event_hub' blocks. |
+| `log_analytics` | block | No | - | One or more 'log_analytics' blocks. |
+| `monitor_account` | block | No | - | One or more 'monitor_account' blocks. |
+| `storage_blob` | block | No | - | One or more 'storage_blob' blocks. |
+| `storage_blob_direct` | block | No | - | One or more 'storage_blob_direct' blocks. |
+| `storage_table_direct` | block | No | - | One or more 'storage_table_direct' blocks. |
 
 ### `data_sources` block structure
 
-> `data_import` (block): A 'data_import' block.\
-> `extension` (block): One or more 'extension' blocks.\
-> `iis_log` (block): One or more 'iis_log' blocks.\
-> `log_file` (block): One or more 'log_file' blocks.\
-> `performance_counter` (block): One or more 'performance_counter' blocks.\
-> `platform_telemetry` (block): One or more 'platform_telemetry' blocks.\
-> `prometheus_forwarder` (block): One or more 'prometheus_forwarder' blocks.\
-> `syslog` (block): One or more 'syslog' blocks.\
-> `windows_event_log` (block): One or more 'windows_event_log' blocks.\
-> `windows_firewall_log` (block): One or more 'windows_firewall_log' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `data_import` | block | No | - | A 'data_import' block. |
+| `extension` | block | No | - | One or more 'extension' blocks. |
+| `iis_log` | block | No | - | One or more 'iis_log' blocks. |
+| `log_file` | block | No | - | One or more 'log_file' blocks. |
+| `performance_counter` | block | No | - | One or more 'performance_counter' blocks. |
+| `platform_telemetry` | block | No | - | One or more 'platform_telemetry' blocks. |
+| `prometheus_forwarder` | block | No | - | One or more 'prometheus_forwarder' blocks. |
+| `syslog` | block | No | - | One or more 'syslog' blocks. |
+| `windows_event_log` | block | No | - | One or more 'windows_event_log' blocks. |
+| `windows_firewall_log` | block | No | - | One or more 'windows_firewall_log' blocks. |
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are 'SystemAssigned' and 'UserAssigned'.\
-> `identity_ids` (list): A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported. |
 
 ### `stream_declaration` block structure
 
-> `stream_name` (string): (REQUIRED) The name of the custom stream. This name should be unique across all 'stream_declaration' blocks.\
-> `column` (list): (REQUIRED) One or more 'column' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `stream_name` | string | Yes | - | The name of the custom stream. This name should be unique across all 'stream_declaration' blocks. |
+| `column` | list | Yes | - | One or more 'column' blocks. |
 
 
 

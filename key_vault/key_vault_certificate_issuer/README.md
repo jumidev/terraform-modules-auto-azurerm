@@ -38,10 +38,12 @@ tfstate_store = {
 
 ### `admin` block structure
 
-> `email_address` (string): (REQUIRED) E-mail address of the admin.\
-> `first_name` (string): First name of the admin.\
-> `last_name` (string): Last name of the admin.\
-> `phone` (int): Phone number of the admin.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email_address` | string | Yes | - | E-mail address of the admin. |
+| `first_name` | string | No | - | First name of the admin. |
+| `last_name` | string | No | - | Last name of the admin. |
+| `phone` | int | No | - | Phone number of the admin. |
 
 
 

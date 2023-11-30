@@ -41,8 +41,10 @@ tfstate_store = {
 
 ### `integration_runtime` block structure
 
-> `name` (string): (REQUIRED) The integration runtime reference to associate with the Synapse Linked Service.\
-> `parameters` (string): A map of parameters to associate with the integration runtime.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The integration runtime reference to associate with the Synapse Linked Service. |
+| `parameters` | string | No | - | A map of parameters to associate with the integration runtime. |
 
 
 

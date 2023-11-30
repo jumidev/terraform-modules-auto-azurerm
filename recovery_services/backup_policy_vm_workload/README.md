@@ -40,18 +40,22 @@ tfstate_store = {
 
 ### `protection_policy` block structure
 
-> `policy_type` (string): (REQUIRED) The type of the VM Workload Backup Policy. Possible values are 'Differential', 'Full', 'Incremental' and 'Log'.\
-> `backup` (block): (REQUIRED) A 'backup' block.\
-> `retention_daily` (block): A 'retention_daily' block.\
-> `retention_weekly` (block): A 'retention_weekly' block.\
-> `retention_monthly` (block): A 'retention_monthly' block.\
-> `retention_yearly` (block): A 'retention_yearly' block.\
-> `simple_retention` (block): A 'simple_retention' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `policy_type` | string | Yes | - | The type of the VM Workload Backup Policy. Possible values are 'Differential', 'Full', 'Incremental' and 'Log'. |
+| `backup` | block | Yes | - | A 'backup' block. |
+| `retention_daily` | block | No | - | A 'retention_daily' block. |
+| `retention_weekly` | block | No | - | A 'retention_weekly' block. |
+| `retention_monthly` | block | No | - | A 'retention_monthly' block. |
+| `retention_yearly` | block | No | - | A 'retention_yearly' block. |
+| `simple_retention` | block | No | - | A 'simple_retention' block. |
 
 ### `settings` block structure
 
-> `time_zone` (string): (REQUIRED) The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).\
-> `compression_enabled` (bool): The compression setting for the VM Workload Backup Policy. Defaults to 'false'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time_zone` | string | Yes | - | The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). |
+| `compression_enabled` | bool | No | False | The compression setting for the VM Workload Backup Policy. Defaults to 'false'. |
 
 
 

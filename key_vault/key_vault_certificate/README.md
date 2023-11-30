@@ -35,16 +35,20 @@ tfstate_store = {
 
 ### `certificate` block structure
 
-> `contents` (string): (REQUIRED) The base64-encoded certificate contents.\
-> `password` (string): The password associated with the certificate.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `contents` | string | Yes | - | The base64-encoded certificate contents. |
+| `password` | string | No | - | The password associated with the certificate. |
 
 ### `certificate_policy` block structure
 
-> `issuer_parameters` (block): (REQUIRED) A 'issuer_parameters' block.\
-> `key_properties` (block): (REQUIRED) A 'key_properties' block.\
-> `lifetime_action` (block): A 'lifetime_action' block.\
-> `secret_properties` (block): (REQUIRED) A 'secret_properties' block.\
-> `x509_certificate_properties` (block): A 'x509_certificate_properties' block. Required when 'certificate' block is not specified.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `issuer_parameters` | block | Yes | - | A 'issuer_parameters' block. |
+| `key_properties` | block | Yes | - | A 'key_properties' block. |
+| `lifetime_action` | block | No | - | A 'lifetime_action' block. |
+| `secret_properties` | block | Yes | - | A 'secret_properties' block. |
+| `x509_certificate_properties` | block | No | - | A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. |
 
 
 

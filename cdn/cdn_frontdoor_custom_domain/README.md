@@ -37,9 +37,11 @@ tfstate_store = {
 
 ### `tls` block structure
 
-> `certificate_type` (string): Defines the source of the SSL certificate. Possible values include 'CustomerCertificate' and 'ManagedCertificate'. Defaults to 'ManagedCertificate'.\
-> `minimum_tls_version` (string): TLS protocol version that will be used for Https. Possible values include 'TLS10' and 'TLS12'. Defaults to 'TLS12'.\
-> `cdn_frontdoor_secret_id` (string): Resource ID of the Front Door Secret.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_type` | string | No | ManagedCertificate | Defines the source of the SSL certificate. Possible values include 'CustomerCertificate' and 'ManagedCertificate'. Defaults to 'ManagedCertificate'. |
+| `minimum_tls_version` | string | No | TLS12 | TLS protocol version that will be used for Https. Possible values include 'TLS10' and 'TLS12'. Defaults to 'TLS12'. |
+| `cdn_frontdoor_secret_id` | string | No | - | Resource ID of the Front Door Secret. |
 
 
 ### 1 optional associated resource

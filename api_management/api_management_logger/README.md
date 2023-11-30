@@ -39,14 +39,18 @@ tfstate_store = {
 
 ### `application_insights` block structure
 
-> `instrumentation_key` (string): (REQUIRED) The instrumentation key used to push data to Application Insights.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `instrumentation_key` | string | Yes | - | The instrumentation key used to push data to Application Insights. |
 
 ### `eventhub` block structure
 
-> `name` (string): (REQUIRED) The name of an EventHub.\
-> `connection_string` (string): The connection string of an EventHub Namespace.\
-> `user_assigned_identity_client_id` (string): The Client Id of the User Assigned Identity  with the 'Azure Event Hubs Data Sender' role to the target EventHub Namespace. Required when 'endpoint_uri' is set. If not specified the System Assigned Identity will be used.\
-> `endpoint_uri` (string): The endpoint address of an EventHub Namespace. Required when 'client_id' is set.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of an EventHub. |
+| `connection_string` | string | No | - | The connection string of an EventHub Namespace. |
+| `user_assigned_identity_client_id` | string | No | - | The Client Id of the User Assigned Identity  with the 'Azure Event Hubs Data Sender' role to the target EventHub Namespace. Required when 'endpoint_uri' is set. If not specified the System Assigned Identity will be used. |
+| `endpoint_uri` | string | No | - | The endpoint address of an EventHub Namespace. Required when 'client_id' is set. |
 
 
 

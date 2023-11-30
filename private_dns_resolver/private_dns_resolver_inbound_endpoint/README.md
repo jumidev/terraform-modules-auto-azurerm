@@ -37,8 +37,10 @@ tfstate_store = {
 
 ### `ip_configurations` block structure
 
-> `private_ip_allocation_method` (string): Private IP address allocation method. Allowed value is 'Dynamic'. Defaults to 'Dynamic'.\
-> `subnet_id` (string): (REQUIRED) The subnet ID of the IP configuration.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `private_ip_allocation_method` | string | No | Dynamic | Private IP address allocation method. Allowed value is 'Dynamic'. Defaults to 'Dynamic'. |
+| `subnet_id` | string | Yes | - | The subnet ID of the IP configuration. |
 
 
 

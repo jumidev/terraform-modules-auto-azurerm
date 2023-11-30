@@ -54,15 +54,19 @@ tfstate_store = {
 
 ### `trigger` block structure
 
-> `metric_trigger` (block): A 'metric_trigger' block. Trigger condition for metric query rule.\
-> `operator` (string): (REQUIRED) Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.\
-> `threshold` (string): (REQUIRED) Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `metric_trigger` | block | No | - | A 'metric_trigger' block. Trigger condition for metric query rule. |
+| `operator` | string | Yes | - | Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
+| `threshold` | string | Yes | - | Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. |
 
 ### `action` block structure
 
-> `action_group` (string): (REQUIRED) List of action group reference resource IDs.\
-> `custom_webhook_payload` (string): Custom payload to be sent for all webhook payloads in alerting action.\
-> `email_subject` (string): Custom subject override for all email ids in Azure action group.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group` | string | Yes | - | List of action group reference resource IDs. |
+| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
+| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
 
 
 

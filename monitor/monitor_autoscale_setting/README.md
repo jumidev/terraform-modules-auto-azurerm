@@ -42,21 +42,27 @@ tfstate_store = {
 
 ### `profile` block structure
 
-> `name` (string): (REQUIRED) Specifies the name of the profile.\
-> `capacity` (block): (REQUIRED) A 'capacity' block.\
-> `rule` (block): One or more (up to 10) 'rule' blocks.\
-> `fixed_date` (block): A 'fixed_date' block. This cannot be specified if a 'recurrence' block is specified.\
-> `recurrence` (block): A 'recurrence' block. This cannot be specified if a 'fixed_date' block is specified.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the profile. |
+| `capacity` | block | Yes | - | A 'capacity' block. |
+| `rule` | block | No | - | One or more (up to 10) 'rule' blocks. |
+| `fixed_date` | block | No | - | A 'fixed_date' block. This cannot be specified if a 'recurrence' block is specified. |
+| `recurrence` | block | No | - | A 'recurrence' block. This cannot be specified if a 'fixed_date' block is specified. |
 
 ### `notification` block structure
 
-> `email` (block): A 'email' block.\
-> `webhook` (block): One or more 'webhook' blocks.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | block | No | - | A 'email' block. |
+| `webhook` | block | No | - | One or more 'webhook' blocks. |
 
 ### `predictive` block structure
 
-> `scale_mode` (string): (REQUIRED) Specifies the predictive scale mode. Possible values are 'Enabled' or 'ForecastOnly'.\
-> `look_ahead_time` (string): Specifies the amount of time by which instances are launched in advance. It must be between 'PT1M' and 'PT1H' in ISO 8601 format.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `scale_mode` | string | Yes | - | Specifies the predictive scale mode. Possible values are 'Enabled' or 'ForecastOnly'. |
+| `look_ahead_time` | string | No | - | Specifies the amount of time by which instances are launched in advance. It must be between 'PT1M' and 'PT1H' in ISO 8601 format. |
 
 
 

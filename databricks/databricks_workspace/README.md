@@ -47,18 +47,20 @@ tfstate_store = {
 
 ### `custom_parameters` block structure
 
-> `machine_learning_workspace_id` (string): The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.\
-> `nat_gateway_name` (string): Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to 'nat-gateway'. Changing this forces a new resource to be created.\
-> `public_ip_name` (string): Name of the Public IP for No Public IP workspace with managed vNet. Defaults to 'nat-gw-public-ip'. Changing this forces a new resource to be created.\
-> `no_public_ip` (bool): Are public IP Addresses not allowed? Possible values are 'true' or 'false'. Defaults to 'false'.\
-> `public_subnet_name` (string): The name of the Public Subnet within the Virtual Network. Required if 'virtual_network_id' is set. Changing this forces a new resource to be created.\
-> `public_subnet_network_security_group_association_id` (string): The resource ID of the 'azurerm_subnet_network_security_group_association' resource which is referred to by the 'public_subnet_name' field. This is the same as the ID of the subnet referred to by the 'public_subnet_name' field. Required if 'virtual_network_id' is set.\
-> `private_subnet_name` (string): The name of the Private Subnet within the Virtual Network. Required if 'virtual_network_id' is set. Changing this forces a new resource to be created.\
-> `private_subnet_network_security_group_association_id` (string): The resource ID of the 'azurerm_subnet_network_security_group_association' resource which is referred to by the 'private_subnet_name' field. This is the same as the ID of the subnet referred to by the 'private_subnet_name' field. Required if 'virtual_network_id' is set.\
-> `storage_account_name` (string): Default Databricks File Storage account name. Defaults to a randomized name(e.g. 'dbstoragel6mfeghoe5kxu'). Changing this forces a new resource to be created.\
-> `storage_account_sku_name` (string): Storage account SKU name. Possible values include 'Standard_LRS', 'Standard_GRS', 'Standard_RAGRS', 'Standard_GZRS', 'Standard_RAGZRS', 'Standard_ZRS', 'Premium_LRS' or 'Premium_ZRS'. Defaults to 'Standard_GRS'. Changing this forces a new resource to be created.\
-> `virtual_network_id` (string): The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created.\
-> `vnet_address_prefix` (string): Address prefix for Managed virtual network. Defaults to '10.139'. Changing this forces a new resource to be created.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `machine_learning_workspace_id` | string | No | - | The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created. |
+| `nat_gateway_name` | string | No | nat-gateway | Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets. Defaults to 'nat-gateway'. Changing this forces a new resource to be created. |
+| `public_ip_name` | string | No | nat-gw-public-ip | Name of the Public IP for No Public IP workspace with managed vNet. Defaults to 'nat-gw-public-ip'. Changing this forces a new resource to be created. |
+| `no_public_ip` | bool | No | False | Are public IP Addresses not allowed? Possible values are 'true' or 'false'. Defaults to 'false'. |
+| `public_subnet_name` | string | No | - | The name of the Public Subnet within the Virtual Network. Required if 'virtual_network_id' is set. Changing this forces a new resource to be created. |
+| `public_subnet_network_security_group_association_id` | string | No | - | The resource ID of the 'azurerm_subnet_network_security_group_association' resource which is referred to by the 'public_subnet_name' field. This is the same as the ID of the subnet referred to by the 'public_subnet_name' field. Required if 'virtual_network_id' is set. |
+| `private_subnet_name` | string | No | - | The name of the Private Subnet within the Virtual Network. Required if 'virtual_network_id' is set. Changing this forces a new resource to be created. |
+| `private_subnet_network_security_group_association_id` | string | No | - | The resource ID of the 'azurerm_subnet_network_security_group_association' resource which is referred to by the 'private_subnet_name' field. This is the same as the ID of the subnet referred to by the 'private_subnet_name' field. Required if 'virtual_network_id' is set. |
+| `storage_account_name` | string | No | dbstoragel6mfeghoe5kxu | Default Databricks File Storage account name. Defaults to a randomized name(e.g. 'dbstoragel6mfeghoe5kxu'). Changing this forces a new resource to be created. |
+| `storage_account_sku_name` | string | No | Standard_GRS | Storage account SKU name. Possible values include 'Standard_LRS', 'Standard_GRS', 'Standard_RAGRS', 'Standard_GZRS', 'Standard_RAGZRS', 'Standard_ZRS', 'Premium_LRS' or 'Premium_ZRS'. Defaults to 'Standard_GRS'. Changing this forces a new resource to be created. |
+| `virtual_network_id` | string | No | - | The ID of a Virtual Network where this Databricks Cluster should be created. Changing this forces a new resource to be created. |
+| `vnet_address_prefix` | string | No | 10.139 | Address prefix for Managed virtual network. Defaults to '10.139'. Changing this forces a new resource to be created. |
 
 
 

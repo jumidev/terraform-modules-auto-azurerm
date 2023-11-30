@@ -32,9 +32,11 @@ tfstate_store = {
 
 ### `contact` block structure
 
-> `email` (string): (REQUIRED) E-mail address of the contact.\
-> `name` (string): Name of the contact.\
-> `phone` (int): Phone number of the contact.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | E-mail address of the contact. |
+| `name` | string | No | - | Name of the contact. |
+| `phone` | int | No | - | Phone number of the contact. |
 
 
 

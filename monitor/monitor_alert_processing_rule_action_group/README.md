@@ -41,24 +41,28 @@ tfstate_store = {
 
 ### `condition` block structure
 
-> `alert_context` (block): A 'alert_context' block.\
-> `alert_rule_id` (block): A 'alert_rule_id' block.\
-> `alert_rule_name` (block): A 'alert_rule_name' block.\
-> `description` (block): A 'description' block.\
-> `monitor_condition` (block): A 'monitor_condition' block.\
-> `monitor_service` (block): A 'monitor_service' block.\
-> `severity` (block): A 'severity' block.\
-> `signal_type` (block): A 'signal_type' block.\
-> `target_resource` (block): A 'target_resource' block.\
-> `target_resource_group` (block): A 'target_resource_group' block.\
-> `target_resource_type` (block): A 'target_resource_type' block.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alert_context` | block | No | - | A 'alert_context' block. |
+| `alert_rule_id` | block | No | - | A 'alert_rule_id' block. |
+| `alert_rule_name` | block | No | - | A 'alert_rule_name' block. |
+| `description` | block | No | - | A 'description' block. |
+| `monitor_condition` | block | No | - | A 'monitor_condition' block. |
+| `monitor_service` | block | No | - | A 'monitor_service' block. |
+| `severity` | block | No | - | A 'severity' block. |
+| `signal_type` | block | No | - | A 'signal_type' block. |
+| `target_resource` | block | No | - | A 'target_resource' block. |
+| `target_resource_group` | block | No | - | A 'target_resource_group' block. |
+| `target_resource_type` | block | No | - | A 'target_resource_type' block. |
 
 ### `schedule` block structure
 
-> `effective_from` (string): Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).\
-> `effective_until` (string): Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).\
-> `recurrence` (block): A 'recurrence' block.\
-> `time_zone` (string): The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to 'UTC'. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `effective_from` | string | No | - | Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S). |
+| `effective_until` | string | No | - | Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S). |
+| `recurrence` | block | No | - | A 'recurrence' block. |
+| `time_zone` | string | No | UTC | The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to 'UTC'. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)). |
 
 
 

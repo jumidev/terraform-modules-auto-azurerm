@@ -47,13 +47,17 @@ tfstate_store = {
 
 ### `guest_identity` block structure
 
-> `qualifier` (string): (REQUIRED) The authenticating body that provides unique guest identities to organizations.\
-> `value` (string): (REQUIRED) The value that identifies the documents that your logic apps receive.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `qualifier` | string | Yes | - | The authenticating body that provides unique guest identities to organizations. |
+| `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
 
 ### `host_identity` block structure
 
-> `qualifier` (string): (REQUIRED) The authenticating body that provides unique host identities to organizations.\
-> `value` (string): (REQUIRED) The value that identifies the documents that your logic apps receive.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `qualifier` | string | Yes | - | The authenticating body that provides unique host identities to organizations. |
+| `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
 
 
 

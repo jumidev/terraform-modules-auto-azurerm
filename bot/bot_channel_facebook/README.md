@@ -40,7 +40,9 @@ tfstate_store = {
 
 ### `page` block structure
 
-> `access_token` (string): (REQUIRED) The Facebook Page Access Token for the Facebook Channel.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_token` | string | Yes | - | The Facebook Page Access Token for the Facebook Channel. |
 
 
 

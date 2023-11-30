@@ -37,8 +37,10 @@ tfstate_store = {
 
 ### `identity` block structure
 
-> `type` (string): (REQUIRED) Specifies the type of Managed Service Identity. Possible value is 'UserAssigned'.\
-> `identity_ids` (list): (REQUIRED) A list of IDs for User Assigned Managed Identity resources to be assigned.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible value is 'UserAssigned'. |
+| `identity_ids` | list | Yes | - | A list of IDs for User Assigned Managed Identity resources to be assigned. |
 
 
 

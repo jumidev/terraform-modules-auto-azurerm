@@ -34,13 +34,15 @@ tfstate_store = {
 
 ### `soa_record` block structure
 
-> `email` (string): (REQUIRED) The email contact for the SOA record.\
-> `expire_time` (string): The expire time for the SOA record. Defaults to '2419200'.\
-> `minimum_ttl` (string): The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '10'.\
-> `refresh_time` (string): The refresh time for the SOA record. Defaults to '3600'.\
-> `retry_time` (string): The retry time for the SOA record. Defaults to '300'.\
-> `ttl` (int): The Time To Live of the SOA Record in seconds. Defaults to '3600'.\
-> `tags` (map): A mapping of tags to assign to the Record Set.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | The email contact for the SOA record. |
+| `expire_time` | string | No | 2419200 | The expire time for the SOA record. Defaults to '2419200'. |
+| `minimum_ttl` | string | No | 10 | The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '10'. |
+| `refresh_time` | string | No | 3600 | The refresh time for the SOA record. Defaults to '3600'. |
+| `retry_time` | string | No | 300 | The retry time for the SOA record. Defaults to '300'. |
+| `ttl` | int | No | 3600 | The Time To Live of the SOA Record in seconds. Defaults to '3600'. |
+| `tags` | map | No | - | A mapping of tags to assign to the Record Set. |
 
 
 

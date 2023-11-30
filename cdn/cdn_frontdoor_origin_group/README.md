@@ -37,16 +37,20 @@ tfstate_store = {
 
 ### `load_balancing` block structure
 
-> `additional_latency_in_milliseconds` (string): Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between '0' and '1000' milliseconds (inclusive). Defaults to '50'.\
-> `sample_size` (string): Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'.\
-> `successful_samples_required` (string): Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `additional_latency_in_milliseconds` | string | No | 50 | Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between '0' and '1000' milliseconds (inclusive). Defaults to '50'. |
+| `sample_size` | string | No | 4 | Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'. |
+| `successful_samples_required` | string | No | 3 | Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'. |
 
 ### `health_probe` block structure
 
-> `protocol` (string): (REQUIRED) Specifies the protocol to use for health probe. Possible values are 'Http' and 'Https'.\
-> `interval_in_seconds` (string): (REQUIRED) Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive).\
-> `request_type` (string): Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'.\
-> `path` (string): Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | Specifies the protocol to use for health probe. Possible values are 'Http' and 'Https'. |
+| `interval_in_seconds` | string | Yes | - | Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive). |
+| `request_type` | string | No | HEAD | Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'. |
+| `path` | string | No | / | Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'. |
 
 
 

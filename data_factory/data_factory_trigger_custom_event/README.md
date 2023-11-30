@@ -44,8 +44,10 @@ tfstate_store = {
 
 ### `pipeline` block structure
 
-> `name` (string): (REQUIRED) The Data Factory Pipeline name that the trigger will act on.\
-> `parameters` (string): The Data Factory Pipeline parameters that the trigger will act on.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
+| `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 
 

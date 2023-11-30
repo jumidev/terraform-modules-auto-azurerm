@@ -39,11 +39,15 @@ tfstate_store = {
 
 ### `partner_server` block structure
 
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
 
 ### `read_write_endpoint_failover_policy` block structure
 
-> `mode` (string): (REQUIRED) The failover policy of the read-write endpoint for the failover group. Possible values are 'Automatic' or 'Manual'.\
-> `grace_minutes` (int): The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'.\
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | The failover policy of the read-write endpoint for the failover group. Possible values are 'Automatic' or 'Manual'. |
+| `grace_minutes` | int | No | - | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. |
 
 
 
