@@ -2,7 +2,7 @@
 
 Manages a Cost Management Export for a Subscription.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -51,8 +51,8 @@ tfstate_store = {
 | **var.recurrence_type** | string |  `Annually`, `Daily`, `Monthly`, `Weekly`  |  How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`. | 
 | **var.recurrence_period_start_date** | datetime |  -  |  The date the export will start capturing information. | 
 | **var.recurrence_period_end_date** | datetime |  -  |  The date the export will stop capturing information. | 
-| **var.export_data_storage_location** | block |  -  |  A `export_data_storage_location` block. | 
-| **var.export_data_options** | block |  -  |  A `export_data_options` block. | 
+| **var.export_data_storage_location** | [block](#export_data_storage_location-block-structure) |  -  |  A `export_data_storage_location` block. | 
+| **var.export_data_options** | [block](#export_data_options-block-structure) |  -  |  A `export_data_options` block. | 
 
 ## Optional Variables
 

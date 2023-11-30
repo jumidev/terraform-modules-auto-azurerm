@@ -2,7 +2,7 @@
 
 Manages a Digital Twins Time Series Database Connection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

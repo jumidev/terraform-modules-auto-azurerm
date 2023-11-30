@@ -2,7 +2,7 @@
 
 Manages an Express Route Circuit Connection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

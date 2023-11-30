@@ -2,7 +2,7 @@
 
 Manages an Express Route VMware Authorization.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

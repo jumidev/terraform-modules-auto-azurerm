@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Route.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.forwarding_protocol** | string |  `MatchRequest`  |  `HttpOnly`, `HttpsOnly`, `MatchRequest`  |  The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`. | 
-| **var.cache** | block |  -  |  -  |  A `cache` block. | 
+| **var.cache** | [block](#cache-block-structure) |  -  |  -  |  A `cache` block. | 
 | **var.cdn_frontdoor_custom_domain_ids** | string |  -  |  -  |  The IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
 | **var.cdn_frontdoor_origin_path** | string |  -  |  -  |  A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`). | 
 | **var.cdn_frontdoor_rule_set_ids** | list |  -  |  -  |  A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route. | 

@@ -2,7 +2,7 @@
 
 Manages an Azure Native New Relic Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,8 +48,8 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 | **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 | **var.location** | string |  Specifies the Azure Region where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.plan** | block |  A `plan` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
-| **var.user** | block |  A `user` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.plan** | [block](#plan-block-structure) |  A `plan` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
+| **var.user** | [block](#user-block-structure) |  A `user` block. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 
 ## Optional Variables
 

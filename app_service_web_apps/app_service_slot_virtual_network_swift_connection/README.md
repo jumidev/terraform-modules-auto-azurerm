@@ -2,7 +2,7 @@
 
 Manages an App Service Slot's Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

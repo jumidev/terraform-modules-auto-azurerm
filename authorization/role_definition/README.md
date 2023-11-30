@@ -2,7 +2,7 @@
 
 Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.role_definition_id** | string |  A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created. | 
 | **var.description** | string |  A description of the Role Definition. | 
-| **var.permissions** | block |  A `permissions` block. | 
+| **var.permissions** | [block](#permissions-block-structure) |  A `permissions` block. | 
 | **var.assignable_scopes** | list |  One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. | 
 
 ### `permissions` block structure

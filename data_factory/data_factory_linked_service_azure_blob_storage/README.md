@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between an Azure Blob Storage Account and Azure Data Factory.~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.connection_string** | string |  The connection string. Conflicts with `connection_string_insecure`, `sas_uri` and `service_endpoint`. | 
 | **var.connection_string_insecure** | string |  The connection string sent insecurely. Conflicts with `connection_string`, `sas_uri` and `service_endpoint`. | 
 | **var.sas_uri** | string |  The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`. | 
-| **var.key_vault_sas_token** | block |  A `key_vault_sas_token` block. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required. | 
+| **var.key_vault_sas_token** | [block](#key_vault_sas_token-block-structure) |  A `key_vault_sas_token` block. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required. | 
 
 ### `key_vault_sas_token` block structure
 

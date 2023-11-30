@@ -2,7 +2,7 @@
 
 Manages automated startup and shutdown schedules for Azure Dev Test Lab.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | **var.lab_name** | string |  -  |  The name of the dev test lab. Changing this forces a new resource to be created. | 
 | **var.task_type** | string |  `LabVmsShutdownTask`, `LabVmAutoStart`  |  The task type of the schedule. Possible values include `LabVmsShutdownTask` and `LabVmAutoStart`. | 
 | **var.time_zone_id** | string |  -  |  The time zone ID (e.g. Pacific Standard time). | 
-| **var.notification_settings** | block |  -  |  The notification setting of a schedule. A `notification_settings` block. | 
+| **var.notification_settings** | [block](#notification_settings-block-structure) |  -  |  The notification setting of a schedule. A `notification_settings` block. | 
 
 ## Optional Variables
 
@@ -51,9 +51,9 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.status** | string |  `Disabled`  |  `Enabled`, `Disabled`  |  The status of this schedule. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.weekly_recurrence** | block |  -  |  -  |  The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block. | 
-| **var.daily_recurrence** | block |  -  |  -  |  The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block. | 
-| **var.hourly_recurrence** | block |  -  |  -  |  The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block. | 
+| **var.weekly_recurrence** | [block](#weekly_recurrence-block-structure) |  -  |  -  |  The properties of a weekly schedule. If the schedule occurs only some days of the week, specify the weekly recurrence. A `weekly_recurrence` block. | 
+| **var.daily_recurrence** | [block](#daily_recurrence-block-structure) |  -  |  -  |  The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block. | 
+| **var.hourly_recurrence** | [block](#hourly_recurrence-block-structure) |  -  |  -  |  The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block. | 
 
 ### `notification_settings` block structure
 

@@ -2,7 +2,7 @@
 
 Manages an IotHub Device Provisioning Service Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

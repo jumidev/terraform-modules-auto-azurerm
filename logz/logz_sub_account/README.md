@@ -2,7 +2,7 @@
 
 Manages a logz Sub Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  The name which should be used for this logz Sub Account. Possible values must be between 1 and 32 characters in length and may contain only letters, numbers, hyphens and underscores. Changing this forces a new logz Sub Account to be created. | 
 | **var.logz_monitor_id** | string |  The ID of the Logz Monitor. Changing this forces a new logz Sub Account to be created. | 
-| **var.user** | block |  A `user` block. Changing this forces a new resource to be created. | 
+| **var.user** | [block](#user-block-structure) |  A `user` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

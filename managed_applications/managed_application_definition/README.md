@@ -2,7 +2,7 @@
 
 Manages a Managed Application Definition.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

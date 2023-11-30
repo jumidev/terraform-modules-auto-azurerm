@@ -2,7 +2,7 @@
 
 Manages an API Management Microsoft Identity Provider.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

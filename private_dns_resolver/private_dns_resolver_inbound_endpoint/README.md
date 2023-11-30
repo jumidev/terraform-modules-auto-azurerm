@@ -2,7 +2,7 @@
 
 Manages a Private DNS Resolver Inbound Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
 | **var.private_dns_resolver_id** | string |  Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **var.ip_configurations** | block |  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
+| **var.ip_configurations** | [block](#ip_configurations-block-structure) |  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
 | **var.location** | string |  Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
 
 ## Optional Variables

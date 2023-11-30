@@ -2,7 +2,7 @@
 
 Manages a Container App Environment Storage.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

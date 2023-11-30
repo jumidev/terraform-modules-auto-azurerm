@@ -2,7 +2,7 @@
 
 Manages a Backup Vault.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Backup Vault. | 
 
 ### `identity` block structure

@@ -2,7 +2,7 @@
 
 Manages a Federated Identity Credential.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

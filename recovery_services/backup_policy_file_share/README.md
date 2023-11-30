@@ -2,7 +2,7 @@
 
 Manages an Azure File Share Backup Policy within a Recovery Services vault.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

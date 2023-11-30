@@ -2,7 +2,7 @@
 
 Manages an SQL User Defined Function.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a shared dashboard in the Azure Portal.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a virtual network peering which allows resources to access otherresources in the linked virtual network.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Media Streaming Locator.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,7 +41,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.alternative_media_id** | string |  Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
-| **var.content_key** | block |  One or more `content_key` blocks. Changing this forces a new Streaming Locator to be created. | 
+| **var.content_key** | [block](#content_key-block-structure) |  One or more `content_key` blocks. Changing this forces a new Streaming Locator to be created. | 
 | **var.default_content_key_policy_name** | string |  Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created. | 
 | **var.end_time** | string |  The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
 | **var.filter_names** | list |  A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 

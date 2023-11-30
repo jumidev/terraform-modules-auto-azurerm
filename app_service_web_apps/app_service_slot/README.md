@@ -2,7 +2,7 @@
 
 Manages an App Service Slot (within an App Service).!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_linux_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/linux_web_app_slot) and [`azurerm_windows_web_app_slot`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_web_app_slot) resources instead.-> **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `azurerm_app_service` resource will be overwritten when promoting a Slot using the `azurerm_app_service_active_slot` resource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,15 +41,15 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.app_settings** | string |  -  |  A key-value pair of App Settings. | 
-| **var.auth_settings** | block |  -  |  A `auth_settings` block. | 
-| **var.connection_string** | block |  -  |  An `connection_string` block. | 
+| **var.auth_settings** | [block](#auth_settings-block-structure) |  -  |  A `auth_settings` block. | 
+| **var.connection_string** | [block](#connection_string-block-structure) |  -  |  An `connection_string` block. | 
 | **var.client_affinity_enabled** | bool |  -  |  Should the App Service Slot send session affinity cookies, which route client requests in the same session to the same instance? | 
 | **var.enabled** | bool |  `True`  |  Is the App Service Slot Enabled? Defaults to `true`. | 
 | **var.https_only** | bool |  `False`  |  Can the App Service Slot only be accessed via HTTPS? Defaults to `false`. | 
-| **var.site_config** | block |  -  |  A `site_config` object as defined below. | 
-| **var.storage_account** | block |  -  |  One or more `storage_account` blocks. | 
-| **var.logs** | block |  -  |  A `logs` block. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.site_config** | [block](#site_config-block-structure) |  -  |  A `site_config` object as defined below. | 
+| **var.storage_account** | [block](#storage_account-block-structure) |  -  |  One or more `storage_account` blocks. | 
+| **var.logs** | [block](#logs-block-structure) |  -  |  A `logs` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.key_vault_reference_identity_id** | string |  -  |  The User Assigned Identity Id used for looking up KeyVault secrets. The identity must be assigned to the application. See [Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) for more information. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 

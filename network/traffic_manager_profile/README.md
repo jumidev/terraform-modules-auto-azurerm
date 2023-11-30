@@ -2,7 +2,7 @@
 
 Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,8 +47,8 @@ tfstate_store = {
 | **var.name** | string |  -  |  The name of the Traffic Manager profile. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created. | 
 | **var.traffic_routing_method** | string |  `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet`, `MultiValue`  |  Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`. | 
-| **var.dns_config** | block |  -  |  This block specifies the DNS configuration of the Profile. One `dns_config` block. | 
-| **var.monitor_config** | block |  -  |  This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block. | 
+| **var.dns_config** | [block](#dns_config-block-structure) |  -  |  This block specifies the DNS configuration of the Profile. One `dns_config` block. | 
+| **var.monitor_config** | [block](#monitor_config-block-structure) |  -  |  This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block. | 
 
 ## Optional Variables
 

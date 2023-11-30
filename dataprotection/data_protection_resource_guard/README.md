@@ -2,7 +2,7 @@
 
 Manages a Resource Guard.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

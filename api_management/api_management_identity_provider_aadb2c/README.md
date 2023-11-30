@@ -2,7 +2,7 @@
 
 Manages an API Management Azure AD B2C Identity Provider.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

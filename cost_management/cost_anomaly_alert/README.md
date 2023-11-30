@@ -2,7 +2,7 @@
 
 Manages a Cost Anomaly Alert.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment to a subscription, or to a resource group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

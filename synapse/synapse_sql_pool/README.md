@@ -2,7 +2,7 @@
 
 Manages a Synapse SQL Pool.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.collation** | string |  `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  |  The name of the collation to use with this pool, only applicable when `create_mode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created. | 
 | **var.data_encrypted** | string |  -  |  -  |  Is transparent data encryption enabled? | 
 | **var.recovery_database_id** | string |  -  |  -  |  The ID of the Synapse SQL Pool or SQL Database which is to back up, only applicable when `create_mode` is set to `Recovery`. Changing this forces a new Synapse SQL Pool to be created. | 
-| **var.restore** | block |  -  |  -  |  A `restore` block. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created. | 
+| **var.restore** | [block](#restore-block-structure) |  -  |  -  |  A `restore` block. Only applicable when `create_mode` is set to `PointInTimeRestore`. Changing this forces a new Synapse SQL Pool to be created. | 
 | **var.geo_backup_policy_enabled** | bool |  `True`  |  `true`, `false`  |  Is geo-backup policy enabled? Possible values include `true` or `false`. Defaults to `true`. | 
 | **var.storage_account_type** | string |  `GRS`  |  `LRS`, `GRS`  |  The storage account type that will be used to store backups for this Synapse SQL Pool. Possible values are `LRS` or `GRS`. Changing this forces a new Synapse SQL Pool to be created. Defaults to `GRS`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse SQL Pool. | 

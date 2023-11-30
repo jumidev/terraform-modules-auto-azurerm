@@ -2,7 +2,7 @@
 
 -> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.Manages a Spring Cloud Dev Tool Portal.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | **var.application_accelerator_enabled** | bool |  Should the Accelerator plugin be enabled? | 
 | **var.application_live_view_enabled** | bool |  Should the Application Live View be enabled? | 
 | **var.public_network_access_enabled** | bool |  Is public network access enabled? | 
-| **var.sso** | block |  A `sso` block. | 
+| **var.sso** | [block](#sso-block-structure) |  A `sso` block. | 
 
 ### `sso` block structure
 

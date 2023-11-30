@@ -2,7 +2,7 @@
 
 Manages an Event Grid System Topic.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 
 ### `identity` block structure
 

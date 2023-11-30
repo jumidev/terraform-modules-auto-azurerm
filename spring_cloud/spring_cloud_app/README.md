@@ -2,7 +2,7 @@
 
 Manage an Azure Spring Cloud Application.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,12 +37,12 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.addon_json** | string |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Service. | 
-| **var.custom_persistent_disk** | block |  -  |  A `custom_persistent_disk` block. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.custom_persistent_disk** | [block](#custom_persistent_disk-block-structure) |  -  |  A `custom_persistent_disk` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.is_public** | bool |  `False`  |  Does the Spring Cloud Application have public endpoint? Defaults to `false`. | 
 | **var.https_only** | bool |  `False`  |  Is only HTTPS allowed? Defaults to `false`. | 
-| **var.ingress_settings** | block |  -  |  An `ingress_settings` block. | 
-| **var.persistent_disk** | block |  -  |  An `persistent_disk` block. | 
+| **var.ingress_settings** | [block](#ingress_settings-block-structure) |  -  |  An `ingress_settings` block. | 
+| **var.persistent_disk** | [block](#persistent_disk-block-structure) |  -  |  An `persistent_disk` block. | 
 | **var.public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **var.tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 

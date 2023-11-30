@@ -2,7 +2,7 @@
 
 Manages a Azure Security Center Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

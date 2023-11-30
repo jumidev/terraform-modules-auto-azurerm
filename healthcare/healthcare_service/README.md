@@ -2,7 +2,7 @@
 
 Manages a Healthcare Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,10 +37,10 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.access_policy_object_ids** | string |  -  |  A set of Azure object IDs that are allowed to access the Service. If not configured, the default value is the object id of the service principal or user that is running Terraform. | 
-| **var.authentication_configuration** | block |  -  |  An `authentication_configuration` block. | 
+| **var.authentication_configuration** | [block](#authentication_configuration-block-structure) |  -  |  An `authentication_configuration` block. | 
 | **var.cosmosdb_throughput** | string |  `1000`  |  The provisioned throughput for the backing database. Range of `400`-`100000`. Defaults to `1000`. | 
 | **var.cosmosdb_key_vault_key_versionless_id** | string |  -  |  A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created. | 
-| **var.cors_configuration** | block |  -  |  A `cors_configuration` block. | 
+| **var.cors_configuration** | [block](#cors_configuration-block-structure) |  -  |  A `cors_configuration` block. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  Whether public network access is enabled or disabled for this service instance. Defaults to `true`. | 
 | **var.kind** | string |  -  |  The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 

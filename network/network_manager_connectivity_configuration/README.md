@@ -2,7 +2,7 @@
 
 Manages a Network Manager Connectivity Configuration.-> **Note:** The `azurerm_network_manager_connectivity_configuration` deployment may modify or delete existing Network Peering resource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.name** | string |  -  |  Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
 | **var.network_manager_id** | string |  -  |  Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
-| **var.applies_to_group** | block |  -  |  An `applies_to_group` block. | 
+| **var.applies_to_group** | [block](#applies_to_group-block-structure) |  -  |  An `applies_to_group` block. | 
 | **var.connectivity_topology** | string |  `HubAndSpoke`, `Mesh`  |  Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`. | 
 
 ## Optional Variables
@@ -48,7 +48,7 @@ tfstate_store = {
 | **var.delete_existing_peering_enabled** | string |  `true`, `false`  |  Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`. | 
 | **var.description** | string |  -  |  A description of the Connectivity Configuration. | 
 | **var.global_mesh_enabled** | string |  `true`, `false`  |  Indicates whether to global mesh is supported. Possible values are `true` and `false`. | 
-| **var.hub** | block |  -  |  A `hub` block. | 
+| **var.hub** | [block](#hub-block-structure) |  -  |  A `hub` block. | 
 
 ### `applies_to_group` block structure
 

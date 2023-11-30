@@ -2,7 +2,7 @@
 
 Manages an App Service Certificate Order.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

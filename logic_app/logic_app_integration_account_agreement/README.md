@@ -2,7 +2,7 @@
 
 Manages a Logic App Integration Account Agreement.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -53,9 +53,9 @@ tfstate_store = {
 | **var.integration_account_name** | string |  -  |  The name of the Logic App Integration Account. Changing this forces a new resource to be created. | 
 | **var.agreement_type** | string |  `AS2`, `X12`, `Edifact`  |  The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`. | 
 | **var.content** | string |  -  |  The content of the Logic App Integration Account Agreement. | 
-| **var.guest_identity** | block |  -  |  A `guest_identity` block. | 
+| **var.guest_identity** | [block](#guest_identity-block-structure) |  -  |  A `guest_identity` block. | 
 | **var.guest_partner_name** | string |  -  |  The name of the guest Logic App Integration Account Partner. | 
-| **var.host_identity** | block |  -  |  A `host_identity` block. | 
+| **var.host_identity** | [block](#host_identity-block-structure) |  -  |  A `host_identity` block. | 
 | **var.host_partner_name** | string |  -  |  The name of the host Logic App Integration Account Partner. | 
 
 ## Optional Variables

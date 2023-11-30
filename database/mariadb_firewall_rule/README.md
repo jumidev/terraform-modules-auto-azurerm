@@ -2,7 +2,7 @@
 
 Manages a Firewall Rule for a MariaDB Server
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

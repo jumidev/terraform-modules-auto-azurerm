@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud API Portal.-> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.https_only_enabled** | bool |  -  |  is only https is allowed? | 
 | **var.instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **var.public_network_access_enabled** | bool |  -  |  Is the public network access enabled? | 
-| **var.sso** | block |  -  |  A `sso` block. | 
+| **var.sso** | [block](#sso-block-structure) |  -  |  A `sso` block. | 
 
 ### `sso` block structure
 

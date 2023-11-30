@@ -2,7 +2,7 @@
 
 Manages a Sentinel Metadata.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,19 +40,19 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.author** | block |  -  |  An `author` blocks. | 
-| **var.category** | block |  -  |  A `category` block. | 
+| **var.author** | [block](#author-block-structure) |  -  |  An `author` blocks. | 
+| **var.category** | [block](#category-block-structure) |  -  |  A `category` block. | 
 | **var.content_schema_version** | string |  -  |  Schema version of the content. Can be used to distinguish between flow based on the schema version. | 
 | **var.custom_version** | string |  -  |  The Custom version of the content. | 
-| **var.dependency** | block |  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
+| **var.dependency** | [block](#dependency-block-structure) |  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
 | **var.first_publish_date** | datetime |  -  |  The first publish date of solution content item. | 
 | **var.icon_id** | string |  -  |  The ID of the icon, this id can be fetched from the solution template. | 
 | **var.last_publish_date** | datetime |  -  |  The last publish date of solution content item. | 
 | **var.preview_images** | string |  -  |  Specifies a list of preview image file names. These will be taken from solution artifacts. | 
 | **var.preview_images_dark** | string |  -  |  Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts. | 
 | **var.providers** | string |  -  |  Specifies a list of providers for the solution content item. | 
-| **var.source** | block |  -  |  A `source` block. | 
-| **var.support** | block |  -  |  A `support` block. | 
+| **var.source** | [block](#source-block-structure) |  -  |  A `source` block. | 
+| **var.support** | [block](#support-block-structure) |  -  |  A `support` block. | 
 | **var.threat_analysis_tactics** | string |  `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`  |  Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`. | 
 | **var.threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
 | **var.version** | string |  -  |  Version of the content. | 

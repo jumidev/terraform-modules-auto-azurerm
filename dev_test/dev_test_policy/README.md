@@ -2,7 +2,7 @@
 
 Manages a Policy within a Dev Test Policy Set.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

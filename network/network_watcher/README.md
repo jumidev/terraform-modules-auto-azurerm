@@ -2,7 +2,7 @@
 
 Manages a Network Watcher.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

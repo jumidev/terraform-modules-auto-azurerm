@@ -2,7 +2,7 @@
 
 Links an Automation Runbook and Schedule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

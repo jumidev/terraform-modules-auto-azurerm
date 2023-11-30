@@ -2,7 +2,7 @@
 
 Manages a PostgreSQL Flexible Server Database.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.long_term_retention_policy** | block |  A `long_term_retention_policy` block. | 
+| **var.long_term_retention_policy** | [block](#long_term_retention_policy-block-structure) |  A `long_term_retention_policy` block. | 
 | **var.short_term_retention_days** | int |  The backup retention period in days. This is how many days Point-in-Time Restore will be supported. | 
 
 ### `long_term_retention_policy` block structure

@@ -2,7 +2,7 @@
 
 Manages a Network Manager Admin Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,9 +44,9 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.description** | string |  A description of the Network Manager Admin Rule. | 
 | **var.destination_port_ranges** | list |  A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
-| **var.destination** | block |  One or more `destination` blocks. | 
+| **var.destination** | [block](#destination-block-structure) |  One or more `destination` blocks. | 
 | **var.source_port_ranges** | list |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
-| **var.source** | block |  One or more `source` blocks. | 
+| **var.source** | [block](#source-block-structure) |  One or more `source` blocks. | 
 
 ### `destination` block structure
 

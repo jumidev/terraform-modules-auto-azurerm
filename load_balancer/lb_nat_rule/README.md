@@ -2,7 +2,7 @@
 
 Manages a Load Balancer NAT Rule.-> **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `azurerm_lb_nat_pool` resource.~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

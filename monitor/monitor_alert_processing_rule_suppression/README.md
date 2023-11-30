@@ -2,7 +2,7 @@
 
 Manages an Alert Processing Rule which suppress notifications.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,10 +36,10 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.condition** | block |  -  |  A `condition` block. | 
+| **var.condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
 | **var.description** | string |  -  |  Specifies a description for the Alert Processing Rule. | 
 | **var.enabled** | bool |  `True`  |  Should the Alert Processing Rule be enabled? Defaults to `true`. | 
-| **var.schedule** | block |  -  |  A `schedule` block. | 
+| **var.schedule** | [block](#schedule-block-structure) |  -  |  A `schedule` block. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Alert Processing Rule. | 
 
 ### `condition` block structure

@@ -2,7 +2,7 @@
 
 Manages a Customer Managed Key for the Databricks Workspaces root Databricks File System(DBFS)
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

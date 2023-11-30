@@ -2,7 +2,7 @@
 
 Manages an Azure Spring Cloud Custom Domain.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Bgp Connection for a Route Server
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Template Deployment at the Tenant Scope.~> **Note:** Deleting a Deployment at the Tenant Scope will not delete any resources created by the deployment.~> **Note:** Deployments to a Tenant are always Incrementally applied. Existing resources that are not part of the template will not be removed.~> **Note:** Tenant Template Deployments are always targeted at the Tenant in which the current User, Managed Identity, or Service Principal being used by Terraform is homed.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

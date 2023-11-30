@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.access_token** | string |  Authenticate to ADB via an access token. | 
-| **var.key_vault_password** | block |  Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below. | 
+| **var.key_vault_password** | [block](#key_vault_password-block-structure) |  Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below. | 
 | **var.msi_work_space_resource_id** | string |  Authenticate to ADB via managed service identity. | 
 | **var.existing_cluster_id** | string |  The cluster_id of an existing cluster within the linked ADB instance. | 
 | **var.instance_pool** | string |  Leverages an instance pool within the linked ADB instance as one `instance_pool` block defined below. | 

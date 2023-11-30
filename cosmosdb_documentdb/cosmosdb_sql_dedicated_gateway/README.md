@@ -2,7 +2,7 @@
 
 Manages a SQL Dedicated Gateway within a Cosmos DB Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

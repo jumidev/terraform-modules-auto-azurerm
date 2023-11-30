@@ -2,7 +2,7 @@
 
 Manages the Shared Private Link Resource for a Web Pubsub service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

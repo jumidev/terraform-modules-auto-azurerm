@@ -2,7 +2,7 @@
 
 Manages an API Management Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

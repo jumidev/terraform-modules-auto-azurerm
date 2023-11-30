@@ -2,7 +2,7 @@
 
 Manages a Pim Eligible Role Assignment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,8 +37,8 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.justification** | string |  The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.schedule** | block |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.ticket** | block |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **var.schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **var.ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 
 ### `schedule` block structure
 

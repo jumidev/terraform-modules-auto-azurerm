@@ -2,7 +2,7 @@
 
 Manages a Spacecraft.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,7 +45,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the Resource Group where the Spacecraft exists. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The location where the Spacecraft exists. Changing this forces a new resource to be created. | 
 | **var.norad_id** | string |  NORAD ID of the Spacecraft. | 
-| **var.links** | block |  A `links` block. Changing this forces a new resource to be created. | 
+| **var.links** | [block](#links-block-structure) |  A `links` block. Changing this forces a new resource to be created. | 
 | **var.two_line_elements** | list |  A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created. | 
 | **var.title_line** | string |  Title of the two line elements (TLE). | 
 

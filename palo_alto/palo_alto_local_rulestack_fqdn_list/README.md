@@ -2,7 +2,7 @@
 
 Manages a Palo Alto Local Rulestack FQDN List.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

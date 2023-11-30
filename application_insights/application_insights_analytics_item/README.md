@@ -2,7 +2,7 @@
 
 Manages an Application Insights Analytics Item component.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

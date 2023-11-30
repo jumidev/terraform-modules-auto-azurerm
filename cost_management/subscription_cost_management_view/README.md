@@ -2,7 +2,7 @@
 
 Manages an Azure Cost Management View for a Subscription.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.accumulated** | bool |  -  |  Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created. | 
 | **var.chart_type** | string |  `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  |  Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
-| **var.dataset** | block |  -  |  A `dataset` block. | 
+| **var.dataset** | [block](#dataset-block-structure) |  -  |  A `dataset` block. | 
 | **var.display_name** | string |  -  |  User visible input name of the Cost Management View. | 
 | **var.name** | string |  -  |  The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created. | 
 | **var.report_type** | string |  -  |  The type of the report. The only possible value is `Usage`. | 
@@ -53,8 +53,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.kpi** | block |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
-| **var.pivot** | block |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
+| **var.kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
+| **var.pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
 ### `dataset` block structure
 

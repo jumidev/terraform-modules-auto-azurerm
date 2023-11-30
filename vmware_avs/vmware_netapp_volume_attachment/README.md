@@ -2,7 +2,7 @@
 
 Manages a VMware Private Cloud Netapp File Attachment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

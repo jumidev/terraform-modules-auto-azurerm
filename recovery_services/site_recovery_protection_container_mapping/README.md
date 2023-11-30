@@ -2,7 +2,7 @@
 
 Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,7 +44,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.automatic_update** | block |  a `automatic_update` block defined as below. | 
+| **var.automatic_update** | [block](#automatic_update-block-structure) |  a `automatic_update` block defined as below. | 
 
 ### `automatic_update` block structure
 

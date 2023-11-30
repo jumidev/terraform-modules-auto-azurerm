@@ -2,7 +2,7 @@
 
 Manages a Cosmos DB SQL Role Assignment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

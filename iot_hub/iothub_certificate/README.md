@@ -2,7 +2,7 @@
 
 Manages an IotHub Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

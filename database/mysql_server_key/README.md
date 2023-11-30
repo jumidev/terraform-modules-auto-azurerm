@@ -2,7 +2,7 @@
 
 Manages a Customer Managed Key for a MySQL Server.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

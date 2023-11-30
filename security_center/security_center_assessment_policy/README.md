@@ -2,7 +2,7 @@
 
 Manages the Security Center Assessment Metadata for Azure Security Center.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

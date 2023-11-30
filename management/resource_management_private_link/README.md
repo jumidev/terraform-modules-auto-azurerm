@@ -2,7 +2,7 @@
 
 Manages a Resource Management Private Link to restrict access for managing resources in the tenant.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

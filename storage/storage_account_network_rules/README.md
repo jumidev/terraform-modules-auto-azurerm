@@ -2,7 +2,7 @@
 
 Manages network rules inside of a Azure Storage Account.~> **NOTE:** Network Rules can be defined either directly on the `azurerm_storage_account` resource, or using the `azurerm_storage_account_network_rules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.~> **NOTE:** Only one `azurerm_storage_account_network_rules` can be tied to an `azurerm_storage_account`. Spurious changes will occur if more than `azurerm_storage_account_network_rules` is tied to the same `azurerm_storage_account`.~> **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | **var.bypass** | string |  `Logging`, `Metrics`, `AzureServices`, `None`  |  Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`. | 
 | **var.ip_rules** | string |  -  |  List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed. | 
 | **var.virtual_network_subnet_ids** | list |  -  |  A list of virtual network subnet ids to secure the storage account. | 
-| **var.private_link_access** | block |  -  |  One or more `private_link_access` block. | 
+| **var.private_link_access** | [block](#private_link_access-block-structure) |  -  |  One or more `private_link_access` block. | 
 
 ### `private_link_access` block structure
 

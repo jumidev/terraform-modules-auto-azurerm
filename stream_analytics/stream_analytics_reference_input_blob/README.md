@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Reference Input Blob. Reference data (also known as a lookup table) is a finite data set that is static or slowly changing in nature, used to perform a lookup or to correlate with your data stream. Learn more [here](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data#azure-blob-storage).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,7 +48,7 @@ tfstate_store = {
 | **var.storage_account_name** | string |  The name of the Storage Account that has the blob container with reference data. | 
 | **var.storage_container_name** | string |  The name of the Container within the Storage Account. | 
 | **var.time_format** | string |  The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead. | 
-| **var.serialization** | block |  A `serialization` block. | 
+| **var.serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
 
 ## Optional Variables
 

@@ -2,7 +2,7 @@
 
 Manages a Express Route Port.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,10 +42,10 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.link1** | block |  -  |  A list of `link` blocks. | 
-| **var.link2** | block |  -  |  A list of `link` blocks. | 
+| **var.link1** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
+| **var.link2** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
 | **var.billing_type** | string |  `MeteredData`, `UnlimitedData`  |  The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Express Route Port. | 
 
 ### `link1` block structure

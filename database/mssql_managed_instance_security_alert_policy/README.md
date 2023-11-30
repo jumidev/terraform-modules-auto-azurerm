@@ -2,7 +2,7 @@
 
 Manages a Security Alert Policy for an MS SQL Managed Instance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

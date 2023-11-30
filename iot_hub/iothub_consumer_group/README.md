@@ -2,7 +2,7 @@
 
 Manages a Consumer Group within an IotHub
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

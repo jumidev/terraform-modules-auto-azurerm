@@ -2,7 +2,7 @@
 
 Manages an Azure Data Factory (Version 2).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,10 +36,10 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.github_configuration** | block |  -  |  A `github_configuration` block. | 
-| **var.global_parameter** | block |  -  |  A list of `global_parameter` blocks. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
-| **var.vsts_configuration** | block |  -  |  A `vsts_configuration` block. | 
+| **var.github_configuration** | [block](#github_configuration-block-structure) |  -  |  A `github_configuration` block. | 
+| **var.global_parameter** | [block](#global_parameter-block-structure) |  -  |  A list of `global_parameter` blocks. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **var.vsts_configuration** | [block](#vsts_configuration-block-structure) |  -  |  A `vsts_configuration` block. | 
 | **var.managed_virtual_network_enabled** | bool |  -  |  Is Managed Virtual Network enabled? | 
 | **var.public_network_enabled** | bool |  `True`  |  Is the Data Factory visible to the public network? Defaults to `true`. | 
 | **var.customer_managed_key_id** | string |  -  |  Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity. | 

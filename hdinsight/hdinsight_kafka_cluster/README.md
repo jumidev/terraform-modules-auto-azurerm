@@ -2,7 +2,7 @@
 
 Manages a HDInsight Kafka Cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -58,28 +58,28 @@ tfstate_store = {
 | **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string |  -  |  Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created. | 
 | **var.cluster_version** | string |  -  |  Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created. | 
-| **var.component_version** | block |  -  |  A `component_version` block. | 
-| **var.gateway** | block |  -  |  A `gateway` block. | 
-| **var.roles** | block |  -  |  A `roles` block. | 
+| **var.component_version** | [block](#component_version-block-structure) |  -  |  A `component_version` block. | 
+| **var.gateway** | [block](#gateway-block-structure) |  -  |  A `gateway` block. | 
+| **var.roles** | [block](#roles-block-structure) |  -  |  A `roles` block. | 
 | **var.tier** | string |  `Standard`, `Premium`  |  Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.network** | block |  -  |  A `network` block. | 
-| **var.storage_account** | block |  -  |  One or more `storage_account` block. | 
-| **var.storage_account_gen2** | block |  -  |  A `storage_account_gen2` block. | 
-| **var.compute_isolation** | block |  -  |  A `compute_isolation` block. | 
+| **var.network** | [block](#network-block-structure) |  -  |  A `network` block. | 
+| **var.storage_account** | [block](#storage_account-block-structure) |  -  |  One or more `storage_account` block. | 
+| **var.storage_account_gen2** | [block](#storage_account_gen2-block-structure) |  -  |  A `storage_account_gen2` block. | 
+| **var.compute_isolation** | [block](#compute_isolation-block-structure) |  -  |  A `compute_isolation` block. | 
 | **var.tls_min_version** | string |  `1.0`, `1.1`, `1.2`  |  The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created. | 
 | **var.encryption_in_transit_enabled** | bool |  -  |  Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created. | 
-| **var.disk_encryption** | block |  -  |  One or more `disk_encryption` block. | 
+| **var.disk_encryption** | [block](#disk_encryption-block-structure) |  -  |  One or more `disk_encryption` block. | 
 | **var.tags** | map |  -  |  A map of Tags which should be assigned to this HDInsight Kafka Cluster. | 
-| **var.metastores** | block |  -  |  A `metastores` block. | 
-| **var.monitor** | block |  -  |  A `monitor` block. | 
-| **var.extension** | block |  -  |  An `extension` block. | 
-| **var.rest_proxy** | block |  -  |  A `rest_proxy` block. | 
-| **var.security_profile** | block |  -  |  A `security_profile` block. Changing this forces a new resource to be created. | 
+| **var.metastores** | [block](#metastores-block-structure) |  -  |  A `metastores` block. | 
+| **var.monitor** | [block](#monitor-block-structure) |  -  |  A `monitor` block. | 
+| **var.extension** | [block](#extension-block-structure) |  -  |  An `extension` block. | 
+| **var.rest_proxy** | [block](#rest_proxy-block-structure) |  -  |  A `rest_proxy` block. | 
+| **var.security_profile** | [block](#security_profile-block-structure) |  -  |  A `security_profile` block. Changing this forces a new resource to be created. | 
 
 ### `component_version` block structure
 

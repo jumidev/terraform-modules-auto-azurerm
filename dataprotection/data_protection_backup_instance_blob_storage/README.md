@@ -2,7 +2,7 @@
 
 Manages a Backup Instance Blob Storage.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

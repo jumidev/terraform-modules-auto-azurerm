@@ -2,7 +2,7 @@
 
 Manages an Azure Resource Group Policy Remediation.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

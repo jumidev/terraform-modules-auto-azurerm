@@ -2,7 +2,7 @@
 
 Manages a Virtual Hub within a Virtual WAN.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.address_prefix** | string |  -  |  -  |  The Address Prefix which should be used for this Virtual Hub. Changing this forces a new resource to be created. [The address prefix subnet cannot be smaller than a `/24`. Azure recommends using a `/23`](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-faq#what-is-the-recommended-hub-address-space-during-hub-creation). | 
 | **var.hub_routing_preference** | string |  `ExpressRoute`  |  `ExpressRoute`, `ASPath`, `VpnGateway`  |  The hub routing preference. Possible values are `ExpressRoute`, `ASPath` and `VpnGateway`. Defaults to `ExpressRoute`. | 
-| **var.route** | block |  -  |  -  |  One or more `route` blocks. | 
+| **var.route** | [block](#route-block-structure) |  -  |  -  |  One or more `route` blocks. | 
 | **var.sku** | string |  -  |  `Basic`, `Standard`  |  The SKU of the Virtual Hub. Possible values are `Basic` and `Standard`. Changing this forces a new resource to be created. | 
 | **var.virtual_wan_id** | string |  -  |  -  |  The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Virtual Hub. | 

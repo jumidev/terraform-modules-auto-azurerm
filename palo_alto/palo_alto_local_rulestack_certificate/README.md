@@ -2,7 +2,7 @@
 
 Manages a Palo Alto Networks Rulestack Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

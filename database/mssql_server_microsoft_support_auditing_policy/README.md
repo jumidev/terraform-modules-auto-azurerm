@@ -2,7 +2,7 @@
 
 Manages a MS SQL Server Microsoft Support Auditing Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

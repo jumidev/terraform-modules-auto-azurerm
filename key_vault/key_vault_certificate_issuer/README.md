@@ -2,7 +2,7 @@
 
 Manages a Key Vault Certificate Issuer.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.org_id** | string |  The ID of the organization as provided to the issuer. | 
 | **var.account_id** | string |  The account number with the third-party Certificate Issuer. | 
-| **var.admin** | block |  One or more `admin` blocks. | 
+| **var.admin** | [block](#admin-block-structure) |  One or more `admin` blocks. | 
 | **var.password** | string |  The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value. | 
 
 ### `admin` block structure

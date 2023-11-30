@@ -2,7 +2,7 @@
 
 Manages an Azure VM Workload Backup Policy within a Recovery Services vault.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,8 +47,8 @@ tfstate_store = {
 | **var.name** | string |  -  |  The name of the VM Workload Backup Policy. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the VM Workload Backup Policy. Changing this forces a new resource to be created. | 
 | **var.recovery_vault_name** | string |  -  |  The name of the Recovery Services Vault to use. Changing this forces a new resource to be created. | 
-| **var.protection_policy** | block |  -  |  One or more `protection_policy` blocks. | 
-| **var.settings** | block |  -  |  A `settings` block. | 
+| **var.protection_policy** | [block](#protection_policy-block-structure) |  -  |  One or more `protection_policy` blocks. | 
+| **var.settings** | [block](#settings-block-structure) |  -  |  A `settings` block. | 
 | **var.workload_type** | string |  `SQLDataBase`, `SAPHanaDatabase`  |  The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created. | 
 
 ### `protection_policy` block structure

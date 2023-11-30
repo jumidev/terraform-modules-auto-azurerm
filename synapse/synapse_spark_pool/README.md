@@ -2,7 +2,7 @@
 
 Manages a Synapse Spark Pool.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,16 +39,16 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.node_count** | int |  -  |  -  |  The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified. | 
-| **var.auto_scale** | block |  -  |  -  |  An `auto_scale` block. Exactly one of `node_count` or `auto_scale` must be specified. | 
-| **var.auto_pause** | block |  -  |  -  |  An `auto_pause` block. | 
+| **var.auto_scale** | [block](#auto_scale-block-structure) |  -  |  -  |  An `auto_scale` block. Exactly one of `node_count` or `auto_scale` must be specified. | 
+| **var.auto_pause** | [block](#auto_pause-block-structure) |  -  |  -  |  An `auto_pause` block. | 
 | **var.cache_size** | string |  -  |  -  |  The cache size in the Spark Pool. | 
 | **var.compute_isolation_enabled** | bool |  `False`  |  -  |  Indicates whether compute isolation is enabled or not. Defaults to `false`. | 
 | **var.dynamic_executor_allocation_enabled** | bool |  `False`  |  -  |  Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`. | 
 | **var.min_executors** | int |  -  |  -  |  The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
 | **var.max_executors** | int |  -  |  -  |  The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
-| **var.library_requirement** | block |  -  |  -  |  A `library_requirement` block. | 
+| **var.library_requirement** | [block](#library_requirement-block-structure) |  -  |  -  |  A `library_requirement` block. | 
 | **var.session_level_packages_enabled** | bool |  `False`  |  -  |  Indicates whether session level packages are enabled or not. Defaults to `false`. | 
-| **var.spark_config** | block |  -  |  -  |  A `spark_config` block. | 
+| **var.spark_config** | [block](#spark_config-block-structure) |  -  |  -  |  A `spark_config` block. | 
 | **var.spark_log_folder** | string |  `/logs`  |  -  |  The default folder where Spark logs will be written. Defaults to `/logs`. | 
 | **var.spark_events_folder** | string |  `/events`  |  -  |  The Spark events folder. Defaults to `/events`. | 
 | **var.spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 

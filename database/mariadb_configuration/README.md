@@ -2,7 +2,7 @@
 
 Sets a MariaDB Configuration value on a MariaDB Server.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

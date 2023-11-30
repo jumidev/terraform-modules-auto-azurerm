@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Packet Core Data Plane.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an Azure IoT Time Series Insights Gen2 Environment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,7 +41,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.sku_name** | string |  Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created. | 
-| **var.storage** | block |  A `storage` block. | 
+| **var.storage** | [block](#storage-block-structure) |  A `storage` block. | 
 | **var.id_properties** | list |  A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
 
 ## Optional Variables

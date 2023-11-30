@@ -2,7 +2,7 @@
 
 Manages a LoadBalancer Probe Resource.~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

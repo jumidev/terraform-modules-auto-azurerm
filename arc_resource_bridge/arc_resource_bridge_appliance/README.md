@@ -2,7 +2,7 @@
 
 Manages an Arc Resource Bridge Appliance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,7 +41,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  -  |  Specifies the resource group where the Arc Resource Bridge Appliance exists. Changing this forces a new resource to be created. | 
 | **var.location** | string |  -  |  The Azure Region where the Arc Resource Bridge Appliance should exist. Changing this forces a new resource to be created. | 
 | **var.distro** | string |  -  |  Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`. | 
-| **var.identity** | block |  -  |  An `identity` block. Changing this forces a new resource to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new resource to be created. | 
 | **var.infrastructure_provider** | string |  `HCI`, `SCVMM`, `VMWare`  |  The infrastructure provider about the connected Arc Resource Bridge Appliance. Possible values are `HCI`,`SCVMM` and `VMWare`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables

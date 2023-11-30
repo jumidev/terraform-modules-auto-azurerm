@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Output to Blob Storage.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,7 +48,7 @@ tfstate_store = {
 | **var.storage_account_name** | string |  The name of the Storage Account. | 
 | **var.storage_container_name** | string |  The name of the Container within the Storage Account. | 
 | **var.time_format** | string |  The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead. | 
-| **var.serialization** | block |  A `serialization` block. | 
+| **var.serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
 
 ## Optional Variables
 

@@ -2,7 +2,7 @@
 
 Manages a Function App Active Slot.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

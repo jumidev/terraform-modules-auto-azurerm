@@ -2,7 +2,7 @@
 
 Manages a Notification Hub Namespace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new [Azure Front Door (standard/premium) resources](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_custom_domain). For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.Manages an Azure Front Door (classic) Rules Engine configuration and rules.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
-| **var.rule** | block |  -  |  A `rule` block. | 
+| **var.rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
 ### `rule` block structure
 

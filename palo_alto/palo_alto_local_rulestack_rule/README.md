@@ -2,7 +2,7 @@
 
 Manages a Palo Alto Local Rulestack Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,15 +47,15 @@ tfstate_store = {
 | **var.priority** | string |  -  |  The Priority of this rule. Rules are executed in numerical order. Changing this forces a new Palo Alto Local Rulestack Rule to be created. | 
 | **var.action** | string |  `Allow`, `DenyResetBoth`, `DenyResetServer`, `DenySilent`  |  The action to take on the rule being triggered. Possible values are `Allow`, `DenyResetBoth`, `DenyResetServer` and `DenySilent`. | 
 | **var.name** | string |  -  |  The name which should be used for this Palo Alto Local Rulestack Rule. | 
-| **var.destination** | block |  -  |  One or more `destination` blocks. | 
-| **var.source** | block |  -  |  One or more `source` blocks. | 
+| **var.destination** | [block](#destination-block-structure) |  -  |  One or more `destination` blocks. | 
+| **var.source** | [block](#source-block-structure) |  -  |  One or more `source` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.audit_comment** | string |  -  |  -  |  The comment for Audit purposes. | 
-| **var.category** | block |  -  |  -  |  A `category` block. | 
+| **var.category** | [block](#category-block-structure) |  -  |  -  |  A `category` block. | 
 | **var.decryption_rule_type** | string |  `None`  |  `SSLInboundInspection`, `SSLOutboundInspection`, `None`  |  The type of Decryption to perform on the rule. Possible values include `SSLInboundInspection`, `SSLOutboundInspection`, and `None`. Defaults to `None`. | 
 | **var.description** | string |  -  |  -  |  The description for the rule. | 
 | **var.enabled** | bool |  `True`  |  -  |  Should this Rule be enabled? Defaults to `true`. | 

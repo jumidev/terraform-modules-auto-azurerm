@@ -2,7 +2,7 @@
 
 Manages a policy set definition.-> **NOTE:**  Policy set definitions (also known as policy initiatives) do not take effect until they are assigned to a scope using a Policy Set Assignment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,13 +38,13 @@ tfstate_store = {
 | **var.name** | string |  -  |  The name of the policy set definition. Changing this forces a new resource to be created. | 
 | **var.policy_type** | string |  `BuiltIn`, `Custom`, `NotSpecified`, `Static`  |  The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created. | 
 | **var.display_name** | string |  -  |  The display name of the policy set definition. | 
-| **var.policy_definition_reference** | block |  -  |  One or more `policy_definition_reference` blocks. | 
+| **var.policy_definition_reference** | [block](#policy_definition_reference-block-structure) |  -  |  One or more `policy_definition_reference` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.policy_definition_group** | block |  One or more `policy_definition_group` blocks. | 
+| **var.policy_definition_group** | [block](#policy_definition_group-block-structure) |  One or more `policy_definition_group` blocks. | 
 | **var.description** | string |  The description of the policy set definition. | 
 | **var.management_group_id** | string |  The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created. | 
 | **var.metadata** | string |  The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition. | 

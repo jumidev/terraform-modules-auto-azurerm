@@ -2,7 +2,7 @@
 
 Enables you to manage DNS CNAME Records within Azure Private DNS.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

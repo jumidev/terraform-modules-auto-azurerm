@@ -2,7 +2,7 @@
 
 Manages a Lab Service Plan.-> **Note:** Before using this resource, it's required to submit the request of registering the provider with Azure CLI `az provider register --namespace Microsoft.LabServices`.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,11 +38,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.default_auto_shutdown** | block |  A `default_auto_shutdown` block. | 
-| **var.default_connection** | block |  A `default_connection` block. | 
+| **var.default_auto_shutdown** | [block](#default_auto_shutdown-block-structure) |  A `default_auto_shutdown` block. | 
+| **var.default_connection** | [block](#default_connection-block-structure) |  A `default_connection` block. | 
 | **var.default_network_subnet_id** | string |  The resource ID of the Subnet for the Lab Service Plan network profile. | 
 | **var.shared_gallery_id** | string |  The resource ID of the Shared Image Gallery attached to this Lab Service Plan. When saving a lab template virtual machine image it will be persisted in this gallery. The shared images from the gallery can be made available to use when creating new labs. | 
-| **var.support** | block |  A `support` block. | 
+| **var.support** | [block](#support-block-structure) |  A `support` block. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Lab Service Plan. | 
 
 ### `default_auto_shutdown` block structure

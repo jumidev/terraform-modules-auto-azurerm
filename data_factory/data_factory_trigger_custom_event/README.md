@@ -2,7 +2,7 @@
 
 Manages a Custom Event Trigger inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.data_factory_id** | string |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
 | **var.eventgrid_topic_id** | string |  The ID of Event Grid Topic in which event will be listened. Changing this forces a new resource. | 
 | **var.events** | string |  List of events that will fire this trigger. At least one event must be specified. | 
-| **var.pipeline** | block |  One or more `pipeline` blocks. | 
+| **var.pipeline** | [block](#pipeline-block-structure) |  One or more `pipeline` blocks. | 
 
 ## Optional Variables
 

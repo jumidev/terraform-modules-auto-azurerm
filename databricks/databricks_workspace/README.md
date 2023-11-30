@@ -2,7 +2,7 @@
 
 Manages a Databricks Workspace
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,7 +47,7 @@ tfstate_store = {
 | **var.infrastructure_encryption_enabled** | bool |  `False`  |  `true`, `false`  |  Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  `true`, `false`  |  Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. | 
 | **var.network_security_group_rules_required** | string |  -  |  `AllRules`, `NoAzureDatabricksRules`, `NoAzureServiceRules`  |  Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. | 
-| **var.custom_parameters** | block |  -  |  -  |  A `custom_parameters` block. | 
+| **var.custom_parameters** | [block](#custom_parameters-block-structure) |  -  |  -  |  A `custom_parameters` block. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `custom_parameters` block structure

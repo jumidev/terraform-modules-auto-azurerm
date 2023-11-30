@@ -2,7 +2,7 @@
 
 Manages a Network Manager Admin Rule Collection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

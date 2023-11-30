@@ -2,7 +2,7 @@
 
 Manages a Managed Application.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | **var.application_definition_id** | string |  The application definition ID to deploy. | 
 | **var.parameters** | string |  A mapping of name and value pairs to pass to the managed application as parameters. | 
 | **var.parameter_values** | string |  The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application. | 
-| **var.plan** | block |  One `plan` block. Changing this forces a new resource to be created. | 
+| **var.plan** | [block](#plan-block-structure) |  One `plan` block. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `plan` block structure

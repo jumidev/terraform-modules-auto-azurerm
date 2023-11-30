@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Managed Private Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

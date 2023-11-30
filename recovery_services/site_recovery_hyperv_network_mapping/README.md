@@ -2,7 +2,7 @@
 
 Manages a HyperV site recovery network mapping on Azure. A HyperV network mapping decides how to translate connected networks when a VM is migrated from HyperV VMM Center to Azure.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

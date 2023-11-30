@@ -2,7 +2,7 @@
 
 Manages TagRules on the datadog Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -33,8 +33,8 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.name** | string |  `default`  |  The name of the Tag Rules configuration. The allowed value is `default`. Defaults to `default`. | 
-| **var.log** | block |  -  |  A `log` block. | 
-| **var.metric** | block |  -  |  A `metric` block. | 
+| **var.log** | [block](#log-block-structure) |  -  |  A `log` block. | 
+| **var.metric** | [block](#metric-block-structure) |  -  |  A `metric` block. | 
 
 ### `log` block structure
 

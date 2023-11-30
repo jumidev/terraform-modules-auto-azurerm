@@ -2,7 +2,7 @@
 
 Manages a Machine Learning Blob Storage DataStore.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

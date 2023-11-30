@@ -2,7 +2,7 @@
 
 Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.description** | string |  -  |  The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
-| **var.identity** | block |  -  |  An `identity` block. Changing this forces a new Machine Learning Synapse Spark to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 | **var.local_auth_enabled** | bool |  `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created. | 
 

@@ -2,7 +2,7 @@
 
 Manages an EventGrid System Topic Event Subscription.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,21 +38,21 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.expiration_time_utc** | string |  -  |  -  |  Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`). | 
 | **var.event_delivery_schema** | string |  `EventGridSchema`  |  `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`  |  Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created. | 
-| **var.azure_function_endpoint** | block |  -  |  -  |  An `azure_function_endpoint` block. | 
+| **var.azure_function_endpoint** | [block](#azure_function_endpoint-block-structure) |  -  |  -  |  An `azure_function_endpoint` block. | 
 | **var.eventhub_endpoint_id** | string |  -  |  -  |  Specifies the id where the Event Hub is located. | 
 | **var.hybrid_connection_endpoint_id** | string |  -  |  -  |  Specifies the id where the Hybrid Connection is located. | 
 | **var.service_bus_queue_endpoint_id** | string |  -  |  -  |  Specifies the id where the Service Bus Queue is located. | 
 | **var.service_bus_topic_endpoint_id** | string |  -  |  -  |  Specifies the id where the Service Bus Topic is located. | 
-| **var.storage_queue_endpoint** | block |  -  |  -  |  A `storage_queue_endpoint` block. | 
-| **var.webhook_endpoint** | block |  -  |  -  |  A `webhook_endpoint` block. | 
+| **var.storage_queue_endpoint** | [block](#storage_queue_endpoint-block-structure) |  -  |  -  |  A `storage_queue_endpoint` block. | 
+| **var.webhook_endpoint** | [block](#webhook_endpoint-block-structure) |  -  |  -  |  A `webhook_endpoint` block. | 
 | **var.included_event_types** | list |  -  |  -  |  A list of applicable event types that need to be part of the event subscription. | 
-| **var.subject_filter** | block |  -  |  -  |  A `subject_filter` block. | 
-| **var.advanced_filter** | block |  -  |  -  |  A `advanced_filter` block. | 
-| **var.delivery_identity** | block |  -  |  -  |  A `delivery_identity` block. | 
-| **var.delivery_property** | block |  -  |  -  |  One or more `delivery_property` blocks. | 
-| **var.dead_letter_identity** | block |  -  |  -  |  A `dead_letter_identity` block. | 
-| **var.storage_blob_dead_letter_destination** | block |  -  |  -  |  A `storage_blob_dead_letter_destination` block. | 
-| **var.retry_policy** | block |  -  |  -  |  A `retry_policy` block. | 
+| **var.subject_filter** | [block](#subject_filter-block-structure) |  -  |  -  |  A `subject_filter` block. | 
+| **var.advanced_filter** | [block](#advanced_filter-block-structure) |  -  |  -  |  A `advanced_filter` block. | 
+| **var.delivery_identity** | [block](#delivery_identity-block-structure) |  -  |  -  |  A `delivery_identity` block. | 
+| **var.delivery_property** | [block](#delivery_property-block-structure) |  -  |  -  |  One or more `delivery_property` blocks. | 
+| **var.dead_letter_identity** | [block](#dead_letter_identity-block-structure) |  -  |  -  |  A `dead_letter_identity` block. | 
+| **var.storage_blob_dead_letter_destination** | [block](#storage_blob_dead_letter_destination-block-structure) |  -  |  -  |  A `storage_blob_dead_letter_destination` block. | 
+| **var.retry_policy** | [block](#retry_policy-block-structure) |  -  |  -  |  A `retry_policy` block. | 
 | **var.labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
 | **var.advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
 

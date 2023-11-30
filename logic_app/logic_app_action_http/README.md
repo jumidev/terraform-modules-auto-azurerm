@@ -2,7 +2,7 @@
 
 Manages an HTTP Action within a Logic App Workflow
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

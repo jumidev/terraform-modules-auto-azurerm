@@ -2,7 +2,7 @@
 
 Manages Azure Backup for an Azure VM
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

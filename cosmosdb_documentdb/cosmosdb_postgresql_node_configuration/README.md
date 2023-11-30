@@ -2,7 +2,7 @@
 
 Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

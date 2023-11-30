@@ -2,7 +2,7 @@
 
 Manages a Hostname Binding within an App Service (or Function App).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

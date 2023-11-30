@@ -2,7 +2,7 @@
 
 Manages a Site Recovery Replication Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,10 +39,10 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.recovery_group** | string |  Three or more `recovery_group` block defined as below. | 
-| **var.shutdown_recovery_group** | block |  One `shutdown_recovery_group` block. | 
-| **var.failover_recovery_group** | block |  One `failover_recovery_group` block. | 
-| **var.boot_recovery_group** | block |  One or more `boot_recovery_group` blocks. | 
-| **var.azure_to_azure_settings** | block |  An `azure_to_azure_settings` block. | 
+| **var.shutdown_recovery_group** | [block](#shutdown_recovery_group-block-structure) |  One `shutdown_recovery_group` block. | 
+| **var.failover_recovery_group** | [block](#failover_recovery_group-block-structure) |  One `failover_recovery_group` block. | 
+| **var.boot_recovery_group** | [block](#boot_recovery_group-block-structure) |  One or more `boot_recovery_group` blocks. | 
+| **var.azure_to_azure_settings** | [block](#azure_to_azure_settings-block-structure) |  An `azure_to_azure_settings` block. | 
 
 ### `shutdown_recovery_group` block structure
 

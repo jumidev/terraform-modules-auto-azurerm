@@ -2,7 +2,7 @@
 
 Manages a Firewall Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,19 +37,19 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.base_policy_id** | string |  -  |  -  |  The ID of the base Firewall Policy. | 
-| **var.dns** | block |  -  |  -  |  A `dns` block. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
-| **var.insights** | block |  -  |  -  |  An `insights` block. | 
-| **var.intrusion_detection** | block |  -  |  -  |  A `intrusion_detection` block. | 
+| **var.dns** | [block](#dns-block-structure) |  -  |  -  |  A `dns` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **var.insights** | [block](#insights-block-structure) |  -  |  -  |  An `insights` block. | 
+| **var.intrusion_detection** | [block](#intrusion_detection-block-structure) |  -  |  -  |  A `intrusion_detection` block. | 
 | **var.private_ip_ranges** | list |  -  |  -  |  A list of private IP ranges to which traffic will not be SNAT. | 
 | **var.auto_learn_private_ranges_enabled** | bool |  -  |  -  |  Whether enable auto learn private ip range. | 
 | **var.sku** | string |  -  |  `Standard`, `Premium`, `Basic`  |  The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium` and `Basic`. Changing this forces a new Firewall Policy to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Firewall Policy. | 
-| **var.threat_intelligence_allowlist** | block |  -  |  -  |  A `threat_intelligence_allowlist` block. | 
+| **var.threat_intelligence_allowlist** | [block](#threat_intelligence_allowlist-block-structure) |  -  |  -  |  A `threat_intelligence_allowlist` block. | 
 | **var.threat_intelligence_mode** | string |  `Alert`  |  `Alert`, `Deny`, `Off`  |  The operation mode for Threat Intelligence. Possible values are `Alert`, `Deny` and `Off`. Defaults to `Alert`. | 
-| **var.tls_certificate** | block |  -  |  -  |  A `tls_certificate` block. | 
+| **var.tls_certificate** | [block](#tls_certificate-block-structure) |  -  |  -  |  A `tls_certificate` block. | 
 | **var.sql_redirect_allowed** | bool |  -  |  -  |  Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`. | 
-| **var.explicit_proxy** | block |  -  |  -  |  A `explicit_proxy` block. | 
+| **var.explicit_proxy** | [block](#explicit_proxy-block-structure) |  -  |  -  |  A `explicit_proxy` block. | 
 
 ### `dns` block structure
 

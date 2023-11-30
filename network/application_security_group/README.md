@@ -2,7 +2,7 @@
 
 Manages an Application Security Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

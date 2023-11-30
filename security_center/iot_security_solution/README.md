@@ -2,7 +2,7 @@
 
 Manages an iot security solution.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,13 +40,13 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.additional_workspace** | block |  -  |  -  |  A `additional_workspace` block. | 
+| **var.additional_workspace** | [block](#additional_workspace-block-structure) |  -  |  -  |  A `additional_workspace` block. | 
 | **var.disabled_data_sources** | bool |  -  |  -  |  A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`. | 
 | **var.enabled** | bool |  `True`  |  -  |  Is the Iot Security Solution enabled? Defaults to `true`. | 
 | **var.events_to_export** | string |  -  |  `RawEvents`  |  A list of data which is to exported to analytic workspace. Valid values include `RawEvents`. | 
 | **var.log_analytics_workspace_id** | string |  -  |  -  |  Specifies the Log Analytics Workspace ID to which the security data will be sent. | 
 | **var.log_unmasked_ips_enabled** | bool |  `False`  |  -  |  Should IP addressed be unmasked in the log? Defaults to `false`. | 
-| **var.recommendations_enabled** | block |  -  |  -  |  A `recommendations_enabled` block of options to enable or disable as defined below. | 
+| **var.recommendations_enabled** | [block](#recommendations_enabled-block-structure) |  -  |  -  |  A `recommendations_enabled` block of options to enable or disable as defined below. | 
 | **var.query_for_resources** | string |  -  |  -  |  An Azure Resource Graph query used to set the resources monitored. | 
 | **var.query_subscription_ids** | list |  -  |  -  |  A list of subscription Ids on which the user defined resources query should be executed. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

@@ -2,7 +2,7 @@
 
 Manages a Blob within a Storage Container.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

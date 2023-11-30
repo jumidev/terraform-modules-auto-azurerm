@@ -2,7 +2,7 @@
 
 Manages a certificate in an Azure Batch account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

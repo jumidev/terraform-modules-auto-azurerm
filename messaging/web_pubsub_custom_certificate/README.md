@@ -2,7 +2,7 @@
 
 Manages an Azure Web PubSub Custom Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

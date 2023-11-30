@@ -2,7 +2,7 @@
 
 Manages a Built-in Anomaly Alert Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

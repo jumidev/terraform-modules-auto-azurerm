@@ -2,7 +2,7 @@
 
 Manages an Azure Stack HCI Cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

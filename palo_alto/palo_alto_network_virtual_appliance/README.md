@@ -2,7 +2,7 @@
 
 Manages a Palo Alto Network Virtual Appliance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

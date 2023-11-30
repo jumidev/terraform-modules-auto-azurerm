@@ -2,7 +2,7 @@
 
 Manages a datadog Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,14 +48,14 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
 | **var.location** | string |  The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
 | **var.sku_name** | string |  The name which should be used for this sku. | 
-| **var.user** | block |  A `user` block. | 
-| **var.datadog_organization** | block |  A `datadog_organization` block. | 
+| **var.user** | [block](#user-block-structure) |  A `user` block. | 
+| **var.datadog_organization** | [block](#datadog_organization-block-structure) |  A `datadog_organization` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.identity** | block |  -  |  A `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  A `identity` block. | 
 | **var.monitoring_enabled** | bool |  `True`  |  Is monitoring enabled? Defaults to `true`. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
 

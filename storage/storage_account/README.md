@@ -2,7 +2,7 @@
 
 Manages an Azure Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -52,22 +52,22 @@ tfstate_store = {
 | **var.default_to_oauth_authentication** | bool |  `False`  |  -  |  Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false` | 
 | **var.is_hns_enabled** | bool |  -  |  -  |  Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created. | 
 | **var.nfsv3_enabled** | bool |  `False`  |  -  |  Is NFSv3 protocol enabled? Changing this forces a new resource to be created. Defaults to `false`. | 
-| **var.custom_domain** | block |  -  |  -  |  A `custom_domain` block. | 
-| **var.customer_managed_key** | block |  -  |  -  |  A `customer_managed_key` block. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
-| **var.blob_properties** | block |  -  |  -  |  A `blob_properties` block. | 
-| **var.queue_properties** | block |  -  |  -  |  A `queue_properties` block. | 
-| **var.static_website** | block |  -  |  -  |  A `static_website` block. | 
-| **var.share_properties** | block |  -  |  -  |  A `share_properties` block. | 
-| **var.network_rules** | block |  -  |  -  |  A `network_rules` block. | 
+| **var.custom_domain** | [block](#custom_domain-block-structure) |  -  |  -  |  A `custom_domain` block. | 
+| **var.customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  -  |  A `customer_managed_key` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **var.blob_properties** | [block](#blob_properties-block-structure) |  -  |  -  |  A `blob_properties` block. | 
+| **var.queue_properties** | [block](#queue_properties-block-structure) |  -  |  -  |  A `queue_properties` block. | 
+| **var.static_website** | [block](#static_website-block-structure) |  -  |  -  |  A `static_website` block. | 
+| **var.share_properties** | [block](#share_properties-block-structure) |  -  |  -  |  A `share_properties` block. | 
+| **var.network_rules** | [block](#network_rules-block-structure) |  -  |  -  |  A `network_rules` block. | 
 | **var.large_file_share_enabled** | bool |  -  |  -  |  Is Large File Share Enabled? | 
-| **var.azure_files_authentication** | block |  -  |  -  |  A `azure_files_authentication` block. | 
-| **var.routing** | block |  -  |  -  |  A `routing` block. | 
+| **var.azure_files_authentication** | [block](#azure_files_authentication-block-structure) |  -  |  -  |  A `azure_files_authentication` block. | 
+| **var.routing** | [block](#routing-block-structure) |  -  |  -  |  A `routing` block. | 
 | **var.queue_encryption_key_type** | string |  -  |  `Service`, `Account`  |  The encryption type of the queue service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`. | 
 | **var.table_encryption_key_type** | string |  -  |  `Service`, `Account`  |  The encryption type of the table service. Possible values are `Service` and `Account`. Changing this forces a new resource to be created. Default value is `Service`. | 
 | **var.infrastructure_encryption_enabled** | bool |  `False`  |  -  |  Is infrastructure encryption enabled? Changing this forces a new resource to be created. Defaults to `false`. | 
-| **var.immutability_policy** | block |  -  |  -  |  An `immutability_policy` block. Changing this forces a new resource to be created. | 
-| **var.sas_policy** | block |  -  |  -  |  A `sas_policy` block. | 
+| **var.immutability_policy** | [block](#immutability_policy-block-structure) |  -  |  -  |  An `immutability_policy` block. Changing this forces a new resource to be created. | 
+| **var.sas_policy** | [block](#sas_policy-block-structure) |  -  |  -  |  A `sas_policy` block. | 
 | **var.allowed_copy_scope** | string |  -  |  `AAD`, `PrivateLink`  |  Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`. | 
 | **var.sftp_enabled** | bool |  -  |  -  |  Boolean, enable SFTP for the storage account | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

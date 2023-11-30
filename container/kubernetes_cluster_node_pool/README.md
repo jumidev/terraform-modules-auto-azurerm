@@ -2,7 +2,7 @@
 
 Manages a Node Pool within a Kubernetes Cluster-> **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS - you can find [the latest version of the Azure Provider here](https://registry.terraform.io/providers/hashicorp/azurerm/latest).~> **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,15 +43,15 @@ tfstate_store = {
 | **var.enable_node_public_ip** | bool |  -  |  -  |  Should each node have a Public IP Address? Changing this forces a new resource to be created. | 
 | **var.eviction_policy** | string |  -  |  `Deallocate`, `Delete`  |  The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created. | 
 | **var.host_group_id** | string |  -  |  -  |  The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created. | 
-| **var.kubelet_config** | block |  -  |  -  |  A `kubelet_config` block. Changing this forces a new resource to be created. | 
-| **var.linux_os_config** | block |  -  |  -  |  A `linux_os_config` block. Changing this forces a new resource to be created. | 
+| **var.kubelet_config** | [block](#kubelet_config-block-structure) |  -  |  -  |  A `kubelet_config` block. Changing this forces a new resource to be created. | 
+| **var.linux_os_config** | [block](#linux_os_config-block-structure) |  -  |  -  |  A `linux_os_config` block. Changing this forces a new resource to be created. | 
 | **var.fips_enabled** | bool |  -  |  -  |  Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created. | 
 | **var.gpu_instance** | string |  -  |  `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g`, `MIG7g`  |  Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created. | 
 | **var.kubelet_disk_type** | string |  -  |  `OS`, `Temporary`  |  The type of disk used by kubelet. Possible values are `OS` and `Temporary`. | 
 | **var.max_pods** | int |  -  |  -  |  The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. | 
 | **var.message_of_the_day** | string |  -  |  -  |  A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created. | 
 | **var.mode** | string |  `User`  |  `System`, `User`  |  Should this Node Pool be used for System or User resources? Possible values are `System` and `User`. Defaults to `User`. | 
-| **var.node_network_profile** | block |  -  |  -  |  A `node_network_profile` block. | 
+| **var.node_network_profile** | [block](#node_network_profile-block-structure) |  -  |  -  |  A `node_network_profile` block. | 
 | **var.node_labels** | string |  -  |  -  |  A map of Kubernetes labels which should be applied to nodes in this Node Pool. | 
 | **var.node_public_ip_prefix_id** | string |  -  |  -  |  Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created. | 
 | **var.node_taints** | list |  -  |  -  |  A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created. | 
@@ -68,9 +68,9 @@ tfstate_store = {
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.scale_down_mode** | string |  `Delete`  |  `Delete`, `Deallocate`  |  Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`. | 
 | **var.ultra_ssd_enabled** | bool |  `False`  |  -  |  Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created. | 
-| **var.upgrade_settings** | block |  -  |  -  |  A `upgrade_settings` block. | 
+| **var.upgrade_settings** | [block](#upgrade_settings-block-structure) |  -  |  -  |  A `upgrade_settings` block. | 
 | **var.vnet_subnet_id** | string |  -  |  -  |  The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created. | 
-| **var.windows_profile** | block |  -  |  -  |  A `windows_profile` block. Changing this forces a new resource to be created. | 
+| **var.windows_profile** | [block](#windows_profile-block-structure) |  -  |  -  |  A `windows_profile` block. Changing this forces a new resource to be created. | 
 | **var.workload_runtime** | string |  -  |  `OCIContainer`, `WasmWasi`, `KataMshvVmIsolation`  |  Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`. | 
 | **var.zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created. | 
 | **var.max_count** | string |  -  |  `0`, `1000`, `min_count`  |  The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`. | 

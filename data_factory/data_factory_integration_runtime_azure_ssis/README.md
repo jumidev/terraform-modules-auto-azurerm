@@ -2,7 +2,7 @@
 
 Manages a Data Factory Azure-SSIS Integration Runtime.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,13 +42,13 @@ tfstate_store = {
 | **var.max_parallel_executions_per_node** | string |  `1`  |  -  |  Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`. | 
 | **var.edition** | string |  `Standard`  |  `Standard`, `Enterprise`  |  The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`. | 
 | **var.license_type** | string |  `LicenseIncluded`  |  `LicenseIncluded`, `BasePrice`  |  The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`. | 
-| **var.catalog_info** | block |  -  |  -  |  A `catalog_info` block. | 
-| **var.custom_setup_script** | block |  -  |  -  |  A `custom_setup_script` block. | 
-| **var.express_custom_setup** | block |  -  |  -  |  An `express_custom_setup` block. | 
-| **var.express_vnet_integration** | block |  -  |  -  |  A `express_vnet_integration` block. | 
-| **var.package_store** | block |  -  |  -  |  One or more `package_store` block. | 
-| **var.proxy** | block |  -  |  -  |  A `proxy` block. | 
-| **var.vnet_integration** | block |  -  |  -  |  A `vnet_integration` block. | 
+| **var.catalog_info** | [block](#catalog_info-block-structure) |  -  |  -  |  A `catalog_info` block. | 
+| **var.custom_setup_script** | [block](#custom_setup_script-block-structure) |  -  |  -  |  A `custom_setup_script` block. | 
+| **var.express_custom_setup** | [block](#express_custom_setup-block-structure) |  -  |  -  |  An `express_custom_setup` block. | 
+| **var.express_vnet_integration** | [block](#express_vnet_integration-block-structure) |  -  |  -  |  A `express_vnet_integration` block. | 
+| **var.package_store** | [block](#package_store-block-structure) |  -  |  -  |  One or more `package_store` block. | 
+| **var.proxy** | [block](#proxy-block-structure) |  -  |  -  |  A `proxy` block. | 
+| **var.vnet_integration** | [block](#vnet_integration-block-structure) |  -  |  -  |  A `vnet_integration` block. | 
 | **var.description** | string |  -  |  -  |  Integration runtime description. | 
 
 ### `catalog_info` block structure

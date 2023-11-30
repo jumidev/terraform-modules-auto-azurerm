@@ -2,7 +2,7 @@
 
 Manages an Azure Container Registry Agent Pool.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

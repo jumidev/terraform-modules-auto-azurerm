@@ -2,7 +2,7 @@
 
 Manages a Log Analytics Storage Insights resource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

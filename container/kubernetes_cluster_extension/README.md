@@ -2,7 +2,7 @@
 
 Manages a Kubernetes Cluster Extension.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.configuration_protected_settings** | string |  -  |  Configuration settings that are sensitive, as name-value pairs for configuring this extension. | 
 | **var.configuration_settings** | string |  -  |  Configuration settings, as name-value pairs for configuring this extension. | 
-| **var.plan** | block |  -  |  A `plan` block. Changing this forces a new resource to be created. | 
+| **var.plan** | [block](#plan-block-structure) |  -  |  A `plan` block. Changing this forces a new resource to be created. | 
 | **var.release_train** | string |  `Stable`, `Preview`  |  The release train used by this extension. Possible values include but are not limited to `Stable`, `Preview`. Changing this forces a new Kubernetes Cluster Extension to be created. | 
 | **var.release_namespace** | string |  -  |  Namespace where the extension release must be placed for a cluster scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created. | 
 | **var.target_namespace** | string |  -  |  Namespace where the extension will be created for a namespace scoped extension. If this namespace does not exist, it will be created. Changing this forces a new Kubernetes Cluster Extension to be created. | 

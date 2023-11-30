@@ -2,7 +2,7 @@
 
 Manages a Digital Twins Service Bus Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

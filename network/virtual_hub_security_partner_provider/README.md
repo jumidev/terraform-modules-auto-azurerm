@@ -2,7 +2,7 @@
 
 Manages a Security Partner Provider which could be associated to virtual hub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

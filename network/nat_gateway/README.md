@@ -2,7 +2,7 @@
 
 Manages an Azure NAT Gateway.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

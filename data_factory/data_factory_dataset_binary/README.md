@@ -2,7 +2,7 @@
 
 Manages a Data Factory Binary Dataset inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,13 +38,13 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Binary Dataset. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Binary Dataset. | 
-| **var.compression** | block |  A `compression` block. | 
+| **var.compression** | [block](#compression-block-structure) |  A `compression` block. | 
 | **var.description** | string |  The description for the Data Factory Dataset. | 
 | **var.folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
 | **var.parameters** | string |  Specifies a list of parameters to associate with the Data Factory Binary Dataset. | 
-| **var.http_server_location** | block |  A `http_server_location` block. | 
-| **var.azure_blob_storage_location** | block |  A `azure_blob_storage_location` block. | 
-| **var.sftp_server_location** | block |  A `sftp_server_location` block. | 
+| **var.http_server_location** | [block](#http_server_location-block-structure) |  A `http_server_location` block. | 
+| **var.azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
+| **var.sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
 
 ### `compression` block structure
 

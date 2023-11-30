@@ -2,7 +2,7 @@
 
 Manages a Gallery Application Version.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -53,9 +53,9 @@ tfstate_store = {
 | **var.name** | string |  The version name of the Gallery Application Version, such as `1.0.0`. Changing this forces a new resource to be created. | 
 | **var.gallery_application_id** | string |  The ID of the Gallery Application. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The Azure Region where the Gallery Application Version exists. Changing this forces a new resource to be created. | 
-| **var.manage_action** | block |  A `manage_action` block. | 
-| **var.source** | block |  A `source` block. | 
-| **var.target_region** | block |  One or more `target_region` blocks. | 
+| **var.manage_action** | [block](#manage_action-block-structure) |  A `manage_action` block. | 
+| **var.source** | [block](#source-block-structure) |  A `source` block. | 
+| **var.target_region** | [block](#target_region-block-structure) |  One or more `target_region` blocks. | 
 
 ## Optional Variables
 

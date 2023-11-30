@@ -2,7 +2,7 @@
 
 Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

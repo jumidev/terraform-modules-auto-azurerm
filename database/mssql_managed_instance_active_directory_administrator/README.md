@@ -2,7 +2,7 @@
 
 Allows you to set a user, group or service principal as the AAD Administrator for an Azure SQL Managed Instance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

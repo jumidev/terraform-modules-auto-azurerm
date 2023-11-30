@@ -2,7 +2,7 @@
 
 Manages a Firewall Rule associated with a Redis Cache.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

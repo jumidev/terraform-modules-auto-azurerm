@@ -2,7 +2,7 @@
 
 Manages an API Management AAD Identity Provider.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Databox Edge Order.!> Creation of Databox Edge Order is not supported by the Azure API - as such the `azurerm_databox_edge_order` resource is deprecated and will be removed in v4.0 of the AzureRM Provider.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -49,8 +49,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.resource_group_name** | string |  The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created. | 
 | **var.device_name** | string |  The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created. | 
-| **var.contact** | block |  A `contact` block. | 
-| **var.shipment_address** | block |  A `shipment_address` block. | 
+| **var.contact** | [block](#contact-block-structure) |  A `contact` block. | 
+| **var.shipment_address** | [block](#shipment_address-block-structure) |  A `shipment_address` block. | 
 
 ### `contact` block structure
 

@@ -2,7 +2,7 @@
 
 Manages a Search Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.authentication_failure_mode** | string |  -  |  `http401WithBearerChallenge`, `http403`  |  Specifies the response that the Search Service should return for requests that fail authentication. Possible values include `http401WithBearerChallenge` or `http403`. | 
 | **var.customer_managed_key_enforcement_enabled** | bool |  `False`  |  -  |  Specifies whether the Search Service should enforce that non-customer resources are encrypted. Defaults to `false`. | 
 | **var.hosting_mode** | string |  `default`  |  `highDensity`, `default`  |  Specifies the Hosting Mode, which allows for High Density partitions (that allow for up to 1000 indexes) should be supported. Possible values are `highDensity` or `default`. Defaults to `default`. Changing this forces a new Search Service to be created. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.local_authentication_enabled** | bool |  `True`  |  -  |  Specifies whether the Search Service allows authenticating using API Keys? Defaults to `true`. | 
 | **var.partition_count** | string |  `1`  |  `1`, `2`, `3`, `4`, `6`, `12`  |  Specifies the number of partitions which should be created. This field cannot be set when using a `free` or `basic` sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include `1`, `2`, `3`, `4`, `6`, or `12`. Defaults to `1`. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Specifies whether Public Network Access is allowed for this resource. Defaults to `true`. | 

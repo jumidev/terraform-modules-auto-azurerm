@@ -2,7 +2,7 @@
 
 Manages a File within an Azure Storage File Share.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

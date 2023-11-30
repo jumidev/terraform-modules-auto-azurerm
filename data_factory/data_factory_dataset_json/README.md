@@ -2,7 +2,7 @@
 
 Manages an Azure JSON Dataset inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,13 +37,13 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.schema_column** | block |  A `schema_column` block. | 
+| **var.schema_column** | [block](#schema_column-block-structure) |  A `schema_column` block. | 
 | **var.description** | string |  The description for the Data Factory Dataset. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Dataset. | 
 | **var.parameters** | string |  A map of parameters to associate with the Data Factory Dataset. | 
 | **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Dataset. | 
-| **var.http_server_location** | block |  A `http_server_location` block. | 
-| **var.azure_blob_storage_location** | block |  A `azure_blob_storage_location` block. | 
+| **var.http_server_location** | [block](#http_server_location-block-structure) |  A `http_server_location` block. | 
+| **var.azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **var.encoding** | string |  The encoding format for the file. | 
 
 ### `schema_column` block structure

@@ -2,7 +2,7 @@
 
 Assigns a given Principal (User or Group) to a given Role in a Private Azure Marketplace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

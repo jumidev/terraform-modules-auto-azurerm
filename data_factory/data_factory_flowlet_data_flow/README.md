@@ -2,7 +2,7 @@
 
 Manages a Flowlet Data Flow inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,11 +37,11 @@ tfstate_store = {
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Flowlet Data Flow. | 
 | **var.description** | string |  The description for the Data Factory Flowlet Data Flow. | 
 | **var.folder** | string |  The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
-| **var.source** | block |  One or more `source` blocks. | 
-| **var.sink** | block |  One or more `sink` blocks. | 
+| **var.source** | [block](#source-block-structure) |  One or more `source` blocks. | 
+| **var.sink** | [block](#sink-block-structure) |  One or more `sink` blocks. | 
 | **var.script** | string |  The script for the Data Factory Flowlet Data Flow. | 
 | **var.script_lines** | string |  The script lines for the Data Factory Flowlet Data Flow. | 
-| **var.transformation** | block |  One or more `transformation` blocks. | 
+| **var.transformation** | [block](#transformation-block-structure) |  One or more `transformation` blocks. | 
 
 ### `source` block structure
 

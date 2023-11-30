@@ -2,7 +2,7 @@
 
 Applies a Guest Configuration Policy to a Virtual Machine.~> **NOTE:** You can create Guest Configuration Policies without defining a `azurerm_virtual_machine_extension` resource, however the policies will not be executed until a `azurerm_virtual_machine_extension` has been provisioned to the virtual machine.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created. | 
 | **var.virtual_machine_id** | string |  The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created. | 
-| **var.configuration** | block |  A `configuration` block. | 
+| **var.configuration** | [block](#configuration-block-structure) |  A `configuration` block. | 
 
 ### `configuration` block structure
 

@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Origin.!>**IMPORTANT:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `azurerm_private_link_service`, see `Example Usage With Private Link Service` below.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | **var.https_port** | string |  `443`  |  -  |  The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`. | 
 | **var.origin_host_header** | string |  -  |  -  |  The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used. | 
 | **var.priority** | string |  `1`  |  -  |  Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`. | 
-| **var.private_link** | block |  -  |  -  |  A `private_link` block. | 
+| **var.private_link** | [block](#private_link-block-structure) |  -  |  -  |  A `private_link` block. | 
 | **var.weight** | int |  `500`  |  -  |  The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`. | 
 
 ### `private_link` block structure

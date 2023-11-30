@@ -2,7 +2,7 @@
 
 Manages a Public IP Prefix.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

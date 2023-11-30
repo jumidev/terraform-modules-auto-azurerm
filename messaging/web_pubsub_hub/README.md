@@ -2,7 +2,7 @@
 
 Manages the hub settings for a Web Pubsub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,8 +35,8 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.anonymous_connections_enabled** | bool |  `False`  |  `true`, `false`  |  Is anonymous connections are allowed for this hub? Defaults to `false`. Possible values are `true`, `false`. | 
-| **var.event_handler** | block |  -  |  -  |  An `event_handler` block. | 
-| **var.event_listener** | block |  -  |  -  |  An `event_listener` block. | 
+| **var.event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
+| **var.event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
 
 ### `event_handler` block structure
 

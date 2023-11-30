@@ -2,7 +2,7 @@
 
 Manages a MS SQL Server DNS Alias.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

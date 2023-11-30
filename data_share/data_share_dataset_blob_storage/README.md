@@ -2,7 +2,7 @@
 
 Manages a Data Share Blob Storage Dataset.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Data Share Blob Storage Dataset. Changing this forces a new Data Share Blob Storage Dataset to be created. | 
 | **var.data_share_id** | string |  The ID of the Data Share in which this Data Share Blob Storage Dataset should be created. Changing this forces a new Data Share Blob Storage Dataset to be created. | 
 | **var.container_name** | string |  The name of the storage account container to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. | 
-| **var.storage_account** | block |  A `storage_account` block. Changing this forces a new resource to be created. | 
+| **var.storage_account** | [block](#storage_account-block-structure) |  A `storage_account` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

@@ -2,7 +2,7 @@
 
 Manages a Media Asset.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

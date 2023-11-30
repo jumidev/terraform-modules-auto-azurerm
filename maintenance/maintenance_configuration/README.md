@@ -2,7 +2,7 @@
 
 Manages a maintenance configuration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,8 +39,8 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.visibility** | string |  `Custom`  |  -  |  The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`. | 
-| **var.window** | block |  -  |  -  |  A `window` block. | 
-| **var.install_patches** | block |  -  |  -  |  An `install_patches` block. | 
+| **var.window** | [block](#window-block-structure) |  -  |  -  |  A `window` block. | 
+| **var.install_patches** | [block](#install_patches-block-structure) |  -  |  -  |  An `install_patches` block. | 
 | **var.in_guest_user_patch_mode** | string |  -  |  `Platform`, `User`  |  The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`. | 
 | **var.properties** | string |  -  |  -  |  A mapping of properties to assign to the resource. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 

@@ -2,7 +2,7 @@
 
 Manages a Kusto / Cosmos Database Data Connection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

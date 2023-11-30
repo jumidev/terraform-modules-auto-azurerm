@@ -2,7 +2,7 @@
 
 Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the AutoScale Setting. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group in the AutoScale Setting should be created. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the AutoScale Setting should exist. Changing this forces a new resource to be created. | 
-| **var.profile** | block |  Specifies one or more (up to 20) `profile` blocks. | 
+| **var.profile** | [block](#profile-block-structure) |  Specifies one or more (up to 20) `profile` blocks. | 
 | **var.target_resource_id** | string |  Specifies the resource ID of the resource that the autoscale setting should be added to. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
@@ -47,8 +47,8 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.enabled** | bool |  `True`  |  Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`. | 
-| **var.notification** | block |  -  |  Specifies a `notification` block. | 
-| **var.predictive** | block |  -  |  A `predictive` block. | 
+| **var.notification** | [block](#notification-block-structure) |  -  |  Specifies a `notification` block. | 
+| **var.predictive** | [block](#predictive-block-structure) |  -  |  A `predictive` block. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `profile` block structure

@@ -2,7 +2,7 @@
 
 Manages a Subscription within a API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

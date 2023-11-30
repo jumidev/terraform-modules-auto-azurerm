@@ -2,7 +2,7 @@
 
 Manages a Storage Mover Job Definition.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

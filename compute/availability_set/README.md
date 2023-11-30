@@ -2,7 +2,7 @@
 
 Manages an Availability Set for Virtual Machines.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

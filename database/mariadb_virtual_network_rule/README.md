@@ -2,7 +2,7 @@
 
 Manages a MariaDB Virtual Network Rule.-> **NOTE:** MariaDB Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Data Share Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
 | **var.location** | string |  The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
-| **var.identity** | block |  An `identity` block. Changing this forces a new resource to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

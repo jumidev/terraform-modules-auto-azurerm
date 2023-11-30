@@ -2,7 +2,7 @@
 
 Manages a Shared Image Gallery.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  A description for this Shared Image Gallery. | 
-| **var.sharing** | block |  A `sharing` block. Changing this forces a new resource to be created. | 
+| **var.sharing** | [block](#sharing-block-structure) |  A `sharing` block. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  A mapping of tags to assign to the Shared Image Gallery. | 
 
 ### `sharing` block structure

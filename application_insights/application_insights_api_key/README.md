@@ -2,7 +2,7 @@
 
 Manages an Application Insights API key.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

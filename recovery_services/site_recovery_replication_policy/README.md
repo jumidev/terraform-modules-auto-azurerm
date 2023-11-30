@@ -2,7 +2,7 @@
 
 Manages a Azure Site Recovery replication policy within a recovery vault. Replication policies define the frequency at which recovery points are created and how long they are stored.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

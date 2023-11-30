@@ -2,7 +2,7 @@
 
 Manages a Custom Action within a Logic App Workflow
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an Threat Intelligence TAXII Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

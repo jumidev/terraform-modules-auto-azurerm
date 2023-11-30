@@ -2,7 +2,7 @@
 
 Manages an API Management Gateway.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created. | 
 | **var.api_management_id** | string |  The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created. | 
-| **var.location_data** | block |  A `location_data` block. | 
+| **var.location_data** | [block](#location_data-block-structure) |  A `location_data` block. | 
 
 ## Optional Variables
 

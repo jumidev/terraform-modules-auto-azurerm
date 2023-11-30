@@ -2,7 +2,7 @@
 
 Manages a ServiceBus Queue.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Log Analytics Linked Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

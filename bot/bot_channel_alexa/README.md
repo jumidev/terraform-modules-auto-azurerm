@@ -2,7 +2,7 @@
 
 Manages an Alexa integration for a Bot Channel~> **Note** A bot can only have a single Alexa Channel associated with it.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

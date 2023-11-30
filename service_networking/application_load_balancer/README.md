@@ -2,7 +2,7 @@
 
 Manages an Application Gateway for Containers (ALB).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

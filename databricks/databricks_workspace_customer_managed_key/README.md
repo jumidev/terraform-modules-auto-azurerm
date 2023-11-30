@@ -2,7 +2,7 @@
 
 Manages a Customer Managed Key for a Databricks Workspace root DBFS!>**IMPORTANT:** This resource has been deprecated and will be removed from the 4.0 Azure provider. Please use the `azurerm_databricks_workspace_root_dbfs_customer_managed_key` resource instead.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

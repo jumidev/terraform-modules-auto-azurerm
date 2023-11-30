@@ -2,7 +2,7 @@
 
 Manages a Azure Database Migration Service.~> **NOTE:** Destroying a Database Migration Service will leave any outstanding tasks untouched. This is to avoid unexpectedly deleting any tasks managed outside of terraform.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

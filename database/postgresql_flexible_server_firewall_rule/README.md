@@ -2,7 +2,7 @@
 
 Manages a PostgreSQL Flexible Server Firewall Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

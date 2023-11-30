@@ -2,7 +2,7 @@
 
 Manages a Automation Runbook.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,12 +44,12 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.publish_content_link** | block |  -  |  One `publish_content_link` block. | 
+| **var.publish_content_link** | [block](#publish_content_link-block-structure) |  -  |  One `publish_content_link` block. | 
 | **var.description** | string |  -  |  A description for this credential. | 
 | **var.content** | string |  -  |  The desired content of the runbook. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 | **var.log_activity_trace_level** | string |  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
-| **var.draft** | block |  -  |  A `draft` block . | 
+| **var.draft** | [block](#draft-block-structure) |  -  |  A `draft` block . | 
 
 ### `publish_content_link` block structure
 

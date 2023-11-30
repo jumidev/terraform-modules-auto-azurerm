@@ -2,7 +2,7 @@
 
 Manages a Automation Python3 Package.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

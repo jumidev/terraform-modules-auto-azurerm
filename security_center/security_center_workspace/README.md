@@ -2,7 +2,7 @@
 
 Manages the subscription's Security Center Workspace.~> **NOTE:** Owner access permission is required.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

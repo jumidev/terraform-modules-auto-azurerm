@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Job Schedule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

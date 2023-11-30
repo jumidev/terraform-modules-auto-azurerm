@@ -2,7 +2,7 @@
 
 Manages a Network Manager Management Group Connection which may cross tenants.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

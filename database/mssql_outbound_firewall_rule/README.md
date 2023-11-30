@@ -2,7 +2,7 @@
 
 Allows you to manage an Azure SQL Outbound Firewall Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

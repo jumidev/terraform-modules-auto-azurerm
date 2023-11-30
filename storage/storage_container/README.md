@@ -2,7 +2,7 @@
 
 Manages a Container within an Azure Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

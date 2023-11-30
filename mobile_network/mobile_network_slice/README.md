@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Slice.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name which should be used for this Mobile Network Slice. Changing this forces a new Mobile Network Slice to be created. | 
 | **var.mobile_network_id** | string |  The ID of Mobile Network which the Mobile Network Slice belongs to. Changing this forces a new Mobile Network Slice to be created. | 
 | **var.location** | string |  Specifies the Azure Region where the Mobile Network Slice should exist. Changing this forces a new Mobile Network Slice to be created. | 
-| **var.single_network_slice_selection_assistance_information** | block |  A `single_network_slice_selection_assistance_information` block. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network. | 
+| **var.single_network_slice_selection_assistance_information** | [block](#single_network_slice_selection_assistance_information-block-structure) |  A `single_network_slice_selection_assistance_information` block. Single-network slice selection assistance information (S-NSSAI). Unique at the scope of a mobile network. | 
 
 ## Optional Variables
 

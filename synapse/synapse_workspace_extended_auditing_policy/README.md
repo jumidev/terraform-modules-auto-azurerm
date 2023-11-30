@@ -2,7 +2,7 @@
 
 Manages a Synapse Workspace Extended Auditing Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

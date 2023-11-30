@@ -2,7 +2,7 @@
 
 Manages a Static Site Custom Domain.!> DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

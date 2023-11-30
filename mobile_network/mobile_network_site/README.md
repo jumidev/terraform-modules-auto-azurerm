@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Site.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Facebook integration for a Bot Channel~> **Note** A bot can only have a single Facebook Channel associated with it.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
 | **var.facebook_application_id** | string |  The Facebook Application ID for the Facebook Channel. | 
 | **var.facebook_application_secret** | string |  The Facebook Application Secret for the Facebook Channel. | 
-| **var.page** | block |  One or more `page` blocks. | 
+| **var.page** | [block](#page-block-structure) |  One or more `page` blocks. | 
 
 ### `page` block structure
 

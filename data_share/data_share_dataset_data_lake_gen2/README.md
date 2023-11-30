@@ -2,7 +2,7 @@
 
 Manages a Data Share Data Lake Gen2 Dataset.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

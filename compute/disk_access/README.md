@@ -2,7 +2,7 @@
 
 Manages a Disk Access.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

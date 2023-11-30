@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

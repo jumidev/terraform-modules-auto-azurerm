@@ -2,7 +2,7 @@
 
 Manages a Logic App Integration Account Batch Configuration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the Resource Group where the Logic App Integration Account Batch Configuration should exist. Changing this forces a new resource to be created. | 
 | **var.integration_account_name** | string |  The name of the Logic App Integration Account. Changing this forces a new resource to be created. | 
 | **var.batch_group_name** | string |  The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created. | 
-| **var.release_criteria** | block |  A `release_criteria` block, which is used to select the criteria to meet before processing each batch. | 
+| **var.release_criteria** | [block](#release_criteria-block-structure) |  A `release_criteria` block, which is used to select the criteria to meet before processing each batch. | 
 
 ## Optional Variables
 

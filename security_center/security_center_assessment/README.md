@@ -2,7 +2,7 @@
 
 Manages the Security Center Assessment for Azure Security Center.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.assessment_policy_id** | string |  The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
 | **var.target_resource_id** | string |  The ID of the target resource. Changing this forces a new security Assessment to be created. | 
-| **var.status** | block |  A `status` block. | 
+| **var.status** | [block](#status-block-structure) |  A `status` block. | 
 
 ## Optional Variables
 

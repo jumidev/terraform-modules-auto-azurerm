@@ -2,7 +2,7 @@
 
 Manages a Automation Hybrid Runbook Worker Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

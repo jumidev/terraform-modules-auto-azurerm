@@ -2,7 +2,7 @@
 
 Manages an Azure HTTP Dataset inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.schema_column** | block |  A `schema_column` block. | 
+| **var.schema_column** | [block](#schema_column-block-structure) |  A `schema_column` block. | 
 | **var.description** | string |  The description for the Data Factory Dataset. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Dataset. | 
 | **var.parameters** | string |  A map of parameters to associate with the Data Factory Dataset. | 

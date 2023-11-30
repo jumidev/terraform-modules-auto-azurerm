@@ -2,7 +2,7 @@
 
 Manages a Monitor Action Rule which type is suppression.!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_monitor_alert_processing_rule_suppression`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_alert_processing_rule_suppression) resource instead.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created. | 
-| **var.suppression** | block |  A `suppression` block. | 
+| **var.suppression** | [block](#suppression-block-structure) |  A `suppression` block. | 
 
 ## Optional Variables
 
@@ -44,8 +44,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.description** | string |  -  |  Specifies a description for the Action Rule. | 
 | **var.enabled** | bool |  `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
-| **var.scope** | block |  -  |  A `scope` block. | 
-| **var.condition** | block |  -  |  A `condition` block. | 
+| **var.scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
+| **var.condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `suppression` block structure

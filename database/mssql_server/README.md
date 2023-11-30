@@ -2,7 +2,7 @@
 
 Manages a Microsoft SQL Azure Database Server.~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.[Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,9 +40,9 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.administrator_login** | string |  -  |  -  |  The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created. | 
 | **var.administrator_login_password** | string |  -  |  -  |  The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. | 
-| **var.azuread_administrator** | block |  -  |  -  |  An `azuread_administrator` block. | 
+| **var.azuread_administrator** | [block](#azuread_administrator-block-structure) |  -  |  -  |  An `azuread_administrator` block. | 
 | **var.connection_policy** | string |  `Default`  |  `Default`, `Proxy`, `Redirect`  |  The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.transparent_data_encryption_key_vault_key_id** | string |  -  |  -  |  The fully versioned `Key Vault` `Key` URL (e.g. `'https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>`) to be used as the `Customer Managed Key`(CMK/BYOK) for the `Transparent Data Encryption`(TDE) layer. | 
 | **var.minimum_tls_version** | string |  `1.2`  |  `1.0`, `1.1`, `1.2`, `Disabled`  |  The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this server. Defaults to `true`. | 

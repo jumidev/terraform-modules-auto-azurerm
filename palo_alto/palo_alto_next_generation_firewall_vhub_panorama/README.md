@@ -2,7 +2,7 @@
 
 Manages a Palo Alto Next Generation Firewall VHub Panorama.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,14 +42,14 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
 | **var.location** | string |  The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
 | **var.panorama_base64_config** | string |  The Base64 Encoded configuration value for connecting to the Panorama Configuration server. | 
-| **var.network_profile** | block |  A `network_profile` block. | 
+| **var.network_profile** | [block](#network_profile-block-structure) |  A `network_profile` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.destination_nat** | block |  One or more `destination_nat` blocks. | 
-| **var.dns_settings** | block |  A `dns_settings` block. | 
+| **var.destination_nat** | [block](#destination_nat-block-structure) |  One or more `destination_nat` blocks. | 
+| **var.dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama. | 
 
 ### `network_profile` block structure

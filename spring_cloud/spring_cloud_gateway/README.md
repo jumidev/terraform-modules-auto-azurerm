@@ -2,7 +2,7 @@
 
 -> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.Manages a Spring Cloud Gateway.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,17 +34,17 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.api_metadata** | block |  -  |  -  |  A `api_metadata` block. | 
+| **var.api_metadata** | [block](#api_metadata-block-structure) |  -  |  -  |  A `api_metadata` block. | 
 | **var.application_performance_monitoring_types** | string |  -  |  `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM`, `NewRelic`  |  Specifies a list of application performance monitoring types used in the Spring Cloud Gateway. The allowed values are `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`. | 
-| **var.client_authorization** | block |  -  |  -  |  A `client_authorization` block. | 
-| **var.cors** | block |  -  |  -  |  A `cors` block. | 
+| **var.client_authorization** | [block](#client_authorization-block-structure) |  -  |  -  |  A `client_authorization` block. | 
+| **var.cors** | [block](#cors-block-structure) |  -  |  -  |  A `cors` block. | 
 | **var.environment_variables** | string |  -  |  -  |  Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **var.https_only** | string |  -  |  -  |  is only https is allowed? | 
 | **var.instance_count** | int |  `1`  |  -  |  Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **var.public_network_access_enabled** | bool |  -  |  -  |  Indicates whether the Spring Cloud Gateway exposes endpoint. | 
-| **var.quota** | block |  -  |  -  |  A `quota` block. | 
+| **var.quota** | [block](#quota-block-structure) |  -  |  -  |  A `quota` block. | 
 | **var.sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
-| **var.sso** | block |  -  |  -  |  A `sso` block. | 
+| **var.sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 
 ### `api_metadata` block structure
 

@@ -2,7 +2,7 @@
 
 Manages an API Management Named Value.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.value** | string |  -  |  The value of this API Management Named Value. | 
-| **var.value_from_key_vault** | block |  -  |  A `value_from_key_vault` block. | 
+| **var.value_from_key_vault** | [block](#value_from_key_vault-block-structure) |  -  |  A `value_from_key_vault` block. | 
 | **var.secret** | string |  `true`, `false`  |  Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`. | 
 | **var.tags** | map |  -  |  A list of tags to be applied to the API Management Named Value. | 
 

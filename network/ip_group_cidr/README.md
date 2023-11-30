@@ -2,7 +2,7 @@
 
 Manages IP Group CIDR records.~> Warning Do not use this resource at the same time as the `cidrs` property of the`azurerm_ip_group` resource for the same IP Group. Doing so will cause a conflict andCIDRS will be removed.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

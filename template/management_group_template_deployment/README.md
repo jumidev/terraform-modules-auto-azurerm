@@ -2,7 +2,7 @@
 
 Manages a Template Deployment at a Management Group Scope.~> **Note:** Deleting a Deployment at the Management Group Scope will not delete any resources created by the deployment.~> **Note:** Deployments to a Management Group are always Incrementally applied. Existing resources that are not part of the template will not be removed.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an App Service Static Site.->**NOTE:** After the Static Site is provisioned, you'll need to associate your target repository, which contains your web app, to the Static Site, by following the [Azure Static Site document](https://docs.microsoft.com/azure/static-web-apps/github-actions-workflow).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.sku_tier** | string |  `Free`  |  `Free`, `Standard`  |  Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
 | **var.sku_size** | string |  `Free`  |  `Free`, `Standard`  |  Specifies the SKU size of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.app_settings** | string |  -  |  -  |  A key-value pair of App Settings. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 

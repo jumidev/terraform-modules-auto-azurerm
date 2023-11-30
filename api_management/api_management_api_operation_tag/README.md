@@ -2,7 +2,7 @@
 
 Manages a API Management API Operation Tag.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

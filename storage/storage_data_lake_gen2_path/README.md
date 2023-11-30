@@ -2,7 +2,7 @@
 
 Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.~> **NOTE:** This resource requires some `Storage` specific roles which are not granted by default. Some of the built-ins roles that can be attributed are [`Storage Account Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor), [`Storage Blob Data Owner`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner), [`Storage Blob Data Contributor`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor), [`Storage Blob Data Reader`](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.owner** | string |  `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user. Possible values also include `$superuser`. | 
 | **var.group** | string |  `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group. Possible values also include `$superuser`. | 
-| **var.ace** | block |  -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
+| **var.ace** | [block](#ace-block-structure) |  -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
 
 ### `ace` block structure
 

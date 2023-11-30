@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.~> **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,8 +44,8 @@ tfstate_store = {
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database. | 
 | **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service Azure SQL Database. | 
 | **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database. | 
-| **var.key_vault_connection_string** | block |  A `key_vault_connection_string` block. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
-| **var.key_vault_password** | block |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
+| **var.key_vault_connection_string** | [block](#key_vault_connection_string-block-structure) |  A `key_vault_connection_string` block. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
+| **var.key_vault_password** | [block](#key_vault_password-block-structure) |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
 
 ### `key_vault_connection_string` block structure
 

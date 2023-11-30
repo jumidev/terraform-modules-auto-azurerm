@@ -2,7 +2,7 @@
 
 Manages a File Share within Azure Storage.~> **Note:** The storage share supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. For further information, refer to the section "What storage tiers are supported in Azure Files?" of [documentation](https://docs.microsoft.com/azure/storage/files/storage-files-faq#general).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.access_tier** | string |  -  |  `Hot`, `Cool`, `TransactionOptimized`, `Premium`  |  The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`. | 
-| **var.acl** | block |  -  |  -  |  One or more `acl` blocks. | 
+| **var.acl** | [block](#acl-block-structure) |  -  |  -  |  One or more `acl` blocks. | 
 | **var.enabled_protocol** | string |  `SMB`  |  `SMB`, `NFS`  |  The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created. | 
 | **var.metadata** | string |  -  |  -  |  A mapping of MetaData for this File Share. | 
 

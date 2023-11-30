@@ -2,7 +2,7 @@
 
 Manages an Extension for a Virtual Machine Scale Set.~> **NOTE:** This resource is not intended to be used with the `azurerm_virtual_machine_scale_set` resource - instead it's intended for this to be used with the `azurerm_linux_virtual_machine_scale_set` and `azurerm_windows_virtual_machine_scale_set` resources.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,7 +45,7 @@ tfstate_store = {
 | **var.failure_suppression_enabled** | bool |  `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
 | **var.force_update_tag** | string |  -  |  -  |  A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. | 
 | **var.protected_settings** | string |  -  |  -  |  A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. | 
-| **var.protected_settings_from_key_vault** | block |  -  |  -  |  A `protected_settings_from_key_vault` block. | 
+| **var.protected_settings_from_key_vault** | [block](#protected_settings_from_key_vault-block-structure) |  -  |  -  |  A `protected_settings_from_key_vault` block. | 
 | **var.provision_after_extensions** | string |  -  |  -  |  An ordered list of Extension names which this should be provisioned after. | 
 | **var.settings** | string |  -  |  -  |  A JSON String which specifies Settings for the Extension. | 
 

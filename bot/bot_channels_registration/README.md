@@ -2,7 +2,7 @@
 
 Manages a Bot Channels Registration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

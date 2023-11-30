@@ -2,7 +2,7 @@
 
 Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `action`, Logic Apps, Log Analytics and Event Hubs
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,8 +48,8 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Security Center Automation. Changing this forces a new Security Center Automation to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Security Center Automation should exist. Changing this forces a new Security Center Automation to be created. | 
 | **var.scopes** | list |  A list of scopes on which the automation logic is applied, at least one is required. Supported scopes are a subscription (in this format `/subscriptions/00000000-0000-0000-0000-000000000000`) or a resource group under that subscription (in the format `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example`). The automation will only apply on defined scopes. | 
-| **var.source** | block |  One or more `source` blocks. A `source` defines what data types will be processed and a set of rules to filter that data. | 
-| **var.action** | block |  One or more `action` blocks. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`. | 
+| **var.source** | [block](#source-block-structure) |  One or more `source` blocks. A `source` defines what data types will be processed and a set of rules to filter that data. | 
+| **var.action** | [block](#action-block-structure) |  One or more `action` blocks. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`. | 
 
 ## Optional Variables
 

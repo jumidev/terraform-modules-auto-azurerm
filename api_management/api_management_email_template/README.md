@@ -2,7 +2,7 @@
 
 Manages a API Management Email Template.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

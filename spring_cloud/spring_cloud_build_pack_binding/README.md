@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud Build Pack Binding.-> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.binding_type** | string |  `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM`, `NewRelic`  |  Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`. | 
-| **var.launch** | block |  -  |  A `launch` block. | 
+| **var.launch** | [block](#launch-block-structure) |  -  |  A `launch` block. | 
 
 ### `launch` block structure
 

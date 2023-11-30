@@ -2,7 +2,7 @@
 
 Manages a Lab Service User.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

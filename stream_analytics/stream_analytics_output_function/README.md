@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Output Function.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

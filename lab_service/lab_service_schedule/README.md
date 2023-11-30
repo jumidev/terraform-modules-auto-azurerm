@@ -2,7 +2,7 @@
 
 Manages a Lab Service Schedule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.notes** | string |  The notes for the Schedule. | 
-| **var.recurrence** | block |  A `recurrence` block. | 
+| **var.recurrence** | [block](#recurrence-block-structure) |  A `recurrence` block. | 
 | **var.start_time** | string |  When Lab User Virtual Machines will be started in RFC-3339 format. | 
 
 ### `recurrence` block structure

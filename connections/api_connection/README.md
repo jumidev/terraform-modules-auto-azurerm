@@ -2,7 +2,7 @@
 
 Manages an API Connection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

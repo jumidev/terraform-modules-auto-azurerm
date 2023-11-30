@@ -2,7 +2,7 @@
 
 Manages a Network Manager Security Admin Configuration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

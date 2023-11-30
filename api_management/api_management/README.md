@@ -2,7 +2,7 @@
 
 Manages an API Management Service.## Disclaimers-> When creating a new API Management resource in version 3.0 of the AzureRM Provider and later, please be aware that the AzureRM Provider will now clean up any sample APIs and Products created by the Azure API during the creation of the API Management resource.-> **Note:** Version 2.77 and later of the Azure Provider include a Feature Toggle which will purge an API Management resource on destroy, rather than the default soft-delete. See [the Features block documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) for more information on Feature Toggles within Terraform.~> **Note:** It's possible to define Custom Domains both within [the `azurerm_api_management` resource](api_management.html) via the `hostname_configurations` block and by using [the `azurerm_api_management_custom_domain` resource](api_management_custom_domain.html). However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there'll be conflicts.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,26 +42,26 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.additional_location** | block |  -  |  -  |  One or more `additional_location` blocks. | 
+| **var.additional_location** | [block](#additional_location-block-structure) |  -  |  -  |  One or more `additional_location` blocks. | 
 | **var.certificate** | list |  -  |  -  |  One or more `certificate` blocks (up to 10) as defined below. | 
 | **var.client_certificate_enabled** | bool |  -  |  -  |  Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is `Consumption`. | 
-| **var.delegation** | block |  -  |  -  |  A `delegation` block. | 
+| **var.delegation** | [block](#delegation-block-structure) |  -  |  -  |  A `delegation` block. | 
 | **var.gateway_disabled** | bool |  -  |  -  |  Disable the gateway in main region? This is only supported when `additional_location` is set. | 
 | **var.min_api_version** | string |  -  |  -  |  The version which the control plane API calls to API Management service are limited with version equal to or newer than. | 
 | **var.zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
-| **var.hostname_configuration** | block |  -  |  -  |  A `hostname_configuration` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **var.hostname_configuration** | [block](#hostname_configuration-block-structure) |  -  |  -  |  A `hostname_configuration` block. | 
 | **var.notification_sender_email** | string |  -  |  -  |  Email address from which the notification will be sent. | 
-| **var.policy** | block |  -  |  -  |  A `policy` block. | 
-| **var.protocols** | block |  -  |  -  |  A `protocols` block. | 
-| **var.security** | block |  -  |  -  |  A `security` block. | 
-| **var.sign_in** | block |  -  |  -  |  A `sign_in` block. | 
-| **var.sign_up** | block |  -  |  -  |  A `sign_up` block. | 
-| **var.tenant_access** | block |  -  |  -  |  A `tenant_access` block. | 
+| **var.policy** | [block](#policy-block-structure) |  -  |  -  |  A `policy` block. | 
+| **var.protocols** | [block](#protocols-block-structure) |  -  |  -  |  A `protocols` block. | 
+| **var.security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
+| **var.sign_in** | [block](#sign_in-block-structure) |  -  |  -  |  A `sign_in` block. | 
+| **var.sign_up** | [block](#sign_up-block-structure) |  -  |  -  |  A `sign_up` block. | 
+| **var.tenant_access** | [block](#tenant_access-block-structure) |  -  |  -  |  A `tenant_access` block. | 
 | **var.public_ip_address_id** | string |  -  |  -  |  ID of a standard SKU IPv4 Public IP. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Is public access to the service allowed? Defaults to `true`. | 
 | **var.virtual_network_type** | string |  `None`  |  `None`, `External`, `Internal`  |  The type of virtual network you want to use, valid values include: `None`, `External`, `Internal`. Defaults to `None`. | 
-| **var.virtual_network_configuration** | block |  -  |  -  |  A `virtual_network_configuration` block. Required when `virtual_network_type` is `External` or `Internal`. | 
+| **var.virtual_network_configuration** | [block](#virtual_network_configuration-block-structure) |  -  |  -  |  A `virtual_network_configuration` block. Required when `virtual_network_type` is `External` or `Internal`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
 ### `additional_location` block structure

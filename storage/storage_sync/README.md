@@ -2,7 +2,7 @@
 
 Manages a Storage Sync.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a PowerBI Embedded.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

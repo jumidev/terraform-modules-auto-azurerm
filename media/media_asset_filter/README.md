@@ -2,7 +2,7 @@
 
 Manages an Azure Media Asset Filter.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,8 +35,8 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.first_quality_bitrate** | string |  The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning. | 
-| **var.presentation_time_range** | block |  A `presentation_time_range` block. | 
-| **var.track_selection** | block |  One or more `track_selection` blocks. | 
+| **var.presentation_time_range** | [block](#presentation_time_range-block-structure) |  A `presentation_time_range` block. | 
+| **var.track_selection** | [block](#track_selection-block-structure) |  One or more `track_selection` blocks. | 
 
 ### `presentation_time_range` block structure
 

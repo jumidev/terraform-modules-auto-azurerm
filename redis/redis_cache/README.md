@@ -2,7 +2,7 @@
 
 Manages a Redis Cache.-> **Note:** Redis version 4 is being retired and no longer supports creating new instances. Version 4 will be removed in a future release. [Redis Version 4 Retirement](https://learn.microsoft.com/azure/azure-cache-for-redis/cache-retired-features#important-upgrade-timelines)
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,12 +43,12 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.enable_non_ssl_port** | bool |  -  |  -  |  Enable the non-SSL port (6379) - disabled by default. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.minimum_tls_version** | string |  `1.0`  |  `1.0`, `1.1`, `1.2`  |  The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`. | 
-| **var.patch_schedule** | block |  -  |  -  |  A list of `patch_schedule` blocks. | 
+| **var.patch_schedule** | [block](#patch_schedule-block-structure) |  -  |  -  |  A list of `patch_schedule` blocks. | 
 | **var.private_static_ip_address** | string |  -  |  -  |  The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`. | 
-| **var.redis_configuration** | block |  -  |  -  |  A `redis_configuration` block - with some limitations by SKU - defaults/details are shown below. | 
+| **var.redis_configuration** | [block](#redis_configuration-block-structure) |  -  |  -  |  A `redis_configuration` block - with some limitations by SKU - defaults/details are shown below. | 
 | **var.replicas_per_master** | int |  -  |  -  |  Amount of replicas to create per master for this Redis Cache. | 
 | **var.replicas_per_primary** | int |  -  |  -  |  Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal. | 
 | **var.redis_version** | string |  -  |  `4`, `6`  |  Redis version. Only major version needed. Valid values: `4`, `6`. | 

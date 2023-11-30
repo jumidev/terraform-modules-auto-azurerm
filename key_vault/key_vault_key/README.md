@@ -2,7 +2,7 @@
 
 Manages a Key Vault Key.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | **var.not_before_date** | datetime |  -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
 | **var.expiration_date** | datetime |  -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.rotation_policy** | block |  -  |  -  |  A `rotation_policy` block. | 
+| **var.rotation_policy** | [block](#rotation_policy-block-structure) |  -  |  -  |  A `rotation_policy` block. | 
 
 ### `rotation_policy` block structure
 

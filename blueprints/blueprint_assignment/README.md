@@ -2,7 +2,7 @@
 
 Manages a Blueprint Assignment resource~> **NOTE:** Azure Blueprints are in Preview and potentially subject to breaking change without notice.~> **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by Terraform.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the Blueprint Assignment. Changing this forces a new resource to be created. | 
 | **var.target_subscription_id** | string |  The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The Azure location of the Assignment. Changing this forces a new resource to be created. | 
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 | **var.version_id** | string |  The ID of the Published Version of the blueprint to be assigned. | 
 
 ## Optional Variables

@@ -2,7 +2,7 @@
 
 Manages a Firewall Policy Rule Collection Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,9 +36,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.application_rule_collection** | block |  One or more `application_rule_collection` blocks. | 
-| **var.nat_rule_collection** | block |  One or more `nat_rule_collection` blocks. | 
-| **var.network_rule_collection** | block |  One or more `network_rule_collection` blocks. | 
+| **var.application_rule_collection** | [block](#application_rule_collection-block-structure) |  One or more `application_rule_collection` blocks. | 
+| **var.nat_rule_collection** | [block](#nat_rule_collection-block-structure) |  One or more `nat_rule_collection` blocks. | 
+| **var.network_rule_collection** | [block](#network_rule_collection-block-structure) |  One or more `network_rule_collection` blocks. | 
 
 ### `application_rule_collection` block structure
 

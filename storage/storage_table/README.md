@@ -2,7 +2,7 @@
 
 Manages a Table within an Azure Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.acl** | block |  One or more `acl` blocks. | 
+| **var.acl** | [block](#acl-block-structure) |  One or more `acl` blocks. | 
 
 ### `acl` block structure
 

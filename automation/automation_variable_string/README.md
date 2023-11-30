@@ -2,7 +2,7 @@
 
 Manages a string variable in Azure Automation
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

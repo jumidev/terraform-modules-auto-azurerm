@@ -2,7 +2,7 @@
 
 Manages a Kusto Script.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

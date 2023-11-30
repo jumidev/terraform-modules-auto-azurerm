@@ -2,7 +2,7 @@
 
 Manages an Certificate within an API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

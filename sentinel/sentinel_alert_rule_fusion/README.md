@@ -2,7 +2,7 @@
 
 Manages a Sentinel Fusion Alert Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.enabled** | bool |  `True`  |  Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`. | 
-| **var.source** | block |  -  |  One or more `source` blocks. | 
+| **var.source** | [block](#source-block-structure) |  -  |  One or more `source` blocks. | 
 
 ### `source` block structure
 

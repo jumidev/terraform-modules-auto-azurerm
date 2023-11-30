@@ -2,7 +2,7 @@
 
 Manages a Sentinel MS Security Incident Alert Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

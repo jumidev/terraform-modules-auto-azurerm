@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Output powerBI.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

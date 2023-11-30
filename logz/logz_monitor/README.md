@@ -2,7 +2,7 @@
 
 Manages a logz Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -50,8 +50,8 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
 | **var.location** | string |  The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
-| **var.plan** | block |  A `plan` block. Changing this forces a new resource to be created. | 
-| **var.user** | block |  A `user` block. Changing this forces a new resource to be created. | 
+| **var.plan** | [block](#plan-block-structure) |  A `plan` block. Changing this forces a new resource to be created. | 
+| **var.user** | [block](#user-block-structure) |  A `user` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

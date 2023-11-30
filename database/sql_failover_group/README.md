@@ -2,7 +2,7 @@
 
 Create a failover group of databases on a collection of Azure SQL servers.-> **Note:** The `azurerm_sql_failover_group` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the [`azurerm_mssql_failover_group`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_failover_group) resource instead.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,15 +44,15 @@ tfstate_store = {
 | **var.name** | string |  The name of the failover group. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
 | **var.server_name** | string |  The name of the primary SQL server. Changing this forces a new resource to be created. | 
-| **var.partner_servers** | block |  A list of `partner_servers` blocks. | 
-| **var.read_write_endpoint_failover_policy** | block |  A `read_write_endpoint_failover_policy` block. | 
+| **var.partner_servers** | [block](#partner_servers-block-structure) |  A list of `partner_servers` blocks. | 
+| **var.read_write_endpoint_failover_policy** | [block](#read_write_endpoint_failover_policy-block-structure) |  A `read_write_endpoint_failover_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.databases** | list |  A list of database ids to add to the failover group | 
-| **var.readonly_endpoint_failover_policy** | block |  A `readonly_endpoint_failover_policy` block. | 
+| **var.readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `partner_servers` block structure

@@ -2,7 +2,7 @@
 
 Manages a Logic App Workflow.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,8 +36,8 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.access_control** | block |  -  |  A `access_control` block. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.access_control** | [block](#access_control-block-structure) |  -  |  A `access_control` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.integration_service_environment_id** | string |  -  |  The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created. | 
 | **var.logic_app_integration_account_id** | string |  -  |  The ID of the integration account linked by this Logic App Workflow. | 
 | **var.enabled** | bool |  `True`  |  Is the Logic App Workflow enabled? Defaults to `true`. | 

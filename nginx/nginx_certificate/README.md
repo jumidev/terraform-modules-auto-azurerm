@@ -2,7 +2,7 @@
 
 Manages a Certificate for an NGinx Deployment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an Azure Custom Provider.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,9 +36,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_type** | block |  Any number of `resource_type` block. One of `resource_type` or `action` must be specified. | 
-| **var.action** | block |  Any number of `action` block. One of `resource_type` or `action` must be specified. | 
-| **var.validation** | block |  Any number of `validation` block. | 
+| **var.resource_type** | [block](#resource_type-block-structure) |  Any number of `resource_type` block. One of `resource_type` or `action` must be specified. | 
+| **var.action** | [block](#action-block-structure) |  Any number of `action` block. One of `resource_type` or `action` must be specified. | 
+| **var.validation** | [block](#validation-block-structure) |  Any number of `validation` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
 ### `resource_type` block structure

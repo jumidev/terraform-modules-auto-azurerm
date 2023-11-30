@@ -2,7 +2,7 @@
 
 Manages a Virtual Hub Routing Intent.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created. | 
 | **var.virtual_hub_id** | string |  The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
-| **var.routing_policy** | block |  One or more `routing_policy` blocks. | 
+| **var.routing_policy** | [block](#routing_policy-block-structure) |  One or more `routing_policy` blocks. | 
 
 ### `routing_policy` block structure
 

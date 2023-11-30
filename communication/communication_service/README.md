@@ -2,7 +2,7 @@
 
 Manages a Communication Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

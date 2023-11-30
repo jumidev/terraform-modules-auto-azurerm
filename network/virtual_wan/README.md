@@ -2,7 +2,7 @@
 
 Manages a Virtual WAN.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

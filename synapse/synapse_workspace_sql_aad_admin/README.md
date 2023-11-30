@@ -2,7 +2,7 @@
 
 Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

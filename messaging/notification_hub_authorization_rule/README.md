@@ -2,7 +2,7 @@
 
 Manages an Authorization Rule associated with a Notification Hub within a Notification Hub Namespace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

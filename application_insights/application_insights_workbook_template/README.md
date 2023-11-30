@@ -2,7 +2,7 @@
 
 Manages an Application Insights Workbook Template.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  Specifies the name which should be used for this Application Insights Workbook Template. Changing this forces a new Application Insights Workbook Template to be created. | 
 | **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created. | 
-| **var.galleries** | block |  A `galleries` block. | 
+| **var.galleries** | [block](#galleries-block-structure) |  A `galleries` block. | 
 | **var.location** | string |  Specifies the Azure Region where the Application Insights Workbook Template should exist. Changing this forces a new Application Insights Workbook Template to be created. | 
 | **var.template_data** | string |  Valid JSON object containing workbook template payload. | 
 

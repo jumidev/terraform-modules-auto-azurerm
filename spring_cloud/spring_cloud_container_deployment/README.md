@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud Container Deployment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,7 +45,7 @@ tfstate_store = {
 | **var.environment_variables** | string |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
 | **var.instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **var.language_framework** | string |  -  |  Specifies the language framework of the container image. The only possible value is `springboot`. | 
-| **var.quota** | block |  -  |  A `quota` block. | 
+| **var.quota** | [block](#quota-block-structure) |  -  |  A `quota` block. | 
 
 ### `quota` block structure
 

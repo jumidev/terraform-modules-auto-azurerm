@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between a resource and Azure Data Factory. This is a generic resource that supports all different Linked Service Types.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,7 +41,7 @@ tfstate_store = {
 | **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service. | 
 | **var.description** | string |  The description for the Data Factory Linked Service. | 
-| **var.integration_runtime** | block |  An `integration_runtime` block. | 
+| **var.integration_runtime** | [block](#integration_runtime-block-structure) |  An `integration_runtime` block. | 
 | **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service. | 
 
 ### `integration_runtime` block structure

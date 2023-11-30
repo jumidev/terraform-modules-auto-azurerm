@@ -2,7 +2,7 @@
 
 Manages a Private DNS Resolver Virtual Network Link.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

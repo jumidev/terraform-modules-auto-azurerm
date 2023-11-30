@@ -2,7 +2,7 @@
 
 Manages a Cognitive Services Account Deployment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,8 +44,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  The name of the Cognitive Services Account Deployment. Changing this forces a new resource to be created. | 
 | **var.cognitive_account_id** | string |  The ID of the Cognitive Services Account. Changing this forces a new resource to be created. | 
-| **var.model** | block |  A `model` block. Changing this forces a new resource to be created. | 
-| **var.scale** | block |  A `scale` block. | 
+| **var.model** | [block](#model-block-structure) |  A `model` block. Changing this forces a new resource to be created. | 
+| **var.scale** | [block](#scale-block-structure) |  A `scale` block. | 
 
 ## Optional Variables
 

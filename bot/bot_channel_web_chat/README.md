@@ -2,7 +2,7 @@
 
 Manages a Web Chat integration for a Bot Channel
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.site_names** | list |  A list of Web Chat Site names. | 
-| **var.site** | block |  A site represents a client application that you want to connect to your bot. One or more `site` blocks. | 
+| **var.site** | [block](#site-block-structure) |  A site represents a client application that you want to connect to your bot. One or more `site` blocks. | 
 
 ### `site` block structure
 

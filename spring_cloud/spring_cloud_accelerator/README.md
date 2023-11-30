@@ -2,7 +2,7 @@
 
 -> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.Manages a Spring Cloud Accelerator.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

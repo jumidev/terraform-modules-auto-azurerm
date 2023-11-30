@@ -2,7 +2,7 @@
 
 Manages a PostgreSQL Database within a PostgreSQL Server
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

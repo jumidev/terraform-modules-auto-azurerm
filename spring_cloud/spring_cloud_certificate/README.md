@@ -2,7 +2,7 @@
 
 Manages an Azure Spring Cloud Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Trigger Schedule inside a Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,14 +35,14 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.description** | string |  -  |  -  |  The Schedule Trigger's description. | 
-| **var.schedule** | block |  -  |  -  |  A `schedule` block, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties. | 
+| **var.schedule** | [block](#schedule-block-structure) |  -  |  -  |  A `schedule` block, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties. | 
 | **var.start_time** | string |  -  |  -  |  The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. | 
 | **var.time_zone** | string |  -  |  -  |  The timezone of the start/end time. | 
 | **var.end_time** | string |  -  |  -  |  The time the Schedule Trigger should end. The time will be represented in UTC. | 
 | **var.interval** | string |  `1`  |  -  |  The interval for how often the trigger occurs. This defaults to `1`. | 
 | **var.frequency** | string |  `Minute`  |  `Minute`, `Hour`, `Day`, `Week`, `Month`  |  The trigger frequency. Valid values include `Minute`, `Hour`, `Day`, `Week`, `Month`. Defaults to `Minute`. | 
 | **var.activated** | bool |  `True`  |  -  |  Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`. | 
-| **var.pipeline** | block |  -  |  -  |  A `pipeline` block. | 
+| **var.pipeline** | [block](#pipeline-block-structure) |  -  |  -  |  A `pipeline` block. | 
 | **var.pipeline_name** | string |  -  |  -  |  The Data Factory Pipeline name that the trigger will act on. | 
 | **var.pipeline_parameters** | string |  -  |  -  |  The pipeline parameters that the trigger will act upon. | 
 | **var.annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Schedule Trigger. | 

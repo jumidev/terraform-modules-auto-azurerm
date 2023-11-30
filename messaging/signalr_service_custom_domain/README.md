@@ -2,7 +2,7 @@
 
 Manages an Azure SignalR Custom Domain.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

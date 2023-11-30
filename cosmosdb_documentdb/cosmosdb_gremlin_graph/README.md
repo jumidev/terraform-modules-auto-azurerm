@@ -2,7 +2,7 @@
 
 Manages a Gremlin Graph within a Cosmos DB Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,10 +44,10 @@ tfstate_store = {
 | **var.throughput** | string |  -  |  The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 | **var.analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire. | 
 | **var.default_ttl** | string |  -  |  The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire. | 
-| **var.autoscale_settings** | block |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
-| **var.index_policy** | block |  -  |  The configuration of the indexing policy. One or more `index_policy` blocks. | 
-| **var.conflict_resolution_policy** | block |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
-| **var.unique_key** | block |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
+| **var.autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
+| **var.index_policy** | [block](#index_policy-block-structure) |  -  |  The configuration of the indexing policy. One or more `index_policy` blocks. | 
+| **var.conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
+| **var.unique_key** | [block](#unique_key-block-structure) |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
 
 ### `autoscale_settings` block structure
 

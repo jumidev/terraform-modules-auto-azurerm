@@ -2,7 +2,7 @@
 
 Manages a Managed Private Endpoint for a Kusto Cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

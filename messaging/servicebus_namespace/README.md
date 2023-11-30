@@ -2,7 +2,7 @@
 
 Manages a ServiceBus Namespace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,14 +38,14 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.capacity** | string |  -  |  -  |  Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only. | 
-| **var.customer_managed_key** | block |  -  |  -  |  An `customer_managed_key` block. | 
+| **var.customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  -  |  An `customer_managed_key` block. | 
 | **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the Service Bus Namespace? Defaults to `true`. | 
 | **var.minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this Service Bus Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
 | **var.zone_redundant** | string |  -  |  -  |  Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created. | 
-| **var.network_rule_set** | block |  -  |  -  |  An `network_rule_set` block. | 
+| **var.network_rule_set** | [block](#network_rule_set-block-structure) |  -  |  -  |  An `network_rule_set` block. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure

@@ -2,7 +2,7 @@
 
 Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

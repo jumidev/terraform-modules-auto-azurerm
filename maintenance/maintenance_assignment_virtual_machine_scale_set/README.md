@@ -2,7 +2,7 @@
 
 Manages a maintenance assignment to a virtual machine scale set.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

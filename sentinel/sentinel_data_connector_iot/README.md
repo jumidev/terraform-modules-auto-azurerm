@@ -2,7 +2,7 @@
 
 Manages an Iot Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Databox Edge Device.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

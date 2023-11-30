@@ -2,7 +2,7 @@
 
 Manages a ServiceBus Namespace authorization Rule within a ServiceBus.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

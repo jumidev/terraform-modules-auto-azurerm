@@ -2,7 +2,7 @@
 
 Manages a Service Fabric Cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,7 +47,7 @@ tfstate_store = {
 | **var.location** | string |  -  |  Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created. | 
 | **var.reliability_level** | string |  `None`, `Bronze`, `Silver`, `Gold`, `Platinum`  |  Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`. | 
 | **var.management_endpoint** | string |  -  |  Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created. | 
-| **var.node_type** | block |  -  |  One or more `node_type` blocks. | 
+| **var.node_type** | [block](#node_type-block-structure) |  -  |  One or more `node_type` blocks. | 
 | **var.upgrade_mode** | string |  `Automatic`, `Manual`  |  Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`. | 
 | **var.vm_image** | string |  -  |  Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created. | 
 
@@ -57,16 +57,16 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.cluster_code_version** | string |  -  |  Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster. | 
 | **var.add_on_features** | list |  -  |  A List of one or more features which should be enabled, such as `DnsService`. | 
-| **var.azure_active_directory** | block |  -  |  An `azure_active_directory` block. | 
-| **var.certificate_common_names** | block |  -  |  A `certificate_common_names` block. Conflicts with `certificate`. | 
-| **var.certificate** | block |  -  |  A `certificate` block. Conflicts with `certificate_common_names`. | 
-| **var.reverse_proxy_certificate** | block |  -  |  A `reverse_proxy_certificate` block. Conflicts with `reverse_proxy_certificate_common_names`. | 
-| **var.reverse_proxy_certificate_common_names** | block |  -  |  A `reverse_proxy_certificate_common_names` block. Conflicts with `reverse_proxy_certificate`. | 
-| **var.client_certificate_thumbprint** | block |  -  |  One or more `client_certificate_thumbprint` blocks. | 
-| **var.client_certificate_common_name** | block |  -  |  A `client_certificate_common_name` block. | 
-| **var.diagnostics_config** | block |  -  |  A `diagnostics_config` block. | 
-| **var.fabric_settings** | block |  -  |  One or more `fabric_settings` blocks. | 
-| **var.upgrade_policy** | block |  -  |  A `upgrade_policy` block. | 
+| **var.azure_active_directory** | [block](#azure_active_directory-block-structure) |  -  |  An `azure_active_directory` block. | 
+| **var.certificate_common_names** | [block](#certificate_common_names-block-structure) |  -  |  A `certificate_common_names` block. Conflicts with `certificate`. | 
+| **var.certificate** | [block](#certificate-block-structure) |  -  |  A `certificate` block. Conflicts with `certificate_common_names`. | 
+| **var.reverse_proxy_certificate** | [block](#reverse_proxy_certificate-block-structure) |  -  |  A `reverse_proxy_certificate` block. Conflicts with `reverse_proxy_certificate_common_names`. | 
+| **var.reverse_proxy_certificate_common_names** | [block](#reverse_proxy_certificate_common_names-block-structure) |  -  |  A `reverse_proxy_certificate_common_names` block. Conflicts with `reverse_proxy_certificate`. | 
+| **var.client_certificate_thumbprint** | [block](#client_certificate_thumbprint-block-structure) |  -  |  One or more `client_certificate_thumbprint` blocks. | 
+| **var.client_certificate_common_name** | [block](#client_certificate_common_name-block-structure) |  -  |  A `client_certificate_common_name` block. | 
+| **var.diagnostics_config** | [block](#diagnostics_config-block-structure) |  -  |  A `diagnostics_config` block. | 
+| **var.fabric_settings** | [block](#fabric_settings-block-structure) |  -  |  One or more `fabric_settings` blocks. | 
+| **var.upgrade_policy** | [block](#upgrade_policy-block-structure) |  -  |  A `upgrade_policy` block. | 
 | **var.service_fabric_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`. | 
 | **var.vmss_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 

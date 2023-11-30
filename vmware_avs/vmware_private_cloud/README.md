@@ -2,7 +2,7 @@
 
 Manages a VMware Private Cloud.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.name** | string |  -  |  The name which should be used for this VMware Private Cloud. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.resource_group_name** | string |  -  |  The name of the Resource Group where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.location** | string |  -  |  The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created. | 
-| **var.management_cluster** | block |  -  |  A `management_cluster` block. ~> **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time. | 
+| **var.management_cluster** | [block](#management_cluster-block-structure) |  -  |  A `management_cluster` block. ~> **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time. | 
 | **var.network_subnet_cidr** | string |  -  |  The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created. | 
 | **var.sku_name** | string |  `av20`, `av36`, `av36t`, `av36p`, `av52`  |  The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created. | 
 

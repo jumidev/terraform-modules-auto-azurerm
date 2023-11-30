@@ -2,7 +2,7 @@
 
 Manages a Application Volume Group for SAP HANA application.>Note: This feature is intended to be used for SAP-HANA workloads only, with several requirements, please refer to [Understand Azure NetApp Files application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-introduction) document as the starting point to understand this feature before using it with Terraform.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -55,7 +55,7 @@ tfstate_store = {
 | **var.location** | string |  The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **var.name** | string |  The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.volume** | block |  One or more `volume` blocks. | 
+| **var.volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
 ### `volume` block structure
 

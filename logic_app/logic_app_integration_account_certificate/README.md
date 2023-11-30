@@ -2,7 +2,7 @@
 
 Manages a Logic App Integration Account Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.key_vault_key** | block |  A `key_vault_key` block. | 
+| **var.key_vault_key** | [block](#key_vault_key-block-structure) |  A `key_vault_key` block. | 
 | **var.metadata** | string |  A JSON mapping of any Metadata for this Logic App Integration Account Certificate. | 
 | **var.public_certificate** | string |  The public certificate for the Logic App Integration Account Certificate. | 
 

@@ -2,7 +2,7 @@
 
 Manages the Registration Info for a Virtual Desktop Host Pool.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a maintenance assignment to Dedicated Host.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

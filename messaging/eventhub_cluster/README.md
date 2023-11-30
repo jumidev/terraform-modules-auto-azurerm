@@ -2,7 +2,7 @@
 
 Manages an EventHub Cluster
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

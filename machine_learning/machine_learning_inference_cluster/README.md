@@ -2,7 +2,7 @@
 
 Manages a Machine Learning Inference Cluster.~> **NOTE:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn't create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,8 +40,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.cluster_purpose** | string |  The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created. | 
 | **var.description** | string |  The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.identity** | block |  An `identity` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.ssl** | block |  A `ssl` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **var.ssl** | [block](#ssl-block-structure) |  A `ssl` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
 
 ### `identity` block structure

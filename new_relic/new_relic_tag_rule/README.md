@@ -2,7 +2,7 @@
 
 Manages an Azure Native New Relic Tag Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,9 +34,9 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.azure_active_directory_log_enabled** | bool |  `False`  |  Whether Azure Active Directory logs should be sent for the Monitor resource. Defaults to `false`. | 
 | **var.activity_log_enabled** | bool |  `False`  |  Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`. | 
-| **var.log_tag_filter** | block |  -  |  A `log_tag_filter` block. | 
+| **var.log_tag_filter** | [block](#log_tag_filter-block-structure) |  -  |  A `log_tag_filter` block. | 
 | **var.metric_enabled** | bool |  `False`  |  Whether metrics should be sent for the Monitor resource. Defaults to `false`. | 
-| **var.metric_tag_filter** | block |  -  |  A `metric_tag_filter` block. | 
+| **var.metric_tag_filter** | [block](#metric_tag_filter-block-structure) |  -  |  A `metric_tag_filter` block. | 
 | **var.subscription_log_enabled** | bool |  `False`  |  Whether subscription logs should be sent for the Monitor resource. Defaults to `false`. | 
 
 ### `log_tag_filter` block structure

@@ -2,7 +2,7 @@
 
 Manages an Entity within a Table in an Azure Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

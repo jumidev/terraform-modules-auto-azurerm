@@ -2,7 +2,7 @@
 
 Manages the File Upload of an IoT Hub.~> **NOTE:** File upload can be defined either directly on the `azurerm_iothub` resource, or using the `azurerm_iothub_file_upload` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

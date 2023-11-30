@@ -2,7 +2,7 @@
 
 Manages a Linux Virtual Machine within a Dev Test Lab.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,7 +48,7 @@ tfstate_store = {
 | **var.lab_name** | string |  -  |  Specifies the name of the Dev Test Lab in which the Virtual Machine should be created. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  -  |  The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created. | 
 | **var.location** | string |  -  |  Specifies the supported Azure location where the Dev Test Lab exists. Changing this forces a new resource to be created. | 
-| **var.gallery_image_reference** | block |  -  |  A `gallery_image_reference` block. | 
+| **var.gallery_image_reference** | [block](#gallery_image_reference-block-structure) |  -  |  A `gallery_image_reference` block. | 
 | **var.lab_subnet_name** | string |  -  |  The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created. | 
 | **var.lab_virtual_network_id** | string |  -  |  The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created. | 
 | **var.size** | string |  -  |  The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created. | 
@@ -61,7 +61,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.allow_claim** | bool |  `True`  |  Can this Virtual Machine be claimed by users? Defaults to `true`. | 
 | **var.disallow_public_ip_address** | string |  -  |  Should the Virtual Machine be created without a Public IP Address? Changing this forces a new resource to be created. | 
-| **var.inbound_nat_rule** | block |  -  |  One or more `inbound_nat_rule` blocks. Changing this forces a new resource to be created. | 
+| **var.inbound_nat_rule** | [block](#inbound_nat_rule-block-structure) |  -  |  One or more `inbound_nat_rule` blocks. Changing this forces a new resource to be created. | 
 | **var.notes** | string |  -  |  Any notes about the Virtual Machine. | 
 | **var.password** | string |  -  |  The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created. | 
 | **var.ssh_key** | string |  -  |  The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created. | 

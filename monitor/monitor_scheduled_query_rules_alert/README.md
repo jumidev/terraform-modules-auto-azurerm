@@ -2,7 +2,7 @@
 
 Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -54,8 +54,8 @@ tfstate_store = {
 | **var.frequency** | string |  Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive). | 
 | **var.query** | string |  Log search query. | 
 | **var.time_window** | string |  Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive). | 
-| **var.trigger** | block |  A `trigger` block. | 
-| **var.action** | block |  An `action` block. | 
+| **var.trigger** | [block](#trigger-block-structure) |  A `trigger` block. | 
+| **var.action** | [block](#action-block-structure) |  An `action` block. | 
 
 ## Optional Variables
 

@@ -2,7 +2,7 @@
 
 Manages an IP group that contains a list of CIDRs and/or IP addresses.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

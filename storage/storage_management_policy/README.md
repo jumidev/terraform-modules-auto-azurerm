@@ -2,7 +2,7 @@
 
 Manages an Azure Storage Account Management Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -32,7 +32,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.rule** | block |  A `rule` block. | 
+| **var.rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
 ### `rule` block structure
 

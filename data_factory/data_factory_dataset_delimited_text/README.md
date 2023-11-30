@@ -2,7 +2,7 @@
 
 Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,14 +37,14 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.folder** | string |  -  |  -  |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.schema_column** | block |  -  |  -  |  A `schema_column` block. | 
+| **var.schema_column** | [block](#schema_column-block-structure) |  -  |  -  |  A `schema_column` block. | 
 | **var.description** | string |  -  |  -  |  The description for the Data Factory Dataset. | 
 | **var.annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Dataset. | 
 | **var.parameters** | string |  -  |  -  |  A map of parameters to associate with the Data Factory Dataset. | 
 | **var.additional_properties** | string |  -  |  -  |  A map of additional properties to associate with the Data Factory Dataset. | 
-| **var.azure_blob_fs_location** | block |  -  |  -  |  An `azure_blob_fs_location` block. | 
-| **var.azure_blob_storage_location** | block |  -  |  -  |  An `azure_blob_storage_location` block. | 
-| **var.http_server_location** | block |  -  |  -  |  A `http_server_location` block. | 
+| **var.azure_blob_fs_location** | [block](#azure_blob_fs_location-block-structure) |  -  |  -  |  An `azure_blob_fs_location` block. | 
+| **var.azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  -  |  -  |  An `azure_blob_storage_location` block. | 
+| **var.http_server_location** | [block](#http_server_location-block-structure) |  -  |  -  |  A `http_server_location` block. | 
 | **var.column_delimiter** | string |  `,`  |  -  |  The column delimiter. Defaults to `,`. | 
 | **var.row_delimiter** | string |  `\r\n`  |  -  |  The row delimiter. Defaults to any of the following values on read: `\r\n`, `\r`, `\n`, and `\n` or `\r\n` on write by mapping data flow and Copy activity respectively. | 
 | **var.encoding** | string |  -  |  -  |  The encoding format for the file. | 

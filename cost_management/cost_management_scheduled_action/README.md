@@ -2,7 +2,7 @@
 
 Manages an Azure Cost Management Scheduled Action.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

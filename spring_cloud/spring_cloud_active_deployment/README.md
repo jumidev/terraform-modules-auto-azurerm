@@ -2,7 +2,7 @@
 
 Manages an Active Azure Spring Cloud Deployment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

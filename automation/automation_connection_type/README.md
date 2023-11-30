@@ -2,7 +2,7 @@
 
 Manages anAutomation Connection Type.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created. | 
 | **var.automation_account_name** | string |  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.field** | block |  One or more `field` blocks. Changing this forces a new Automation to be created. | 
+| **var.field** | [block](#field-block-structure) |  One or more `field` blocks. Changing this forces a new Automation to be created. | 
 
 ## Optional Variables
 

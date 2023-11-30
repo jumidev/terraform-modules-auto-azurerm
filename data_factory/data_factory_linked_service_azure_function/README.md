@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between an Azure Function and Azure Data Factory.~> **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service. | 
 | **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service. | 
 | **var.key** | string |  The system key of the Azure Function. Exactly one of either `key` or `key_vault_key` is required | 
-| **var.key_vault_key** | block |  A `key_vault_key` block. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required. | 
+| **var.key_vault_key** | [block](#key_vault_key-block-structure) |  A `key_vault_key` block. Use this Argument to store the system key of the Azure Function in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `key` or `key_vault_key` is required. | 
 
 ### `key_vault_key` block structure
 

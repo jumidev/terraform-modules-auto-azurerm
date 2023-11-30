@@ -2,7 +2,7 @@
 
 Manages a Content Key Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.media_services_account_name** | string |  The Media Services account name. Changing this forces a new Content Key Policy to be created. | 
 | **var.name** | string |  The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created. | 
-| **var.policy_option** | block |  One or more `policy_option` blocks. | 
+| **var.policy_option** | [block](#policy_option-block-structure) |  One or more `policy_option` blocks. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created. | 
 
 ## Optional Variables

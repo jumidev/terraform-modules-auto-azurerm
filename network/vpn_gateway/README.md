@@ -2,7 +2,7 @@
 
 Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.bgp_route_translation_for_nat_enabled** | bool |  `False`  |  Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`. | 
-| **var.bgp_settings** | block |  -  |  A `bgp_settings` block. | 
+| **var.bgp_settings** | [block](#bgp_settings-block-structure) |  -  |  A `bgp_settings` block. | 
 | **var.routing_preference** | string |  -  |  Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created. | 
 | **var.scale_unit** | string |  `1`  |  The Scale Unit for this VPN Gateway. Defaults to `1`. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the VPN Gateway. | 

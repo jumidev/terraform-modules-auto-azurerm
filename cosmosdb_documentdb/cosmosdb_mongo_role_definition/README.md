@@ -2,7 +2,7 @@
 
 Manages a Cosmos DB Mongo Role Definition.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.inherited_role_names** | list |  A list of Mongo Roles which are inherited to the Mongo Role Definition. | 
-| **var.privilege** | block |  A `privilege` block. | 
+| **var.privilege** | [block](#privilege-block-structure) |  A `privilege` block. | 
 
 ### `privilege` block structure
 

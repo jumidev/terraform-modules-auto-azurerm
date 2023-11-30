@@ -2,7 +2,7 @@
 
 Manages an Azure IoT Time Series Insights Reference Data Set.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique. | 
 | **var.time_series_insights_environment_id** | string |  The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.key_property** | block |  A `key_property` block. Changing this forces a new resource to be created. | 
+| **var.key_property** | [block](#key_property-block-structure) |  A `key_property` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

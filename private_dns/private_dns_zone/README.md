@@ -2,7 +2,7 @@
 
 Enables you to manage Private DNS zones within Azure DNS. These zones are hosted on Azure's name servers.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.soa_record** | block |  An `soa_record` block. Changing this forces a new resource to be created. | 
+| **var.soa_record** | [block](#soa_record-block-structure) |  An `soa_record` block. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `soa_record` block structure

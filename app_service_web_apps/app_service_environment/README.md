@@ -2,7 +2,7 @@
 
 Manages an App Service Environment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.cluster_setting** | block |  -  |  -  |  Zero or more `cluster_setting` blocks. | 
+| **var.cluster_setting** | [block](#cluster_setting-block-structure) |  -  |  -  |  Zero or more `cluster_setting` blocks. | 
 | **var.internal_load_balancing_mode** | string |  `None`  |  `None`, `Web`, `Publishing`, `"Web, Publishing"`  |  Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None`, `Web`, `Publishing` and combined value `"Web, Publishing"`. Defaults to `None`. Changing this forces a new resource to be created. | 
 | **var.pricing_tier** | string |  `I1`  |  `I1`, `I2`, `I3`  |  Pricing tier for the front end instances. Possible values are `I1`, `I2` and `I3`. Defaults to `I1`. | 
 | **var.front_end_scale_factor** | string |  `15`  |  `5`, `15`  |  Scale factor for front end instances. Possible values are between `5` and `15`. Defaults to `15`. | 

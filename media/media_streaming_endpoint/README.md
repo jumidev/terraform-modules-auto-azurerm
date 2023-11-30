@@ -2,7 +2,7 @@
 
 Manages a Streaming Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,12 +40,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.access_control** | block |  A `access_control` block. | 
+| **var.access_control** | [block](#access_control-block-structure) |  A `access_control` block. | 
 | **var.auto_start_enabled** | bool |  The flag indicates if the resource should be automatically started on creation. | 
 | **var.cdn_enabled** | bool |  The CDN enabled flag. | 
 | **var.cdn_profile** | string |  The CDN profile name. | 
 | **var.cdn_provider** | string |  The CDN provider name. Supported value are `StandardVerizon`,`PremiumVerizon` and `StandardAkamai` | 
-| **var.cross_site_access_policy** | block |  A `cross_site_access_policy` block. | 
+| **var.cross_site_access_policy** | [block](#cross_site_access_policy-block-structure) |  A `cross_site_access_policy` block. | 
 | **var.custom_host_names** | string |  The custom host names of the streaming endpoint. | 
 | **var.description** | string |  The streaming endpoint description. | 
 | **var.max_cache_age_seconds** | int |  Max cache age in seconds. | 

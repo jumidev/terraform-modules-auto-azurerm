@@ -2,7 +2,7 @@
 
 Manages a ServiceBus Subscription Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.sql_filter** | string |  Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`. | 
-| **var.correlation_filter** | block |  A `correlation_filter` block to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`. | 
+| **var.correlation_filter** | [block](#correlation_filter-block-structure) |  A `correlation_filter` block to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `CorrelationFilter`. | 
 | **var.action** | string |  Represents set of actions written in SQL language-based syntax that is performed against a BrokeredMessage. | 
 
 ### `correlation_filter` block structure

@@ -2,7 +2,7 @@
 
 Manages a Logic App Integration Account Map.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Queue within an Azure Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

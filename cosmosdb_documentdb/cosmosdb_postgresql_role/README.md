@@ -2,7 +2,7 @@
 
 Manages an Azure Cosmos DB for PostgreSQL Role.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

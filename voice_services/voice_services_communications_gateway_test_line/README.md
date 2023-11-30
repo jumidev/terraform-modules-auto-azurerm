@@ -2,7 +2,7 @@
 
 Manages a Voice Services Communications Gateway Test Line.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

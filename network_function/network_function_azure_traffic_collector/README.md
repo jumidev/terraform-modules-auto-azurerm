@@ -2,7 +2,7 @@
 
 Manages a Network Function Azure Traffic Collector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

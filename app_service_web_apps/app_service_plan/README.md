@@ -2,7 +2,7 @@
 
 Manages an App Service Plan component.!> **NOTE:** This resource has been deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use [`azurerm_service_plan`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/service_plan) resource instead.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name of the App Service Plan component. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the resource group in which to create the App Service Plan component. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | block |  A `sku` block. | 
+| **var.sku** | [block](#sku-block-structure) |  A `sku` block. | 
 
 ## Optional Variables
 

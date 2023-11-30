@@ -2,7 +2,7 @@
 
 Manages a Custom Domain for a CDN Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,8 +36,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cdn_managed_https** | block |  A `cdn_managed_https` block. | 
-| **var.user_managed_https** | block |  A `user_managed_https` block. | 
+| **var.cdn_managed_https** | [block](#cdn_managed_https-block-structure) |  A `cdn_managed_https` block. | 
+| **var.user_managed_https** | [block](#user_managed_https-block-structure) |  A `user_managed_https` block. | 
 
 ### `cdn_managed_https` block structure
 

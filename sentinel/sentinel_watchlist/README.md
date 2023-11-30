@@ -2,7 +2,7 @@
 
 Manages a Sentinel Watchlist.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

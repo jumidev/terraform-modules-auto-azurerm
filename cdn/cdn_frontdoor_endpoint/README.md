@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

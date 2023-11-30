@@ -2,7 +2,7 @@
 
 Manages a Synapse SQL Pool Workload Classifier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

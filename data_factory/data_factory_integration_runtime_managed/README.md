@@ -2,7 +2,7 @@
 
 Manages an Azure Data Factory Managed Integration Runtime.~> **NOTE:** The `azurerm_data_factory_integration_runtime_managed` resource has been superseded by the [`azurerm_data_factory_integration_runtime_azure_ssis`](data_factory_integration_runtime_azure_ssis.html) resource. The existing `azurerm_data_factory_integration_runtime_managed` resource will be deprecated (but still available) in version 3.0 of the AzureRM Terraform Provider - we recommend using the [`azurerm_data_factory_integration_runtime_azure_ssis`](data_factory_integration_runtime_azure_ssis.html) resource for new deployments.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,9 +42,9 @@ tfstate_store = {
 | **var.max_parallel_executions_per_node** | string |  `1`  |  -  |  Defines the maximum parallel executions per node. Defaults to `1`. Max is `1`. | 
 | **var.edition** | string |  `Standard`  |  `Standard`, `Enterprise`  |  The Managed Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`. | 
 | **var.license_type** | string |  `LicenseIncluded`  |  `LicenseIncluded`, `BasePrice`  |  The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`. | 
-| **var.catalog_info** | block |  -  |  -  |  A `catalog_info` block. | 
-| **var.custom_setup_script** | block |  -  |  -  |  A `custom_setup_script` block. | 
-| **var.vnet_integration** | block |  -  |  -  |  A `vnet_integration` block. | 
+| **var.catalog_info** | [block](#catalog_info-block-structure) |  -  |  -  |  A `catalog_info` block. | 
+| **var.custom_setup_script** | [block](#custom_setup_script-block-structure) |  -  |  -  |  A `custom_setup_script` block. | 
+| **var.vnet_integration** | [block](#vnet_integration-block-structure) |  -  |  -  |  A `vnet_integration` block. | 
 | **var.description** | string |  -  |  -  |  Integration runtime description. | 
 
 ### `catalog_info` block structure

@@ -2,7 +2,7 @@
 
 Manages a managed disk.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,7 +48,7 @@ tfstate_store = {
 | **var.upload_size_bytes** | string |  -  |  -  |  Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created. | 
 | **var.disk_size_gb** | int |  -  |  -  |  (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased. | 
 | **var.edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created. | 
-| **var.encryption_settings** | block |  -  |  -  |  A `encryption_settings` block. | 
+| **var.encryption_settings** | [block](#encryption_settings-block-structure) |  -  |  -  |  A `encryption_settings` block. | 
 | **var.hyper_v_generation** | string |  -  |  `V1`, `V2`  |  The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created. | 
 | **var.image_reference_id** | string |  -  |  -  |  ID of an existing platform/marketplace disk image to copy when `create_option` is `FromImage`. This field cannot be specified if gallery_image_reference_id is specified. Changing this forces a new resource to be created. | 
 | **var.gallery_image_reference_id** | string |  -  |  -  |  ID of a Gallery Image Version to copy when `create_option` is `FromImage`. This field cannot be specified if image_reference_id is specified. Changing this forces a new resource to be created. | 

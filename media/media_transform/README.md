@@ -2,7 +2,7 @@
 
 Manages a Transform.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  An optional verbose description of the Transform. | 
-| **var.output** | block |  One or more `output` blocks. At least one `output` must be defined. | 
+| **var.output** | [block](#output-block-structure) |  One or more `output` blocks. At least one `output` must be defined. | 
 
 ### `output` block structure
 

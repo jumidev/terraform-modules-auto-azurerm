@@ -2,7 +2,7 @@
 
 Manages a NetApp Snapshot Policy.## NetApp Snapshot Policy Usage```hclresource "azurerm_resource_group" "example" {name     = "resource-group-01"location = "East US"}resource "azurerm_netapp_account" "example" {name                = "netappaccount-01"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.name}resource "azurerm_netapp_snapshot_policy" "example" {name                = "snapshotpolicy-01"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.nameaccount_name        = azurerm_netapp_account.example.nameenabled             = truehourly_schedule {snapshots_to_keep = 4minute            = 15}daily_schedule {snapshots_to_keep = 2hour              = 20minute            = 15}weekly_schedule {snapshots_to_keep = 1days_of_week      = ["Monday", "Friday"]hour              = 23minute            = 0}monthly_schedule {snapshots_to_keep = 1days_of_month     = [1, 15, 20, 30]hour              = 5minute            = 45}}```
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,10 +40,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.hourly_schedule** | block |  Sets an hourly snapshot schedule. A `hourly_schedule` block. | 
-| **var.daily_schedule** | block |  Sets a daily snapshot schedule. A `daily_schedule` block. | 
-| **var.weekly_schedule** | block |  Sets a weekly snapshot schedule. A `weekly_schedule` block. | 
-| **var.monthly_schedule** | block |  Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
+| **var.hourly_schedule** | [block](#hourly_schedule-block-structure) |  Sets an hourly snapshot schedule. A `hourly_schedule` block. | 
+| **var.daily_schedule** | [block](#daily_schedule-block-structure) |  Sets a daily snapshot schedule. A `daily_schedule` block. | 
+| **var.weekly_schedule** | [block](#weekly_schedule-block-structure) |  Sets a weekly snapshot schedule. A `weekly_schedule` block. | 
+| **var.monthly_schedule** | [block](#monthly_schedule-block-structure) |  Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `hourly_schedule` block structure

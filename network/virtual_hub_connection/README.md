@@ -2,7 +2,7 @@
 
 Manages a Connection for a Virtual Hub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.internet_security_enabled** | bool |  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
-| **var.routing** | block |  -  |  A `routing` block. | 
+| **var.routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 
 ### `routing` block structure
 

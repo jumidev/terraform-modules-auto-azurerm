@@ -2,7 +2,7 @@
 
 Manages a AWS CloudTrail Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an Azure Web PubSub Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,8 +41,8 @@ tfstate_store = {
 | **var.capacity** | string |  -  |  `1`, `2`, `5`, `10`, `20`, `50`, `100`  |  Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether to enable public network access? Defaults to `true`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.live_trace** | block |  -  |  -  |  A `live_trace` block. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.live_trace** | [block](#live_trace-block-structure) |  -  |  -  |  A `live_trace` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether to enable local auth? Defaults to `true`. | 
 | **var.aad_auth_enabled** | bool |  `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
 | **var.tls_client_cert_enabled** | bool |  `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 

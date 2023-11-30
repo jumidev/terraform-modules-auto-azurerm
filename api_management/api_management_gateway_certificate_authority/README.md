@@ -2,7 +2,7 @@
 
 Manages an API Management Gateway Certificate Authority.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

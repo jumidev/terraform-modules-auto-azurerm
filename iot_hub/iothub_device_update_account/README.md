@@ -2,7 +2,7 @@
 
 Manages an IoT Hub Device Update Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  `true`, `false`  |  Specifies whether the public network access is enabled for the IoT Hub Device Update Account. Possible values are `true` and `false`. Defaults to `true`. | 
 | **var.sku** | string |  `Standard`  |  `Free`, `Standard`  |  Sku of the IoT Hub Device Update Account. Possible values are `Free` and `Standard`. Defaults to `Standard`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the IoT Hub Device Update Account. | 

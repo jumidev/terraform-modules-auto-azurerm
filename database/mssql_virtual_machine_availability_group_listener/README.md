@@ -2,7 +2,7 @@
 
 Manages a Microsoft SQL Virtual Machine Availability Group Listener.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,15 +40,15 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created. | 
 | **var.sql_virtual_machine_group_id** | string |  The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created. | 
-| **var.replica** | block |  One or more `replica` blocks. Changing this forces a new resource to be created. | 
+| **var.replica** | [block](#replica-block-structure) |  One or more `replica` blocks. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.availability_group_name** | string |  The name of the Availability Group. Changing this forces a new resource to be created. | 
-| **var.load_balancer_configuration** | block |  A `load_balancer_configuration` block. Changing this forces a new resource to be created. | 
-| **var.multi_subnet_ip_configuration** | block |  One or more `multi_subnet_ip_configuration` blocks. Changing this forces a new resource to be created. | 
+| **var.load_balancer_configuration** | [block](#load_balancer_configuration-block-structure) |  A `load_balancer_configuration` block. Changing this forces a new resource to be created. | 
+| **var.multi_subnet_ip_configuration** | [block](#multi_subnet_ip_configuration-block-structure) |  One or more `multi_subnet_ip_configuration` blocks. Changing this forces a new resource to be created. | 
 | **var.port** | string |  The port of the listener. Changing this forces a new resource to be created. | 
 
 ### `load_balancer_configuration` block structure

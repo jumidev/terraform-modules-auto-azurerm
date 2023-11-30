@@ -2,7 +2,7 @@
 
 Manages a API Management Service API Diagnostics Logs.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,10 +41,10 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.always_log_errors** | string |  -  |  -  |  Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings. | 
-| **var.backend_request** | block |  -  |  -  |  A `backend_request` block. | 
-| **var.backend_response** | block |  -  |  -  |  A `backend_response` block. | 
-| **var.frontend_request** | block |  -  |  -  |  A `frontend_request` block. | 
-| **var.frontend_response** | block |  -  |  -  |  A `frontend_response` block. | 
+| **var.backend_request** | [block](#backend_request-block-structure) |  -  |  -  |  A `backend_request` block. | 
+| **var.backend_response** | [block](#backend_response-block-structure) |  -  |  -  |  A `backend_response` block. | 
+| **var.frontend_request** | [block](#frontend_request-block-structure) |  -  |  -  |  A `frontend_request` block. | 
+| **var.frontend_response** | [block](#frontend_response-block-structure) |  -  |  -  |  A `frontend_response` block. | 
 | **var.http_correlation_protocol** | string |  -  |  `None`, `Legacy`, `W3C`  |  The HTTP Correlation Protocol to use. Possible values are `None`, `Legacy` or `W3C`. | 
 | **var.log_client_ip** | string |  -  |  -  |  Log client IP address. | 
 | **var.sampling_percentage** | string |  -  |  `0.0`, `100.0`  |  Sampling (%). For high traffic APIs, please read this [documentation](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights#performance-implications-and-log-sampling) to understand performance implications and log sampling. Valid values are between `0.0` and `100.0`. | 

@@ -2,7 +2,7 @@
 
 Manages a API Management Notification Recipient Email.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

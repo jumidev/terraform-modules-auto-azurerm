@@ -2,7 +2,7 @@
 
 Manages a Automation Schedule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -46,8 +46,8 @@ tfstate_store = {
 | **var.name** | string |  The name of the JavaScript UDF Function. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
 | **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created. | 
-| **var.input** | block |  One or more `input` blocks. | 
-| **var.output** | block |  An `output` blocks. | 
+| **var.input** | [block](#input-block-structure) |  One or more `input` blocks. | 
+| **var.output** | [block](#output-block-structure) |  An `output` blocks. | 
 | **var.script** | string |  The JavaScript of this UDF Function. | 
 
 ### `input` block structure

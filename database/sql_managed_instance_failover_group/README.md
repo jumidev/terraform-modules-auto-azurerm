@@ -2,7 +2,7 @@
 
 Manages a SQL Instance Failover Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,7 +41,7 @@ tfstate_store = {
 | **var.managed_instance_name** | string |  The name of the SQL Managed Instance which will be replicated using a SQL Instance Failover Group. Changing this forces a new SQL Instance Failover Group to be created. | 
 | **var.location** | string |  The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created. | 
 | **var.partner_managed_instance_id** | string |  ID of the SQL Managed Instance which will be replicated to. Changing this forces a new resource to be created. | 
-| **var.read_write_endpoint_failover_policy** | block |  A `read_write_endpoint_failover_policy` block. | 
+| **var.read_write_endpoint_failover_policy** | [block](#read_write_endpoint_failover_policy-block-structure) |  A `read_write_endpoint_failover_policy` block. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the SQL Instance Failover Group should exist. Changing this forces a new SQL Instance Failover Group to be created. | 
 
 ## Optional Variables

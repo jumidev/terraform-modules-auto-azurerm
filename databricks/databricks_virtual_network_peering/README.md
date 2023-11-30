@@ -2,7 +2,7 @@
 
 Manages a Databricks Virtual Network Peering
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

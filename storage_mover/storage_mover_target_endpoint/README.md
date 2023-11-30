@@ -2,7 +2,7 @@
 
 Manages a Storage Mover Target Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

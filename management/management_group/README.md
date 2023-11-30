@@ -2,7 +2,7 @@
 
 Manages a Management Group.!> **Note:** Configuring `subscription_ids` is not supported when using the `azurerm_management_group_subscription_association` resource, results will be unpredictable.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

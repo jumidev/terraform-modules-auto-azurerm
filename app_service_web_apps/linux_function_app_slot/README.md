@@ -2,7 +2,7 @@
 
 Manages a Linux Function App Slot.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,21 +36,21 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  Specifies the name of the Function App Slot. Changing this forces a new resource to be created. | 
 | **var.function_app_id** | string |  The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created. | 
-| **var.site_config** | block |  a `site_config` block as detailed below. | 
+| **var.site_config** | [block](#site_config-block-structure) |  a `site_config` block as detailed below. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.app_settings** | string |  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | block |  -  |  -  |  an `auth_settings` block as detailed below. | 
-| **var.auth_settings_v2** | block |  -  |  -  |  an `auth_settings_v2` block as detailed below. | 
-| **var.backup** | block |  -  |  -  |  a `backup` block as detailed below. | 
+| **var.auth_settings** | [block](#auth_settings-block-structure) |  -  |  -  |  an `auth_settings` block as detailed below. | 
+| **var.auth_settings_v2** | [block](#auth_settings_v2-block-structure) |  -  |  -  |  an `auth_settings_v2` block as detailed below. | 
+| **var.backup** | [block](#backup-block-structure) |  -  |  -  |  a `backup` block as detailed below. | 
 | **var.builtin_logging_enabled** | bool |  `True`  |  -  |  Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`. | 
 | **var.client_certificate_enabled** | bool |  -  |  -  |  Should the Function App Slot use Client Certificates. | 
 | **var.client_certificate_mode** | string |  `Optional`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`. | 
 | **var.client_certificate_exclusion_paths** | string |  -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
-| **var.connection_string** | block |  -  |  -  |  a `connection_string` block as detailed below. | 
+| **var.connection_string** | [block](#connection_string-block-structure) |  -  |  -  |  a `connection_string` block as detailed below. | 
 | **var.content_share_force_disabled** | bool |  -  |  -  |  Force disable the content share settings. | 
 | **var.daily_memory_time_quota** | string |  `0`  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`. | 
 | **var.enabled** | bool |  `True`  |  -  |  Is the Linux Function App Slot enabled. Defaults to `true`. | 
@@ -58,12 +58,12 @@ tfstate_store = {
 | **var.functions_extension_version** | string |  `~4`  |  -  |  The runtime version associated with the Function App Slot. Defaults to `~4`. | 
 | **var.https_only** | string |  -  |  -  |  Can the Function App Slot only be accessed via HTTPS? | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Should public network access be enabled for the Function App. Defaults to `true`. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block as detailed below. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block as detailed below. | 
 | **var.key_vault_reference_identity_id** | string |  -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) | 
 | **var.service_plan_id** | string |  -  |  -  |  The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used. | 
 | **var.storage_account_access_key** | string |  -  |  -  |  The access key which will be used to access the storage account for the Function App Slot. | 
 | **var.storage_account_name** | string |  -  |  -  |  The backend storage account name which will be used by this Function App Slot. | 
-| **var.storage_account** | block |  -  |  -  |  One or more `storage_account` blocks. | 
+| **var.storage_account** | [block](#storage_account-block-structure) |  -  |  -  |  One or more `storage_account` blocks. | 
 | **var.storage_uses_managed_identity** | string |  -  |  -  |  Should the Function App Slot use its Managed Identity to access storage. | 
 | **var.storage_key_vault_secret_id** | string |  -  |  -  |  The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Linux Function App. | 

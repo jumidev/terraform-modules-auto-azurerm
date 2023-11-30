@@ -2,7 +2,7 @@
 
 Manages a Healthcare Med Tech Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,7 +44,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the Healthcare Med Tech Service. | 
 
 ### `identity` block structure

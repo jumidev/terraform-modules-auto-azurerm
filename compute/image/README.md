@@ -2,7 +2,7 @@
 
 Manages a custom virtual machine image that can be used to create virtual machines.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,8 +37,8 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.source_virtual_machine_id** | string |  -  |  The Virtual Machine ID from which to create the image. | 
-| **var.os_disk** | block |  -  |  One or more `os_disk` blocks. Changing this forces a new resource to be created. | 
-| **var.data_disk** | block |  -  |  One or more `data_disk` blocks. | 
+| **var.os_disk** | [block](#os_disk-block-structure) |  -  |  One or more `os_disk` blocks. Changing this forces a new resource to be created. | 
+| **var.data_disk** | [block](#data_disk-block-structure) |  -  |  One or more `data_disk` blocks. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 | **var.zone_resilient** | bool |  `False`  |  Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **var.hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. | 

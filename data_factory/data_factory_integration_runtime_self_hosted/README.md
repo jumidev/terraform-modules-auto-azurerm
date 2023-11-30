@@ -2,7 +2,7 @@
 
 Manages a Data Factory Self-hosted Integration Runtime.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  Integration runtime description. | 
-| **var.rbac_authorization** | block |  A `rbac_authorization` block. Changing this forces a new resource to be created. | 
+| **var.rbac_authorization** | [block](#rbac_authorization-block-structure) |  A `rbac_authorization` block. Changing this forces a new resource to be created. | 
 
 ### `rbac_authorization` block structure
 

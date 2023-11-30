@@ -2,7 +2,7 @@
 
 Manages an Azure App Configuration.## Disclaimers-> **Note:** Version 3.27.0 and later of the Azure Provider include a Feature Toggle which will purge an App Configuration resource on destroy, rather than the default soft-delete. The Provider will automatically recover a soft-deleted App Configuration during creation if one is found. See [the Features block documentation](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) for more information on Feature Toggles within Terraform.-> **Note:** Reading and purging soft-deleted App Configurations requires the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` and `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission on Subscription scope. Recovering a soft-deleted App Configuration requires the `Microsoft.AppConfiguration/configurationStores/write` permission on Subscription or Resource Group scope. [More information can be found in the Azure Documentation for App Configuration](https://learn.microsoft.com/en-us/azure/azure-app-configuration/concept-soft-delete#permissions-to-recover-a-deleted-store). See the following links for more information on assigning [Azure custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles) or using the [`azurerm_role_assignment`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) resource to assign a custom role.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,12 +36,12 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
-| **var.encryption** | block |  -  |  -  |  An `encryption` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **var.encryption** | [block](#encryption-block-structure) |  -  |  -  |  An `encryption` block. | 
 | **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether local authentication methods is enabled. Defaults to `true`. | 
 | **var.public_network_access** | string |  -  |  `Enabled`, `Disabled`  |  The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`. | 
 | **var.purge_protection_enabled** | bool |  `False`  |  -  |  Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
-| **var.replica** | block |  -  |  -  |  One or more `replica` blocks. | 
+| **var.replica** | [block](#replica-block-structure) |  -  |  -  |  One or more `replica` blocks. | 
 | **var.sku** | string |  `free`  |  `free`, `standard`  |  The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
 | **var.soft_delete_retention_days** | int |  `7`  |  -  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

@@ -2,7 +2,7 @@
 
 Manages SingleSignOn on the datadog Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

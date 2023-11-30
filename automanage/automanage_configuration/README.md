@@ -2,7 +2,7 @@
 
 Manages an Automanage Configuration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,9 +36,9 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.antimalware** | block |  -  |  A `antimalware` block. | 
-| **var.azure_security_baseline** | block |  -  |  A `azure_security_baseline` block. | 
-| **var.backup** | block |  -  |  A `backup` block. | 
+| **var.antimalware** | [block](#antimalware-block-structure) |  -  |  A `antimalware` block. | 
+| **var.azure_security_baseline** | [block](#azure_security_baseline-block-structure) |  -  |  A `azure_security_baseline` block. | 
+| **var.backup** | [block](#backup-block-structure) |  -  |  A `backup` block. | 
 | **var.automation_account_enabled** | bool |  `False`  |  Whether the automation account is enabled. Defaults to `false`. | 
 | **var.boot_diagnostics_enabled** | bool |  `False`  |  Whether the boot diagnostics are enabled. Defaults to `false`. | 
 | **var.defender_for_cloud_enabled** | bool |  `False`  |  Whether the defender for cloud is enabled. Defaults to `false`. | 

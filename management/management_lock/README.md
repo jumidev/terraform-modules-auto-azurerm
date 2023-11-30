@@ -2,7 +2,7 @@
 
 Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

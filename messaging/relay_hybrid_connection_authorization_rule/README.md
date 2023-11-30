@@ -2,7 +2,7 @@
 
 Manages an Azure Relay Hybrid Connection Authorization Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

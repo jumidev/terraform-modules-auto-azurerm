@@ -2,7 +2,7 @@
 
 Manages an Azure IoT Time Series Insights Access Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

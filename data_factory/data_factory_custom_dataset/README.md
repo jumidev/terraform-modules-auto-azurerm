@@ -2,7 +2,7 @@
 
 Manages a Dataset inside an Azure Data Factory. This is a generic resource that supports all different Dataset Types.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
 | **var.data_factory_id** | string |  The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource. | 
-| **var.linked_service** | block |  A `linked_service` block. | 
+| **var.linked_service** | [block](#linked_service-block-structure) |  A `linked_service` block. | 
 | **var.type** | string |  The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created. | 
 | **var.type_properties_json** | string |  A JSON object that contains the properties of the Data Factory Dataset. | 
 

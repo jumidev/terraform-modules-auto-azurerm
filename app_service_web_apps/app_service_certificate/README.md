@@ -2,7 +2,7 @@
 
 Manages an App Service certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

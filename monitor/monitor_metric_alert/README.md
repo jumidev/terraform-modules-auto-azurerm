@@ -2,7 +2,7 @@
 
 Manages a Metric Alert within Azure Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,10 +36,10 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.criteria** | block |  -  |  -  |  One or more (static) `criteria` blocks. | 
-| **var.dynamic_criteria** | block |  -  |  -  |  A `dynamic_criteria` block. | 
-| **var.application_insights_web_test_location_availability_criteria** | block |  -  |  -  |  A `application_insights_web_test_location_availability_criteria` block. | 
-| **var.action** | block |  -  |  -  |  One or more `action` blocks. | 
+| **var.criteria** | [block](#criteria-block-structure) |  -  |  -  |  One or more (static) `criteria` blocks. | 
+| **var.dynamic_criteria** | [block](#dynamic_criteria-block-structure) |  -  |  -  |  A `dynamic_criteria` block. | 
+| **var.application_insights_web_test_location_availability_criteria** | [block](#application_insights_web_test_location_availability_criteria-block-structure) |  -  |  -  |  A `application_insights_web_test_location_availability_criteria` block. | 
+| **var.action** | [block](#action-block-structure) |  -  |  -  |  One or more `action` blocks. | 
 | **var.enabled** | bool |  `True`  |  -  |  Should this Metric Alert be enabled? Defaults to `true`. | 
 | **var.auto_mitigate** | bool |  `True`  |  -  |  Should the alerts in this Metric Alert be auto resolved? Defaults to `true`. | 
 | **var.description** | string |  -  |  -  |  The description of this Metric Alert. | 

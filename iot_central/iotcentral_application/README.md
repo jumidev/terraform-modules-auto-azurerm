@@ -2,7 +2,7 @@
 
 Manages an IoT Central Application
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.display_name** | string |  -  |  -  |  A `display_name` name. Custom display name for the IoT Central application. Default is resource name. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for the IoT Central Application. Defaults to `true`. | 
 | **var.sku** | string |  -  |  `ST0`, `ST1`, `ST2`  |  A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1` | 
 | **var.template** | string |  -  |  -  |  A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created. | 

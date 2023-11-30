@@ -2,7 +2,7 @@
 
 Manages a Pipeline inside a Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

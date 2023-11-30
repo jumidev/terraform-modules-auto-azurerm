@@ -2,7 +2,7 @@
 
 Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Definition.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the Lighthouse Definition. Changing this forces a new resource to be created. | 
 | **var.managing_tenant_id** | string |  The ID of the managing tenant. Changing this forces a new resource to be created. | 
 | **var.scope** | string |  The ID of the managed subscription. Changing this forces a new resource to be created. | 
-| **var.authorization** | block |  An `authorization` block. | 
+| **var.authorization** | [block](#authorization-block-structure) |  An `authorization` block. | 
 
 ## Optional Variables
 
@@ -47,8 +47,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.lighthouse_definition_id** | string |  A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created. | 
 | **var.description** | string |  A description of the Lighthouse Definition. | 
-| **var.eligible_authorization** | block |  An `eligible_authorization` block. | 
-| **var.plan** | block |  A `plan` block. | 
+| **var.eligible_authorization** | [block](#eligible_authorization-block-structure) |  An `eligible_authorization` block. | 
+| **var.plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
 ### `authorization` block structure
 

@@ -2,7 +2,7 @@
 
 Manages a Blob Event Trigger inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.data_factory_id** | string |  -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
 | **var.storage_account_id** | string |  -  |  The ID of Storage Account in which blob event will be listened. Changing this forces a new resource. | 
 | **var.events** | string |  `Microsoft.Storage.BlobCreated`, `Microsoft.Storage.BlobDeleted`  |  List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`. | 
-| **var.pipeline** | block |  -  |  One or more `pipeline` blocks. | 
+| **var.pipeline** | [block](#pipeline-block-structure) |  -  |  One or more `pipeline` blocks. | 
 
 ## Optional Variables
 

@@ -2,7 +2,7 @@
 
 Manages a Azure Media Live Event Output.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

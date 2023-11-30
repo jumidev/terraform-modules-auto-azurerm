@@ -2,7 +2,7 @@
 
 Manages a Application Insights Standard WebTest.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.location** | string |  The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights) | 
 | **var.application_insights_id** | string |  The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created. | 
 | **var.geo_locations** | string |  Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application. | 
-| **var.request** | block |  A `request` block. | 
+| **var.request** | [block](#request-block-structure) |  A `request` block. | 
 
 ## Optional Variables
 
@@ -54,7 +54,7 @@ tfstate_store = {
 | **var.retry_enabled** | bool |  -  |  -  |  Should the retry on WebTest failure be enabled? | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Application Insights Standard WebTest. | 
 | **var.timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
-| **var.validation_rules** | block |  -  |  -  |  A `validation_rules` block. | 
+| **var.validation_rules** | [block](#validation_rules-block-structure) |  -  |  -  |  A `validation_rules` block. | 
 
 ### `request` block structure
 

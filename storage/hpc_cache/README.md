@@ -2,7 +2,7 @@
 
 Manages a HPC Cache.~> **Note:** By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,13 +43,13 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.mtu** | string |  `1500`  |  The IPv4 maximum transmission unit configured for the subnet of the HPC Cache. Possible values range from 576 - 1500. Defaults to `1500`. | 
-| **var.default_access_policy** | block |  -  |  A `default_access_policy` block. | 
+| **var.default_access_policy** | [block](#default_access_policy-block-structure) |  -  |  A `default_access_policy` block. | 
 | **var.ntp_server** | string |  `time.windows.com`  |  The NTP server IP Address or FQDN for the HPC Cache. Defaults to `time.windows.com`. | 
-| **var.dns** | block |  -  |  A `dns` block. | 
-| **var.directory_active_directory** | block |  -  |  A `directory_active_directory` block. | 
-| **var.directory_flat_file** | block |  -  |  A `directory_flat_file` block. | 
-| **var.directory_ldap** | block |  -  |  A `directory_ldap` block. | 
-| **var.identity** | block |  -  |  An `identity` block. Changing this forces a new resource to be created. | 
+| **var.dns** | [block](#dns-block-structure) |  -  |  A `dns` block. | 
+| **var.directory_active_directory** | [block](#directory_active_directory-block-structure) |  -  |  A `directory_active_directory` block. | 
+| **var.directory_flat_file** | [block](#directory_flat_file-block-structure) |  -  |  A `directory_flat_file` block. | 
+| **var.directory_ldap** | [block](#directory_ldap-block-structure) |  -  |  A `directory_ldap` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new resource to be created. | 
 | **var.key_vault_key_id** | string |  -  |  The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache. | 
 | **var.automatically_rotate_key_to_latest_enabled** | bool |  -  |  Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the HPC Cache. | 

@@ -2,7 +2,7 @@
 
 Manages a Key Vault Managed Storage Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

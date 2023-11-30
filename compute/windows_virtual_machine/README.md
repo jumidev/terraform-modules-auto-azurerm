@@ -2,7 +2,7 @@
 
 Manages a Windows Virtual Machine.## Disclaimers-> **Note** Terraform will automatically remove the OS Disk by default - this behaviour can be configured [using the `features` setting within the Provider block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block).~> **Note** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).~> **Note** This resource does not support Unmanaged Disks. If you need to use Unmanaged Disks you can continue to use [the `azurerm_virtual_machine` resource](virtual_machine.html) instead.~> **Note** This resource does not support attaching existing OS Disks. You can instead [capture an image of the OS Disk](image.html) or continue to use [the `azurerm_virtual_machine` resource](virtual_machine.html) instead.~> In this release there's a known issue where the `public_ip_address` and `public_ip_addresses` fields may not be fully populated for Dynamic Public IP's.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -46,7 +46,7 @@ tfstate_store = {
 | **var.location** | string |  The Azure location where the Windows Virtual Machine should exist. Changing this forces a new resource to be created. | 
 | **var.name** | string |  The name of the Windows Virtual Machine. Changing this forces a new resource to be created. | 
 | **var.network_interface_ids** | list |  A list of Network Interface IDs which should be attached to this Virtual Machine. The first Network Interface ID in this list will be the Primary Network Interface on the Virtual Machine. | 
-| **var.os_disk** | block |  A `os_disk` block. | 
+| **var.os_disk** | [block](#os_disk-block-structure) |  A `os_disk` block. | 
 | **var.resource_group_name** | string |  The name of the Resource Group in which the Windows Virtual Machine should be exist. Changing this forces a new resource to be created. | 
 | **var.size** | string |  The SKU which should be used for this Virtual Machine, such as `Standard_F2`. | 
 
@@ -54,11 +54,11 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.additional_capabilities** | block |  -  |  -  |  A `additional_capabilities` block. | 
-| **var.additional_unattend_content** | block |  -  |  -  |  One or more `additional_unattend_content` blocks. Changing this forces a new resource to be created. | 
+| **var.additional_capabilities** | [block](#additional_capabilities-block-structure) |  -  |  -  |  A `additional_capabilities` block. | 
+| **var.additional_unattend_content** | [block](#additional_unattend_content-block-structure) |  -  |  -  |  One or more `additional_unattend_content` blocks. Changing this forces a new resource to be created. | 
 | **var.allow_extension_operations** | bool |  `True`  |  -  |  Should Extension Operations be allowed on this Virtual Machine? Defaults to `true`. | 
 | **var.availability_set_id** | string |  -  |  -  |  Specifies the ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created. | 
-| **var.boot_diagnostics** | block |  -  |  -  |  A `boot_diagnostics` block. | 
+| **var.boot_diagnostics** | [block](#boot_diagnostics-block-structure) |  -  |  -  |  A `boot_diagnostics` block. | 
 | **var.bypass_platform_safety_checks_on_user_schedule_enabled** | bool |  `False`  |  -  |  Specifies whether to skip platform scheduled patching when a user schedule is associated with the VM. Defaults to `false`. | 
 | **var.capacity_reservation_group_id** | string |  -  |  -  |  Specifies the ID of the Capacity Reservation Group which the Virtual Machine should be allocated to. | 
 | **var.computer_name** | string |  `name`  |  -  |  Specifies the Hostname which should be used for this Virtual Machine. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name`, then you must specify `computer_name`. Changing this forces a new resource to be created. | 
@@ -70,30 +70,30 @@ tfstate_store = {
 | **var.encryption_at_host_enabled** | bool |  -  |  -  |  Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host? | 
 | **var.eviction_policy** | string |  -  |  `Deallocate`, `Delete`  |  Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created. | 
 | **var.extensions_time_budget** | string |  `PT1H30M`  |  -  |  Specifies the duration allocated for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`. | 
-| **var.gallery_application** | block |  -  |  -  |  One or more `gallery_application` blocks. | 
+| **var.gallery_application** | [block](#gallery_application-block-structure) |  -  |  -  |  One or more `gallery_application` blocks. | 
 | **var.hotpatching_enabled** | bool |  `False`  |  `true`, `false`  |  Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch). | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.license_type** | string |  -  |  `None`, `Windows_Client`, `Windows_Server`  |  Specifies the type of on-premise license (also known as [Azure Hybrid Use Benefit](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)) which should be used for this Virtual Machine. Possible values are `None`, `Windows_Client` and `Windows_Server`. | 
 | **var.max_bid_price** | string |  `-1`  |  -  |  The maximum price you're willing to pay for this Virtual Machine, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machine will be evicted using the `eviction_policy`. Defaults to `-1`, which means that the Virtual Machine should not be evicted for price reasons. | 
 | **var.patch_assessment_mode** | string |  `ImageDefault`  |  `AutomaticByPlatform`, `ImageDefault`  |  Specifies the mode of VM Guest Patching for the Virtual Machine. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`. | 
 | **var.patch_mode** | string |  `AutomaticByOS`  |  `Manual`, `AutomaticByOS`, `AutomaticByPlatform`  |  Specifies the mode of in-guest patching to this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). | 
-| **var.plan** | block |  -  |  -  |  A `plan` block. Changing this forces a new resource to be created. | 
+| **var.plan** | [block](#plan-block-structure) |  -  |  -  |  A `plan` block. Changing this forces a new resource to be created. | 
 | **var.platform_fault_domain** | string |  `-1`  |  -  |  Specifies the Platform Fault Domain in which this Windows Virtual Machine should be created. Defaults to `-1`, which means this will be automatically assigned to a fault domain that best maintains balance across the available fault domains. Changing this forces a new Windows Virtual Machine to be created. | 
 | **var.priority** | string |  `Regular`  |  `Regular`, `Spot`  |  Specifies the priority of this Virtual Machine. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created. | 
 | **var.provision_vm_agent** | bool |  `True`  |  -  |  Should the Azure VM Agent be provisioned on this Virtual Machine? Defaults to `true`. Changing this forces a new resource to be created. | 
 | **var.proximity_placement_group_id** | string |  -  |  -  |  The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. | 
 | **var.reboot_setting** | string |  -  |  `Always`, `IfRequired`, `Never`  |  Specifies the reboot setting for platform scheduled patching. Possible values are `Always`, `IfRequired` and `Never`. | 
-| **var.secret** | block |  -  |  -  |  One or more `secret` blocks. | 
+| **var.secret** | [block](#secret-block-structure) |  -  |  -  |  One or more `secret` blocks. | 
 | **var.secure_boot_enabled** | bool |  -  |  -  |  Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created. | 
 | **var.source_image_id** | string |  -  |  -  |  The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s. | 
-| **var.source_image_reference** | block |  -  |  -  |  A `source_image_reference` block. Changing this forces a new resource to be created. | 
+| **var.source_image_reference** | [block](#source_image_reference-block-structure) |  -  |  -  |  A `source_image_reference` block. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to this Virtual Machine. | 
-| **var.termination_notification** | block |  -  |  -  |  A `termination_notification` block. | 
+| **var.termination_notification** | [block](#termination_notification-block-structure) |  -  |  -  |  A `termination_notification` block. | 
 | **var.timezone** | string |  -  |  -  |  Specifies the Time Zone which should be used by the Virtual Machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created. | 
 | **var.user_data** | string |  -  |  -  |  The Base64-Encoded User Data which should be used for this Virtual Machine. | 
 | **var.virtual_machine_scale_set_id** | string |  -  |  -  |  Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created. | 
 | **var.vtpm_enabled** | bool |  -  |  -  |  Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created. | 
-| **var.winrm_listener** | block |  -  |  -  |  One or more `winrm_listener` blocks. Changing this forces a new resource to be created. | 
+| **var.winrm_listener** | [block](#winrm_listener-block-structure) |  -  |  -  |  One or more `winrm_listener` blocks. Changing this forces a new resource to be created. | 
 | **var.zone** | string |  -  |  -  |  * `zones` -  Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created. | 
 
 ### `os_disk` block structure

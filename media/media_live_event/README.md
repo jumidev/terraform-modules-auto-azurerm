@@ -2,7 +2,7 @@
 
 Manages a Live Event.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.input** | block |  A `input` block. | 
+| **var.input** | [block](#input-block-structure) |  A `input` block. | 
 | **var.location** | string |  The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created. | 
 | **var.media_services_account_name** | string |  The Media Services account name. Changing this forces a new Live Event to be created. | 
 | **var.name** | string |  The name which should be used for this Live Event. Changing this forces a new Live Event to be created. | 
@@ -46,11 +46,11 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.auto_start_enabled** | bool |  -  |  The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created. | 
-| **var.cross_site_access_policy** | block |  -  |  A `cross_site_access_policy` block. | 
+| **var.cross_site_access_policy** | [block](#cross_site_access_policy-block-structure) |  -  |  A `cross_site_access_policy` block. | 
 | **var.description** | string |  -  |  A description for the live event. | 
-| **var.encoding** | block |  -  |  A `encoding` block. | 
+| **var.encoding** | [block](#encoding-block-structure) |  -  |  A `encoding` block. | 
 | **var.hostname_prefix** | string |  -  |  When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center. | 
-| **var.preview** | block |  -  |  A `preview` block. | 
+| **var.preview** | [block](#preview-block-structure) |  -  |  A `preview` block. | 
 | **var.stream_options** | string |  `Default`, `LowLatency`, `LowLatencyV2`  |  A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Live Event. | 
 | **var.transcription_languages** | string |  -  |  Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ). | 

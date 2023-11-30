@@ -2,7 +2,7 @@
 
 Enables you to manage DNS MX Records within Azure Private DNS.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 | **var.zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.record** | block |  One or more `record` blocks. | 
+| **var.record** | [block](#record-block-structure) |  One or more `record` blocks. | 
 | **var.ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables

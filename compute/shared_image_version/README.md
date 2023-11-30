@@ -2,7 +2,7 @@
 
 Manages a Version of a Shared Image within a Shared Image Gallery.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

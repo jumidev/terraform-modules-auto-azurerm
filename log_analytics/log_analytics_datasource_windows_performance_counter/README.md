@@ -2,7 +2,7 @@
 
 Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

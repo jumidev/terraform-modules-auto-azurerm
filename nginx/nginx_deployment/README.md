@@ -2,7 +2,7 @@
 
 Manages a Nginx Deployment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,11 +42,11 @@ tfstate_store = {
 | **var.capacity** | int |  `20`  |  Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`. | 
 | **var.diagnose_support_enabled** | bool |  -  |  Should the diagnosis support be enabled? | 
 | **var.email** | string |  -  |  Specify the preferred support contact email address of the user used for sending alerts and notification. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
-| **var.frontend_private** | block |  -  |  One or more `frontend_private` blocks. Changing this forces a new Nginx Deployment to be created. | 
-| **var.frontend_public** | block |  -  |  A `frontend_public` block. Changing this forces a new Nginx Deployment to be created. | 
-| **var.logging_storage_account** | block |  -  |  One or more `logging_storage_account` blocks. | 
-| **var.network_interface** | block |  -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **var.frontend_private** | [block](#frontend_private-block-structure) |  -  |  One or more `frontend_private` blocks. Changing this forces a new Nginx Deployment to be created. | 
+| **var.frontend_public** | [block](#frontend_public-block-structure) |  -  |  A `frontend_public` block. Changing this forces a new Nginx Deployment to be created. | 
+| **var.logging_storage_account** | [block](#logging_storage_account-block-structure) |  -  |  One or more `logging_storage_account` blocks. | 
+| **var.network_interface** | [block](#network_interface-block-structure) |  -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Nginx Deployment. | 
 
 ### `identity` block structure

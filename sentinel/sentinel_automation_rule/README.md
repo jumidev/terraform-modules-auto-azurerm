@@ -2,7 +2,7 @@
 
 Manages a Sentinel Automation Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,9 +38,9 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.action_incident** | block |  -  |  -  |  One or more `action_incident` blocks. | 
-| **var.action_playbook** | block |  -  |  -  |  One or more `action_playbook` blocks. | 
-| **var.condition** | block |  -  |  -  |  (Optional / **Deprecated** ) One or more `condition` blocks. | 
+| **var.action_incident** | [block](#action_incident-block-structure) |  -  |  -  |  One or more `action_incident` blocks. | 
+| **var.action_playbook** | [block](#action_playbook-block-structure) |  -  |  -  |  One or more `action_playbook` blocks. | 
+| **var.condition** | [block](#condition-block-structure) |  -  |  -  |  (Optional / **Deprecated** ) One or more `condition` blocks. | 
 | **var.condition_json** | list |  -  |  -  |  A JSON array of one or more condition JSON objects as is defined [here](https://learn.microsoft.com/en-us/rest/api/securityinsights/preview/automation-rules/create-or-update?tabs=HTTP#automationruletriggeringlogic). | 
 | **var.enabled** | bool |  `True`  |  -  |  Whether this Sentinel Automation Rule is enabled? Defaults to `true`. | 
 | **var.expiration** | string |  -  |  -  |  The time in RFC3339 format of kind `UTC` that determines when this Automation Rule should expire and be disabled. | 

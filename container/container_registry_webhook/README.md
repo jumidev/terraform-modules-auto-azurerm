@@ -2,7 +2,7 @@
 
 Manages an Azure Container Registry Webhook.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

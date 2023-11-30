@@ -2,7 +2,7 @@
 
 Manages an API Management Gateway Host Name Configuration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

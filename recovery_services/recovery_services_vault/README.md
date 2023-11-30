@@ -2,7 +2,7 @@
 
 Manages a Recovery Services Vault.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,15 +39,15 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Is it enabled to access the vault from public networks. Defaults to `true`. | 
 | **var.immutability** | string |  -  |  `Locked`, `Unlocked`, `Disabled`  |  Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`. | 
 | **var.storage_mode_type** | string |  `GeoRedundant`  |  `GeoRedundant`, `LocallyRedundant`, `ZoneRedundant`  |  The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`. | 
 | **var.cross_region_restore_enabled** | bool |  `False`  |  -  |  Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`. | 
 | **var.soft_delete_enabled** | bool |  `True`  |  -  |  Is soft delete enable for this Vault? Defaults to `true`. | 
-| **var.encryption** | block |  -  |  -  |  An `encryption` block. Required with `identity`. | 
+| **var.encryption** | [block](#encryption-block-structure) |  -  |  -  |  An `encryption` block. Required with `identity`. | 
 | **var.classic_vmware_replication_enabled** | bool |  -  |  -  |  Whether to enable the Classic experience for VMware replication. If set to `false` VMware machines will be protected using the new stateless ASR replication appliance. Changing this forces a new resource to be created. | 
-| **var.monitoring** | block |  -  |  -  |  A `monitoring` block. | 
+| **var.monitoring** | [block](#monitoring-block-structure) |  -  |  -  |  A `monitoring` block. | 
 
 ### `identity` block structure
 

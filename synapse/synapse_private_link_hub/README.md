@@ -2,7 +2,7 @@
 
 Manages a Synapse Private Link Hub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

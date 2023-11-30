@@ -2,7 +2,7 @@
 
 Manages a Backup Instance to back up PostgreSQL.-> **Note:** Before using this resource, there are some prerequisite permissions for configure backup and restore. See more details from <https://docs.microsoft.com/azure/backup/backup-azure-database-postgresql#prerequisite-permissions-for-configure-backup-and-restore>.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

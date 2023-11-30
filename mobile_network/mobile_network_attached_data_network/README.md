@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Attached Data Network.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.user_plane_access_ipv4_address** | string |  The IPv4 address for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device. | 
 | **var.user_plane_access_ipv4_subnet** | string |  The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device. | 
 | **var.user_plane_access_ipv4_gateway** | string |  The default IPv4 gateway for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device. | 
-| **var.network_address_port_translation** | block |  A `network_address_port_translation` block. | 
+| **var.network_address_port_translation** | [block](#network_address_port_translation-block-structure) |  A `network_address_port_translation` block. | 
 | **var.user_equipment_address_pool_prefixes** | string |  Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. At least one of `user_equipment_address_pool_prefixes` and `user_equipment_static_address_pool_prefix`. If you define both, they must be of the same size. | 
 | **var.user_equipment_static_address_pool_prefixes** | string |  Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Mobile Network Attached Data Network. | 

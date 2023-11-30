@@ -2,7 +2,7 @@
 
 Manages a Network Watcher Flow Log.~> **Note** The `azurerm_network_watcher_flow_log` creates a new storage lifecyle management rule that overwrites existing rules. Please make sure to use a `storage_account` with no existing management rules, until the [issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/6935) is fixed.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,14 +45,14 @@ tfstate_store = {
 | **var.network_security_group_id** | string |  The ID of the Network Security Group for which to enable flow logs for. Changing this forces a new resource to be created. | 
 | **var.storage_account_id** | string |  The ID of the Storage Account where flow logs are stored. | 
 | **var.enabled** | bool |  Should Network Flow Logging be Enabled? | 
-| **var.retention_policy** | block |  A `retention_policy` block. | 
+| **var.retention_policy** | [block](#retention_policy-block-structure) |  A `retention_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.location** | string |  `location`  |  -  |  The location where the Network Watcher Flow Log resides. Changing this forces a new resource to be created. Defaults to the `location` of the Network Watcher. | 
-| **var.traffic_analytics** | block |  -  |  -  |  A `traffic_analytics` block. | 
+| **var.traffic_analytics** | [block](#traffic_analytics-block-structure) |  -  |  -  |  A `traffic_analytics` block. | 
 | **var.version** | string |  -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
 

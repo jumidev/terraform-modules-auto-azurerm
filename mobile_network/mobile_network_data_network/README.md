@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Data Network.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

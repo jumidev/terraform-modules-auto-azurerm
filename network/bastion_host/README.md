@@ -2,7 +2,7 @@
 
 Manages a Bastion Host.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name of the Bastion Host. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the resource group in which to create the Bastion Host. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Review [Azure Bastion Host FAQ](https://docs.microsoft.com/azure/bastion/bastion-faq) for supported locations. | 
-| **var.ip_configuration** | block |  A `ip_configuration` block. Changing this forces a new resource to be created. | 
+| **var.ip_configuration** | [block](#ip_configuration-block-structure) |  A `ip_configuration` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

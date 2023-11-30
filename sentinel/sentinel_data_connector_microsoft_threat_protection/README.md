@@ -2,7 +2,7 @@
 
 Manages a Microsoft Threat Protection Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

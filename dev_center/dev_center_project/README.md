@@ -2,7 +2,7 @@
 
 Manages a Dev Center Project.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

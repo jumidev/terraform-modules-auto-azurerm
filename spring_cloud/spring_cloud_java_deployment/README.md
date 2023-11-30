@@ -2,7 +2,7 @@
 
 Manages an Azure Spring Cloud Deployment with a Java runtime.-> **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | **var.environment_variables** | string |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
 | **var.instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **var.jvm_options** | string |  -  |  Specifies the jvm option of the Spring Cloud Deployment. | 
-| **var.quota** | block |  -  |  A `quota` block. | 
+| **var.quota** | [block](#quota-block-structure) |  -  |  A `quota` block. | 
 | **var.runtime_version** | string |  `Java_8`  |  Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`. | 
 
 ### `quota` block structure

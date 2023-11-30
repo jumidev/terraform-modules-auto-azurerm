@@ -2,7 +2,7 @@
 
 Manages a [Log Profile](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#export-the-activity-log-with-a-log-profile). A Log Profile configures how Activity Logs are exported.-> **NOTE:** It's only possible to configure one Log Profile per Subscription. If you are trying to create more than one Log Profile, an error with `StatusCode=409` will occur.!> **NOTE:** Azure Log Profiles will be retired on 30th September 2026 and will be removed in v4.0 of the AzureRM Provider. More information on the deprecation can be found [in the Azure documentation](https://learn.microsoft.com/azure/azure-monitor/essentials/activity-log?tabs=powershell#legacy-collection-methods).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the Log Profile. Changing this forces a new resource to be created. | 
 | **var.categories** | string |  List of categories of the logs. | 
 | **var.locations** | string |  List of regions for which Activity Log events are stored or streamed. | 
-| **var.retention_policy** | block |  A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
+| **var.retention_policy** | [block](#retention_policy-block-structure) |  A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
 
 ## Optional Variables
 

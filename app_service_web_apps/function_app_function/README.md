@@ -2,7 +2,7 @@
 
 Manages a Function App Function.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.enabled** | bool |  `True`  |  -  |  Should this function be enabled. Defaults to `true`. | 
-| **var.file** | block |  -  |  -  |  A `file` block as detailed below. Changing this forces a new resource to be created. | 
+| **var.file** | [block](#file-block-structure) |  -  |  -  |  A `file` block as detailed below. Changing this forces a new resource to be created. | 
 | **var.language** | string |  -  |  `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, `TypeScript`  |  The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`. | 
 | **var.test_data** | string |  -  |  -  |  The test data for the function. | 
 

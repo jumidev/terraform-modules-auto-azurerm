@@ -2,7 +2,7 @@
 
 Manages a Capacity Reservation within a Capacity Reservation Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  Specifies the name of this Capacity Reservation. Changing this forces a new resource to be created. | 
 | **var.capacity_reservation_group_id** | string |  The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created. | 
-| **var.sku** | block |  A `sku` block. | 
+| **var.sku** | [block](#sku-block-structure) |  A `sku` block. | 
 
 ## Optional Variables
 

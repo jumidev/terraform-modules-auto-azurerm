@@ -2,7 +2,7 @@
 
 Manages a Log Analytics Data Export Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

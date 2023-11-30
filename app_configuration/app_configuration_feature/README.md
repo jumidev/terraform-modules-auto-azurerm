@@ -2,7 +2,7 @@
 
 Manages an Azure App Configuration Feature.-> **Note:** App Configuration Features are provisioned using a Data Plane API which requires the role `App Configuration Data Owner` on either the App Configuration or a parent scope (such as the Resource Group/Subscription). [More information can be found in the Azure Documentation for App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/concept-enable-rbac#azure-built-in-roles-for-azure-app-configuration). This is similar to providing App Configuration Keys.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,8 +41,8 @@ tfstate_store = {
 | **var.locked** | string |  Should this App Configuration Feature be Locked to prevent changes? | 
 | **var.percentage_filter_value** | string |  A number representing the value of the percentage required to enable this feature. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
-| **var.targeting_filter** | block |  A `targeting_filter` block. | 
-| **var.timewindow_filter** | block |  A `timewindow_filter` block. | 
+| **var.targeting_filter** | [block](#targeting_filter-block-structure) |  A `targeting_filter` block. | 
+| **var.timewindow_filter** | [block](#timewindow_filter-block-structure) |  A `timewindow_filter` block. | 
 
 ### `targeting_filter` block structure
 

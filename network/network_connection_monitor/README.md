@@ -2,7 +2,7 @@
 
 Manages a Network Connection Monitor.~> **NOTE:** Any Network Connection Monitor resource created with API versions 2019-06-01 or earlier (v1) are now incompatible with Terraform, which now only supports v2.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -54,9 +54,9 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Network Connection Monitor. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The Azure Region where the Network Connection Monitor should exist. Changing this forces a new resource to be created. | 
 | **var.network_watcher_id** | string |  The ID of the Network Watcher. Changing this forces a new resource to be created. | 
-| **var.endpoint** | block |  A `endpoint` block. | 
-| **var.test_configuration** | block |  A `test_configuration` block. | 
-| **var.test_group** | block |  A `test_group` block. | 
+| **var.endpoint** | [block](#endpoint-block-structure) |  A `endpoint` block. | 
+| **var.test_configuration** | [block](#test_configuration-block-structure) |  A `test_configuration` block. | 
+| **var.test_group** | [block](#test_group-block-structure) |  A `test_group` block. | 
 
 ## Optional Variables
 

@@ -2,7 +2,7 @@
 
 Configures Network Packet Capturing against a Virtual Machine Scale Set using a Network Watcher.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  The name to use for this Network Packet Capture. Changing this forces a new resource to be created. | 
 | **var.network_watcher_id** | string |  The resource ID of the Network Watcher. Changing this forces a new resource to be created. | 
 | **var.virtual_machine_scale_set_id** | string |  The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created. | 
-| **var.storage_location** | block |  A `storage_location` block. Changing this forces a new resource to be created. | 
+| **var.storage_location** | [block](#storage_location-block-structure) |  A `storage_location` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
@@ -47,8 +47,8 @@ tfstate_store = {
 | **var.maximum_bytes_per_packet** | int |  `0`  |  The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created. | 
 | **var.maximum_bytes_per_session** | int |  `1073741824`  |  Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created. | 
 | **var.maximum_capture_duration_in_seconds** | int |  `18000`  |  The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created. | 
-| **var.filter** | block |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
-| **var.machine_scope** | block |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
+| **var.filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
+| **var.machine_scope** | [block](#machine_scope-block-structure) |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
 
 ### `storage_location` block structure
 

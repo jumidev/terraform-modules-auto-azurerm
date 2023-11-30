@@ -2,7 +2,7 @@
 
 Manages a Backup Instance to back up Disk.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

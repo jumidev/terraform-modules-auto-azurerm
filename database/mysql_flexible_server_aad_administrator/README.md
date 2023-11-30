@@ -2,7 +2,7 @@
 
 Manages an Active Directory administrator on a MySQL Flexible Server
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

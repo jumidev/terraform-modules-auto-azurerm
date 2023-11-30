@@ -2,7 +2,7 @@
 
 Manages a local network gateway connection over which specific connections can be configured.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.address_space** | string |  The list of string CIDRs representing the address spaces the gateway exposes. | 
-| **var.bgp_settings** | block |  A `bgp_settings` block containing the Local Network Gateway's BGP speaker settings. | 
+| **var.bgp_settings** | [block](#bgp_settings-block-structure) |  A `bgp_settings` block containing the Local Network Gateway's BGP speaker settings. | 
 | **var.gateway_address** | string |  The gateway IP address to connect with. | 
 | **var.gateway_fqdn** | string |  The gateway FQDN to connect with. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 

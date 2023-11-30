@@ -2,7 +2,7 @@
 
 Manages an Azure SignalR Custom Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

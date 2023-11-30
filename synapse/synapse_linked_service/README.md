@@ -2,7 +2,7 @@
 
 Manages a Synapse Linked Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,7 +41,7 @@ tfstate_store = {
 | **var.additional_properties** | string |  A map of additional properties to associate with the Synapse Linked Service. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Synapse Linked Service. | 
 | **var.description** | string |  The description for the Synapse Linked Service. | 
-| **var.integration_runtime** | block |  A `integration_runtime` block. | 
+| **var.integration_runtime** | [block](#integration_runtime-block-structure) |  A `integration_runtime` block. | 
 | **var.parameters** | string |  A map of parameters to associate with the Synapse Linked Service. | 
 
 ### `integration_runtime` block structure

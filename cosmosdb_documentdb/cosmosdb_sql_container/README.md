@@ -2,7 +2,7 @@
 
 Manages a SQL Container within a Cosmos DB Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,13 +41,13 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.partition_key_version** | string |  `1`, `2`  |  Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys. | 
-| **var.unique_key** | block |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
+| **var.unique_key** | [block](#unique_key-block-structure) |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
 | **var.throughput** | string |  -  |  The throughput of SQL container (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon container creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
-| **var.autoscale_settings** | block |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
-| **var.indexing_policy** | block |  -  |  An `indexing_policy` block. | 
+| **var.autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
+| **var.indexing_policy** | [block](#indexing_policy-block-structure) |  -  |  An `indexing_policy` block. | 
 | **var.default_ttl** | string |  -  |  The default time to live of SQL container. If missing, items are not expired automatically. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. | 
 | **var.analytical_storage_ttl** | string |  -  |  The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. | 
-| **var.conflict_resolution_policy** | block |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
+| **var.conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 
 ### `unique_key` block structure
 

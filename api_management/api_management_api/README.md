@@ -2,7 +2,7 @@
 
 Manages an API within an API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,15 +42,15 @@ tfstate_store = {
 | **var.display_name** | string |  -  |  -  |  The display name of the API. | 
 | **var.path** | string |  -  |  -  |  The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service. | 
 | **var.protocols** | string |  -  |  `http`, `https`, `ws`, `wss`  |  A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`. | 
-| **var.contact** | block |  -  |  -  |  A `contact` block. | 
+| **var.contact** | [block](#contact-block-structure) |  -  |  -  |  A `contact` block. | 
 | **var.description** | string |  -  |  -  |  A description of the API Management API, which may include HTML formatting tags. | 
-| **var.import** | block |  -  |  -  |  A `import` block. | 
-| **var.license** | block |  -  |  -  |  A `license` block. | 
-| **var.oauth2_authorization** | block |  -  |  -  |  An `oauth2_authorization` block. | 
-| **var.openid_authentication** | block |  -  |  -  |  An `openid_authentication` block. | 
+| **var.import** | [block](#import-block-structure) |  -  |  -  |  A `import` block. | 
+| **var.license** | [block](#license-block-structure) |  -  |  -  |  A `license` block. | 
+| **var.oauth2_authorization** | [block](#oauth2_authorization-block-structure) |  -  |  -  |  An `oauth2_authorization` block. | 
+| **var.openid_authentication** | [block](#openid_authentication-block-structure) |  -  |  -  |  An `openid_authentication` block. | 
 | **var.service_url** | string |  -  |  -  |  Absolute URL of the backend service implementing this API. | 
 | **var.soap_pass_through** | bool |  `False`  |  -  |  Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`. | 
-| **var.subscription_key_parameter_names** | block |  -  |  -  |  A `subscription_key_parameter_names` block. | 
+| **var.subscription_key_parameter_names** | [block](#subscription_key_parameter_names-block-structure) |  -  |  -  |  A `subscription_key_parameter_names` block. | 
 | **var.subscription_required** | bool |  `True`  |  -  |  Should this API require a subscription key? Defaults to `true`. | 
 | **var.terms_of_service_url** | string |  -  |  -  |  Absolute URL of the Terms of Service for the API. | 
 | **var.version** | int |  -  |  -  |  The Version number of this API, if this API is versioned. | 

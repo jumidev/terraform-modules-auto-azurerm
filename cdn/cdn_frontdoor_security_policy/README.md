@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Security Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.name** | string |  The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created. | 
 | **var.cdn_frontdoor_profile_id** | string |  The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created. | 
-| **var.security_policies** | block |  An `security_policies` block. Changing this forces a new Front Door Security Policy to be created. | 
+| **var.security_policies** | [block](#security_policies-block-structure) |  An `security_policies` block. Changing this forces a new Front Door Security Policy to be created. | 
 
 ### `security_policies` block structure
 

@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Sim Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.encryption_key_url** | string |  A key to encrypt the SIM data that belongs to this SIM group. | 
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Mobile Network Sim Groups. | 
 
 ### `identity` block structure

@@ -2,7 +2,7 @@
 
 Manages a Resource Policy Exemption.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Hybrid Compute Machine Extension.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

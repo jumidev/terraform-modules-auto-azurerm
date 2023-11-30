@@ -2,7 +2,7 @@
 
 Manages a Confidential Ledger.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,14 +41,14 @@ tfstate_store = {
 | **var.name** | string |  -  |  Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created. | 
 | **var.location** | string |  -  |  Specifies the supported Azure location where the Confidential Ledger exists. Changing this forces a new resource to be created. | 
-| **var.azuread_based_service_principal** | block |  -  |  A list of `azuread_based_service_principal` blocks. | 
+| **var.azuread_based_service_principal** | [block](#azuread_based_service_principal-block-structure) |  -  |  A list of `azuread_based_service_principal` blocks. | 
 | **var.ledger_type** | string |  `Private`, `Public`  |  Specifies the type of Confidential Ledger. Possible values are `Private` and `Public`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.certificate_based_security_principal** | block |  A list of `certificate_based_security_principal` blocks. | 
+| **var.certificate_based_security_principal** | [block](#certificate_based_security_principal-block-structure) |  A list of `certificate_based_security_principal` blocks. | 
 | **var.tags** | map |  A mapping of tags to assign to the Confidential Ledger. | 
 
 ### `azuread_based_service_principal` block structure

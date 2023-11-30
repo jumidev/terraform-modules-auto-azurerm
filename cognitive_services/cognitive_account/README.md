@@ -2,7 +2,7 @@
 
 Manages a Cognitive Services Account.-> **Note:** Version v2.65.0 of the Azure Provider and later will attempt to Purge the Cognitive Account during deletion. This feature can be disabled using the `features` block within the `provider` block, see [the provider documentation on the features block](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block) for more information.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,21 +42,21 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.custom_subdomain_name** | string |  -  |  The subdomain name used for token-based authentication. Changing this forces a new resource to be created. | 
 | **var.dynamic_throttling_enabled** | bool |  -  |  Whether to enable the dynamic throttling for this Cognitive Service Account. | 
-| **var.customer_managed_key** | block |  -  |  A `customer_managed_key` block. | 
+| **var.customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  A `customer_managed_key` block. | 
 | **var.fqdns** | string |  -  |  List of FQDNs allowed for the Cognitive Account. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.local_auth_enabled** | bool |  `True`  |  Whether local authentication methods is enabled for the Cognitive Account. Defaults to `true`. | 
 | **var.metrics_advisor_aad_client_id** | string |  -  |  The Azure AD Client ID (Application ID). This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **var.metrics_advisor_aad_tenant_id** | string |  -  |  The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **var.metrics_advisor_super_user_name** | string |  -  |  The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **var.metrics_advisor_website_name** | string |  -  |  The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
-| **var.network_acls** | block |  -  |  A `network_acls` block. | 
+| **var.network_acls** | [block](#network_acls-block-structure) |  -  |  A `network_acls` block. | 
 | **var.outbound_network_access_restricted** | bool |  `False`  |  Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  Whether public network access is allowed for the Cognitive Account. Defaults to `true`. | 
 | **var.qna_runtime_endpoint** | string |  -  |  A URL to link a QnAMaker cognitive account to a QnA runtime. | 
 | **var.custom_question_answering_search_service_id** | string |  -  |  If `kind` is `TextAnalytics` this specifies the ID of the Search service. | 
 | **var.custom_question_answering_search_service_key** | string |  -  |  If `kind` is `TextAnalytics` this specifies the key of the Search service. | 
-| **var.storage** | block |  -  |  A `storage` block. | 
+| **var.storage** | [block](#storage-block-structure) |  -  |  A `storage` block. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `customer_managed_key` block structure

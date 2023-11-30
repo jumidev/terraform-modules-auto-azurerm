@@ -2,7 +2,7 @@
 
 Manages a Shared Image within a Shared Image Gallery.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,14 +43,14 @@ tfstate_store = {
 | **var.gallery_name** | string |  -  |  Specifies the name of the Shared Image Gallery in which this Shared Image should exist. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  -  |  The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
 | **var.location** | string |  -  |  Specifies the supported Azure location where the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
-| **var.identifier** | block |  -  |  An `identifier` block. | 
+| **var.identifier** | [block](#identifier-block-structure) |  -  |  An `identifier` block. | 
 | **var.os_type** | string |  `Linux`, `Windows`  |  The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.purchase_plan** | block |  -  |  -  |  A `purchase_plan` block. | 
+| **var.purchase_plan** | [block](#purchase_plan-block-structure) |  -  |  -  |  A `purchase_plan` block. | 
 | **var.description** | string |  -  |  -  |  A description of this Shared Image. | 
 | **var.disk_types_not_allowed** | string |  -  |  `Standard_LRS`, `Premium_LRS`  |  One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`. | 
 | **var.end_of_life_date** | datetime |  -  |  -  |  The end of life date in RFC3339 format of the Image. | 

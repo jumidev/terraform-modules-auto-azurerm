@@ -2,7 +2,7 @@
 
 Manages an AAD B2C Directory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an IotHub Shared Access Policy
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

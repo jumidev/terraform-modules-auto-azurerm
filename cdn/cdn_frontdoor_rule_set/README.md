@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Rule Set.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

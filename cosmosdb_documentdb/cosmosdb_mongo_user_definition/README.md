@@ -2,7 +2,7 @@
 
 Manages a Cosmos DB Mongo User Definition.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

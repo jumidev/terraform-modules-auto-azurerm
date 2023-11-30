@@ -2,7 +2,7 @@
 
 Manages a Virtual Hub IP. This resource is also known as a Route Server.~> **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

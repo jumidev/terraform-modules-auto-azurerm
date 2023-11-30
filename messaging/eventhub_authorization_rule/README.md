@@ -2,7 +2,7 @@
 
 Manages a Event Hubs authorization Rule within an Event Hub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

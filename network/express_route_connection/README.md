@@ -2,7 +2,7 @@
 
 Manages an Express Route Connection.~> **NOTE:** The provider status of the Express Route Circuit must be set as provisioned while creating the Express Route Connection. See more details [here](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#send-the-service-key-to-your-connectivity-provider-for-provisioning).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.authorization_key** | string |  -  |  The authorization key to establish the Express Route Connection. | 
 | **var.enable_internet_security** | bool |  -  |  Is Internet security enabled for this Express Route Connection? | 
 | **var.express_route_gateway_bypass_enabled** | bool |  `False`  |  Specified whether Fast Path is enabled for Virtual Wan Firewall Hub. Defaults to `false`. | 
-| **var.routing** | block |  -  |  A `routing` block. | 
+| **var.routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 | **var.routing_weight** | string |  `0`  |  The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`. | 
 
 ### `routing` block structure

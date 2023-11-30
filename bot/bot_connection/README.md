@@ -2,7 +2,7 @@
 
 Manages a Bot Connection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

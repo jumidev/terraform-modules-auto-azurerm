@@ -2,7 +2,7 @@
 
 Manages a API Management Gateway API.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

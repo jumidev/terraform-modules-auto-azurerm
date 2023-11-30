@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

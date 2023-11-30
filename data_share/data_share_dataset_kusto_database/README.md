@@ -2,7 +2,7 @@
 
 Manages a Data Share Kusto Database Dataset.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

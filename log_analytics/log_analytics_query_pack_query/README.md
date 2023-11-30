@@ -2,7 +2,7 @@
 
 Manages a Log Analytics Query Pack Query.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

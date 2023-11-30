@@ -2,7 +2,7 @@
 
 Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

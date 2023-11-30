@@ -2,7 +2,7 @@
 
 Assigns a given Principal (User or Group) to a given Role.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

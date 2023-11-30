@@ -2,7 +2,7 @@
 
 Manages a Recurrence Trigger within a Logic App Workflow
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.start_time** | string |  Specifies the start date and time for this trigger in RFC3339 format: `2000-01-02T03:04:05Z`. | 
 | **var.time_zone** | string |  Specifies the time zone for this trigger. Supported time zone options are listed [here](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values) | 
-| **var.schedule** | block |  A `schedule` block as specified below. | 
+| **var.schedule** | [block](#schedule-block-structure) |  A `schedule` block as specified below. | 
 
 ### `schedule` block structure
 

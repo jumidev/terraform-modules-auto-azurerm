@@ -2,7 +2,7 @@
 
 Manages a Capacity Reservation Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

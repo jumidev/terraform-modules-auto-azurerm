@@ -2,7 +2,7 @@
 
 Manages a Function App Hybrid Connection.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

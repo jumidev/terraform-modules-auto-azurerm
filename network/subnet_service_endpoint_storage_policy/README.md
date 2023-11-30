@@ -2,7 +2,7 @@
 
 Manages a Subnet Service Endpoint Storage Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.definition** | block |  A `definition` block | 
+| **var.definition** | [block](#definition-block-structure) |  A `definition` block | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Subnet Service Endpoint Storage Policy. | 
 
 ### `definition` block structure

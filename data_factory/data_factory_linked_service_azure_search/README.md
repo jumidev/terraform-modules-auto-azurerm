@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

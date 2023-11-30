@@ -2,7 +2,7 @@
 
 Manages a VPN Site.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,11 +38,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.link** | block |  One or more `link` blocks. | 
+| **var.link** | [block](#link-block-structure) |  One or more `link` blocks. | 
 | **var.address_cidrs** | string |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. | 
 | **var.device_model** | string |  The model of the VPN device. | 
 | **var.device_vendor** | string |  The name of the VPN device vendor. | 
-| **var.o365_policy** | block |  An `o365_policy` block. | 
+| **var.o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
 
 ### `link` block structure

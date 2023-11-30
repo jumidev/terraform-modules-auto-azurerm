@@ -2,7 +2,7 @@
 
 Manages an ExpressRoute Circuit Peering.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,8 +43,8 @@ tfstate_store = {
 | **var.ipv4_enabled** | bool |  `True`  |  A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`. | 
 | **var.shared_key** | string |  -  |  The shared key. Can be a maximum of 25 characters. | 
 | **var.peer_asn** | string |  -  |  The Either a 16-bit or a 32-bit ASN. Can either be public or private. | 
-| **var.microsoft_peering_config** | block |  -  |  A `microsoft_peering_config` block. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4. | 
-| **var.ipv6** | block |  -  |  A `ipv6` block. | 
+| **var.microsoft_peering_config** | [block](#microsoft_peering_config-block-structure) |  -  |  A `microsoft_peering_config` block. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4. | 
+| **var.ipv6** | [block](#ipv6-block-structure) |  -  |  A `ipv6` block. | 
 | **var.route_filter_id** | string |  -  |  The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`. | 
 
 ### `microsoft_peering_config` block structure

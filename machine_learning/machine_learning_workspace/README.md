@@ -2,7 +2,7 @@
 
 Manages a Azure Machine Learning Workspace~> **NOTE:** For examples on how to set up the Azure Machine Learning workspace, together with compute and integrated services, see [Terraform Quickstart](https://github.com/Azure/terraform/tree/master/quickstart)
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,7 +44,7 @@ tfstate_store = {
 | **var.application_insights_id** | string |  The ID of the Application Insights associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
 | **var.key_vault_id** | string |  The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
 | **var.storage_account_id** | string |  The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created. | 
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 
 ## Optional Variables
 
@@ -55,7 +55,7 @@ tfstate_store = {
 | **var.public_network_access_enabled** | bool |  -  |  -  |  Enable public access when this Machine Learning Workspace is behind VNet. | 
 | **var.image_build_compute_name** | string |  -  |  -  |  The compute name for image build of the Machine Learning Workspace. | 
 | **var.description** | string |  -  |  -  |  The description of this Machine Learning Workspace. | 
-| **var.encryption** | block |  -  |  -  |  An `encryption` block. Changing this forces a new resource to be created. | 
+| **var.encryption** | [block](#encryption-block-structure) |  -  |  -  |  An `encryption` block. Changing this forces a new resource to be created. | 
 | **var.friendly_name** | string |  -  |  -  |  Display name for this Machine Learning Workspace. | 
 | **var.high_business_impact** | string |  -  |  -  |  Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service | 
 | **var.primary_user_assigned_identity** | string |  -  |  -  |  The user assigned identity id that represents the workspace identity. | 

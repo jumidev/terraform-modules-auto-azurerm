@@ -2,7 +2,7 @@
 
 Manages a Virtual Network Gateway to establish secure, cross-premises connectivity.-> **Note:** Please be aware that provisioning a Virtual Network Gateway takes a long time (between 30 minutes and 1 hour)
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -46,12 +46,12 @@ tfstate_store = {
 | **var.default_local_network_gateway_id** | string |  -  |  -  |  The ID of the local network gateway through which outbound Internet traffic from the virtual network in which the gateway is created will be routed (*forced tunnelling*). Refer to the [Azure documentation on forced tunnelling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). If not specified, forced tunnelling is disabled. | 
 | **var.edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created. | 
 | **var.enable_bgp** | bool |  `False`  |  -  |  If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`. | 
-| **var.bgp_settings** | block |  -  |  -  |  A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined. | 
-| **var.custom_route** | block |  -  |  -  |  A `custom_route` block. Specifies a custom routes address space for a virtual network gateway and a VpnClient. | 
+| **var.bgp_settings** | [block](#bgp_settings-block-structure) |  -  |  -  |  A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined. | 
+| **var.custom_route** | [block](#custom_route-block-structure) |  -  |  -  |  A `custom_route` block. Specifies a custom routes address space for a virtual network gateway and a VpnClient. | 
 | **var.generation** | string |  -  |  `Generation1`, `Generation2`, `None`  |  The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created. | 
 | **var.private_ip_address_enabled** | bool |  -  |  -  |  Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.vpn_client_configuration** | block |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
+| **var.vpn_client_configuration** | [block](#vpn_client_configuration-block-structure) |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
 | **var.vpn_type** | string |  `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
 
 ### `bgp_settings` block structure

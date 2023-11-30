@@ -2,7 +2,7 @@
 
 Manages a Network Managers.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.name** | string |  -  |  Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created. | 
 | **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created. | 
 | **var.location** | string |  -  |  Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created. | 
-| **var.scope** | block |  -  |  A `scope` block. | 
+| **var.scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
 | **var.scope_accesses** | string |  `Connectivity`, `SecurityAdmin`  |  A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager. | 
 
 ## Optional Variables

@@ -2,7 +2,7 @@
 
 Manages an Automation Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

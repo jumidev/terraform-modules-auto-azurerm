@@ -2,7 +2,7 @@
 
 Manages a Log Analytics (formally Operational Insights) Solution.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.workspace_resource_id** | string |  The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
 | **var.workspace_name** | string |  The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
-| **var.plan** | block |  A `plan` block. | 
+| **var.plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
 ## Optional Variables
 

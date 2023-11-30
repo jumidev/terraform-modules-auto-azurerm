@@ -2,7 +2,7 @@
 
 Manages Synapse Workspace keys-> **Note:** Keys that are actively protecting a workspace cannot be deleted. When the keys resource is deleted, if the key is inactive it will be deleted, if it is active it will not be deleted.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

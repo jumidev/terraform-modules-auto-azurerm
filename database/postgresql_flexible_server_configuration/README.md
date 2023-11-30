@@ -2,7 +2,7 @@
 
 Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages the Data Access Settings for Azure Security Center.~> **NOTE:** This resource requires the `Owner` permission on the Subscription.~> **NOTE:** Deletion of this resource disables the setting.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Pool within a NetApp Account.## NetApp Pool Usage```hclresource "azurerm_resource_group" "example" {name     = "example-resources"location = "West Europe"}resource "azurerm_netapp_account" "example" {name                = "example-netappaccount"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.name}resource "azurerm_netapp_pool" "example" {name                = "example-netapppool"account_name        = azurerm_netapp_account.example.namelocation            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.nameservice_level       = "Premium"size_in_tb          = 4}```
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

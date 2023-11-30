@@ -2,7 +2,7 @@
 
 Allows you to Manages a Synapse Firewall Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

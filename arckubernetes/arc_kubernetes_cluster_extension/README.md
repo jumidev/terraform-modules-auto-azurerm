@@ -2,7 +2,7 @@
 
 Manages an Arc Kubernetes Cluster Extension.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name which should be used for this Arc Kubernetes Cluster Extension. Changing this forces a new Arc Kubernetes Cluster Extension to be created. | 
 | **var.cluster_id** | string |  Specifies the Cluster ID. Changing this forces a new Arc Kubernetes Cluster Extension to be created. | 
 | **var.extension_type** | string |  Specifies the type of extension. It must be one of the extension types registered with Microsoft.KubernetesConfiguration by the Extension publisher. For more information, please refer to [Available Extensions for Arc-enabled Kubernetes clusters](https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/extensions-release). Changing this forces a new Arc Kubernetes Cluster Extension to be created. | 
-| **var.identity** | block |  An `identity` block. Changing this forces a new Arc Kubernetes Cluster Extension to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Arc Kubernetes Cluster Extension to be created. | 
 
 ## Optional Variables
 

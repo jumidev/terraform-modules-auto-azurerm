@@ -2,7 +2,7 @@
 
 Manages a Automation DSC Configuration.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

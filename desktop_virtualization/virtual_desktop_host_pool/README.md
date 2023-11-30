@@ -2,7 +2,7 @@
 
 Manages a Virtual Desktop Host Pool.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -48,7 +48,7 @@ tfstate_store = {
 | **var.personal_desktop_assignment_type** | string |  -  |  `Automatic`, `Direct`  |  `Automatic` assignment – The service will select an available host and assign it to an user. Possible values are `Automatic` and `Direct`. `Direct` Assignment – Admin selects a specific host to assign to an user. Changing this forces a new resource to be created. | 
 | **var.maximum_sessions_allowed** | bool |  -  |  -  |  A valid integer value from 0 to 999999 for the maximum number of users that have concurrent sessions on a session host. Should only be set if the `type` of your Virtual Desktop Host Pool is `Pooled`. | 
 | **var.preferred_app_group_type** | string |  `Desktop`  |  `None`, `Desktop`, `RailApplications`  |  Option to specify the preferred Application Group type for the Virtual Desktop Host Pool. Valid options are `None`, `Desktop` or `RailApplications`. Default is `Desktop`. Changing this forces a new resource to be created. | 
-| **var.scheduled_agent_updates** | block |  -  |  -  |  A `scheduled_agent_updates` block. This enables control of when Agent Updates will be applied to Session Hosts. | 
+| **var.scheduled_agent_updates** | [block](#scheduled_agent_updates-block-structure) |  -  |  -  |  A `scheduled_agent_updates` block. This enables control of when Agent Updates will be applied to Session Hosts. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `scheduled_agent_updates` block structure

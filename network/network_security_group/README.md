@@ -2,7 +2,7 @@
 
 Manages a network security group that contains a list of network security rules.  Network security groups enable inbound or outbound traffic to be enabled or denied.~> **NOTE on Network Security Groups and Network Security Rules:** Terraform currentlyprovides both a standalone [Network Security Rule resource](network_security_rule.html), and allows for Network Security Rules to be defined in-line within the [Network Security Group resource](network_security_group.html).At this time you cannot use a Network Security Group with in-line Network Security Rules in conjunction with any Network Security Rule resources. Doing so will cause a conflict of rule settings and will overwrite rules.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.security_rule** | block |  List of `security_rule` objects representing security rules, as defined below. | 
+| **var.security_rule** | [block](#security_rule-block-structure) |  List of `security_rule` objects representing security rules, as defined below. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `security_rule` block structure

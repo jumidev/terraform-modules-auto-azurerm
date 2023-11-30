@@ -2,7 +2,7 @@
 
 Manages a Data Share.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  The Data Share's description. | 
-| **var.snapshot_schedule** | block |  A `snapshot_schedule` block. | 
+| **var.snapshot_schedule** | [block](#snapshot_schedule-block-structure) |  A `snapshot_schedule` block. | 
 | **var.terms** | string |  The terms of the Data Share. | 
 
 ### `snapshot_schedule` block structure

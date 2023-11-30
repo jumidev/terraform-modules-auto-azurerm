@@ -2,7 +2,7 @@
 
 Manages a Private DNS Resolver Outbound Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

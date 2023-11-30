@@ -2,7 +2,7 @@
 
 Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

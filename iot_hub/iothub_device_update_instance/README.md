@@ -2,7 +2,7 @@
 
 Manages an IoT Hub Device Update Instance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.diagnostic_storage_account** | block |  -  |  -  |  A `diagnostic_storage_account` block. | 
+| **var.diagnostic_storage_account** | [block](#diagnostic_storage_account-block-structure) |  -  |  -  |  A `diagnostic_storage_account` block. | 
 | **var.diagnostic_enabled** | bool |  `False`  |  `true`, `false`  |  Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the IoT Hub Device Update Instance. | 
 

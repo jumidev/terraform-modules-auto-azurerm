@@ -2,7 +2,7 @@
 
 Manages a Contact profile.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -46,7 +46,7 @@ tfstate_store = {
 | **var.minimum_variable_contact_duration** | string |  -  |  Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station. | 
 | **var.auto_tracking** | string |  `disabled`, `xBand`, `sBand`  |  Auto-tracking configurations for a spacecraft. Possible values are `disabled`, `xBand` and `sBand`. | 
 | **var.network_configuration_subnet_id** | string |  -  |  ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it. Changing this forces a new resource to be created. | 
-| **var.links** | block |  -  |  A list of spacecraft links. A `links` block. Changing this forces a new resource to be created. | 
+| **var.links** | [block](#links-block-structure) |  -  |  A list of spacecraft links. A `links` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

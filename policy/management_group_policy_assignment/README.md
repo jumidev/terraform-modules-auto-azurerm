@@ -2,7 +2,7 @@
 
 Manages a Policy Assignment to a Management Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,14 +39,14 @@ tfstate_store = {
 | **var.description** | string |  -  |  A description which should be used for this Policy Assignment. | 
 | **var.display_name** | string |  -  |  The Display Name for this Policy Assignment. | 
 | **var.enforce** | bool |  `True`  |  Specifies if this Policy should be enforced or not? Defaults to `true`. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.location** | string |  -  |  The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created. | 
 | **var.metadata** | string |  -  |  A JSON mapping of any Metadata for this Policy. | 
-| **var.non_compliance_message** | block |  -  |  One or more `non_compliance_message` blocks. | 
+| **var.non_compliance_message** | [block](#non_compliance_message-block-structure) |  -  |  One or more `non_compliance_message` blocks. | 
 | **var.not_scopes** | string |  -  |  Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy. | 
 | **var.parameters** | string |  -  |  A JSON mapping of any Parameters for this Policy. | 
-| **var.overrides** | block |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
-| **var.resource_selectors** | block |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
+| **var.overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
+| **var.resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
 
 ### `identity` block structure
 

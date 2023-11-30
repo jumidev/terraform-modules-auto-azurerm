@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

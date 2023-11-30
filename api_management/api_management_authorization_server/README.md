@@ -2,7 +2,7 @@
 
 Manages an Authorization Server within an API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -56,7 +56,7 @@ tfstate_store = {
 | **var.resource_owner_password** | string |  -  |  The password associated with the Resource Owner. | 
 | **var.resource_owner_username** | string |  -  |  The username associated with the Resource Owner. | 
 | **var.support_state** | string |  -  |  Does this Authorization Server support State? If this is set to `true` the client may use the state parameter to raise protocol security. | 
-| **var.token_body_parameter** | block |  -  |  A `token_body_parameter` block. | 
+| **var.token_body_parameter** | [block](#token_body_parameter-block-structure) |  -  |  A `token_body_parameter` block. | 
 | **var.token_endpoint** | string |  -  |  The OAUTH Token Endpoint. | 
 
 ### `token_body_parameter` block structure

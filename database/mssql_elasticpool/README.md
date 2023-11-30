@@ -2,7 +2,7 @@
 
 Allows you to manage an Azure SQL Elastic Pool via the `v3.0` API which allows for `vCore` and `DTU` based configurations.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -49,8 +49,8 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.server_name** | string |  The name of the SQL Server on which to create the elastic pool. Changing this forces a new resource to be created. | 
-| **var.sku** | block |  A `sku` block. | 
-| **var.per_database_settings** | block |  A `per_database_settings` block. | 
+| **var.sku** | [block](#sku-block-structure) |  A `sku` block. | 
+| **var.per_database_settings** | [block](#per_database_settings-block-structure) |  A `per_database_settings` block. | 
 
 ## Optional Variables
 

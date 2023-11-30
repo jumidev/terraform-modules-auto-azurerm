@@ -2,7 +2,7 @@
 
 Manages a Firewall Rule for a MySQL Flexible Server.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

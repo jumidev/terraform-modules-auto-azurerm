@@ -2,7 +2,7 @@
 
 Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,7 +44,7 @@ tfstate_store = {
 | **var.name** | string |  -  |  Specifies the name which should be used for this Monitor Scheduled Query Rule. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string |  -  |  Specifies the Azure Region where the Monitor Scheduled Query Rule should exist. Changing this forces a new resource to be created. | 
-| **var.criteria** | block |  -  |  A `criteria` block. | 
+| **var.criteria** | [block](#criteria-block-structure) |  -  |  A `criteria` block. | 
 | **var.scopes** | string |  -  |  Specifies the list of resource IDs that this scheduled query rule is scoped to. Changing this forces a new resource to be created. Currently, the API supports exactly 1 resource ID in the scopes list. | 
 | **var.severity** | string |  -  |  Severity of the alert. Should be an integer between 0 and 4. Value of 0 is severest. | 
 | **var.window_duration** | string |  `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`  |  Specifies the period of time in ISO 8601 duration format on which the Scheduled Query Rule will be executed (bin size). If `evaluation_frequency` is `PT1M`, possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, and `PT6H`. Otherwise, possible values are `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`, and `P2D`. | 
@@ -54,7 +54,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.evaluation_frequency** | string |  -  |  `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`  |  How often the scheduled query rule is evaluated, represented in ISO 8601 duration format. Possible values are `PT1M`, `PT5M`, `PT10M`, `PT15M`, `PT30M`, `PT45M`, `PT1H`, `PT2H`, `PT3H`, `PT4H`, `PT5H`, `PT6H`, `P1D`. | 
-| **var.action** | block |  -  |  -  |  An `action` block. | 
+| **var.action** | [block](#action-block-structure) |  -  |  -  |  An `action` block. | 
 | **var.auto_mitigation_enabled** | bool |  `False`  |  -  |  Specifies the flag that indicates whether the alert should be automatically resolved or not. Value should be `true` or `false`. The default is `false`. | 
 | **var.workspace_alerts_storage_enabled** | bool |  `False`  |  -  |  Specifies the flag which indicates whether this scheduled query rule check if storage is configured. Value should be `true` or `false`. The default is `false`. | 
 | **var.description** | string |  -  |  -  |  Specifies the description of the scheduled query rule. | 

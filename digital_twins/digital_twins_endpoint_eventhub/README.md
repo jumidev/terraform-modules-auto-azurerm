@@ -2,7 +2,7 @@
 
 Manages a Digital Twins Event Hub Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

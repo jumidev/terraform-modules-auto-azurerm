@@ -2,7 +2,7 @@
 
 Manages an API Management User Assignment to a Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

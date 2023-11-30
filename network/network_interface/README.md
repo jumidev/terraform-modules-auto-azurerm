@@ -2,7 +2,7 @@
 
 Manages a Network Interface.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.ip_configuration** | block |  One or more `ip_configuration` blocks. | 
+| **var.ip_configuration** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. | 
 | **var.location** | string |  The location where the Network Interface should exist. Changing this forces a new resource to be created. | 
 | **var.name** | string |  The name of the Network Interface. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created. | 

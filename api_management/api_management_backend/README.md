@@ -2,7 +2,7 @@
 
 Manages a backend within an API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,13 +40,13 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.credentials** | block |  A `credentials` block. | 
+| **var.credentials** | [block](#credentials-block-structure) |  A `credentials` block. | 
 | **var.description** | string |  The description of the backend. | 
-| **var.proxy** | block |  A `proxy` block. | 
+| **var.proxy** | [block](#proxy-block-structure) |  A `proxy` block. | 
 | **var.resource_id** | string |  The management URI of the backend host in an external system. This URI can be the ARM Resource ID of Logic Apps, Function Apps or API Apps, or the management endpoint of a Service Fabric cluster. | 
-| **var.service_fabric_cluster** | block |  A `service_fabric_cluster` block. | 
+| **var.service_fabric_cluster** | [block](#service_fabric_cluster-block-structure) |  A `service_fabric_cluster` block. | 
 | **var.title** | string |  The title of the backend. | 
-| **var.tls** | block |  A `tls` block. | 
+| **var.tls** | [block](#tls-block-structure) |  A `tls` block. | 
 
 ### `credentials` block structure
 

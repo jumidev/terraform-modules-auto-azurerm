@@ -2,7 +2,7 @@
 
 Allows accepting the Legal Terms for a Marketplace Image.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

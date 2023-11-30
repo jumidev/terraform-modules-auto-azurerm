@@ -2,7 +2,7 @@
 
 Manages a Security Alert Policy for a Synapse SQL Pool.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

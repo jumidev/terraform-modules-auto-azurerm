@@ -2,7 +2,7 @@
 
 Manages a HPC Cache Access Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

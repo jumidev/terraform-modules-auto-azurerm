@@ -2,7 +2,7 @@
 
 Manages an Azure Container Registry.~> **Note:** All arguments including the access key will be stored in the raw state as plain-text.[Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,16 +40,16 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.admin_enabled** | bool |  `False`  |  -  |  Specifies whether the admin user is enabled. Defaults to `false`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.georeplications** | block |  -  |  -  |  A `georeplications` block. | 
-| **var.network_rule_set** | block |  -  |  -  |  A `network_rule_set` block. | 
+| **var.georeplications** | [block](#georeplications-block-structure) |  -  |  -  |  A `georeplications` block. | 
+| **var.network_rule_set** | [block](#network_rule_set-block-structure) |  -  |  -  |  A `network_rule_set` block. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for the container registry. Defaults to `true`. | 
 | **var.quarantine_policy_enabled** | bool |  -  |  -  |  Boolean value that indicates whether quarantine policy is enabled. | 
-| **var.retention_policy** | block |  -  |  -  |  A `retention_policy` block. | 
-| **var.trust_policy** | block |  -  |  -  |  A `trust_policy` block. | 
+| **var.retention_policy** | [block](#retention_policy-block-structure) |  -  |  -  |  A `retention_policy` block. | 
+| **var.trust_policy** | [block](#trust_policy-block-structure) |  -  |  -  |  A `trust_policy` block. | 
 | **var.zone_redundancy_enabled** | bool |  `False`  |  -  |  Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`. | 
 | **var.export_policy_enabled** | bool |  `True`  |  -  |  Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
-| **var.encryption** | block |  -  |  -  |  An `encryption` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **var.encryption** | [block](#encryption-block-structure) |  -  |  -  |  An `encryption` block. | 
 | **var.anonymous_pull_enabled** | bool |  -  |  -  |  Whether allows anonymous (unauthenticated) pull access to this Container Registry? This is only supported on resources with the `Standard` or `Premium` SKU. | 
 | **var.data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **var.network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 

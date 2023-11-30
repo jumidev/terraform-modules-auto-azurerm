@@ -2,7 +2,7 @@
 
 Manages the Shared Private Link Service for an Azure Search Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

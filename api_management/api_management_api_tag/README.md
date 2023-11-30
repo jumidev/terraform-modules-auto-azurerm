@@ -2,7 +2,7 @@
 
 Manages the Assignment of an API Management API Tag to an API.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

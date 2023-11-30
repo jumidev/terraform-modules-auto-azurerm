@@ -2,7 +2,7 @@
 
 Manages a site recovery network mapping on Azure. A network mapping decides how to translate connected networks when a VM is migrated from one region to another.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

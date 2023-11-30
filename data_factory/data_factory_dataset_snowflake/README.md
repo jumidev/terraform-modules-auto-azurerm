@@ -2,7 +2,7 @@
 
 Manages a Snowflake Dataset inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.schema_name** | string |  The schema name of the Data Factory Dataset Snowflake. | 
 | **var.table_name** | string |  The table name of the Data Factory Dataset Snowflake. | 
 | **var.folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.schema_column** | block |  A `schema_column` block. | 
+| **var.schema_column** | [block](#schema_column-block-structure) |  A `schema_column` block. | 
 | **var.description** | string |  The description for the Data Factory Dataset Snowflake. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Dataset Snowflake. | 
 | **var.parameters** | string |  A map of parameters to associate with the Data Factory Dataset Snowflake. | 

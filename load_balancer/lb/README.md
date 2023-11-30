@@ -2,7 +2,7 @@
 
 Manages a Load Balancer Resource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

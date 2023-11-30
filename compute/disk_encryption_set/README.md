@@ -2,7 +2,7 @@
 
 Manages a Disk Encryption Set.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created. | 
 | **var.key_vault_key_id** | string |  Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). | 
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 
 ## Optional Variables
 

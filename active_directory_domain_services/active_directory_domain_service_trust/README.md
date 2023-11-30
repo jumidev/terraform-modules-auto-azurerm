@@ -2,7 +2,7 @@
 
 Manages a Active Directory Domain Service Trust.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

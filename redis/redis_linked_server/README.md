@@ -2,7 +2,7 @@
 
 Manages a Redis Linked Server (ie Geo Location)
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

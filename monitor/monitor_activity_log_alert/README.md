@@ -2,7 +2,7 @@
 
 Manages an Activity Log Alert within Azure Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,13 +38,13 @@ tfstate_store = {
 | **var.name** | string |  The name of the activity log alert. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created. | 
 | **var.scopes** | string |  The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account). | 
-| **var.criteria** | block |  A `criteria` block. | 
+| **var.criteria** | [block](#criteria-block-structure) |  A `criteria` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.action** | block |  -  |  One or more `action` blocks. | 
+| **var.action** | [block](#action-block-structure) |  -  |  One or more `action` blocks. | 
 | **var.enabled** | bool |  `True`  |  Should this Activity Log Alert be enabled? Defaults to `true`. | 
 | **var.description** | string |  -  |  The description of this activity log alert. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 

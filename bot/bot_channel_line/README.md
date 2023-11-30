@@ -2,7 +2,7 @@
 
 Manages a Line integration for a Bot Channel~> **Note** A bot can only have a single Line Channel associated with it.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.line_channel** | block |  One or more `line_channel` blocks. | 
+| **var.line_channel** | [block](#line_channel-block-structure) |  One or more `line_channel` blocks. | 
 
 ### `line_channel` block structure
 

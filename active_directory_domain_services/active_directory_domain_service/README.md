@@ -2,7 +2,7 @@
 
 Manages an Active Directory Domain Service.~> **Implementation Note:** Before using this resource, there must exist in your tenant a service principal for the Domain Services published application. This service principal cannot be easily managed by Terraform and it's recommended to create this manually, as it does not exist by default. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/powershell-create-instance#create-required-azure-ad-resources) for details.-> **Supported Modes:** At present this resource only supports **User Forest** mode and _not_ **Resource Forest** mode. [Read more](https://docs.microsoft.com/azure/active-directory-domain-services/concepts-resource-forest) about the different operation modes for this service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.domain_name** | string |  The Active Directory domain to use. See [official documentation](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain) for constraints and recommendations. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The Azure location where the Domain Service exists. Changing this forces a new resource to be created. | 
 | **var.name** | string |  The display name for your managed Active Directory Domain Service resource. Changing this forces a new resource to be created. | 
-| **var.initial_replica_set** | block |  An `initial_replica_set` block. The initial replica set inherits the same location as the Domain Service resource. | 
+| **var.initial_replica_set** | [block](#initial_replica_set-block-structure) |  An `initial_replica_set` block. The initial replica set inherits the same location as the Domain Service resource. | 
 | **var.resource_group_name** | string |  The name of the Resource Group in which the Domain Service should exist. Changing this forces a new resource to be created. | 
 | **var.sku** | string |  The SKU to use when provisioning the Domain Service resource. One of `Standard`, `Enterprise` or `Premium`. | 
 
@@ -50,9 +50,9 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.domain_configuration_type** | string |  -  |  `FullySynced`, `ResourceTrusting`  |  The configuration type of this Active Directory Domain. Possible values are `FullySynced` and `ResourceTrusting`. Changing this forces a new resource to be created. | 
 | **var.filtered_sync_enabled** | bool |  `False`  |  -  |  Whether to enable group-based filtered sync (also called scoped synchronisation). Defaults to `false`. | 
-| **var.secure_ldap** | block |  -  |  -  |  A `secure_ldap` block. | 
-| **var.notifications** | block |  -  |  -  |  A `notifications` block. | 
-| **var.security** | block |  -  |  -  |  A `security` block. | 
+| **var.secure_ldap** | [block](#secure_ldap-block-structure) |  -  |  -  |  A `secure_ldap` block. | 
+| **var.notifications** | [block](#notifications-block-structure) |  -  |  -  |  A `notifications` block. | 
+| **var.security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
 ### `secure_ldap` block structure

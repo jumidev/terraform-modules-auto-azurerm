@@ -2,7 +2,7 @@
 
 Manages a Route Table~> **NOTE on Route Tables and Routes:** Terraform currentlyprovides both a standalone [Route resource](route.html), and allows for Routes to be defined in-line within the [Route Table resource](route_table.html).At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.route** | block |  List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. | 
+| **var.route** | [block](#route-block-structure) |  List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. | 
 | **var.disable_bgp_route_propagation** | bool |  Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 

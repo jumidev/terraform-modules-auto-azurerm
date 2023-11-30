@@ -2,7 +2,7 @@
 
 Manages a Streaming Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,11 +36,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.common_encryption_cbcs** | block |  A `common_encryption_cbcs` block. Changing this forces a new Streaming Policy to be created. | 
-| **var.common_encryption_cenc** | block |  A `common_encryption_cenc` block. Changing this forces a new Streaming Policy to be created. | 
+| **var.common_encryption_cbcs** | [block](#common_encryption_cbcs-block-structure) |  A `common_encryption_cbcs` block. Changing this forces a new Streaming Policy to be created. | 
+| **var.common_encryption_cenc** | [block](#common_encryption_cenc-block-structure) |  A `common_encryption_cenc` block. Changing this forces a new Streaming Policy to be created. | 
 | **var.default_content_key_policy_name** | string |  Default Content Key used by current Streaming Policy. Changing this forces a new Streaming Policy to be created. | 
-| **var.envelope_encryption** | block |  A `envelope_encryption` block. Changing this forces a new Streaming Policy to be created. | 
-| **var.no_encryption_enabled_protocols** | block |  A `no_encryption_enabled_protocols` block. Changing this forces a new Streaming Policy to be created. | 
+| **var.envelope_encryption** | [block](#envelope_encryption-block-structure) |  A `envelope_encryption` block. Changing this forces a new Streaming Policy to be created. | 
+| **var.no_encryption_enabled_protocols** | [block](#no_encryption_enabled_protocols-block-structure) |  A `no_encryption_enabled_protocols` block. Changing this forces a new Streaming Policy to be created. | 
 
 ### `common_encryption_cbcs` block structure
 

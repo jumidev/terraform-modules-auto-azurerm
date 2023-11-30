@@ -2,7 +2,7 @@
 
 Manages an Azure Spatial Anchors Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

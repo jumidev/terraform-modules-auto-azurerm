@@ -2,7 +2,7 @@
 
 Manages a Windows Function App.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,21 +40,21 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions) | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created. | 
 | **var.service_plan_id** | string |  The ID of the App Service Plan within which to create this Function App. | 
-| **var.site_config** | block |  A `site_config` block. | 
+| **var.site_config** | [block](#site_config-block-structure) |  A `site_config` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.app_settings** | string |  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | block |  -  |  -  |  A `auth_settings` block. | 
-| **var.auth_settings_v2** | block |  -  |  -  |  A `auth_settings_v2` block. | 
-| **var.backup** | block |  -  |  -  |  A `backup` block. | 
+| **var.auth_settings** | [block](#auth_settings-block-structure) |  -  |  -  |  A `auth_settings` block. | 
+| **var.auth_settings_v2** | [block](#auth_settings_v2-block-structure) |  -  |  -  |  A `auth_settings_v2` block. | 
+| **var.backup** | [block](#backup-block-structure) |  -  |  -  |  A `backup` block. | 
 | **var.builtin_logging_enabled** | bool |  `True`  |  -  |  Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`. | 
 | **var.client_certificate_enabled** | bool |  -  |  -  |  Should the function app use Client Certificates. | 
 | **var.client_certificate_mode** | string |  `Optional`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`. | 
 | **var.client_certificate_exclusion_paths** | string |  -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
-| **var.connection_string** | block |  -  |  -  |  One or more `connection_string` blocks. | 
+| **var.connection_string** | [block](#connection_string-block-structure) |  -  |  -  |  One or more `connection_string` blocks. | 
 | **var.content_share_force_disabled** | bool |  `False`  |  -  |  Should Content Share Settings be disabled. Defaults to `false`. | 
 | **var.daily_memory_time_quota** | string |  `0`  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. Defaults to `0`. | 
 | **var.enabled** | bool |  `True`  |  -  |  Is the Function App enabled? Defaults to `true`. | 
@@ -62,10 +62,10 @@ tfstate_store = {
 | **var.functions_extension_version** | string |  `~4`  |  -  |  The runtime version associated with the Function App. Defaults to `~4`. | 
 | **var.https_only** | bool |  `False`  |  -  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Should public network access be enabled for the Function App. Defaults to `true`. | 
-| **var.identity** | block |  -  |  -  |  A `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  A `identity` block. | 
 | **var.key_vault_reference_identity_id** | string |  -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) | 
-| **var.storage_account** | block |  -  |  -  |  One or more `storage_account` blocks. | 
-| **var.sticky_settings** | block |  -  |  -  |  A `sticky_settings` block. | 
+| **var.storage_account** | [block](#storage_account-block-structure) |  -  |  -  |  One or more `storage_account` blocks. | 
+| **var.sticky_settings** | [block](#sticky_settings-block-structure) |  -  |  -  |  A `sticky_settings` block. | 
 | **var.storage_account_access_key** | string |  -  |  -  |  The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`. | 
 | **var.storage_account_name** | string |  -  |  -  |  The backend storage account name which will be used by this Function App. | 
 | **var.storage_uses_managed_identity** | string |  -  |  -  |  Should the Function App use Managed Identity to access the storage account. Conflicts with `storage_account_access_key`. | 

@@ -2,7 +2,7 @@
 
 Manages a Voice Services Communications Gateways.!> **NOTE:** You must have signed an Operator Connect agreement with Microsoft to use this resource. For more information, see [`Prerequisites`](https://learn.microsoft.com/en-us/azure/communications-gateway/prepare-to-deploy#prerequisites).!> **NOTE:** Access to Azure Communications Gateway is restricted, see [`Get access to Azure Communications Gateway for your Azure subscription`](https://learn.microsoft.com/en-us/azure/communications-gateway/prepare-to-deploy#9-get-access-to-azure-communications-gateway-for-your-azure-subscription) for details.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,7 +47,7 @@ tfstate_store = {
 | **var.codecs** | string |  `PCMA`, `PCMU`, `G722`, `G722_2`, `SILK_8`, `SILK_16`  |  The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`. | 
 | **var.e911_type** | string |  `Standard`, `DirectToEsrp`  |  How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`. | 
 | **var.platforms** | string |  `OperatorConnect`, `TeamsPhoneMobile`  |  The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`. | 
-| **var.service_location** | block |  -  |  A `service_location` block. | 
+| **var.service_location** | [block](#service_location-block-structure) |  -  |  A `service_location` block. | 
 
 ## Optional Variables
 

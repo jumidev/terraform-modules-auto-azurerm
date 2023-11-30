@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud Gateway Route Config.-> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,8 +37,8 @@ tfstate_store = {
 | **var.filters** | string |  -  |  -  |  Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level. | 
 | **var.predicates** | string |  -  |  -  |  Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. | 
 | **var.sso_validation_enabled** | bool |  -  |  -  |  Should the sso validation be enabled in app level? | 
-| **var.route** | block |  -  |  -  |  One or more `route` blocks. | 
-| **var.open_api** | block |  -  |  -  |  One or more `open_api` blocks. | 
+| **var.route** | [block](#route-block-structure) |  -  |  -  |  One or more `route` blocks. | 
+| **var.open_api** | [block](#open_api-block-structure) |  -  |  -  |  One or more `open_api` blocks. | 
 | **var.protocol** | string |  `HTTP`  |  `HTTP`, `HTTPS`  |  Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. | 
 | **var.spring_cloud_app_id** | string |  -  |  -  |  The ID of the Spring Cloud App. | 
 

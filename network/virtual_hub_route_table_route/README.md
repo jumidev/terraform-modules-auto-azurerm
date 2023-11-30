@@ -2,7 +2,7 @@
 
 Manages a Route in a Virtual Hub Route Table.~> **Note:** Route table routes can managed with this resource, or in-line with the [virtual_hub_route_table](virtual_hub_route_table.html) resource. Using both is not supported.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

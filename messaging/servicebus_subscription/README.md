@@ -2,7 +2,7 @@
 
 Manages a ServiceBus Subscription.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -47,7 +47,7 @@ tfstate_store = {
 | **var.forward_dead_lettered_messages_to** | string |  -  |  -  |  The name of a Queue or Topic to automatically forward Dead Letter messages to. | 
 | **var.status** | string |  `Active`  |  `Active`, `ReceiveDisabled`, `Disabled`  |  The status of the Subscription. Possible values are `Active`,`ReceiveDisabled`, or `Disabled`. Defaults to `Active`. | 
 | **var.client_scoped_subscription_enabled** | bool |  `False`  |  -  |  whether the subscription is scoped to a client id. Defaults to `false`. | 
-| **var.client_scoped_subscription** | block |  -  |  -  |  A `client_scoped_subscription` block. | 
+| **var.client_scoped_subscription** | [block](#client_scoped_subscription-block-structure) |  -  |  -  |  A `client_scoped_subscription` block. | 
 
 ### `client_scoped_subscription` block structure
 

@@ -2,7 +2,7 @@
 
 Manages a Notification Hub within a Notification Hub Namespace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,8 +38,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.apns_credential** | block |  A `apns_credential` block. | 
-| **var.gcm_credential** | block |  A `gcm_credential` block. | 
+| **var.apns_credential** | [block](#apns_credential-block-structure) |  A `apns_credential` block. | 
+| **var.gcm_credential** | [block](#gcm_credential-block-structure) |  A `gcm_credential` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `apns_credential` block structure

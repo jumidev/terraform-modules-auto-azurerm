@@ -2,7 +2,7 @@
 
 Manages an Azure Monitor Private Link Scoped Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Route Map.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.rule** | block |  A `rule` block. | 
+| **var.rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
 ### `rule` block structure
 

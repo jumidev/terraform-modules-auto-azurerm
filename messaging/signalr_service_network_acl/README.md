@@ -2,7 +2,7 @@
 
 Manages the Network ACL for a SignalR service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,13 +35,13 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **var.signalr_service_id** | string |  -  |  The ID of the SignalR service. Changing this forces a new resource to be created. | 
 | **var.default_action** | string |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. | 
-| **var.public_network** | block |  -  |  A `public_network` block. | 
+| **var.public_network** | [block](#public_network-block-structure) |  -  |  A `public_network` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.private_endpoint** | block |  A `private_endpoint` block. | 
+| **var.private_endpoint** | [block](#private_endpoint-block-structure) |  A `private_endpoint` block. | 
 
 ### `public_network` block structure
 

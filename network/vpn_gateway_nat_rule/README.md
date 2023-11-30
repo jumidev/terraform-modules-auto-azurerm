@@ -2,7 +2,7 @@
 
 Manages a VPN Gateway NAT Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

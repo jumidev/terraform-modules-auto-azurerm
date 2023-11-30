@@ -2,7 +2,7 @@
 
 Manages a Disk Snapshot.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.source_resource_id** | string |  Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created. | 
 | **var.storage_account_id** | string |  Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created. | 
 | **var.disk_size_gb** | int |  The size of the Snapshotted Disk in GB. | 
-| **var.encryption_settings** | block |  A `encryption_settings` block. | 
+| **var.encryption_settings** | [block](#encryption_settings-block-structure) |  A `encryption_settings` block. | 
 | **var.incremental_enabled** | bool |  Specifies if the Snapshot is incremental. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 

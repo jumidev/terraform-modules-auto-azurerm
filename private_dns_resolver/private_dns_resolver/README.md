@@ -2,7 +2,7 @@
 
 Manages a Private DNS Resolver.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

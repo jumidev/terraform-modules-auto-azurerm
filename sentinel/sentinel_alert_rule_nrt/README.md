@@ -2,7 +2,7 @@
 
 Manages a Sentinel NRT Alert Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,16 +40,16 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.alert_details_override** | block |  -  |  -  |  An `alert_details_override` block. | 
+| **var.alert_details_override** | [block](#alert_details_override-block-structure) |  -  |  -  |  An `alert_details_override` block. | 
 | **var.alert_rule_template_guid** | string |  -  |  -  |  The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
 | **var.alert_rule_template_version** | string |  -  |  -  |  The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
 | **var.custom_details** | string |  -  |  -  |  A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts. | 
 | **var.description** | string |  -  |  -  |  The description of this Sentinel NRT Alert Rule. | 
 | **var.enabled** | bool |  `True`  |  -  |  Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`. | 
-| **var.entity_mapping** | block |  -  |  -  |  A list of `entity_mapping` blocks. | 
-| **var.event_grouping** | block |  -  |  -  |  A `event_grouping` block. | 
-| **var.sentinel_entity_mapping** | block |  -  |  -  |  A list of `sentinel_entity_mapping` blocks. | 
-| **var.incident** | block |  -  |  -  |  A `incident` block. | 
+| **var.entity_mapping** | [block](#entity_mapping-block-structure) |  -  |  -  |  A list of `entity_mapping` blocks. | 
+| **var.event_grouping** | [block](#event_grouping-block-structure) |  -  |  -  |  A `event_grouping` block. | 
+| **var.sentinel_entity_mapping** | [block](#sentinel_entity_mapping-block-structure) |  -  |  -  |  A list of `sentinel_entity_mapping` blocks. | 
+| **var.incident** | [block](#incident-block-structure) |  -  |  -  |  A `incident` block. | 
 | **var.suppression_duration** | string |  `PT5H`  |  -  |  If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`. | 
 | **var.suppression_enabled** | bool |  `False`  |  -  |  Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`. | 
 | **var.tactics** | string |  -  |  `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance`, `ResourceDevelopment`  |  A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`. | 

@@ -2,7 +2,7 @@
 
 Manages a Resource Deployment Script of Azure Cli.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,13 +42,13 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.command_line** | string |  -  |  -  |  Command line arguments to pass to the script. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.cleanup_preference** | string |  `Always`  |  `Always`, `OnExpiration`, `OnSuccess`  |  Specifies the cleanup preference when the script execution gets in a terminal state. Possible values are `Always`, `OnExpiration`, `OnSuccess`. Defaults to `Always`. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.container** | block |  -  |  -  |  A `container` block. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.environment_variable** | block |  -  |  -  |  An `environment_variable` block. Changing this forces a new Resource Deployment Script to be created. | 
+| **var.container** | [block](#container-block-structure) |  -  |  -  |  A `container` block. Changing this forces a new Resource Deployment Script to be created. | 
+| **var.environment_variable** | [block](#environment_variable-block-structure) |  -  |  -  |  An `environment_variable` block. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.force_update_tag** | string |  -  |  -  |  Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. Changing this forces a new Resource Deployment Script to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.primary_script_uri** | string |  -  |  -  |  Uri for the script. This is the entry point for the external script. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.script_content** | string |  -  |  -  |  Script body. Changing this forces a new Resource Deployment Script to be created. | 
-| **var.storage_account** | block |  -  |  -  |  A `storage_account` block. Changing this forces a new Resource Deployment Script to be created. | 
+| **var.storage_account** | [block](#storage_account-block-structure) |  -  |  -  |  A `storage_account` block. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.supporting_script_uris** | string |  -  |  -  |  Supporting files for the external script. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.timeout** | string |  `P1D`  |  -  |  Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Deployment Script. | 

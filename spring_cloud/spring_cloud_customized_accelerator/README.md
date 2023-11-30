@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud Customized Accelerator.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.git_repository** | block |  A `git_repository` block. | 
+| **var.git_repository** | [block](#git_repository-block-structure) |  A `git_repository` block. | 
 | **var.name** | string |  The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created. | 
 | **var.spring_cloud_accelerator_id** | string |  The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created. | 
 

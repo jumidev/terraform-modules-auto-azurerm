@@ -2,7 +2,7 @@
 
 Manages an Elastic Job Agent.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

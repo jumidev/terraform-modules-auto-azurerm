@@ -2,7 +2,7 @@
 
 Manages an ExpressRoute circuit.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the ExpressRoute circuit. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | block |  A `sku` block for the ExpressRoute circuit as documented below. | 
+| **var.sku** | [block](#sku-block-structure) |  A `sku` block for the ExpressRoute circuit as documented below. | 
 
 ## Optional Variables
 

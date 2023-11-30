@@ -2,7 +2,7 @@
 
 Manages an Disaster Recovery Config for an Event Hub Namespace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Backend Address within a Backend Address Pool.-> **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

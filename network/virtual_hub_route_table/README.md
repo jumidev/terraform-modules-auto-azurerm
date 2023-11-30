@@ -2,7 +2,7 @@
 
 Manages a Virtual Hub Route Table.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.labels** | string |  List of labels associated with this route table. | 
-| **var.route** | block |  One or more `route` blocks. | 
+| **var.route** | [block](#route-block-structure) |  One or more `route` blocks. | 
 
 ### `route` block structure
 

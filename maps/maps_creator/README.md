@@ -2,7 +2,7 @@
 
 Manages an Azure Maps Creator.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

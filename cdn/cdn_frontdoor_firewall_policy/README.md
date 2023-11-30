@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Firewall Policy instance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,10 +40,10 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.enabled** | bool |  `True`  |  -  |  Is the Front Door Firewall Policy enabled? Defaults to `true`. | 
 | **var.redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
-| **var.custom_rule** | block |  -  |  -  |  One or more `custom_rule` blocks. | 
+| **var.custom_rule** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
 | **var.custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
 | **var.custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
-| **var.managed_rule** | block |  -  |  -  |  One or more `managed_rule` blocks. | 
+| **var.managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
 ### `custom_rule` block structure

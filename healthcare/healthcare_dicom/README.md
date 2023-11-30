@@ -2,7 +2,7 @@
 
 Manages a Healthcare DICOM Service
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the Healthcare DICOM Service. | 
 

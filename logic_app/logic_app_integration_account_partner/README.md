@@ -2,7 +2,7 @@
 
 Manages a Logic App Integration Account Partner.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Logic App Integration Account Partner. Changing this forces a new Logic App Integration Account Partner to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Logic App Integration Account Partner should exist. Changing this forces a new Logic App Integration Account Partner to be created. | 
 | **var.integration_account_name** | string |  The name of the Logic App Integration Account. Changing this forces a new Logic App Integration Account Partner to be created. | 
-| **var.business_identity** | block |  A `business_identity` block. | 
+| **var.business_identity** | [block](#business_identity-block-structure) |  A `business_identity` block. | 
 
 ## Optional Variables
 

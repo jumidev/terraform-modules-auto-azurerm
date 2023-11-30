@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Sim.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,7 +44,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **var.device_type** | string |  An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value. | 
 | **var.sim_policy_id** | string |  The ID of SIM policy used by this SIM. | 
-| **var.static_ip_configuration** | block |  A `static_ip_configuration` block. | 
+| **var.static_ip_configuration** | [block](#static_ip_configuration-block-structure) |  A `static_ip_configuration` block. | 
 
 ### `static_ip_configuration` block structure
 

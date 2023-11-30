@@ -2,7 +2,7 @@
 
 Manages a Kusto Cluster Principal Assignment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

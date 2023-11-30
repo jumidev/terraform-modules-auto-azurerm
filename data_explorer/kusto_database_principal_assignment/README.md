@@ -2,7 +2,7 @@
 
 Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

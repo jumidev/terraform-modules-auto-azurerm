@@ -2,7 +2,7 @@
 
 Manages a Office 365 Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

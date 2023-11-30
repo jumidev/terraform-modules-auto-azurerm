@@ -2,7 +2,7 @@
 
 Manages the Network ACL for a Web Pubsub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -33,14 +33,14 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.web_pubsub_id** | string |  The ID of the Web Pubsub service. Changing this forces a new resource to be created. | 
-| **var.public_network** | block |  A `public_network` block. | 
+| **var.public_network** | [block](#public_network-block-structure) |  A `public_network` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.default_action** | string |  `Deny`  |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`. | 
-| **var.private_endpoint** | block |  -  |  -  |  A `private_endpoint` block. | 
+| **var.private_endpoint** | [block](#private_endpoint-block-structure) |  -  |  -  |  A `private_endpoint` block. | 
 
 ### `public_network` block structure
 

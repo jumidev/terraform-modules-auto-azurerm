@@ -2,7 +2,7 @@
 
 Manages a Log Analytics (formally Operational Insights) Workspace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.retention_in_days** | string |  -  |  -  |  The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | 
 | **var.daily_quota_gb** | int |  -  |  -  |  The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted. | 
 | **var.cmk_for_query_forced** | string |  -  |  -  |  Is Customer Managed Storage mandatory for query management? | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.internet_ingestion_enabled** | bool |  `True`  |  -  |  Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`. | 
 | **var.internet_query_enabled** | bool |  `True`  |  -  |  Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`. | 
 | **var.reservation_capacity_in_gb_per_day** | string |  -  |  `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`  |  The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`. | 

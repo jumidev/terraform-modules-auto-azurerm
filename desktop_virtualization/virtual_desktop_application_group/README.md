@@ -2,7 +2,7 @@
 
 Manages a Virtual Desktop Application Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

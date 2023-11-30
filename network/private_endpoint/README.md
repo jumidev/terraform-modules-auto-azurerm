@@ -2,7 +2,7 @@
 
 Manages a Private Endpoint.Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,15 +40,15 @@ tfstate_store = {
 | **var.resource_group_name** | string |  Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **var.subnet_id** | string |  The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created. | 
-| **var.private_service_connection** | block |  A `private_service_connection` block. | 
+| **var.private_service_connection** | [block](#private_service_connection-block-structure) |  A `private_service_connection` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.custom_network_interface_name** | string |  The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created. | 
-| **var.private_dns_zone_group** | block |  A `private_dns_zone_group` block. | 
-| **var.ip_configuration** | block |  One or more `ip_configuration` blocks. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. | 
+| **var.private_dns_zone_group** | [block](#private_dns_zone_group-block-structure) |  A `private_dns_zone_group` block. | 
+| **var.ip_configuration** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `private_dns_zone_group` block structure

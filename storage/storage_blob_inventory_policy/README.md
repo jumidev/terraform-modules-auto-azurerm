@@ -2,7 +2,7 @@
 
 Manages a Storage Blob Inventory Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.storage_account_id** | string |  The ID of the storage account to apply this Blob Inventory Policy to. Changing this forces a new Storage Blob Inventory Policy to be created. | 
-| **var.rules** | block |  One or more `rules` blocks. | 
+| **var.rules** | [block](#rules-block-structure) |  One or more `rules` blocks. | 
 
 ### `rules` block structure
 

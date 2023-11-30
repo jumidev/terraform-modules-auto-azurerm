@@ -2,7 +2,7 @@
 
 Manages an ExpressRoute Circuit Authorization.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Data Collection Endpoint.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

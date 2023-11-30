@@ -2,7 +2,7 @@
 
 Manages a Container App Environment Certificate.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages Azure Batch Application instance.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a MySQL Database within a MySQL Server
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Kusto (also known as Azure Data Explorer) Cluster
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created. | 
 | **var.location** | string |  The location where the Kusto Cluster should be created. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  Specifies the Resource Group where the Kusto Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.sku** | block |  A `sku` block. | 
+| **var.sku** | [block](#sku-block-structure) |  A `sku` block. | 
 
 ## Optional Variables
 
@@ -46,7 +46,7 @@ tfstate_store = {
 | **var.allowed_fqdns** | string |  -  |  -  |  List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster. | 
 | **var.allowed_ip_ranges** | string |  -  |  -  |  The list of ips in the format of CIDR allowed to connect to the cluster. | 
 | **var.double_encryption_enabled** | bool |  -  |  -  |  Is the cluster's double encryption enabled? Changing this forces a new resource to be created. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.auto_stop_enabled** | bool |  `True`  |  -  |  Specifies if the cluster could be automatically stopped (due to lack of data or no activity for many days). Defaults to `true`. | 
 | **var.disk_encryption_enabled** | bool |  -  |  -  |  Specifies if the cluster's disks are encrypted. | 
 | **var.streaming_ingestion_enabled** | bool |  -  |  -  |  Specifies if the streaming ingest is enabled. | 
@@ -54,9 +54,9 @@ tfstate_store = {
 | **var.public_network_access_enabled** | bool |  `True`  |  -  |  Is the public network access enabled? Defaults to `true`. | 
 | **var.outbound_network_access_restricted** | bool |  `False`  |  -  |  Whether to restrict outbound network access. Value is optional but if passed in, must be `true` or `false`, default is `false`. | 
 | **var.purge_enabled** | bool |  -  |  -  |  Specifies if the purge operations are enabled. | 
-| **var.virtual_network_configuration** | block |  -  |  -  |  A `virtual_network_configuration` block. Changing this forces a new resource to be created. | 
+| **var.virtual_network_configuration** | [block](#virtual_network_configuration-block-structure) |  -  |  -  |  A `virtual_network_configuration` block. Changing this forces a new resource to be created. | 
 | **var.language_extensions** | string |  -  |  `PYTHON`, `PYTHON_3.10.8`, `R`  |  An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization. | 
-| **var.optimized_auto_scale** | block |  -  |  -  |  An `optimized_auto_scale` block. | 
+| **var.optimized_auto_scale** | [block](#optimized_auto_scale-block-structure) |  -  |  -  |  An `optimized_auto_scale` block. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.trusted_external_tenants** | string |  -  |  -  |  Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants. | 
 | **var.zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created. | 

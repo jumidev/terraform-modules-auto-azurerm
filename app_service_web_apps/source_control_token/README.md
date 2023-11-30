@@ -2,7 +2,7 @@
 
 Manages an App Service Source Control Token.~> **NOTE:** This resource can only manage the token for the user currently running Terraform. Managing tokens for another user is not supported by the service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

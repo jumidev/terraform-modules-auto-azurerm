@@ -2,7 +2,7 @@
 
 Manages a Duplicated Anomaly Alert Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,10 +40,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.multi_select_observation** | block |  A list of `multi_select_observation` blocks. | 
-| **var.single_select_observation** | block |  A list of `single_select_observation` blocks. | 
-| **var.prioritized_exclude_observation** | block |  A list of `prioritized_exclude_observation` blocks. | 
-| **var.threshold_observation** | block |  A list of `threshold_observation` blocks. | 
+| **var.multi_select_observation** | [block](#multi_select_observation-block-structure) |  A list of `multi_select_observation` blocks. | 
+| **var.single_select_observation** | [block](#single_select_observation-block-structure) |  A list of `single_select_observation` blocks. | 
+| **var.prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
+| **var.threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
 
 ### `multi_select_observation` block structure
 

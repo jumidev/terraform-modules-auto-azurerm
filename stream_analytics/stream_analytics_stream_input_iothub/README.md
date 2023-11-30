@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Stream Input IoTHub.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -46,7 +46,7 @@ tfstate_store = {
 | **var.eventhub_consumer_group_name** | string |  The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. | 
 | **var.endpoint** | string |  The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.). | 
 | **var.iothub_namespace** | string |  The name or the URI of the IoT Hub. | 
-| **var.serialization** | block |  A `serialization` block. | 
+| **var.serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
 | **var.shared_access_policy_key** | string |  The shared access policy key for the specified shared access policy. Changing this forces a new resource to be created. | 
 | **var.shared_access_policy_name** | string |  The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. | 
 

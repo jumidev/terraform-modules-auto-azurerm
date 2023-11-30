@@ -2,7 +2,7 @@
 
 Manages a Mobile Network Packet Core Control Plane.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.location** | string |  -  |  Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created. | 
 | **var.site_ids** | list |  -  |  A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. | 
 | **var.sku** | string |  `G0`, `G1`, `G2`, `G3`, `G4`, `G5`, `G10`  |  The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`. | 
-| **var.local_diagnostics_access** | block |  -  |  One or more `local_diagnostics_access` blocks. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs. | 
+| **var.local_diagnostics_access** | [block](#local_diagnostics_access-block-structure) |  -  |  One or more `local_diagnostics_access` blocks. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs. | 
 
 ## Optional Variables
 
@@ -54,8 +54,8 @@ tfstate_store = {
 | **var.control_plane_access_ipv4_gateway** | string |  -  |  The default IPv4 gateway for the control plane interface. This should match one of the interfaces configured on your Azure Stack Edge device. | 
 | **var.user_equipment_mtu_in_bytes** | string |  -  |  Specifies the MTU in bytes that can be sent to the user equipment. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link will be 60 bytes greater than this value to allow for GTP encapsulation. | 
 | **var.core_network_technology** | string |  `5GC`, `EPC`  |  The core network technology generation. Possible values are `5GC` and `EPC`. | 
-| **var.platform** | block |  -  |  A `platform` block. | 
-| **var.identity** | block |  -  |  An `identity` block. | 
+| **var.platform** | [block](#platform-block-structure) |  -  |  A `platform` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **var.interoperability_settings_json** | string |  -  |  Settings in JSON format to allow interoperability with third party components e.g. RANs and UEs. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane. | 
 | **var.software_version** | string |  -  |  Specifies the version of the packet core software that is deployed. | 

@@ -2,7 +2,7 @@
 
 Manages a Sentinel Threat Intelligence Alert Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

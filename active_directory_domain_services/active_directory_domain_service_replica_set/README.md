@@ -2,7 +2,7 @@
 
 Manages a Replica Set for an Active Directory Domain Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Tumbling Window Trigger inside an Azure Data Factory.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.data_factory_id** | string |  -  |  The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource. | 
 | **var.frequency** | string |  `Hour`, `Minute`, `Month`  |  Specifies the frequency of Tumbling Window. Possible values are `Hour`, `Minute` and `Month`. Changing this forces a new resource. | 
 | **var.interval** | string |  -  |  Specifies the interval of Tumbling Window. Changing this forces a new resource. | 
-| **var.pipeline** | block |  -  |  A `pipeline` block. | 
+| **var.pipeline** | [block](#pipeline-block-structure) |  -  |  A `pipeline` block. | 
 | **var.start_time** | string |  -  |  Specifies the start time of Tumbling Window, formatted as an RFC3339 string. Changing this forces a new resource. | 
 
 ## Optional Variables
@@ -54,8 +54,8 @@ tfstate_store = {
 | **var.description** | string |  -  |  -  |  The description for the Data Factory Tumbling Window Trigger. | 
 | **var.end_time** | string |  -  |  -  |  Specifies the end time of Tumbling Window, formatted as an RFC3339 string. | 
 | **var.max_concurrency** | string |  `50`  |  `1`, `50`  |  The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`. | 
-| **var.retry** | block |  -  |  -  |  A `retry` block. | 
-| **var.trigger_dependency** | block |  -  |  -  |  One or more `trigger_dependency` block. | 
+| **var.retry** | [block](#retry-block-structure) |  -  |  -  |  A `retry` block. | 
+| **var.trigger_dependency** | [block](#trigger_dependency-block-structure) |  -  |  -  |  One or more `trigger_dependency` block. | 
 
 ### `pipeline` block structure
 

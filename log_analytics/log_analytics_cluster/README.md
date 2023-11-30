@@ -2,7 +2,7 @@
 
 ~> **Note:** Log Analytics Clusters are subject to 14-day soft delete policy. Clusters created with the same resource group & name as a previously deleted cluster will be recovered rather than creating anew.Manages a Log Analytics Cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | **var.name** | string |  The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
 | **var.location** | string |  The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created. | 
-| **var.identity** | block |  An `identity` block. Changing this forces a new Log Analytics Cluster to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Log Analytics Cluster to be created. | 
 
 ## Optional Variables
 

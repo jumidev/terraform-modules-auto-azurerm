@@ -2,7 +2,7 @@
 
 Manages a Load Test Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  Description of the resource. Changing this forces a new Load Test to be created. | 
-| **var.identity** | block |  An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Load Test. | 
 
 ### `identity` block structure

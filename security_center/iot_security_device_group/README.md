@@ -2,7 +2,7 @@
 
 Manages a Iot Security Device Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,8 +34,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.allow_rule** | block |  an `allow_rule` blocks. | 
-| **var.range_rule** | block |  One or more `range_rule` blocks. | 
+| **var.allow_rule** | [block](#allow_rule-block-structure) |  an `allow_rule` blocks. | 
+| **var.range_rule** | [block](#range_rule-block-structure) |  One or more `range_rule` blocks. | 
 
 ### `allow_rule` block structure
 

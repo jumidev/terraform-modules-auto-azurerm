@@ -2,7 +2,7 @@
 
 Manages a Security Insights Sentinel Onboarding.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

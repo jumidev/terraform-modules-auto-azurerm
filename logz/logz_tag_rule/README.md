@@ -2,7 +2,7 @@
 
 Manages a logz Tag Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -32,7 +32,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tag_filter** | block |  One or more (up to 10) `tag_filter` blocks. | 
+| **var.tag_filter** | [block](#tag_filter-block-structure) |  One or more (up to 10) `tag_filter` blocks. | 
 | **var.send_aad_logs** | string |  Whether AAD logs should be sent to the Monitor resource? | 
 | **var.send_activity_logs** | string |  Whether activity logs from Azure resources should be sent to the Monitor resource? | 
 | **var.send_subscription_logs** | string |  Whether subscription logs should be sent to the Monitor resource? | 

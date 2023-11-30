@@ -2,7 +2,7 @@
 
 Manages an Azure Firewall.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -41,12 +41,12 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.firewall_policy_id** | string |  -  |  -  |  The ID of the Firewall Policy applied to this Firewall. | 
-| **var.ip_configuration** | block |  -  |  -  |  An `ip_configuration` block. | 
+| **var.ip_configuration** | [block](#ip_configuration-block-structure) |  -  |  -  |  An `ip_configuration` block. | 
 | **var.dns_servers** | list |  -  |  -  |  A list of DNS servers that the Azure Firewall will direct DNS traffic to the for name resolution. | 
 | **var.private_ip_ranges** | list |  -  |  -  |  A list of SNAT private CIDR IP ranges, or the special string `IANAPrivateRanges`, which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918. | 
-| **var.management_ip_configuration** | block |  -  |  -  |  A `management_ip_configuration` block, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created. | 
+| **var.management_ip_configuration** | [block](#management_ip_configuration-block-structure) |  -  |  -  |  A `management_ip_configuration` block, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created. | 
 | **var.threat_intel_mode** | string |  `Alert`  |  `Off`, `Alert`, `Deny`  |  The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`. | 
-| **var.virtual_hub** | block |  -  |  -  |  A `virtual_hub` block. | 
+| **var.virtual_hub** | [block](#virtual_hub-block-structure) |  -  |  -  |  A `virtual_hub` block. | 
 | **var.zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 

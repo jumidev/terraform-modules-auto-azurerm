@@ -2,7 +2,7 @@
 
 Manages a Machine Learning Compute Cluster.**NOTE:** At this point in time the resource cannot be updated (not supported by the backend Azure Go SDK). Therefore it can only be created and deleted, not updated. At the moment, there is also no possibility to specify ssh User Account Credentials to ssh into the compute cluster.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -44,15 +44,15 @@ tfstate_store = {
 | **var.location** | string |  The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.vm_priority** | string |  The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`. | 
 | **var.vm_size** | string |  The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.scale_settings** | block |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.scale_settings** | [block](#scale_settings-block-structure) |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ssh** | block |  -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.ssh** | [block](#ssh-block-structure) |  -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.description** | string |  -  |  The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.identity** | block |  -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.local_auth_enabled** | bool |  `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.node_public_ip_enabled** | bool |  `True`  |  Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **var.ssh_public_access_enabled** | bool |  -  |  A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created. | 

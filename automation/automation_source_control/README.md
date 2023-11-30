@@ -2,7 +2,7 @@
 
 Manages an Automation Source Control.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.automation_account_id** | string |  The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created. | 
 | **var.folder_path** | string |  The folder path of the source control. This Path must be relative. | 
 | **var.repository_url** | string |  The Repository URL of the source control. | 
-| **var.security** | block |  A `security` block. | 
+| **var.security** | [block](#security-block-structure) |  A `security` block. | 
 | **var.source_control_type** | string |  The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive. | 
 
 ## Optional Variables

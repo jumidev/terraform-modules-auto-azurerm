@@ -2,7 +2,7 @@
 
 Manages a Network Manager Subscription Connection which may cross tenants.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

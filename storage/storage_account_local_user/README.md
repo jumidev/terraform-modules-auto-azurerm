@@ -2,7 +2,7 @@
 
 Manages a Storage Account Local User.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,8 +35,8 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.home_directory** | string |  -  |  The home directory of the Storage Account Local User. | 
-| **var.permission_scope** | block |  -  |  One or more `permission_scope` blocks. | 
-| **var.ssh_authorized_key** | block |  -  |  One or more `ssh_authorized_key` blocks. | 
+| **var.permission_scope** | [block](#permission_scope-block-structure) |  -  |  One or more `permission_scope` blocks. | 
+| **var.ssh_authorized_key** | [block](#ssh_authorized_key-block-structure) |  -  |  One or more `ssh_authorized_key` blocks. | 
 | **var.ssh_key_enabled** | bool |  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
 | **var.ssh_password_enabled** | bool |  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
 

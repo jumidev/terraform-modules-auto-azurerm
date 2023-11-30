@@ -2,7 +2,7 @@
 
 Manages a HyperV Site in Recovery Service Vault.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

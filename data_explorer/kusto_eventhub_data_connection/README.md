@@ -2,7 +2,7 @@
 
 Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

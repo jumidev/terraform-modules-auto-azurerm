@@ -2,7 +2,7 @@
 
 Manages a Kusto (also known as Azure Data Explorer) Attached Database Configuration
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **var.default_principal_modification_kind** | string |  `None`  |  `None`, `Replace`, `Union`  |  The default principals modification kind. Valid values are: `None` (default), `Replace` and `Union`. Defaults to `None`. | 
-| **var.sharing** | block |  -  |  -  |  A `sharing` block. | 
+| **var.sharing** | [block](#sharing-block-structure) |  -  |  -  |  A `sharing` block. | 
 
 ### `sharing` block structure
 

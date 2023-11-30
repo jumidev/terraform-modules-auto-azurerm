@@ -2,7 +2,7 @@
 
 Manages a Virtual Machine.## Disclaimers-> **Note:** The `azurerm_virtual_machine` resource has been superseded by the [`azurerm_linux_virtual_machine`](linux_virtual_machine.html) and [`azurerm_windows_virtual_machine`](windows_virtual_machine.html) resources. The existing `azurerm_virtual_machine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources.~> **Note:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,28 +43,28 @@ tfstate_store = {
 | **var.location** | string |  Specifies the Azure Region where the Virtual Machine exists. Changing this forces a new resource to be created. | 
 | **var.network_interface_ids** | list |  A list of Network Interface IDs which should be associated with the Virtual Machine. | 
 | **var.vm_size** | string |  Specifies the [size of the Virtual Machine](https://docs.microsoft.com/azure/virtual-machines/sizes-general). See also [Azure VM Naming Conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions). | 
-| **var.storage_os_disk** | block |  A `storage_os_disk` block. | 
+| **var.storage_os_disk** | [block](#storage_os_disk-block-structure) |  A `storage_os_disk` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.os_profile_linux_config** | block |  -  |  -  |  (Required, when a Linux machine) An `os_profile_linux_config` block. | 
-| **var.os_profile_windows_config** | block |  -  |  -  |  (Required, when a Windows machine) An `os_profile_windows_config` block. | 
+| **var.os_profile_linux_config** | [block](#os_profile_linux_config-block-structure) |  -  |  -  |  (Required, when a Linux machine) An `os_profile_linux_config` block. | 
+| **var.os_profile_windows_config** | [block](#os_profile_windows_config-block-structure) |  -  |  -  |  (Required, when a Windows machine) An `os_profile_windows_config` block. | 
 | **var.availability_set_id** | string |  -  |  -  |  The ID of the Availability Set in which the Virtual Machine should exist. Changing this forces a new resource to be created. | 
-| **var.boot_diagnostics** | block |  -  |  -  |  A `boot_diagnostics` block. | 
-| **var.additional_capabilities** | block |  -  |  -  |  An `additional_capabilities` block. | 
+| **var.boot_diagnostics** | [block](#boot_diagnostics-block-structure) |  -  |  -  |  A `boot_diagnostics` block. | 
+| **var.additional_capabilities** | [block](#additional_capabilities-block-structure) |  -  |  -  |  An `additional_capabilities` block. | 
 | **var.delete_os_disk_on_termination** | bool |  `False`  |  -  |  Should the OS Disk (either the Managed Disk / VHD Blob) be deleted when the Virtual Machine is destroyed? Defaults to `false`. | 
 | **var.delete_data_disks_on_termination** | bool |  `False`  |  -  |  Should the Data Disks (either the Managed Disks / VHD Blobs) be deleted when the Virtual Machine is destroyed? Defaults to `false`. | 
-| **var.identity** | block |  -  |  -  |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **var.license_type** | string |  -  |  `Windows_Client`, `Windows_Server`  |  Specifies the BYOL Type for this Virtual Machine. This is only applicable to Windows Virtual Machines. Possible values are `Windows_Client` and `Windows_Server`. | 
-| **var.os_profile** | block |  -  |  -  |  An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`. | 
-| **var.os_profile_secrets** | block |  -  |  -  |  One or more `os_profile_secrets` blocks. | 
-| **var.plan** | block |  -  |  -  |  A `plan` block. | 
+| **var.os_profile** | [block](#os_profile-block-structure) |  -  |  -  |  An `os_profile` block. Required when `create_option` in the `storage_os_disk` block is set to `FromImage`. | 
+| **var.os_profile_secrets** | [block](#os_profile_secrets-block-structure) |  -  |  -  |  One or more `os_profile_secrets` blocks. | 
+| **var.plan** | [block](#plan-block-structure) |  -  |  -  |  A `plan` block. | 
 | **var.primary_network_interface_id** | string |  -  |  -  |  The ID of the Network Interface (which must be attached to the Virtual Machine) which should be the Primary Network Interface for this Virtual Machine. | 
 | **var.proximity_placement_group_id** | string |  -  |  -  |  The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created | 
-| **var.storage_data_disk** | block |  -  |  -  |  One or more `storage_data_disk` blocks. | 
-| **var.storage_image_reference** | block |  -  |  -  |  A `storage_image_reference` block. Changing this forces a new resource to be created. | 
+| **var.storage_data_disk** | [block](#storage_data_disk-block-structure) |  -  |  -  |  One or more `storage_data_disk` blocks. | 
+| **var.storage_image_reference** | [block](#storage_image_reference-block-structure) |  -  |  -  |  A `storage_image_reference` block. Changing this forces a new resource to be created. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Virtual Machine. | 
 | **var.zones** | list |  -  |  -  |  A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created. | 
 

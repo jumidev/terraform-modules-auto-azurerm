@@ -2,7 +2,7 @@
 
 Manages the Defender for Storage.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

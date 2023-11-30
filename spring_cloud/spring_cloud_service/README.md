@@ -2,7 +2,7 @@
 
 Manages an Azure Spring Cloud Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,16 +36,16 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.container_registry** | block |  -  |  -  |  One or more `container_registry` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| **var.container_registry** | [block](#container_registry-block-structure) |  -  |  -  |  One or more `container_registry` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
 | **var.log_stream_public_endpoint_enabled** | bool |  -  |  -  |  Should the log stream in vnet injection instance could be accessed from Internet? | 
 | **var.build_agent_pool_size** | string |  -  |  `S1`, `S2`, `S3`, `S4`, `S5`  |  Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.default_build_service** | block |  -  |  -  |  A `default_build_service` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| **var.default_build_service** | [block](#default_build_service-block-structure) |  -  |  -  |  A `default_build_service` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
 | **var.sku_name** | string |  `S0`  |  `B0`, `S0`, `E0`  |  Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created. | 
-| **var.marketplace** | block |  -  |  -  |  A `marketplace` block. Can only be specified when `sku` is set to `E0`. | 
-| **var.network** | block |  -  |  -  |  A `network` block. Changing this forces a new resource to be created. | 
-| **var.config_server_git_setting** | block |  -  |  -  |  A `config_server_git_setting` block. This field is applicable only for Spring Cloud Service with basic and standard tier. | 
+| **var.marketplace** | [block](#marketplace-block-structure) |  -  |  -  |  A `marketplace` block. Can only be specified when `sku` is set to `E0`. | 
+| **var.network** | [block](#network-block-structure) |  -  |  -  |  A `network` block. Changing this forces a new resource to be created. | 
+| **var.config_server_git_setting** | [block](#config_server_git_setting-block-structure) |  -  |  -  |  A `config_server_git_setting` block. This field is applicable only for Spring Cloud Service with basic and standard tier. | 
 | **var.service_registry_enabled** | bool |  -  |  -  |  Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.trace** | block |  -  |  -  |  A `trace` block. | 
+| **var.trace** | [block](#trace-block-structure) |  -  |  -  |  A `trace` block. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.zone_redundant** | bool |  `False`  |  -  |  Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`. | 
 

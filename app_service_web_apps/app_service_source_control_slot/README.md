@@ -2,7 +2,7 @@
 
 Manages an App Service Source Control Slot.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -33,7 +33,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.branch** | string |  -  |  The URL for the repository. Changing this forces a new resource to be created. | 
-| **var.github_action_configuration** | block |  -  |  A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created. | 
+| **var.github_action_configuration** | [block](#github_action_configuration-block-structure) |  -  |  A `github_action_configuration` block as detailed below. Changing this forces a new resource to be created. | 
 | **var.repo_url** | string |  -  |  The branch name to use for deployments. Changing this forces a new resource to be created. | 
 | **var.rollback_enabled** | bool |  `False`  |  Should the Deployment Rollback be enabled? Defaults to `false` Changing this forces a new resource to be created. | 
 | **var.use_local_git** | bool |  -  |  Should the Slot use local Git configuration. Changing this forces a new resource to be created. | 

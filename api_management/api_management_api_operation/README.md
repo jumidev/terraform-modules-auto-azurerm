@@ -2,7 +2,7 @@
 
 Manages an API Operation within an API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,9 +45,9 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  A description for this API Operation, which may include HTML formatting tags. | 
-| **var.request** | block |  A `request` block. | 
-| **var.response** | block |  One or more `response` blocks. | 
-| **var.template_parameter** | block |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
+| **var.request** | [block](#request-block-structure) |  A `request` block. | 
+| **var.response** | [block](#response-block-structure) |  One or more `response` blocks. | 
+| **var.template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
 ### `request` block structure
 

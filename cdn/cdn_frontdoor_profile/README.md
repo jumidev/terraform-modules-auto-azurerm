@@ -2,7 +2,7 @@
 
 Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

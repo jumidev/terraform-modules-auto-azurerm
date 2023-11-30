@@ -2,7 +2,7 @@
 
 Manages a Load Balancer Backend Address Pool.~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tunnel_interface** | block |  One or more `tunnel_interface` blocks. | 
+| **var.tunnel_interface** | [block](#tunnel_interface-block-structure) |  One or more `tunnel_interface` blocks. | 
 | **var.virtual_network_id** | string |  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
 
 ### `tunnel_interface` block structure

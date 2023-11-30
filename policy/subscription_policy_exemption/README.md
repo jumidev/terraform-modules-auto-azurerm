@@ -2,7 +2,7 @@
 
 Manages a Subscription Policy Exemption.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Storage Mover Project.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

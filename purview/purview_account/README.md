@@ -2,7 +2,7 @@
 
 Manages a Purview Account.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.location** | string |  The Azure Region where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
-| **var.identity** | block |  An `identity` block. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
 | **var.name** | string |  The name which should be used for this Purview Account. Changing this forces a new Purview Account to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Purview Account should exist. Changing this forces a new Purview Account to be created. | 
 

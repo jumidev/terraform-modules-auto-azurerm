@@ -2,7 +2,7 @@
 
 Manages an Action Group within Azure Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,18 +37,18 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.enabled** | bool |  `True`  |  Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`. | 
-| **var.arm_role_receiver** | block |  -  |  One or more `arm_role_receiver` blocks. | 
-| **var.automation_runbook_receiver** | block |  -  |  One or more `automation_runbook_receiver` blocks. | 
-| **var.azure_app_push_receiver** | block |  -  |  One or more `azure_app_push_receiver` blocks. | 
-| **var.azure_function_receiver** | block |  -  |  One or more `azure_function_receiver` blocks. | 
-| **var.email_receiver** | block |  -  |  One or more `email_receiver` blocks. | 
-| **var.event_hub_receiver** | block |  -  |  One or more `event_hub_receiver` blocks. | 
-| **var.itsm_receiver** | block |  -  |  One or more `itsm_receiver` blocks. | 
+| **var.arm_role_receiver** | [block](#arm_role_receiver-block-structure) |  -  |  One or more `arm_role_receiver` blocks. | 
+| **var.automation_runbook_receiver** | [block](#automation_runbook_receiver-block-structure) |  -  |  One or more `automation_runbook_receiver` blocks. | 
+| **var.azure_app_push_receiver** | [block](#azure_app_push_receiver-block-structure) |  -  |  One or more `azure_app_push_receiver` blocks. | 
+| **var.azure_function_receiver** | [block](#azure_function_receiver-block-structure) |  -  |  One or more `azure_function_receiver` blocks. | 
+| **var.email_receiver** | [block](#email_receiver-block-structure) |  -  |  One or more `email_receiver` blocks. | 
+| **var.event_hub_receiver** | [block](#event_hub_receiver-block-structure) |  -  |  One or more `event_hub_receiver` blocks. | 
+| **var.itsm_receiver** | [block](#itsm_receiver-block-structure) |  -  |  One or more `itsm_receiver` blocks. | 
 | **var.location** | string |  `global`  |  The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`. | 
-| **var.logic_app_receiver** | block |  -  |  One or more `logic_app_receiver` blocks. | 
-| **var.sms_receiver** | block |  -  |  One or more `sms_receiver` blocks. | 
-| **var.voice_receiver** | block |  -  |  One or more `voice_receiver` blocks. | 
-| **var.webhook_receiver** | block |  -  |  One or more `webhook_receiver` blocks. | 
+| **var.logic_app_receiver** | [block](#logic_app_receiver-block-structure) |  -  |  One or more `logic_app_receiver` blocks. | 
+| **var.sms_receiver** | [block](#sms_receiver-block-structure) |  -  |  One or more `sms_receiver` blocks. | 
+| **var.voice_receiver** | [block](#voice_receiver-block-structure) |  -  |  One or more `voice_receiver` blocks. | 
+| **var.webhook_receiver** | [block](#webhook_receiver-block-structure) |  -  |  One or more `webhook_receiver` blocks. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `arm_role_receiver` block structure

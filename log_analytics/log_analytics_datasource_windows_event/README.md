@@ -2,7 +2,7 @@
 
 Manages a Log Analytics Windows Event DataSource.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

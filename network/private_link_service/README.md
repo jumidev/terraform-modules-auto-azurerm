@@ -2,7 +2,7 @@
 
 Manages a Private Link Service.-> **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name of this Private Link Service. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.nat_ip_configuration** | block |  One or more (up to 8) `nat_ip_configuration` block. | 
+| **var.nat_ip_configuration** | [block](#nat_ip_configuration-block-structure) |  One or more (up to 8) `nat_ip_configuration` block. | 
 | **var.load_balancer_frontend_ip_configuration_ids** | list |  A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created. | 
 
 ## Optional Variables

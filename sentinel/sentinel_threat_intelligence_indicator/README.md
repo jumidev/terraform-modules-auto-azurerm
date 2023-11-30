@@ -2,7 +2,7 @@
 
 Manages a Sentinel Threat Intelligence Indicator.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -46,9 +46,9 @@ tfstate_store = {
 | **var.created_by** | string |  The creator of the Threat Intelligence Indicator. | 
 | **var.description** | string |  The description of the Threat Intelligence Indicator. | 
 | **var.extension** | string |  The extension config of the Threat Intelligence Indicator in JSON format. | 
-| **var.external_reference** | block |  One or more `external_reference` blocks. | 
-| **var.granular_marking** | block |  One or more `granular_marking` blocks. | 
-| **var.kill_chain_phase** | block |  One or more `kill_chain_phase` blocks. | 
+| **var.external_reference** | [block](#external_reference-block-structure) |  One or more `external_reference` blocks. | 
+| **var.granular_marking** | [block](#granular_marking-block-structure) |  One or more `granular_marking` blocks. | 
+| **var.kill_chain_phase** | [block](#kill_chain_phase-block-structure) |  One or more `kill_chain_phase` blocks. | 
 | **var.tags** | map |  Specifies a list of tags of the Threat Intelligence Indicator. | 
 | **var.language** | string |  The language of the Threat Intelligence Indicator. | 
 | **var.object_marking_refs** | string |  Specifies a list of Threat Intelligence marking references. | 

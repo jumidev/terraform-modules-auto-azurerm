@@ -2,7 +2,7 @@
 
 Manages a Synapse Self-hosted Integration Runtime.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

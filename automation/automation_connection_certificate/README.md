@@ -2,7 +2,7 @@
 
 Manages an Automation Connection with type `Azure`.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

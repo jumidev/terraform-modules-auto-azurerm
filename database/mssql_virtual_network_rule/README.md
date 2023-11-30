@@ -2,7 +2,7 @@
 
 Allows you to manage rules for allowing traffic between an Azure SQL server and a subnet of a virtual network.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

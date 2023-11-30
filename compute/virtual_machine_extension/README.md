@@ -2,7 +2,7 @@
 
 Manages a Virtual Machine Extension to provide post deployment configurationand run automated tasks.~> **NOTE:** Custom Script Extensions for Linux & Windows require that the `commandToExecute` returns a `0` exit code to be classified as successfully deployed. You can achieve this by appending `exit 0` to the end of your `commandToExecute`.-> **NOTE:** Custom Script Extensions require that the Azure Virtual Machine Guest Agent is running on the Virtual Machine.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,7 +45,7 @@ tfstate_store = {
 | **var.settings** | string |  -  |  -  |  The settings passed to the extension, these are specified as a JSON object in a string. | 
 | **var.failure_suppression_enabled** | bool |  `False`  |  `true`, `false`  |  Should failures from the extension be suppressed? Possible values are `true` or `false`. Defaults to `false`. | 
 | **var.protected_settings** | string |  -  |  -  |  The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string. | 
-| **var.protected_settings_from_key_vault** | block |  -  |  -  |  A `protected_settings_from_key_vault` block. | 
+| **var.protected_settings_from_key_vault** | [block](#protected_settings_from_key_vault-block-structure) |  -  |  -  |  A `protected_settings_from_key_vault` block. | 
 | **var.provision_after_extensions** | string |  -  |  -  |  Specifies the collection of extension names after which this extension needs to be provisioned. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 

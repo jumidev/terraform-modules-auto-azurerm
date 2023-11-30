@@ -2,7 +2,7 @@
 
 -> **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tierManages a Spring Cloud Application Performance Monitoring resource for Application Insights.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Key Vault Certificate.~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Certificate resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_certificates_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_certificates_on_destroy) for more information.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,8 +34,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.certificate** | block |  A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
-| **var.certificate_policy** | block |  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.certificate** | [block](#certificate-block-structure) |  A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
+| **var.certificate_policy** | [block](#certificate_policy-block-structure) |  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `certificate` block structure

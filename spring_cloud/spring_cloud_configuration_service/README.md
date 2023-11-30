@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud Configuration Service.-> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **var.generation** | string |  `Gen1`, `Gen2`  |  The generation of the Spring Cloud Configuration Service. Possible values are `Gen1` and `Gen2`. | 
-| **var.repository** | block |  -  |  One or more `repository` blocks. | 
+| **var.repository** | [block](#repository-block-structure) |  -  |  One or more `repository` blocks. | 
 
 ### `repository` block structure
 

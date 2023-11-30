@@ -2,7 +2,7 @@
 
 Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 | **var.name** | string |  The name of the scheduled query rule. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created. | 
-| **var.criteria** | block |  A `criteria` block. | 
+| **var.criteria** | [block](#criteria-block-structure) |  A `criteria` block. | 
 | **var.data_source_id** | string |  The resource URI over which log search query is to be run. | 
 
 ## Optional Variables

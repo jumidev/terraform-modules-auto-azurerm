@@ -2,7 +2,7 @@
 
 Manages a Log Analytics (formally Operational Insights) Saved Search.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

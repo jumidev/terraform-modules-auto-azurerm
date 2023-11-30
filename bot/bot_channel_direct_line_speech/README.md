@@ -2,7 +2,7 @@
 
 Manages a Direct Line Speech integration for a Bot Channel
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

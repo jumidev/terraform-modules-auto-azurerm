@@ -2,7 +2,7 @@
 
 Manages a Key Vault Managed Hardware Security Module.~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Managed Hardware Security Module resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_hardware_security_modules_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_hardware_security_modules_on_destroy) for more information.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -45,7 +45,7 @@ tfstate_store = {
 | **var.purge_protection_enabled** | bool |  -  |  Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created. | 
 | **var.soft_delete_retention_days** | int |  `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created. | 
 | **var.public_network_access_enabled** | bool |  `True`  |  Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created. | 
-| **var.network_acls** | block |  -  |  A `network_acls` block. | 
+| **var.network_acls** | [block](#network_acls-block-structure) |  -  |  A `network_acls` block. | 
 | **var.security_domain_key_vault_certificate_ids** | list |  -  |  A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) | 
 | **var.security_domain_quorum** | string |  -  |  Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 

@@ -2,7 +2,7 @@
 
 Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.capture_description** | block |  -  |  -  |  A `capture_description` block. | 
+| **var.capture_description** | [block](#capture_description-block-structure) |  -  |  -  |  A `capture_description` block. | 
 | **var.status** | string |  `Active`  |  `Active`, `Disabled`, `SendDisabled`  |  Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`. | 
 
 ### `capture_description` block structure

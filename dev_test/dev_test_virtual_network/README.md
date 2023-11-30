@@ -2,7 +2,7 @@
 
 Manages a Virtual Network within a DevTest Lab.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **var.description** | string |  A description for the Virtual Network. | 
-| **var.subnet** | block |  A `subnet` block. | 
+| **var.subnet** | [block](#subnet-block-structure) |  A `subnet` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `subnet` block structure

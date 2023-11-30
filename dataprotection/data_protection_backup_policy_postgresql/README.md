@@ -2,7 +2,7 @@
 
 Manages a Backup Policy to back up PostgreSQL.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.retention_rule** | block |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy PostgreSQL to be created. | 
+| **var.retention_rule** | [block](#retention_rule-block-structure) |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy PostgreSQL to be created. | 
 
 ### `retention_rule` block structure
 

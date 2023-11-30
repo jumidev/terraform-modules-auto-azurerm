@@ -2,7 +2,7 @@
 
 Manages a Dev Center.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity** | block |  An `identity` block. Specifies the Managed Identity which should be assigned to this Dev Center. | 
+| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Specifies the Managed Identity which should be assigned to this Dev Center. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Dev Center. | 
 
 ### `identity` block structure

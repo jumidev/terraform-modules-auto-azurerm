@@ -2,7 +2,7 @@
 
 Manages a Network Manager Static Member.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

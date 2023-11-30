@@ -2,7 +2,7 @@
 
 Manages an Elasticsearch in Elastic Cloud.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.logs** | block |  -  |  A `logs` block. | 
+| **var.logs** | [block](#logs-block-structure) |  -  |  A `logs` block. | 
 | **var.monitoring_enabled** | bool |  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
 | **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
 

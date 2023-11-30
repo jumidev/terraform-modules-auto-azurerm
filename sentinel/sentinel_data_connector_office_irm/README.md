@@ -2,7 +2,7 @@
 
 Manages an Office IRM Data Connector.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

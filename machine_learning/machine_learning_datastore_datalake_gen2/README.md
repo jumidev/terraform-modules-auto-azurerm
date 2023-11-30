@@ -2,7 +2,7 @@
 
 Manages a Machine Learning Data Lake Gen2 DataStore.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Enables or disables the Security Center Auto Provisioning feature for the subscription~> **NOTE:** There is no resource name required, it will always be "default"
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

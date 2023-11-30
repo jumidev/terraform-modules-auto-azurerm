@@ -2,7 +2,7 @@
 
 Manages a Load Balancer Outbound Rule.~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -38,7 +38,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.frontend_ip_configuration** | block |  -  |  One or more `frontend_ip_configuration` blocks. | 
+| **var.frontend_ip_configuration** | [block](#frontend_ip_configuration-block-structure) |  -  |  One or more `frontend_ip_configuration` blocks. | 
 | **var.enable_tcp_reset** | bool |  -  |  Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP. | 
 | **var.allocated_outbound_ports** | int |  `1024`  |  The number of outbound ports to be used for NAT. Defaults to `1024`. | 
 | **var.idle_timeout_in_minutes** | int |  `4`  |  The timeout for the TCP idle connection Defaults to `4`. | 

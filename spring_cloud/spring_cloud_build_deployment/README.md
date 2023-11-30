@@ -2,7 +2,7 @@
 
 Manages a Spring Cloud Build Deployment.-> **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.addon_json** | string |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Build Deployment. | 
 | **var.environment_variables** | string |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
 | **var.instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
-| **var.quota** | block |  -  |  A `quota` block. | 
+| **var.quota** | [block](#quota-block-structure) |  -  |  A `quota` block. | 
 
 ### `quota` block structure
 

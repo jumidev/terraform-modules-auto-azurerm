@@ -2,7 +2,7 @@
 
 Manages an ExpressRoute Port Authorization.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

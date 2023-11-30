@@ -2,7 +2,7 @@
 
 Manages a VMWare Replication Policy.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an OpenID Connect Provider within a API Management Service.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

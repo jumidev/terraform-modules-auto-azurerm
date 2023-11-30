@@ -2,7 +2,7 @@
 
 Manages a Network Rule Collection within an Azure Firewall.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -43,7 +43,7 @@ tfstate_store = {
 | **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
 | **var.priority** | string |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **var.action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
-| **var.rule** | block |  -  |  One or more `rule` blocks. | 
+| **var.rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
 ### `rule` block structure
 

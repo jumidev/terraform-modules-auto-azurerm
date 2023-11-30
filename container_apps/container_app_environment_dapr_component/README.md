@@ -2,7 +2,7 @@
 
 Manages a Dapr Component for a Container App Environment.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -42,7 +42,7 @@ tfstate_store = {
 | **var.init_timeout** | string |  `5s`  |  The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`. | 
 | **var.metadata** | list |  -  |  One or more `metadata` blocks as detailed below. | 
 | **var.scopes** | list |  -  |  A list of scopes to which this component applies. | 
-| **var.secret** | block |  -  |  A `secret` block as detailed below. | 
+| **var.secret** | [block](#secret-block-structure) |  -  |  A `secret` block as detailed below. | 
 
 ### `secret` block structure
 

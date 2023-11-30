@@ -2,7 +2,7 @@
 
 Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

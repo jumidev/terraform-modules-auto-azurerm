@@ -2,7 +2,7 @@
 
 Manages a API Management Custom Domain.## Disclaimers~> **Note:** It's possible to define Custom Domains both within [the `azurerm_api_management` resource](api_management.html) via the `hostname_configurations` block and by using this resource. However it's not possible to use both methods to manage Custom Domains within an API Management Service, since there will be conflicts.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -32,11 +32,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.developer_portal** | block |  One or more `developer_portal` blocks. | 
-| **var.management** | block |  One or more `management` blocks. | 
-| **var.portal** | block |  One or more `portal` blocks. | 
-| **var.gateway** | block |  One or more `gateway` blocks. | 
-| **var.scm** | block |  One or more `scm` blocks. | 
+| **var.developer_portal** | [block](#developer_portal-block-structure) |  One or more `developer_portal` blocks. | 
+| **var.management** | [block](#management-block-structure) |  One or more `management` blocks. | 
+| **var.portal** | [block](#portal-block-structure) |  One or more `portal` blocks. | 
+| **var.gateway** | [block](#gateway-block-structure) |  One or more `gateway` blocks. | 
+| **var.scm** | [block](#scm-block-structure) |  One or more `scm` blocks. | 
 
 ### `developer_portal` block structure
 

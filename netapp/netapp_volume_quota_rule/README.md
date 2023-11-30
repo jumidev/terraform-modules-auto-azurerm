@@ -2,7 +2,7 @@
 
 Manages a Volume Quota Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

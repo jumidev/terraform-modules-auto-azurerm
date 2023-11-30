@@ -2,7 +2,7 @@
 
 Manage a Dedicated Host Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages an Application Insights Smart Detection Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

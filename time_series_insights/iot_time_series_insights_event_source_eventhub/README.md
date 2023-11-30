@@ -2,7 +2,7 @@
 
 Manages an Azure IoT Time Series Insights EventHub Event Source.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

@@ -2,7 +2,7 @@
 
 Manages a Linked Service (connection) between a Database and Azure Data Factory through ODBC protocol.~> **Note:** All arguments including the connection_string will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.basic_authentication** | block |  A `basic_authentication` block. | 
+| **var.basic_authentication** | [block](#basic_authentication-block-structure) |  A `basic_authentication` block. | 
 | **var.description** | string |  The description for the Data Factory Linked Service ODBC. | 
 | **var.integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service ODBC. | 
 | **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service ODBC. | 

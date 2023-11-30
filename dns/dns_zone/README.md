@@ -2,7 +2,7 @@
 
 Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azure's name servers to which you can delegate the zone from the parent domain.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.soa_record** | block |  An `soa_record` block. | 
+| **var.soa_record** | [block](#soa_record-block-structure) |  An `soa_record` block. | 
 | **var.tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `soa_record` block structure

@@ -2,7 +2,7 @@
 
 Manages an Azure Route Server
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

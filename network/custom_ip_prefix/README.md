@@ -2,7 +2,7 @@
 
 Manages a custom IPv4 prefix or custom IPv6 prefix.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

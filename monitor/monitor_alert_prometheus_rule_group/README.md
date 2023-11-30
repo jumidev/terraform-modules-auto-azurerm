@@ -2,7 +2,7 @@
 
 Manages an Alert Management Prometheus Rule Group.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **var.name** | string |  Specifies the name which should be used for this Alert Management Prometheus Rule Group. Changing this forces a new resource to be created. | 
 | **var.location** | string |  Specifies the Azure Region where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created. | 
 | **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Alert Management Prometheus Rule Group should exist. Changing this forces a new resource to be created. | 
-| **var.rule** | block |  A `rule` block. | 
+| **var.rule** | [block](#rule-block-structure) |  A `rule` block. | 
 | **var.scopes** | string |  Specifies the resource ID of the Azure Monitor Workspace. | 
 
 ## Optional Variables

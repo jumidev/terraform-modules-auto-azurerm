@@ -2,7 +2,7 @@
 
 Manages an Azure Relay Namespace Authorization Rule.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {

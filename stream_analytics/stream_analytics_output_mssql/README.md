@@ -2,7 +2,7 @@
 
 Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
-## Example minimal component.hclt
+## Example `component.hclt`
 
 ```hcl
 source = {
