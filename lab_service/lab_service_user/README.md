@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Lab Service User. Changing this forces a new resource to be created. | 
-| **var.lab_id** | string |  The resource ID of the Lab Service Lab. Changing this forces a new resource to be created. | 
-| **var.email** | string |  The email address of the Lab Service User. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this Lab Service User. Changing this forces a new resource to be created. | 
+| **lab_id** | string |  The resource ID of the Lab Service Lab. Changing this forces a new resource to be created. | 
+| **email** | string |  The email address of the Lab Service User. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.additional_usage_quota** | string |  `PT0S`  |  The amount of usage quota time the Lab Service User gets in addition to the lab usage quota. Defaults to `PT0S`. | 
+| **additional_usage_quota** | string |  `PT0S`  |  The amount of usage quota time the Lab Service User gets in addition to the lab usage quota. Defaults to `PT0S`. | 
 
 
 

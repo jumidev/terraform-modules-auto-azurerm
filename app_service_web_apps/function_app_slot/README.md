@@ -32,30 +32,56 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Function App. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.app_service_plan_id** | string |  The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created. | 
-| **var.function_app_name** | string |  The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created. | 
-| **var.storage_account_name** | string |  The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created. | 
-| **var.storage_account_access_key** | string |  The access key which will be used to access the backend storage account for the Function App. | 
+| **name** | string |  Specifies the name of the Function App. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Function App Slot. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **app_service_plan_id** | string |  The ID of the App Service Plan within which to create this Function App Slot. Changing this forces a new resource to be created. | 
+| **function_app_name** | string |  The name of the Function App within which to create the Function App Slot. Changing this forces a new resource to be created. | 
+| **storage_account_name** | string |  The backend storage account name which will be used by the Function App (such as the dashboard, logs). Changing this forces a new resource to be created. | 
+| **storage_account_access_key** | string |  The access key which will be used to access the backend storage account for the Function App. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.app_settings** | string |  -  |  A key-value pair of App Settings. | 
-| **var.auth_settings** | [block](#auth_settings-block-structure) |  -  |  An `auth_settings` block. | 
-| **var.enable_builtin_logging** | bool |  `True`  |  Should the built-in logging of the Function App be enabled? Defaults to `true`. | 
-| **var.connection_string** | [block](#connection_string-block-structure) |  -  |  A `connection_string` block. | 
-| **var.os_type** | string |  -  |  A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool |  `True`  |  Is the Function App enabled? Defaults to `true`. | 
-| **var.https_only** | bool |  `False`  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
-| **var.version** | string |  `~1`  |  The runtime version associated with the Function App. Defaults to `~1`. | 
-| **var.daily_memory_time_quota** | string |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. | 
-| **var.site_config** | [block](#site_config-block-structure) |  -  |  A `site_config` object as defined below. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **app_settings** | string |  -  |  A key-value pair of App Settings. | 
+| **auth_settings** | [block](#auth_settings-block-structure) |  -  |  An `auth_settings` block. | 
+| **enable_builtin_logging** | bool |  `True`  |  Should the built-in logging of the Function App be enabled? Defaults to `true`. | 
+| **connection_string** | [block](#connection_string-block-structure) |  -  |  A `connection_string` block. | 
+| **os_type** | string |  -  |  A string indicating the Operating System type for this function app. The only possible value is `linux`. Changing this forces a new resource to be created. | 
+| **enabled** | bool |  `True`  |  Is the Function App enabled? Defaults to `true`. | 
+| **https_only** | bool |  `False`  |  Can the Function App only be accessed via HTTPS? Defaults to `false`. | 
+| **version** | string |  `~1`  |  The runtime version associated with the Function App. Defaults to `~1`. | 
+| **daily_memory_time_quota** | string |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps under the consumption plan. | 
+| **site_config** | [block](#site_config-block-structure) |  -  |  A `site_config` object as defined below. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+
+### `ip_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
+
+### `microsoft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
 
 ### `twitter` block structure
 
@@ -64,14 +90,6 @@ tfstate_store = {
 | `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
 | `consumer_secret` | string | Yes | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
 
-### `facebook` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
-| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,20 +97,16 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the identity type of the Function App. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. |
 | `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
 
-### `connection_string` block structure
+### `scm_ip_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `google` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Allow or Deny access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'scm_ip_restriction' as defined below. |
 
 ### `auth_settings` block structure
 
@@ -113,16 +127,36 @@ tfstate_store = {
 | `twitter` | [block](#auth_settings-block-structure) | No | - | A 'twitter' block. |
 | `unauthenticated_client_action` | string | No | - | The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'. |
 
-### `scm_ip_restriction` block structure
+### `facebook` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Allow or Deny access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'scm_ip_restriction' as defined below. |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
+| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
+
+### `google` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory. |
+| `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
+| `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
 
 ### `site_config` block structure
 
@@ -148,40 +182,6 @@ tfstate_store = {
 | `cors` | [block](#site_config-block-structure) | No | - | A 'cors' block. |
 | `ip_restriction` | [block](#site_config-block-structure) | No | - | A list of 'ip_restriction' objects representing IP restrictions as defined below. |
 | `auto_swap_slot_name` | string | No | - | The name of the slot to automatically swap to during deployment |
-
-### `ip_restriction` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory. |
-| `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
-| `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
-
-### `microsoft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
 
 
 

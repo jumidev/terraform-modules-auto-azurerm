@@ -43,23 +43,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Video Analyzer. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.storage_account** | [block](#storage_account-block-structure) |  A `storage_account` block. | 
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
+| **name** | string |  Specifies the name of the Video Analyzer. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Video Analyzer. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **storage_account** | [block](#storage_account-block-structure) |  A `storage_account` block. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags assigned to the resource. | 
-
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `user_assigned_identity_id` | string | Yes | - | Specifies the User Assigned Identity ID which should be assigned to access this Storage Account. |
+| **tags** | map |  A mapping of tags assigned to the resource. | 
 
 ### `identity` block structure
 
@@ -67,6 +61,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Video Analyzer instance. Only possible value is 'UserAssigned'. |
 | `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Video Analyzer instance. |
+
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `user_assigned_identity_id` | string | Yes | - | Specifies the User Assigned Identity ID which should be assigned to access this Storage Account. |
 
 
 

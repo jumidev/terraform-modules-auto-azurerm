@@ -65,6 +65,11 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'.
 #
+# microsoft block structure:
+#   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
+#   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
+#   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+#
 # twitter block structure :
 #   consumer_key (string)   : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 #   consumer_secret (string): (REQUIRED) The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
@@ -83,11 +88,6 @@ variable "auth_settings" {
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 #   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-#
-# microsoft block structure:
-#   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
-#   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
-#   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
 
 
 variable "enable_builtin_logging" {
@@ -159,14 +159,6 @@ variable "site_config" {
 #   ip_restriction (block)                 : A list of 'ip_restriction' objects representing IP restrictions as defined below.
 #   auto_swap_slot_name (string)           : The name of the slot to automatically swap to during deployment
 #
-# ip_restriction block structure    :
-#   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
-#   service_tag (string)              : The Service Tag used for this IP Restriction.
-#   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
-#   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-#   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
-#   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
-#
 # scm_ip_restriction block structure:
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -178,6 +170,14 @@ variable "site_config" {
 # cors block structure        :
 #   allowed_origins (list)      : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
 #   support_credentials (string): Are credentials supported?
+#
+# ip_restriction block structure    :
+#   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
+#   service_tag (string)              : The Service Tag used for this IP Restriction.
+#   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
+#   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+#   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
+#   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
 
 
 variable "identity" {

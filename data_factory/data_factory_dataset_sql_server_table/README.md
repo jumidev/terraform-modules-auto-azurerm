@@ -28,21 +28,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.linked_service_name** | string |  The Data Factory Linked Service name in which to associate the Dataset with. | 
+| **name** | string |  Specifies the name of the Data Factory Dataset SQL Server Table. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **linked_service_name** | string |  The Data Factory Linked Service name in which to associate the Dataset with. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.table_name** | string |  The table name of the Data Factory Dataset SQL Server Table. | 
-| **var.folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.schema_column** | [block](#schema_column-block-structure) |  A `schema_column` block. | 
-| **var.description** | string |  The description for the Data Factory Dataset SQL Server Table. | 
-| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Dataset SQL Server Table. | 
-| **var.parameters** | string |  A map of parameters to associate with the Data Factory Dataset SQL Server Table. | 
-| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Dataset SQL Server Table. | 
+| **table_name** | string |  The table name of the Data Factory Dataset SQL Server Table. | 
+| **folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
+| **schema_column** | [block](#schema_column-block-structure) |  A `schema_column` block. | 
+| **description** | string |  The description for the Data Factory Dataset SQL Server Table. | 
+| **annotations** | string |  List of tags that can be used for describing the Data Factory Dataset SQL Server Table. | 
+| **parameters** | string |  A map of parameters to associate with the Data Factory Dataset SQL Server Table. | 
+| **additional_properties** | string |  A map of additional properties to associate with the Data Factory Dataset SQL Server Table. | 
 
 ### `schema_column` block structure
 

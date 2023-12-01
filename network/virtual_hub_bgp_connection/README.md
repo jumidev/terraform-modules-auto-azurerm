@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string |  The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created. | 
-| **var.peer_asn** | string |  The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created. | 
-| **var.peer_ip** | string |  The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created. | 
+| **virtual_hub_id** | string |  The ID of the Virtual Hub within which this Bgp connection should be created. Changing this forces a new resource to be created. | 
+| **peer_asn** | string |  The peer autonomous system number for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created. | 
+| **peer_ip** | string |  The peer IP address for the Virtual Hub Bgp Connection. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.virtual_network_connection_id** | string |  The ID of virtual network connection. | 
+| **virtual_network_connection_id** | string |  The ID of virtual network connection. | 
 
 
 

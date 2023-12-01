@@ -29,42 +29,57 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the API Management API. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string |  The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created. | 
-| **var.revision** | string |  The Revision which used for this API. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the API Management API. Changing this forces a new resource to be created. | 
+| **api_management_name** | string |  The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The Name of the Resource Group where the API Management API exists. Changing this forces a new resource to be created. | 
+| **revision** | string |  The Revision which used for this API. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.api_type** | string |  `http`  |  `graphql`, `http`, `soap`, `websocket`  |  Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`. | 
-| **var.display_name** | string |  -  |  -  |  The display name of the API. | 
-| **var.path** | string |  -  |  -  |  The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service. | 
-| **var.protocols** | string |  -  |  `http`, `https`, `ws`, `wss`  |  A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`. | 
-| **var.contact** | [block](#contact-block-structure) |  -  |  -  |  A `contact` block. | 
-| **var.description** | string |  -  |  -  |  A description of the API Management API, which may include HTML formatting tags. | 
-| **var.import** | [block](#import-block-structure) |  -  |  -  |  A `import` block. | 
-| **var.license** | [block](#license-block-structure) |  -  |  -  |  A `license` block. | 
-| **var.oauth2_authorization** | [block](#oauth2_authorization-block-structure) |  -  |  -  |  An `oauth2_authorization` block. | 
-| **var.openid_authentication** | [block](#openid_authentication-block-structure) |  -  |  -  |  An `openid_authentication` block. | 
-| **var.service_url** | string |  -  |  -  |  Absolute URL of the backend service implementing this API. | 
-| **var.soap_pass_through** | bool |  `False`  |  -  |  Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`. | 
-| **var.subscription_key_parameter_names** | [block](#subscription_key_parameter_names-block-structure) |  -  |  -  |  A `subscription_key_parameter_names` block. | 
-| **var.subscription_required** | bool |  `True`  |  -  |  Should this API require a subscription key? Defaults to `true`. | 
-| **var.terms_of_service_url** | string |  -  |  -  |  Absolute URL of the Terms of Service for the API. | 
-| **var.version** | int |  -  |  -  |  The Version number of this API, if this API is versioned. | 
-| **var.version_set_id** | string |  -  |  -  |  The ID of the Version Set which this API is associated with. | 
-| **var.revision_description** | string |  -  |  -  |  The description of the API Revision of the API Management API. | 
-| **var.version_description** | string |  -  |  -  |  The description of the API Version of the API Management API. | 
-| **var.source_api_id** | string |  -  |  -  |  The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1` | 
+| **api_type** | string |  `http`  |  `graphql`, `http`, `soap`, `websocket`  |  Type of API. Possible values are `graphql`, `http`, `soap`, and `websocket`. Defaults to `http`. | 
+| **display_name** | string |  -  |  -  |  The display name of the API. | 
+| **path** | string |  -  |  -  |  The Path for this API Management API, which is a relative URL which uniquely identifies this API and all of its resource paths within the API Management Service. | 
+| **protocols** | string |  -  |  `http`, `https`, `ws`, `wss`  |  A list of protocols the operations in this API can be invoked. Possible values are `http`, `https`, `ws`, and `wss`. | 
+| **contact** | [block](#contact-block-structure) |  -  |  -  |  A `contact` block. | 
+| **description** | string |  -  |  -  |  A description of the API Management API, which may include HTML formatting tags. | 
+| **import** | [block](#import-block-structure) |  -  |  -  |  A `import` block. | 
+| **license** | [block](#license-block-structure) |  -  |  -  |  A `license` block. | 
+| **oauth2_authorization** | [block](#oauth2_authorization-block-structure) |  -  |  -  |  An `oauth2_authorization` block. | 
+| **openid_authentication** | [block](#openid_authentication-block-structure) |  -  |  -  |  An `openid_authentication` block. | 
+| **service_url** | string |  -  |  -  |  Absolute URL of the backend service implementing this API. | 
+| **soap_pass_through** | bool |  `False`  |  -  |  Should this API expose a SOAP frontend, rather than a HTTP frontend? Defaults to `false`. | 
+| **subscription_key_parameter_names** | [block](#subscription_key_parameter_names-block-structure) |  -  |  -  |  A `subscription_key_parameter_names` block. | 
+| **subscription_required** | bool |  `True`  |  -  |  Should this API require a subscription key? Defaults to `true`. | 
+| **terms_of_service_url** | string |  -  |  -  |  Absolute URL of the Terms of Service for the API. | 
+| **version** | int |  -  |  -  |  The Version number of this API, if this API is versioned. | 
+| **version_set_id** | string |  -  |  -  |  The ID of the Version Set which this API is associated with. | 
+| **revision_description** | string |  -  |  -  |  The description of the API Revision of the API Management API. | 
+| **version_description** | string |  -  |  -  |  The description of the API Version of the API Management API. | 
+| **source_api_id** | string |  -  |  -  |  The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1` | 
 
-### `subscription_key_parameter_names` block structure
+### `wsdl_selector` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
-| `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
+| `service_name` | string | Yes | - | The name of service to import from WSDL. |
+| `endpoint_name` | string | Yes | - | The name of endpoint (port) to import from WSDL. |
+
+### `oauth2_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
+| `scope` | string | No | - | Operations scope. |
+
+### `import` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_format` | string | Yes | - | The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'. |
+| `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
+| `wsdl_selector` | [block](#import-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
 
 ### `openid_authentication` block structure
 
@@ -80,33 +95,18 @@ tfstate_store = {
 | `email` | string | No | - | The email address of the contact person/organization. |
 | `url` | string | No | - | Absolute URL of the contact information. |
 
-### `wsdl_selector` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `service_name` | string | Yes | - | The name of service to import from WSDL. |
-| `endpoint_name` | string | Yes | - | The name of endpoint (port) to import from WSDL. |
-
-### `import` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_format` | string | Yes | - | The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'. |
-| `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
-| `wsdl_selector` | [block](#import-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
-
-### `oauth2_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
-| `scope` | string | No | - | Operations scope. |
-
 ### `license` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `url` | string | No | - | Absolute URL of the license. |
+
+### `subscription_key_parameter_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
+| `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
 
 
 

@@ -28,23 +28,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string |  The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created. | 
-| **var.remote_virtual_network_id** | string |  The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created. | 
+| **name** | string |  The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created. | 
+| **virtual_hub_id** | string |  The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created. | 
+| **remote_virtual_network_id** | string |  The ID of the Virtual Network which the Virtual Hub should be connected to. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.internet_security_enabled** | bool |  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
-| **var.routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
+| **internet_security_enabled** | bool |  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
+| **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 
-### `static_vnet_route` block structure
+### `propagated_route_table` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
-| `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
+| `labels` | string | No | - | The list of labels to assign to this route table. |
+| `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
 
 ### `routing` block structure
 
@@ -57,12 +57,12 @@ tfstate_store = {
 | `static_vnet_local_route_override_criteria` | string | No | Contains | The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created. |
 | `static_vnet_route` | [block](#routing-block-structure) | No | - | A 'static_vnet_route' block. |
 
-### `propagated_route_table` block structure
+### `static_vnet_route` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `labels` | string | No | - | The list of labels to assign to this route table. |
-| `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
+| `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
+| `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
 
 
 

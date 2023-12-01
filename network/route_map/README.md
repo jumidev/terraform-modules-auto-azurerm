@@ -27,14 +27,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Route Map. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string |  The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this Route Map. Changing this forces a new resource to be created. | 
+| **virtual_hub_id** | string |  The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.rule** | [block](#rule-block-structure) |  A `rule` block. | 
+| **rule** | [block](#rule-block-structure) |  A `rule` block. | 
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameter` | [block](#action-block-structure) | Yes | - | A 'parameter' block. |
+| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
 ### `rule` block structure
 
@@ -43,14 +50,6 @@ tfstate_store = {
 | `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
 | `match_criterion` | [block](#rule-block-structure) | No | - | A 'match_criterion' block. |
 | `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
-
-### `parameter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `as_path` | list | No | - | A list of AS paths. |
-| `community` | list | No | - | A list of BGP communities. |
-| `route_prefix` | list | No | - | A list of route prefixes. |
 
 ### `match_criterion` block structure
 
@@ -61,12 +60,13 @@ tfstate_store = {
 | `community` | list | No | - | A list of BGP communities which this criterion matches. |
 | `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
 
-### `action` block structure
+### `parameter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | [block](#action-block-structure) | Yes | - | A 'parameter' block. |
-| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
+| `as_path` | list | No | - | A list of AS paths. |
+| `community` | list | No | - | A list of BGP communities. |
+| `route_prefix` | list | No | - | A list of route prefixes. |
 
 
 

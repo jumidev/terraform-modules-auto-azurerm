@@ -35,27 +35,39 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.remote_vpn_site_id** | string |  The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.vpn_gateway_id** | string |  The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created. | 
-| **var.vpn_link** | [block](#vpn_link-block-structure) |  One or more `vpn_link` blocks. | 
+| **name** | string |  The name which should be used for this VPN Gateway Connection. Changing this forces a new VPN Gateway Connection to be created. | 
+| **remote_vpn_site_id** | string |  The ID of the remote VPN Site, which will connect to the VPN Gateway. Changing this forces a new VPN Gateway Connection to be created. | 
+| **vpn_gateway_id** | string |  The ID of the VPN Gateway that this VPN Gateway Connection belongs to. Changing this forces a new VPN Gateway Connection to be created. | 
+| **vpn_link** | [block](#vpn_link-block-structure) |  One or more `vpn_link` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.internet_security_enabled** | bool |  `False`  |  Whether Internet Security is enabled for this VPN Connection. Defaults to `false`. | 
-| **var.routing** | [block](#routing-block-structure) |  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
-| **var.traffic_selector_policy** | [block](#traffic_selector_policy-block-structure) |  -  |  One or more `traffic_selector_policy` blocks. | 
+| **internet_security_enabled** | bool |  `False`  |  Whether Internet Security is enabled for this VPN Connection. Defaults to `false`. | 
+| **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
+| **traffic_selector_policy** | [block](#traffic_selector_policy-block-structure) |  -  |  One or more `traffic_selector_policy` blocks. | 
 
-### `routing` block structure
+### `propagated_route_table` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
-| `propagated_route_table` | [block](#routing-block-structure) | No | - | A 'propagated_route_table' block. |
-| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
-| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
+| `route_table_ids` | list | Yes | - | A list of Route Table IDs to associated with this VPN Gateway Connection. |
+| `labels` | list | No | - | A list of labels to assign to this route table. |
+
+### `custom_bgp_address` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
+| `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
+
+### `traffic_selector_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
+| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
 
 ### `vpn_link` block structure
 
@@ -76,26 +88,14 @@ tfstate_store = {
 | `policy_based_traffic_selector_enabled` | bool | No | False | Whether to enable policy-based traffic selectors? Defaults to 'false'. |
 | `custom_bgp_address` | [block](#vpn_link-block-structure) | No | - | One or more 'custom_bgp_address' blocks. |
 
-### `custom_bgp_address` block structure
+### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
-| `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
-
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `route_table_ids` | list | Yes | - | A list of Route Table IDs to associated with this VPN Gateway Connection. |
-| `labels` | list | No | - | A list of labels to assign to this route table. |
-
-### `traffic_selector_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
-| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
+| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
+| `propagated_route_table` | [block](#routing-block-structure) | No | - | A 'propagated_route_table' block. |
+| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
+| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 
 
 

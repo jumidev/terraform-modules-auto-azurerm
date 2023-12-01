@@ -34,22 +34,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_management_name** | string |  The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.client_id** | string |  Client ID of the Application in your B2C tenant. | 
-| **var.client_secret** | string |  Client secret of the Application in your B2C tenant. | 
-| **var.allowed_tenant** | string |  The allowed AAD tenant, usually your B2C tenant domain. | 
-| **var.signin_tenant** | string |  The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain. | 
-| **var.authority** | string |  OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain. | 
-| **var.signin_policy** | string |  Signin Policy Name. | 
-| **var.signup_policy** | string |  Signup Policy Name. | 
+| **api_management_name** | string |  The Name of the API Management Service where this AAD Identity Provider should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
+| **client_id** | string |  Client ID of the Application in your B2C tenant. | 
+| **client_secret** | string |  Client secret of the Application in your B2C tenant. | 
+| **allowed_tenant** | string |  The allowed AAD tenant, usually your B2C tenant domain. | 
+| **signin_tenant** | string |  The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain. | 
+| **authority** | string |  OpenID Connect discovery endpoint hostname, usually your b2clogin.com domain. | 
+| **signin_policy** | string |  Signin Policy Name. | 
+| **signup_policy** | string |  Signup Policy Name. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.password_reset_policy** | string |  Password reset Policy Name. | 
-| **var.profile_editing_policy** | string |  Profile editing Policy Name. | 
+| **password_reset_policy** | string |  Password reset Policy Name. | 
+| **profile_editing_policy** | string |  Profile editing Policy Name. | 
 
 
 

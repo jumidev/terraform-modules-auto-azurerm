@@ -27,18 +27,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`. | 
-| **var.spring_cloud_service_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created. | 
+| **name** | string |  The name which should be used for this Spring Cloud API Portal. Changing this forces a new Spring Cloud API Portal to be created. The only possible value is `default`. | 
+| **spring_cloud_service_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.gateway_ids** | string |  -  |  Specifies a list of Spring Cloud Gateway. | 
-| **var.https_only_enabled** | bool |  -  |  is only https is allowed? | 
-| **var.instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
-| **var.public_network_access_enabled** | bool |  -  |  Is the public network access enabled? | 
-| **var.sso** | [block](#sso-block-structure) |  -  |  A `sso` block. | 
+| **gateway_ids** | string |  -  |  Specifies a list of Spring Cloud Gateway. | 
+| **https_only_enabled** | bool |  -  |  is only https is allowed? | 
+| **instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
+| **public_network_access_enabled** | bool |  -  |  Is the public network access enabled? | 
+| **sso** | [block](#sso-block-structure) |  -  |  A `sso` block. | 
 
 ### `sso` block structure
 

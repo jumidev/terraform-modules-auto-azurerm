@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
-| **var.video_analyzer_name** | string |  The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Video Analyzer Edge Module. Changing this forces a new resource to be created. | 
+| **video_analyzer_name** | string |  The name of the Video Analyzer in which to create the Edge Module. Changing this forces a new resource to be created. | 
 
 
 

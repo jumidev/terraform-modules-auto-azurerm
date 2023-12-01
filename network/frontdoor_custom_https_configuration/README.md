@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.frontend_endpoint_id** | string |  The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created. | 
-| **var.custom_https_provisioning_enabled** | bool |  Should the HTTPS protocol be enabled for this custom domain associated with the Front Door? | 
+| **frontend_endpoint_id** | string |  The ID of the Front Door Frontend Endpoint which this configuration refers to. Changing this forces a new resource to be created. | 
+| **custom_https_provisioning_enabled** | bool |  Should the HTTPS protocol be enabled for this custom domain associated with the Front Door? | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.custom_https_configuration** | [block](#custom_https_configuration-block-structure) |  A `custom_https_configuration` block. | 
+| **custom_https_configuration** | [block](#custom_https_configuration-block-structure) |  A `custom_https_configuration` block. | 
 
 ### `custom_https_configuration` block structure
 

@@ -29,18 +29,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
-| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created. | 
-| **var.display_name** | string |  The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
-| **var.item_search_key** | string |  The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created. | 
+| **name** | string |  The name which should be used for this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
+| **log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace where this Sentinel Watchlist resides in. Changing this forces a new Sentinel Watchlist to be created. | 
+| **display_name** | string |  The display name of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
+| **item_search_key** | string |  The key used to optimize query performance when using Watchlist for joins with other data. Changing this forces a new Sentinel Watchlist to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.default_duration** | string |  The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
-| **var.description** | string |  The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
-| **var.labels** | string |  Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
+| **default_duration** | string |  The default duration in ISO8601 duration form of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
+| **description** | string |  The description of this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
+| **labels** | string |  Specifies a list of labels related to this Sentinel Watchlist. Changing this forces a new Sentinel Watchlist to be created. | 
 
 
 

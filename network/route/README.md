@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the route. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the route. Changing this forces a new resource to be created. | 
-| **var.route_table_name** | string |  -  |  The name of the route table within which create the route. Changing this forces a new resource to be created. | 
-| **var.address_prefix** | string |  -  |  The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format. | 
-| **var.next_hop_type** | string |  `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance`, `None`  |  The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`. | 
+| **name** | string |  -  |  The name of the route. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which to create the route. Changing this forces a new resource to be created. | 
+| **route_table_name** | string |  -  |  The name of the route table within which create the route. Changing this forces a new resource to be created. | 
+| **address_prefix** | string |  -  |  The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format. | 
+| **next_hop_type** | string |  `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance`, `None`  |  The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.next_hop_in_ip_address** | string |  Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`. | 
+| **next_hop_in_ip_address** | string |  Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`. | 
 
 
 

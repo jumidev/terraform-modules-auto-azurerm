@@ -33,15 +33,15 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.signalr_service_id** | string |  -  |  The ID of the SignalR service. Changing this forces a new resource to be created. | 
-| **var.default_action** | string |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. | 
-| **var.public_network** | [block](#public_network-block-structure) |  -  |  A `public_network` block. | 
+| **signalr_service_id** | string |  -  |  The ID of the SignalR service. Changing this forces a new resource to be created. | 
+| **default_action** | string |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. | 
+| **public_network** | [block](#public_network-block-structure) |  -  |  A `public_network` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.private_endpoint** | [block](#private_endpoint-block-structure) |  A `private_endpoint` block. | 
+| **private_endpoint** | [block](#private_endpoint-block-structure) |  A `private_endpoint` block. | 
 
 ### `private_endpoint` block structure
 

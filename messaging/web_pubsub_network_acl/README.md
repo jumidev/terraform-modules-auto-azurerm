@@ -32,15 +32,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.web_pubsub_id** | string |  The ID of the Web Pubsub service. Changing this forces a new resource to be created. | 
-| **var.public_network** | [block](#public_network-block-structure) |  A `public_network` block. | 
+| **web_pubsub_id** | string |  The ID of the Web Pubsub service. Changing this forces a new resource to be created. | 
+| **public_network** | [block](#public_network-block-structure) |  A `public_network` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.default_action** | string |  `Deny`  |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`. | 
-| **var.private_endpoint** | [block](#private_endpoint-block-structure) |  -  |  -  |  A `private_endpoint` block. | 
+| **default_action** | string |  `Deny`  |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`. | 
+| **private_endpoint** | [block](#private_endpoint-block-structure) |  -  |  -  |  A `private_endpoint` block. | 
 
 ### `private_endpoint` block structure
 

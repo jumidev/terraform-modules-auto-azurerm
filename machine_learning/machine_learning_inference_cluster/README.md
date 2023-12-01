@@ -29,20 +29,27 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.kubernetes_cluster_id** | string |  The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.location** | string |  The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.machine_learning_workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **name** | string |  The name which should be used for this Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **kubernetes_cluster_id** | string |  The ID of the Kubernetes Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **location** | string |  The Azure Region where the Machine Learning Inference Cluster should exist. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **machine_learning_workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Inference Cluster to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cluster_purpose** | string |  The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.description** | string |  The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.ssl** | [block](#ssl-block-structure) |  A `ssl` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **cluster_purpose** | string |  The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **description** | string |  The description of the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **ssl** | [block](#ssl-block-structure) |  A `ssl` block. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Machine Learning Inference Cluster. Changing this forces a new Machine Learning Inference Cluster to be created. | 
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created. |
 
 ### `ssl` block structure
 
@@ -53,13 +60,6 @@ tfstate_store = {
 | `key` | string | No |  | The key content for the SSL configuration.Conflicts with 'ssl.0.leaf_domain_label','ssl.0.overwrite_existing_domain'. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to ''''. |
 | `leaf_domain_label` | string | No |  | The leaf domain label for the SSL configuration. Conflicts with 'ssl.0.cert','ssl.0.key','ssl.0.cname'. Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to ''''. |
 | `overwrite_existing_domain` | string | No |  | Whether or not to overwrite existing leaf domain. Conflicts with 'ssl.0.cert','ssl.0.key','ssl.0.cname' Changing this forces a new Machine Learning Inference Cluster to be created. Defaults to ''''. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Inference Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Inference Cluster. Changing this forces a new resource to be created. |
 
 
 

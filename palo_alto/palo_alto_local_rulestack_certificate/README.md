@@ -27,17 +27,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Palo Alto Networks Rulestack Certificate. | 
-| **var.rulestack_id** | string |  The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created. | 
+| **name** | string |  The name which should be used for this Palo Alto Networks Rulestack Certificate. | 
+| **rulestack_id** | string |  The ID of the TODO. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.key_vault_certificate_id** | string |  -  |  The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created. | 
-| **var.self_signed** | bool |  `False`  |  Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created. | 
-| **var.audit_comment** | string |  -  |  The comment for Audit purposes. | 
-| **var.description** | string |  -  |  The description for the Certificate. | 
+| **key_vault_certificate_id** | string |  -  |  The `versionles_id` of the Key Vault Certificate to use. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created. | 
+| **self_signed** | bool |  `False`  |  Should a Self Signed Certificate be used. Defaults to `false`. Changing this forces a new Palo Alto Networks Rulestack Certificate to be created. | 
+| **audit_comment** | string |  -  |  The comment for Audit purposes. | 
+| **description** | string |  -  |  The description for the Certificate. | 
 
 
 

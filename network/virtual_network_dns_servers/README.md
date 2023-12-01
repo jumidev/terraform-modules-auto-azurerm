@@ -26,13 +26,13 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.virtual_network_id** | string |  The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created. | 
+| **virtual_network_id** | string |  The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.dns_servers** | string |  List of IP addresses of DNS servers | 
+| **dns_servers** | string |  List of IP addresses of DNS servers | 
 
 
 

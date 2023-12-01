@@ -35,21 +35,29 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
-| **var.sku** | [block](#sku-block-structure) |  A `sku` block. | 
+| **name** | string |  Specifies the name of the Iot Device Provisioning Service resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group under which the Iot Device Provisioning Service resource has to be created. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
+| **sku** | [block](#sku-block-structure) |  A `sku` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.allocation_policy** | string |  `Hashed`  |  The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`. | 
-| **var.data_residency_enabled** | bool |  `False`  |  Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created. | 
-| **var.linked_hub** | [block](#linked_hub-block-structure) |  -  |  A `linked_hub` block. | 
-| **var.public_network_access_enabled** | bool |  `True`  |  Whether requests from Public Network are allowed. Defaults to `true`. | 
-| **var.ip_filter_rule** | [block](#ip_filter_rule-block-structure) |  -  |  An `ip_filter_rule` block. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **allocation_policy** | string |  `Hashed`  |  The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`. | 
+| **data_residency_enabled** | bool |  `False`  |  Specifies if the IoT Device Provisioning Service has data residency and disaster recovery enabled. Defaults to `false`. Changing this forces a new resource to be created. | 
+| **linked_hub** | [block](#linked_hub-block-structure) |  -  |  A `linked_hub` block. | 
+| **public_network_access_enabled** | bool |  `True`  |  Whether requests from Public Network are allowed. Defaults to `true`. | 
+| **ip_filter_rule** | [block](#ip_filter_rule-block-structure) |  -  |  An `ip_filter_rule` block. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+
+### `ip_filter_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the rule. |
+| `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
+| `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
 
 ### `linked_hub` block structure
 
@@ -66,14 +74,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `capacity` | int | Yes | - | The number of provisioned IoT Device Provisioning Service units. |
-
-### `ip_filter_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the rule. |
-| `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
-| `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
 
 
 

@@ -41,30 +41,30 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the failover group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
-| **var.server_name** | string |  The name of the primary SQL server. Changing this forces a new resource to be created. | 
-| **var.partner_servers** | [block](#partner_servers-block-structure) |  A list of `partner_servers` blocks. | 
-| **var.read_write_endpoint_failover_policy** | [block](#read_write_endpoint_failover_policy-block-structure) |  A `read_write_endpoint_failover_policy` block. | 
+| **name** | string |  The name of the failover group. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group containing the SQL server Changing this forces a new resource to be created. | 
+| **server_name** | string |  The name of the primary SQL server. Changing this forces a new resource to be created. | 
+| **partner_servers** | [block](#partner_servers-block-structure) |  A list of `partner_servers` blocks. | 
+| **read_write_endpoint_failover_policy** | [block](#read_write_endpoint_failover_policy-block-structure) |  A `read_write_endpoint_failover_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.databases** | list |  A list of database ids to add to the failover group | 
-| **var.readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
-
-### `partner_servers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
+| **databases** | list |  A list of database ids to add to the failover group | 
+| **readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `readonly_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
+
+### `partner_servers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
 
 ### `read_write_endpoint_failover_policy` block structure
 

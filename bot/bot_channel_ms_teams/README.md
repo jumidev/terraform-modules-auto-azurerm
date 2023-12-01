@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created. | 
+| **location** | string |  The supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.calling_web_hook** | string |  -  |  -  |  Specifies the webhook for Microsoft Teams channel calls. | 
-| **var.deployment_environment** | string |  `CommercialDeployment`  |  `CommercialDeployment`, `GCCModerateDeployment`  |  The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`. | 
-| **var.enable_calling** | bool |  `False`  |  -  |  Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`. | 
+| **calling_web_hook** | string |  -  |  -  |  Specifies the webhook for Microsoft Teams channel calls. | 
+| **deployment_environment** | string |  `CommercialDeployment`  |  `CommercialDeployment`, `GCCModerateDeployment`  |  The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`. | 
+| **enable_calling** | bool |  `False`  |  -  |  Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`. | 
 
 
 

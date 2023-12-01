@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.location** | string |  The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.vault_id** | string |  The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.storage_account_id** | string |  The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
-| **var.backup_policy_id** | string |  The ID of the Backup Policy. | 
+| **name** | string |  The name which should be used for this Backup Instance Blob Storage. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **location** | string |  The location of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **vault_id** | string |  The ID of the Backup Vault within which the Backup Instance Blob Storage should exist. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **storage_account_id** | string |  The ID of the source Storage Account. Changing this forces a new Backup Instance Blob Storage to be created. | 
+| **backup_policy_id** | string |  The ID of the Backup Policy. | 
 
 
 

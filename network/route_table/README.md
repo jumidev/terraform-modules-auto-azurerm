@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the route table. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the route table. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the route table. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the route table. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.route** | [block](#route-block-structure) |  List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. | 
-| **var.disable_bgp_route_propagation** | bool |  Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **route** | [block](#route-block-structure) |  List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. | 
+| **disable_bgp_route_propagation** | bool |  Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `route` block structure
 

@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_name** | string |  The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created. | 
-| **var.certificate_content** | string |  The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content. | 
+| **name** | string |  Specifies the name of the IotHub Certificate resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group under which the IotHub Certificate resource has to be created. Changing this forces a new resource to be created. | 
+| **iothub_name** | string |  The name of the IoTHub that this certificate will be attached to. Changing this forces a new resource to be created. | 
+| **certificate_content** | string |  The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.is_verified** | bool |  `False`  |  Is the certificate verified? Defaults to `false`. | 
+| **is_verified** | bool |  `False`  |  Is the certificate verified? Defaults to `false`. | 
 
 
 

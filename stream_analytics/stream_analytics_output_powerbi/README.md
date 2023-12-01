@@ -31,19 +31,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Stream Output. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_id** | string |  The ID of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.dataset** | string |  The name of the Power BI dataset. | 
-| **var.table** | string |  The name of the Power BI table under the specified dataset. | 
-| **var.group_id** | string |  The ID of the Power BI group, this must be a valid UUID. | 
-| **var.group_name** | string |  The name of the Power BI group. Use this property to help remember which specific Power BI group id was used. | 
+| **name** | string |  The name of the Stream Output. Changing this forces a new resource to be created. | 
+| **stream_analytics_job_id** | string |  The ID of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **dataset** | string |  The name of the Power BI dataset. | 
+| **table** | string |  The name of the Power BI table under the specified dataset. | 
+| **group_id** | string |  The ID of the Power BI group, this must be a valid UUID. | 
+| **group_name** | string |  The name of the Power BI group. Use this property to help remember which specific Power BI group id was used. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.token_user_principal_name** | string |  The user principal name (UPN) of the user that was used to obtain the refresh token. | 
-| **var.token_user_display_name** | string |  The user display name of the user that was used to obtain the refresh token. | 
+| **token_user_principal_name** | string |  The user principal name (UPN) of the user that was used to obtain the refresh token. | 
+| **token_user_display_name** | string |  The user display name of the user that was used to obtain the refresh token. | 
 
 
 

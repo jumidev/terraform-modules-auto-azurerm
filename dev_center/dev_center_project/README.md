@@ -29,18 +29,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.dev_center_id** | string |  Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created. | 
-| **var.location** | string |  The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created. | 
-| **var.name** | string |  Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created. | 
+| **dev_center_id** | string |  Resource Id of an associated DevCenter. Changing this forces a new Dev Center Project to be created. | 
+| **location** | string |  The Azure Region where the Dev Center Project should exist. Changing this forces a new Dev Center Project to be created. | 
+| **name** | string |  Specifies the name of this Dev Center Project. Changing this forces a new Dev Center Project to be created. | 
+| **resource_group_name** | string |  Specifies the name of the Resource Group within which this Dev Center Project should exist. Changing this forces a new Dev Center Project to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  Description of the project. Changing this forces a new Dev Center Project to be created. | 
-| **var.maximum_dev_boxes_per_user** | int |  When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Dev Center Project. | 
+| **description** | string |  Description of the project. Changing this forces a new Dev Center Project to be created. | 
+| **maximum_dev_boxes_per_user** | int |  When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Dev Center Project. | 
 
 
 

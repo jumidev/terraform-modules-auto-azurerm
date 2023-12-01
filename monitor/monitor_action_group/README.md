@@ -28,28 +28,84 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Action Group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created. | 
-| **var.short_name** | string |  The short name of the action group. This will be used in SMS messages. | 
+| **name** | string |  The name of the Action Group. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Action Group instance. Changing this forces a new resource to be created. | 
+| **short_name** | string |  The short name of the action group. This will be used in SMS messages. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool |  `True`  |  Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`. | 
-| **var.arm_role_receiver** | [block](#arm_role_receiver-block-structure) |  -  |  One or more `arm_role_receiver` blocks. | 
-| **var.automation_runbook_receiver** | [block](#automation_runbook_receiver-block-structure) |  -  |  One or more `automation_runbook_receiver` blocks. | 
-| **var.azure_app_push_receiver** | [block](#azure_app_push_receiver-block-structure) |  -  |  One or more `azure_app_push_receiver` blocks. | 
-| **var.azure_function_receiver** | [block](#azure_function_receiver-block-structure) |  -  |  One or more `azure_function_receiver` blocks. | 
-| **var.email_receiver** | [block](#email_receiver-block-structure) |  -  |  One or more `email_receiver` blocks. | 
-| **var.event_hub_receiver** | [block](#event_hub_receiver-block-structure) |  -  |  One or more `event_hub_receiver` blocks. | 
-| **var.itsm_receiver** | [block](#itsm_receiver-block-structure) |  -  |  One or more `itsm_receiver` blocks. | 
-| **var.location** | string |  `global`  |  The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`. | 
-| **var.logic_app_receiver** | [block](#logic_app_receiver-block-structure) |  -  |  One or more `logic_app_receiver` blocks. | 
-| **var.sms_receiver** | [block](#sms_receiver-block-structure) |  -  |  One or more `sms_receiver` blocks. | 
-| **var.voice_receiver** | [block](#voice_receiver-block-structure) |  -  |  One or more `voice_receiver` blocks. | 
-| **var.webhook_receiver** | [block](#webhook_receiver-block-structure) |  -  |  One or more `webhook_receiver` blocks. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **enabled** | bool |  `True`  |  Whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications. Defaults to `true`. | 
+| **arm_role_receiver** | [block](#arm_role_receiver-block-structure) |  -  |  One or more `arm_role_receiver` blocks. | 
+| **automation_runbook_receiver** | [block](#automation_runbook_receiver-block-structure) |  -  |  One or more `automation_runbook_receiver` blocks. | 
+| **azure_app_push_receiver** | [block](#azure_app_push_receiver-block-structure) |  -  |  One or more `azure_app_push_receiver` blocks. | 
+| **azure_function_receiver** | [block](#azure_function_receiver-block-structure) |  -  |  One or more `azure_function_receiver` blocks. | 
+| **email_receiver** | [block](#email_receiver-block-structure) |  -  |  One or more `email_receiver` blocks. | 
+| **event_hub_receiver** | [block](#event_hub_receiver-block-structure) |  -  |  One or more `event_hub_receiver` blocks. | 
+| **itsm_receiver** | [block](#itsm_receiver-block-structure) |  -  |  One or more `itsm_receiver` blocks. | 
+| **location** | string |  `global`  |  The Azure Region where the Action Group should exist. Changing this forces a new Action Group to be created. Defaults to `global`. | 
+| **logic_app_receiver** | [block](#logic_app_receiver-block-structure) |  -  |  One or more `logic_app_receiver` blocks. | 
+| **sms_receiver** | [block](#sms_receiver-block-structure) |  -  |  One or more `sms_receiver` blocks. | 
+| **voice_receiver** | [block](#voice_receiver-block-structure) |  -  |  One or more `voice_receiver` blocks. | 
+| **webhook_receiver** | [block](#webhook_receiver-block-structure) |  -  |  One or more `webhook_receiver` blocks. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+
+### `email_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email_address` | string | Yes | - | The email address of this receiver. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
+### `logic_app_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
+| `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
+### `webhook_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+| `aad_auth` | [block](#webhook_receiver-block-structure) | No | - | The 'aad_auth' block. |
+
+### `voice_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `country_code` | string | Yes | - | The country code of the voice receiver. |
+| `phone_number` | int | Yes | - | The phone number of the voice receiver. |
+
+### `aad_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `object_id` | string | Yes | - | The webhook application object Id for AAD auth. |
+| `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
+| `tenant_id` | string | No | - | The tenant id for AAD auth. |
+
+### `automation_runbook_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `automation_account_id` | string | Yes | - | The automation account ID which holds this runbook and authenticates to Azure resources. |
+| `runbook_name` | string | Yes | - | The name for this runbook. |
+| `webhook_resource_id` | string | Yes | - | The resource id for webhook linked to this runbook. |
+| `is_global_runbook` | string | Yes | - | Indicates whether this instance is global runbook. |
+| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
+### `arm_role_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `role_id` | string | Yes | - | The arm role id. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
 ### `itsm_receiver` block structure
 
@@ -67,12 +123,6 @@ tfstate_store = {
 | `country_code` | string | Yes | - | The country code of the SMS receiver. |
 | `phone_number` | int | Yes | - | The phone number of the SMS receiver. |
 
-### `azure_app_push_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
-
 ### `azure_function_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,39 +132,11 @@ tfstate_store = {
 | `http_trigger_url` | string | Yes | - | The HTTP trigger url where HTTP request sent to. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
-### `webhook_receiver` block structure
+### `azure_app_push_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-| `aad_auth` | [block](#webhook_receiver-block-structure) | No | - | The 'aad_auth' block. |
-
-### `aad_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `object_id` | string | Yes | - | The webhook application object Id for AAD auth. |
-| `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
-| `tenant_id` | string | No | - | The tenant id for AAD auth. |
-
-### `email_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email_address` | string | Yes | - | The email address of this receiver. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-
-### `automation_runbook_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `automation_account_id` | string | Yes | - | The automation account ID which holds this runbook and authenticates to Azure resources. |
-| `runbook_name` | string | Yes | - | The name for this runbook. |
-| `webhook_resource_id` | string | Yes | - | The resource id for webhook linked to this runbook. |
-| `is_global_runbook` | string | Yes | - | Indicates whether this instance is global runbook. |
-| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+| `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
 
 ### `event_hub_receiver` block structure
 
@@ -126,28 +148,6 @@ tfstate_store = {
 | `subscription_id` | string | No | - | The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group. |
 | `tenant_id` | string | No | - | The Tenant ID for the subscription containing this Event Hub. |
 | `use_common_alert_schema` | bool | No | - | Indicates whether to use common alert schema. |
-
-### `logic_app_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
-| `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-
-### `voice_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `country_code` | string | Yes | - | The country code of the voice receiver. |
-| `phone_number` | int | Yes | - | The phone number of the voice receiver. |
-
-### `arm_role_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `role_id` | string | Yes | - | The arm role id. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
 
 

@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Resource Guard. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Resource Guard. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Resource Guard should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.vault_critical_operation_exclusion_list** | list |  A list of the critical operations which are not protected by this Resource Guard. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Resource Guard. | 
+| **vault_critical_operation_exclusion_list** | list |  A list of the critical operations which are not protected by this Resource Guard. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Resource Guard. | 
 
 
 

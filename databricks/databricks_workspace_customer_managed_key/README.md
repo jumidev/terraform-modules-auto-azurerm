@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.workspace_id** | string |  The ID of the Databricks Workspace.. | 
-| **var.key_vault_key_id** | string |  The ID of the Key Vault. | 
+| **workspace_id** | string |  The ID of the Databricks Workspace.. | 
+| **key_vault_key_id** | string |  The ID of the Key Vault. | 
 
 
 

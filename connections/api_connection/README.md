@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.managed_api_id** | string |  The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created. | 
-| **var.name** | string |  The Name which should be used for this API Connection. Changing this forces a new API Connection to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created. | 
+| **managed_api_id** | string |  The ID of the Managed API which this API Connection is linked to. Changing this forces a new API Connection to be created. | 
+| **name** | string |  The Name which should be used for this API Connection. Changing this forces a new API Connection to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where this API Connection should exist. Changing this forces a new API Connection to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.display_name** | string |  A display name for this API Connection. Changing this forces a new API Connection to be created. | 
-| **var.parameter_values** | string |  A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the API Connection. | 
+| **display_name** | string |  A display name for this API Connection. Changing this forces a new API Connection to be created. | 
+| **parameter_values** | string |  A map of parameter values associated with this API Connection. Changing this forces a new API Connection to be created. | 
+| **tags** | map |  A mapping of tags which should be assigned to the API Connection. | 
 
 
 

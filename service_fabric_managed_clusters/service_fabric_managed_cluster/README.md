@@ -40,51 +40,28 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.client_connection_port** | string |  Port to use when connecting to the cluster. | 
-| **var.http_gateway_port** | string |  Port that should be used by the Service Fabric Explorer to visualize applications and cluster status. | 
-| **var.lb_rule** | [block](#lb_rule-block-structure) |  One or more `lb_rule` blocks. | 
-| **var.location** | string |  The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created. | 
-| **var.name** | string |  The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created. | 
+| **client_connection_port** | string |  Port to use when connecting to the cluster. | 
+| **http_gateway_port** | string |  Port that should be used by the Service Fabric Explorer to visualize applications and cluster status. | 
+| **lb_rule** | [block](#lb_rule-block-structure) |  One or more `lb_rule` blocks. | 
+| **location** | string |  The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created. | 
+| **name** | string |  The name which should be used for this Resource Group. Changing this forces a new Resource Group to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Resource Group should exist. Changing this forces a new Resource Group to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.authentication** | [block](#authentication-block-structure) |  -  |  -  |  Controls how connections to the cluster are authenticated. A `authentication` block. | 
-| **var.backup_service_enabled** | bool |  -  |  -  |  If true, backup service is enabled. | 
-| **var.custom_fabric_setting** | [block](#custom_fabric_setting-block-structure) |  -  |  -  |  One or more `custom_fabric_setting` blocks. | 
-| **var.dns_name** | string |  -  |  -  |  Hostname for the cluster. If unset the cluster's name will be used.. | 
-| **var.dns_service_enabled** | bool |  -  |  -  |  If true, DNS service is enabled. | 
-| **var.node_type** | [block](#node_type-block-structure) |  -  |  -  |  One or more `node_type` blocks. | 
-| **var.password** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
-| **var.sku** | string |  `Basic`  |  `Basic`, `Standard`  |  SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Group. | 
-| **var.upgrade_wave** | string |  `Wave0`  |  `Wave0`, `Wave1`, `Wave2`  |  Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`. | 
-| **var.username** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
-
-### `vm_secrets` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
-| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
-
-### `custom_fabric_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | string | Yes | - | Parameter name. |
-| `section` | string | Yes | - | Section name. |
-| `value` | string | Yes | - | Parameter value. |
-
-### `certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
-| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
-| `common_name` | string | No | - | The certificate's CN. |
+| **authentication** | [block](#authentication-block-structure) |  -  |  -  |  Controls how connections to the cluster are authenticated. A `authentication` block. | 
+| **backup_service_enabled** | bool |  -  |  -  |  If true, backup service is enabled. | 
+| **custom_fabric_setting** | [block](#custom_fabric_setting-block-structure) |  -  |  -  |  One or more `custom_fabric_setting` blocks. | 
+| **dns_name** | string |  -  |  -  |  Hostname for the cluster. If unset the cluster's name will be used.. | 
+| **dns_service_enabled** | bool |  -  |  -  |  If true, DNS service is enabled. | 
+| **node_type** | [block](#node_type-block-structure) |  -  |  -  |  One or more `node_type` blocks. | 
+| **password** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
+| **sku** | string |  `Basic`  |  `Basic`, `Standard`  |  SKU for this cluster. Changing this forces a new resource to be created. Default is `Basic`, allowed values are either `Basic` or `Standard`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Group. | 
+| **upgrade_wave** | string |  `Wave0`  |  `Wave0`, `Wave1`, `Wave2`  |  Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`. | 
+| **username** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
 
 ### `authentication` block structure
 
@@ -92,16 +69,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `active_directory` | [block](#authentication-block-structure) | No | - | A 'active_directory' block. |
 | `certificate` | [block](#authentication-block-structure) | No | - | One or more 'certificate' blocks. |
-
-### `lb_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_port` | string | Yes | - | LB Backend port. |
-| `frontend_port` | string | Yes | - | LB Frontend port. |
-| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
-| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
-| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
 
 ### `node_type` block structure
 
@@ -123,6 +90,39 @@ tfstate_store = {
 | `primary` | string | No | - | If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created. |
 | `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
 | `vm_secrets` | [block](#node_type-block-structure) | No | - | One or more 'vm_secrets' blocks. |
+
+### `certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
+| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
+| `common_name` | string | No | - | The certificate's CN. |
+
+### `lb_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_port` | string | Yes | - | LB Backend port. |
+| `frontend_port` | string | Yes | - | LB Frontend port. |
+| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
+| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
+| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
+
+### `vm_secrets` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
+| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
+
+### `custom_fabric_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameter` | string | Yes | - | Parameter name. |
+| `section` | string | Yes | - | Section name. |
+| `value` | string | Yes | - | Parameter value. |
 
 ### `active_directory` block structure
 

@@ -29,20 +29,20 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the Policy Exemption. Changing this forces a new resource to be created. | 
-| **var.management_group_id** | string |  -  |  The Management Group ID where the Policy Exemption should be applied. Changing this forces a new resource to be created. | 
-| **var.exemption_category** | string |  `Waiver`, `Mitigated`  |  The category of this policy exemption. Possible values are `Waiver` and `Mitigated`. | 
-| **var.policy_assignment_id** | string |  -  |  The ID of the Policy Assignment to be exempted at the specified Scope. | 
+| **name** | string |  -  |  The name of the Policy Exemption. Changing this forces a new resource to be created. | 
+| **management_group_id** | string |  -  |  The Management Group ID where the Policy Exemption should be applied. Changing this forces a new resource to be created. | 
+| **exemption_category** | string |  `Waiver`, `Mitigated`  |  The category of this policy exemption. Possible values are `Waiver` and `Mitigated`. | 
+| **policy_assignment_id** | string |  -  |  The ID of the Policy Assignment to be exempted at the specified Scope. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description to use for this Policy Exemption. | 
-| **var.display_name** | string |  A friendly display name to use for this Policy Exemption. | 
-| **var.expires_on** | string |  The expiration date and time in UTC ISO 8601 format of this policy exemption. | 
-| **var.policy_definition_reference_ids** | string |  The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition. | 
-| **var.metadata** | string |  The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption. | 
+| **description** | string |  A description to use for this Policy Exemption. | 
+| **display_name** | string |  A friendly display name to use for this Policy Exemption. | 
+| **expires_on** | string |  The expiration date and time in UTC ISO 8601 format of this policy exemption. | 
+| **policy_definition_reference_ids** | string |  The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition. | 
+| **metadata** | string |  The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption. | 
 
 
 

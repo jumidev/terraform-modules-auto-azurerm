@@ -37,12 +37,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.facebook_application_id** | string |  The Facebook Application ID for the Facebook Channel. | 
-| **var.facebook_application_secret** | string |  The Facebook Application Secret for the Facebook Channel. | 
-| **var.page** | [block](#page-block-structure) |  One or more `page` blocks. | 
+| **resource_group_name** | string |  The name of the resource group where the Facebook Channel should be created. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **facebook_application_id** | string |  The Facebook Application ID for the Facebook Channel. | 
+| **facebook_application_secret** | string |  The Facebook Application Secret for the Facebook Channel. | 
+| **page** | [block](#page-block-structure) |  One or more `page` blocks. | 
 
 ### `page` block structure
 

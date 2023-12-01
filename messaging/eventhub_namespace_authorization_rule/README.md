@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Authorization Rule. Changing this forces a new resource to be created. | 
+| **namespace_name** | string |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the EventHub Namespace exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.listen** | bool |  `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
-| **var.send** | bool |  `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
-| **var.manage** | bool |  `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
+| **listen** | bool |  `False`  |  Grants listen access to this this Authorization Rule. Defaults to `false`. | 
+| **send** | bool |  `False`  |  Grants send access to this this Authorization Rule. Defaults to `false`. | 
+| **manage** | bool |  `False`  |  Grants manage access to this this Authorization Rule. When this property is `true` - both `listen` and `send` must be too. Defaults to `false`. | 
 
 
 

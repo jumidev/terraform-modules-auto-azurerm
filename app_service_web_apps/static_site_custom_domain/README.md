@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.domain_name** | string |  The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created. | 
-| **var.static_site_id** | string |  The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created. | 
+| **domain_name** | string |  The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created. | 
+| **static_site_id** | string |  The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.validation_type** | string |  One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created. | 
+| **validation_type** | string |  One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created. | 
 
 
 

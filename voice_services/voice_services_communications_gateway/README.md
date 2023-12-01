@@ -40,25 +40,25 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created. | 
-| **var.connectivity** | string |  `PublicAddress`  |  How to connect back to the operator network, e.g. MAPS. Possible values is `PublicAddress`. Changing this forces a new Voice Services Communications Gateways to be created. | 
-| **var.codecs** | string |  `PCMA`, `PCMU`, `G722`, `G722_2`, `SILK_8`, `SILK_16`  |  The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`. | 
-| **var.e911_type** | string |  `Standard`, `DirectToEsrp`  |  How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`. | 
-| **var.platforms** | string |  `OperatorConnect`, `TeamsPhoneMobile`  |  The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`. | 
-| **var.service_location** | [block](#service_location-block-structure) |  -  |  A `service_location` block. | 
+| **name** | string |  -  |  Specifies the name which should be used for this Voice Services Communications Gateways. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the Azure Region where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Voice Services Communications Gateways should exist. Changing this forces a new resource to be created. | 
+| **connectivity** | string |  `PublicAddress`  |  How to connect back to the operator network, e.g. MAPS. Possible values is `PublicAddress`. Changing this forces a new Voice Services Communications Gateways to be created. | 
+| **codecs** | string |  `PCMA`, `PCMU`, `G722`, `G722_2`, `SILK_8`, `SILK_16`  |  The voice codecs expected for communication with Teams. Possible values are `PCMA`, `PCMU`,`G722`,`G722_2`,`SILK_8` and `SILK_16`. | 
+| **e911_type** | string |  `Standard`, `DirectToEsrp`  |  How to handle 911 calls. Possible values are `Standard` and `DirectToEsrp`. | 
+| **platforms** | string |  `OperatorConnect`, `TeamsPhoneMobile`  |  The Voice Services Communications GatewaysAvailable supports platform types. Possible values are `OperatorConnect`, `TeamsPhoneMobile`. | 
+| **service_location** | [block](#service_location-block-structure) |  -  |  A `service_location` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.auto_generated_domain_name_label_scope** | string |  `TenantReuse`  |  `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse`, `NoReuse`  |  Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`. | 
-| **var.api_bridge** | string |  -  |  -  |  Details of API bridge functionality, if required. | 
-| **var.emergency_dial_strings** | list |  -  |  -  |  A list of dial strings used for emergency calling. | 
-| **var.on_prem_mcp_enabled** | bool |  -  |  -  |  Whether an on-premises Mobile Control Point is in use. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Voice Services Communications Gateways. | 
-| **var.microsoft_teams_voicemail_pilot_number** | string |  -  |  -  |  This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer. | 
+| **auto_generated_domain_name_label_scope** | string |  `TenantReuse`  |  `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse`, `NoReuse`  |  Specifies the scope at which the auto-generated domain name can be re-used. Possible values are `TenantReuse`, `SubscriptionReuse`, `ResourceGroupReuse` and `NoReuse` . Changing this forces a new resource to be created. Defaults to `TenantReuse`. | 
+| **api_bridge** | string |  -  |  -  |  Details of API bridge functionality, if required. | 
+| **emergency_dial_strings** | list |  -  |  -  |  A list of dial strings used for emergency calling. | 
+| **on_prem_mcp_enabled** | bool |  -  |  -  |  Whether an on-premises Mobile Control Point is in use. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Voice Services Communications Gateways. | 
+| **microsoft_teams_voicemail_pilot_number** | string |  -  |  -  |  This number is used in Teams Phone Mobile scenarios for access to the voicemail IVR from the native dialer. | 
 
 ### `service_location` block structure
 

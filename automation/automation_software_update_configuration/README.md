@@ -34,22 +34,29 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Automation. Changing this forces a new Automation to be created. | 
-| **var.automation_account_id** | string |  The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created. | 
-| **var.schedule** | [block](#schedule-block-structure) |  A `schedule` blocks. | 
+| **name** | string |  The name which should be used for this Automation. Changing this forces a new Automation to be created. | 
+| **automation_account_id** | string |  The ID of Automation Account to manage this Source Control. Changing this forces a new Automation Source Control to be created. | 
+| **schedule** | [block](#schedule-block-structure) |  A `schedule` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.duration** | string |  `PT2H`  |  Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`. | 
-| **var.linux** | [block](#linux-block-structure) |  -  |  A `linux` block. | 
-| **var.windows** | [block](#windows-block-structure) |  -  |  A `windows` block. | 
-| **var.virtual_machine_ids** | string |  -  |  Specifies a list of Azure Resource IDs of azure virtual machines. | 
-| **var.non_azure_computer_names** | string |  -  |  Specifies a list of names of non-Azure machines for the software update configuration. | 
-| **var.target** | [block](#target-block-structure) |  -  |  A `target` blocks. | 
-| **var.post_task** | [block](#post_task-block-structure) |  -  |  A `post_task` blocks. | 
-| **var.pre_task** | [block](#pre_task-block-structure) |  -  |  A `pre_task` blocks. | 
+| **duration** | string |  `PT2H`  |  Maximum time allowed for the software update configuration run. using format `PT[n]H[n]M[n]S` as per ISO8601. Defaults to `PT2H`. | 
+| **linux** | [block](#linux-block-structure) |  -  |  A `linux` block. | 
+| **windows** | [block](#windows-block-structure) |  -  |  A `windows` block. | 
+| **virtual_machine_ids** | string |  -  |  Specifies a list of Azure Resource IDs of azure virtual machines. | 
+| **non_azure_computer_names** | string |  -  |  Specifies a list of names of non-Azure machines for the software update configuration. | 
+| **target** | [block](#target-block-structure) |  -  |  A `target` blocks. | 
+| **post_task** | [block](#post_task-block-structure) |  -  |  A `post_task` blocks. | 
+| **pre_task** | [block](#pre_task-block-structure) |  -  |  A `pre_task` blocks. | 
+
+### `target` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `azure_query` | list | No | - | One or more 'azure_query' blocks. |
+| `non_azure_query` | list | No | - | One or more 'non_azure_query' blocks. |
 
 ### `windows` block structure
 
@@ -60,13 +67,6 @@ tfstate_store = {
 | `included_knowledge_base_numbers` | string | No | - | Specifies a list of knowledge base numbers included. |
 | `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
 
-### `target` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `azure_query` | list | No | - | One or more 'azure_query' blocks. |
-| `non_azure_query` | list | No | - | One or more 'non_azure_query' blocks. |
-
 ### `linux` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,6 +75,13 @@ tfstate_store = {
 | `excluded_packages` | string | No | - | Specifies a list of packages to excluded from the Software Update Configuration. |
 | `included_packages` | string | No | - | Specifies a list of packages to included from the Software Update Configuration. |
 | `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
+
+### `pre_task` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameters` | string | No | - | Specifies a map of parameters for the task. |
+| `source` | string | No | - | The name of the runbook for the pre task. |
 
 ### `schedule` block structure
 
@@ -96,13 +103,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | Specifies a map of parameters for the task. |
 | `source` | string | No | - | The name of the runbook for the post task. |
-
-### `pre_task` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameters` | string | No | - | Specifies a map of parameters for the task. |
-| `source` | string | No | - | The name of the runbook for the pre task. |
 
 
 

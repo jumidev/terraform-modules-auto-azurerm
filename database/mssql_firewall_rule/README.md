@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the firewall rule. Changing this forces a new resource to be created. | 
-| **var.server_id** | string |  The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created. | 
-| **var.start_ip_address** | string |  The starting IP address to allow through the firewall for this rule. | 
-| **var.end_ip_address** | string |  The ending IP address to allow through the firewall for this rule. | 
+| **name** | string |  The name of the firewall rule. Changing this forces a new resource to be created. | 
+| **server_id** | string |  The resource ID of the SQL Server on which to create the Firewall Rule. Changing this forces a new resource to be created. | 
+| **start_ip_address** | string |  The starting IP address to allow through the firewall for this rule. | 
+| **end_ip_address** | string |  The ending IP address to allow through the firewall for this rule. | 
 
 
 

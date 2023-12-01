@@ -35,17 +35,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique. | 
-| **var.time_series_insights_environment_id** | string |  The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.key_property** | [block](#key_property-block-structure) |  A `key_property` block. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. Must be globally unique. | 
+| **time_series_insights_environment_id** | string |  The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **key_property** | [block](#key_property-block-structure) |  A `key_property` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.data_string_comparison_behavior** | string |  `Ordinal`  |  `Ordinal`, `OrdinalIgnoreCase`  |  The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **data_string_comparison_behavior** | string |  `Ordinal`  |  `Ordinal`, `OrdinalIgnoreCase`  |  The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `key_property` block structure
 

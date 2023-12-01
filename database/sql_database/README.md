@@ -29,26 +29,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the database. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.server_name** | string |  The name of the SQL Server on which to create the database. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the database. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the database. This must be the same as Database Server resource group currently. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **server_name** | string |  The name of the SQL Server on which to create the database. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.create_mode** | string |  `Default`  |  `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreLongTermRetentionBackup`  |  Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode) | 
-| **var.import** | [block](#import-block-structure) |  -  |  -  |  A `import` block. `create_mode` must be set to `Default`. | 
-| **var.source_database_id** | string |  -  |  -  |  The URI of the source database if `create_mode` value is not `Default`. | 
-| **var.restore_point_in_time** | string |  -  |  -  |  The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`. | 
-| **var.edition** | string |  -  |  `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `PremiumRS`, `Stretch`, `System`, `System2`, `Web`  |  The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
-| **var.collation** | string |  `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  |  The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. | 
-| **var.max_size_bytes** | int |  -  |  -  |  The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
-| **var.requested_service_objective_id** | string |  -  |  -  |  A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level. . | 
-| **var.requested_service_objective_name** | string |  -  |  `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11`, `ElasticPool`  |  The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions). | 
-| **var.source_database_deletion_date** | datetime |  -  |  -  |  The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`. | 
-| **var.elastic_pool_name** | string |  -  |  -  |  The name of the elastic database pool. | 
+| **create_mode** | string |  `Default`  |  `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore`, `RestoreLongTermRetentionBackup`  |  Specifies how to create the database. Valid values are: `Default`, `Copy`, `OnlineSecondary`, `NonReadableSecondary`, `PointInTimeRestore`, `Recovery`, `Restore` or `RestoreLongTermRetentionBackup`. Must be `Default` to create a new database. Defaults to `Default`. Please see [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate#createmode) | 
+| **import** | [block](#import-block-structure) |  -  |  -  |  A `import` block. `create_mode` must be set to `Default`. | 
+| **source_database_id** | string |  -  |  -  |  The URI of the source database if `create_mode` value is not `Default`. | 
+| **restore_point_in_time** | string |  -  |  -  |  The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`. | 
+| **edition** | string |  -  |  `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `PremiumRS`, `Stretch`, `System`, `System2`, `Web`  |  The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
+| **collation** | string |  `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  |  The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. | 
+| **max_size_bytes** | int |  -  |  -  |  The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
+| **requested_service_objective_id** | string |  -  |  -  |  A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level. . | 
+| **requested_service_objective_name** | string |  -  |  `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11`, `ElasticPool`  |  The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions). | 
+| **source_database_deletion_date** | datetime |  -  |  -  |  The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`. | 
+| **elastic_pool_name** | string |  -  |  -  |  The name of the elastic database pool. | 
 
 ### `import` block structure
 

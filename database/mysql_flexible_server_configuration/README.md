@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created. | 
-| **var.server_name** | string |  Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created. | 
-| **var.value** | string |  Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. | 
+| **name** | string |  Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created. | 
+| **server_name** | string |  Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created. | 
+| **value** | string |  Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. | 
 
 
 

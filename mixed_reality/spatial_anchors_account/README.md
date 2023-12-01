@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Spatial Anchors Account. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

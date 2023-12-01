@@ -27,25 +27,25 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **name** | string |  Specifies the name of the Data Factory Linked Service Azure SQL Database. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.connection_string** | string |  The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
-| **var.use_managed_identity** | bool |  Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key` | 
-| **var.service_principal_id** | string |  The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set. | 
-| **var.service_principal_key** | string |  The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set. | 
-| **var.tenant_id** | string |  The tenant id or name in which to authenticate against the Azure SQL Database. | 
-| **var.description** | string |  The description for the Data Factory Linked Service Azure SQL Database. | 
-| **var.integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database. | 
-| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database. | 
-| **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service Azure SQL Database. | 
-| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database. | 
-| **var.key_vault_connection_string** | [block](#key_vault_connection_string-block-structure) |  A `key_vault_connection_string` block. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
-| **var.key_vault_password** | [block](#key_vault_password-block-structure) |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
+| **connection_string** | string |  The connection string in which to authenticate with Azure SQL Database. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
+| **use_managed_identity** | bool |  Whether to use the Data Factory's managed identity to authenticate against the Azure SQL Database. Incompatible with `service_principal_id` and `service_principal_key` | 
+| **service_principal_id** | string |  The service principal id in which to authenticate against the Azure SQL Database. Required if `service_principal_key` is set. | 
+| **service_principal_key** | string |  The service principal key in which to authenticate against the Azure SQL Database. Required if `service_principal_id` is set. | 
+| **tenant_id** | string |  The tenant id or name in which to authenticate against the Azure SQL Database. | 
+| **description** | string |  The description for the Data Factory Linked Service Azure SQL Database. | 
+| **integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service Azure SQL Database. | 
+| **annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service Azure SQL Database. | 
+| **parameters** | string |  A map of parameters to associate with the Data Factory Linked Service Azure SQL Database. | 
+| **additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database. | 
+| **key_vault_connection_string** | [block](#key_vault_connection_string-block-structure) |  A `key_vault_connection_string` block. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
+| **key_vault_password** | [block](#key_vault_password-block-structure) |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
 
 ### `key_vault_connection_string` block structure
 

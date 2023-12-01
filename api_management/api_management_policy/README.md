@@ -26,14 +26,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_management_id** | string |  The ID of the API Management service. Changing this forces a new API Management service Policy to be created. | 
+| **api_management_id** | string |  The ID of the API Management service. Changing this forces a new API Management service Policy to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.xml_content** | string |  The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. | 
-| **var.xml_link** | string |  A link to a Policy XML Document, which must be publicly available. | 
+| **xml_content** | string |  The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. | 
+| **xml_link** | string |  A link to a Policy XML Document, which must be publicly available. | 
 
 
 

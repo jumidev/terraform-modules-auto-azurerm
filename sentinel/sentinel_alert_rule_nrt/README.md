@@ -30,36 +30,47 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
-| **var.log_analytics_workspace_id** | string |  -  |  The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
-| **var.display_name** | string |  -  |  The friendly name of this Sentinel NRT Alert Rule. | 
-| **var.severity** | string |  `High`, `Medium`, `Low`, `Informational`  |  The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`. | 
-| **var.query** | string |  -  |  The query of this Sentinel NRT Alert Rule. | 
+| **name** | string |  -  |  The name which should be used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
+| **log_analytics_workspace_id** | string |  -  |  The ID of the Log Analytics Workspace this Sentinel NRT Alert Rule belongs to. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
+| **display_name** | string |  -  |  The friendly name of this Sentinel NRT Alert Rule. | 
+| **severity** | string |  `High`, `Medium`, `Low`, `Informational`  |  The alert severity of this Sentinel NRT Alert Rule. Possible values are `High`, `Medium`, `Low` and `Informational`. | 
+| **query** | string |  -  |  The query of this Sentinel NRT Alert Rule. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.alert_details_override** | [block](#alert_details_override-block-structure) |  -  |  -  |  An `alert_details_override` block. | 
-| **var.alert_rule_template_guid** | string |  -  |  -  |  The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
-| **var.alert_rule_template_version** | string |  -  |  -  |  The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
-| **var.custom_details** | string |  -  |  -  |  A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts. | 
-| **var.description** | string |  -  |  -  |  The description of this Sentinel NRT Alert Rule. | 
-| **var.enabled** | bool |  `True`  |  -  |  Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`. | 
-| **var.entity_mapping** | [block](#entity_mapping-block-structure) |  -  |  -  |  A list of `entity_mapping` blocks. | 
-| **var.event_grouping** | [block](#event_grouping-block-structure) |  -  |  -  |  A `event_grouping` block. | 
-| **var.sentinel_entity_mapping** | [block](#sentinel_entity_mapping-block-structure) |  -  |  -  |  A list of `sentinel_entity_mapping` blocks. | 
-| **var.incident** | [block](#incident-block-structure) |  -  |  -  |  A `incident` block. | 
-| **var.suppression_duration** | string |  `PT5H`  |  -  |  If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`. | 
-| **var.suppression_enabled** | bool |  `False`  |  -  |  Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`. | 
-| **var.tactics** | string |  -  |  `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance`, `ResourceDevelopment`  |  A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`. | 
-| **var.techniques** | list |  -  |  -  |  A list of techniques of attacks by which to classify the rule. | 
+| **alert_details_override** | [block](#alert_details_override-block-structure) |  -  |  -  |  An `alert_details_override` block. | 
+| **alert_rule_template_guid** | string |  -  |  -  |  The GUID of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
+| **alert_rule_template_version** | string |  -  |  -  |  The version of the alert rule template which is used for this Sentinel NRT Alert Rule. Changing this forces a new Sentinel NRT Alert Rule to be created. | 
+| **custom_details** | string |  -  |  -  |  A map of string key-value pairs of columns to be attached to this Sentinel NRT Alert Rule. The key will appear as the field name in alerts and the value is the event parameter you wish to surface in the alerts. | 
+| **description** | string |  -  |  -  |  The description of this Sentinel NRT Alert Rule. | 
+| **enabled** | bool |  `True`  |  -  |  Should the Sentinel NRT Alert Rule be enabled? Defaults to `true`. | 
+| **entity_mapping** | [block](#entity_mapping-block-structure) |  -  |  -  |  A list of `entity_mapping` blocks. | 
+| **event_grouping** | [block](#event_grouping-block-structure) |  -  |  -  |  A `event_grouping` block. | 
+| **sentinel_entity_mapping** | [block](#sentinel_entity_mapping-block-structure) |  -  |  -  |  A list of `sentinel_entity_mapping` blocks. | 
+| **incident** | [block](#incident-block-structure) |  -  |  -  |  A `incident` block. | 
+| **suppression_duration** | string |  `PT5H`  |  -  |  If `suppression_enabled` is `true`, this is ISO 8601 timespan duration, which specifies the amount of time the query should stop running after alert is generated. Defaults to `PT5H`. | 
+| **suppression_enabled** | bool |  `False`  |  -  |  Should the Sentinel NRT Alert Rulea stop running query after alert is generated? Defaults to `false`. | 
+| **tactics** | string |  -  |  `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance`, `ResourceDevelopment`  |  A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`. | 
+| **techniques** | list |  -  |  -  |  A list of techniques of attacks by which to classify the rule. | 
 
-### `field_mapping` block structure
+### `event_grouping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
+| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
+
+### `dynamic_property` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
+
+### `sentinel_entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
 | `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 ### `entity_mapping` block structure
@@ -68,18 +79,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
 | `field_mapping` | [block](#entity_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
-
-### `sentinel_entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `dynamic_property` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
 
 ### `grouping` block structure
 
@@ -93,19 +92,6 @@ tfstate_store = {
 | `by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
 | `by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
 
-### `event_grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
-
-### `incident` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `create_incident_enabled` | bool | Yes | - | Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule? |
-| `grouping` | [block](#incident-block-structure) | Yes | - | A 'grouping' block. |
-
 ### `alert_details_override` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -115,6 +101,20 @@ tfstate_store = {
 | `severity_column_name` | string | No | - | The column name to take the alert severity from. |
 | `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
 | `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
+
+### `incident` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `create_incident_enabled` | bool | Yes | - | Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule? |
+| `grouping` | [block](#incident-block-structure) | Yes | - | A 'grouping' block. |
+
+### `field_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `identifier` | string | Yes | - | The identifier of the entity. |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 
 

@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Data Share. Changing this forces a new Data Share to be created. | 
-| **var.account_id** | string |  -  |  The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created. | 
-| **var.kind** | string |  `CopyBased`, `InPlace`  |  The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created. | 
+| **name** | string |  -  |  The name which should be used for this Data Share. Changing this forces a new Data Share to be created. | 
+| **account_id** | string |  -  |  The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created. | 
+| **kind** | string |  `CopyBased`, `InPlace`  |  The kind of the Data Share. Possible values are `CopyBased` and `InPlace`. Changing this forces a new Data Share to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  The Data Share's description. | 
-| **var.snapshot_schedule** | [block](#snapshot_schedule-block-structure) |  A `snapshot_schedule` block. | 
-| **var.terms** | string |  The terms of the Data Share. | 
+| **description** | string |  The Data Share's description. | 
+| **snapshot_schedule** | [block](#snapshot_schedule-block-structure) |  A `snapshot_schedule` block. | 
+| **terms** | string |  The terms of the Data Share. | 
 
 ### `snapshot_schedule` block structure
 

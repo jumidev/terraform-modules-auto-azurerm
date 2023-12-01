@@ -37,22 +37,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Stream Output. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.topic_name** | string |  The name of the Service Bus Topic. | 
-| **var.servicebus_namespace** | string |  The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc. | 
-| **var.serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
+| **name** | string |  The name of the Stream Output. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **topic_name** | string |  The name of the Service Bus Topic. | 
+| **servicebus_namespace** | string |  The namespace that is associated with the desired Event Hub, Service Bus Topic, Service Bus Topic, etc. | 
+| **serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.shared_access_policy_key** | string |  -  |  -  |  The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`. | 
-| **var.shared_access_policy_name** | string |  -  |  -  |  The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`. | 
-| **var.property_columns** | list |  -  |  -  |  A list of property columns to add to the Service Bus Topic output. | 
-| **var.authentication_mode** | string |  `ConnectionString`  |  `Msi`, `ConnectionString`  |  The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
-| **var.system_property_columns** | string |  -  |  -  |  A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output. | 
+| **shared_access_policy_key** | string |  -  |  -  |  The shared access policy key for the specified shared access policy. Required if `authentication_mode` is `ConnectionString`. | 
+| **shared_access_policy_name** | string |  -  |  -  |  The shared access policy name for the Event Hub, Service Bus Queue, Service Bus Topic, etc. Required if `authentication_mode` is `ConnectionString`. | 
+| **property_columns** | list |  -  |  -  |  A list of property columns to add to the Service Bus Topic output. | 
+| **authentication_mode** | string |  `ConnectionString`  |  `Msi`, `ConnectionString`  |  The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
+| **system_property_columns** | string |  -  |  -  |  A key-value pair of system property columns that will be attached to the outgoing messages for the Service Bus Topic Output. | 
 
 ### `serialization` block structure
 

@@ -36,19 +36,19 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
-| **var.network_manager_id** | string |  -  |  Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
-| **var.applies_to_group** | [block](#applies_to_group-block-structure) |  -  |  An `applies_to_group` block. | 
-| **var.connectivity_topology** | string |  `HubAndSpoke`, `Mesh`  |  Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`. | 
+| **name** | string |  -  |  Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
+| **network_manager_id** | string |  -  |  Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
+| **applies_to_group** | [block](#applies_to_group-block-structure) |  -  |  An `applies_to_group` block. | 
+| **connectivity_topology** | string |  `HubAndSpoke`, `Mesh`  |  Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.delete_existing_peering_enabled** | string |  `true`, `false`  |  Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`. | 
-| **var.description** | string |  -  |  A description of the Connectivity Configuration. | 
-| **var.global_mesh_enabled** | string |  `true`, `false`  |  Indicates whether to global mesh is supported. Possible values are `true` and `false`. | 
-| **var.hub** | [block](#hub-block-structure) |  -  |  A `hub` block. | 
+| **delete_existing_peering_enabled** | string |  `true`, `false`  |  Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`. | 
+| **description** | string |  -  |  A description of the Connectivity Configuration. | 
+| **global_mesh_enabled** | string |  `true`, `false`  |  Indicates whether to global mesh is supported. Possible values are `true` and `false`. | 
+| **hub** | [block](#hub-block-structure) |  -  |  A `hub` block. | 
 
 ### `applies_to_group` block structure
 

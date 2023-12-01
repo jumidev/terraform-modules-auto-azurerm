@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created. | 
-| **var.cluster_id** | string |  The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
-| **var.password** | string |  The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created. | 
+| **cluster_id** | string |  The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
+| **password** | string |  The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created. | 
 
 
 

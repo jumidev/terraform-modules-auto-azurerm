@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.app_service_name** | string |  -  |  The name of the App Service. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.certificate_name** | string |  -  |  The name of the public certificate. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.certificate_location** | string |  `CurrentUserMy`, `LocalMachineMy`, `Unknown`  |  The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created. | 
-| **var.blob** | string |  -  |  The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created. | 
+| **app_service_name** | string |  -  |  The name of the App Service. Changing this forces a new App Service Public Certificate to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the App Service Public Certificate should exist. Changing this forces a new App Service Public Certificate to be created. | 
+| **certificate_name** | string |  -  |  The name of the public certificate. Changing this forces a new App Service Public Certificate to be created. | 
+| **certificate_location** | string |  `CurrentUserMy`, `LocalMachineMy`, `Unknown`  |  The location of the certificate. Possible values are `CurrentUserMy`, `LocalMachineMy` and `Unknown`. Changing this forces a new App Service Public Certificate to be created. | 
+| **blob** | string |  -  |  The base64-encoded contents of the certificate. Changing this forces a new App Service Public Certificate to be created. | 
 
 
 

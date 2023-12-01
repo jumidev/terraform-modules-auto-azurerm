@@ -26,17 +26,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.sql_pool_id** | string |  The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created. | 
+| **sql_pool_id** | string |  The ID of the Synapse SQL pool to set the extended auditing policy. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.storage_endpoint** | string |  -  |  The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs. | 
-| **var.retention_in_days** | int |  `0`  |  The number of days to retain logs for in the storage account. Defaults to `0`. | 
-| **var.storage_account_access_key** | string |  -  |  The access key to use for the auditing storage account. | 
-| **var.storage_account_access_key_is_secondary** | string |  -  |  Is `storage_account_access_key` value the storage's secondary key? | 
-| **var.log_monitoring_enabled** | bool |  `True`  |  Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`. | 
+| **storage_endpoint** | string |  -  |  The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs. | 
+| **retention_in_days** | int |  `0`  |  The number of days to retain logs for in the storage account. Defaults to `0`. | 
+| **storage_account_access_key** | string |  -  |  The access key to use for the auditing storage account. | 
+| **storage_account_access_key_is_secondary** | string |  -  |  Is `storage_account_access_key` value the storage's secondary key? | 
+| **log_monitoring_enabled** | bool |  `True`  |  Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its master database audit events to Azure Monitor. Defaults to `true`. | 
 
 
 

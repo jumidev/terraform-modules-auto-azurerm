@@ -30,23 +30,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.asset_name** | string |  Asset Name. Changing this forces a new Streaming Locator to be created. | 
-| **var.media_services_account_name** | string |  The Media Services account name. Changing this forces a new Streaming Locator to be created. | 
-| **var.name** | string |  The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created. | 
-| **var.streaming_policy_name** | string |  Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: `Predefined_DownloadOnly`, `Predefined_ClearStreamingOnly`, `Predefined_DownloadAndClearStreaming`, `Predefined_ClearKey`, `Predefined_MultiDrmCencStreaming` and `Predefined_MultiDrmStreaming`. Changing this forces a new Streaming Locator to be created. | 
+| **asset_name** | string |  Asset Name. Changing this forces a new Streaming Locator to be created. | 
+| **media_services_account_name** | string |  The Media Services account name. Changing this forces a new Streaming Locator to be created. | 
+| **name** | string |  The name which should be used for this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Streaming Locator should exist. Changing this forces a new Streaming Locator to be created. | 
+| **streaming_policy_name** | string |  Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: `Predefined_DownloadOnly`, `Predefined_ClearStreamingOnly`, `Predefined_DownloadAndClearStreaming`, `Predefined_ClearKey`, `Predefined_MultiDrmCencStreaming` and `Predefined_MultiDrmStreaming`. Changing this forces a new Streaming Locator to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.alternative_media_id** | string |  Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
-| **var.content_key** | [block](#content_key-block-structure) |  One or more `content_key` blocks. Changing this forces a new Streaming Locator to be created. | 
-| **var.default_content_key_policy_name** | string |  Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created. | 
-| **var.end_time** | string |  The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
-| **var.filter_names** | list |  A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
-| **var.start_time** | string |  The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
-| **var.streaming_locator_id** | string |  The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
+| **alternative_media_id** | string |  Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
+| **content_key** | [block](#content_key-block-structure) |  One or more `content_key` blocks. Changing this forces a new Streaming Locator to be created. | 
+| **default_content_key_policy_name** | string |  Name of the default Content Key Policy used by this Streaming Locator.Changing this forces a new Streaming Locator to be created. | 
+| **end_time** | string |  The end time of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
+| **filter_names** | list |  A list of names of asset or account filters which apply to this Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
+| **start_time** | string |  The start time of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
+| **streaming_locator_id** | string |  The ID of the Streaming Locator. Changing this forces a new Streaming Locator to be created. | 
 
 ### `content_key` block structure
 

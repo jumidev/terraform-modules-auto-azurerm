@@ -29,20 +29,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.container_app_environment_id** | string |  The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created. | 
-| **var.name** | string |  The name for this Dapr component. Changing this forces a new resource to be created. | 
-| **var.component_type** | string |  The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created. | 
-| **var.version** | string |  The version of the component. | 
+| **container_app_environment_id** | string |  The ID of the Container App Managed Environment for this Dapr Component. Changing this forces a new resource to be created. | 
+| **name** | string |  The name for this Dapr component. Changing this forces a new resource to be created. | 
+| **component_type** | string |  The Dapr Component Type. For example `state.azure.blobstorage`. Changing this forces a new resource to be created. | 
+| **version** | string |  The version of the component. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ignore_errors** | bool |  `False`  |  Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false` | 
-| **var.init_timeout** | string |  `5s`  |  The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`. | 
-| **var.metadata** | list |  -  |  One or more `metadata` blocks as detailed below. | 
-| **var.scopes** | list |  -  |  A list of scopes to which this component applies. | 
-| **var.secret** | [block](#secret-block-structure) |  -  |  A `secret` block as detailed below. | 
+| **ignore_errors** | bool |  `False`  |  Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false` | 
+| **init_timeout** | string |  `5s`  |  The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`. | 
+| **metadata** | list |  -  |  One or more `metadata` blocks as detailed below. | 
+| **scopes** | list |  -  |  A list of scopes to which this component applies. | 
+| **secret** | [block](#secret-block-structure) |  -  |  A `secret` block as detailed below. | 
 
 ### `secret` block structure
 

@@ -30,20 +30,28 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.display_name** | string |  The Display Name of the built-in Anomaly Alert Rule. | 
-| **var.built_in_rule_id** | string |  The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
-| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
-| **var.enabled** | bool |  Should the Duplicated Anomaly Alert Rule be enabled? | 
-| **var.mode** | string |  mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
+| **display_name** | string |  The Display Name of the built-in Anomaly Alert Rule. | 
+| **built_in_rule_id** | string |  The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
+| **log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created. | 
+| **enabled** | bool |  Should the Duplicated Anomaly Alert Rule be enabled? | 
+| **mode** | string |  mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.multi_select_observation** | [block](#multi_select_observation-block-structure) |  A list of `multi_select_observation` blocks. | 
-| **var.single_select_observation** | [block](#single_select_observation-block-structure) |  A list of `single_select_observation` blocks. | 
-| **var.prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
-| **var.threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
+| **multi_select_observation** | [block](#multi_select_observation-block-structure) |  A list of `multi_select_observation` blocks. | 
+| **single_select_observation** | [block](#single_select_observation-block-structure) |  A list of `single_select_observation` blocks. | 
+| **prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
+| **threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
+
+### `single_select_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description of the single select observation. |
+| `supported_values` | list | No | - | A list of supported values of the single select observation. |
+| `value` | string | Yes | - | The value of the multi select observation. |
 
 ### `multi_select_observation` block structure
 
@@ -60,14 +68,6 @@ tfstate_store = {
 | `description` | string | No | - | The description of the prioritized exclude observation. |
 | `prioritize` | string | No | - | The prioritized value per 'description'. |
 | `exclude` | string | No | - | The excluded value per 'description'. |
-
-### `single_select_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the single select observation. |
-| `supported_values` | list | No | - | A list of supported values of the single select observation. |
-| `value` | string | Yes | - | The value of the multi select observation. |
 
 ### `threshold_observation` block structure
 

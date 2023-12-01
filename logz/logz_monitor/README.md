@@ -47,29 +47,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
-| **var.location** | string |  The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
-| **var.plan** | [block](#plan-block-structure) |  A `plan` block. Changing this forces a new resource to be created. | 
-| **var.user** | [block](#user-block-structure) |  A `user` block. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this logz Monitor. Changing this forces a new logz Monitor to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
+| **location** | string |  The Azure Region where the logz Monitor should exist. Changing this forces a new logz Monitor to be created. | 
+| **plan** | [block](#plan-block-structure) |  A `plan` block. Changing this forces a new resource to be created. | 
+| **user** | [block](#user-block-structure) |  A `user` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.company_name** | string |  -  |  Name of the Logz organization. Changing this forces a new logz Monitor to be created. | 
-| **var.enterprise_app_id** | string |  -  |  The ID of the Enterprise App. Changing this forces a new logz Monitor to be created. | 
-| **var.enabled** | bool |  `True`  |  Whether the resource monitoring is enabled? Defaults to `true`. | 
-| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the logz Monitor. | 
-
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `billing_cycle` | string | Yes | - | Different billing cycles. Possible values are 'MONTHLY' or 'WEEKLY'. Changing this forces a new logz Monitor to be created. |
-| `effective_date` | datetime | Yes | - | Date when plan was applied. Changing this forces a new logz Monitor to be created. |
-| `usage_type` | string | Yes | - | Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created. |
-| `plan_id` | string | No | 100gb14days | Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created. |
+| **company_name** | string |  -  |  Name of the Logz organization. Changing this forces a new logz Monitor to be created. | 
+| **enterprise_app_id** | string |  -  |  The ID of the Enterprise App. Changing this forces a new logz Monitor to be created. | 
+| **enabled** | bool |  `True`  |  Whether the resource monitoring is enabled? Defaults to `true`. | 
+| **tags** | map |  -  |  A mapping of tags which should be assigned to the logz Monitor. | 
 
 ### `user` block structure
 
@@ -79,6 +70,15 @@ tfstate_store = {
 | `first_name` | string | Yes | - | First Name of the user. Changing this forces a new logz Monitor to be created. |
 | `last_name` | string | Yes | - | Last Name of the user. Changing this forces a new logz Monitor to be created. |
 | `phone_number` | int | Yes | - | Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
+
+### `plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `billing_cycle` | string | Yes | - | Different billing cycles. Possible values are 'MONTHLY' or 'WEEKLY'. Changing this forces a new logz Monitor to be created. |
+| `effective_date` | datetime | Yes | - | Date when plan was applied. Changing this forces a new logz Monitor to be created. |
+| `usage_type` | string | Yes | - | Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created. |
+| `plan_id` | string | No | 100gb14days | Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created. |
 
 
 

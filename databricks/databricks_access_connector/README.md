@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Databricks Access Connector resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group in which the Databricks Access Connector should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 

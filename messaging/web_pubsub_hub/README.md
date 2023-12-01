@@ -27,16 +27,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Web Pubsub hub service. Changing this forces a new resource to be created. | 
-| **var.web_pubsub_id** | string |  Specifies the id of the Web Pubsub. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Web Pubsub hub service. Changing this forces a new resource to be created. | 
+| **web_pubsub_id** | string |  Specifies the id of the Web Pubsub. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.anonymous_connections_enabled** | bool |  `False`  |  `true`, `false`  |  Is anonymous connections are allowed for this hub? Defaults to `false`. Possible values are `true`, `false`. | 
-| **var.event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
-| **var.event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
+| **anonymous_connections_enabled** | bool |  `False`  |  `true`, `false`  |  Is anonymous connections are allowed for this hub? Defaults to `false`. Possible values are `true`, `false`. | 
+| **event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
+| **event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
 
 ### `event_handler` block structure
 

@@ -29,22 +29,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the policy. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the resource group. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string |  `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`  |  The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created. | 
-| **var.mode** | string |  `Detection`, `Prevention`  |  The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. | 
+| **name** | string |  -  |  The name of the policy. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **sku_name** | string |  `Standard_AzureFrontDoor`, `Premium_AzureFrontDoor`  |  The sku's pricing tier for this Front Door Firewall Policy. Possible values include `Standard_AzureFrontDoor` or `Premium_AzureFrontDoor`. Changing this forces a new resource to be created. | 
+| **mode** | string |  `Detection`, `Prevention`  |  The Front Door Firewall Policy mode. Possible values are `Detection`, `Prevention`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.enabled** | bool |  `True`  |  -  |  Is the Front Door Firewall Policy enabled? Defaults to `true`. | 
-| **var.redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
-| **var.custom_rule** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
-| **var.custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
-| **var.custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
-| **var.managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
+| **enabled** | bool |  `True`  |  -  |  Is the Front Door Firewall Policy enabled? Defaults to `true`. | 
+| **redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
+| **custom_rule** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
+| **custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
+| **custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
+| **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
 ### `managed_rule` block structure
 
@@ -55,18 +55,6 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include 'Allow', 'Log', 'Block', and 'Redirect'. |
 | `exclusion` | [block](#managed_rule-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `override` | [block](#managed_rule-block-structure) | No | - | One or more 'override' blocks. |
-
-### `custom_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
-| `enabled` | bool | No | True | Is the rule is enabled or disabled? Defaults to 'true'. |
-| `priority` | string | No | 1 | The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'. |
-| `type` | string | Yes | - | The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'. |
-| `match_condition` | list | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
-| `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
-| `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
 ### `exclusion` block structure
 
@@ -84,6 +72,18 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#rule-block-structure) | No | - | One or more 'exclusion' blocks. |
+
+### `custom_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
+| `enabled` | bool | No | True | Is the rule is enabled or disabled? Defaults to 'true'. |
+| `priority` | string | No | 1 | The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'. |
+| `type` | string | Yes | - | The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'. |
+| `match_condition` | list | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
+| `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
+| `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
 ### `override` block structure
 

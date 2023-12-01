@@ -29,19 +29,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string |  The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created. | 
-| **var.name** | string |  The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created. | 
-| **var.content_uri** | string |  The URL of the python package. Changing this forces a new Automation Python3 Package to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Python3 Package is created. Changing this forces a new resource to be created. | 
+| **automation_account_name** | string |  The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this Automation Python3 Package. Changing this forces a new Automation Python3 Package to be created. | 
+| **content_uri** | string |  The URL of the python package. Changing this forces a new Automation Python3 Package to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.content_version** | string |  Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created. | 
-| **var.hash_algorithm** | string |  Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created. | 
-| **var.hash_value** | string |  Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Automation Python3 Package. | 
+| **content_version** | string |  Specify the version of the python3 package. The value should meet the system.version class format like `1.1.1`. Changing this forces a new Automation Python3 Package to be created. | 
+| **hash_algorithm** | string |  Specify the hash algorithm used to hash the content of the python3 package. Changing this forces a new Automation Python3 Package to be created. | 
+| **hash_value** | string |  Specity the hash value of the content. Changing this forces a new Automation Python3 Package to be created. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Automation Python3 Package. | 
 
 
 

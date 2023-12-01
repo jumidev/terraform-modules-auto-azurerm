@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created. | 
-| **var.workspace_id** | string |  Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created. | 
-| **var.location** | string |  Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created. | 
+| **name** | string |  Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created. | 
+| **workspace_id** | string |  Specifies the id of the Healthcare Workspace where the Healthcare DICOM Service should exist. Changing this forces a new Healthcare DICOM Service to be created. | 
+| **location** | string |  Specifies the Azure Region where the Healthcare DICOM Service should be created. Changing this forces a new Healthcare DICOM Service to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
-| **var.public_network_access_enabled** | bool |  `True`  |  Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the Healthcare DICOM Service. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **public_network_access_enabled** | bool |  `True`  |  Whether to enabled public networks when data plane traffic coming from public networks while private endpoint is enabled. Defaults to `true`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the Healthcare DICOM Service. | 
 
 ### `identity` block structure
 

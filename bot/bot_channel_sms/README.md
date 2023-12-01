@@ -31,12 +31,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  The name of the resource group where the SMS Channel should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.phone_number** | string |  The phone number for the SMS Channel. | 
-| **var.sms_channel_account_security_id** | string |  The account security identifier (SID) for the SMS Channel. | 
-| **var.sms_channel_auth_token** | string |  The authorization token for the SMS Channel. | 
+| **resource_group_name** | string |  The name of the resource group where the SMS Channel should be created. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **phone_number** | string |  The phone number for the SMS Channel. | 
+| **sms_channel_account_security_id** | string |  The account security identifier (SID) for the SMS Channel. | 
+| **sms_channel_auth_token** | string |  The authorization token for the SMS Channel. | 
 
 
 

@@ -28,18 +28,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created. | 
-| **var.storage_account_name** | string |  Specifies the storage account in which to create the share. Changing this forces a new resource to be created. | 
-| **var.quota** | string |  The maximum size of the share, in gigabytes. | 
+| **name** | string |  The name of the share. Must be unique within the storage account where the share is located. Changing this forces a new resource to be created. | 
+| **storage_account_name** | string |  Specifies the storage account in which to create the share. Changing this forces a new resource to be created. | 
+| **quota** | string |  The maximum size of the share, in gigabytes. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.access_tier** | string |  -  |  `Hot`, `Cool`, `TransactionOptimized`, `Premium`  |  The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`. | 
-| **var.acl** | [block](#acl-block-structure) |  -  |  -  |  One or more `acl` blocks. | 
-| **var.enabled_protocol** | string |  `SMB`  |  `SMB`, `NFS`  |  The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created. | 
-| **var.metadata** | string |  -  |  -  |  A mapping of MetaData for this File Share. | 
+| **access_tier** | string |  -  |  `Hot`, `Cool`, `TransactionOptimized`, `Premium`  |  The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`. | 
+| **acl** | [block](#acl-block-structure) |  -  |  -  |  One or more `acl` blocks. | 
+| **enabled_protocol** | string |  `SMB`  |  `SMB`, `NFS`  |  The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created. | 
+| **metadata** | string |  -  |  -  |  A mapping of MetaData for this File Share. | 
 
 ### `acl` block structure
 

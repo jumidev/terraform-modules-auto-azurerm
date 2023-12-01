@@ -33,17 +33,25 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created. | 
-| **var.cdn_frontdoor_profile_id** | string |  The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created. | 
-| **var.load_balancing** | [block](#load_balancing-block-structure) |  A `load_balancing` block. | 
+| **name** | string |  The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created. | 
+| **cdn_frontdoor_profile_id** | string |  The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created. | 
+| **load_balancing** | [block](#load_balancing-block-structure) |  A `load_balancing` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.health_probe** | [block](#health_probe-block-structure) |  -  |  -  |  A `health_probe` block. | 
-| **var.restore_traffic_time_to_healed_or_new_endpoint_in_minutes** | string |  `10`  |  `0`, `50`, `10`  |  Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes. | 
-| **var.session_affinity_enabled** | bool |  `True`  |  -  |  Specifies whether session affinity should be enabled on this host. Defaults to `true`. | 
+| **health_probe** | [block](#health_probe-block-structure) |  -  |  -  |  A `health_probe` block. | 
+| **restore_traffic_time_to_healed_or_new_endpoint_in_minutes** | string |  `10`  |  `0`, `50`, `10`  |  Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes. | 
+| **session_affinity_enabled** | bool |  `True`  |  -  |  Specifies whether session affinity should be enabled on this host. Defaults to `true`. | 
+
+### `load_balancing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `additional_latency_in_milliseconds` | string | No | 50 | Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between '0' and '1000' milliseconds (inclusive). Defaults to '50'. |
+| `sample_size` | string | No | 4 | Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'. |
+| `successful_samples_required` | string | No | 3 | Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'. |
 
 ### `health_probe` block structure
 
@@ -53,14 +61,6 @@ tfstate_store = {
 | `interval_in_seconds` | string | Yes | - | Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive). |
 | `request_type` | string | No | HEAD | Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'. |
 | `path` | string | No | / | Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'. |
-
-### `load_balancing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `additional_latency_in_milliseconds` | string | No | 50 | Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between '0' and '1000' milliseconds (inclusive). Defaults to '50'. |
-| `sample_size` | string | No | 4 | Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'. |
-| `successful_samples_required` | string | No | 3 | Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'. |
 
 
 

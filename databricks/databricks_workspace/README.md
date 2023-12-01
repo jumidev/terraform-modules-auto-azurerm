@@ -29,26 +29,26 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
-| **var.sku** | string |  `standard`, `premium`, `trial`  |  The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. | 
+| **name** | string |  -  |  Specifies the name of the Databricks Workspace resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group in which the Databricks Workspace should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the supported Azure location where the resource has to be created. Changing this forces a new resource to be created. | 
+| **sku** | string |  `standard`, `premium`, `trial`  |  The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.load_balancer_backend_address_pool_id** | string |  -  |  -  |  Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created. | 
-| **var.managed_services_cmk_key_vault_key_id** | string |  -  |  -  |  Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). | 
-| **var.managed_disk_cmk_key_vault_key_id** | string |  -  |  -  |  Customer managed encryption properties for the Databricks Workspace managed disks. | 
-| **var.managed_disk_cmk_rotation_to_latest_version_enabled** | bool |  -  |  -  |  Whether customer managed keys for disk encryption will automatically be rotated to the latest version. | 
-| **var.managed_resource_group_name** | string |  -  |  -  |  The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created. | 
-| **var.customer_managed_key_enabled** | bool |  `False`  |  `true`, `false`  |  Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. | 
-| **var.infrastructure_encryption_enabled** | bool |  `False`  |  `true`, `false`  |  Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created. | 
-| **var.public_network_access_enabled** | bool |  `True`  |  `true`, `false`  |  Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. | 
-| **var.network_security_group_rules_required** | string |  -  |  `AllRules`, `NoAzureDatabricksRules`, `NoAzureServiceRules`  |  Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. | 
-| **var.custom_parameters** | [block](#custom_parameters-block-structure) |  -  |  -  |  A `custom_parameters` block. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **load_balancer_backend_address_pool_id** | string |  -  |  -  |  Resource ID of the Outbound Load balancer Backend Address Pool for Secure Cluster Connectivity (No Public IP) workspace. Changing this forces a new resource to be created. | 
+| **managed_services_cmk_key_vault_key_id** | string |  -  |  -  |  Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts). | 
+| **managed_disk_cmk_key_vault_key_id** | string |  -  |  -  |  Customer managed encryption properties for the Databricks Workspace managed disks. | 
+| **managed_disk_cmk_rotation_to_latest_version_enabled** | bool |  -  |  -  |  Whether customer managed keys for disk encryption will automatically be rotated to the latest version. | 
+| **managed_resource_group_name** | string |  -  |  -  |  The name of the resource group where Azure should place the managed Databricks resources. Changing this forces a new resource to be created. | 
+| **customer_managed_key_enabled** | bool |  `False`  |  `true`, `false`  |  Is the workspace enabled for customer managed key encryption? If `true` this enables the Managed Identity for the managed storage account. Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. | 
+| **infrastructure_encryption_enabled** | bool |  `False`  |  `true`, `false`  |  Is the Databricks File System root file system enabled with a secondary layer of encryption with platform managed keys? Possible values are `true` or `false`. Defaults to `false`. This field is only valid if the Databricks Workspace `sku` is set to `premium`. Changing this forces a new resource to be created. | 
+| **public_network_access_enabled** | bool |  `True`  |  `true`, `false`  |  Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`. | 
+| **network_security_group_rules_required** | string |  -  |  `AllRules`, `NoAzureDatabricksRules`, `NoAzureServiceRules`  |  Does the data plane (clusters) to control plane communication happen over private link endpoint only or publicly? Possible values `AllRules`, `NoAzureDatabricksRules` or `NoAzureServiceRules`. Required when `public_network_access_enabled` is set to `false`. | 
+| **custom_parameters** | [block](#custom_parameters-block-structure) |  -  |  -  |  A `custom_parameters` block. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `custom_parameters` block structure
 

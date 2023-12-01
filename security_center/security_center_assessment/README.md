@@ -34,15 +34,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.assessment_policy_id** | string |  The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
-| **var.target_resource_id** | string |  The ID of the target resource. Changing this forces a new security Assessment to be created. | 
-| **var.status** | [block](#status-block-structure) |  A `status` block. | 
+| **assessment_policy_id** | string |  The ID of the security Assessment policy to apply to this resource. Changing this forces a new security Assessment to be created. | 
+| **target_resource_id** | string |  The ID of the target resource. Changing this forces a new security Assessment to be created. | 
+| **status** | [block](#status-block-structure) |  A `status` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.additional_data** | string |  A map of additional data to associate with the assessment. | 
+| **additional_data** | string |  A map of additional data to associate with the assessment. | 
 
 ### `status` block structure
 

@@ -26,13 +26,13 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.slot_id** | string |  The ID of the Slot to swap with `Production`. | 
+| **slot_id** | string |  The ID of the Slot to swap with `Production`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.overwrite_network_config** | bool |  `True`  |  The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created. | 
+| **overwrite_network_config** | bool |  `True`  |  The swap action should overwrite the Production slot's network configuration with the configuration from this slot. Defaults to `true`. Changing this forces a new resource to be created. | 
 
 
 

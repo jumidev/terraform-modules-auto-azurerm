@@ -28,61 +28,36 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group in which the Logic App Workflow should be created. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the Logic App Workflow exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.access_control** | [block](#access_control-block-structure) |  -  |  A `access_control` block. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
-| **var.integration_service_environment_id** | string |  -  |  The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created. | 
-| **var.logic_app_integration_account_id** | string |  -  |  The ID of the integration account linked by this Logic App Workflow. | 
-| **var.enabled** | bool |  `True`  |  Is the Logic App Workflow enabled? Defaults to `true`. | 
-| **var.workflow_parameters** | string |  -  |  Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>). | 
-| **var.workflow_schema** | string |  `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`  |  Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created. | 
-| **var.workflow_version** | string |  `1.0.0.0`  |  Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created. | 
-| **var.parameters** | string |  -  |  A map of Key-Value pairs. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-
-### `trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
-| `open_authentication_policy` | [block](#trigger-block-structure) | No | - | A 'open_authentication_policy' block. |
-
-### `workflow_management` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
-
-### `open_authentication_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `claim` | [block](#open_authentication_policy-block-structure) | Yes | - | A 'claim' block. |
-
-### `claim` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of the OAuth policy claim for the Logic App Workflow. |
-
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+| **access_control** | [block](#access_control-block-structure) |  -  |  A `access_control` block. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **integration_service_environment_id** | string |  -  |  The ID of the Integration Service Environment to which this Logic App Workflow belongs. Changing this forces a new Logic App Workflow to be created. | 
+| **logic_app_integration_account_id** | string |  -  |  The ID of the integration account linked by this Logic App Workflow. | 
+| **enabled** | bool |  `True`  |  Is the Logic App Workflow enabled? Defaults to `true`. | 
+| **workflow_parameters** | string |  -  |  Specifies a map of Key-Value pairs of the Parameter Definitions to use for this Logic App Workflow. The key is the parameter name, and the value is a JSON encoded string of the parameter definition (see: <https://docs.microsoft.com/azure/logic-apps/logic-apps-workflow-definition-language#parameters>). | 
+| **workflow_schema** | string |  `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`  |  Specifies the Schema to use for this Logic App Workflow. Defaults to `https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#`. Changing this forces a new resource to be created. | 
+| **workflow_version** | string |  `1.0.0.0`  |  Specifies the version of the Schema used for this Logic App Workflow. Defaults to `1.0.0.0`. Changing this forces a new resource to be created. | 
+| **parameters** | string |  -  |  A map of Key-Value pairs. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+
+### `claim` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value of the OAuth policy claim for the Logic App Workflow. |
 
 ### `access_control` block structure
 
@@ -99,6 +74,31 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow. |
+
+### `trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+| `open_authentication_policy` | [block](#trigger-block-structure) | No | - | A 'open_authentication_policy' block. |
+
+### `open_authentication_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `claim` | [block](#open_authentication_policy-block-structure) | Yes | - | A 'claim' block. |
+
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+
+### `workflow_management` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
 
 
 

@@ -33,32 +33,32 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  possible values |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku_name** | string |  `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`  |  Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. | 
-| **var.vcores** | int |  -  |  Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`. | 
-| **var.storage_size_in_gb** | int |  -  |  Maximum storage space for your instance. It should be a multiple of 32GB. | 
-| **var.license_type** | string |  `LicenseIncluded`, `BasePrice`  |  What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`. | 
-| **var.administrator_login** | string |  -  |  The administrator login name for the new server. Changing this forces a new resource to be created. | 
-| **var.administrator_login_password** | string |  -  |  The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx) | 
-| **var.subnet_id** | string |  -  |  The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **name** | string |  -  |  -  |  The name of the SQL Managed Instance. This needs to be globally unique within Azure. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  -  |  The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **sku_name** | string |  -  |  `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`  |  Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. | 
+| **vcores** | int |  -  |  -  |  Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`. | 
+| **storage_size_in_gb** | int |  -  |  -  |  Maximum storage space for your instance. It should be a multiple of 32GB. | 
+| **license_type** | string |  -  |  `LicenseIncluded`, `BasePrice`  |  What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`. | 
+| **administrator_login** | string |  -  |  -  |  The administrator login name for the new server. Changing this forces a new resource to be created. | 
+| **administrator_login_password** | string |  `Random string of 32 characters`  |  -  |  The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx) | 
+| **subnet_id** | string |  -  |  -  |  The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.collation** | string |  -  |  -  |  Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created. | 
-| **var.public_data_endpoint_enabled** | bool |  -  |  -  |  Is the public data endpoint enabled? Default value is `false`. | 
-| **var.minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`. | 
-| **var.proxy_override** | string |  -  |  `Default`, `Proxy`, `Redirect`  |  Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`. | 
-| **var.timezone_id** | string |  -  |  -  |  The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created. | 
-| **var.dns_zone_partner_id** | string |  -  |  -  |  The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **var.storage_account_type** | string |  `GRS`  |  `GRS`, `LRS`, `ZRS`  |  Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **collation** | string |  -  |  -  |  Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created. | 
+| **public_data_endpoint_enabled** | bool |  -  |  -  |  Is the public data endpoint enabled? Default value is `false`. | 
+| **minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`. | 
+| **proxy_override** | string |  -  |  `Default`, `Proxy`, `Redirect`  |  Specifies how the SQL Managed Instance will be accessed. Default value is `Default`. Valid values include `Default`, `Proxy`, and `Redirect`. | 
+| **timezone_id** | string |  -  |  -  |  The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created. | 
+| **dns_zone_partner_id** | string |  -  |  -  |  The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_sql_managed_instance_failover_group`. Setting this after creation forces a new resource to be created. | 
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **storage_account_type** | string |  `GRS`  |  `GRS`, `LRS`, `ZRS`  |  Specifies the storage account type used to store backups for this database. Changing this forces a new resource to be created. Possible values are `GRS`, `LRS` and `ZRS`. Defaults to `GRS`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 

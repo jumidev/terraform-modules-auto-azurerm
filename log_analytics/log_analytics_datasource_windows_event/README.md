@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
-| **var.workspace_name** | string |  -  |  The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
-| **var.event_log_name** | string |  -  |  Specifies the name of the Windows Event Log to collect events from. | 
-| **var.event_types** | string |  `Error`, `Warning`, `Information`  |  Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`. | 
+| **name** | string |  -  |  The name which should be used for this Log Analytics Windows Event DataSource. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
+| **workspace_name** | string |  -  |  The name of the Log Analytics Workspace where the Log Analytics Windows Event DataSource should exist. Changing this forces a new Log Analytics Windows Event DataSource to be created. | 
+| **event_log_name** | string |  -  |  Specifies the name of the Windows Event Log to collect events from. | 
+| **event_types** | string |  `Error`, `Warning`, `Information`  |  Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`. | 
 
 
 

@@ -36,35 +36,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Lighthouse Definition. Changing this forces a new resource to be created. | 
-| **var.managing_tenant_id** | string |  The ID of the managing tenant. Changing this forces a new resource to be created. | 
-| **var.scope** | string |  The ID of the managed subscription. Changing this forces a new resource to be created. | 
-| **var.authorization** | [block](#authorization-block-structure) |  An `authorization` block. | 
+| **name** | string |  The name of the Lighthouse Definition. Changing this forces a new resource to be created. | 
+| **managing_tenant_id** | string |  The ID of the managing tenant. Changing this forces a new resource to be created. | 
+| **scope** | string |  The ID of the managed subscription. Changing this forces a new resource to be created. | 
+| **authorization** | [block](#authorization-block-structure) |  An `authorization` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.lighthouse_definition_id** | string |  A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created. | 
-| **var.description** | string |  A description of the Lighthouse Definition. | 
-| **var.eligible_authorization** | [block](#eligible_authorization-block-structure) |  An `eligible_authorization` block. | 
-| **var.plan** | [block](#plan-block-structure) |  A `plan` block. | 
-
-### `authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. |
-| `role_definition_id` | string | Yes | - | The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role. |
-| `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
-| `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
-
-### `approver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
-| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
+| **lighthouse_definition_id** | string |  A unique UUID/GUID which identifies this lighthouse definition - one will be generated if not specified. Changing this forces a new resource to be created. | 
+| **description** | string |  A description of the Lighthouse Definition. | 
+| **eligible_authorization** | [block](#eligible_authorization-block-structure) |  An `eligible_authorization` block. | 
+| **plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
 ### `just_in_time_access_policy` block structure
 
@@ -81,6 +65,22 @@ tfstate_store = {
 | `publisher` | string | Yes | - | The publisher ID of the plan. |
 | `product` | string | Yes | - | The product code of the plan. |
 | `version` | string | Yes | - | The version of the plan. |
+
+### `authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. |
+| `role_definition_id` | string | Yes | - | The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role. |
+| `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
+| `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
+
+### `approver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
+| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
 
 ### `eligible_authorization` block structure
 

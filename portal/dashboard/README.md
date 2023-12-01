@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Shared Dashboard. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the dashboard. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.dashboard_properties** | string |  JSON data representing dashboard body. See above for details on how to obtain this from the Portal. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **dashboard_properties** | string |  JSON data representing dashboard body. See above for details on how to obtain this from the Portal. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

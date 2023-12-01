@@ -36,17 +36,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.record** | [block](#record-block-structure) |  One or more `record` blocks. | 
-| **var.ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
+| **resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
+| **zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **record** | [block](#record-block-structure) |  One or more `record` blocks. | 
+| **ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **name** | string |  The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `record` block structure
 

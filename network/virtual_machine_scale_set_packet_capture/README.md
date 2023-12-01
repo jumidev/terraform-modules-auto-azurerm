@@ -35,27 +35,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name to use for this Network Packet Capture. Changing this forces a new resource to be created. | 
-| **var.network_watcher_id** | string |  The resource ID of the Network Watcher. Changing this forces a new resource to be created. | 
-| **var.virtual_machine_scale_set_id** | string |  The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created. | 
-| **var.storage_location** | [block](#storage_location-block-structure) |  A `storage_location` block. Changing this forces a new resource to be created. | 
+| **name** | string |  The name to use for this Network Packet Capture. Changing this forces a new resource to be created. | 
+| **network_watcher_id** | string |  The resource ID of the Network Watcher. Changing this forces a new resource to be created. | 
+| **virtual_machine_scale_set_id** | string |  The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created. | 
+| **storage_location** | [block](#storage_location-block-structure) |  A `storage_location` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.maximum_bytes_per_packet** | int |  `0`  |  The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created. | 
-| **var.maximum_bytes_per_session** | int |  `1073741824`  |  Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created. | 
-| **var.maximum_capture_duration_in_seconds** | int |  `18000`  |  The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created. | 
-| **var.filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
-| **var.machine_scope** | [block](#machine_scope-block-structure) |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
-
-### `machine_scope` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `exclude_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. '['0', '2']'. Changing this forces a new resource to be created. |
-| `include_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. '['1', '3']'. Changing this forces a new resource to be created. |
+| **maximum_bytes_per_packet** | int |  `0`  |  The number of bytes captured per packet. The remaining bytes are truncated. Defaults to `0` (Entire Packet Captured). Changing this forces a new resource to be created. | 
+| **maximum_bytes_per_session** | int |  `1073741824`  |  Maximum size of the capture in Bytes. Defaults to `1073741824` (1GB). Changing this forces a new resource to be created. | 
+| **maximum_capture_duration_in_seconds** | int |  `18000`  |  The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created. | 
+| **filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
+| **machine_scope** | [block](#machine_scope-block-structure) |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
 
 ### `storage_location` block structure
 
@@ -73,6 +66,13 @@ tfstate_store = {
 | `protocol` | string | Yes | - | The Protocol to be filtered on. Possible values include 'Any', 'TCP' and 'UDP'. Changing this forces a new resource to be created. |
 | `remote_ip_address` | string | No | - | The remote IP Address to be filtered on. Specify '127.0.0.1' for a single address entry, '127.0.0.1-127.0.0.255' for a range and '127.0.0.1;127.0.0.5' for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created. |
 | `remote_port` | string | No | - | The remote port to be filtered on. Specify '80' for single port entry, '80-85' for a range and '80;443;' for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created. |
+
+### `machine_scope` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `exclude_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. '['0', '2']'. Changing this forces a new resource to be created. |
+| `include_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. '['1', '3']'. Changing this forces a new resource to be created. |
 
 
 

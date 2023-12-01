@@ -44,26 +44,26 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the Traffic Manager profile. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created. | 
-| **var.traffic_routing_method** | string |  `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet`, `MultiValue`  |  Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`. | 
-| **var.dns_config** | [block](#dns_config-block-structure) |  -  |  This block specifies the DNS configuration of the Profile. One `dns_config` block. | 
-| **var.monitor_config** | [block](#monitor_config-block-structure) |  -  |  This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block. | 
+| **name** | string |  -  |  The name of the Traffic Manager profile. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which to create the Traffic Manager profile. Changing this forces a new resource to be created. | 
+| **traffic_routing_method** | string |  `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet`, `MultiValue`  |  Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`. | 
+| **dns_config** | [block](#dns_config-block-structure) |  -  |  This block specifies the DNS configuration of the Profile. One `dns_config` block. | 
+| **monitor_config** | [block](#monitor_config-block-structure) |  -  |  This block specifies the Endpoint monitoring configuration for the Profile. One `monitor_config` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.profile_status** | string |  `Enabled`  |  -  |  The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`. | 
-| **var.Geographic** | string |  -  |  -  |  Traffic is routed based on Geographic regions specified in the Endpoint. | 
-| **var.MultiValue** | string |  -  |  -  |  All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type `External` and are specified as IPv4 or IPv6 addresses. | 
-| **var.Performance** | string |  -  |  -  |  Traffic is routed via the User's closest Endpoint | 
-| **var.Priority** | string |  -  |  -  |  Traffic is routed to the Endpoint with the lowest `priority` value. | 
-| **var.Subnet** | string |  -  |  -  |  Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile. | 
-| **var.Weighted** | string |  -  |  -  |  Traffic is spread across Endpoints proportional to their `weight` value. | 
-| **var.traffic_view_enabled** | bool |  -  |  -  |  Indicates whether Traffic View is enabled for the Traffic Manager profile. | 
-| **var.max_return** | string |  -  |  `1`, `8`  |  The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **profile_status** | string |  `Enabled`  |  -  |  The status of the profile, can be set to either `Enabled` or `Disabled`. Defaults to `Enabled`. | 
+| **Geographic** | string |  -  |  -  |  Traffic is routed based on Geographic regions specified in the Endpoint. | 
+| **MultiValue** | string |  -  |  -  |  All healthy Endpoints are returned.  MultiValue routing method works only if all the endpoints of type `External` and are specified as IPv4 or IPv6 addresses. | 
+| **Performance** | string |  -  |  -  |  Traffic is routed via the User's closest Endpoint | 
+| **Priority** | string |  -  |  -  |  Traffic is routed to the Endpoint with the lowest `priority` value. | 
+| **Subnet** | string |  -  |  -  |  Traffic is routed based on a mapping of sets of end-user IP address ranges to a specific Endpoint within a Traffic Manager profile. | 
+| **Weighted** | string |  -  |  -  |  Traffic is spread across Endpoints proportional to their `weight` value. | 
+| **traffic_view_enabled** | bool |  -  |  -  |  Indicates whether Traffic View is enabled for the Traffic Manager profile. | 
+| **max_return** | string |  -  |  `1`, `8`  |  The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `dns_config` block structure
 
@@ -71,12 +71,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
 | `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
-
-### `custom_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 ### `monitor_config` block structure
 
@@ -90,6 +84,12 @@ tfstate_store = {
 | `interval_in_seconds` | int | No | - | The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: '30' (normal probing) and '10' (fast probing). The default value is '30'. |
 | `timeout_in_seconds` | string | No | - | The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If 'interval_in_seconds' is set to '30', then 'timeout_in_seconds' can be between '5' and '10'. The default value is '10'. If 'interval_in_seconds' is set to '10', then valid values are between '5' and '9' and 'timeout_in_seconds' is required. |
 | `tolerated_number_of_failures` | string | No | - | The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between '0' and '9'. The default value is '3' |
+
+### `custom_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 
 

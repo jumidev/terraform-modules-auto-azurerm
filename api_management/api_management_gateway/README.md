@@ -33,15 +33,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created. | 
-| **var.api_management_id** | string |  The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created. | 
-| **var.location_data** | [block](#location_data-block-structure) |  A `location_data` block. | 
+| **name** | string |  The name which should be used for the API Management Gateway. Changing this forces a new API Management Gateway to be created. | 
+| **api_management_id** | string |  The ID of the API Management Resource in which the gateway will be created. Changing this forces a new API Management Gateway resource to be created. | 
+| **location_data** | [block](#location_data-block-structure) |  A `location_data` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  The description of the API Management Gateway. | 
+| **description** | string |  The description of the API Management Gateway. | 
 
 ### `location_data` block structure
 

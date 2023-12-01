@@ -28,27 +28,27 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created. | 
-| **var.location** | string |  The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created. | 
-| **var.delegated_management_subnet_id** | string |  The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created. | 
-| **var.default_admin_password** | string |  The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created. | 
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  The name which should be used for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created. | 
+| **location** | string |  -  |  The Azure Region where the Cassandra Cluster should exist. Changing this forces a new Cassandra Cluster to be created. | 
+| **delegated_management_subnet_id** | string |  -  |  The ID of the delegated management subnet for this Cassandra Cluster. Changing this forces a new Cassandra Cluster to be created. | 
+| **default_admin_password** | string |  `Random string of 32 characters`  |  The initial admin password for this Cassandra Cluster. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.authentication_method** | string |  `Cassandra`  |  `None`, `Cassandra`  |  The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`. | 
-| **var.client_certificate_pems** | list |  -  |  -  |  A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster. | 
-| **var.external_gossip_certificate_pems** | list |  -  |  -  |  A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center. | 
-| **var.external_seed_node_ip_addresses** | list |  -  |  -  |  A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes. | 
-| **var.hours_between_backups** | int |  `24`  |  -  |  The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **var.repair_enabled** | bool |  `True`  |  -  |  Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`. | 
-| **var.version** | string |  `3.11`  |  `3.11`, `4.0`  |  The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
+| **authentication_method** | string |  `Cassandra`  |  `None`, `Cassandra`  |  The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`. | 
+| **client_certificate_pems** | list |  -  |  -  |  A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster. | 
+| **external_gossip_certificate_pems** | list |  -  |  -  |  A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center. | 
+| **external_seed_node_ip_addresses** | list |  -  |  -  |  A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes. | 
+| **hours_between_backups** | int |  `24`  |  -  |  The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`. | 
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **repair_enabled** | bool |  `True`  |  -  |  Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`. | 
+| **version** | string |  `3.11`  |  `3.11`, `4.0`  |  The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created. | 
+| **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
 ### `identity` block structure
 

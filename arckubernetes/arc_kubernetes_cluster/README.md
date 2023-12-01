@@ -36,17 +36,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created. | 
-| **var.agent_public_key_certificate** | string |  Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Arc Kubernetes Cluster to be created. | 
-| **var.location** | string |  Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created. | 
+| **name** | string |  Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created. | 
+| **resource_group_name** | string |  Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created. | 
+| **agent_public_key_certificate** | string |  Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new Arc Kubernetes Cluster to be created. | 
+| **location** | string |  Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags which should be assigned to the Arc Kubernetes Cluster. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Arc Kubernetes Cluster. | 
 
 ### `identity` block structure
 

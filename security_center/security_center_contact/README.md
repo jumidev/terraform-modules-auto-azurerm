@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.alert_notifications** | string |  Whether to send security alerts notifications to the security contact. | 
-| **var.alerts_to_admins** | string |  Whether to send security alerts notifications to subscription admins. | 
-| **var.email** | string |  The email of the Security Center Contact. | 
+| **alert_notifications** | string |  Whether to send security alerts notifications to the security contact. | 
+| **alerts_to_admins** | string |  Whether to send security alerts notifications to subscription admins. | 
+| **email** | string |  The email of the Security Center Contact. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  `default1`  |  The name of the Security Center Contact. Defaults to `default1`. | 
-| **var.phone** | int |  -  |  The phone number of the Security Center Contact. | 
+| **name** | string |  `default1`  |  The name of the Security Center Contact. Defaults to `default1`. | 
+| **phone** | int |  -  |  The phone number of the Security Center Contact. | 
 
 
 

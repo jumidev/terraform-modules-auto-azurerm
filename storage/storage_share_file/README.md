@@ -27,20 +27,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created. | 
-| **var.storage_share_id** | string |  The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created. | 
+| **name** | string |  The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created. | 
+| **storage_share_id** | string |  The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.path** | string |  ``  |  The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`. | 
-| **var.source** | string |  -  |  An absolute path to a file on the local system. Changing this forces a new resource to be created. | 
-| **var.content_type** | string |  `application/octet-stream`  |  The content type of the share file. Defaults to `application/octet-stream`. | 
-| **var.content_md5** | string |  -  |  The MD5 sum of the file contents. Changing this forces a new resource to be created. | 
-| **var.content_encoding** | string |  -  |  Specifies which content encodings have been applied to the file. | 
-| **var.content_disposition** | string |  -  |  Sets the file’s Content-Disposition header. | 
-| **var.metadata** | string |  -  |  A mapping of metadata to assign to this file. | 
+| **path** | string |  ``  |  The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`. | 
+| **source** | string |  -  |  An absolute path to a file on the local system. Changing this forces a new resource to be created. | 
+| **content_type** | string |  `application/octet-stream`  |  The content type of the share file. Defaults to `application/octet-stream`. | 
+| **content_md5** | string |  -  |  The MD5 sum of the file contents. Changing this forces a new resource to be created. | 
+| **content_encoding** | string |  -  |  Specifies which content encodings have been applied to the file. | 
+| **content_disposition** | string |  -  |  Sets the file’s Content-Disposition header. | 
+| **metadata** | string |  -  |  A mapping of metadata to assign to this file. | 
 
 
 

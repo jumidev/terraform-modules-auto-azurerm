@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.principal_id** | string |  The principal id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.role_definition_id** | string |  The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.scope** | string |  The scope. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **principal_id** | string |  The principal id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **role_definition_id** | string |  The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **scope** | string |  The scope. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.justification** | string |  The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **var.ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **justification** | string |  The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 
 ### `schedule` block structure
 

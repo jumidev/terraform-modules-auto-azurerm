@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created. | 
-| **var.management_group_id** | string |  Specifies the ID of the target Management Group. Changing this forces a new resource to be created. | 
-| **var.network_manager_id** | string |  Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name which should be used for this Network Manager Management Group Connection. Changing this forces a new Network Manager Management Group Connection to be created. | 
+| **management_group_id** | string |  Specifies the ID of the target Management Group. Changing this forces a new resource to be created. | 
+| **network_manager_id** | string |  Specifies the ID of the Network Manager which the Management Group is connected to. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description of the Network Manager Management Group Connection. | 
+| **description** | string |  A description of the Network Manager Management Group Connection. | 
 
 
 

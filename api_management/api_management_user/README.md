@@ -31,21 +31,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_management_name** | string |  The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.email** | string |  The email address associated with this user. | 
-| **var.first_name** | string |  The first name for this user. | 
-| **var.last_name** | string |  The last name for this user. | 
-| **var.user_id** | string |  The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created. | 
+| **api_management_name** | string |  The name of the API Management Service in which the User should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **email** | string |  The email address associated with this user. | 
+| **first_name** | string |  The first name for this user. | 
+| **last_name** | string |  The last name for this user. | 
+| **user_id** | string |  The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.confirmation** | string |  `invite`, `signup`  |  The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created. | 
-| **var.note** | string |  -  |  A note about this user. | 
-| **var.password** | string |  -  |  The password associated with this user. | 
-| **var.state** | string |  `active`, `blocked`, `pending`  |  The state of this user. Possible values are `active`, `blocked` and `pending`. | 
+| **confirmation** | string |  `invite`, `signup`  |  The kind of confirmation email which will be sent to this user. Possible values are `invite` and `signup`. Changing this forces a new resource to be created. | 
+| **note** | string |  -  |  A note about this user. | 
+| **password** | string |  -  |  The password associated with this user. | 
+| **state** | string |  `active`, `blocked`, `pending`  |  The state of this user. Possible values are `active`, `blocked` and `pending`. | 
 
 
 

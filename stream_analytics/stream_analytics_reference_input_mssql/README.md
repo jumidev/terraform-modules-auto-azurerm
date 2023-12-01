@@ -34,23 +34,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Reference Input MS SQL data. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.server** | string |  The fully qualified domain name of the MS SQL server. | 
-| **var.database** | string |  The MS SQL database name where the reference data exists. | 
-| **var.username** | string |  The username to connect to the MS SQL database. | 
-| **var.password** | string |  The password to connect to the MS SQL database. | 
-| **var.refresh_type** | string |  Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`. | 
-| **var.full_snapshot_query** | string |  The query used to retrieve the reference data from the MS SQL database. | 
+| **name** | string |  The name of the Reference Input MS SQL data. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job should exist. Changing this forces a new resource to be created. | 
+| **stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **server** | string |  The fully qualified domain name of the MS SQL server. | 
+| **database** | string |  The MS SQL database name where the reference data exists. | 
+| **username** | string |  The username to connect to the MS SQL database. | 
+| **password** | string |  The password to connect to the MS SQL database. | 
+| **refresh_type** | string |  Defines whether and how the reference data should be refreshed. Accepted values are `Static`, `RefreshPeriodicallyWithFull` and `RefreshPeriodicallyWithDelta`. | 
+| **full_snapshot_query** | string |  The query used to retrieve the reference data from the MS SQL database. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.refresh_interval_duration** | string |  The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`. | 
-| **var.delta_snapshot_query** | string |  The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`. | 
-| **var.table** | string |  The name of the table in the Azure SQL database. | 
+| **refresh_interval_duration** | string |  The frequency in `hh:mm:ss` with which the reference data should be retrieved from the MS SQL database e.g. `00:20:00` for every 20 minutes. Must be set when `refresh_type` is `RefreshPeriodicallyWithFull` or `RefreshPeriodicallyWithDelta`. | 
+| **delta_snapshot_query** | string |  The query used to retrieve incremental changes in the reference data from the MS SQL database. Cannot be set when `refresh_type` is `Static`. | 
+| **table** | string |  The name of the table in the Azure SQL database. | 
 
 
 

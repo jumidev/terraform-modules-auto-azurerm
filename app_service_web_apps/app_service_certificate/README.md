@@ -28,19 +28,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the certificate. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the certificate. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the certificate. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the certificate. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.pfx_blob** | string |  The base64-encoded contents of the certificate. Changing this forces a new resource to be created. | 
-| **var.password** | string |  The password to access the certificate's private key. Changing this forces a new resource to be created. | 
-| **var.app_service_plan_id** | string |  The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created. | 
-| **var.key_vault_secret_id** | string |  The ID of the Key Vault secret. Changing this forces a new resource to be created. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **pfx_blob** | string |  The base64-encoded contents of the certificate. Changing this forces a new resource to be created. | 
+| **password** | string |  The password to access the certificate's private key. Changing this forces a new resource to be created. | 
+| **app_service_plan_id** | string |  The ID of the associated App Service plan. Must be specified when the certificate is used inside an App Service Environment hosted App Service. Changing this forces a new resource to be created. | 
+| **key_vault_secret_id** | string |  The ID of the Key Vault secret. Changing this forces a new resource to be created. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

@@ -40,33 +40,21 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.accumulated** | bool |  -  |  Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created. | 
-| **var.chart_type** | string |  `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  |  Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
-| **var.dataset** | [block](#dataset-block-structure) |  -  |  A `dataset` block. | 
-| **var.display_name** | string |  -  |  User visible input name of the Cost Management View. | 
-| **var.name** | string |  -  |  The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created. | 
-| **var.report_type** | string |  -  |  The type of the report. The only possible value is `Usage`. | 
-| **var.subscription_id** | string |  -  |  The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created. | 
-| **var.timeframe** | string |  `Custom`, `MonthToDate`, `WeekToDate`, `YearToDate`  |  The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`. | 
+| **accumulated** | bool |  -  |  Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Subscription to be created. | 
+| **chart_type** | string |  `Area`, `GroupedColumn`, `Line`, `StackedColumn`, `Table`  |  Chart type of the main view in Cost Analysis. Possible values are `Area`, `GroupedColumn`, `Line`, `StackedColumn` and `Table`. | 
+| **dataset** | [block](#dataset-block-structure) |  -  |  A `dataset` block. | 
+| **display_name** | string |  -  |  User visible input name of the Cost Management View. | 
+| **name** | string |  -  |  The name which should be used for this Cost Management View for a Subscription. Changing this forces a new Cost Management View for a Subscription to be created. | 
+| **report_type** | string |  -  |  The type of the report. The only possible value is `Usage`. | 
+| **subscription_id** | string |  -  |  The ID of the Subscription this View is scoped to. Changing this forces a new Cost Management View for a Subscription to be created. | 
+| **timeframe** | string |  `Custom`, `MonthToDate`, `WeekToDate`, `YearToDate`  |  The time frame for pulling data for the report. Possible values are `Custom`, `MonthToDate`, `WeekToDate` and `YearToDate`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
-| **var.pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
-
-### `sorting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
-
-### `grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
+| **kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
+| **pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
 ### `kpi` block structure
 
@@ -88,6 +76,18 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
+
+### `grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
+
+### `sorting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
 
 
 

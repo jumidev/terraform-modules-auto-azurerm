@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created. | 
-| **var.job_agent_id** | string |  The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created. | 
-| **var.username** | string |  The username part of the credential. | 
-| **var.password** | string |  The password part of the credential. | 
+| **name** | string |  The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created. | 
+| **job_agent_id** | string |  The ID of the Elastic Job Agent. Changing this forces a new Elastic Job Credential to be created. | 
+| **username** | string |  The username part of the credential. | 
+| **password** | string |  The password part of the credential. | 
 
 
 

@@ -27,16 +27,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
-| **var.name** | string |  The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
+| **log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Microsoft Cloud App Security Data Connector resides in. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
+| **name** | string |  The name which should be used for this Microsoft Cloud App Security Data Connector. Changing this forces a new Microsoft Cloud App Security Data Connector to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.alerts_enabled** | bool |  `True`  |  Should the alerts be enabled? Defaults to `true`. | 
-| **var.discovery_logs_enabled** | bool |  `True`  |  Should the Discovery Logs be enabled? Defaults to `true`. | 
-| **var.tenant_id** | string |  -  |  The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. | 
+| **alerts_enabled** | bool |  `True`  |  Should the alerts be enabled? Defaults to `true`. | 
+| **discovery_logs_enabled** | bool |  `True`  |  Should the Discovery Logs be enabled? Defaults to `true`. | 
+| **tenant_id** | string |  -  |  The ID of the Tenant that this Microsoft Cloud App Security Data Connector connects to. | 
 
 
 

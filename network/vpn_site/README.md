@@ -29,35 +29,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.location** | string |  The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created. | 
-| **var.name** | string |  The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created. | 
-| **var.virtual_wan_id** | string |  The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created. | 
+| **location** | string |  The Azure Region where the VPN Site should exist. Changing this forces a new VPN Site to be created. | 
+| **name** | string |  The name which should be used for this VPN Site. Changing this forces a new VPN Site to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the VPN Site should exist. Changing this forces a new VPN Site to be created. | 
+| **virtual_wan_id** | string |  The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.link** | [block](#link-block-structure) |  One or more `link` blocks. | 
-| **var.address_cidrs** | string |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. | 
-| **var.device_model** | string |  The model of the VPN device. | 
-| **var.device_vendor** | string |  The name of the VPN device vendor. | 
-| **var.o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
-
-### `traffic_category` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allow_endpoint_enabled` | bool | No | False | Is allow endpoint enabled? The 'Allow' endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to 'false'. |
-| `default_endpoint_enabled` | bool | No | False | Is default endpoint enabled? The 'Default' endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to 'false'. |
-| `optimize_endpoint_enabled` | bool | No | False | Is optimize endpoint enabled? The 'Optimize' endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to 'false'. |
-
-### `o365_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | [block](#o365_policy-block-structure) | No | - | A 'traffic_category' block. |
+| **link** | [block](#link-block-structure) |  One or more `link` blocks. | 
+| **address_cidrs** | string |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. | 
+| **device_model** | string |  The model of the VPN device. | 
+| **device_vendor** | string |  The name of the VPN device vendor. | 
+| **o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
+| **tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
 
 ### `link` block structure
 
@@ -75,6 +61,20 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `asn` | string | Yes | - | The BGP speaker's ASN. |
 | `peering_address` | string | Yes | - | The BGP peering IP address. |
+
+### `o365_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `traffic_category` | [block](#o365_policy-block-structure) | No | - | A 'traffic_category' block. |
+
+### `traffic_category` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allow_endpoint_enabled` | bool | No | False | Is allow endpoint enabled? The 'Allow' endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to 'false'. |
+| `default_endpoint_enabled` | bool | No | False | Is default endpoint enabled? The 'Default' endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to 'false'. |
+| `optimize_endpoint_enabled` | bool | No | False | Is optimize endpoint enabled? The 'Optimize' endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to 'false'. |
 
 
 

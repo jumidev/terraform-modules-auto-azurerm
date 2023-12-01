@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the DNS A Record. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created. | 
-| **var.zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **var.ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
-| **var.records** | string |  List of IPv4 Addresses. | 
+| **name** | string |  The name of the DNS A Record. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created. | 
+| **zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
+| **records** | string |  List of IPv4 Addresses. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

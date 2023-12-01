@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.app_service_slot_id** | string |  The ID of the App Service Slot. Changing this forces a new resource to be created. | 
-| **var.hostname** | string |  Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
+| **app_service_slot_id** | string |  The ID of the App Service Slot. Changing this forces a new resource to be created. | 
+| **hostname** | string |  Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ssl_state** | string |  `IpBasedEnabled`, `SniEnabled`  |  The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created. | 
-| **var.thumbprint** | string |  -  |  The SSL certificate thumbprint. Changing this forces a new resource to be created. | 
+| **ssl_state** | string |  `IpBasedEnabled`, `SniEnabled`  |  The SSL type. Possible values are `IpBasedEnabled` and `SniEnabled`. Changing this forces a new resource to be created. | 
+| **thumbprint** | string |  -  |  The SSL certificate thumbprint. Changing this forces a new resource to be created. | 
 
 
 

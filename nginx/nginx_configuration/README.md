@@ -27,16 +27,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.nginx_deployment_id** | string |  The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created. | 
-| **var.root_file** | string |  Specify the root file path of this Nginx Configuration. | 
+| **nginx_deployment_id** | string |  The ID of the Nginx Deployment. Changing this forces a new Nginx Configuration to be created. | 
+| **root_file** | string |  Specify the root file path of this Nginx Configuration. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.package_data** | string |  Specify the package data for this configuration. | 
-| **var.config_file** | [block](#config_file-block-structure) |  One or more `config_file` blocks. | 
-| **var.protected_file** | list |  One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified. | 
+| **package_data** | string |  Specify the package data for this configuration. | 
+| **config_file** | [block](#config_file-block-structure) |  One or more `config_file` blocks. | 
+| **protected_file** | list |  One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified. | 
 
 ### `config_file` block structure
 

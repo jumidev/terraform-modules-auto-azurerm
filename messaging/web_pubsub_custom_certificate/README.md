@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
-| **var.web_pubsub_id** | string |  The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
-| **var.custom_certificate_id** | string |  The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
+| **web_pubsub_id** | string |  The Web PubSub ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
+| **custom_certificate_id** | string |  The certificate ID of the Web PubSub Custom Certificate. Changing this forces a new resource to be created. | 
 
 
 

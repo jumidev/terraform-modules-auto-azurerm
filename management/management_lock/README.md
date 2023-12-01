@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name of the Management Lock. Changing this forces a new resource to be created. | 
-| **var.scope** | string |  -  |  Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created. | 
-| **var.lock_level** | string |  `CanNotDelete`, `ReadOnly`  |  Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created. | 
+| **name** | string |  -  |  Specifies the name of the Management Lock. Changing this forces a new resource to be created. | 
+| **scope** | string |  -  |  Specifies the scope at which the Management Lock should be created. Changing this forces a new resource to be created. | 
+| **lock_level** | string |  `CanNotDelete`, `ReadOnly`  |  Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.notes** | string |  Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created. | 
+| **notes** | string |  Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created. | 
 
 
 

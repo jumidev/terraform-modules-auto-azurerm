@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.location** | string |  The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.sku_name** | string |  The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`. | 
+| **name** | string |  The name which should be used for this Logic App Integration Account. Changing this forces a new Logic App Integration Account to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
+| **location** | string |  The Azure Region where the Logic App Integration Account should exist. Changing this forces a new Logic App Integration Account to be created. | 
+| **sku_name** | string |  The SKU name of the Logic App Integration Account. Possible Values are `Basic`, `Free` and `Standard`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.integration_service_environment_id** | string |  The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Logic App Integration Account. | 
+| **integration_service_environment_id** | string |  The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Logic App Integration Account. | 
 
 
 

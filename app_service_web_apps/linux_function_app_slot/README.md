@@ -34,75 +34,41 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Function App Slot. Changing this forces a new resource to be created. | 
-| **var.function_app_id** | string |  The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created. | 
-| **var.site_config** | [block](#site_config-block-structure) |  a `site_config` block as detailed below. | 
+| **name** | string |  Specifies the name of the Function App Slot. Changing this forces a new resource to be created. | 
+| **function_app_id** | string |  The ID of the Linux Function App this Slot is a member of. Changing this forces a new resource to be created. | 
+| **site_config** | [block](#site_config-block-structure) |  a `site_config` block as detailed below. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.app_settings** | string |  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.auth_settings** | [block](#auth_settings-block-structure) |  -  |  -  |  an `auth_settings` block as detailed below. | 
-| **var.auth_settings_v2** | [block](#auth_settings_v2-block-structure) |  -  |  -  |  an `auth_settings_v2` block as detailed below. | 
-| **var.backup** | [block](#backup-block-structure) |  -  |  -  |  a `backup` block as detailed below. | 
-| **var.builtin_logging_enabled** | bool |  `True`  |  -  |  Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`. | 
-| **var.client_certificate_enabled** | bool |  -  |  -  |  Should the Function App Slot use Client Certificates. | 
-| **var.client_certificate_mode** | string |  `Optional`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`. | 
-| **var.client_certificate_exclusion_paths** | string |  -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
-| **var.connection_string** | [block](#connection_string-block-structure) |  -  |  -  |  a `connection_string` block as detailed below. | 
-| **var.content_share_force_disabled** | bool |  -  |  -  |  Force disable the content share settings. | 
-| **var.daily_memory_time_quota** | string |  `0`  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`. | 
-| **var.enabled** | bool |  `True`  |  -  |  Is the Linux Function App Slot enabled. Defaults to `true`. | 
-| **var.ftp_publish_basic_authentication_enabled** | bool |  -  |  -  |  Are the default FTP Basic Authentication publishing credentials enabled. | 
-| **var.functions_extension_version** | string |  `~4`  |  -  |  The runtime version associated with the Function App Slot. Defaults to `~4`. | 
-| **var.https_only** | string |  -  |  -  |  Can the Function App Slot only be accessed via HTTPS? | 
-| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Should public network access be enabled for the Function App. Defaults to `true`. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block as detailed below. | 
-| **var.key_vault_reference_identity_id** | string |  -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) | 
-| **var.service_plan_id** | string |  -  |  -  |  The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used. | 
-| **var.storage_account_access_key** | string |  -  |  -  |  The access key which will be used to access the storage account for the Function App Slot. | 
-| **var.storage_account_name** | string |  -  |  -  |  The backend storage account name which will be used by this Function App Slot. | 
-| **var.storage_account** | [block](#storage_account-block-structure) |  -  |  -  |  One or more `storage_account` blocks. | 
-| **var.storage_uses_managed_identity** | string |  -  |  -  |  Should the Function App Slot use its Managed Identity to access storage. | 
-| **var.storage_key_vault_secret_id** | string |  -  |  -  |  The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Linux Function App. | 
-| **var.virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
-| **var.webdeploy_publish_basic_authentication_enabled** | bool |  `True`  |  -  |  Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`. | 
-
-### `github` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the GitHub app used for login. |
-| `client_secret` | string | No | - | The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication. |
-
-### `twitter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
-| `consumer_secret` | string | No | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'. |
-| `consumer_secret_setting_name` | string | No | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'. |
-
-### `facebook_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
-| `app_secret_setting_name` | string | Yes | - | The app setting name that contains the 'app_secret' value used for Facebook Login. |
-| `graph_api_version` | string | No | - | The version of the Facebook API to be used while logging in. |
-| `login_scopes` | string | No | - | The list of scopes that should be requested as part of Facebook Login authentication. |
-
-### `backup` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `schedule` | [block](#backup-block-structure) | Yes | - | a 'schedule' block as detailed below. |
-| `storage_account_url` | string | Yes | - | The SAS URL to the container. |
-| `enabled` | bool | No | True | Should this backup job be enabled? Defaults to 'true'. |
+| **app_settings** | string |  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
+| **auth_settings** | [block](#auth_settings-block-structure) |  -  |  -  |  an `auth_settings` block as detailed below. | 
+| **auth_settings_v2** | [block](#auth_settings_v2-block-structure) |  -  |  -  |  an `auth_settings_v2` block as detailed below. | 
+| **backup** | [block](#backup-block-structure) |  -  |  -  |  a `backup` block as detailed below. | 
+| **builtin_logging_enabled** | bool |  `True`  |  -  |  Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`. | 
+| **client_certificate_enabled** | bool |  -  |  -  |  Should the Function App Slot use Client Certificates. | 
+| **client_certificate_mode** | string |  `Optional`  |  `Required`, `Optional`, `OptionalInteractiveUser`  |  The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`. | 
+| **client_certificate_exclusion_paths** | string |  -  |  -  |  Paths to exclude when using client certificates, separated by ; | 
+| **connection_string** | [block](#connection_string-block-structure) |  -  |  -  |  a `connection_string` block as detailed below. | 
+| **content_share_force_disabled** | bool |  -  |  -  |  Force disable the content share settings. | 
+| **daily_memory_time_quota** | string |  `0`  |  -  |  The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`. | 
+| **enabled** | bool |  `True`  |  -  |  Is the Linux Function App Slot enabled. Defaults to `true`. | 
+| **ftp_publish_basic_authentication_enabled** | bool |  -  |  -  |  Are the default FTP Basic Authentication publishing credentials enabled. | 
+| **functions_extension_version** | string |  `~4`  |  -  |  The runtime version associated with the Function App Slot. Defaults to `~4`. | 
+| **https_only** | string |  -  |  -  |  Can the Function App Slot only be accessed via HTTPS? | 
+| **public_network_access_enabled** | bool |  `True`  |  -  |  Should public network access be enabled for the Function App. Defaults to `true`. | 
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block as detailed below. | 
+| **key_vault_reference_identity_id** | string |  -  |  -  |  The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity) | 
+| **service_plan_id** | string |  -  |  -  |  The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Linux Function App will be used. | 
+| **storage_account_access_key** | string |  -  |  -  |  The access key which will be used to access the storage account for the Function App Slot. | 
+| **storage_account_name** | string |  -  |  -  |  The backend storage account name which will be used by this Function App Slot. | 
+| **storage_account** | [block](#storage_account-block-structure) |  -  |  -  |  One or more `storage_account` blocks. | 
+| **storage_uses_managed_identity** | string |  -  |  -  |  Should the Function App Slot use its Managed Identity to access storage. | 
+| **storage_key_vault_secret_id** | string |  -  |  -  |  The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Linux Function App. | 
+| **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this Function App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
+| **webdeploy_publish_basic_authentication_enabled** | bool |  `True`  |  -  |  Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`. | 
 
 ### `ip_restriction` block structure
 
@@ -114,6 +80,51 @@ tfstate_store = {
 | `priority` | string | No | 65000 | The priority value of this 'ip_restriction'. Defaults to '65000'. |
 | `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
 | `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+
+### `facebook_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
+| `app_secret_setting_name` | string | Yes | - | The app setting name that contains the 'app_secret' value used for Facebook Login. |
+| `graph_api_version` | string | No | - | The version of the Facebook API to be used while logging in. |
+| `login_scopes` | string | No | - | The list of scopes that should be requested as part of Facebook Login authentication. |
+
+### `scm_ip_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | No | Allow | The action to take. Possible values are 'Allow' or 'Deny'. Defaults to 'Allow'. |
+| `headers` | [block](#scm_ip_restriction-block-structure) | No | - | a 'headers' block as detailed below. |
+| `ip_address` | string | No | - | The CIDR notation of the IP or IP Range to match. For example: '10.0.0.0/24' or '192.168.10.1/32' |
+| `priority` | string | No | 65000 | The priority value of this 'ip_restriction'. Defaults to '65000'. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT |
+
+### `microsoft_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication. |
+| `login_scopes` | string | No | - | The list of Login scopes that should be requested as part of Microsoft Account authentication. |
+
+### `microsoft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret` | string | No | - | The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot. |
 
 ### `auth_settings_v2` block structure
 
@@ -142,6 +153,35 @@ tfstate_store = {
 | `twitter_v2` | [block](#auth_settings_v2-block-structure) | No | - | A 'twitter_v2' block. |
 | `login` | [block](#auth_settings_v2-block-structure) | Yes | - | A 'login' block. |
 
+### `azure_static_web_app_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Static Web App Authentication. |
+
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_key` | string | Yes | - | The Access key for the storage account. |
+| `account_name` | string | Yes | - | The Name of the Storage Account. |
+| `share_name` | string | Yes | - | The Name of the File Share or Container Name for Blob storage. |
+| `type` | string | Yes | - | The Azure Storage Type. Possible values include 'AzureFiles' and 'AzureBlob'. |
+| `mount_path` | string | No | - | The path at which to mount the storage share. |
+
+### `application_stack` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `docker` | [block](#application_stack-block-structure) | No | - | a 'docker' block as detailed below. |
+| `dotnet_version` | string | No | - | The version of .Net. Possible values are '3.1', '6.0', '7.0' and '8.0'. |
+| `use_dotnet_isolated_runtime` | bool | No | False | Should the DotNet process use an isolated runtime. Defaults to 'false'. |
+| `java_version` | string | No | - | The version of Java to use. Possible values are '8', '11' & '17' (In-Preview). |
+| `node_version` | string | No | - | The version of Node to use. Possible values include '12', '14', '16' and '18' |
+| `powershell_core_version` | string | No | - | The version of PowerShell Core to use. Possibles values are '7' , and '7.2'. |
+| `python_version` | string | No | - | The version of Python to use. Possible values are '3.11', '3.10', '3.9', '3.8' and '3.7'. |
+| `use_custom_runtime` | bool | No | - | Should the Linux Function App use a custom runtime? |
+
 ### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -149,14 +189,47 @@ tfstate_store = {
 | `allowed_origins` | string | No | - | Specifies a list of origins that should be allowed to make cross-origin calls. |
 | `support_credentials` | bool | No | False | Are credentials allowed in CORS requests? Defaults to 'false'. |
 
-### `microsoft` block structure
+### `twitter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret` | string | No | - | The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope. |
+| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
+| `consumer_secret` | string | No | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'. |
+| `consumer_secret_setting_name` | string | No | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'. |
+
+### `docker` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `registry_url` | string | Yes | - | The URL of the docker registry. |
+| `image_name` | string | Yes | - | The name of the Docker image to use. |
+| `image_tag` | string | Yes | - | The image tag of the image to use. |
+| `registry_username` | string | No | - | The username to use for connections to the registry. |
+| `registry_password` | string | No | - | The password for the account to use to connect to the registry. |
+
+### `github_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the GitHub app used for login.. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for GitHub Login. |
+| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication. |
+
+### `headers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `x_azure_fdid` | string | No | - | Specifies a list of Azure Front Door IDs. |
+| `x_fd_health_probe` | string | No | - | Specifies if a Front Door Health Probe should be expected. The only possible value is '1'. |
+| `x_forwarded_for` | string | No | - | Specifies a list of addresses for which matching should be applied. Omitting this value means allow any. |
+| `x_forwarded_host` | string | No | - | Specifies a list of Hosts for which matching should be applied. |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Type of database. Possible values include: 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'. |
+| `value` | string | Yes | - | The connection string value. |
 
 ### `site_config` block structure
 
@@ -200,41 +273,52 @@ tfstate_store = {
 | `websockets_enabled` | bool | No | False | Should Web Sockets be enabled. Defaults to 'false'. |
 | `worker_count` | int | No | - | The number of Workers for this Linux Function App. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Linux Function App Slot. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Linux Function App Slot. |
-
-### `application_stack` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `docker` | [block](#application_stack-block-structure) | No | - | a 'docker' block as detailed below. |
-| `dotnet_version` | string | No | - | The version of .Net. Possible values are '3.1', '6.0', '7.0' and '8.0'. |
-| `use_dotnet_isolated_runtime` | bool | No | False | Should the DotNet process use an isolated runtime. Defaults to 'false'. |
-| `java_version` | string | No | - | The version of Java to use. Possible values are '8', '11' & '17' (In-Preview). |
-| `node_version` | string | No | - | The version of Node to use. Possible values include '12', '14', '16' and '18' |
-| `powershell_core_version` | string | No | - | The version of PowerShell Core to use. Possibles values are '7' , and '7.2'. |
-| `python_version` | string | No | - | The version of Python to use. Possible values are '3.11', '3.10', '3.9', '3.8' and '3.7'. |
-| `use_custom_runtime` | bool | No | - | Should the Linux Function App use a custom runtime? |
-
-### `facebook` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
-| `app_secret` | string | No | - | The App Secret of the Facebook app used for Facebook login. Cannot be specified with 'app_secret_setting_name'. |
-| `app_secret_setting_name` | string | No | - | The app setting name that contains the 'app_secret' value used for Facebook login. Cannot be specified with 'app_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication. |
-
 ### `app_service_logs` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `disk_quota_mb` | string | No | 35 | The amount of disk space to use for logs. Valid values are between '25' and '100'. Defaults to '35'. |
 | `retention_period_days` | string | No | - | The retention period for logs in days. Valid values are between '0' and '99999'.(never delete). |
+
+### `google_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Google Login. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication. |
+| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication. |
+
+### `custom_oidc_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with the Custom OIDC. |
+| `openid_configuration_endpoint` | string | Yes | - | The app setting name that contains the 'client_secret' value used for the Custom OIDC Login. |
+| `name_claim_type` | string | No | - | The name of the claim that contains the users name. |
+| `scopes` | string | No | - | The list of the scopes that should be requested while authenticating. |
+| `client_credential_method` | string | No | - | The Client Credential Method used. |
+| `client_secret_setting_name` | string | No | - | The App Setting name that contains the secret for this Custom OIDC Client. This is generated from 'name' above and suffixed with '_PROVIDER_AUTHENTICATION_SECRET'. |
+| `authorisation_endpoint` | string | No | - | The endpoint to make the Authorisation Request as supplied by 'openid_configuration_endpoint' response. |
+| `token_endpoint` | string | No | - | The endpoint used to request a Token as supplied by 'openid_configuration_endpoint' response. |
+| `issuer_endpoint` | string | No | - | The endpoint that issued the Token as supplied by 'openid_configuration_endpoint' response. |
+| `certification_uri` | string | No | - | The endpoint that provides the keys necessary to validate the token as supplied by 'openid_configuration_endpoint' response. |
+
+### `github` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the GitHub app used for login. |
+| `client_secret` | string | No | - | The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication. |
+
+### `twitter_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
+| `consumer_secret_setting_name` | string | Yes | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
 
 ### `apple_v2` block structure
 
@@ -243,24 +327,6 @@ tfstate_store = {
 | `client_id` | string | Yes | - | The OpenID Connect Client ID for the Apple web application. |
 | `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Apple Login. |
 | `login_scopes` | list | No | - | A list of Login Scopes provided by this Authentication Provider. |
-
-### `headers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `x_azure_fdid` | string | No | - | Specifies a list of Azure Front Door IDs. |
-| `x_fd_health_probe` | string | No | - | Specifies if a Front Door Health Probe should be expected. The only possible value is '1'. |
-| `x_forwarded_for` | string | No | - | Specifies a list of addresses for which matching should be applied. Omitting this value means allow any. |
-| `x_forwarded_host` | string | No | - | Specifies a list of Hosts for which matching should be applied. |
-
-### `microsoft_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication. |
-| `login_scopes` | string | No | - | The list of Login scopes that should be requested as part of Microsoft Account authentication. |
 
 ### `schedule` block structure
 
@@ -272,6 +338,14 @@ tfstate_store = {
 | `retention_period_days` | int | No | 30 | After how many days backups should be deleted. Defaults to '30'. |
 | `start_time` | string | No | - | When the schedule should start working in RFC-3339 format. |
 | `last_execution_time` | string | No | - | The time the backup was last attempted. |
+
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `schedule` | [block](#backup-block-structure) | Yes | - | a 'schedule' block as detailed below. |
+| `storage_account_url` | string | Yes | - | The SAS URL to the container. |
+| `enabled` | bool | No | True | Should this backup job be enabled? Defaults to 'true'. |
 
 ### `auth_settings` block structure
 
@@ -293,108 +367,14 @@ tfstate_store = {
 | `twitter` | [block](#auth_settings-block-structure) | No | - | a 'twitter' block as detailed below. |
 | `unauthenticated_client_action` | string | No | - | The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'. |
 
-### `active_directory_v2` block structure
+### `facebook` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Active Directory. |
-| `tenant_auth_endpoint` | string | Yes | - | The Azure Tenant Endpoint for the Authenticating Tenant. e.g. 'https://login.microsoftonline.com/v2.0/{tenant-guid}/' |
-| `client_secret_setting_name` | string | No | - | The App Setting name that contains the client secret of the Client. |
-| `client_secret_certificate_thumbprint` | string | No | - | The thumbprint of the certificate used for signing purposes. |
-| `jwt_allowed_groups` | list | No | - | A list of Allowed Groups in the JWT Claim. |
-| `jwt_allowed_client_applications` | list | No | - | A list of Allowed Client Applications in the JWT Claim. |
-| `www_authentication_disabled` | bool | No | False | Should the www-authenticate provider should be omitted from the request? Defaults to 'false'. |
-| `allowed_groups` | string | No | - | The list of allowed Group Names for the Default Authorisation Policy. |
-| `allowed_identities` | string | No | - | The list of allowed Identities for the Default Authorisation Policy. |
-| `allowed_applications` | string | No | - | The list of allowed Applications for the Default Authorisation Policy. |
-| `login_parameters` | string | No | - | A map of key-value pairs to send to the Authorisation Endpoint when a user logs in. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Active Directory. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
-| `client_secret` | string | No | - | The Client Secret for the Client ID. Cannot be used with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The App Setting name that contains the client secret of the Client. Cannot be used with 'client_secret'. |
-
-### `azure_static_web_app_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Static Web App Authentication. |
-
-### `twitter_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
-| `consumer_secret_setting_name` | string | Yes | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
-
-### `docker` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `registry_url` | string | Yes | - | The URL of the docker registry. |
-| `image_name` | string | Yes | - | The name of the Docker image to use. |
-| `image_tag` | string | Yes | - | The image tag of the image to use. |
-| `registry_username` | string | No | - | The username to use for connections to the registry. |
-| `registry_password` | string | No | - | The password for the account to use to connect to the registry. |
-
-### `google_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Google Login. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication. |
-| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication. |
-
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_key` | string | Yes | - | The Access key for the storage account. |
-| `account_name` | string | Yes | - | The Name of the Storage Account. |
-| `share_name` | string | Yes | - | The Name of the File Share or Container Name for Blob storage. |
-| `type` | string | Yes | - | The Azure Storage Type. Possible values include 'AzureFiles' and 'AzureBlob'. |
-| `mount_path` | string | No | - | The path at which to mount the storage share. |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Type of database. Possible values include: 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'. |
-| `value` | string | Yes | - | The connection string value. |
-
-### `google` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret` | string | No | - | The client secret associated with the Google web application. Cannot be specified with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for Google login. Cannot be specified with 'client_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, 'openid', 'profile', and 'email' are used as default scopes. |
-
-### `github_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the GitHub app used for login.. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for GitHub Login. |
-| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication. |
-
-### `scm_ip_restriction` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | No | Allow | The action to take. Possible values are 'Allow' or 'Deny'. Defaults to 'Allow'. |
-| `headers` | [block](#scm_ip_restriction-block-structure) | No | - | a 'headers' block as detailed below. |
-| `ip_address` | string | No | - | The CIDR notation of the IP or IP Range to match. For example: '10.0.0.0/24' or '192.168.10.1/32' |
-| `priority` | string | No | 65000 | The priority value of this 'ip_restriction'. Defaults to '65000'. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction.ENDEXPERIMENT |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
+| `app_secret` | string | No | - | The App Secret of the Facebook app used for Facebook login. Cannot be specified with 'app_secret_setting_name'. |
+| `app_secret_setting_name` | string | No | - | The app setting name that contains the 'app_secret' value used for Facebook login. Cannot be specified with 'app_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication. |
 
 ### `login` block structure
 
@@ -412,20 +392,40 @@ tfstate_store = {
 | `validate_nonce` | bool | No | True | Should the nonce be validated while completing the login flow. Defaults to 'true'. |
 | `nonce_expiration_time` | string | No | 00:05:00 | The time after the request is made when the nonce should expire. Defaults to '00:05:00'. |
 
-### `custom_oidc_v2` block structure
+### `active_directory_v2` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with the Custom OIDC. |
-| `openid_configuration_endpoint` | string | Yes | - | The app setting name that contains the 'client_secret' value used for the Custom OIDC Login. |
-| `name_claim_type` | string | No | - | The name of the claim that contains the users name. |
-| `scopes` | string | No | - | The list of the scopes that should be requested while authenticating. |
-| `client_credential_method` | string | No | - | The Client Credential Method used. |
-| `client_secret_setting_name` | string | No | - | The App Setting name that contains the secret for this Custom OIDC Client. This is generated from 'name' above and suffixed with '_PROVIDER_AUTHENTICATION_SECRET'. |
-| `authorisation_endpoint` | string | No | - | The endpoint to make the Authorisation Request as supplied by 'openid_configuration_endpoint' response. |
-| `token_endpoint` | string | No | - | The endpoint used to request a Token as supplied by 'openid_configuration_endpoint' response. |
-| `issuer_endpoint` | string | No | - | The endpoint that issued the Token as supplied by 'openid_configuration_endpoint' response. |
-| `certification_uri` | string | No | - | The endpoint that provides the keys necessary to validate the token as supplied by 'openid_configuration_endpoint' response. |
+| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Active Directory. |
+| `tenant_auth_endpoint` | string | Yes | - | The Azure Tenant Endpoint for the Authenticating Tenant. e.g. 'https://login.microsoftonline.com/v2.0/{tenant-guid}/' |
+| `client_secret_setting_name` | string | No | - | The App Setting name that contains the client secret of the Client. |
+| `client_secret_certificate_thumbprint` | string | No | - | The thumbprint of the certificate used for signing purposes. |
+| `jwt_allowed_groups` | list | No | - | A list of Allowed Groups in the JWT Claim. |
+| `jwt_allowed_client_applications` | list | No | - | A list of Allowed Client Applications in the JWT Claim. |
+| `www_authentication_disabled` | bool | No | False | Should the www-authenticate provider should be omitted from the request? Defaults to 'false'. |
+| `allowed_groups` | string | No | - | The list of allowed Group Names for the Default Authorisation Policy. |
+| `allowed_identities` | string | No | - | The list of allowed Identities for the Default Authorisation Policy. |
+| `allowed_applications` | string | No | - | The list of allowed Applications for the Default Authorisation Policy. |
+| `login_parameters` | string | No | - | A map of key-value pairs to send to the Authorisation Endpoint when a user logs in. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
+
+### `google` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret` | string | No | - | The client secret associated with the Google web application. Cannot be specified with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for Google login. Cannot be specified with 'client_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, 'openid', 'profile', and 'email' are used as default scopes. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Active Directory. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
+| `client_secret` | string | No | - | The Client Secret for the Client ID. Cannot be used with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The App Setting name that contains the client secret of the Client. Cannot be used with 'client_secret'. |
 
 
 

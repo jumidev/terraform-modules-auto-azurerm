@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of this Capacity Reservation Group. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the name of the resource group the Capacity Reservation Group is located in. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure location where the Capacity Reservation Group exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.zones** | string |  Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **zones** | string |  Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

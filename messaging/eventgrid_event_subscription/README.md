@@ -27,76 +27,32 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created. | 
-| **var.scope** | string |  Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the EventGrid Event Subscription resource. Changing this forces a new resource to be created. | 
+| **scope** | string |  Specifies the scope at which the EventGrid Event Subscription should be created. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.expiration_time_utc** | string |  -  |  -  |  Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`). | 
-| **var.event_delivery_schema** | string |  `EventGridSchema`  |  `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`  |  Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created. | 
-| **var.azure_function_endpoint** | [block](#azure_function_endpoint-block-structure) |  -  |  -  |  An `azure_function_endpoint` block. | 
-| **var.eventhub_endpoint_id** | string |  -  |  -  |  Specifies the id where the Event Hub is located. | 
-| **var.hybrid_connection_endpoint_id** | string |  -  |  -  |  Specifies the id where the Hybrid Connection is located. | 
-| **var.service_bus_queue_endpoint_id** | string |  -  |  -  |  Specifies the id where the Service Bus Queue is located. | 
-| **var.service_bus_topic_endpoint_id** | string |  -  |  -  |  Specifies the id where the Service Bus Topic is located. | 
-| **var.storage_queue_endpoint** | [block](#storage_queue_endpoint-block-structure) |  -  |  -  |  A `storage_queue_endpoint` block. | 
-| **var.webhook_endpoint** | [block](#webhook_endpoint-block-structure) |  -  |  -  |  A `webhook_endpoint` block. | 
-| **var.included_event_types** | list |  -  |  -  |  A list of applicable event types that need to be part of the event subscription. | 
-| **var.subject_filter** | [block](#subject_filter-block-structure) |  -  |  -  |  A `subject_filter` block. | 
-| **var.advanced_filter** | [block](#advanced_filter-block-structure) |  -  |  -  |  A `advanced_filter` block. | 
-| **var.delivery_identity** | [block](#delivery_identity-block-structure) |  -  |  -  |  A `delivery_identity` block. | 
-| **var.delivery_property** | [block](#delivery_property-block-structure) |  -  |  -  |  One or more `delivery_property` blocks. | 
-| **var.dead_letter_identity** | [block](#dead_letter_identity-block-structure) |  -  |  -  |  A `dead_letter_identity` block. | 
-| **var.storage_blob_dead_letter_destination** | [block](#storage_blob_dead_letter_destination-block-structure) |  -  |  -  |  A `storage_blob_dead_letter_destination` block. | 
-| **var.retry_policy** | [block](#retry_policy-block-structure) |  -  |  -  |  A `retry_policy` block. | 
-| **var.labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
-| **var.advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
-
-### `subject_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
-| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
-| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
-
-### `delivery_property` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_name` | string | Yes | - | The name of the header to send on to the destination |
-| `type` | string | Yes | - | Either 'Static' or 'Dynamic' |
-| `value` | string | No | - | If the 'type' is 'Static', then provide the value to use |
-| `source_field` | string | No | - | If the 'type' is 'Dynamic', then provide the payload field to be used as the value. Valid source fields differ by subscription type. |
-| `secret` | string | No | - | True if the 'value' is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls |
-
-### `dead_letter_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
-
-### `storage_queue_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
-| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
-| `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
-
-### `webhook_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | Specifies the url of the webhook where the Event Subscription will receive events. |
-| `base_url` | string | No | - | (Computed) The base url of the webhook where the Event Subscription will receive events. |
-| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
-| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
-| `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
-| `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
+| **expiration_time_utc** | string |  -  |  -  |  Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`). | 
+| **event_delivery_schema** | string |  `EventGridSchema`  |  `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`  |  Specifies the event delivery schema for the event subscription. Possible values include: `EventGridSchema`, `CloudEventSchemaV1_0`, `CustomInputSchema`. Defaults to `EventGridSchema`. Changing this forces a new resource to be created. | 
+| **azure_function_endpoint** | [block](#azure_function_endpoint-block-structure) |  -  |  -  |  An `azure_function_endpoint` block. | 
+| **eventhub_endpoint_id** | string |  -  |  -  |  Specifies the id where the Event Hub is located. | 
+| **hybrid_connection_endpoint_id** | string |  -  |  -  |  Specifies the id where the Hybrid Connection is located. | 
+| **service_bus_queue_endpoint_id** | string |  -  |  -  |  Specifies the id where the Service Bus Queue is located. | 
+| **service_bus_topic_endpoint_id** | string |  -  |  -  |  Specifies the id where the Service Bus Topic is located. | 
+| **storage_queue_endpoint** | [block](#storage_queue_endpoint-block-structure) |  -  |  -  |  A `storage_queue_endpoint` block. | 
+| **webhook_endpoint** | [block](#webhook_endpoint-block-structure) |  -  |  -  |  A `webhook_endpoint` block. | 
+| **included_event_types** | list |  -  |  -  |  A list of applicable event types that need to be part of the event subscription. | 
+| **subject_filter** | [block](#subject_filter-block-structure) |  -  |  -  |  A `subject_filter` block. | 
+| **advanced_filter** | [block](#advanced_filter-block-structure) |  -  |  -  |  A `advanced_filter` block. | 
+| **delivery_identity** | [block](#delivery_identity-block-structure) |  -  |  -  |  A `delivery_identity` block. | 
+| **delivery_property** | [block](#delivery_property-block-structure) |  -  |  -  |  One or more `delivery_property` blocks. | 
+| **dead_letter_identity** | [block](#dead_letter_identity-block-structure) |  -  |  -  |  A `dead_letter_identity` block. | 
+| **storage_blob_dead_letter_destination** | [block](#storage_blob_dead_letter_destination-block-structure) |  -  |  -  |  A `storage_blob_dead_letter_destination` block. | 
+| **retry_policy** | [block](#retry_policy-block-structure) |  -  |  -  |  A `retry_policy` block. | 
+| **labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
+| **advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
 
 ### `storage_blob_dead_letter_destination` block structure
 
@@ -104,21 +60,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage blob is located. |
 | `storage_blob_container_name` | string | Yes | - | Specifies the name of the Storage blob container that is the destination of the deadletter events. |
-
-### `delivery_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
-
-### `azure_function_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `function_id` | string | Yes | - | Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}. |
-| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
-| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
 
 ### `advanced_filter` block structure
 
@@ -147,12 +88,71 @@ tfstate_store = {
 | `value` | string | Yes | - | Specifies a single value to compare to when using a single value operator. |
 | `values` | string | Yes | - | Specifies an array of values to compare to when using a multiple values operator. |
 
+### `subject_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
+| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
+| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
+
+### `storage_queue_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
+| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
+| `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
+
+### `azure_function_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `function_id` | string | Yes | - | Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}. |
+| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
+| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
+
+### `delivery_property` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_name` | string | Yes | - | The name of the header to send on to the destination |
+| `type` | string | Yes | - | Either 'Static' or 'Dynamic' |
+| `value` | string | No | - | If the 'type' is 'Static', then provide the value to use |
+| `source_field` | string | No | - | If the 'type' is 'Dynamic', then provide the payload field to be used as the value. Valid source fields differ by subscription type. |
+| `secret` | string | No | - | True if the 'value' is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls |
+
+### `delivery_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+
 ### `retry_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_delivery_attempts` | int | Yes | - | Specifies the maximum number of delivery retry attempts for events. |
 | `event_time_to_live` | string | Yes | - | Specifies the time to live (in minutes) for events. Supported range is '1' to '1440'. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details. |
+
+### `webhook_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | Specifies the url of the webhook where the Event Subscription will receive events. |
+| `base_url` | string | No | - | (Computed) The base url of the webhook where the Event Subscription will receive events. |
+| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
+| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
+| `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
+| `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
+
+### `dead_letter_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
 
 
 

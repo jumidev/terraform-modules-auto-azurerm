@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_management_name** | string |  The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.app_id** | string |  App ID for Facebook. | 
-| **var.app_secret** | string |  App Secret for Facebook. | 
+| **api_management_name** | string |  The Name of the API Management Service where this Facebook Identity Provider should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created. | 
+| **app_id** | string |  App ID for Facebook. | 
+| **app_secret** | string |  App Secret for Facebook. | 
 
 
 

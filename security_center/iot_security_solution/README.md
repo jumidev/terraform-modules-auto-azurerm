@@ -30,33 +30,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.display_name** | string |  Specifies the Display Name for this Iot Security Solution. | 
-| **var.iothub_ids** | string |  Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied. | 
+| **name** | string |  Specifies the name of the Iot Security Solution. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **display_name** | string |  Specifies the Display Name for this Iot Security Solution. | 
+| **iothub_ids** | string |  Specifies the IoT Hub resource IDs to which this Iot Security Solution is applied. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.additional_workspace** | [block](#additional_workspace-block-structure) |  -  |  -  |  A `additional_workspace` block. | 
-| **var.disabled_data_sources** | bool |  -  |  -  |  A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`. | 
-| **var.enabled** | bool |  `True`  |  -  |  Is the Iot Security Solution enabled? Defaults to `true`. | 
-| **var.events_to_export** | string |  -  |  `RawEvents`  |  A list of data which is to exported to analytic workspace. Valid values include `RawEvents`. | 
-| **var.log_analytics_workspace_id** | string |  -  |  -  |  Specifies the Log Analytics Workspace ID to which the security data will be sent. | 
-| **var.log_unmasked_ips_enabled** | bool |  `False`  |  -  |  Should IP addressed be unmasked in the log? Defaults to `false`. | 
-| **var.recommendations_enabled** | [block](#recommendations_enabled-block-structure) |  -  |  -  |  A `recommendations_enabled` block of options to enable or disable as defined below. | 
-| **var.query_for_resources** | string |  -  |  -  |  An Azure Resource Graph query used to set the resources monitored. | 
-| **var.query_subscription_ids** | list |  -  |  -  |  A list of subscription Ids on which the user defined resources query should be executed. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `additional_workspace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data_types` | string | Yes | - | A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'. |
-| `workspace_id` | string | Yes | - | The resource ID of the Log Analytics Workspace. |
+| **additional_workspace** | [block](#additional_workspace-block-structure) |  -  |  -  |  A `additional_workspace` block. | 
+| **disabled_data_sources** | bool |  -  |  -  |  A list of disabled data sources for the Iot Security Solution. Possible value is `TwinData`. | 
+| **enabled** | bool |  `True`  |  -  |  Is the Iot Security Solution enabled? Defaults to `true`. | 
+| **events_to_export** | string |  -  |  `RawEvents`  |  A list of data which is to exported to analytic workspace. Valid values include `RawEvents`. | 
+| **log_analytics_workspace_id** | string |  -  |  -  |  Specifies the Log Analytics Workspace ID to which the security data will be sent. | 
+| **log_unmasked_ips_enabled** | bool |  `False`  |  -  |  Should IP addressed be unmasked in the log? Defaults to `false`. | 
+| **recommendations_enabled** | [block](#recommendations_enabled-block-structure) |  -  |  -  |  A `recommendations_enabled` block of options to enable or disable as defined below. | 
+| **query_for_resources** | string |  -  |  -  |  An Azure Resource Graph query used to set the resources monitored. | 
+| **query_subscription_ids** | list |  -  |  -  |  A list of subscription Ids on which the user defined resources query should be executed. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `recommendations_enabled` block structure
 
@@ -78,6 +71,13 @@ tfstate_store = {
 | `privileged_docker_options` | bool | No | True | Is high level permissions are needed for the module? Defaults to 'true'. |
 | `shared_credentials` | bool | No | True | Is any credentials shared among devices? Defaults to 'true'. |
 | `vulnerable_tls_cipher_suite` | bool | No | True | Does TLS cipher suite need to be updated? Defaults to 'true'. |
+
+### `additional_workspace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `data_types` | string | Yes | - | A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'. |
+| `workspace_id` | string | Yes | - | The resource ID of the Log Analytics Workspace. |
 
 
 

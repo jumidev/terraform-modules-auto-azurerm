@@ -48,34 +48,34 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created. | 
-| **var.integration_account_name** | string |  -  |  The name of the Logic App Integration Account. Changing this forces a new resource to be created. | 
-| **var.agreement_type** | string |  `AS2`, `X12`, `Edifact`  |  The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`. | 
-| **var.content** | string |  -  |  The content of the Logic App Integration Account Agreement. | 
-| **var.guest_identity** | [block](#guest_identity-block-structure) |  -  |  A `guest_identity` block. | 
-| **var.guest_partner_name** | string |  -  |  The name of the guest Logic App Integration Account Partner. | 
-| **var.host_identity** | [block](#host_identity-block-structure) |  -  |  A `host_identity` block. | 
-| **var.host_partner_name** | string |  -  |  The name of the host Logic App Integration Account Partner. | 
+| **name** | string |  -  |  The name which should be used for this Logic App Integration Account Agreement. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created. | 
+| **integration_account_name** | string |  -  |  The name of the Logic App Integration Account. Changing this forces a new resource to be created. | 
+| **agreement_type** | string |  `AS2`, `X12`, `Edifact`  |  The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`. | 
+| **content** | string |  -  |  The content of the Logic App Integration Account Agreement. | 
+| **guest_identity** | [block](#guest_identity-block-structure) |  -  |  A `guest_identity` block. | 
+| **guest_partner_name** | string |  -  |  The name of the guest Logic App Integration Account Partner. | 
+| **host_identity** | [block](#host_identity-block-structure) |  -  |  A `host_identity` block. | 
+| **host_partner_name** | string |  -  |  The name of the host Logic App Integration Account Partner. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.metadata** | string |  The metadata of the Logic App Integration Account Agreement. | 
-
-### `host_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `qualifier` | string | Yes | - | The authenticating body that provides unique host identities to organizations. |
-| `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
+| **metadata** | string |  The metadata of the Logic App Integration Account Agreement. | 
 
 ### `guest_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `qualifier` | string | Yes | - | The authenticating body that provides unique guest identities to organizations. |
+| `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
+
+### `host_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `qualifier` | string | Yes | - | The authenticating body that provides unique host identities to organizations. |
 | `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
 
 

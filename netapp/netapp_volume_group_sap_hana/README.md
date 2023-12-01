@@ -49,13 +49,34 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.account_name** | string |  Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.application_identifier** | string |  The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.group_description** | string |  Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.location** | string |  The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.name** | string |  The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
-| **var.volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
+| **account_name** | string |  Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **application_identifier** | string |  The SAP System ID, maximum 3 characters, e.g. `SH9`. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **group_description** | string |  Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **location** | string |  The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **name** | string |  The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
+| **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
+
+### `export_policy_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_clients` | string | Yes | - | A comma-sperated list of allowed client IPv4 addresses. |
+| `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
+| `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
+| `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
+| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
+| `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
+| `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
+
+### `data_protection_replication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
+| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
 ### `volume` block structure
 
@@ -77,32 +98,11 @@ tfstate_store = {
 | `data_protection_replication` | [block](#volume-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `data_protection_snapshot_policy` | [block](#volume-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
 
-### `export_policy_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_clients` | string | Yes | - | A comma-sperated list of allowed client IPv4 addresses. |
-| `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
-| `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
-| `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
-| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
-| `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
-| `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
-
 ### `data_protection_snapshot_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
-
-### `data_protection_replication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
-| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
-| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
-| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
 
 

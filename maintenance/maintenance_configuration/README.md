@@ -29,37 +29,21 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.scope** | string |  `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB`, `SQLManagedInstance`  |  The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. | 
+| **name** | string |  -  |  Specifies the name of the Maintenance Configuration. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **scope** | string |  `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB`, `SQLManagedInstance`  |  The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.visibility** | string |  `Custom`  |  -  |  The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`. | 
-| **var.window** | [block](#window-block-structure) |  -  |  -  |  A `window` block. | 
-| **var.install_patches** | [block](#install_patches-block-structure) |  -  |  -  |  An `install_patches` block. | 
-| **var.in_guest_user_patch_mode** | string |  -  |  `Platform`, `User`  |  The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`. | 
-| **var.properties** | string |  -  |  -  |  A mapping of properties to assign to the resource. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 
-
-### `linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
-| `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
-| `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
-
-### `install_patches` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `linux` | [block](#install_patches-block-structure) | No | - | A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch' |
-| `windows` | [block](#install_patches-block-structure) | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
-| `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
+| **visibility** | string |  `Custom`  |  -  |  The visibility of the Maintenance Configuration. The only allowable value is `Custom`. Defaults to `Custom`. | 
+| **window** | [block](#window-block-structure) |  -  |  -  |  A `window` block. | 
+| **install_patches** | [block](#install_patches-block-structure) |  -  |  -  |  An `install_patches` block. | 
+| **in_guest_user_patch_mode** | string |  -  |  `Platform`, `User`  |  The in guest user patch mode. Possible values are `Platform` or `User`. Must be specified when `scope` is `InGuestPatch`. | 
+| **properties** | string |  -  |  -  |  A mapping of properties to assign to the resource. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 
 
 ### `window` block structure
 
@@ -71,6 +55,14 @@ tfstate_store = {
 | `time_zone` | string | Yes | - | The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. |
 | `recur_every` | string | No | - | The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. |
 
+### `install_patches` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linux` | [block](#install_patches-block-structure) | No | - | A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch' |
+| `windows` | [block](#install_patches-block-structure) | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
+| `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
+
 ### `windows` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +70,14 @@ tfstate_store = {
 | `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
 | `kb_numbers_to_exclude` | string | No | - | List of KB numbers to be excluded from patching. |
 | `kb_numbers_to_include` | string | No | - | List of KB numbers to be included for patching. |
+
+### `linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
+| `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
+| `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
 
 
 

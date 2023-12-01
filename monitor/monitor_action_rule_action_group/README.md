@@ -28,19 +28,52 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created. | 
-| **var.action_group_id** | string |  Specifies the resource id of monitor action group. | 
+| **name** | string |  Specifies the name of the Monitor Action Rule. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the name of the resource group in which the Monitor Action Rule should exist. Changing this forces a new resource to be created. | 
+| **action_group_id** | string |  Specifies the resource id of monitor action group. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.description** | string |  -  |  Specifies a description for the Action Rule. | 
-| **var.enabled** | bool |  `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
-| **var.scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
-| **var.condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **description** | string |  -  |  Specifies a description for the Action Rule. | 
+| **enabled** | bool |  `True`  |  Is the Action Rule enabled? Defaults to `true`. | 
+| **scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
+| **condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+
+### `condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
+| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
+| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
+| `monitor` | [block](#condition-block-structure) | No | - | A 'monitor' block. |
+| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
+| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
+| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
+
+### `alert_rule_id` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
+
+### `monitor` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
+
+### `target_resource_type` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. |
 
 ### `scope` block structure
 
@@ -76,39 +109,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. |
-
-### `monitor` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
-
-### `condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
-| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
-| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
-| `monitor` | [block](#condition-block-structure) | No | - | A 'monitor' block. |
-| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
-| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
-| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
-
-### `alert_rule_id` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
-
-### `target_resource_type` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. |
 
 
 

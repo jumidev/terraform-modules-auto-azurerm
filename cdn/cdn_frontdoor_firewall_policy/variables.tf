@@ -72,16 +72,16 @@ variable "managed_rule" {
 #   exclusion (block)           : One or more 'exclusion' blocks.
 #   override (block)            : One or more 'override' blocks.
 #
+# exclusion block structure:
+#   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames'
+#   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
+#   selector (string)        : (REQUIRED) Selector for the value in the 'match_variable' attribute this exclusion applies to.
+#
 # rule block structure:
 #   rule_id (string)    : (REQUIRED) Identifier for the managed rule.
 #   action (string)     : (REQUIRED) The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'.
 #   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
 #   exclusion (block)   : One or more 'exclusion' blocks.
-#
-# exclusion block structure:
-#   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames'
-#   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
-#   selector (string)        : (REQUIRED) Selector for the value in the 'match_variable' attribute this exclusion applies to.
 #
 # override block structure:
 #   rule_group_name (string): (REQUIRED) The managed rule group to override.

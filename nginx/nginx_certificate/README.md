@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created. | 
-| **var.nginx_deployment_id** | string |  The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created. | 
-| **var.certificate_virtual_path** | string |  Specify the path to the cert file of this certificate. | 
-| **var.key_virtual_path** | string |  Specify the path to the key file of this certificate. | 
-| **var.key_vault_secret_id** | string |  Specify the ID of the Key Vault Secret for this certificate. | 
+| **name** | string |  The name which should be used for this Nginx Certificate. Changing this forces a new Nginx Certificate to be created. | 
+| **nginx_deployment_id** | string |  The ID of the Nginx Deployment that this Certificate should be associated with. Changing this forces a new Nginx Certificate to be created. | 
+| **certificate_virtual_path** | string |  Specify the path to the cert file of this certificate. | 
+| **key_virtual_path** | string |  Specify the path to the key file of this certificate. | 
+| **key_vault_secret_id** | string |  Specify the ID of the Key Vault Secret for this certificate. | 
 
 
 

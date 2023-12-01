@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_name** | string |  The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string |  The name of the API Management Service. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **api_name** | string |  The ID of the API Management API within the API Management Service. Changing this forces a new resource to be created. | 
+| **api_management_name** | string |  The name of the API Management Service. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.xml_content** | string |  The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. | 
-| **var.xml_link** | string |  A link to a Policy XML Document, which must be publicly available. | 
+| **xml_content** | string |  The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. | 
+| **xml_link** | string |  A link to a Policy XML Document, which must be publicly available. | 
 
 
 

@@ -28,16 +28,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Rules engine configuration. Changing this forces a new resource to be created. | 
-| **var.frontdoor_name** | string |  The name of the Front Door instance. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Rules engine configuration. Changing this forces a new resource to be created. | 
+| **frontdoor_name** | string |  The name of the Front Door instance. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
-| **var.rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
+| **enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
+| **rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
+| `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
 
 ### `request_header` block structure
 
@@ -46,22 +53,6 @@ tfstate_store = {
 | `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
-
-### `response_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
-
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
-| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
 ### `match_condition` block structure
 
@@ -74,12 +65,21 @@ tfstate_store = {
 | `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
 | `value` | list | No | - | (array) can contain one or more strings. |
 
-### `action` block structure
+### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
-| `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
+| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
+| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
+
+### `response_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
 
 
 

@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.server_name** | string |  The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group for the SQL server. Changing this forces a new resource to be created. | 
-| **var.login** | string |  The login name of the principal to set as the server administrator | 
-| **var.object_id** | string |  The ID of the principal to set as the server administrator | 
-| **var.tenant_id** | string |  The Azure Tenant ID | 
+| **server_name** | string |  The name of the SQL Server on which to set the administrator. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group for the SQL server. Changing this forces a new resource to be created. | 
+| **login** | string |  The login name of the principal to set as the server administrator | 
+| **object_id** | string |  The ID of the principal to set as the server administrator | 
+| **tenant_id** | string |  The Azure Tenant ID | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.azuread_authentication_only** | string |  Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). | 
+| **azuread_authentication_only** | string |  Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). | 
 
 
 

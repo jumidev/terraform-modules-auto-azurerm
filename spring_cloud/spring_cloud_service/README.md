@@ -28,41 +28,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.container_registry** | [block](#container_registry-block-structure) |  -  |  -  |  One or more `container_registry` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.log_stream_public_endpoint_enabled** | bool |  -  |  -  |  Should the log stream in vnet injection instance could be accessed from Internet? | 
-| **var.build_agent_pool_size** | string |  -  |  `S1`, `S2`, `S3`, `S4`, `S5`  |  Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.default_build_service** | [block](#default_build_service-block-structure) |  -  |  -  |  A `default_build_service` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.sku_name** | string |  `S0`  |  `B0`, `S0`, `E0`  |  Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created. | 
-| **var.marketplace** | [block](#marketplace-block-structure) |  -  |  -  |  A `marketplace` block. Can only be specified when `sku` is set to `E0`. | 
-| **var.network** | [block](#network-block-structure) |  -  |  -  |  A `network` block. Changing this forces a new resource to be created. | 
-| **var.config_server_git_setting** | [block](#config_server_git_setting-block-structure) |  -  |  -  |  A `config_server_git_setting` block. This field is applicable only for Spring Cloud Service with basic and standard tier. | 
-| **var.service_registry_enabled** | bool |  -  |  -  |  Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier. | 
-| **var.trace** | [block](#trace-block-structure) |  -  |  -  |  A `trace` block. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.zone_redundant** | bool |  `False`  |  -  |  Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`. | 
-
-### `marketplace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `plan` | string | Yes | - | Specifies the plan ID of the 3rd Party Artifact that is being procured. |
-| `publisher` | string | Yes | - | Specifies the publisher ID of the 3rd Party Artifact that is being procured. |
-| `product` | string | Yes | - | Specifies the 3rd Party artifact that is being procured. |
-
-### `http_basic_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
-| `password` | string | Yes | - | The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
+| **container_registry** | [block](#container_registry-block-structure) |  -  |  -  |  One or more `container_registry` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| **log_stream_public_endpoint_enabled** | bool |  -  |  -  |  Should the log stream in vnet injection instance could be accessed from Internet? | 
+| **build_agent_pool_size** | string |  -  |  `S1`, `S2`, `S3`, `S4`, `S5`  |  Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| **default_build_service** | [block](#default_build_service-block-structure) |  -  |  -  |  A `default_build_service` block. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| **sku_name** | string |  `S0`  |  `B0`, `S0`, `E0`  |  Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created. | 
+| **marketplace** | [block](#marketplace-block-structure) |  -  |  -  |  A `marketplace` block. Can only be specified when `sku` is set to `E0`. | 
+| **network** | [block](#network-block-structure) |  -  |  -  |  A `network` block. Changing this forces a new resource to be created. | 
+| **config_server_git_setting** | [block](#config_server_git_setting-block-structure) |  -  |  -  |  A `config_server_git_setting` block. This field is applicable only for Spring Cloud Service with basic and standard tier. | 
+| **service_registry_enabled** | bool |  -  |  -  |  Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier. | 
+| **trace** | [block](#trace-block-structure) |  -  |  -  |  A `trace` block. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **zone_redundant** | bool |  `False`  |  -  |  Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`. | 
 
 ### `network` block structure
 
@@ -76,25 +61,6 @@ tfstate_store = {
 | `read_timeout_seconds` | int | No | - | Ingress read time out in seconds. |
 | `service_runtime_network_resource_group` | string | No | - | Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created. |
 
-### `config_server_git_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `uri` | string | Yes | - | The URI of the default Git repository used as the Config Server back end, should be started with 'http://', 'https://', 'git@', or 'ssh://'. |
-| `label` | string | No | - | The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository. |
-| `search_paths` | string | No | - | An array of strings used to search subdirectories of the Git repository. |
-| `http_basic_auth` | [block](#config_server_git_setting-block-structure) | No | - | A 'http_basic_auth' block. |
-| `ssh_auth` | [block](#config_server_git_setting-block-structure) | No | - | A 'ssh_auth' block. |
-| `repository` | [block](#config_server_git_setting-block-structure) | No | - | One or more 'repository' blocks. |
-
-### `container_registry` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | Specifies the username of the container registry. |
-| `password` | string | Yes | - | Specifies the password of the container registry. |
-| `server` | string | Yes | - | Specifies the login server of the container registry. |
-
 ### `repository` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -106,12 +72,23 @@ tfstate_store = {
 | `http_basic_auth` | [block](#repository-block-structure) | No | - | A 'http_basic_auth' block. |
 | `ssh_auth` | [block](#repository-block-structure) | No | - | A 'ssh_auth' block. |
 
-### `trace` block structure
+### `http_basic_auth` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `connection_string` | string | No | - | The connection string used for Application Insights. |
-| `sample_rate` | string | No | 10.0 | The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. |
+| `username` | string | Yes | - | The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
+| `password` | string | Yes | - | The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
+
+### `config_server_git_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `uri` | string | Yes | - | The URI of the default Git repository used as the Config Server back end, should be started with 'http://', 'https://', 'git@', or 'ssh://'. |
+| `label` | string | No | - | The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository. |
+| `search_paths` | string | No | - | An array of strings used to search subdirectories of the Git repository. |
+| `http_basic_auth` | [block](#config_server_git_setting-block-structure) | No | - | A 'http_basic_auth' block. |
+| `ssh_auth` | [block](#config_server_git_setting-block-structure) | No | - | A 'ssh_auth' block. |
+| `repository` | [block](#config_server_git_setting-block-structure) | No | - | One or more 'repository' blocks. |
 
 ### `default_build_service` block structure
 
@@ -127,6 +104,29 @@ tfstate_store = {
 | `host_key` | string | No | - | The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'. |
 | `host_key_algorithm` | string | No | - | The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists. |
 | `strict_host_key_checking_enabled` | bool | No | True | Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'. |
+
+### `trace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `connection_string` | string | No | - | The connection string used for Application Insights. |
+| `sample_rate` | string | No | 10.0 | The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. |
+
+### `marketplace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `plan` | string | Yes | - | Specifies the plan ID of the 3rd Party Artifact that is being procured. |
+| `publisher` | string | Yes | - | Specifies the publisher ID of the 3rd Party Artifact that is being procured. |
+| `product` | string | Yes | - | Specifies the 3rd Party artifact that is being procured. |
+
+### `container_registry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | Specifies the username of the container registry. |
+| `password` | string | Yes | - | Specifies the password of the container registry. |
+| `server` | string | Yes | - | Specifies the login server of the container registry. |
 
 
 

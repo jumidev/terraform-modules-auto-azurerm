@@ -38,22 +38,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created. | 
-| **var.detector_type** | string |  `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`  |  Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`. | 
-| **var.scope_resource_ids** | string |  -  |  Specifies the scopes of this Smart Detector Alert Rule. | 
-| **var.action_group** | [block](#action_group-block-structure) |  -  |  An `action_group` block. | 
-| **var.severity** | string |  `Sev0`, `Sev1`, `Sev2`, `Sev3`, `Sev4`  |  Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`. | 
-| **var.frequency** | string |  -  |  Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format. | 
+| **name** | string |  -  |  Specifies the name of the Monitor Smart Detector Alert Rule. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  Specifies the name of the resource group in which the Monitor Smart Detector Alert Rule should exist. Changing this forces a new resource to be created. | 
+| **detector_type** | string |  `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`  |  Specifies the Built-In Smart Detector type that this alert rule will use. Currently the only possible values are `FailureAnomaliesDetector`, `RequestPerformanceDegradationDetector`, `DependencyPerformanceDegradationDetector`, `ExceptionVolumeChangedDetector`, `TraceSeverityDetector`, `MemoryLeakDetector`. | 
+| **scope_resource_ids** | string |  -  |  Specifies the scopes of this Smart Detector Alert Rule. | 
+| **action_group** | [block](#action_group-block-structure) |  -  |  An `action_group` block. | 
+| **severity** | string |  `Sev0`, `Sev1`, `Sev2`, `Sev3`, `Sev4`  |  Specifies the severity of this Smart Detector Alert Rule. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3` or `Sev4`. | 
+| **frequency** | string |  -  |  Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.description** | string |  -  |  Specifies a description for the Smart Detector Alert Rule. | 
-| **var.enabled** | bool |  `True`  |  Is the Smart Detector Alert Rule enabled? Defaults to `true`. | 
-| **var.throttling_duration** | string |  -  |  Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **description** | string |  -  |  Specifies a description for the Smart Detector Alert Rule. | 
+| **enabled** | bool |  `True`  |  Is the Smart Detector Alert Rule enabled? Defaults to `true`. | 
+| **throttling_duration** | string |  -  |  Specifies the duration (in ISO8601 format) to wait before notifying on the alert rule again. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `action_group` block structure
 

@@ -27,22 +27,28 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.configuration_store_id** | string |  Specifies the id of the App Configuration. Changing this forces a new resource to be created. | 
-| **var.name** | string |  The name of the App Configuration Feature. Changing this forces a new resource to be created. | 
+| **configuration_store_id** | string |  Specifies the id of the App Configuration. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the App Configuration Feature. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  The description of the App Configuration Feature. | 
-| **var.enabled** | bool |  The status of the App Configuration Feature. By default, this is set to false. | 
-| **var.key** | string |  The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created. | 
-| **var.label** | string |  The label of the App Configuration Feature. Changing this forces a new resource to be created. | 
-| **var.locked** | string |  Should this App Configuration Feature be Locked to prevent changes? | 
-| **var.percentage_filter_value** | string |  A number representing the value of the percentage required to enable this feature. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
-| **var.targeting_filter** | [block](#targeting_filter-block-structure) |  A `targeting_filter` block. | 
-| **var.timewindow_filter** | [block](#timewindow_filter-block-structure) |  A `timewindow_filter` block. | 
+| **description** | string |  The description of the App Configuration Feature. | 
+| **enabled** | bool |  The status of the App Configuration Feature. By default, this is set to false. | 
+| **key** | string |  The key of the App Configuration Feature. The value for `name` will be used if this is unspecified. Changing this forces a new resource to be created. | 
+| **label** | string |  The label of the App Configuration Feature. Changing this forces a new resource to be created. | 
+| **locked** | string |  Should this App Configuration Feature be Locked to prevent changes? | 
+| **percentage_filter_value** | string |  A number representing the value of the percentage required to enable this feature. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
+| **targeting_filter** | [block](#targeting_filter-block-structure) |  A `targeting_filter` block. | 
+| **timewindow_filter** | [block](#timewindow_filter-block-structure) |  A `timewindow_filter` block. | 
+
+### `targeting_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rollout_percentage` | string | Yes | - | Rollout percentage of the group. |
 
 ### `timewindow_filter` block structure
 
@@ -50,12 +56,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `start` | string | No | - | The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
 | `end` | string | No | - | The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
-
-### `targeting_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rollout_percentage` | string | Yes | - | Rollout percentage of the group. |
 
 
 

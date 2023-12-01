@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.logic_app_id** | string |  Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
-| **var.schema** | string |  A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON. | 
+| **name** | string |  Specifies the name of the HTTP Request Trigger to be created within the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **logic_app_id** | string |  Specifies the ID of the Logic App Workflow. Changing this forces a new resource to be created. | 
+| **schema** | string |  A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.method** | string |  `DELETE`, `GET`, `PATCH`, `POST`, `PUT`  |  Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`. | 
-| **var.relative_path** | string |  -  |  Specifies the Relative Path used for this Request. | 
+| **method** | string |  `DELETE`, `GET`, `PATCH`, `POST`, `PUT`  |  Specifies the HTTP Method which the request be using. Possible values include `DELETE`, `GET`, `PATCH`, `POST` or `PUT`. | 
+| **relative_path** | string |  -  |  Specifies the Relative Path used for this Request. | 
 
 
 

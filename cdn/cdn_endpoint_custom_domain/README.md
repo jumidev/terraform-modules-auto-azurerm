@@ -28,24 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
-| **var.cdn_endpoint_id** | string |  The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
-| **var.host_name** | string |  The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
+| **name** | string |  The name which should be used for this CDN Endpoint Custom Domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
+| **cdn_endpoint_id** | string |  The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
+| **host_name** | string |  The host name of the custom domain. Changing this forces a new CDN Endpoint Custom Domain to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.cdn_managed_https** | [block](#cdn_managed_https-block-structure) |  A `cdn_managed_https` block. | 
-| **var.user_managed_https** | [block](#user_managed_https-block-structure) |  A `user_managed_https` block. | 
-
-### `cdn_managed_https` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_type` | string | Yes | - | The type of HTTPS certificate. Possible values are 'Shared' and 'Dedicated'. |
-| `protocol_type` | string | Yes | - | The type of protocol. Possible values are 'ServerNameIndication' and 'IPBased'. |
-| `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
+| **cdn_managed_https** | [block](#cdn_managed_https-block-structure) |  A `cdn_managed_https` block. | 
+| **user_managed_https** | [block](#user_managed_https-block-structure) |  A `user_managed_https` block. | 
 
 ### `user_managed_https` block structure
 
@@ -53,6 +45,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_certificate_id` | string | No | - | The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of 'key_vault_secret_id'. |
 | `key_vault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the HTTPS certificate. |
+| `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
+
+### `cdn_managed_https` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_type` | string | Yes | - | The type of HTTPS certificate. Possible values are 'Shared' and 'Dedicated'. |
+| `protocol_type` | string | Yes | - | The type of protocol. Possible values are 'ServerNameIndication' and 'IPBased'. |
 | `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
 
 

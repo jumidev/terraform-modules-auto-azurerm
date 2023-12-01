@@ -33,8 +33,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.key_vault_id** | string |  The ID of the Key Vault. Changing this forces a new resource to be created. | 
-| **var.contact** | [block](#contact-block-structure) |  One or more `contact` blocks. | 
+| **key_vault_id** | string |  The ID of the Key Vault. Changing this forces a new resource to be created. | 
+| **contact** | [block](#contact-block-structure) |  One or more `contact` blocks. | 
 
 ### `contact` block structure
 

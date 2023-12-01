@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created. | 
-| **var.device_update_account_id** | string |  Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created. | 
-| **var.iothub_id** | string |  Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created. | 
+| **device_update_account_id** | string |  Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created. | 
+| **iothub_id** | string |  Specifies the ID of the IoT Hub associated with the IoT Hub Device Update Instance. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.diagnostic_storage_account** | [block](#diagnostic_storage_account-block-structure) |  -  |  -  |  A `diagnostic_storage_account` block. | 
-| **var.diagnostic_enabled** | bool |  `False`  |  `true`, `false`  |  Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the IoT Hub Device Update Instance. | 
+| **diagnostic_storage_account** | [block](#diagnostic_storage_account-block-structure) |  -  |  -  |  A `diagnostic_storage_account` block. | 
+| **diagnostic_enabled** | bool |  `False`  |  `true`, `false`  |  Whether the diagnostic log collection is enabled. Possible values are `true` and `false`. Defaults to `false`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the IoT Hub Device Update Instance. | 
 
 ### `diagnostic_storage_account` block structure
 

@@ -36,23 +36,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the ExpressRoute circuit. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | [block](#sku-block-structure) |  A `sku` block for the ExpressRoute circuit as documented below. | 
+| **name** | string |  The name of the ExpressRoute circuit. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **sku** | [block](#sku-block-structure) |  A `sku` block for the ExpressRoute circuit as documented below. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.service_provider_name** | string |  -  |  The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created. | 
-| **var.peering_location** | string |  -  |  The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created. | 
-| **var.bandwidth_in_mbps** | int |  -  |  The bandwidth in Mbps of the circuit being created on the Service Provider. | 
-| **var.allow_classic_operations** | bool |  `False`  |  Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`. | 
-| **var.express_route_port_id** | string |  -  |  The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created. | 
-| **var.bandwidth_in_gbps** | int |  -  |  The bandwidth in Gbps of the circuit being created on the Express Route Port. | 
-| **var.authorization_key** | string |  -  |  The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **service_provider_name** | string |  -  |  The name of the ExpressRoute Service Provider. Changing this forces a new resource to be created. | 
+| **peering_location** | string |  -  |  The name of the peering location and **not** the Azure resource location. Changing this forces a new resource to be created. | 
+| **bandwidth_in_mbps** | int |  -  |  The bandwidth in Mbps of the circuit being created on the Service Provider. | 
+| **allow_classic_operations** | bool |  `False`  |  Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`. | 
+| **express_route_port_id** | string |  -  |  The ID of the Express Route Port this Express Route Circuit is based on. Changing this forces a new resource to be created. | 
+| **bandwidth_in_gbps** | int |  -  |  The bandwidth in Gbps of the circuit being created on the Express Route Port. | 
+| **authorization_key** | string |  -  |  The authorization key. This can be used to set up an ExpressRoute Circuit with an ExpressRoute Port from another subscription. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `sku` block structure
 

@@ -28,29 +28,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the App Configuration. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the App Configuration. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the App Configuration. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **var.encryption** | [block](#encryption-block-structure) |  -  |  -  |  An `encryption` block. | 
-| **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether local authentication methods is enabled. Defaults to `true`. | 
-| **var.public_network_access** | string |  -  |  `Enabled`, `Disabled`  |  The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`. | 
-| **var.purge_protection_enabled** | bool |  `False`  |  -  |  Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
-| **var.replica** | [block](#replica-block-structure) |  -  |  -  |  One or more `replica` blocks. | 
-| **var.sku** | string |  `free`  |  `free`, `standard`  |  The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
-| **var.soft_delete_retention_days** | int |  `7`  |  -  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `replica` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **encryption** | [block](#encryption-block-structure) |  -  |  -  |  An `encryption` block. | 
+| **local_auth_enabled** | bool |  `True`  |  -  |  Whether local authentication methods is enabled. Defaults to `true`. | 
+| **public_network_access** | string |  -  |  `Enabled`, `Disabled`  |  The Public Network Access setting of the App Configuration. Possible values are `Enabled` and `Disabled`. | 
+| **purge_protection_enabled** | bool |  `False`  |  -  |  Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
+| **replica** | [block](#replica-block-structure) |  -  |  -  |  One or more `replica` blocks. | 
+| **sku** | string |  `free`  |  `free`, `standard`  |  The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
+| **soft_delete_retention_days** | int |  `7`  |  -  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure
 
@@ -58,6 +52,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this App Configuration. |
+
+### `replica` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
 
 ### `encryption` block structure
 

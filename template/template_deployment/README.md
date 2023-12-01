@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the template deployment. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created. | 
-| **var.deployment_mode** | string |  Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`. Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not specified within the template, and Terraform will not be aware of this. | 
+| **name** | string |  Specifies the name of the template deployment. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the template deployment. Changing this forces a new resource to be created. | 
+| **deployment_mode** | string |  Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`. Note that you will almost *always* want this to be set to `Incremental` otherwise the deployment will destroy all infrastructure not specified within the template, and Terraform will not be aware of this. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.template_body** | string |  Specifies the JSON definition for the template. | 
-| **var.parameters** | string |  Specifies the name and value pairs that define the deployment parameters for the template. | 
-| **var.parameters_body** | string |  Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references | 
+| **template_body** | string |  Specifies the JSON definition for the template. | 
+| **parameters** | string |  Specifies the name and value pairs that define the deployment parameters for the template. | 
+| **parameters_body** | string |  Specifies a valid Azure JSON parameters file that define the deployment parameters. It can contain KeyVault references | 
 
 
 

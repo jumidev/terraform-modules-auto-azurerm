@@ -38,26 +38,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
-| **var.location** | string |  The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
-| **var.panorama_base64_config** | string |  The Base64 Encoded configuration value for connecting to the Panorama Configuration server. | 
-| **var.network_profile** | [block](#network_profile-block-structure) |  A `network_profile` block. | 
+| **name** | string |  The name which should be used for this Palo Alto Next Generation Firewall VHub Panorama. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
+| **location** | string |  The Azure Region where the Palo Alto Next Generation Firewall VHub Panorama should exist. Changing this forces a new Palo Alto Next Generation Firewall VHub Panorama to be created. | 
+| **panorama_base64_config** | string |  The Base64 Encoded configuration value for connecting to the Panorama Configuration server. | 
+| **network_profile** | [block](#network_profile-block-structure) |  A `network_profile` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.destination_nat** | [block](#destination_nat-block-structure) |  One or more `destination_nat` blocks. | 
-| **var.dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama. | 
-
-### `frontend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which traffic will be receiveed. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address resource the traffic will be received on. |
+| **destination_nat** | [block](#destination_nat-block-structure) |  One or more `destination_nat` blocks. | 
+| **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama. | 
 
 ### `destination_nat` block structure
 
@@ -66,6 +59,13 @@ tfstate_store = {
 | `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
 | `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
 | `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
+
+### `frontend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port on which traffic will be receiveed. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address resource the traffic will be received on. |
 
 ### `network_profile` block structure
 

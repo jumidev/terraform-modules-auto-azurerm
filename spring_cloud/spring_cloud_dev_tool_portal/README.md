@@ -27,17 +27,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created. | 
-| **var.spring_cloud_service_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created. | 
+| **name** | string |  The name which should be used for this Spring Cloud Dev Tool Portal. The only possible value is `default`. Changing this forces a new Spring Cloud Dev Tool Portal to be created. | 
+| **spring_cloud_service_id** | string |  The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Dev Tool Portal to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.application_accelerator_enabled** | bool |  Should the Accelerator plugin be enabled? | 
-| **var.application_live_view_enabled** | bool |  Should the Application Live View be enabled? | 
-| **var.public_network_access_enabled** | bool |  Is public network access enabled? | 
-| **var.sso** | [block](#sso-block-structure) |  A `sso` block. | 
+| **application_accelerator_enabled** | bool |  Should the Accelerator plugin be enabled? | 
+| **application_live_view_enabled** | bool |  Should the Application Live View be enabled? | 
+| **public_network_access_enabled** | bool |  Is public network access enabled? | 
+| **sso** | [block](#sso-block-structure) |  A `sso` block. | 
 
 ### `sso` block structure
 

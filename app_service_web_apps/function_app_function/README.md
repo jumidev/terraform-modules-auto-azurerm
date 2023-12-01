@@ -28,18 +28,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the function. Changing this forces a new resource to be created. | 
-| **var.function_app_id** | string |  The ID of the Function App in which this function should reside. Changing this forces a new resource to be created. | 
-| **var.config_json** | string |  The config for this Function in JSON format. | 
+| **name** | string |  The name of the function. Changing this forces a new resource to be created. | 
+| **function_app_id** | string |  The ID of the Function App in which this function should reside. Changing this forces a new resource to be created. | 
+| **config_json** | string |  The config for this Function in JSON format. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.enabled** | bool |  `True`  |  -  |  Should this function be enabled. Defaults to `true`. | 
-| **var.file** | [block](#file-block-structure) |  -  |  -  |  A `file` block as detailed below. Changing this forces a new resource to be created. | 
-| **var.language** | string |  -  |  `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, `TypeScript`  |  The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`. | 
-| **var.test_data** | string |  -  |  -  |  The test data for the function. | 
+| **enabled** | bool |  `True`  |  -  |  Should this function be enabled. Defaults to `true`. | 
+| **file** | [block](#file-block-structure) |  -  |  -  |  A `file` block as detailed below. Changing this forces a new resource to be created. | 
+| **language** | string |  -  |  `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, `TypeScript`  |  The language the Function is written in. Possible values are `CSharp`, `Custom`, `Java`, `Javascript`, `Python`, `PowerShell`, and `TypeScript`. | 
+| **test_data** | string |  -  |  -  |  The test data for the function. | 
 
 ### `file` block structure
 

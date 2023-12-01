@@ -28,20 +28,20 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the App Service Environment. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  `subnet_id`  |  The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string |  -  |  The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created. | 
+| **name** | string |  -  |  The name of the App Service Environment. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  `subnet_id`  |  The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created. | 
+| **subnet_id** | string |  -  |  The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.allow_new_private_endpoint_connections** | bool |  `True`  |  -  |  Should new Private Endpoint Connections be allowed. Defaults to `true`. | 
-| **var.cluster_setting** | [block](#cluster_setting-block-structure) |  -  |  -  |  Zero or more `cluster_setting` blocks. | 
-| **var.dedicated_host_count** | string |  -  |  `2`  |  This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created. | 
-| **var.zone_redundant** | string |  -  |  -  |  Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created. | 
-| **var.internal_load_balancing_mode** | string |  `None`  |  `None`, `"Web, Publishing"`  |  Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **allow_new_private_endpoint_connections** | bool |  `True`  |  -  |  Should new Private Endpoint Connections be allowed. Defaults to `true`. | 
+| **cluster_setting** | [block](#cluster_setting-block-structure) |  -  |  -  |  Zero or more `cluster_setting` blocks. | 
+| **dedicated_host_count** | string |  -  |  `2`  |  This ASEv3 should use dedicated Hosts. Possible values are `2`. Changing this forces a new resource to be created. | 
+| **zone_redundant** | string |  -  |  -  |  Set to `true` to deploy the ASEv3 with availability zones supported. Zonal ASEs can be deployed in some regions, you can refer to [Availability Zone support for App Service Environments](https://docs.microsoft.com/azure/app-service/environment/zone-redundancy). You can only set either `dedicated_host_count` or `zone_redundant` but not both. Changing this forces a new resource to be created. | 
+| **internal_load_balancing_mode** | string |  `None`  |  `None`, `"Web, Publishing"`  |  Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `cluster_setting` block structure
 

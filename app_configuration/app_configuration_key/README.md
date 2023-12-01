@@ -27,20 +27,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.configuration_store_id** | string |  Specifies the id of the App Configuration. Changing this forces a new resource to be created. | 
-| **var.key** | string |  The name of the App Configuration Key to create. Changing this forces a new resource to be created. | 
+| **configuration_store_id** | string |  Specifies the id of the App Configuration. Changing this forces a new resource to be created. | 
+| **key** | string |  The name of the App Configuration Key to create. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.content_type** | string |  -  |  The content type of the App Configuration Key. This should only be set when type is set to `kv`. | 
-| **var.label** | string |  -  |  The label of the App Configuration Key. Changing this forces a new resource to be created. | 
-| **var.value** | string |  -  |  The value of the App Configuration Key. This should only be set when type is set to `kv`. | 
-| **var.locked** | string |  -  |  Should this App Configuration Key be Locked to prevent changes? | 
-| **var.type** | string |  `kv`  |  The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`. | 
-| **var.vault_key_reference** | string |  -  |  The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **content_type** | string |  -  |  The content type of the App Configuration Key. This should only be set when type is set to `kv`. | 
+| **label** | string |  -  |  The label of the App Configuration Key. Changing this forces a new resource to be created. | 
+| **value** | string |  -  |  The value of the App Configuration Key. This should only be set when type is set to `kv`. | 
+| **locked** | string |  -  |  Should this App Configuration Key be Locked to prevent changes? | 
+| **type** | string |  `kv`  |  The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/). Defaults to `kv`. | 
+| **vault_key_reference** | string |  -  |  The ID of the vault secret this App Configuration Key refers to, when `type` is set to `vault`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 
 

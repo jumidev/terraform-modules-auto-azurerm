@@ -87,98 +87,44 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Application Gateway. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created. | 
-| **var.backend_address_pool** | [block](#backend_address_pool-block-structure) |  One or more `backend_address_pool` blocks. | 
-| **var.backend_http_settings** | [block](#backend_http_settings-block-structure) |  One or more `backend_http_settings` blocks. | 
-| **var.frontend_ip_configuration** | [block](#frontend_ip_configuration-block-structure) |  One or more `frontend_ip_configuration` blocks. | 
-| **var.frontend_port** | [block](#frontend_port-block-structure) |  One or more `frontend_port` blocks. | 
-| **var.gateway_ip_configuration** | [block](#gateway_ip_configuration-block-structure) |  One or more `gateway_ip_configuration` blocks. | 
-| **var.http_listener** | [block](#http_listener-block-structure) |  One or more `http_listener` blocks. | 
-| **var.request_routing_rule** | [block](#request_routing_rule-block-structure) |  One or more `request_routing_rule` blocks. | 
-| **var.sku** | [block](#sku-block-structure) |  A `sku` block. | 
+| **name** | string |  The name of the Application Gateway. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to the Application Gateway should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created. | 
+| **backend_address_pool** | [block](#backend_address_pool-block-structure) |  One or more `backend_address_pool` blocks. | 
+| **backend_http_settings** | [block](#backend_http_settings-block-structure) |  One or more `backend_http_settings` blocks. | 
+| **frontend_ip_configuration** | [block](#frontend_ip_configuration-block-structure) |  One or more `frontend_ip_configuration` blocks. | 
+| **frontend_port** | [block](#frontend_port-block-structure) |  One or more `frontend_port` blocks. | 
+| **gateway_ip_configuration** | [block](#gateway_ip_configuration-block-structure) |  One or more `gateway_ip_configuration` blocks. | 
+| **http_listener** | [block](#http_listener-block-structure) |  One or more `http_listener` blocks. | 
+| **request_routing_rule** | [block](#request_routing_rule-block-structure) |  One or more `request_routing_rule` blocks. | 
+| **sku** | [block](#sku-block-structure) |  A `sku` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.fips_enabled** | bool |  -  |  Is FIPS enabled on the Application Gateway? | 
-| **var.global** | [block](#global-block-structure) |  -  |  A `global` block. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
-| **var.private_link_configuration** | [block](#private_link_configuration-block-structure) |  -  |  One or more `private_link_configuration` blocks. | 
-| **var.zones** | string |  -  |  Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created. | 
-| **var.trusted_client_certificate** | [block](#trusted_client_certificate-block-structure) |  -  |  One or more `trusted_client_certificate` blocks. | 
-| **var.ssl_profile** | [block](#ssl_profile-block-structure) |  -  |  One or more `ssl_profile` blocks. | 
-| **var.authentication_certificate** | [block](#authentication_certificate-block-structure) |  -  |  One or more `authentication_certificate` blocks. | 
-| **var.trusted_root_certificate** | [block](#trusted_root_certificate-block-structure) |  -  |  One or more `trusted_root_certificate` blocks. | 
-| **var.ssl_policy** | [block](#ssl_policy-block-structure) |  -  |  a `ssl_policy` block. | 
-| **var.enable_http2** | bool |  `False`  |  Is HTTP2 enabled on the application gateway resource? Defaults to `false`. | 
-| **var.force_firewall_policy_association** | string |  -  |  Is the Firewall Policy associated with the Application Gateway? | 
-| **var.probe** | [block](#probe-block-structure) |  -  |  One or more `probe` blocks. | 
-| **var.ssl_certificate** | [block](#ssl_certificate-block-structure) |  -  |  One or more `ssl_certificate` blocks. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-| **var.url_path_map** | [block](#url_path_map-block-structure) |  -  |  One or more `url_path_map` blocks. | 
-| **var.waf_configuration** | [block](#waf_configuration-block-structure) |  -  |  A `waf_configuration` block. | 
-| **var.custom_error_configuration** | [block](#custom_error_configuration-block-structure) |  -  |  One or more `custom_error_configuration` blocks. | 
-| **var.firewall_policy_id** | string |  -  |  The ID of the Web Application Firewall Policy. | 
-| **var.redirect_configuration** | [block](#redirect_configuration-block-structure) |  -  |  One or more `redirect_configuration` blocks. | 
-| **var.autoscale_configuration** | [block](#autoscale_configuration-block-structure) |  -  |  An `autoscale_configuration` block. | 
-| **var.rewrite_rule_set** | [block](#rewrite_rule_set-block-structure) |  -  |  One or more `rewrite_rule_set` blocks. Only valid for v2 SKUs. | 
-
-### `frontend_port` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port used for this Frontend Port. |
-
-### `authentication_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data` | string | Yes | - | The contents of the Authentication Certificate which should be used. |
-
-### `global` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `request_buffering_enabled` | bool | Yes | - | Whether Application Gateway's Request buffer is enabled. |
-| `response_buffering_enabled` | bool | Yes | - | Whether Application Gateway's Response buffer is enabled. |
-
-### `private_link_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_configuration` | [block](#private_link_configuration-block-structure) | Yes | - | One or more 'ip_configuration' blocks. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | Yes | - | The Tier of the SKU to use for this Application Gateway. Possible values are 'Standard', 'Standard_v2', 'WAF' and 'WAF_v2'. |
-| `capacity` | string | No | - | The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between '1' and '32', and '1' to '125' for a V2 SKU. This property is optional if 'autoscale_configuration' is set. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is 'UserAssigned'. |
-| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway. |
-
-### `exclusion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_variable` | string | Yes | - | Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are 'RequestArgKeys', 'RequestArgNames', 'RequestArgValues', 'RequestCookieKeys', 'RequestCookieNames', 'RequestCookieValues', 'RequestHeaderKeys', 'RequestHeaderNames' and 'RequestHeaderValues' |
-| `selector_match_operator` | string | No | - | Operator which will be used to search in the variable content. Possible values are 'Contains', 'EndsWith', 'Equals', 'EqualsAny' and 'StartsWith'. If empty will exclude all traffic on this 'match_variable' |
-| `selector` | string | No | - | String value which will be used for the filter operation. If empty will exclude all traffic on this 'match_variable' |
-
-### `backend_address_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `fqdns` | list | No | - | A list of FQDN's which should be part of the Backend Address Pool. |
-| `ip_addresses` | list | No | - | A list of IP Addresses which should be part of the Backend Address Pool. |
+| **fips_enabled** | bool |  -  |  Is FIPS enabled on the Application Gateway? | 
+| **global** | [block](#global-block-structure) |  -  |  A `global` block. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **private_link_configuration** | [block](#private_link_configuration-block-structure) |  -  |  One or more `private_link_configuration` blocks. | 
+| **zones** | string |  -  |  Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created. | 
+| **trusted_client_certificate** | [block](#trusted_client_certificate-block-structure) |  -  |  One or more `trusted_client_certificate` blocks. | 
+| **ssl_profile** | [block](#ssl_profile-block-structure) |  -  |  One or more `ssl_profile` blocks. | 
+| **authentication_certificate** | [block](#authentication_certificate-block-structure) |  -  |  One or more `authentication_certificate` blocks. | 
+| **trusted_root_certificate** | [block](#trusted_root_certificate-block-structure) |  -  |  One or more `trusted_root_certificate` blocks. | 
+| **ssl_policy** | [block](#ssl_policy-block-structure) |  -  |  a `ssl_policy` block. | 
+| **enable_http2** | bool |  `False`  |  Is HTTP2 enabled on the application gateway resource? Defaults to `false`. | 
+| **force_firewall_policy_association** | string |  -  |  Is the Firewall Policy associated with the Application Gateway? | 
+| **probe** | [block](#probe-block-structure) |  -  |  One or more `probe` blocks. | 
+| **ssl_certificate** | [block](#ssl_certificate-block-structure) |  -  |  One or more `ssl_certificate` blocks. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **url_path_map** | [block](#url_path_map-block-structure) |  -  |  One or more `url_path_map` blocks. | 
+| **waf_configuration** | [block](#waf_configuration-block-structure) |  -  |  A `waf_configuration` block. | 
+| **custom_error_configuration** | [block](#custom_error_configuration-block-structure) |  -  |  One or more `custom_error_configuration` blocks. | 
+| **firewall_policy_id** | string |  -  |  The ID of the Web Application Firewall Policy. | 
+| **redirect_configuration** | [block](#redirect_configuration-block-structure) |  -  |  One or more `redirect_configuration` blocks. | 
+| **autoscale_configuration** | [block](#autoscale_configuration-block-structure) |  -  |  An `autoscale_configuration` block. | 
+| **rewrite_rule_set** | [block](#rewrite_rule_set-block-structure) |  -  |  One or more `rewrite_rule_set` blocks. Only valid for v2 SKUs. | 
 
 ### `custom_error_configuration` block structure
 
@@ -186,6 +132,31 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `status_code` | string | Yes | - | Status code of the application gateway customer error. Possible values are 'HttpStatus403' and 'HttpStatus502' |
 | `custom_error_page_url` | string | Yes | - | Error page URL of the application gateway customer error. |
+
+### `gateway_ip_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The ID of the Subnet which the Application Gateway should be connected to. |
+
+### `rewrite_rule_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rewrite_rule` | [block](#rewrite_rule_set-block-structure) | No | - | One or more 'rewrite_rule' blocks. |
+
+### `request_routing_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_type` | string | Yes | - | The Type of Routing that should be used for this Rule. Possible values are 'Basic' and 'PathBasedRouting'. |
+| `http_listener_name` | string | Yes | - | The Name of the HTTP Listener which should be used for this Routing Rule. |
+| `backend_address_pool_name` | string | No | - | The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set. |
+| `backend_http_settings_name` | string | No | - | The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set. |
+| `redirect_configuration_name` | string | No | - | The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either 'backend_address_pool_name' or 'backend_http_settings_name' is set. |
+| `rewrite_rule_set_name` | string | No | - | The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs. |
+| `url_path_map_name` | string | No | - | The Name of the URL Path Map which should be associated with this Routing Rule. |
+| `priority` | string | No | - | Rule evaluation order can be dictated by specifying an integer value from '1' to '20000' with '1' being the highest priority and '20000' being the lowest priority. |
 
 ### `redirect_configuration` block structure
 
@@ -197,36 +168,11 @@ tfstate_store = {
 | `include_path` | bool | No | False | Whether to include the path in the redirected URL. Defaults to 'false' |
 | `include_query_string` | bool | No | False | Whether to include the query string in the redirected URL. Default to 'false' |
 
-### `ssl_profile` block structure
+### `frontend_port` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `trusted_client_certificate_names` | string | No | - | The name of the Trusted Client Certificate that will be used to authenticate requests from clients. |
-| `verify_client_cert_issuer_dn` | bool | No | False | Should client certificate issuer DN be verified? Defaults to 'false'. |
-| `verify_client_certificate_revocation` | string | No | - | Specify the method to check client certificate revocation status. Possible value is 'OCSP'. |
-| `ssl_policy` | [block](#ssl_profile-block-structure) | No | - | a 'ssl_policy' block. |
-
-### `autoscale_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `min_capacity` | string | Yes | - | Minimum capacity for autoscaling. Accepted values are in the range '0' to '100'. |
-| `max_capacity` | string | No | - | Maximum capacity for autoscaling. Accepted values are in the range '2' to '125'. |
-
-### `probe` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `host` | string | No | - | The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe. Cannot be set if 'pick_host_name_from_backend_http_settings' is set to 'true'. |
-| `interval` | string | Yes | - | The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds. |
-| `protocol` | string | Yes | - | The Protocol used for this Probe. Possible values are 'Http' and 'Https'. |
-| `path` | string | Yes | - | The Path used for this Probe. |
-| `timeout` | string | Yes | - | The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds. |
-| `unhealthy_threshold` | string | Yes | - | The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20. |
-| `port` | string | No | - | Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only. |
-| `pick_host_name_from_backend_http_settings` | bool | No | False | Whether the host header should be picked from the backend HTTP settings. Defaults to 'false'. |
-| `match` | [block](#probe-block-structure) | No | - | A 'match' block. |
-| `minimum_servers` | int | No | 0 | The minimum number of servers that are always marked as healthy. Defaults to '0'. |
+| `port` | string | Yes | - | The port used for this Frontend Port. |
 
 ### `trusted_root_certificate` block structure
 
@@ -235,16 +181,13 @@ tfstate_store = {
 | `data` | string | No | - | The contents of the Trusted Root Certificate which should be used. Required if 'key_vault_secret_id' is not set. |
 | `key_vault_secret_id` | string | No | - | The Secret ID of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if 'data' is not set. |
 
-### `backend_http_settings` block structure
+### `ssl_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-
-### `trusted_client_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data` | string | Yes | - | The base-64 encoded certificate. |
+| `data` | string | No | - | The base64-encoded PFX certificate data. Required if 'key_vault_secret_id' is not set. |
+| `password` | string | No | - | Password for the pfx file specified in data. Required if 'data' is set. |
+| `key_vault_secret_id` | string | No | - | The Secret ID of (base-64 encoded unencrypted pfx) the 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if 'data' is not set. |
 
 ### `ip_configuration` block structure
 
@@ -254,6 +197,27 @@ tfstate_store = {
 | `private_ip_address_allocation` | string | Yes | Dynamic | The allocation method used for the Private IP Address. Possible values are 'Dynamic' and 'Static'. |
 | `primary` | bool | Yes | True | Is this the Primary IP Configuration? |
 | `private_ip_address` | string | No | - | The Static IP Address which should be used. |
+
+### `disabled_rule_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'. |
+| `rules` | list | No | - | A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified. |
+
+### `autoscale_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `min_capacity` | string | Yes | - | Minimum capacity for autoscaling. Accepted values are in the range '0' to '100'. |
+| `max_capacity` | string | No | - | Maximum capacity for autoscaling. Accepted values are in the range '2' to '125'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is 'UserAssigned'. |
+| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway. |
 
 ### `frontend_ip_configuration` block structure
 
@@ -265,76 +229,31 @@ tfstate_store = {
 | `private_ip_address_allocation` | string | No | Dynamic | The Allocation Method for the Private IP Address. Possible values are 'Dynamic' and 'Static'. Defaults to 'Dynamic'. |
 | `private_link_configuration_name` | string | No | - | The name of the private link configuration to use for this frontend IP configuration. |
 
-### `url_path_map` block structure
+### `exclusion` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `default_backend_address_pool_name` | string | No | - | The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set. |
-| `default_backend_http_settings_name` | string | No | - | The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set. |
-| `default_redirect_configuration_name` | string | No | - | The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set. |
-| `default_rewrite_rule_set_name` | string | No | - | The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs. |
-| `path_rule` | list | Yes | - | One or more 'path_rule' blocks. |
+| `match_variable` | string | Yes | - | Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are 'RequestArgKeys', 'RequestArgNames', 'RequestArgValues', 'RequestCookieKeys', 'RequestCookieNames', 'RequestCookieValues', 'RequestHeaderKeys', 'RequestHeaderNames' and 'RequestHeaderValues' |
+| `selector_match_operator` | string | No | - | Operator which will be used to search in the variable content. Possible values are 'Contains', 'EndsWith', 'Equals', 'EqualsAny' and 'StartsWith'. If empty will exclude all traffic on this 'match_variable' |
+| `selector` | string | No | - | String value which will be used for the filter operation. If empty will exclude all traffic on this 'match_variable' |
 
-### `waf_configuration` block structure
+### `url` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Is the Web Application Firewall enabled? |
-| `firewall_mode` | string | Yes | - | The Web Application Firewall Mode. Possible values are 'Detection' and 'Prevention'. |
-| `rule_set_type` | string | No | OWASP | The Type of the Rule Set used for this Web Application Firewall. Possible values are 'OWASP' and 'Microsoft_BotManagerRuleSet'. Defaults to 'OWASP'. |
-| `rule_set_version` | string | Yes | - | The Version of the Rule Set used for this Web Application Firewall. Possible values are '0.1', '1.0', '2.2.9', '3.0', '3.1' and '3.2'. |
-| `disabled_rule_group` | [block](#waf_configuration-block-structure) | No | - | One or more 'disabled_rule_group' blocks. |
-| `file_upload_limit_mb` | int | No | 100 | The File Upload Limit in MB. Accepted values are in the range '1'MB to '750'MB for the 'WAF_v2' SKU, and '1'MB to '500'MB for all other SKUs. Defaults to '100'MB. |
-| `request_body_check` | bool | No | True | Is Request Body Inspection enabled? Defaults to 'true'. |
-| `max_request_body_size_kb` | string | No | 128 | The Maximum Request Body Size in KB. Accepted values are in the range '1'KB to '128'KB. Defaults to '128'KB. |
-| `exclusion` | [block](#waf_configuration-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `path` | string | No | - | The URL path to rewrite. |
+| `query_string` | string | No | - | The query string to rewrite. |
+| `components` | string | No | - | The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only. |
+| `reroute` | bool | No | - | Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration) |
 
-### `rewrite_rule_set` block structure
+### `ssl_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rewrite_rule` | [block](#rewrite_rule_set-block-structure) | No | - | One or more 'rewrite_rule' blocks. |
-
-### `gateway_ip_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The ID of the Subnet which the Application Gateway should be connected to. |
-
-### `ssl_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data` | string | No | - | The base64-encoded PFX certificate data. Required if 'key_vault_secret_id' is not set. |
-| `password` | string | No | - | Password for the pfx file specified in data. Required if 'data' is set. |
-| `key_vault_secret_id` | string | No | - | The Secret ID of (base-64 encoded unencrypted pfx) the 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if 'data' is not set. |
-
-### `ssl_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disabled_protocols` | string | No | - | A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'. |
-| `policy_type` | string | No | - | The Type of the Policy. Possible values are 'Predefined', 'Custom' and 'CustomV2'. |
-| `policy_name` | string | No | - | The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if 'policy_type' is set to 'Predefined'. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with 'disabled_protocols'. |
-| `cipher_suites` | string | No | - | A List of accepted cipher suites. Possible values are: 'TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA256', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA256', 'TLS_DHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_DHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_RSA_WITH_3DES_EDE_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA256', 'TLS_RSA_WITH_AES_128_GCM_SHA256', 'TLS_RSA_WITH_AES_256_CBC_SHA', 'TLS_RSA_WITH_AES_256_CBC_SHA256' and 'TLS_RSA_WITH_AES_256_GCM_SHA384'. |
-| `min_protocol_version` | string | No | - | The minimal TLS version. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'. |
-
-### `rewrite_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_sequence` | string | Yes | - | Rule sequence of the rewrite rule that determines the order of execution in a set. |
-| `condition` | list | No | - | One or more 'condition' blocks. |
-| `request_header_configuration` | list | No | - | One or more 'request_header_configuration' blocks. |
-| `response_header_configuration` | list | No | - | One or more 'response_header_configuration' blocks. |
-| `url` | [block](#rewrite_rule-block-structure) | No | - | One 'url' block |
-
-### `disabled_rule_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'. |
-| `rules` | list | No | - | A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified. |
+| `trusted_client_certificate_names` | string | No | - | The name of the Trusted Client Certificate that will be used to authenticate requests from clients. |
+| `verify_client_cert_issuer_dn` | bool | No | False | Should client certificate issuer DN be verified? Defaults to 'false'. |
+| `verify_client_certificate_revocation` | string | No | - | Specify the method to check client certificate revocation status. Possible value is 'OCSP'. |
+| `ssl_policy` | [block](#ssl_profile-block-structure) | No | - | a 'ssl_policy' block. |
 
 ### `http_listener` block structure
 
@@ -351,27 +270,53 @@ tfstate_store = {
 | `firewall_policy_id` | string | No | - | The ID of the Web Application Firewall Policy which should be used for this HTTP Listener. |
 | `ssl_profile_name` | string | No | - | The name of the associated SSL Profile which should be used for this HTTP Listener. |
 
-### `url` block structure
+### `authentication_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | No | - | The URL path to rewrite. |
-| `query_string` | string | No | - | The query string to rewrite. |
-| `components` | string | No | - | The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only. |
-| `reroute` | bool | No | - | Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration) |
+| `data` | string | Yes | - | The contents of the Authentication Certificate which should be used. |
 
-### `request_routing_rule` block structure
+### `trusted_client_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rule_type` | string | Yes | - | The Type of Routing that should be used for this Rule. Possible values are 'Basic' and 'PathBasedRouting'. |
-| `http_listener_name` | string | Yes | - | The Name of the HTTP Listener which should be used for this Routing Rule. |
-| `backend_address_pool_name` | string | No | - | The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set. |
-| `backend_http_settings_name` | string | No | - | The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set. |
-| `redirect_configuration_name` | string | No | - | The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either 'backend_address_pool_name' or 'backend_http_settings_name' is set. |
-| `rewrite_rule_set_name` | string | No | - | The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs. |
-| `url_path_map_name` | string | No | - | The Name of the URL Path Map which should be associated with this Routing Rule. |
-| `priority` | string | No | - | Rule evaluation order can be dictated by specifying an integer value from '1' to '20000' with '1' being the highest priority and '20000' being the lowest priority. |
+| `data` | string | Yes | - | The base-64 encoded certificate. |
+
+### `backend_http_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+
+### `probe` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `host` | string | No | - | The Hostname used for this Probe. If the Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe. Cannot be set if 'pick_host_name_from_backend_http_settings' is set to 'true'. |
+| `interval` | string | Yes | - | The Interval between two consecutive probes in seconds. Possible values range from 1 second to a maximum of 86,400 seconds. |
+| `protocol` | string | Yes | - | The Protocol used for this Probe. Possible values are 'Http' and 'Https'. |
+| `path` | string | Yes | - | The Path used for this Probe. |
+| `timeout` | string | Yes | - | The Timeout used for this Probe, which indicates when a probe becomes unhealthy. Possible values range from 1 second to a maximum of 86,400 seconds. |
+| `unhealthy_threshold` | string | Yes | - | The Unhealthy Threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values are from 1 to 20. |
+| `port` | string | No | - | Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only. |
+| `pick_host_name_from_backend_http_settings` | bool | No | False | Whether the host header should be picked from the backend HTTP settings. Defaults to 'false'. |
+| `match` | [block](#probe-block-structure) | No | - | A 'match' block. |
+| `minimum_servers` | int | No | 0 | The minimum number of servers that are always marked as healthy. Defaults to '0'. |
+
+### `private_link_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_configuration` | [block](#private_link_configuration-block-structure) | Yes | - | One or more 'ip_configuration' blocks. |
+
+### `ssl_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disabled_protocols` | string | No | - | A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'. |
+| `policy_type` | string | No | - | The Type of the Policy. Possible values are 'Predefined', 'Custom' and 'CustomV2'. |
+| `policy_name` | string | No | - | The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if 'policy_type' is set to 'Predefined'. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with 'disabled_protocols'. |
+| `cipher_suites` | string | No | - | A List of accepted cipher suites. Possible values are: 'TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA256', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA256', 'TLS_DHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_DHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_RSA_WITH_3DES_EDE_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA256', 'TLS_RSA_WITH_AES_128_GCM_SHA256', 'TLS_RSA_WITH_AES_256_CBC_SHA', 'TLS_RSA_WITH_AES_256_CBC_SHA256' and 'TLS_RSA_WITH_AES_256_GCM_SHA384'. |
+| `min_protocol_version` | string | No | - | The minimal TLS version. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'. |
 
 ### `match` block structure
 
@@ -379,6 +324,61 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `body` | string | No | - | A snippet from the Response Body which must be present in the Response. |
 | `status_code` | list | Yes | - | A list of allowed status codes for this Health Probe. |
+
+### `backend_address_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `fqdns` | list | No | - | A list of FQDN's which should be part of the Backend Address Pool. |
+| `ip_addresses` | list | No | - | A list of IP Addresses which should be part of the Backend Address Pool. |
+
+### `rewrite_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_sequence` | string | Yes | - | Rule sequence of the rewrite rule that determines the order of execution in a set. |
+| `condition` | list | No | - | One or more 'condition' blocks. |
+| `request_header_configuration` | list | No | - | One or more 'request_header_configuration' blocks. |
+| `response_header_configuration` | list | No | - | One or more 'response_header_configuration' blocks. |
+| `url` | [block](#rewrite_rule-block-structure) | No | - | One 'url' block |
+
+### `url_path_map` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_backend_address_pool_name` | string | No | - | The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set. |
+| `default_backend_http_settings_name` | string | No | - | The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set. |
+| `default_redirect_configuration_name` | string | No | - | The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set. |
+| `default_rewrite_rule_set_name` | string | No | - | The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs. |
+| `path_rule` | list | Yes | - | One or more 'path_rule' blocks. |
+
+### `global` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `request_buffering_enabled` | bool | Yes | - | Whether Application Gateway's Request buffer is enabled. |
+| `response_buffering_enabled` | bool | Yes | - | Whether Application Gateway's Response buffer is enabled. |
+
+### `waf_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Is the Web Application Firewall enabled? |
+| `firewall_mode` | string | Yes | - | The Web Application Firewall Mode. Possible values are 'Detection' and 'Prevention'. |
+| `rule_set_type` | string | No | OWASP | The Type of the Rule Set used for this Web Application Firewall. Possible values are 'OWASP' and 'Microsoft_BotManagerRuleSet'. Defaults to 'OWASP'. |
+| `rule_set_version` | string | Yes | - | The Version of the Rule Set used for this Web Application Firewall. Possible values are '0.1', '1.0', '2.2.9', '3.0', '3.1' and '3.2'. |
+| `disabled_rule_group` | [block](#waf_configuration-block-structure) | No | - | One or more 'disabled_rule_group' blocks. |
+| `file_upload_limit_mb` | int | No | 100 | The File Upload Limit in MB. Accepted values are in the range '1'MB to '750'MB for the 'WAF_v2' SKU, and '1'MB to '500'MB for all other SKUs. Defaults to '100'MB. |
+| `request_body_check` | bool | No | True | Is Request Body Inspection enabled? Defaults to 'true'. |
+| `max_request_body_size_kb` | string | No | 128 | The Maximum Request Body Size in KB. Accepted values are in the range '1'KB to '128'KB. Defaults to '128'KB. |
+| `exclusion` | [block](#waf_configuration-block-structure) | No | - | One or more 'exclusion' blocks. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | Yes | - | The Tier of the SKU to use for this Application Gateway. Possible values are 'Standard', 'Standard_v2', 'WAF' and 'WAF_v2'. |
+| `capacity` | string | No | - | The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between '1' and '32', and '1' to '125' for a V2 SKU. This property is optional if 'autoscale_configuration' is set. |
 
 
 

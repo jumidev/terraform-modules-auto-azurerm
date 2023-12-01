@@ -39,25 +39,25 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.machine_learning_workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.location** | string |  The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.vm_priority** | string |  The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`. | 
-| **var.vm_size** | string |  The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.scale_settings** | [block](#scale_settings-block-structure) |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **name** | string |  The name which should be used for this Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **machine_learning_workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **location** | string |  The Azure Region where the Machine Learning Compute Cluster should exist. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **vm_priority** | string |  The priority of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. Accepted values are `Dedicated` and `LowPriority`. | 
+| **vm_size** | string |  The size of the VM. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **scale_settings** | [block](#scale_settings-block-structure) |  A `scale_settings` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ssh** | [block](#ssh-block-structure) |  -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.description** | string |  -  |  The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.local_auth_enabled** | bool |  `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.node_public_ip_enabled** | bool |  `True`  |  Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.ssh_public_access_enabled** | bool |  -  |  A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.subnet_resource_id** | string |  -  |  The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
-| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **ssh** | [block](#ssh-block-structure) |  -  |  Credentials for an administrator user account that will be created on each compute node. A `ssh` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **description** | string |  -  |  The description of the Machine Learning compute. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **local_auth_enabled** | bool |  `True`  |  Whether local authentication methods is enabled. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **node_public_ip_enabled** | bool |  `True`  |  Whether the compute cluster will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **ssh_public_access_enabled** | bool |  -  |  A boolean value indicating whether enable the public SSH port. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **subnet_resource_id** | string |  -  |  The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
+| **tags** | map |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
 ### `ssh` block structure
 
@@ -67,6 +67,13 @@ tfstate_store = {
 | `admin_password` | string | No | - | Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
 | `key_value` | string | No | - | SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created. |
+
 ### `scale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,13 +81,6 @@ tfstate_store = {
 | `max_node_count` | int | Yes | - | Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
 | `min_node_count` | int | Yes | - | Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
 | `scale_down_nodes_after_idle_duration` | string | Yes | - | Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created. |
 
 
 

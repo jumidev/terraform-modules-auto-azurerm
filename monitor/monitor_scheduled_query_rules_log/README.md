@@ -37,27 +37,20 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the scheduled query rule. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created. | 
-| **var.criteria** | [block](#criteria-block-structure) |  A `criteria` block. | 
-| **var.data_source_id** | string |  The resource URI over which log search query is to be run. | 
+| **name** | string |  The name of the scheduled query rule. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created. | 
+| **criteria** | [block](#criteria-block-structure) |  A `criteria` block. | 
+| **data_source_id** | string |  The resource URI over which log search query is to be run. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.authorized_resource_ids** | list |  -  |  A list of IDs of Resources referred into query. | 
-| **var.description** | string |  -  |  The description of the scheduled query rule. | 
-| **var.enabled** | bool |  `True`  |  Whether this scheduled query rule is enabled. Default is `true`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dimension` | [block](#criteria-block-structure) | Yes | - | A 'dimension' block. |
-| `metric_name` | string | Yes | - | Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace. |
+| **authorized_resource_ids** | list |  -  |  A list of IDs of Resources referred into query. | 
+| **description** | string |  -  |  The description of the scheduled query rule. | 
+| **enabled** | bool |  `True`  |  Whether this scheduled query rule is enabled. Default is `true`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `dimension` block structure
 
@@ -65,6 +58,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | No | Include | Operator for dimension values, - 'Include'. Defaults to 'Include'. |
 | `values` | string | Yes | - | List of dimension values. |
+
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dimension` | [block](#criteria-block-structure) | Yes | - | A 'dimension' block. |
+| `metric_name` | string | Yes | - | Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace. |
 
 
 

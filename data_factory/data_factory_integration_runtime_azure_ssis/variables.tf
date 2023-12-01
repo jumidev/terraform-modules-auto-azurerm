@@ -87,15 +87,15 @@ variable "express_custom_setup" {
 #   secret_version (string)                   : Specifies the secret version in Azure Key Vault.
 #   parameters (string)                       : A map of parameters to associate with the Key Vault Data Factory Linked Service.
 #
-# component block structure:
-#   license (string)         : The license used for the Component.
-#   key_vault_license (block): A 'key_vault_secret_reference' block.
-#
 # command_key block structure:
 #   target_name (string)       : (REQUIRED) The target computer or domain name.
 #   user_name (string)         : (REQUIRED) The username for the target device.
 #   password (string)          : The password for the target device.
 #   key_vault_password (block) : A 'key_vault_secret_reference' block.
+#
+# component block structure:
+#   license (string)         : The license used for the Component.
+#   key_vault_license (block): A 'key_vault_secret_reference' block.
 
 
 variable "express_vnet_integration" {

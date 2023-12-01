@@ -30,38 +30,32 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.content_id** | string |  -  |  The ID of the content. Used to identify dependencies and content from solutions or community. | 
-| **var.kind** | string |  `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook`, `WorkbookTemplate`  |  The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`. | 
-| **var.name** | string |  -  |  The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created. | 
-| **var.parent_id** | string |  -  |  The ID of the parent resource ID of the content item, which the metadata belongs to. | 
-| **var.workspace_id** | string |  -  |  The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created. | 
+| **content_id** | string |  -  |  The ID of the content. Used to identify dependencies and content from solutions or community. | 
+| **kind** | string |  `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook`, `WorkbookTemplate`  |  The kind of content the metadata is for. Possible values are `AnalyticsRule`, `AnalyticsRuleTemplate`, `AutomationRule`, `AzureFunction`, `DataConnector`, `DataType`, `HuntingQuery`, `InvestigationQuery`, `LogicAppsCustomConnector`, `Parser`, `Playbook`, `PlaybookTemplate`, `Solution`, `Watchlist`, `WatchlistTemplate`, `Workbook` and `WorkbookTemplate`. | 
+| **name** | string |  -  |  The name which should be used for this Sentinel Metadata. Changing this forces a new Sentinel Metadata to be created. | 
+| **parent_id** | string |  -  |  The ID of the parent resource ID of the content item, which the metadata belongs to. | 
+| **workspace_id** | string |  -  |  The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Metadata to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.author** | [block](#author-block-structure) |  -  |  An `author` blocks. | 
-| **var.category** | [block](#category-block-structure) |  -  |  A `category` block. | 
-| **var.content_schema_version** | string |  -  |  Schema version of the content. Can be used to distinguish between flow based on the schema version. | 
-| **var.custom_version** | string |  -  |  The Custom version of the content. | 
-| **var.dependency** | [block](#dependency-block-structure) |  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
-| **var.first_publish_date** | datetime |  -  |  The first publish date of solution content item. | 
-| **var.icon_id** | string |  -  |  The ID of the icon, this id can be fetched from the solution template. | 
-| **var.last_publish_date** | datetime |  -  |  The last publish date of solution content item. | 
-| **var.preview_images** | string |  -  |  Specifies a list of preview image file names. These will be taken from solution artifacts. | 
-| **var.preview_images_dark** | string |  -  |  Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts. | 
-| **var.providers** | string |  -  |  Specifies a list of providers for the solution content item. | 
-| **var.source** | [block](#source-block-structure) |  -  |  A `source` block. | 
-| **var.support** | [block](#support-block-structure) |  -  |  A `support` block. | 
-| **var.threat_analysis_tactics** | string |  `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`  |  Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`. | 
-| **var.threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
-| **var.version** | string |  -  |  Version of the content. | 
-
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+| **author** | [block](#author-block-structure) |  -  |  An `author` blocks. | 
+| **category** | [block](#category-block-structure) |  -  |  A `category` block. | 
+| **content_schema_version** | string |  -  |  Schema version of the content. Can be used to distinguish between flow based on the schema version. | 
+| **custom_version** | string |  -  |  The Custom version of the content. | 
+| **dependency** | [block](#dependency-block-structure) |  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
+| **first_publish_date** | datetime |  -  |  The first publish date of solution content item. | 
+| **icon_id** | string |  -  |  The ID of the icon, this id can be fetched from the solution template. | 
+| **last_publish_date** | datetime |  -  |  The last publish date of solution content item. | 
+| **preview_images** | string |  -  |  Specifies a list of preview image file names. These will be taken from solution artifacts. | 
+| **preview_images_dark** | string |  -  |  Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts. | 
+| **providers** | string |  -  |  Specifies a list of providers for the solution content item. | 
+| **source** | [block](#source-block-structure) |  -  |  A `source` block. | 
+| **support** | [block](#support-block-structure) |  -  |  A `support` block. | 
+| **threat_analysis_tactics** | string |  `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`  |  Specifies a list of tactics the resource covers. Possible values are `Reconnaissance`, `ResourceDevelopment`, `InitialAccess`, `Execution`, `Persistence`, `PrivilegeEscalation`, `DefenseEvasion`, `CredentialAccess`, `Discovery`, `LateralMovement`, `Collection`, `CommandAndControl`, `Exfiltration`, `Impact`, `ImpairProcessControl` and `InhibitResponseFunction`. | 
+| **threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
+| **version** | string |  -  |  Version of the content. | 
 
 ### `author` block structure
 
@@ -80,13 +74,11 @@ tfstate_store = {
 | `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
 | `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
 
-### `support` block structure
+### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
-| `email` | string | No | - | The email address of the support contact. |
-| `link` | string | No | - | The link for support help. |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 ### `category` block structure
 
@@ -94,6 +86,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `domains` | string | No | - | Specifies a list of domains for the solution content item. |
 | `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
+
+### `support` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
+| `email` | string | No | - | The email address of the support contact. |
+| `link` | string | No | - | The link for support help. |
 
 
 

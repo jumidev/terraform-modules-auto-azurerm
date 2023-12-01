@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Credential. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the Credential is created. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string |  The name of the automation account in which the Credential is created. Changing this forces a new resource to be created. | 
-| **var.username** | string |  The username associated with this Automation Credential. | 
-| **var.password** | string |  The password associated with this Automation Credential. | 
+| **name** | string |  Specifies the name of the Credential. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Credential is created. Changing this forces a new resource to be created. | 
+| **automation_account_name** | string |  The name of the automation account in which the Credential is created. Changing this forces a new resource to be created. | 
+| **username** | string |  The username associated with this Automation Credential. | 
+| **password** | string |  The password associated with this Automation Credential. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  The description associated with this Automation Credential. | 
+| **description** | string |  The description associated with this Automation Credential. | 
 
 
 

@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created. | 
-| **var.storage_account_name** | string |  Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created. | 
+| **storage_account_name** | string |  Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.acl** | [block](#acl-block-structure) |  One or more `acl` blocks. | 
+| **acl** | [block](#acl-block-structure) |  One or more `acl` blocks. | 
 
 ### `acl` block structure
 

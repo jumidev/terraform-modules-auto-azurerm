@@ -35,42 +35,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.input** | [block](#input-block-structure) |  A `input` block. | 
-| **var.location** | string |  The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created. | 
-| **var.media_services_account_name** | string |  The Media Services account name. Changing this forces a new Live Event to be created. | 
-| **var.name** | string |  The name which should be used for this Live Event. Changing this forces a new Live Event to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created. | 
+| **input** | [block](#input-block-structure) |  A `input` block. | 
+| **location** | string |  The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created. | 
+| **media_services_account_name** | string |  The Media Services account name. Changing this forces a new Live Event to be created. | 
+| **name** | string |  The name which should be used for this Live Event. Changing this forces a new Live Event to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.auto_start_enabled** | bool |  -  |  The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created. | 
-| **var.cross_site_access_policy** | [block](#cross_site_access_policy-block-structure) |  -  |  A `cross_site_access_policy` block. | 
-| **var.description** | string |  -  |  A description for the live event. | 
-| **var.encoding** | [block](#encoding-block-structure) |  -  |  A `encoding` block. | 
-| **var.hostname_prefix** | string |  -  |  When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center. | 
-| **var.preview** | [block](#preview-block-structure) |  -  |  A `preview` block. | 
-| **var.stream_options** | string |  `Default`, `LowLatency`, `LowLatencyV2`  |  A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created. | 
-| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Live Event. | 
-| **var.transcription_languages** | string |  -  |  Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ). | 
-| **var.use_static_hostname** | bool |  -  |  Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created. | 
-
-### `input` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_token` | string | No | - | A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created. |
-| `ip_access_control_allow` | [block](#input-block-structure) | No | - | One or more 'ip_access_control_allow' blocks. |
-| `key_frame_interval_duration` | string | No | - | ISO 8601 time duration of the key frame interval duration of the input. This value sets the 'EXT-X-TARGETDURATION' property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when 'type' is set to 'Encoding'. |
-| `streaming_protocol` | string | No | - | The input protocol for the live event. Allowed values are 'FragmentedMP4' and 'RTMP'. Changing this forces a new resource to be created. |
-
-### `cross_site_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_access_policy` | string | No | - | The content of clientaccesspolicy.xml used by Silverlight. |
-| `cross_domain_policy` | string | No | - | The content of the Cross Domain Policy ('crossdomain.xml'). |
+| **auto_start_enabled** | bool |  -  |  The flag indicates if the resource should be automatically started on creation. Changing this forces a new resource to be created. | 
+| **cross_site_access_policy** | [block](#cross_site_access_policy-block-structure) |  -  |  A `cross_site_access_policy` block. | 
+| **description** | string |  -  |  A description for the live event. | 
+| **encoding** | [block](#encoding-block-structure) |  -  |  A `encoding` block. | 
+| **hostname_prefix** | string |  -  |  When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center. | 
+| **preview** | [block](#preview-block-structure) |  -  |  A `preview` block. | 
+| **stream_options** | string |  `Default`, `LowLatency`, `LowLatencyV2`  |  A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created. | 
+| **tags** | map |  -  |  A mapping of tags which should be assigned to the Live Event. | 
+| **transcription_languages** | string |  -  |  Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ). | 
+| **use_static_hostname** | bool |  -  |  Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created. | 
 
 ### `preview` block structure
 
@@ -81,12 +65,28 @@ tfstate_store = {
 | `preview_locator` | string | No | - | The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created. |
 | `streaming_policy_name` | string | No | - | The name of streaming policy used for the live event preview. Changing this forces a new resource to be created. |
 
+### `cross_site_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_access_policy` | string | No | - | The content of clientaccesspolicy.xml used by Silverlight. |
+| `cross_domain_policy` | string | No | - | The content of the Cross Domain Policy ('crossdomain.xml'). |
+
 ### `ip_access_control_allow` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `address` | string | No | - | The IP address or CIDR range. |
 | `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
+### `input` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_token` | string | No | - | A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created. |
+| `ip_access_control_allow` | [block](#input-block-structure) | No | - | One or more 'ip_access_control_allow' blocks. |
+| `key_frame_interval_duration` | string | No | - | ISO 8601 time duration of the key frame interval duration of the input. This value sets the 'EXT-X-TARGETDURATION' property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when 'type' is set to 'Encoding'. |
+| `streaming_protocol` | string | No | - | The input protocol for the live event. Allowed values are 'FragmentedMP4' and 'RTMP'. Changing this forces a new resource to be created. |
 
 ### `encoding` block structure
 

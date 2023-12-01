@@ -35,16 +35,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
-| **var.location** | string |  The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for this Data Share Account. Changing this forces a new Data Share Account to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
+| **location** | string |  The Azure Region where the Data Share Account should exist. Changing this forces a new Data Share Account to be created. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags which should be assigned to the Data Share Account. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Data Share Account. | 
 
 ### `identity` block structure
 

@@ -26,13 +26,13 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.custom_hostname_binding_id** | string |  The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created. | 
+| **custom_hostname_binding_id** | string |  The ID of the App Service Custom Hostname Binding for the Certificate. Changing this forces a new App Service Managed Certificate to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags which should be assigned to the App Service Managed Certificate. | 
+| **tags** | map |  A mapping of tags which should be assigned to the App Service Managed Certificate. | 
 
 
 

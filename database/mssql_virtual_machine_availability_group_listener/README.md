@@ -38,26 +38,28 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created. | 
-| **var.sql_virtual_machine_group_id** | string |  The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created. | 
-| **var.replica** | [block](#replica-block-structure) |  One or more `replica` blocks. Changing this forces a new resource to be created. | 
+| **name** | string |  The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created. | 
+| **sql_virtual_machine_group_id** | string |  The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created. | 
+| **replica** | [block](#replica-block-structure) |  One or more `replica` blocks. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.availability_group_name** | string |  The name of the Availability Group. Changing this forces a new resource to be created. | 
-| **var.load_balancer_configuration** | [block](#load_balancer_configuration-block-structure) |  A `load_balancer_configuration` block. Changing this forces a new resource to be created. | 
-| **var.multi_subnet_ip_configuration** | [block](#multi_subnet_ip_configuration-block-structure) |  One or more `multi_subnet_ip_configuration` blocks. Changing this forces a new resource to be created. | 
-| **var.port** | string |  The port of the listener. Changing this forces a new resource to be created. | 
+| **availability_group_name** | string |  The name of the Availability Group. Changing this forces a new resource to be created. | 
+| **load_balancer_configuration** | [block](#load_balancer_configuration-block-structure) |  A `load_balancer_configuration` block. Changing this forces a new resource to be created. | 
+| **multi_subnet_ip_configuration** | [block](#multi_subnet_ip_configuration-block-structure) |  One or more `multi_subnet_ip_configuration` blocks. Changing this forces a new resource to be created. | 
+| **port** | string |  The port of the listener. Changing this forces a new resource to be created. | 
 
-### `multi_subnet_ip_configuration` block structure
+### `replica` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `private_ip_address` | string | Yes | - | The private IP Address of the listener. Changing this forces a new resource to be created. |
-| `sql_virtual_machine_id` | string | Yes | - | The ID of the Sql Virtual Machine. Changing this forces a new resource to be created. |
-| `subnet_id` | string | Yes | - | The ID of the Subnet to create the listener. Changing this forces a new resource to be created. |
+| `commit` | string | Yes | - | The replica commit mode for the availability group. Possible values are 'Synchronous_Commit' and 'Asynchronous_Commit'. Changing this forces a new resource to be created. |
+| `failover_mode` | string | Yes | - | The replica failover mode for the availability group. Possible values are 'Manual' and 'Automatic'. Changing this forces a new resource to be created. |
+| `readable_secondary` | string | Yes | - | The replica readable secondary mode for the availability group. Possible values are 'No', 'Read_Only' and 'All'. Changing this forces a new resource to be created. |
+| `role` | string | Yes | - | The replica role for the availability group. Possible values are 'Primary' and 'Secondary'. Changing this forces a new resource to be created. |
+| `sql_virtual_machine_id` | string | Yes | - | The ID of the SQL Virtual Machine. Changing this forces a new resource to be created. |
 
 ### `load_balancer_configuration` block structure
 
@@ -69,15 +71,13 @@ tfstate_store = {
 | `sql_virtual_machine_ids` | string | Yes | - | Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created. |
 | `subnet_id` | string | Yes | - | The ID of the Subnet to create the listener. Changing this forces a new resource to be created. |
 
-### `replica` block structure
+### `multi_subnet_ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `commit` | string | Yes | - | The replica commit mode for the availability group. Possible values are 'Synchronous_Commit' and 'Asynchronous_Commit'. Changing this forces a new resource to be created. |
-| `failover_mode` | string | Yes | - | The replica failover mode for the availability group. Possible values are 'Manual' and 'Automatic'. Changing this forces a new resource to be created. |
-| `readable_secondary` | string | Yes | - | The replica readable secondary mode for the availability group. Possible values are 'No', 'Read_Only' and 'All'. Changing this forces a new resource to be created. |
-| `role` | string | Yes | - | The replica role for the availability group. Possible values are 'Primary' and 'Secondary'. Changing this forces a new resource to be created. |
-| `sql_virtual_machine_id` | string | Yes | - | The ID of the SQL Virtual Machine. Changing this forces a new resource to be created. |
+| `private_ip_address` | string | Yes | - | The private IP Address of the listener. Changing this forces a new resource to be created. |
+| `sql_virtual_machine_id` | string | Yes | - | The ID of the Sql Virtual Machine. Changing this forces a new resource to be created. |
+| `subnet_id` | string | Yes | - | The ID of the Subnet to create the listener. Changing this forces a new resource to be created. |
 
 
 

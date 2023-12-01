@@ -35,16 +35,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created. | 
-| **var.automation_account_name** | string |  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **var.field** | [block](#field-block-structure) |  One or more `field` blocks. Changing this forces a new Automation to be created. | 
+| **name** | string |  The name which should be used for this Automation Connection Type. Changing this forces a new Automation to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Automation should exist. Changing this forces a new Automation to be created. | 
+| **automation_account_name** | string |  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
+| **field** | [block](#field-block-structure) |  One or more `field` blocks. Changing this forces a new Automation to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.is_global** | bool |  Whether the connection type is global. Changing this forces a new Automation to be created. | 
+| **is_global** | bool |  Whether the connection type is global. Changing this forces a new Automation to be created. | 
 
 ### `field` block structure
 

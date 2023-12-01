@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created. | 
-| **var.server_name** | string |  The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string |  The ID of the subnet that the MariaDB server will be connected to. | 
+| **name** | string |  The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group where the MariaDB server resides. Changing this forces a new resource to be created. | 
+| **server_name** | string |  The name of the SQL Server to which this MariaDB virtual network rule will be applied to. Changing this forces a new resource to be created. | 
+| **subnet_id** | string |  The ID of the subnet that the MariaDB server will be connected to. | 
 
 
 

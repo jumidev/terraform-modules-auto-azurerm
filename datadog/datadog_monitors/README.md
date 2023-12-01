@@ -44,20 +44,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
-| **var.location** | string |  The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
-| **var.sku_name** | string |  The name which should be used for this sku. | 
-| **var.user** | [block](#user-block-structure) |  A `user` block. | 
-| **var.datadog_organization** | [block](#datadog_organization-block-structure) |  A `datadog_organization` block. | 
+| **name** | string |  The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
+| **location** | string |  The Azure Region where the Datadog Monitor should exist. Changing this forces a new Datadog Monitor to be created. | 
+| **sku_name** | string |  The name which should be used for this sku. | 
+| **user** | [block](#user-block-structure) |  A `user` block. | 
+| **datadog_organization** | [block](#datadog_organization-block-structure) |  A `datadog_organization` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.identity** | [block](#identity-block-structure) |  -  |  A `identity` block. | 
-| **var.monitoring_enabled** | bool |  `True`  |  Is monitoring enabled? Defaults to `true`. | 
-| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
+| **identity** | [block](#identity-block-structure) |  -  |  A `identity` block. | 
+| **monitoring_enabled** | bool |  `True`  |  Is monitoring enabled? Defaults to `true`. | 
+| **tags** | map |  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'. |
 
 ### `user` block structure
 
@@ -76,12 +82,6 @@ tfstate_store = {
 | `linking_auth_code` | string | No | - | The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created. |
 | `linking_client_id` | string | No | - | The ID of the linking_client. Changing this forces a new Datadog Monitor to be created. |
 | `redirect_uri` | string | No | - | The redirect uri for linking. Changing this forces a new Datadog Monitor to be created. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'. |
 
 
 

@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created. | 
-| **var.location** | string |  The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created. | 
+| **name** | string |  The name which should be used for this Storage Sync. Changing this forces a new Storage Sync to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Storage Sync should exist. Changing this forces a new Storage Sync to be created. | 
+| **location** | string |  The Azure Region where the Storage Sync should exist. Changing this forces a new Storage Sync to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.incoming_traffic_policy** | string |  `AllowAllTraffic`  |  `AllowAllTraffic`, `AllowVirtualNetworksOnly`  |  Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Storage Sync. | 
+| **incoming_traffic_policy** | string |  `AllowAllTraffic`  |  `AllowAllTraffic`, `AllowVirtualNetworksOnly`  |  Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`. Defaults to `AllowAllTraffic`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Storage Sync. | 
 
 
 

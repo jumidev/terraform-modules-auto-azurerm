@@ -33,27 +33,27 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The location where the Kusto Database should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created. | 
-| **var.cluster_name** | string |  Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created. | 
-| **var.database_name** | string |  Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created. | 
-| **var.storage_account_id** | string |  Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created. | 
-| **var.eventhub_id** | string |  Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created. | 
-| **var.eventhub_consumer_group_name** | string |  Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Kusto Event Grid Data Connection to create. Changing this forces a new resource to be created. | 
+| **location** | string |  The location where the Kusto Database should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created. | 
+| **cluster_name** | string |  Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created. | 
+| **database_name** | string |  Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created. | 
+| **storage_account_id** | string |  Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created. | 
+| **eventhub_id** | string |  Specifies the resource id of the Event Hub this data connection will use for ingestion. Changing this forces a new resource to be created. | 
+| **eventhub_consumer_group_name** | string |  Specifies the Event Hub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.blob_storage_event_type** | string |  `Microsoft.Storage.BlobCreated`  |  Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`. | 
-| **var.data_format** | string |  -  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. | 
-| **var.database_routing_type** | string |  `Single`  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
-| **var.eventgrid_resource_id** | string |  -  |  The resource ID of the event grid that is subscribed to the storage account events. | 
-| **var.managed_identity_resource_id** | string |  -  |  Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id. | 
-| **var.mapping_rule_name** | string |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
-| **var.table_name** | string |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
-| **var.skip_first_record** | bool |  `False`  |  is the first record of every file ignored? Defaults to `false`. | 
+| **blob_storage_event_type** | string |  `Microsoft.Storage.BlobCreated`  |  Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`. | 
+| **data_format** | string |  -  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. | 
+| **database_routing_type** | string |  `Single`  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
+| **eventgrid_resource_id** | string |  -  |  The resource ID of the event grid that is subscribed to the storage account events. | 
+| **managed_identity_resource_id** | string |  -  |  Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id. | 
+| **mapping_rule_name** | string |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
+| **table_name** | string |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
+| **skip_first_record** | bool |  `False`  |  is the first record of every file ignored? Defaults to `false`. | 
 
 
 

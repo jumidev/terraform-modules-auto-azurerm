@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Certificate. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created. | 
-| **var.automation_account_name** | string |  The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created. | 
-| **var.base64** | string |  Base64 encoded value of the certificate. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Certificate. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Certificate is created. Changing this forces a new resource to be created. | 
+| **automation_account_name** | string |  The name of the automation account in which the Certificate is created. Changing this forces a new resource to be created. | 
+| **base64** | string |  Base64 encoded value of the certificate. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  The description of this Automation Certificate. | 
-| **var.exportable** | string |  The is exportable flag of the certificate. | 
+| **description** | string |  The description of this Automation Certificate. | 
+| **exportable** | string |  The is exportable flag of the certificate. | 
 
 
 

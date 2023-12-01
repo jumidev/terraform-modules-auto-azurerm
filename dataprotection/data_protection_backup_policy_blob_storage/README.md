@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created. | 
-| **var.vault_id** | string |  The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created. | 
-| **var.retention_duration** | string |  Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created. | 
+| **name** | string |  The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created. | 
+| **vault_id** | string |  The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created. | 
+| **retention_duration** | string |  Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created. | 
 
 
 

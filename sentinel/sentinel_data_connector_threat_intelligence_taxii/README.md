@@ -30,21 +30,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
-| **var.name** | string |  The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
-| **var.display_name** | string |  The friendly name which should be used for this Threat Intelligence TAXII Data Connector. | 
-| **var.api_root_url** | string |  The API root URI of the TAXII server. | 
-| **var.collection_id** | string |  The collection ID of the TAXII server. | 
+| **log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Threat Intelligence TAXII Data Connector resides in. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
+| **name** | string |  The name which should be used for this Threat Intelligence TAXII Data Connector. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
+| **display_name** | string |  The friendly name which should be used for this Threat Intelligence TAXII Data Connector. | 
+| **api_root_url** | string |  The API root URI of the TAXII server. | 
+| **collection_id** | string |  The collection ID of the TAXII server. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.user_name** | string |  -  |  -  |  The user name for the TAXII server. | 
-| **var.password** | string |  -  |  -  |  The password for the TAXII server. | 
-| **var.polling_frequency** | string |  `OnceAnHour`  |  `OnceAMinute`, `OnceAnHour`, `OnceADay`  |  The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`. | 
-| **var.lookback_date** | datetime |  `1970-01-01T00:00:00Z`  |  -  |  The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`. | 
-| **var.tenant_id** | string |  -  |  -  |  The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
+| **user_name** | string |  -  |  -  |  The user name for the TAXII server. | 
+| **password** | string |  -  |  -  |  The password for the TAXII server. | 
+| **polling_frequency** | string |  `OnceAnHour`  |  `OnceAMinute`, `OnceAnHour`, `OnceADay`  |  The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`. | 
+| **lookback_date** | datetime |  `1970-01-01T00:00:00Z`  |  -  |  The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`. | 
+| **tenant_id** | string |  -  |  -  |  The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
 
 
 

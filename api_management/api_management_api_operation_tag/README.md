@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.api_operation_id** | string |  The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created. | 
-| **var.name** | string |  The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service. | 
-| **var.display_name** | string |  The display name of the API Management API Operation Tag. | 
+| **api_operation_id** | string |  The ID of the API Management API Operation. Changing this forces a new API Management API Operation Tag to be created. | 
+| **name** | string |  The name which should be used for this API Management API Operation Tag. Changing this forces a new API Management API Operation Tag to be created. The name must be unique in the API Management Service. | 
+| **display_name** | string |  The display name of the API Management API Operation Tag. | 
 
 
 

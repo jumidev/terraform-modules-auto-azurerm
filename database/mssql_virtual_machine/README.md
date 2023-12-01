@@ -26,39 +26,42 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.virtual_machine_id** | string |  The ID of the Virtual Machine. Changing this forces a new resource to be created. | 
+| **virtual_machine_id** | string |  The ID of the Virtual Machine. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.sql_license_type** | string |  -  |  `AHUB`, `DR`, `PAYG`  |  The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created. | 
-| **var.auto_backup** | [block](#auto_backup-block-structure) |  -  |  -  |  An `auto_backup` block. This block can be added to an existing resource, but removing this block forces a new resource to be created. | 
-| **var.auto_patching** | [block](#auto_patching-block-structure) |  -  |  -  |  An `auto_patching` block. | 
-| **var.key_vault_credential** | [block](#key_vault_credential-block-structure) |  -  |  -  |  An `key_vault_credential` block. | 
-| **var.r_services_enabled** | bool |  -  |  -  |  Should R Services be enabled? | 
-| **var.sql_connectivity_port** | string |  `1433`  |  -  |  The SQL Server port. Defaults to `1433`. | 
-| **var.sql_connectivity_type** | string |  `PRIVATE`  |  `LOCAL`, `PRIVATE`, `PUBLIC`  |  The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`. | 
-| **var.sql_connectivity_update_password** | string |  -  |  -  |  The SQL Server sysadmin login password. | 
-| **var.sql_connectivity_update_username** | string |  -  |  -  |  The SQL Server sysadmin login to create. | 
-| **var.sql_instance** | [block](#sql_instance-block-structure) |  -  |  -  |  A `sql_instance` block. | 
-| **var.storage_configuration** | [block](#storage_configuration-block-structure) |  -  |  -  |  An `storage_configuration` block. | 
-| **var.assessment** | [block](#assessment-block-structure) |  -  |  -  |  An `assessment` block. | 
-| **var.sql_virtual_machine_group_id** | string |  -  |  -  |  The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to. | 
-| **var.wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **sql_license_type** | string |  -  |  `AHUB`, `DR`, `PAYG`  |  The SQL Server license type. Possible values are `AHUB` (Azure Hybrid Benefit), `DR` (Disaster Recovery), and `PAYG` (Pay-As-You-Go). Changing this forces a new resource to be created. | 
+| **auto_backup** | [block](#auto_backup-block-structure) |  -  |  -  |  An `auto_backup` block. This block can be added to an existing resource, but removing this block forces a new resource to be created. | 
+| **auto_patching** | [block](#auto_patching-block-structure) |  -  |  -  |  An `auto_patching` block. | 
+| **key_vault_credential** | [block](#key_vault_credential-block-structure) |  -  |  -  |  An `key_vault_credential` block. | 
+| **r_services_enabled** | bool |  -  |  -  |  Should R Services be enabled? | 
+| **sql_connectivity_port** | string |  `1433`  |  -  |  The SQL Server port. Defaults to `1433`. | 
+| **sql_connectivity_type** | string |  `PRIVATE`  |  `LOCAL`, `PRIVATE`, `PUBLIC`  |  The connectivity type used for this SQL Server. Possible values are `LOCAL`, `PRIVATE` and `PUBLIC`. Defaults to `PRIVATE`. | 
+| **sql_connectivity_update_password** | string |  `Random string of 32 characters`  |  -  |  The SQL Server sysadmin login password. | 
+| **sql_connectivity_update_username** | string |  -  |  -  |  The SQL Server sysadmin login to create. | 
+| **sql_instance** | [block](#sql_instance-block-structure) |  -  |  -  |  A `sql_instance` block. | 
+| **storage_configuration** | [block](#storage_configuration-block-structure) |  -  |  -  |  An `storage_configuration` block. | 
+| **assessment** | [block](#assessment-block-structure) |  -  |  -  |  An `assessment` block. | 
+| **sql_virtual_machine_group_id** | string |  -  |  -  |  The ID of the SQL Virtual Machine Group that the SQL Virtual Machine belongs to. | 
+| **wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `sql_instance` block structure
+### `auto_patching` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `adhoc_workloads_optimization_enabled` | bool | No | False | Specifies if the SQL Server is optimized for adhoc workloads. Possible values are 'true' and 'false'. Defaults to 'false'. |
-| `collation` | string | No | SQL_Latin1_General_CP1_CI_AS | Collation of the SQL Server. Defaults to 'SQL_Latin1_General_CP1_CI_AS'. Changing this forces a new resource to be created. |
-| `instant_file_initialization_enabled` | bool | No | False | Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `lock_pages_in_memory_enabled` | bool | No | False | Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `max_dop` | string | No | 0 | Maximum Degree of Parallelism of the SQL Server. Possible values are between '0' and '32767'. Defaults to '0'. |
-| `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
-| `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
+| `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
+| `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
+| `maintenance_window_duration_in_minutes` | int | Yes | - | The size of the Maintenance Window in minutes. |
+
+### `storage_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
 
 ### `key_vault_credential` block structure
 
@@ -67,6 +70,14 @@ tfstate_store = {
 | `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
 | `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
 | `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
+
+### `wsfc_domain_credential` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
+| `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
+| `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
 
 ### `temp_db_settings` block structure
 
@@ -80,31 +91,6 @@ tfstate_store = {
 | `log_file_size_mb` | int | No | 256 | The SQL Server default file size - This value defaults to '256' |
 | `log_file_growth_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
 
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
-| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
-| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
-
-### `wsfc_domain_credential` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
-| `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
-| `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
-
-### `assessment` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
-| `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
-| `schedule` | [block](#assessment-block-structure) | No | - | An 'schedule' block. |
-
 ### `storage_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -115,6 +101,45 @@ tfstate_store = {
 | `log_settings` | [block](#storage_configuration-block-structure) | No | - | A 'storage_settings' block. |
 | `system_db_on_data_disk_enabled` | bool | No | False | Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'. |
 | `temp_db_settings` | [block](#storage_configuration-block-structure) | No | - | An 'temp_db_settings' block. |
+
+### `sql_instance` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `adhoc_workloads_optimization_enabled` | bool | No | False | Specifies if the SQL Server is optimized for adhoc workloads. Possible values are 'true' and 'false'. Defaults to 'false'. |
+| `collation` | string | No | SQL_Latin1_General_CP1_CI_AS | Collation of the SQL Server. Defaults to 'SQL_Latin1_General_CP1_CI_AS'. Changing this forces a new resource to be created. |
+| `instant_file_initialization_enabled` | bool | No | False | Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `lock_pages_in_memory_enabled` | bool | No | False | Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `max_dop` | string | No | 0 | Maximum Degree of Parallelism of the SQL Server. Possible values are between '0' and '32767'. Defaults to '0'. |
+| `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
+| `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
+| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
+| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
+
+### `assessment` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
+| `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
+| `schedule` | [block](#assessment-block-structure) | No | - | An 'schedule' block. |
+
+### `manual_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `full_backup_frequency` | string | Yes | - | Frequency of full backups. Valid values include 'Daily' or 'Weekly'. |
+| `full_backup_start_hour` | string | Yes | - | Start hour of a given day during which full backups can take place. Valid values are from '0' to '23'. |
+| `full_backup_window_in_hours` | string | Yes | - | Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between '1' and '23'. |
+| `log_backup_frequency_in_minutes` | string | Yes | - | Frequency of log backups, in minutes. Valid values are from '5' to '60'. |
+| `days_of_week` | string | No | - | A list of days on which backup can take place. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday' |
 
 ### `auto_backup` block structure
 
@@ -127,31 +152,6 @@ tfstate_store = {
 | `storage_blob_endpoint` | string | Yes | - | Blob endpoint for the storage account where backups will be kept. |
 | `storage_account_access_key` | string | Yes | - | Access key for the storage account where backups will be kept. |
 | `system_databases_backup_enabled` | bool | No | - | Include or exclude system databases from auto backup. |
-
-### `storage_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_file_path` | string | Yes | - | The SQL Server default path |
-| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
-
-### `manual_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `full_backup_frequency` | string | Yes | - | Frequency of full backups. Valid values include 'Daily' or 'Weekly'. |
-| `full_backup_start_hour` | string | Yes | - | Start hour of a given day during which full backups can take place. Valid values are from '0' to '23'. |
-| `full_backup_window_in_hours` | string | Yes | - | Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between '1' and '23'. |
-| `log_backup_frequency_in_minutes` | string | Yes | - | Frequency of log backups, in minutes. Valid values are from '5' to '60'. |
-| `days_of_week` | string | No | - | A list of days on which backup can take place. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday' |
-
-### `auto_patching` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
-| `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
-| `maintenance_window_duration_in_minutes` | int | Yes | - | The size of the Maintenance Window in minutes. |
 
 
 

@@ -42,111 +42,34 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the Service Fabric Cluster. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created. | 
-| **var.reliability_level** | string |  `None`, `Bronze`, `Silver`, `Gold`, `Platinum`  |  Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`. | 
-| **var.management_endpoint** | string |  -  |  Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created. | 
-| **var.node_type** | [block](#node_type-block-structure) |  -  |  One or more `node_type` blocks. | 
-| **var.upgrade_mode** | string |  `Automatic`, `Manual`  |  Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`. | 
-| **var.vm_image** | string |  -  |  Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created. | 
+| **name** | string |  -  |  The name of the Service Fabric Cluster. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group in which the Service Fabric Cluster exists. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the Azure Region where the Service Fabric Cluster should exist. Changing this forces a new resource to be created. | 
+| **reliability_level** | string |  `None`, `Bronze`, `Silver`, `Gold`, `Platinum`  |  Specifies the Reliability Level of the Cluster. Possible values include `None`, `Bronze`, `Silver`, `Gold` and `Platinum`. | 
+| **management_endpoint** | string |  -  |  Specifies the Management Endpoint of the cluster such as `http://example.com`. Changing this forces a new resource to be created. | 
+| **node_type** | [block](#node_type-block-structure) |  -  |  One or more `node_type` blocks. | 
+| **upgrade_mode** | string |  `Automatic`, `Manual`  |  Specifies the Upgrade Mode of the cluster. Possible values are `Automatic` or `Manual`. | 
+| **vm_image** | string |  -  |  Specifies the Image expected for the Service Fabric Cluster, such as `Windows`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.cluster_code_version** | string |  -  |  Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster. | 
-| **var.add_on_features** | list |  -  |  A List of one or more features which should be enabled, such as `DnsService`. | 
-| **var.azure_active_directory** | [block](#azure_active_directory-block-structure) |  -  |  An `azure_active_directory` block. | 
-| **var.certificate_common_names** | [block](#certificate_common_names-block-structure) |  -  |  A `certificate_common_names` block. Conflicts with `certificate`. | 
-| **var.certificate** | [block](#certificate-block-structure) |  -  |  A `certificate` block. Conflicts with `certificate_common_names`. | 
-| **var.reverse_proxy_certificate** | [block](#reverse_proxy_certificate-block-structure) |  -  |  A `reverse_proxy_certificate` block. Conflicts with `reverse_proxy_certificate_common_names`. | 
-| **var.reverse_proxy_certificate_common_names** | [block](#reverse_proxy_certificate_common_names-block-structure) |  -  |  A `reverse_proxy_certificate_common_names` block. Conflicts with `reverse_proxy_certificate`. | 
-| **var.client_certificate_thumbprint** | [block](#client_certificate_thumbprint-block-structure) |  -  |  One or more `client_certificate_thumbprint` blocks. | 
-| **var.client_certificate_common_name** | [block](#client_certificate_common_name-block-structure) |  -  |  A `client_certificate_common_name` block. | 
-| **var.diagnostics_config** | [block](#diagnostics_config-block-structure) |  -  |  A `diagnostics_config` block. | 
-| **var.fabric_settings** | [block](#fabric_settings-block-structure) |  -  |  One or more `fabric_settings` blocks. | 
-| **var.upgrade_policy** | [block](#upgrade_policy-block-structure) |  -  |  A `upgrade_policy` block. | 
-| **var.service_fabric_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`. | 
-| **var.vmss_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-
-### `ephemeral_ports` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `start_port` | string | Yes | - | The start of the Ephemeral Port Range on this Node Type. |
-| `end_port` | string | Yes | - | The end of the Ephemeral Port Range on this Node Type. |
-
-### `common_names` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_common_name` | string | Yes | - | The common or subject name of the certificate. |
-| `certificate_issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
-
-### `certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `application_ports` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `start_port` | string | Yes | - | The start of the Application Port Range on this Node Type. |
-| `end_port` | string | Yes | - | The end of the Application Port Range on this Node Type. |
-
-### `reverse_proxy_certificate_common_names` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `common_names` | [block](#reverse_proxy_certificate_common_names-block-structure) | Yes | - | A 'common_names' block. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `reverse_proxy_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `client_certificate_common_name` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `common_name` | string | Yes | - | The common or subject name of the certificate. |
-| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
-| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
-
-### `delta_health_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_delta_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-| `max_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-| `max_upgrade_domain_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-
-### `diagnostics_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_name` | string | Yes | - | The name of the Storage Account where the Diagnostics should be sent to. |
-| `protected_account_key_name` | string | Yes | - | The protected diagnostics storage key name, such as 'StorageAccountKey1'. |
-| `blob_endpoint` | string | Yes | - | The Blob Endpoint of the Storage Account. |
-| `queue_endpoint` | string | Yes | - | The Queue Endpoint of the Storage Account. |
-| `table_endpoint` | string | Yes | - | The Table Endpoint of the Storage Account. |
-
-### `certificate_common_names` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `common_names` | [block](#certificate_common_names-block-structure) | Yes | - | A 'common_names' block. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+| **cluster_code_version** | string |  -  |  Required if Upgrade Mode set to `Manual`, Specifies the Version of the Cluster Code of the cluster. | 
+| **add_on_features** | list |  -  |  A List of one or more features which should be enabled, such as `DnsService`. | 
+| **azure_active_directory** | [block](#azure_active_directory-block-structure) |  -  |  An `azure_active_directory` block. | 
+| **certificate_common_names** | [block](#certificate_common_names-block-structure) |  -  |  A `certificate_common_names` block. Conflicts with `certificate`. | 
+| **certificate** | [block](#certificate-block-structure) |  -  |  A `certificate` block. Conflicts with `certificate_common_names`. | 
+| **reverse_proxy_certificate** | [block](#reverse_proxy_certificate-block-structure) |  -  |  A `reverse_proxy_certificate` block. Conflicts with `reverse_proxy_certificate_common_names`. | 
+| **reverse_proxy_certificate_common_names** | [block](#reverse_proxy_certificate_common_names-block-structure) |  -  |  A `reverse_proxy_certificate_common_names` block. Conflicts with `reverse_proxy_certificate`. | 
+| **client_certificate_thumbprint** | [block](#client_certificate_thumbprint-block-structure) |  -  |  One or more `client_certificate_thumbprint` blocks. | 
+| **client_certificate_common_name** | [block](#client_certificate_common_name-block-structure) |  -  |  A `client_certificate_common_name` block. | 
+| **diagnostics_config** | [block](#diagnostics_config-block-structure) |  -  |  A `diagnostics_config` block. | 
+| **fabric_settings** | [block](#fabric_settings-block-structure) |  -  |  One or more `fabric_settings` blocks. | 
+| **upgrade_policy** | [block](#upgrade_policy-block-structure) |  -  |  A `upgrade_policy` block. | 
+| **service_fabric_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the logical grouping of VMs in upgrade domains. Possible values are `Hierarchical` or `Parallel`. | 
+| **vmss_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `health_policy` block structure
 
@@ -155,27 +78,11 @@ tfstate_store = {
 | `max_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
 | `max_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
 
-### `upgrade_policy` block structure
+### `fabric_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `force_restart_enabled` | bool | No | - | Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed. |
-| `health_check_retry_timeout` | string | No | 00:45:00 | Specifies the duration, in 'hh:mm:ss' string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to '00:45:00'. |
-| `health_check_stable_duration` | string | No | 00:01:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to '00:01:00'. |
-| `health_check_wait_duration` | string | No | 00:00:30 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to '00:00:30'. |
-| `upgrade_domain_timeout` | string | No | 02:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to '02:00:00'. |
-| `upgrade_replica_set_check_timeout` | string | No | 10675199.02:48:05.4775807 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to '10675199.02:48:05.4775807'. |
-| `upgrade_timeout` | string | No | 12:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to '12:00:00'. |
-| `health_policy` | [block](#upgrade_policy-block-structure) | No | - | A 'health_policy' block |
-| `delta_health_policy` | [block](#upgrade_policy-block-structure) | No | - | A 'delta_health_policy' block |
-
-### `azure_active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tenant_id` | string | Yes | - | The Azure Active Directory Tenant ID. |
-| `cluster_application_id` | string | Yes | - | The Azure Active Directory Cluster Application ID. |
-| `client_application_id` | string | Yes | - | The Azure Active Directory Client ID which should be used for the Client Application. |
+| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
 
 ### `node_type` block structure
 
@@ -201,11 +108,104 @@ tfstate_store = {
 | `thumbprint` | string | Yes | - | The Thumbprint associated with the Client Certificate. |
 | `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
 
-### `fabric_settings` block structure
+### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
+### `client_certificate_common_name` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
+
+### `common_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `certificate_issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+
+### `ephemeral_ports` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_port` | string | Yes | - | The start of the Ephemeral Port Range on this Node Type. |
+| `end_port` | string | Yes | - | The end of the Ephemeral Port Range on this Node Type. |
+
+### `reverse_proxy_certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
+### `application_ports` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_port` | string | Yes | - | The start of the Application Port Range on this Node Type. |
+| `end_port` | string | Yes | - | The end of the Application Port Range on this Node Type. |
+
+### `certificate_common_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_names` | [block](#certificate_common_names-block-structure) | Yes | - | A 'common_names' block. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
+### `diagnostics_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_name` | string | Yes | - | The name of the Storage Account where the Diagnostics should be sent to. |
+| `protected_account_key_name` | string | Yes | - | The protected diagnostics storage key name, such as 'StorageAccountKey1'. |
+| `blob_endpoint` | string | Yes | - | The Blob Endpoint of the Storage Account. |
+| `queue_endpoint` | string | Yes | - | The Queue Endpoint of the Storage Account. |
+| `table_endpoint` | string | Yes | - | The Table Endpoint of the Storage Account. |
+
+### `upgrade_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `force_restart_enabled` | bool | No | - | Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed. |
+| `health_check_retry_timeout` | string | No | 00:45:00 | Specifies the duration, in 'hh:mm:ss' string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to '00:45:00'. |
+| `health_check_stable_duration` | string | No | 00:01:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to '00:01:00'. |
+| `health_check_wait_duration` | string | No | 00:00:30 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to '00:00:30'. |
+| `upgrade_domain_timeout` | string | No | 02:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to '02:00:00'. |
+| `upgrade_replica_set_check_timeout` | string | No | 10675199.02:48:05.4775807 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to '10675199.02:48:05.4775807'. |
+| `upgrade_timeout` | string | No | 12:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to '12:00:00'. |
+| `health_policy` | [block](#upgrade_policy-block-structure) | No | - | A 'health_policy' block |
+| `delta_health_policy` | [block](#upgrade_policy-block-structure) | No | - | A 'delta_health_policy' block |
+
+### `reverse_proxy_certificate_common_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_names` | [block](#reverse_proxy_certificate_common_names-block-structure) | Yes | - | A 'common_names' block. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
+### `delta_health_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_delta_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `max_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `max_upgrade_domain_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+
+### `azure_active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tenant_id` | string | Yes | - | The Azure Active Directory Tenant ID. |
+| `cluster_application_id` | string | Yes | - | The Azure Active Directory Cluster Application ID. |
+| `client_application_id` | string | Yes | - | The Azure Active Directory Client ID which should be used for the Client Application. |
 
 
 

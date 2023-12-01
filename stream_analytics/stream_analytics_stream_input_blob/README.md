@@ -41,16 +41,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Stream Input Blob. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.date_format** | string |  The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead. | 
-| **var.path_pattern** | string |  The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. | 
-| **var.storage_account_name** | string |  The name of the Storage Account. | 
-| **var.storage_account_key** | string |  The Access Key which should be used to connect to this Storage Account. | 
-| **var.storage_container_name** | string |  The name of the Container within the Storage Account. | 
-| **var.time_format** | string |  The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead. | 
-| **var.serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
+| **name** | string |  The name of the Stream Input Blob. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created. | 
+| **stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **date_format** | string |  The date format. Wherever `{date}` appears in `path_pattern`, the value of this property is used as the date format instead. | 
+| **path_pattern** | string |  The blob path pattern. Not a regular expression. It represents a pattern against which blob names will be matched to determine whether or not they should be included as input or output to the job. | 
+| **storage_account_name** | string |  The name of the Storage Account. | 
+| **storage_account_key** | string |  The Access Key which should be used to connect to this Storage Account. | 
+| **storage_container_name** | string |  The name of the Container within the Storage Account. | 
+| **time_format** | string |  The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead. | 
+| **serialization** | [block](#serialization-block-structure) |  A `serialization` block. | 
 
 ### `serialization` block structure
 

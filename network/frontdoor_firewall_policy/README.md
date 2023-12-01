@@ -27,21 +27,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the policy. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the policy. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.enabled** | bool |  `True`  |  -  |  Is the policy a enabled state or disabled state. Defaults to `true`. | 
-| **var.mode** | string |  `Prevention`  |  `Detection`, `Prevention`  |  The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`. | 
-| **var.redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
-| **var.custom_rule** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
-| **var.custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
-| **var.custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
-| **var.managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
+| **enabled** | bool |  `True`  |  -  |  Is the policy a enabled state or disabled state. Defaults to `true`. | 
+| **mode** | string |  `Prevention`  |  `Detection`, `Prevention`  |  The firewall policy mode. Possible values are `Detection`, `Prevention`. Defaults to `Prevention`. | 
+| **redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
+| **custom_rule** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
+| **custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
+| **custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
+| **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
 ### `managed_rule` block structure
 
@@ -51,18 +51,6 @@ tfstate_store = {
 | `version` | string | Yes | - | The version on the managed rule to use with this resource. |
 | `exclusion` | [block](#managed_rule-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `override` | [block](#managed_rule-block-structure) | No | - | One or more 'override' blocks. |
-
-### `custom_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
-| `enabled` | bool | No | True | Is the rule is enabled or disabled? Defaults to 'true'. |
-| `priority` | string | No | 1 | The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'. |
-| `type` | string | Yes | - | The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'. |
-| `match_condition` | list | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
-| `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
-| `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
 ### `exclusion` block structure
 
@@ -80,6 +68,18 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#rule-block-structure) | No | - | One or more 'exclusion' blocks. |
+
+### `custom_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
+| `enabled` | bool | No | True | Is the rule is enabled or disabled? Defaults to 'true'. |
+| `priority` | string | No | 1 | The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'. |
+| `type` | string | Yes | - | The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'. |
+| `match_condition` | list | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
+| `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
+| `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
 ### `override` block structure
 

@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
-| **var.firewall_policy_id** | string |  The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
-| **var.priority** | string |  The priority of the Firewall Policy Rule Collection Group. The range is 100-65000. | 
+| **name** | string |  The name which should be used for this Firewall Policy Rule Collection Group. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
+| **firewall_policy_id** | string |  The ID of the Firewall Policy where the Firewall Policy Rule Collection Group should exist. Changing this forces a new Firewall Policy Rule Collection Group to be created. | 
+| **priority** | string |  The priority of the Firewall Policy Rule Collection Group. The range is 100-65000. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.application_rule_collection** | [block](#application_rule_collection-block-structure) |  One or more `application_rule_collection` blocks. | 
-| **var.nat_rule_collection** | [block](#nat_rule_collection-block-structure) |  One or more `nat_rule_collection` blocks. | 
-| **var.network_rule_collection** | [block](#network_rule_collection-block-structure) |  One or more `network_rule_collection` blocks. | 
+| **application_rule_collection** | [block](#application_rule_collection-block-structure) |  One or more `application_rule_collection` blocks. | 
+| **nat_rule_collection** | [block](#nat_rule_collection-block-structure) |  One or more `nat_rule_collection` blocks. | 
+| **network_rule_collection** | [block](#network_rule_collection-block-structure) |  One or more `network_rule_collection` blocks. | 
 
 ### `application_rule_collection` block structure
 
@@ -47,6 +47,49 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'. |
 | `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
 | `rule` | [block](#application_rule_collection-block-structure) | Yes | - | One or more 'application_rule' blocks. |
+
+### `network_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description which should be used for this rule. |
+| `protocols` | string | Yes | - | Specifies a list of network protocols this rule applies to. Possible values are 'Any', 'TCP', 'UDP', 'ICMP'. |
+| `destination_ports` | string | Yes | - | Specifies a list of destination ports. |
+| `source_addresses` | string | No | - | Specifies a list of source IP addresses (including CIDR, IP range and '*'). |
+| `source_ip_groups` | string | No | - | Specifies a list of source IP groups. |
+| `destination_addresses` | string | No | - | Specifies a list of destination IP addresses (including CIDR, IP range and '*') or Service Tags. |
+| `destination_ip_groups` | string | No | - | Specifies a list of destination IP groups. |
+| `destination_fqdns` | string | No | - | Specifies a list of destination FQDNs. |
+
+### `nat_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
+| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#nat_rule_collection-block-structure) | Yes | - | A 'nat_rule' block. |
+
+### `network_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'. |
+| `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#network_rule_collection-block-structure) | Yes | - | One or more 'network_rule' blocks. |
+
+### `nat_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description which should be used for this rule. |
+| `protocols` | string | Yes | - | Specifies a list of network protocols this rule applies to. Possible values are 'TCP', 'UDP'. |
+| `source_addresses` | string | No | - | Specifies a list of source IP addresses (including CIDR, IP range and '*'). |
+| `source_ip_groups` | string | No | - | Specifies a list of source IP groups. |
+| `destination_address` | string | No | - | The destination IP address (including CIDR). |
+| `destination_ports` | string | No | - | Specifies a list of destination ports. Only one destination port is supported in a NAT rule. |
+| `translated_address` | string | No | - | Specifies the translated address. |
+| `translated_fqdn` | string | No | - | Specifies the translated FQDN. |
+| `translated_port` | string | Yes | - | Specifies the translated port. |
 
 ### `application_rule` block structure
 
@@ -70,49 +113,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
 | `port` | int | Yes | - | Port number of the protocol. Range is 0-64000. |
-
-### `nat_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
-| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#nat_rule_collection-block-structure) | Yes | - | A 'nat_rule' block. |
-
-### `nat_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description which should be used for this rule. |
-| `protocols` | string | Yes | - | Specifies a list of network protocols this rule applies to. Possible values are 'TCP', 'UDP'. |
-| `source_addresses` | string | No | - | Specifies a list of source IP addresses (including CIDR, IP range and '*'). |
-| `source_ip_groups` | string | No | - | Specifies a list of source IP groups. |
-| `destination_address` | string | No | - | The destination IP address (including CIDR). |
-| `destination_ports` | string | No | - | Specifies a list of destination ports. Only one destination port is supported in a NAT rule. |
-| `translated_address` | string | No | - | Specifies the translated address. |
-| `translated_fqdn` | string | No | - | Specifies the translated FQDN. |
-| `translated_port` | string | Yes | - | Specifies the translated port. |
-
-### `network_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'. |
-| `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#network_rule_collection-block-structure) | Yes | - | One or more 'network_rule' blocks. |
-
-### `network_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description which should be used for this rule. |
-| `protocols` | string | Yes | - | Specifies a list of network protocols this rule applies to. Possible values are 'Any', 'TCP', 'UDP', 'ICMP'. |
-| `destination_ports` | string | Yes | - | Specifies a list of destination ports. |
-| `source_addresses` | string | No | - | Specifies a list of source IP addresses (including CIDR, IP range and '*'). |
-| `source_ip_groups` | string | No | - | Specifies a list of source IP groups. |
-| `destination_addresses` | string | No | - | Specifies a list of destination IP addresses (including CIDR, IP range and '*') or Service Tags. |
-| `destination_ip_groups` | string | No | - | Specifies a list of destination IP groups. |
-| `destination_fqdns` | string | No | - | Specifies a list of destination FQDNs. |
 
 ### `http_headers` block structure
 

@@ -32,22 +32,31 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.operation_id** | string |  A unique identifier for this API Operation. Changing this forces a new resource to be created. | 
-| **var.api_name** | string |  The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created. | 
-| **var.api_management_name** | string |  The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
-| **var.display_name** | string |  The Display Name for this API Management Operation. | 
-| **var.method** | string |  The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values. | 
-| **var.url_template** | string |  The relative URL Template identifying the target resource for this operation, which may include parameters. | 
+| **operation_id** | string |  A unique identifier for this API Operation. Changing this forces a new resource to be created. | 
+| **api_name** | string |  The name of the API within the API Management Service where this API Operation should be created. Changing this forces a new resource to be created. | 
+| **api_management_name** | string |  The Name of the API Management Service where the API exists. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The Name of the Resource Group in which the API Management Service exists. Changing this forces a new resource to be created. | 
+| **display_name** | string |  The Display Name for this API Management Operation. | 
+| **method** | string |  The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `PUT` or `POST` - but not limited to these values. | 
+| **url_template** | string |  The relative URL Template identifying the target resource for this operation, which may include parameters. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description for this API Operation, which may include HTML formatting tags. | 
-| **var.request** | [block](#request-block-structure) |  A `request` block. | 
-| **var.response** | [block](#response-block-structure) |  One or more `response` blocks. | 
-| **var.template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
+| **description** | string |  A description for this API Operation, which may include HTML formatting tags. | 
+| **request** | [block](#request-block-structure) |  A `request` block. | 
+| **response** | [block](#response-block-structure) |  One or more `response` blocks. | 
+| **template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
+
+### `response` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `status_code` | string | Yes | - | The HTTP Status Code. |
+| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `representation` | [block](#response-block-structure) | No | - | One or more 'representation' blocks. |
 
 ### `template_parameter` block structure
 
@@ -61,15 +70,6 @@ tfstate_store = {
 | `example` | list | No | - | One or more 'example' blocks. |
 | `schema_id` | string | No | - | The name of the Schema. |
 | `type_name` | string | No | - | The type name defined by the Schema. |
-
-### `response` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `status_code` | string | Yes | - | The HTTP Status Code. |
-| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `representation` | [block](#response-block-structure) | No | - | One or more 'representation' blocks. |
 
 ### `request` block structure
 

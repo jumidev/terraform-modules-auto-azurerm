@@ -28,9 +28,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created. | 
-| **var.hpc_cache_id** | string |  The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created. | 
-| **var.access_rule** | list |  One or more `access_rule` blocks (up to three) as defined below. | 
+| **name** | string |  The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created. | 
+| **hpc_cache_id** | string |  The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created. | 
+| **access_rule** | list |  One or more `access_rule` blocks (up to three) as defined below. | 
 
 
 

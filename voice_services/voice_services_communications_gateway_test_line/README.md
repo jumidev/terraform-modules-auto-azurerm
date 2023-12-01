@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created. | 
-| **var.voice_services_communications_gateway_id** | string |  -  |  Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created. | 
-| **var.phone_number** | string |  -  |  Specifies the phone number. | 
-| **var.purpose** | string |  `Automated`, `Manual`  |  The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`. | 
+| **name** | string |  -  |  Specifies the name which should be used for this Voice Services Communications Gateway Test Line. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created. | 
+| **voice_services_communications_gateway_id** | string |  -  |  Specifies the ID of the Voice Services Communications Gateway. Changing this forces a new resource to be created. | 
+| **phone_number** | string |  -  |  Specifies the phone number. | 
+| **purpose** | string |  `Automated`, `Manual`  |  The purpose of the Voice Services Communications Gateway Test Line. Possible values are `Automated` or `Manual`. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Voice Services Communications Gateway Test Line. | 
 
 
 

@@ -30,11 +30,11 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the replication policy. Changing this forces a new resource to be created. | 
-| **var.recovery_vault_id** | string |  -  |  The id of the vault that should be updated. Changing this forces a new resource to be created. | 
-| **var.recovery_point_retention_in_hours** | string |  -  |  The duration in hours for which the recovery points need to be stored. | 
-| **var.application_consistent_snapshot_frequency_in_hours** | string |  -  |  Specifies the frequency at which to create application consistent recovery points. | 
-| **var.replication_interval_in_seconds** | string |  `30`, `300`  |  Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`. | 
+| **name** | string |  -  |  The name of the replication policy. Changing this forces a new resource to be created. | 
+| **recovery_vault_id** | string |  -  |  The id of the vault that should be updated. Changing this forces a new resource to be created. | 
+| **recovery_point_retention_in_hours** | string |  -  |  The duration in hours for which the recovery points need to be stored. | 
+| **application_consistent_snapshot_frequency_in_hours** | string |  -  |  Specifies the frequency at which to create application consistent recovery points. | 
+| **replication_interval_in_seconds** | string |  `30`, `300`  |  Specifies how frequently data should be synchronized between source and target locations. Possible values are `30` and `300`. | 
 
 
 

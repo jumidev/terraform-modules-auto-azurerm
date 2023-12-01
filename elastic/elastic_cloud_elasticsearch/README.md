@@ -30,19 +30,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.elastic_cloud_email_address** | string |  Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created. | 
-| **var.location** | string |  The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
-| **var.name** | string |  The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
-| **var.sku_name** | string |  Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created. | 
+| **elastic_cloud_email_address** | string |  Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created. | 
+| **location** | string |  The Azure Region where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
+| **name** | string |  The name which should be used for this Elasticsearch resource. Changing this forces a new Elasticsearch to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Elasticsearch resource should exist. Changing this forces a new Elasticsearch to be created. | 
+| **sku_name** | string |  Specifies the name of the SKU for this Elasticsearch. Changing this forces a new Elasticsearch to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.logs** | [block](#logs-block-structure) |  -  |  A `logs` block. | 
-| **var.monitoring_enabled** | bool |  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
-| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
+| **logs** | [block](#logs-block-structure) |  -  |  A `logs` block. | 
+| **monitoring_enabled** | bool |  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
+| **tags** | map |  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
+
+### `filtering_tag` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
+| `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
 
 ### `logs` block structure
 
@@ -52,13 +59,6 @@ tfstate_store = {
 | `send_activity_logs` | bool | No | False | Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
 | `send_azuread_logs` | bool | No | False | Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
 | `send_subscription_logs` | bool | No | False | Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
-
-### `filtering_tag` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
-| `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
 
 
 

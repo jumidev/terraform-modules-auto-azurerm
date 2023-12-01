@@ -37,18 +37,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created. | 
-| **var.resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created. | 
-| **var.location** | string |  -  |  Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created. | 
-| **var.scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
-| **var.scope_accesses** | string |  `Connectivity`, `SecurityAdmin`  |  A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager. | 
+| **name** | string |  -  |  Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created. | 
+| **resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created. | 
+| **location** | string |  -  |  Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created. | 
+| **scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
+| **scope_accesses** | string |  `Connectivity`, `SecurityAdmin`  |  A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description of the network manager. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Network Managers. | 
+| **description** | string |  A description of the network manager. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Network Managers. | 
 
 ### `scope` block structure
 

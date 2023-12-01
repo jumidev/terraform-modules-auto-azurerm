@@ -29,33 +29,26 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the namespace. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.sku** | string |  `Basic`, `Standard`, `Premium`  |  Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource. | 
+| **name** | string |  -  |  Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which to create the namespace. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **sku** | string |  `Basic`, `Standard`, `Premium`  |  Defines which tier to use. Valid options are `Basic`, `Standard`, and `Premium`. Please note that setting this field to `Premium` will force the creation of a new resource. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.capacity** | string |  `1`  |  -  |  Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`. | 
-| **var.auto_inflate_enabled** | bool |  -  |  -  |  Is Auto Inflate enabled for the EventHub Namespace? | 
-| **var.dedicated_cluster_id** | string |  -  |  -  |  Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **var.maximum_throughput_units** | string |  -  |  `1`, `20`  |  Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`. | 
-| **var.zone_redundant** | bool |  `False`  |  -  |  Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.network_rulesets** | [block](#network_rulesets-block-structure) |  -  |  -  |  A `network_rulesets` block. | 
-| **var.local_authentication_enabled** | bool |  `True`  |  -  |  Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`. | 
-| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
-| **var.minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
-
-### `ip_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_mask` | string | Yes | - | The IP mask to match on. |
-| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
+| **capacity** | string |  `1`  |  -  |  Specifies the Capacity / Throughput Units for a `Standard` SKU namespace. Default capacity has a maximum of `2`, but can be increased in blocks of 2 on a committed purchase basis. Defaults to `1`. | 
+| **auto_inflate_enabled** | bool |  -  |  -  |  Is Auto Inflate enabled for the EventHub Namespace? | 
+| **dedicated_cluster_id** | string |  -  |  -  |  Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created. | 
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **maximum_throughput_units** | string |  -  |  `1`, `20`  |  Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`. | 
+| **zone_redundant** | bool |  `False`  |  -  |  Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **network_rulesets** | [block](#network_rulesets-block-structure) |  -  |  -  |  A `network_rulesets` block. | 
+| **local_authentication_enabled** | bool |  `True`  |  -  |  Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`. | 
+| **public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
+| **minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
 
 ### `identity` block structure
 
@@ -63,6 +56,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
+
+### `ip_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_mask` | string | Yes | - | The IP mask to match on. |
+| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
 
 ### `network_rulesets` block structure
 

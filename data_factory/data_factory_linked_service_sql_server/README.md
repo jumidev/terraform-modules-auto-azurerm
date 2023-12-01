@@ -27,22 +27,22 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **name** | string |  Specifies the name of the Data Factory Linked Service SQL Server. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.connection_string** | string |  The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
-| **var.description** | string |  The description for the Data Factory Linked Service SQL Server. | 
-| **var.integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service SQL Server. | 
-| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service SQL Server. | 
-| **var.parameters** | string |  A map of parameters to associate with the Data Factory Linked Service SQL Server. | 
-| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service SQL Server. | 
-| **var.key_vault_connection_string** | [block](#key_vault_connection_string-block-structure) |  A `key_vault_connection_string` block. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
-| **var.key_vault_password** | [block](#key_vault_password-block-structure) |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
-| **var.user_name** | string |  The on-premises Windows authentication user name. | 
+| **connection_string** | string |  The connection string in which to authenticate with the SQL Server. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
+| **description** | string |  The description for the Data Factory Linked Service SQL Server. | 
+| **integration_runtime_name** | string |  The integration runtime reference to associate with the Data Factory Linked Service SQL Server. | 
+| **annotations** | string |  List of tags that can be used for describing the Data Factory Linked Service SQL Server. | 
+| **parameters** | string |  A map of parameters to associate with the Data Factory Linked Service SQL Server. | 
+| **additional_properties** | string |  A map of additional properties to associate with the Data Factory Linked Service SQL Server. | 
+| **key_vault_connection_string** | [block](#key_vault_connection_string-block-structure) |  A `key_vault_connection_string` block. Use this argument to store SQL Server connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
+| **key_vault_password** | [block](#key_vault_password-block-structure) |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
+| **user_name** | string |  The on-premises Windows authentication user name. | 
 
 ### `key_vault_connection_string` block structure
 

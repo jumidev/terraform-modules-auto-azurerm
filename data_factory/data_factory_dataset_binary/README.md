@@ -28,23 +28,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
-| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.linked_service_name** | string |  The Data Factory Linked Service name in which to associate the Binary Dataset with. | 
+| **name** | string |  Specifies the name of the Data Factory Binary Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions. | 
+| **data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **linked_service_name** | string |  The Data Factory Linked Service name in which to associate the Binary Dataset with. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.additional_properties** | string |  A map of additional properties to associate with the Data Factory Binary Dataset. | 
-| **var.annotations** | string |  List of tags that can be used for describing the Data Factory Binary Dataset. | 
-| **var.compression** | [block](#compression-block-structure) |  A `compression` block. | 
-| **var.description** | string |  The description for the Data Factory Dataset. | 
-| **var.folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **var.parameters** | string |  Specifies a list of parameters to associate with the Data Factory Binary Dataset. | 
-| **var.http_server_location** | [block](#http_server_location-block-structure) |  A `http_server_location` block. | 
-| **var.azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
-| **var.sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
+| **additional_properties** | string |  A map of additional properties to associate with the Data Factory Binary Dataset. | 
+| **annotations** | string |  List of tags that can be used for describing the Data Factory Binary Dataset. | 
+| **compression** | [block](#compression-block-structure) |  A `compression` block. | 
+| **description** | string |  The description for the Data Factory Dataset. | 
+| **folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
+| **parameters** | string |  Specifies a list of parameters to associate with the Data Factory Binary Dataset. | 
+| **http_server_location** | [block](#http_server_location-block-structure) |  A `http_server_location` block. | 
+| **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
+| **sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
 
 ### `sftp_server_location` block structure
 
@@ -52,16 +52,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `path` | string | Yes | - | The folder path to the file on the SFTP server. |
 | `filename` | string | Yes | - | The filename of the file on the SFTP server. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-
-### `http_server_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
-| `path` | string | Yes | - | The folder path to the file on the web server. |
-| `filename` | string | Yes | - | The filename of the file on the web server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
@@ -73,6 +63,16 @@ tfstate_store = {
 | `path` | string | No | - | The folder path to the file in the blob container. |
 | `filename` | string | No | - | The filename of the file in the blob container. |
 | `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
+### `http_server_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
+| `path` | string | Yes | - | The folder path to the file on the web server. |
+| `filename` | string | Yes | - | The filename of the file on the web server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 

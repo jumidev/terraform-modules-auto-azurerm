@@ -29,30 +29,37 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created. | 
-| **var.synapse_workspace_id** | string |  -  |  The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created. | 
-| **var.node_size_family** | string |  `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, `None`  |  The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`. | 
-| **var.node_size** | string |  `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge`, `XXXLarge`  |  The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`. | 
+| **name** | string |  -  |  The name which should be used for this Synapse Spark Pool. Changing this forces a new Synapse Spark Pool to be created. | 
+| **synapse_workspace_id** | string |  -  |  The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created. | 
+| **node_size_family** | string |  `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, `None`  |  The kind of nodes that the Spark Pool provides. Possible values are `HardwareAcceleratedFPGA`, `HardwareAcceleratedGPU`, `MemoryOptimized`, and `None`. | 
+| **node_size** | string |  `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge`, `XXXLarge`  |  The level of node in the Spark Pool. Possible values are `Small`, `Medium`, `Large`, `None`, `XLarge`, `XXLarge` and `XXXLarge`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.node_count** | int |  -  |  -  |  The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified. | 
-| **var.auto_scale** | [block](#auto_scale-block-structure) |  -  |  -  |  An `auto_scale` block. Exactly one of `node_count` or `auto_scale` must be specified. | 
-| **var.auto_pause** | [block](#auto_pause-block-structure) |  -  |  -  |  An `auto_pause` block. | 
-| **var.cache_size** | string |  -  |  -  |  The cache size in the Spark Pool. | 
-| **var.compute_isolation_enabled** | bool |  `False`  |  -  |  Indicates whether compute isolation is enabled or not. Defaults to `false`. | 
-| **var.dynamic_executor_allocation_enabled** | bool |  `False`  |  -  |  Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`. | 
-| **var.min_executors** | int |  -  |  -  |  The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
-| **var.max_executors** | int |  -  |  -  |  The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
-| **var.library_requirement** | [block](#library_requirement-block-structure) |  -  |  -  |  A `library_requirement` block. | 
-| **var.session_level_packages_enabled** | bool |  `False`  |  -  |  Indicates whether session level packages are enabled or not. Defaults to `false`. | 
-| **var.spark_config** | [block](#spark_config-block-structure) |  -  |  -  |  A `spark_config` block. | 
-| **var.spark_log_folder** | string |  `/logs`  |  -  |  The default folder where Spark logs will be written. Defaults to `/logs`. | 
-| **var.spark_events_folder** | string |  `/events`  |  -  |  The Spark events folder. Defaults to `/events`. | 
-| **var.spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
+| **node_count** | int |  -  |  -  |  The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified. | 
+| **auto_scale** | [block](#auto_scale-block-structure) |  -  |  -  |  An `auto_scale` block. Exactly one of `node_count` or `auto_scale` must be specified. | 
+| **auto_pause** | [block](#auto_pause-block-structure) |  -  |  -  |  An `auto_pause` block. | 
+| **cache_size** | string |  -  |  -  |  The cache size in the Spark Pool. | 
+| **compute_isolation_enabled** | bool |  `False`  |  -  |  Indicates whether compute isolation is enabled or not. Defaults to `false`. | 
+| **dynamic_executor_allocation_enabled** | bool |  `False`  |  -  |  Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`. | 
+| **min_executors** | int |  -  |  -  |  The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
+| **max_executors** | int |  -  |  -  |  The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
+| **library_requirement** | [block](#library_requirement-block-structure) |  -  |  -  |  A `library_requirement` block. | 
+| **session_level_packages_enabled** | bool |  `False`  |  -  |  Indicates whether session level packages are enabled or not. Defaults to `false`. | 
+| **spark_config** | [block](#spark_config-block-structure) |  -  |  -  |  A `spark_config` block. | 
+| **spark_log_folder** | string |  `/logs`  |  -  |  The default folder where Spark logs will be written. Defaults to `/logs`. | 
+| **spark_events_folder** | string |  `/events`  |  -  |  The Spark events folder. Defaults to `/events`. | 
+| **spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
+
+### `auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
 ### `auto_pause` block structure
 
@@ -73,13 +80,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | string | Yes | - | The content of library requirements. |
 | `filename` | string | Yes | - | The name of the library requirements file. |
-
-### `auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
 
 

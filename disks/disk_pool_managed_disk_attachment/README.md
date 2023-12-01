@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.disk_pool_id** | string |  The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created. | 
-| **var.managed_disk_id** | string |  The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created. | 
+| **disk_pool_id** | string |  The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created. | 
+| **managed_disk_id** | string |  The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created. | 
 
 
 

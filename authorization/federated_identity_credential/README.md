@@ -31,12 +31,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created. | 
-| **var.audience** | string |  Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
-| **var.issuer** | string |  Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
-| **var.parent_id** | string |  Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
-| **var.subject** | string |  Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
+| **name** | string |  Specifies the name of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
+| **resource_group_name** | string |  Specifies the name of the Resource Group within which this Federated Identity Credential should exist. Changing this forces a new Federated Identity Credential to be created. | 
+| **audience** | string |  Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
+| **issuer** | string |  Specifies the issuer of this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
+| **parent_id** | string |  Specifies parent ID of User Assigned Identity for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
+| **subject** | string |  Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. | 
 
 
 

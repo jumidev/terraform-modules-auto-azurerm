@@ -31,56 +31,31 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Logic App Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.app_service_plan_id** | string |  The ID of the App Service Plan within which to create this Logic App | 
-| **var.storage_account_name** | string |  The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created. | 
-| **var.storage_account_access_key** | string |  The access key which will be used to access the backend storage account for the Logic App | 
+| **name** | string |  Specifies the name of the Logic App Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **app_service_plan_id** | string |  The ID of the App Service Plan within which to create this Logic App | 
+| **storage_account_name** | string |  The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created. | 
+| **storage_account_access_key** | string |  The access key which will be used to access the backend storage account for the Logic App | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.app_settings** | string |  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
-| **var.use_extension_bundle** | bool |  `True`  |  -  |  Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`. | 
-| **var.bundle_version** | string |  `[1.*, 2.0.0)`  |  -  |  If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`. | 
-| **var.connection_string** | [block](#connection_string-block-structure) |  -  |  -  |  An `connection_string` block. | 
-| **var.client_affinity_enabled** | bool |  -  |  -  |  Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance? | 
-| **var.client_certificate_mode** | string |  -  |  `Required`, `Optional`  |  The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`. | 
-| **var.enabled** | bool |  `True`  |  -  |  Is the Logic App enabled? Defaults to `true`. | 
-| **var.https_only** | bool |  `False`  |  -  |  Can the Logic App only be accessed via HTTPS? Defaults to `false`. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **var.site_config** | [block](#site_config-block-structure) |  -  |  -  |  A `site_config` object as defined below. | 
-| **var.storage_account_share_name** | string |  -  |  -  |  The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share | 
-| **var.version** | string |  `~3`  |  -  |  The runtime version associated with the Logic App. Defaults to `~3`. | 
-| **var.virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `scm_ip_restriction` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+| **app_settings** | string |  -  |  -  |  A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values. | 
+| **use_extension_bundle** | bool |  `True`  |  -  |  Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`. | 
+| **bundle_version** | string |  `[1.*, 2.0.0)`  |  -  |  If `use_extension_bundle` then controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`. | 
+| **connection_string** | [block](#connection_string-block-structure) |  -  |  -  |  An `connection_string` block. | 
+| **client_affinity_enabled** | bool |  -  |  -  |  Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance? | 
+| **client_certificate_mode** | string |  -  |  `Required`, `Optional`  |  The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required` and `Optional`. | 
+| **enabled** | bool |  `True`  |  -  |  Is the Logic App enabled? Defaults to `true`. | 
+| **https_only** | bool |  `False`  |  -  |  Can the Logic App only be accessed via HTTPS? Defaults to `false`. | 
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **site_config** | [block](#site_config-block-structure) |  -  |  -  |  A `site_config` object as defined below. | 
+| **storage_account_share_name** | string |  -  |  -  |  The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using azurerm_storage_share | 
+| **version** | string |  `~3`  |  -  |  The runtime version associated with the Logic App. Defaults to `~3`. | 
+| **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `ip_restriction` block structure
 
@@ -93,6 +68,31 @@ tfstate_store = {
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | [block](#ip_restriction-block-structure) | No | - | The 'headers' block for this specific as a 'ip_restriction' block. |
 
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
+
+### `scm_ip_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+
 ### `headers` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -102,12 +102,12 @@ tfstate_store = {
 | `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
 | `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
 
-### `identity` block structure
+### `connection_string` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
 
 ### `site_config` block structure
 

@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
-| **var.storage_account_name** | string |  Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Queue which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
+| **storage_account_name** | string |  Specifies the Storage Account in which the Storage Queue should exist. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.metadata** | string |  A mapping of MetaData which should be assigned to this Storage Queue. | 
+| **metadata** | string |  A mapping of MetaData which should be assigned to this Storage Queue. | 
 
 
 

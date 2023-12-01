@@ -35,17 +35,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Log Profile. Changing this forces a new resource to be created. | 
-| **var.categories** | string |  List of categories of the logs. | 
-| **var.locations** | string |  List of regions for which Activity Log events are stored or streamed. | 
-| **var.retention_policy** | [block](#retention_policy-block-structure) |  A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
+| **name** | string |  The name of the Log Profile. Changing this forces a new resource to be created. | 
+| **categories** | string |  List of categories of the logs. | 
+| **locations** | string |  List of regions for which Activity Log events are stored or streamed. | 
+| **retention_policy** | [block](#retention_policy-block-structure) |  A `retention_policy` block. A retention policy for how long Activity Logs are retained in the storage account. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.storage_account_id** | string |  The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
-| **var.servicebus_rule_id** | string |  The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
+| **storage_account_id** | string |  The resource ID of the storage account in which the Activity Log is stored. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
+| **servicebus_rule_id** | string |  The service bus (or event hub) rule ID of the service bus (or event hub) namespace in which the Activity Log is streamed to. At least one of `storage_account_id` or `servicebus_rule_id` must be set. | 
 
 ### `retention_policy` block structure
 

@@ -36,21 +36,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Blueprint Assignment. Changing this forces a new resource to be created. | 
-| **var.target_subscription_id** | string |  The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure location of the Assignment. Changing this forces a new resource to be created. | 
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
-| **var.version_id** | string |  The ID of the Published Version of the blueprint to be assigned. | 
+| **name** | string |  The name of the Blueprint Assignment. Changing this forces a new resource to be created. | 
+| **target_subscription_id** | string |  The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure location of the Assignment. Changing this forces a new resource to be created. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. | 
+| **version_id** | string |  The ID of the Published Version of the blueprint to be assigned. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.parameter_values** | string |  -  |  a JSON string to supply Blueprint Assignment parameter values. | 
-| **var.resource_groups** | string |  -  |  a JSON string to supply the Blueprint Resource Group information. | 
-| **var.lock_mode** | string |  `None`  |  The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`. | 
-| **var.lock_exclude_principals** | list |  -  |  a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint. | 
-| **var.lock_exclude_actions** | list |  -  |  a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint. | 
+| **parameter_values** | string |  -  |  a JSON string to supply Blueprint Assignment parameter values. | 
+| **resource_groups** | string |  -  |  a JSON string to supply the Blueprint Resource Group information. | 
+| **lock_mode** | string |  `None`  |  The locking mode of the Blueprint Assignment. One of `None` (Default), `AllResourcesReadOnly`, or `AllResourcesDoNotDelete`. Defaults to `None`. | 
+| **lock_exclude_principals** | list |  -  |  a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint. | 
+| **lock_exclude_actions** | list |  -  |  a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint. | 
 
 ### `identity` block structure
 

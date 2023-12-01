@@ -30,18 +30,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the EventHub resource. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created. | 
-| **var.partition_count** | int |  Specifies the current number of shards on the Event Hub. | 
-| **var.message_retention** | int |  Specifies the number of days to retain the events for this Event Hub. | 
+| **name** | string |  Specifies the name of the EventHub resource. Changing this forces a new resource to be created. | 
+| **namespace_name** | string |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created. | 
+| **partition_count** | int |  Specifies the current number of shards on the Event Hub. | 
+| **message_retention** | int |  Specifies the number of days to retain the events for this Event Hub. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.capture_description** | [block](#capture_description-block-structure) |  -  |  -  |  A `capture_description` block. | 
-| **var.status** | string |  `Active`  |  `Active`, `Disabled`, `SendDisabled`  |  Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`. | 
+| **capture_description** | [block](#capture_description-block-structure) |  -  |  -  |  A `capture_description` block. | 
+| **status** | string |  `Active`  |  `Active`, `Disabled`, `SendDisabled`  |  Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`. | 
 
 ### `capture_description` block structure
 

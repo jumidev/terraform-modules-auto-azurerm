@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Azure Monitor Private Link Scope should exist. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags which should be assigned to the Azure Monitor Private Link Scope. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Azure Monitor Private Link Scope. | 
 
 
 

@@ -36,25 +36,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
-| **var.network_profile** | [block](#network_profile-block-structure) |  A `network_profile` block. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
-| **var.rulestack_id** | string |  The ID of the Local Rulestack which will be used to configure this Firewall Resource. | 
+| **name** | string |  The name which should be used for this Palo Alto Next Generation Firewall Virtual Network Local Rulestack. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
+| **network_profile** | [block](#network_profile-block-structure) |  A `network_profile` block. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Palo Alto Next Generation Firewall Virtual Network Local Rulestack should exist. Changing this forces a new Palo Alto Next Generation Firewall Virtual Network Local Rulestack to be created. | 
+| **rulestack_id** | string |  The ID of the Local Rulestack which will be used to configure this Firewall Resource. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.destination_nat** | [block](#destination_nat-block-structure) |  One or more `destination_nat` blocks. | 
-| **var.dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack. | 
-
-### `frontend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which to receive traffic. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+| **destination_nat** | [block](#destination_nat-block-structure) |  One or more `destination_nat` blocks. | 
+| **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack. | 
 
 ### `destination_nat` block structure
 
@@ -63,6 +56,21 @@ tfstate_store = {
 | `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
 | `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
 | `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
+
+### `frontend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port on which to receive traffic. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+
+### `vnet_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `virtual_network_id` | string | Yes | - | The ID of the Virtual Network. |
+| `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
+| `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
 
 ### `network_profile` block structure
 
@@ -85,14 +93,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | Yes | - | The port number to send traffic to. |
 | `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
-
-### `vnet_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `virtual_network_id` | string | Yes | - | The ID of the Virtual Network. |
-| `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
-| `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
 
 
 

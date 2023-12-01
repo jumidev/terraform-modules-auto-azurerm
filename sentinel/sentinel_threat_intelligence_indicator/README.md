@@ -31,44 +31,31 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.display_name** | string |  -  |  The display name of the Threat Intelligence Indicator. | 
-| **var.pattern_type** | string |  `domain-name`, `file`, `ipv4-addr`, `ipv6-addr`, `url`  |  The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`. | 
-| **var.pattern** | string |  -  |  The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`. | 
-| **var.source** | string |  -  |  Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created. | 
-| **var.validate_from_utc** | string |  -  |  The start of validate date in RFC3339. | 
-| **var.workspace_id** | string |  -  |  The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created. | 
+| **display_name** | string |  -  |  The display name of the Threat Intelligence Indicator. | 
+| **pattern_type** | string |  `domain-name`, `file`, `ipv4-addr`, `ipv6-addr`, `url`  |  The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`. | 
+| **pattern** | string |  -  |  The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`. | 
+| **source** | string |  -  |  Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created. | 
+| **validate_from_utc** | string |  -  |  The start of validate date in RFC3339. | 
+| **workspace_id** | string |  -  |  The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.confidence** | string |  Confidence levels of the Threat Intelligence Indicator. | 
-| **var.created_by** | string |  The creator of the Threat Intelligence Indicator. | 
-| **var.description** | string |  The description of the Threat Intelligence Indicator. | 
-| **var.extension** | string |  The extension config of the Threat Intelligence Indicator in JSON format. | 
-| **var.external_reference** | [block](#external_reference-block-structure) |  One or more `external_reference` blocks. | 
-| **var.granular_marking** | [block](#granular_marking-block-structure) |  One or more `granular_marking` blocks. | 
-| **var.kill_chain_phase** | [block](#kill_chain_phase-block-structure) |  One or more `kill_chain_phase` blocks. | 
-| **var.tags** | map |  Specifies a list of tags of the Threat Intelligence Indicator. | 
-| **var.language** | string |  The language of the Threat Intelligence Indicator. | 
-| **var.object_marking_refs** | string |  Specifies a list of Threat Intelligence marking references. | 
-| **var.pattern_version** | string |  The version of a Threat Intelligence entity. | 
-| **var.revoked** | bool |  Whether the Threat Intelligence entity revoked. | 
-| **var.threat_types** | string |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
-| **var.validate_until_utc** | string |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
-
-### `granular_marking` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `language` | string | No | - | The language of granular marking of the Threat Intelligence Indicator. |
-| `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
-| `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
-
-### `kill_chain_phase` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
+| **confidence** | string |  Confidence levels of the Threat Intelligence Indicator. | 
+| **created_by** | string |  The creator of the Threat Intelligence Indicator. | 
+| **description** | string |  The description of the Threat Intelligence Indicator. | 
+| **extension** | string |  The extension config of the Threat Intelligence Indicator in JSON format. | 
+| **external_reference** | [block](#external_reference-block-structure) |  One or more `external_reference` blocks. | 
+| **granular_marking** | [block](#granular_marking-block-structure) |  One or more `granular_marking` blocks. | 
+| **kill_chain_phase** | [block](#kill_chain_phase-block-structure) |  One or more `kill_chain_phase` blocks. | 
+| **tags** | map |  Specifies a list of tags of the Threat Intelligence Indicator. | 
+| **language** | string |  The language of the Threat Intelligence Indicator. | 
+| **object_marking_refs** | string |  Specifies a list of Threat Intelligence marking references. | 
+| **pattern_version** | string |  The version of a Threat Intelligence entity. | 
+| **revoked** | bool |  Whether the Threat Intelligence entity revoked. | 
+| **threat_types** | string |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
+| **validate_until_utc** | string |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
 
 ### `external_reference` block structure
 
@@ -78,6 +65,19 @@ tfstate_store = {
 | `hashes` | string | No | - | The list of hashes of the external reference of the Threat Intelligence Indicator. |
 | `source_name` | string | No | - | The source name of the external reference of the Threat Intelligence Indicator. |
 | `url` | string | No | - | The url of the external reference of the Threat Intelligence Indicator. |
+
+### `kill_chain_phase` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+
+### `granular_marking` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `language` | string | No | - | The language of granular marking of the Threat Intelligence Indicator. |
+| `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
+| `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
 
 
 

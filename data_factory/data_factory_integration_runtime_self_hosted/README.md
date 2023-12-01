@@ -27,15 +27,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
-| **var.name** | string |  The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created. | 
+| **data_factory_id** | string |  The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource. | 
+| **name** | string |  The name which should be used for this Data Factory. Changing this forces a new Data Factory Self-hosted Integration Runtime to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  Integration runtime description. | 
-| **var.rbac_authorization** | [block](#rbac_authorization-block-structure) |  A `rbac_authorization` block. Changing this forces a new resource to be created. | 
+| **description** | string |  Integration runtime description. | 
+| **rbac_authorization** | [block](#rbac_authorization-block-structure) |  A `rbac_authorization` block. Changing this forces a new resource to be created. | 
 
 ### `rbac_authorization` block structure
 

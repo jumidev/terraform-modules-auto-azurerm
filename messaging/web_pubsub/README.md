@@ -29,23 +29,30 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name of the Web PubSub service. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created. | 
-| **var.sku** | string |  `Free_F1`, `Standard_S1`, `Premium_P1`  |  Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`. | 
+| **name** | string |  -  |  The name of the Web PubSub service. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which to create the Web PubSub service. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the supported Azure location where the Web PubSub service exists. Changing this forces a new resource to be created. | 
+| **sku** | string |  `Free_F1`, `Standard_S1`, `Premium_P1`  |  Specifies which SKU to use. Possible values are `Free_F1`, `Standard_S1`, and `Premium_P1`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.capacity** | string |  -  |  `1`, `2`, `5`, `10`, `20`, `50`, `100`  |  Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`. | 
-| **var.public_network_access_enabled** | bool |  `True`  |  -  |  Whether to enable public network access? Defaults to `true`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **var.live_trace** | [block](#live_trace-block-structure) |  -  |  -  |  A `live_trace` block. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **var.local_auth_enabled** | bool |  `True`  |  -  |  Whether to enable local auth? Defaults to `true`. | 
-| **var.aad_auth_enabled** | bool |  `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
-| **var.tls_client_cert_enabled** | bool |  `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 
+| **capacity** | string |  -  |  `1`, `2`, `5`, `10`, `20`, `50`, `100`  |  Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: `1`, Standard: `1`, `2`, `5`, `10`, `20`, `50`, `100`. | 
+| **public_network_access_enabled** | bool |  `True`  |  -  |  Whether to enable public network access? Defaults to `true`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **live_trace** | [block](#live_trace-block-structure) |  -  |  -  |  A `live_trace` block. | 
+| **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
+| **local_auth_enabled** | bool |  `True`  |  -  |  Whether to enable local auth? Defaults to `true`. | 
+| **aad_auth_enabled** | bool |  `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
+| **tls_client_cert_enabled** | bool |  `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub. |
 
 ### `live_trace` block structure
 
@@ -55,13 +62,6 @@ tfstate_store = {
 | `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
 | `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
 | `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub. |
 
 
 

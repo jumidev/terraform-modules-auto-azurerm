@@ -31,22 +31,22 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
-| **var.location** | string |  -  |  The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
-| **var.bandwidth_in_gbps** | int |  -  |  Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created. | 
-| **var.encapsulation** | string |  `Dot1Q`, `QinQ`  |  The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`. | 
-| **var.peering_location** | string |  -  |  The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created. | 
+| **name** | string |  -  |  The name which should be used for this Express Route Port. Changing this forces a new Express Route Port to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
+| **location** | string |  -  |  The Azure Region where the Express Route Port should exist. Changing this forces a new Express Route Port to be created. | 
+| **bandwidth_in_gbps** | int |  -  |  Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created. | 
+| **encapsulation** | string |  `Dot1Q`, `QinQ`  |  The encapsulation method used for the Express Route Port. Changing this forces a new Express Route Port to be created. Possible values are: `Dot1Q`, `QinQ`. | 
+| **peering_location** | string |  -  |  The name of the peering location that this Express Route Port is physically mapped to. Changing this forces a new Express Route Port to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.link1** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
-| **var.link2** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
-| **var.billing_type** | string |  `MeteredData`, `UnlimitedData`  |  The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
-| **var.tags** | map |  -  |  A mapping of tags which should be assigned to the Express Route Port. | 
+| **link1** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
+| **link2** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
+| **billing_type** | string |  `MeteredData`, `UnlimitedData`  |  The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **tags** | map |  -  |  A mapping of tags which should be assigned to the Express Route Port. | 
 
 ### `link` block structure
 

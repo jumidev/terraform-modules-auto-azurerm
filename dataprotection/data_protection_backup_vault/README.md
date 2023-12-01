@@ -30,18 +30,18 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created. | 
-| **var.location** | string |  -  |  The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created. | 
-| **var.datastore_type** | string |  `ArchiveStore`, `SnapshotStore`, `VaultStore`  |  Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created. | 
-| **var.redundancy** | string |  `GeoRedundant`, `LocallyRedundant`  |  Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created. | 
+| **name** | string |  -  |  Specifies the name of the Backup Vault. Changing this forces a new Backup Vault to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created. | 
+| **location** | string |  -  |  The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created. | 
+| **datastore_type** | string |  `ArchiveStore`, `SnapshotStore`, `VaultStore`  |  Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created. | 
+| **redundancy** | string |  `GeoRedundant`, `LocallyRedundant`  |  Specifies the backup storage redundancy. Possible values are `GeoRedundant` and `LocallyRedundant`. Changing this forces a new Backup Vault to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.identity** | [block](#identity-block-structure) |  An `identity` block. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Backup Vault. | 
+| **identity** | [block](#identity-block-structure) |  An `identity` block. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Backup Vault. | 
 
 ### `identity` block structure
 

@@ -29,18 +29,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created. | 
-| **var.profile_name** | string |  The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the CDN Endpoint. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created. | 
+| **profile_name** | string |  The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.is_http_allowed** | bool |  `True`  |  Specifies if http allowed. Defaults to `true`. | 
-| **var.is_https_allowed** | bool |  `True`  |  Specifies if https allowed. Defaults to `true`. | 
-| **var.content_types_to_compress** | string |  -  |  An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. | 
+| **is_http_allowed** | bool |  `True`  |  Specifies if http allowed. Defaults to `true`. | 
+| **is_https_allowed** | bool |  `True`  |  Specifies if https allowed. Defaults to `true`. | 
+| **content_types_to_compress** | string |  -  |  An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. | 
 
 
 

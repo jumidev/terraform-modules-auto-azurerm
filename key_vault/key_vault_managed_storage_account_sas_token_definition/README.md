@@ -30,17 +30,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this SAS Definition. | 
-| **var.managed_storage_account_id** | string |  -  |  The ID of the Managed Storage Account. | 
-| **var.sas_template_uri** | string |  -  |  The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period. | 
-| **var.sas_type** | string |  `account`, `service`  |  The type of SAS token the SAS definition will create. Possible values are `account` and `service`. | 
-| **var.validity_period** | string |  -  |  Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations). | 
+| **name** | string |  -  |  The name which should be used for this SAS Definition. | 
+| **managed_storage_account_id** | string |  -  |  The ID of the Managed Storage Account. | 
+| **sas_template_uri** | string |  -  |  The SAS definition token template signed with an arbitrary key. Tokens created according to the SAS definition will have the same properties as the template, but regenerated with a new validity period. | 
+| **sas_type** | string |  `account`, `service`  |  The type of SAS token the SAS definition will create. Possible values are `account` and `service`. | 
+| **validity_period** | string |  -  |  Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations). | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created. | 
+| **tags** | map |  A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created. | 
 
 
 

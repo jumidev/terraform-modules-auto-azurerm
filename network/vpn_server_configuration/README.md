@@ -45,36 +45,38 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
-| **var.vpn_authentication_types** | string |  `AAD`, `Certificate`, `Radius`  |  A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`. | 
-| **var.azure_active_directory_authentication** | [block](#azure_active_directory_authentication-block-structure) |  -  |  A `azure_active_directory_authentication` block. | 
-| **var.client_root_certificate** | [block](#client_root_certificate-block-structure) |  -  |  One or more `client_root_certificate` blocks. | 
+| **name** | string |  -  |  The Name which should be used for this VPN Server Configuration. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The Name of the Resource Group in which this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
+| **vpn_authentication_types** | string |  `AAD`, `Certificate`, `Radius`  |  A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`. | 
+| **azure_active_directory_authentication** | [block](#azure_active_directory_authentication-block-structure) |  -  |  A `azure_active_directory_authentication` block. | 
+| **client_root_certificate** | [block](#client_root_certificate-block-structure) |  -  |  One or more `client_root_certificate` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.ipsec_policy** | [block](#ipsec_policy-block-structure) |  -  |  A `ipsec_policy` block. | 
-| **var.vpn_protocols** | string |  `IkeV2`, `OpenVPN`  |  A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-| **var.client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
-| **var.radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
+| **ipsec_policy** | [block](#ipsec_policy-block-structure) |  -  |  A `ipsec_policy` block. | 
+| **vpn_protocols** | string |  `IkeV2`, `OpenVPN`  |  A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
+| **radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
-### `client_root_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-
-### `radius` block structure
+### `azure_active_directory_authentication` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `audience` | string | Yes | - | The Audience which should be used for authentication. |
+| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
+| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
 
 ### `client_revoked_certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
+### `client_root_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -93,13 +95,11 @@ tfstate_store = {
 | `sa_lifetime_seconds` | int | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. |
 | `sa_data_size_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. |
 
-### `azure_active_directory_authentication` block structure
+### `radius` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `audience` | string | Yes | - | The Audience which should be used for authentication. |
-| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
-| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 
 

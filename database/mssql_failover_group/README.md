@@ -40,18 +40,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Failover Group. Changing this forces a new resource to be created. | 
-| **var.server_id** | string |  The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created. | 
-| **var.partner_server** | [block](#partner_server-block-structure) |  A `partner_server` block. | 
-| **var.read_write_endpoint_failover_policy** | [block](#read_write_endpoint_failover_policy-block-structure) |  A `read_write_endpoint_failover_policy` block. | 
+| **name** | string |  The name of the Failover Group. Changing this forces a new resource to be created. | 
+| **server_id** | string |  The ID of the primary SQL Server on which to create the failover group. Changing this forces a new resource to be created. | 
+| **partner_server** | [block](#partner_server-block-structure) |  A `partner_server` block. | 
+| **read_write_endpoint_failover_policy** | [block](#read_write_endpoint_failover_policy-block-structure) |  A `read_write_endpoint_failover_policy` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.databases** | string |  -  |  A set of database names to include in the failover group. | 
-| **var.readonly_endpoint_failover_policy_enabled** | bool |  `False`  |  Whether failover is enabled for the readonly endpoint. Defaults to `false`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| **databases** | string |  -  |  A set of database names to include in the failover group. | 
+| **readonly_endpoint_failover_policy_enabled** | bool |  `False`  |  Whether failover is enabled for the readonly endpoint. Defaults to `false`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `read_write_endpoint_failover_policy` block structure
 

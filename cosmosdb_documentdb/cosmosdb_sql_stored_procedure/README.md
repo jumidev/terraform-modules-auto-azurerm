@@ -31,12 +31,12 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string |  The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created. | 
-| **var.database_name** | string |  The name of the Cosmos DB SQL Database to create the stored procedure within. Changing this forces a new resource to be created. | 
-| **var.container_name** | string |  The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created. | 
-| **var.body** | string |  The body of the stored procedure. | 
+| **name** | string |  Specifies the name of the Cosmos DB SQL Stored Procedure. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Cosmos DB SQL Database is created. Changing this forces a new resource to be created. | 
+| **account_name** | string |  The name of the Cosmos DB Account to create the stored procedure within. Changing this forces a new resource to be created. | 
+| **database_name** | string |  The name of the Cosmos DB SQL Database to create the stored procedure within. Changing this forces a new resource to be created. | 
+| **container_name** | string |  The name of the Cosmos DB SQL Container to create the stored procedure within. Changing this forces a new resource to be created. | 
+| **body** | string |  The body of the stored procedure. | 
 
 
 

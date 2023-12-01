@@ -27,18 +27,33 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created. | 
-| **var.storage_account_id** | string |  The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created. | 
+| **name** | string |  The name which should be used for this Storage Account Local User. Changing this forces a new Storage Account Local User to be created. | 
+| **storage_account_id** | string |  The ID of the Storage Account that this Storage Account Local User resides in. Changing this forces a new Storage Account Local User to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.home_directory** | string |  -  |  The home directory of the Storage Account Local User. | 
-| **var.permission_scope** | [block](#permission_scope-block-structure) |  -  |  One or more `permission_scope` blocks. | 
-| **var.ssh_authorized_key** | [block](#ssh_authorized_key-block-structure) |  -  |  One or more `ssh_authorized_key` blocks. | 
-| **var.ssh_key_enabled** | bool |  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
-| **var.ssh_password_enabled** | bool |  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
+| **home_directory** | string |  -  |  The home directory of the Storage Account Local User. | 
+| **permission_scope** | [block](#permission_scope-block-structure) |  -  |  One or more `permission_scope` blocks. | 
+| **ssh_authorized_key** | [block](#ssh_authorized_key-block-structure) |  -  |  One or more `ssh_authorized_key` blocks. | 
+| **ssh_key_enabled** | bool |  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
+| **ssh_password_enabled** | bool |  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
+
+### `permission_scope` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permissions` | [block](#permission_scope-block-structure) | Yes | - | A 'permissions' block. |
+| `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
+| `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
+
+### `ssh_authorized_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | The public key value of this SSH authorized key. |
+| `description` | string | No | - | The description of this SSH authorized key. |
 
 ### `permissions` block structure
 
@@ -49,21 +64,6 @@ tfstate_store = {
 | `list` | bool | No | False | Specifies if the Local User has the list permission for this scope. Defaults to 'false'. |
 | `read` | bool | No | False | Specifies if the Local User has the read permission for this scope. Defaults to 'false'. |
 | `write` | bool | No | False | Specifies if the Local User has the write permission for this scope. Defaults to 'false'. |
-
-### `ssh_authorized_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | The public key value of this SSH authorized key. |
-| `description` | string | No | - | The description of this SSH authorized key. |
-
-### `permission_scope` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permissions` | [block](#permission_scope-block-structure) | Yes | - | A 'permissions' block. |
-| `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
-| `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
 
 
 

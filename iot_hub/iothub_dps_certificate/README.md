@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iot_dps_name** | string |  The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created. | 
-| **var.certificate_content** | string |  The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content. | 
+| **name** | string |  Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group under which the Iot Device Provisioning Service Certificate resource has to be created. Changing this forces a new resource to be created. | 
+| **iot_dps_name** | string |  The name of the IoT Device Provisioning Service that this certificate will be attached to. Changing this forces a new resource to be created. | 
+| **certificate_content** | string |  The Base-64 representation of the X509 leaf certificate .cer file or just a .pem file content. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.is_verified** | bool |  `False`  |  Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created. | 
+| **is_verified** | bool |  `False`  |  Specifies if the certificate is created in verified state. Defaults to `false`. Changing this forces a new resource to be created. | 
 
 
 

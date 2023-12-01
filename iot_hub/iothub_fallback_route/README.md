@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created. | 
-| **var.iothub_name** | string |  The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool |  Used to specify whether the fallback route is enabled. | 
-| **var.endpoint_names** | string |  The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed. | 
+| **resource_group_name** | string |  The name of the resource group under which the IotHub Storage Container Endpoint resource has to be created. Changing this forces a new resource to be created. | 
+| **iothub_name** | string |  The name of the IoTHub to which this Fallback Route belongs. Changing this forces a new resource to be created. | 
+| **enabled** | bool |  Used to specify whether the fallback route is enabled. | 
+| **endpoint_names** | string |  The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.source** | string |  `DeviceMessages`  |  `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`  |  The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`. | 
-| **var.condition** | bool |  `True`  |  -  |  The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`. | 
+| **source** | string |  `DeviceMessages`  |  `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`  |  The source that the routing rule is to be applied to. Possible values include: `DeviceConnectionStateEvents`, `DeviceJobLifecycleEvents`, `DeviceLifecycleEvents`, `DeviceMessages`, `DigitalTwinChangeEvents`, `Invalid`, `TwinChangeEvents`. Defaults to `DeviceMessages`. | 
+| **condition** | bool |  `True`  |  -  |  The condition that is evaluated to apply the routing rule. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. Defaults to `true`. | 
 
 
 

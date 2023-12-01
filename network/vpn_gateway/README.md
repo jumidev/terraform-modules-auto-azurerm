@@ -29,20 +29,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created. | 
-| **var.virtual_hub_id** | string |  The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created. | 
+| **name** | string |  The Name which should be used for this VPN Gateway. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The Name of the Resource Group in which this VPN Gateway should be created. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure location where this VPN Gateway should be created. Changing this forces a new resource to be created. | 
+| **virtual_hub_id** | string |  The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.bgp_route_translation_for_nat_enabled** | bool |  `False`  |  Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`. | 
-| **var.bgp_settings** | [block](#bgp_settings-block-structure) |  -  |  A `bgp_settings` block. | 
-| **var.routing_preference** | string |  -  |  Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created. | 
-| **var.scale_unit** | string |  `1`  |  The Scale Unit for this VPN Gateway. Defaults to `1`. | 
-| **var.tags** | map |  -  |  A mapping of tags to assign to the VPN Gateway. | 
+| **bgp_route_translation_for_nat_enabled** | bool |  `False`  |  Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`. | 
+| **bgp_settings** | [block](#bgp_settings-block-structure) |  -  |  A `bgp_settings` block. | 
+| **routing_preference** | string |  -  |  Azure routing preference lets you to choose how your traffic routes between Azure and the internet. You can choose to route traffic either via the Microsoft network (default value, `Microsoft Network`), or via the ISP network (public internet, set to `Internet`). More context of the configuration can be found in the [Microsoft Docs](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-site-to-site-portal#gateway) to create a VPN Gateway. Changing this forces a new resource to be created. | 
+| **scale_unit** | string |  `1`  |  The Scale Unit for this VPN Gateway. Defaults to `1`. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the VPN Gateway. | 
+
+### `instance_bgp_peering_address` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_ips` | list | Yes | - | A list of custom BGP peering addresses to assign to this instance. |
 
 ### `bgp_settings` block structure
 
@@ -52,12 +58,6 @@ tfstate_store = {
 | `peer_weight` | string | Yes | - | The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created. |
 | `instance_0_bgp_peering_address` | [block](#bgp_settings-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
 | `instance_1_bgp_peering_address` | [block](#bgp_settings-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
-
-### `instance_bgp_peering_address` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `custom_ips` | list | Yes | - | A list of custom BGP peering addresses to assign to this instance. |
 
 
 

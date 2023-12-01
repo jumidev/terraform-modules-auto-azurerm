@@ -28,17 +28,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created. | 
-| **var.lab_name** | string |  Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created. | 
+| **lab_name** | string |  Specifies the name of the Dev Test Lab in which the Virtual Network should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description for the Virtual Network. | 
-| **var.subnet** | [block](#subnet-block-structure) |  A `subnet` block. | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **description** | string |  A description for the Virtual Network. | 
+| **subnet** | [block](#subnet-block-structure) |  A `subnet` block. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `subnet` block structure
 

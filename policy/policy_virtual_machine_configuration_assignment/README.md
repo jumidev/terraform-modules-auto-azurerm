@@ -34,16 +34,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created. | 
-| **var.virtual_machine_id** | string |  The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created. | 
-| **var.configuration** | [block](#configuration-block-structure) |  A `configuration` block. | 
-
-### `parameter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value to check the configuration parameter with. |
+| **name** | string |  The name of the Guest Configuration that will be assigned in this Guest Configuration Assignment. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure location where the Policy Virtual Machine Configuration Assignment should exist. Changing this forces a new resource to be created. | 
+| **virtual_machine_id** | string |  The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created. | 
+| **configuration** | [block](#configuration-block-structure) |  A `configuration` block. | 
 
 ### `configuration` block structure
 
@@ -54,6 +48,12 @@ tfstate_store = {
 | `content_uri` | string | No | - | The content URI where the Guest Configuration package is stored. |
 | `parameter` | [block](#configuration-block-structure) | No | - | One or more 'parameter' blocks which define what configuration parameters and values against. |
 | `version` | string | No | - | The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment. |
+
+### `parameter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value to check the configuration parameter with. |
 
 
 

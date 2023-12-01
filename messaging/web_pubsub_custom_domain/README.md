@@ -29,10 +29,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
-| **var.domain_name** | string |  Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
-| **var.web_pubsub_id** | string |  Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
-| **var.web_pubsub_custom_certificate_id** | string |  Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
+| **domain_name** | string |  Specifies the custom domain name of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
+| **web_pubsub_id** | string |  Specifies the Web PubSub ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
+| **web_pubsub_custom_certificate_id** | string |  Specifies the Web PubSub Custom Certificate ID of the Web PubSub Custom Domain. Changing this forces a new resource to be created. | 
 
 
 

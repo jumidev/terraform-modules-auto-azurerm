@@ -34,19 +34,26 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.git_repository** | [block](#git_repository-block-structure) |  A `git_repository` block. | 
-| **var.name** | string |  The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created. | 
-| **var.spring_cloud_accelerator_id** | string |  The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created. | 
+| **git_repository** | [block](#git_repository-block-structure) |  A `git_repository` block. | 
+| **name** | string |  The name which should be used for this Spring Cloud Customized Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created. | 
+| **spring_cloud_accelerator_id** | string |  The ID of the Spring Cloud Accelerator. Changing this forces a new Spring Cloud Customized Accelerator to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.accelerator_tags** | map |  -  |  -  |  Specifies a list of accelerator tags. | 
-| **var.accelerator_type** | string |  `Accelerator`  |  `Accelerator`, `Fragment`  |  Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`. | 
-| **var.description** | string |  -  |  -  |  Specifies the description of the Spring Cloud Customized Accelerator. | 
-| **var.display_name** | string |  -  |  -  |  Specifies the display name of the Spring Cloud Customized Accelerator.. | 
-| **var.icon_url** | string |  -  |  -  |  Specifies the icon URL of the Spring Cloud Customized Accelerator.. | 
+| **accelerator_tags** | map |  -  |  -  |  Specifies a list of accelerator tags. | 
+| **accelerator_type** | string |  `Accelerator`  |  `Accelerator`, `Fragment`  |  Specifies the type of the Spring Cloud Customized Accelerator. Possible values are `Accelerator` and `Fragment`. Defaults to `Accelerator`. | 
+| **description** | string |  -  |  -  |  Specifies the description of the Spring Cloud Customized Accelerator. | 
+| **display_name** | string |  -  |  -  |  Specifies the display name of the Spring Cloud Customized Accelerator.. | 
+| **icon_url** | string |  -  |  -  |  Specifies the icon URL of the Spring Cloud Customized Accelerator.. | 
+
+### `basic_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
+| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
 
 ### `git_repository` block structure
 
@@ -61,13 +68,6 @@ tfstate_store = {
 | `interval_in_seconds` | int | No | - | Specifies the interval for checking for updates to Git or image repository. It should be greater than 10. |
 | `ssh_auth` | [block](#git_repository-block-structure) | No | - | A 'ssh_auth' block. Conflicts with 'git_repository.0.basic_auth'. Changing this forces a new Spring Cloud Customized Accelerator to be created. |
 | `path` | string | No | - | Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on 'accelerator_type'). |
-
-### `basic_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
-| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
 
 ### `ssh_auth` block structure
 

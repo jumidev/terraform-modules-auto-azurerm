@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name which should be used for this Storage Mover. Changing this forces a new Storage Mover to be created. | 
-| **var.location** | string |  Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Storage Mover should exist. Changing this forces a new Storage Mover to be created. | 
+| **name** | string |  Specifies the name which should be used for this Storage Mover. Changing this forces a new Storage Mover to be created. | 
+| **location** | string |  Specifies the Azure Region where the Storage Mover should exist. Changing this forces a new Storage Mover to be created. | 
+| **resource_group_name** | string |  Specifies the name of the Resource Group where the Storage Mover should exist. Changing this forces a new Storage Mover to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description for the Storage Mover. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Storage Mover. | 
+| **description** | string |  A description for the Storage Mover. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Storage Mover. | 
 
 
 

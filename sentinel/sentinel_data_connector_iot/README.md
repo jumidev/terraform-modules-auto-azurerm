@@ -27,14 +27,14 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created. | 
-| **var.name** | string |  The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created. | 
+| **log_analytics_workspace_id** | string |  The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created. | 
+| **name** | string |  The name which should be used for this Iot Data Connector. Changing this forces a new Iot Data Connector to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.subscription_id** | string |  The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created. | 
+| **subscription_id** | string |  The ID of the subscription that this Iot Data Connector connects to. Changing this forces a new Iot Data Connector to be created. | 
 
 
 

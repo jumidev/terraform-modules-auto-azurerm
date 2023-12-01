@@ -31,19 +31,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Route Server. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string |  The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created. | 
-| **var.sku** | string |  The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created. | 
-| **var.public_ip_address_id** | string |  The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Route Server. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the name of the Resource Group where the Route Server should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the Route Server should exist. Changing this forces a new resource to be created. | 
+| **subnet_id** | string |  The ID of the Subnet that the Route Server will reside. Changing this forces a new resource to be created. | 
+| **sku** | string |  The SKU of the Route Server. The only possible value is `Standard`. Changing this forces a new resource to be created. | 
+| **public_ip_address_id** | string |  The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.branch_to_branch_traffic_enabled** | bool |  Whether to enable route exchange between Azure Route Server and the gateway(s) | 
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **branch_to_branch_traffic_enabled** | bool |  Whether to enable route exchange between Azure Route Server and the gateway(s) | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 
 

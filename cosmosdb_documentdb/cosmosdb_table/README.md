@@ -28,16 +28,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created. | 
-| **var.account_name** | string |  The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the Cosmos DB Table. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Cosmos DB Table is created. Changing this forces a new resource to be created. | 
+| **account_name** | string |  The name of the Cosmos DB Table to create the table within. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.throughput** | string |  The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
-| **var.autoscale_settings** | [block](#autoscale_settings-block-structure) |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **throughput** | string |  The throughput of Table (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **autoscale_settings** | [block](#autoscale_settings-block-structure) |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
 ### `autoscale_settings` block structure
 

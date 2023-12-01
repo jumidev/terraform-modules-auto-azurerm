@@ -29,23 +29,23 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created. | 
-| **var.location** | string |  The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created. | 
-| **var.cassandra_cluster_id** | string |  The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created. | 
-| **var.delegated_management_subnet_id** | string |  The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created. | 
+| **name** | string |  The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created. | 
+| **location** | string |  The Azure Region where the Cassandra Datacenter should exist. Changing this forces a new Cassandra Datacenter to be created. | 
+| **cassandra_cluster_id** | string |  The ID of the Cassandra Cluster. Changing this forces a new Cassandra Datacenter to be created. | 
+| **delegated_management_subnet_id** | string |  The ID of the delegated management subnet for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.node_count** | int |  `3`  |  The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`. | 
-| **var.backup_storage_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the backup Storage Account. | 
-| **var.base64_encoded_yaml_fragment** | string |  -  |  The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed. | 
-| **var.disk_sku** | string |  `P30`  |  The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`. | 
-| **var.managed_disk_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the Managed Disk. | 
-| **var.sku_name** | string |  -  |  Determines the selected sku. | 
-| **var.disk_count** | int |  -  |  Determines the number of p30 disks that are attached to each node. | 
-| **var.availability_zones_enabled** | bool |  `True`  |  Determines whether availability zones are enabled. Defaults to `true`. | 
+| **node_count** | int |  `3`  |  The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`. | 
+| **backup_storage_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the backup Storage Account. | 
+| **base64_encoded_yaml_fragment** | string |  -  |  The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed. | 
+| **disk_sku** | string |  `P30`  |  The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`. | 
+| **managed_disk_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the Managed Disk. | 
+| **sku_name** | string |  -  |  Determines the selected sku. | 
+| **disk_count** | int |  -  |  Determines the number of p30 disks that are attached to each node. | 
+| **availability_zones_enabled** | bool |  `True`  |  Determines whether availability zones are enabled. Defaults to `true`. | 
 
 
 

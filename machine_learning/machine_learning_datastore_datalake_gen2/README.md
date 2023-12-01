@@ -28,21 +28,21 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.storage_container_id** | string |  The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created. | 
+| **name** | string |  The name of the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
+| **workspace_id** | string |  The ID of the Machine Learning Workspace. Changing this forces a new Machine Learning DataStore to be created. | 
+| **storage_container_id** | string |  The ID of the Storage Account Container. Changing this forces a new Machine Learning DataStore to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.tenant_id** | string |  -  |  -  |  The ID of the Tenant which the Service Principal belongs to. | 
-| **var.client_id** | string |  -  |  -  |  The object ID of the Service Principal. | 
-| **var.client_secret** | string |  -  |  -  |  The secret of the Service Principal. | 
-| **var.authority_url** | string |  -  |  -  |  An URL used for authentication. | 
-| **var.description** | string |  -  |  -  |  Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created. | 
-| **var.service_data_identity** | string |  `None`  |  `None`, `WorkspaceSystemAssignedIdentity`, `WorkspaceUserAssignedIdentity`  |  Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`. | 
-| **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
+| **tenant_id** | string |  -  |  -  |  The ID of the Tenant which the Service Principal belongs to. | 
+| **client_id** | string |  -  |  -  |  The object ID of the Service Principal. | 
+| **client_secret** | string |  -  |  -  |  The secret of the Service Principal. | 
+| **authority_url** | string |  -  |  -  |  An URL used for authentication. | 
+| **description** | string |  -  |  -  |  Text used to describe the asset. Changing this forces a new Machine Learning DataStore to be created. | 
+| **service_data_identity** | string |  `None`  |  `None`, `WorkspaceSystemAssignedIdentity`, `WorkspaceUserAssignedIdentity`  |  Specifies which identity to use when retrieving data from the specified source. Defaults to `None`. Possible values are `None`, `WorkspaceSystemAssignedIdentity` and `WorkspaceUserAssignedIdentity`. | 
+| **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning DataStore. Changing this forces a new Machine Learning DataStore to be created. | 
 
 
 

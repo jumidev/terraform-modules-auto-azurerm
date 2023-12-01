@@ -28,25 +28,45 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length. | 
-| **var.policy_definition_id** | string |  The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created. | 
-| **var.resource_group_id** | string |  The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created. | 
+| **name** | string |  The name which should be used for this Policy Assignment. Changing this forces a new Policy Assignment to be created. Cannot exceed 64 characters in length. | 
+| **policy_definition_id** | string |  The ID of the Policy Definition or Policy Definition Set. Changing this forces a new Policy Assignment to be created. | 
+| **resource_group_id** | string |  The ID of the Resource Group where this Policy Assignment should be created. Changing this forces a new Policy Assignment to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.description** | string |  -  |  A description which should be used for this Policy Assignment. | 
-| **var.display_name** | string |  -  |  The Display Name for this Policy Assignment. | 
-| **var.enforce** | bool |  `True`  |  Specifies if this Policy should be enforced or not? Defaults to `true`. | 
-| **var.identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
-| **var.location** | string |  -  |  The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created. | 
-| **var.metadata** | string |  -  |  A JSON mapping of any Metadata for this Policy. | 
-| **var.non_compliance_message** | [block](#non_compliance_message-block-structure) |  -  |  One or more `non_compliance_message` blocks. | 
-| **var.not_scopes** | string |  -  |  Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy. | 
-| **var.parameters** | string |  -  |  A JSON mapping of any Parameters for this Policy. | 
-| **var.overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
-| **var.resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
+| **description** | string |  -  |  A description which should be used for this Policy Assignment. | 
+| **display_name** | string |  -  |  The Display Name for this Policy Assignment. | 
+| **enforce** | bool |  `True`  |  Specifies if this Policy should be enforced or not? Defaults to `true`. | 
+| **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
+| **location** | string |  -  |  The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created. | 
+| **metadata** | string |  -  |  A JSON mapping of any Metadata for this Policy. | 
+| **non_compliance_message** | [block](#non_compliance_message-block-structure) |  -  |  One or more `non_compliance_message` blocks. | 
+| **not_scopes** | string |  -  |  Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy. | 
+| **parameters** | string |  -  |  A JSON mapping of any Parameters for this Policy. | 
+| **overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
+| **resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
+
+### `resource_selectors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `selectors` | [block](#resource_selectors-block-structure) | Yes | - | One or more 'resource_selector' block. |
+
+### `non_compliance_message` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
+| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
 
 ### `override_selector` block structure
 
@@ -61,32 +81,12 @@ tfstate_store = {
 | `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
 | `selectors` | [block](#overrides-block-structure) | No | - | One or more 'override_selector' block. |
 
-### `non_compliance_message` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
-| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
-
-### `resource_selectors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `selectors` | [block](#resource_selectors-block-structure) | Yes | - | One or more 'resource_selector' block. |
-
 ### `resource_selector` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
 | `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
-| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
 
 
 

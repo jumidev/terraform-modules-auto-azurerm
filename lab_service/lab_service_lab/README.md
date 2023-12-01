@@ -45,45 +45,30 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Lab Service Lab. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Lab Service Lab should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The Azure Region where the Lab Service Lab should exist. Changing this forces a new resource to be created. | 
-| **var.security** | [block](#security-block-structure) |  A `security` block. | 
-| **var.title** | string |  The title of the Lab Service Lab. | 
-| **var.virtual_machine** | [block](#virtual_machine-block-structure) |  A `virtual_machine` block. | 
+| **name** | string |  The name which should be used for this Lab Service Lab. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Lab Service Lab should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  The Azure Region where the Lab Service Lab should exist. Changing this forces a new resource to be created. | 
+| **security** | [block](#security-block-structure) |  A `security` block. | 
+| **title** | string |  The title of the Lab Service Lab. | 
+| **virtual_machine** | [block](#virtual_machine-block-structure) |  A `virtual_machine` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.auto_shutdown** | [block](#auto_shutdown-block-structure) |  An `auto_shutdown` block. | 
-| **var.connection_setting** | [block](#connection_setting-block-structure) |  A `connection_setting` block. | 
-| **var.description** | string |  The description of the Lab Service Lab. | 
-| **var.lab_plan_id** | string |  The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`. | 
-| **var.network** | [block](#network-block-structure) |  A `network` block. | 
-| **var.roster** | [block](#roster-block-structure) |  A `roster` block. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Lab Service Lab. | 
+| **auto_shutdown** | [block](#auto_shutdown-block-structure) |  An `auto_shutdown` block. | 
+| **connection_setting** | [block](#connection_setting-block-structure) |  A `connection_setting` block. | 
+| **description** | string |  The description of the Lab Service Lab. | 
+| **lab_plan_id** | string |  The resource ID of the Lab Plan that is used during resource creation to provide defaults and acts as a permission container when creating a Lab Service Lab via `labs.azure.com`. | 
+| **network** | [block](#network-block-structure) |  A `network` block. | 
+| **roster** | [block](#roster-block-structure) |  A `roster` block. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Lab Service Lab. | 
 
 ### `network` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
-
-### `auto_shutdown` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `shutdown_on_idle` | string | No | - | A VM will get shutdown when it has idled for a period of time. Possible values are 'LowUsage' and 'UserAbsence'. |
 
 ### `virtual_machine` block structure
 
@@ -108,25 +93,21 @@ tfstate_store = {
 | `lti_context_id` | string | No | - | The unique context identifier for the Lab Service Lab in the lms. |
 | `lti_roster_endpoint` | string | No | - | The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab. |
 
-### `admin_user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created. |
-| `password` | string | Yes | - | The password for the Lab user. Changing this forces a new resource to be created. |
-
-### `security` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
-
 ### `connection_setting` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
 | `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
+
+### `auto_shutdown` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `shutdown_on_idle` | string | No | - | A VM will get shutdown when it has idled for a period of time. Possible values are 'LowUsage' and 'UserAbsence'. |
 
 ### `non_admin_user` block structure
 
@@ -143,6 +124,25 @@ tfstate_store = {
 | `publisher` | string | No | - | The image publisher. Changing this forces a new resource to be created. |
 | `sku` | string | No | - | The image SKU. Changing this forces a new resource to be created. |
 | `version` | string | No | - | The image version specified on creation. Changing this forces a new resource to be created. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
+
+### `admin_user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created. |
+| `password` | string | Yes | - | The password for the Lab user. Changing this forces a new resource to be created. |
+
+### `security` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
 
 
 

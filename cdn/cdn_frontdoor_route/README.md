@@ -31,25 +31,25 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created. | 
-| **var.cdn_frontdoor_endpoint_id** | string |  -  |  The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created. | 
-| **var.cdn_frontdoor_origin_group_id** | string |  -  |  The resource ID of the Front Door Origin Group where this Front Door Route should be created. | 
-| **var.cdn_frontdoor_origin_ids** | list |  -  |  One or more Front Door Origin resource IDs that this Front Door Route will link to. | 
-| **var.patterns_to_match** | string |  -  |  The route patterns of the rule. | 
-| **var.supported_protocols** | string |  `Http`, `Https`  |  One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`. | 
+| **name** | string |  -  |  The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created. | 
+| **cdn_frontdoor_endpoint_id** | string |  -  |  The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created. | 
+| **cdn_frontdoor_origin_group_id** | string |  -  |  The resource ID of the Front Door Origin Group where this Front Door Route should be created. | 
+| **cdn_frontdoor_origin_ids** | list |  -  |  One or more Front Door Origin resource IDs that this Front Door Route will link to. | 
+| **patterns_to_match** | string |  -  |  The route patterns of the rule. | 
+| **supported_protocols** | string |  `Http`, `Https`  |  One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **var.forwarding_protocol** | string |  `MatchRequest`  |  `HttpOnly`, `HttpsOnly`, `MatchRequest`  |  The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`. | 
-| **var.cache** | [block](#cache-block-structure) |  -  |  -  |  A `cache` block. | 
-| **var.cdn_frontdoor_custom_domain_ids** | string |  -  |  -  |  The IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
-| **var.cdn_frontdoor_origin_path** | string |  -  |  -  |  A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`). | 
-| **var.cdn_frontdoor_rule_set_ids** | list |  -  |  -  |  A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route. | 
-| **var.enabled** | bool |  `True`  |  `true`, `false`  |  Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`. | 
-| **var.https_redirect_enabled** | bool |  `True`  |  `true`, `false`  |  Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`. | 
-| **var.link_to_default_domain** | bool |  `True`  |  `true`, `false`  |  Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`. | 
+| **forwarding_protocol** | string |  `MatchRequest`  |  `HttpOnly`, `HttpsOnly`, `MatchRequest`  |  The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`. | 
+| **cache** | [block](#cache-block-structure) |  -  |  -  |  A `cache` block. | 
+| **cdn_frontdoor_custom_domain_ids** | string |  -  |  -  |  The IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
+| **cdn_frontdoor_origin_path** | string |  -  |  -  |  A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`). | 
+| **cdn_frontdoor_rule_set_ids** | list |  -  |  -  |  A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route. | 
+| **enabled** | bool |  `True`  |  `true`, `false`  |  Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`. | 
+| **https_redirect_enabled** | bool |  `True`  |  `true`, `false`  |  Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`. | 
+| **link_to_default_domain** | bool |  `True`  |  `true`, `false`  |  Should this Front Door Route be linked to the default endpoint? Possible values include `true` or `false`. Defaults to `true`. | 
 
 ### `cache` block structure
 

@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.target_resource_id** | string |  The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created. | 
-| **var.enabled** | bool |  Should Advanced Threat Protection be enabled on this resource? | 
+| **target_resource_id** | string |  The ID of the Azure Resource which to enable Advanced Threat Protection on. Changing this forces a new resource to be created. | 
+| **enabled** | bool |  Should Advanced Threat Protection be enabled on this resource? | 
 
 
 

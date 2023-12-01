@@ -36,10 +36,10 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.resource_group_name** | string |  The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
-| **var.line_channel** | [block](#line_channel-block-structure) |  One or more `line_channel` blocks. | 
+| **resource_group_name** | string |  The name of the resource group where the Line Channel should be created. Changing this forces a new resource to be created. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **bot_name** | string |  The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created. | 
+| **line_channel** | [block](#line_channel-block-structure) |  One or more `line_channel` blocks. | 
 
 ### `line_channel` block structure
 

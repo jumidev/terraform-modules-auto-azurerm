@@ -79,6 +79,14 @@ variable "routing_rule" {
 #   forwarding_configuration (block): A 'forwarding_configuration' block.
 #   redirect_configuration (block)  : A 'redirect_configuration' block.
 #
+# redirect_configuration block structure:
+#   custom_host (string)                  : Set this to change the URL for the redirection.
+#   redirect_protocol (string)            : (REQUIRED) Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'.
+#   redirect_type (string)                : (REQUIRED) Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'.
+#   custom_fragment (string)              : The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+#   custom_path (string)                  : The path to retain as per the incoming request, or update in the URL for the redirection.
+#   custom_query_string (string)          : Replace any existing query string from the incoming request URL.
+#
 # forwarding_configuration block structure      :
 #   backend_pool_name (string)                    : (REQUIRED) Specifies the name of the Backend Pool to forward the incoming traffic to.
 #   cache_enabled (bool)                          : Specifies whether to Enable caching or not. Valid options are 'true' or 'false'. Defaults to 'false'.
@@ -88,14 +96,6 @@ variable "routing_rule" {
 #   cache_duration (string)                       : Specify the minimum caching duration (in ISO8601 notation e.g. 'P1DT2H' for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. 'cache_duration' works only in combination with 'cache_enabled' set to 'true'.
 #   custom_forwarding_path (string)               : Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
 #   forwarding_protocol (string)                  : Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'.
-#
-# redirect_configuration block structure:
-#   custom_host (string)                  : Set this to change the URL for the redirection.
-#   redirect_protocol (string)            : (REQUIRED) Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'.
-#   redirect_type (string)                : (REQUIRED) Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'.
-#   custom_fragment (string)              : The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
-#   custom_path (string)                  : The path to retain as per the incoming request, or update in the URL for the redirection.
-#   custom_query_string (string)          : Replace any existing query string from the incoming request URL.
 
 
 

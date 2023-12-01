@@ -28,15 +28,15 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created. | 
-| **var.security_admin_configuration_id** | string |  Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created. | 
-| **var.network_group_ids** | list |  A list of Network Group ID which this Network Manager Admin Rule Collection applies to. | 
+| **name** | string |  Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created. | 
+| **security_admin_configuration_id** | string |  Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created. | 
+| **network_group_ids** | list |  A list of Network Group ID which this Network Manager Admin Rule Collection applies to. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.description** | string |  A description of the Network Manager Admin Rule Collection. | 
+| **description** | string |  A description of the Network Manager Admin Rule Collection. | 
 
 
 

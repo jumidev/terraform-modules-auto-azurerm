@@ -27,8 +27,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.app_service_id** | string |  The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created. | 
-| **var.subnet_id** | string |  The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`). | 
+| **app_service_id** | string |  The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created. | 
+| **subnet_id** | string |  The ID of the subnet the app service will be associated to (the subnet must have a `service_delegation` configured for `Microsoft.Web/serverFarms`). | 
 
 
 

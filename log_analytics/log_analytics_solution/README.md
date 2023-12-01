@@ -38,18 +38,18 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.solution_name** | string |  Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group. | 
-| **var.location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **var.workspace_resource_id** | string |  The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
-| **var.workspace_name** | string |  The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
-| **var.plan** | [block](#plan-block-structure) |  A `plan` block. | 
+| **solution_name** | string |  Specifies the name of the solution to be deployed. See [here for options](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the Log Analytics solution is created. Changing this forces a new resource to be created. Note: The solution and its related workspace can only exist in the same resource group. | 
+| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **workspace_resource_id** | string |  The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
+| **workspace_name** | string |  The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created. | 
+| **plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `plan` block structure
 

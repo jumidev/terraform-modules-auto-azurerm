@@ -32,25 +32,25 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created. | 
-| **var.location** | string |  The location where the Kusto Database should be created. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created. | 
-| **var.cluster_name** | string |  Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created. | 
-| **var.database_name** | string |  Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created. | 
-| **var.eventhub_id** | string |  Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created. | 
-| **var.consumer_group** | string |  Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Kusto EventHub Data Connection to create. Changing this forces a new resource to be created. | 
+| **location** | string |  The location where the Kusto Database should be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  Specifies the Resource Group where the Kusto Database should exist. Changing this forces a new resource to be created. | 
+| **cluster_name** | string |  Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created. | 
+| **database_name** | string |  Specifies the name of the Kusto Database this data connection will be added to. Changing this forces a new resource to be created. | 
+| **eventhub_id** | string |  Specifies the resource id of the EventHub this data connection will use for ingestion. Changing this forces a new resource to be created. | 
+| **consumer_group** | string |  Specifies the EventHub consumer group this data connection will use for ingestion. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.compression** | string |  `None`  |  Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created. | 
-| **var.event_system_properties** | string |  -  |  Specifies a list of system properties for the Event Hub. | 
-| **var.table_name** | string |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
-| **var.identity_id** | string |  -  |  The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub. | 
-| **var.mapping_rule_name** | string |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
-| **var.data_format** | string |  -  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`. | 
-| **var.database_routing_type** | string |  `Single`  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
+| **compression** | string |  `None`  |  Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created. | 
+| **event_system_properties** | string |  -  |  Specifies a list of system properties for the Event Hub. | 
+| **table_name** | string |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
+| **identity_id** | string |  -  |  The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub. | 
+| **mapping_rule_name** | string |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
+| **data_format** | string |  -  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`. | 
+| **database_routing_type** | string |  `Single`  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
 
 
 

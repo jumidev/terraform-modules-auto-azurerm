@@ -31,19 +31,19 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created. | 
-| **var.stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
-| **var.api_key** | string |  The API key for the Function. | 
-| **var.function_app** | string |  The name of the Function App. | 
-| **var.function_name** | string |  The name of the function in the Function App. | 
+| **name** | string |  The name which should be used for this Stream Analytics Output. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Output should exist. Changing this forces a new resource to be created. | 
+| **stream_analytics_job_name** | string |  The name of the Stream Analytics Job. Changing this forces a new resource to be created. | 
+| **api_key** | string |  The API key for the Function. | 
+| **function_app** | string |  The name of the Function App. | 
+| **function_name** | string |  The name of the function in the Function App. | 
 
 ## Optional Variables
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.batch_max_count** | int |  `100`  |  The maximum number of events in each batch that's sent to the function. Defaults to `100`. | 
-| **var.batch_max_in_bytes** | string |  `262144`  |  The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB). | 
+| **batch_max_count** | int |  `100`  |  The maximum number of events in each batch that's sent to the function. Defaults to `100`. | 
+| **batch_max_in_bytes** | string |  `262144`  |  The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB). | 
 
 
 

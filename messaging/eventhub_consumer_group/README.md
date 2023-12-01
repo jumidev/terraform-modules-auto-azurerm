@@ -29,16 +29,16 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created. | 
-| **var.namespace_name** | string |  Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created. | 
-| **var.eventhub_name** | string |  Specifies the name of the EventHub. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created. | 
+| **name** | string |  Specifies the name of the EventHub Consumer Group resource. Changing this forces a new resource to be created. | 
+| **namespace_name** | string |  Specifies the name of the grandparent EventHub Namespace. Changing this forces a new resource to be created. | 
+| **eventhub_name** | string |  Specifies the name of the EventHub. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which the EventHub Consumer Group's grandparent Namespace exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.user_metadata** | string |  Specifies the user metadata. | 
+| **user_metadata** | string |  Specifies the user metadata. | 
 
 
 

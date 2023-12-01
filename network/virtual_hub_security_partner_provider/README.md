@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **var.name** | string |  -  |  The name which should be used for this Security Partner Provider. Changing this forces a new resource to be created. | 
-| **var.resource_group_name** | string |  -  |  The name of the Resource Group where the Security Partner Provider should exist. Changing this forces a new resource to be created. | 
-| **var.location** | string |  -  |  The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created. | 
-| **var.security_provider_name** | string |  `ZScaler`, `IBoss`, `Checkpoint`  |  The security provider name. Possible values are `ZScaler`, `IBoss` and `Checkpoint` is allowed. Changing this forces a new resource to be created. | 
+| **name** | string |  -  |  The name which should be used for this Security Partner Provider. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the Resource Group where the Security Partner Provider should exist. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  The Azure Region where the Security Partner Provider should exist. Changing this forces a new resource to be created. | 
+| **security_provider_name** | string |  `ZScaler`, `IBoss`, `Checkpoint`  |  The security provider name. Possible values are `ZScaler`, `IBoss` and `Checkpoint` is allowed. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.virtual_hub_id** | string |  The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created. | 
-| **var.tags** | map |  A mapping of tags which should be assigned to the Security Partner Provider. | 
+| **virtual_hub_id** | string |  The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created. | 
+| **tags** | map |  A mapping of tags which should be assigned to the Security Partner Provider. | 
 
 
 

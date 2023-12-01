@@ -29,17 +29,17 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.name** | string |  The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created. | 
-| **var.peering_id** | string |  The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created. | 
-| **var.peer_peering_id** | string |  The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created. | 
-| **var.address_prefix_ipv4** | string |  The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created. | 
+| **name** | string |  The name which should be used for this Express Route Circuit Connection. Changing this forces a new Express Route Circuit Connection to be created. | 
+| **peering_id** | string |  The ID of the Express Route Circuit Private Peering that this Express Route Circuit Connection connects with. Changing this forces a new Express Route Circuit Connection to be created. | 
+| **peer_peering_id** | string |  The ID of the peered Express Route Circuit Private Peering. Changing this forces a new Express Route Circuit Connection to be created. | 
+| **address_prefix_ipv4** | string |  The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **var.authorization_key** | string |  The authorization key which is associated with the Express Route Circuit Connection. | 
-| **var.address_prefix_ipv6** | string |  The IPv6 address space from which to allocate customer addresses for global reach. | 
+| **authorization_key** | string |  The authorization key which is associated with the Express Route Circuit Connection. | 
+| **address_prefix_ipv6** | string |  The IPv6 address space from which to allocate customer addresses for global reach. | 
 
 
 
