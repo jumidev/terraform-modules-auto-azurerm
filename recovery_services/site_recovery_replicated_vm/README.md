@@ -64,13 +64,6 @@ tfstate_store = {
 | **var.network_interface** | [block](#network_interface-block-structure) |  One or more `network_interface` block. | 
 | **var.multi_vm_group_name** | string |  Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. | 
 
-### `target_disk_encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | block | Yes | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | block | No | - | A 'key_encryption_key' block. |
-
 ### `unmanaged_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +71,18 @@ tfstate_store = {
 | `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
 | `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
 | `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+
+### `network_interface` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_network_interface_id` | string | No | - | (Required if the network_interface block is specified) Id source network interface. |
+| `target_static_ip` | string | No | - | Static IP to assign when a failover is done. |
+| `target_subnet_name` | string | No | - | Name of the subnet to to use when a failover is done. |
+| `recovery_public_ip_address_id` | string | No | - | Id of the public IP object to use when a failover is done. |
+| `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
+| `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
+| `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
 
 ### `disk_encryption_key` block structure
 
@@ -103,19 +108,14 @@ tfstate_store = {
 | `target_disk_type` | string | Yes | - | What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
 | `target_replica_disk_type` | string | Yes | - | What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
 | `target_disk_encryption_set_id` | string | No | - | The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. |
-| `target_disk_encryption` | block | No | - | A 'target_disk_encryption' block. |
+| `target_disk_encryption` | [block](#managed_disk-block-structure) | No | - | A 'target_disk_encryption' block. |
 
-### `network_interface` block structure
+### `target_disk_encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `source_network_interface_id` | string | No | - | (Required if the network_interface block is specified) Id source network interface. |
-| `target_static_ip` | string | No | - | Static IP to assign when a failover is done. |
-| `target_subnet_name` | string | No | - | Name of the subnet to to use when a failover is done. |
-| `recovery_public_ip_address_id` | string | No | - | Id of the public IP object to use when a failover is done. |
-| `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
-| `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
-| `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
+| `disk_encryption_key` | [block](#target_disk_encryption-block-structure) | Yes | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#target_disk_encryption-block-structure) | No | - | A 'key_encryption_key' block. |
 
 
 

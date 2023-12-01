@@ -47,13 +47,6 @@ tfstate_store = {
 | **var.vnet_integration** | [block](#vnet_integration-block-structure) |  -  |  -  |  A `vnet_integration` block. | 
 | **var.description** | string |  -  |  -  |  Integration runtime description. | 
 
-### `vnet_integration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `vnet_id` | string | Yes | - | ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. |
-| `subnet_name` | string | Yes | - | Name of the subnet to which the nodes of the Managed Integration Runtime will be added. |
-
 ### `catalog_info` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,6 +55,13 @@ tfstate_store = {
 | `administrator_login` | string | No | - | Administrator login name for the SQL Server. |
 | `administrator_password` | string | No | - | Administrator login password for the SQL Server. |
 | `pricing_tier` | string | No | Basic | Pricing tier for the database that will be created for the SSIS catalog. Valid values are: 'Basic', 'Standard', 'Premium' and 'PremiumRS'. Defaults to 'Basic'. |
+
+### `vnet_integration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `vnet_id` | string | Yes | - | ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. |
+| `subnet_name` | string | Yes | - | Name of the subnet to which the nodes of the Managed Integration Runtime will be added. |
 
 ### `custom_setup_script` block structure
 

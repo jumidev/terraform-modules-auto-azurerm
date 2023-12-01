@@ -59,14 +59,8 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `asn` | string | No | - | The Autonomous System Number (ASN) to use as part of the BGP. |
-| `peering_addresses` | block | No | - | A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'. |
+| `peering_addresses` | [block](#bgp_settings-block-structure) | No | - | A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'. |
 | `peer_weight` | string | No | - | The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'. |
-
-### `custom_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 ### `peering_addresses` block structure
 
@@ -89,6 +83,12 @@ tfstate_store = {
 | `radius_server_secret` | string | No | - | The secret used by the Radius server. |
 | `vpn_client_protocols` | string | No | - | List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'. |
 | `vpn_auth_types` | string | No | - | List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. |
+
+### `custom_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 
 

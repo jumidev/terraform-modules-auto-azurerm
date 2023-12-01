@@ -51,6 +51,16 @@ tfstate_store = {
 | **var.ip_filter_rule** | [block](#ip_filter_rule-block-structure) |  -  |  An `ip_filter_rule` block. | 
 | **var.tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `linked_hub` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `connection_string` | string | Yes | - | The connection string to connect to the IoT Hub. |
+| `location` | string | Yes | - | The location of the IoT hub. |
+| `apply_allocation_policy` | bool | No | True | Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. |
+| `allocation_weight` | string | No | 1 | The weight applied to the IoT Hub. Defaults to '1'. |
+| `hostname` | string | No | - | (Computed) The IoT Hub hostname. |
+
 ### `sku` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,16 +74,6 @@ tfstate_store = {
 | `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the rule. |
 | `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
 | `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
-
-### `linked_hub` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `connection_string` | string | Yes | - | The connection string to connect to the IoT Hub. |
-| `location` | string | Yes | - | The location of the IoT hub. |
-| `apply_allocation_policy` | bool | No | True | Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. |
-| `allocation_weight` | string | No | 1 | The weight applied to the IoT Hub. Defaults to '1'. |
-| `hostname` | string | No | - | (Computed) The IoT Hub hostname. |
 
 
 

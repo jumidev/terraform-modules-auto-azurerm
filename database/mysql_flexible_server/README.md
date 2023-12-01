@@ -56,28 +56,14 @@ tfstate_store = {
 | **var.zone** | string |  -  |  `1`, `2`, `3`  |  Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the MySQL Flexible Server. | 
 
-### `customer_managed_key` block structure
+### `storage` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key. |
-| `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
-| `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
-| `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
-
-### `high_availability` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. |
-| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
+| `auto_grow_enabled` | bool | No | True | Should Storage Auto Grow be enabled? Defaults to 'true'. |
+| `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
+| `iops` | string | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
+| `size_gb` | string | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
 
 ### `maintenance_window` block structure
 
@@ -87,14 +73,28 @@ tfstate_store = {
 | `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
 | `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
 
-### `storage` block structure
+### `high_availability` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `auto_grow_enabled` | bool | No | True | Should Storage Auto Grow be enabled? Defaults to 'true'. |
-| `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
-| `iops` | string | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
-| `size_gb` | string | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
+| `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. |
+| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. |
+
+### `customer_managed_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key. |
+| `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
+| `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
+| `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
 
 
 

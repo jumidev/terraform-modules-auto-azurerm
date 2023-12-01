@@ -57,33 +57,6 @@ tfstate_store = {
 | **var.resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **var.volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
-### `export_policy_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_clients` | string | Yes | - | A comma-sperated list of allowed client IPv4 addresses. |
-| `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
-| `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
-| `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
-| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
-| `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
-| `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
-
-### `data_protection_replication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
-| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
-| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
-| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
-
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
-
 ### `volume` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -100,9 +73,36 @@ tfstate_store = {
 | `volume_path` | string | Yes | - | A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `volume_spec_name` | string | Yes | - | Volume specification name. Possible values are 'data', 'log', 'shared', 'data-backup' and 'log-backup'. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `tags` | map | No | - | A mapping of tags which should be assigned to the Application Volume Group. |
-| `export_policy_rule` | block | Yes | - | One or more 'export_policy_rule' blocks. |
-| `data_protection_replication` | block | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `data_protection_snapshot_policy` | block | No | - | A 'data_protection_snapshot_policy' block. |
+| `export_policy_rule` | [block](#volume-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
+| `data_protection_replication` | [block](#volume-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `data_protection_snapshot_policy` | [block](#volume-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
+
+### `export_policy_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_clients` | string | Yes | - | A comma-sperated list of allowed client IPv4 addresses. |
+| `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
+| `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
+| `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
+| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
+| `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
+| `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
+
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
+
+### `data_protection_replication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
+| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
 
 

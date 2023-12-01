@@ -56,12 +56,12 @@ variable "filter" {
 #   dimension (block)     : One or more 'dimension' blocks to filter the budget on.
 #   tag (block)           : One or more 'tag' blocks to filter the budget on.
 #
-# dimension block structure:
-#   operator (string)        : The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'.
-#   values (string)          : (REQUIRED) Specifies a list of values for the column.
-#
 # tag block structure:
 #   operator (string)  : The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'.
 #   values (string)    : (REQUIRED) Specifies a list of values for the tag.
+#
+# dimension block structure:
+#   operator (string)        : The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'.
+#   values (string)          : (REQUIRED) Specifies a list of values for the column.
 
 

@@ -55,6 +55,32 @@ tfstate_store = {
 | **var.tactics** | string |  -  |  `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance`, `ResourceDevelopment`  |  A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`. | 
 | **var.techniques** | list |  -  |  -  |  A list of techniques of attacks by which to classify the rule. | 
 
+### `field_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `identifier` | string | Yes | - | The identifier of the entity. |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
+| `field_mapping` | [block](#entity_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
+
+### `sentinel_entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `dynamic_property` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
+
 ### `grouping` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,7 +104,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `create_incident_enabled` | bool | Yes | - | Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule? |
-| `grouping` | block | Yes | - | A 'grouping' block. |
+| `grouping` | [block](#incident-block-structure) | Yes | - | A 'grouping' block. |
 
 ### `alert_details_override` block structure
 
@@ -88,33 +114,7 @@ tfstate_store = {
 | `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
 | `severity_column_name` | string | No | - | The column name to take the alert severity from. |
 | `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
-| `dynamic_property` | block | No | - | A list of 'dynamic_property' blocks. |
-
-### `sentinel_entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `field_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `dynamic_property` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
-
-### `entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
-| `field_mapping` | block | Yes | - | A list of 'field_mapping' blocks. |
+| `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
 
 
 

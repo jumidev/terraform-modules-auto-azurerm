@@ -45,20 +45,20 @@ tfstate_store = {
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **var.rotation_policy** | [block](#rotation_policy-block-structure) |  -  |  -  |  A `rotation_policy` block. | 
 
+### `rotation_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expire_after` | string | No | - | Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| `automatic` | [block](#rotation_policy-block-structure) | No | - | An 'automatic' block. |
+| `notify_before_expiry` | string | No | - | Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+
 ### `automatic` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-
-### `rotation_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `expire_after` | string | No | - | Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| `automatic` | block | No | - | An 'automatic' block. |
-| `notify_before_expiry` | string | No | - | Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 
 
 

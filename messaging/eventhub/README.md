@@ -52,7 +52,7 @@ tfstate_store = {
 | `interval_in_seconds` | int | No | 300 | Specifies the time interval in seconds at which the capture will happen. Values can be between '60' and '900' seconds. Defaults to '300' seconds. |
 | `size_limit_in_bytes` | string | No | 314572800 | Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between '10485760' and '524288000' bytes. Defaults to '314572800' bytes. |
 | `skip_empty_archives` | bool | No | False | Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'. |
-| `destination` | block | Yes | - | A 'destination' block. |
+| `destination` | [block](#capture_description-block-structure) | Yes | - | A 'destination' block. |
 
 ### `destination` block structure
 

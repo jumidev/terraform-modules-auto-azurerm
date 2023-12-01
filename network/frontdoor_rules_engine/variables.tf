@@ -34,15 +34,15 @@ variable "rule" {
 #   action (block)         : An 'action' block.
 #   match_condition (block): One or more 'match_condition' block.
 #
-# response_header block structure:
-#   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
-#   header_name (string)           : header name (string).
-#   value (string)                 : value name (string).
-#
 # request_header block structure:
 #   header_action_type (string)   : can be set to 'Overwrite', 'Append' or 'Delete'.
 #   header_name (string)          : header name (string).
 #   value (string)                : value name (string).
+#
+# response_header block structure:
+#   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
+#   header_name (string)           : header name (string).
+#   value (string)                 : value name (string).
 #
 # match_condition block structure:
 #   variable (string)              : can be set to 'IsMobile', 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestURI', 'RequestPath', 'RequestFilename', 'RequestFilenameExtension','RequestHeader','RequestBody' or 'RequestScheme'.

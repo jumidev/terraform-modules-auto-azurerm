@@ -37,6 +37,10 @@ variable "release_criteria" {
 #   monthly (block)         : A 'monthly' block.
 #   week_days (string)      : A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
 #
+# monthly block structure:
+#   weekday (string)       : (REQUIRED) The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
+#   week (string)          : (REQUIRED) The occurrence of the week within the month.
+#
 # recurrence block structure:
 #   frequency (string)        : (REQUIRED) The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'.
 #   interval (int)            : (REQUIRED) The number of 'frequency's between runs.
@@ -44,10 +48,6 @@ variable "release_criteria" {
 #   schedule (block)          : A 'schedule' block.
 #   start_time (string)       : The start time of the schedule, formatted as an RFC3339 string.
 #   time_zone (string)        : The timezone of the start/end time.
-#
-# monthly block structure:
-#   weekday (string)       : (REQUIRED) The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#   week (string)          : (REQUIRED) The occurrence of the week within the month.
 
 
 

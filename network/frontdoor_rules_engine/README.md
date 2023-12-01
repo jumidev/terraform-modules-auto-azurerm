@@ -39,6 +39,14 @@ tfstate_store = {
 | **var.enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **var.rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
+### `request_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
+
 ### `response_header` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -52,16 +60,8 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | block | No | - | An 'action' block. |
-| `match_condition` | block | No | - | One or more 'match_condition' block. |
-
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
+| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
 ### `match_condition` block structure
 
@@ -78,8 +78,8 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `request_header` | block | No | - | A 'request_header' block. |
-| `response_header` | block | No | - | A 'response_header' block. |
+| `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
+| `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
 
 
 

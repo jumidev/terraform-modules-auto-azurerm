@@ -37,14 +37,22 @@ variable "certificate_policy" {
 #   secret_properties (block)          : (REQUIRED) A 'secret_properties' block.
 #   x509_certificate_properties (block): A 'x509_certificate_properties' block. Required when 'certificate' block is not specified.
 #
-# lifetime_action block structure:
-#   action (block)                 : (REQUIRED) A 'action' block.
-#   trigger (block)                : (REQUIRED) A 'trigger' block.
+# trigger block structure     :
+#   days_before_expiry (int)    : The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'.
+#   lifetime_percentage (string): The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'.
 #
-# issuer_parameters block structure:
+# subject_alternative_names block structure:
+#   dns_names (list)                         : A list of alternative DNS names (FQDNs) identified by the Certificate.
+#   emails (list)                            : A list of email addresses identified by this Certificate.
+#   upns (list)                              : A list of User Principal Names identified by the Certificate.
+#
+# action block structure:
+#   action_type (string)  : (REQUIRED) The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'.
 #
 # secret_properties block structure:
 #   content_type (string)            : (REQUIRED) The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM.
+#
+# issuer_parameters block structure:
 #
 # x509_certificate_properties block structure:
 #   extended_key_usage (list)                  : A list of Extended/Enhanced Key Usages.
@@ -60,17 +68,9 @@ variable "certificate_policy" {
 #   key_type (string)             : (REQUIRED) Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'.
 #   reuse_key (string)            : (REQUIRED) Is the key reusable?
 #
-# subject_alternative_names block structure:
-#   dns_names (list)                         : A list of alternative DNS names (FQDNs) identified by the Certificate.
-#   emails (list)                            : A list of email addresses identified by this Certificate.
-#   upns (list)                              : A list of User Principal Names identified by the Certificate.
-#
-# action block structure:
-#   action_type (string)  : (REQUIRED) The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'.
-#
-# trigger block structure     :
-#   days_before_expiry (int)    : The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'.
-#   lifetime_percentage (string): The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'.
+# lifetime_action block structure:
+#   action (block)                 : (REQUIRED) A 'action' block.
+#   trigger (block)                : (REQUIRED) A 'trigger' block.
 
 
 variable "tags" {

@@ -54,12 +54,32 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
 
+### `account_access` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | No | Deny | Specifies the default action for the account access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
+| `ip_rule` | [block](#account_access-block-structure) | No | - | One or more 'ip_rule' blocks. |
+
+### `network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `account_access` | [block](#network_profile-block-structure) | No | - | An 'account_access' block. |
+| `node_management_access` | [block](#network_profile-block-structure) | No | - | A 'node_management_access' block. |
+
+### `encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
+
 ### `node_management_access` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `default_action` | string | No | Deny | Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
-| `ip_rule` | block | No | - | One or more 'ip_rule' blocks. |
+| `ip_rule` | [block](#node_management_access-block-structure) | No | - | One or more 'ip_rule' blocks. |
 
 ### `ip_rule` block structure
 
@@ -74,26 +94,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
-
-### `account_access` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Deny | Specifies the default action for the account access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
-| `ip_rule` | block | No | - | One or more 'ip_rule' blocks. |
-
-### `encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
-
-### `network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `account_access` | block | No | - | An 'account_access' block. |
-| `node_management_access` | block | No | - | A 'node_management_access' block. |
 
 
 

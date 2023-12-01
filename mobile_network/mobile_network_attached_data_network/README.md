@@ -47,6 +47,13 @@ tfstate_store = {
 | **var.user_equipment_static_address_pool_prefixes** | string |  Specifies the user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs. The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource. At least one of `user_equipment_address_pool_prefix` and `user_equipment_static_address_pool_prefixes`. If you define both, they must be of the same size. | 
 | **var.tags** | map |  A mapping of tags which should be assigned to the Mobile Network Attached Data Network. | 
 
+### `port_range` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `maximum` | string | No | - | Specifies the maximum port number. |
+| `minimum` | string | No | - | Specifies the minimum port number. |
+
 ### `network_address_port_translation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,16 +62,9 @@ tfstate_store = {
 | `icmp_pinhole_timeout_in_seconds` | int | No | 180 | Pinhole timeout for ICMP pinholes in seconds. Must between '1' to '180', Default to '180'. |
 | `tcp_pinhole_timeout_in_seconds` | int | No | 180 | Pinhole timeout for TCP pinholes in seconds. Must between '1' to '180', Default to '180'. |
 | `udp_pinhole_timeout_in_seconds` | int | No | 180 | Pinhole timeout for UDP pinholes in seconds. Must between '1' to '180', Default to '180'. |
-| `port_range` | block | No | - | A 'port_range' block. |
+| `port_range` | [block](#network_address_port_translation-block-structure) | No | - | A 'port_range' block. |
 | `tcp_port_reuse_minimum_hold_time_in_seconds` | int | No | 120 | Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to '120'. |
 | `udp_port_reuse_minimum_hold_time_in_seconds` | int | No | 60 | Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to '60'. |
-
-### `port_range` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `maximum` | string | No | - | Specifies the maximum port number. |
-| `minimum` | string | No | - | Specifies the minimum port number. |
 
 
 

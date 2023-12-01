@@ -53,6 +53,14 @@ tfstate_store = {
 | `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
 | `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
 
+### `install_patches` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linux` | [block](#install_patches-block-structure) | No | - | A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch' |
+| `windows` | [block](#install_patches-block-structure) | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
+| `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
+
 ### `window` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,14 +78,6 @@ tfstate_store = {
 | `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
 | `kb_numbers_to_exclude` | string | No | - | List of KB numbers to be excluded from patching. |
 | `kb_numbers_to_include` | string | No | - | List of KB numbers to be included for patching. |
-
-### `install_patches` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `linux` | block | No | - | A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch' |
-| `windows` | block | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
-| `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
 
 
 

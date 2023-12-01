@@ -45,7 +45,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `uri` | string | Yes | - | The URI of the module content (zip or nupkg). |
-| `hash` | block | No | - | A 'hash' block. |
+| `hash` | [block](#module_link-block-structure) | No | - | A 'hash' block. |
 
 ### `hash` block structure
 

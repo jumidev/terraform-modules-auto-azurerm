@@ -42,7 +42,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `actions` | list | Yes | - | A list of actions that are allowed. |
-| `resource` | block | Yes | - | A 'resource' block. |
+| `resource` | [block](#privilege-block-structure) | Yes | - | A 'resource' block. |
 
 ### `resource` block structure
 

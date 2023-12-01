@@ -61,9 +61,9 @@ variable "backup" {
 #   schedule_policy (block)                 : A 'schedule_policy' block.
 #   retention_policy (block)                : A 'retention_policy' block.
 #
-# weekly_schedule block structure:
-#   retention_times (string)       : The retention times of the backup policy.
-#   retention_duration (block)     : A 'retention_duration' block.
+# daily_schedule block structure:
+#   retention_times (string)      : The retention times of the backup policy.
+#   retention_duration (block)    : A 'retention_duration' block.
 #
 # schedule_policy block structure:
 #   schedule_run_frequency (string): The schedule run frequency of the backup policy. Possible values are 'Daily' and 'Weekly'. Defaults to 'Daily'.
@@ -75,9 +75,9 @@ variable "backup" {
 #   count (int)                       : The count of the retention duration of the backup policy. Valid value inside 'daily_schedule' is '7' to '9999' and inside 'weekly_schedule' is '1' to '5163'.
 #   duration_type (string)            : The duration type of the retention duration of the backup policy. Valid value inside 'daily_schedule' is 'Days' and inside 'weekly_schedule' is 'Weeks'. Defaults to 'Days'.
 #
-# daily_schedule block structure:
-#   retention_times (string)      : The retention times of the backup policy.
-#   retention_duration (block)    : A 'retention_duration' block.
+# weekly_schedule block structure:
+#   retention_times (string)       : The retention times of the backup policy.
+#   retention_duration (block)     : A 'retention_duration' block.
 #
 # retention_policy block structure:
 #   retention_policy_type (string)  : The retention policy type of the backup policy. Possible value is 'LongTermRetentionPolicy'. Defaults to 'LongTermRetentionPolicy'.

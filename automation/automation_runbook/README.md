@@ -51,13 +51,14 @@ tfstate_store = {
 | **var.log_activity_trace_level** | string |  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
 | **var.draft** | [block](#draft-block-structure) |  -  |  A `draft` block . | 
 
-### `publish_content_link` block structure
+### `draft` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `uri` | string | Yes | - | The URI of the runbook content. |
-| `version` | string | No | - | Specifies the version of the content |
-| `hash` | block | No | - | A 'hash' block. |
+| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
+| `content_link` | [block](#draft-block-structure) | No | - | A 'publish_content_link' block. |
+| `output_types` | string | No | - | Specifies the output types of the runbook. |
+| `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
 
 ### `hash` block structure
 
@@ -76,14 +77,13 @@ tfstate_store = {
 | `position` | string | No | - | Specifies the position of the parameter. |
 | `default_value` | string | No | - | Specifies the default value of the parameter. |
 
-### `draft` block structure
+### `publish_content_link` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
-| `content_link` | block | No | - | A 'publish_content_link' block. |
-| `output_types` | string | No | - | Specifies the output types of the runbook. |
-| `parameters` | block | No | - | A list of 'parameters' block. |
+| `uri` | string | Yes | - | The URI of the runbook content. |
+| `version` | string | No | - | Specifies the version of the content |
+| `hash` | [block](#publish_content_link-block-structure) | No | - | A 'hash' block. |
 
 
 

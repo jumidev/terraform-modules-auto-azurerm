@@ -51,7 +51,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | True | Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'. |
-| `sub_type` | block | No | - | One or more 'sub_type' blocks. |
+| `sub_type` | [block](#source-block-structure) | No | - | One or more 'sub_type' blocks. |
 
 
 

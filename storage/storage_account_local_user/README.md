@@ -61,7 +61,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `permissions` | block | Yes | - | A 'permissions' block. |
+| `permissions` | [block](#permission_scope-block-structure) | Yes | - | A 'permissions' block. |
 | `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
 | `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
 

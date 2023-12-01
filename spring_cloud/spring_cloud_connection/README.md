@@ -59,7 +59,7 @@ tfstate_store = {
 | `certificate` | string | No | - | Service principal certificate for 'servicePrincipal' auth. Should be specified when 'type' is set to 'servicePrincipalCertificate'. |
 | `client_type` | string | No | none | The application client type. Possible values are 'none', 'dotnet', 'java', 'python', 'go', 'php', 'ruby', 'django', 'nodejs' and 'springBoot'. Defaults to 'none'. |
 | `vnet_solution` | string | No | - | The type of the VNet solution. Possible values are 'serviceEndpoint', 'privateLink'. |
-| `secret_store` | block | No | - | An option to store secret value in secure place. An 'secret_store' block. |
+| `secret_store` | [block](#authentication-block-structure) | No | - | An option to store secret value in secure place. An 'secret_store' block. |
 
 
 

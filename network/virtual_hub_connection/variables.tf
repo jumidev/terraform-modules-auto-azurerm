@@ -37,12 +37,12 @@ variable "routing" {
 #   static_vnet_local_route_override_criteria (string): The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created.
 #   static_vnet_route (block)                         : A 'static_vnet_route' block.
 #
-# propagated_route_table block structure:
-#   labels (string)                       : The list of labels to assign to this route table.
-#   route_table_ids (list)                : A list of Route Table IDs to associated with this Virtual Hub Connection.
-#
 # static_vnet_route block structure:
 #   address_prefixes (list)          : A list of CIDR Ranges which should be used as Address Prefixes.
 #   next_hop_ip_address (string)     : The IP Address which should be used for the Next Hop.
+#
+# propagated_route_table block structure:
+#   labels (string)                       : The list of labels to assign to this route table.
+#   route_table_ids (list)                : A list of Route Table IDs to associated with this Virtual Hub Connection.
 
 

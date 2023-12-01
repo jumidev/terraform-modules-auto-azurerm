@@ -59,6 +59,32 @@ tfstate_store = {
 | **var.trigger_operator** | string |  `GreaterThan`  |  `Equal`, `GreaterThan`, `LessThan`, `NotEqual`  |  The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`. | 
 | **var.trigger_threshold** | int |  `0`  |  -  |  The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`. | 
 
+### `field_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `identifier` | string | Yes | - | The identifier of the entity. |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
+| `field_mapping` | [block](#entity_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
+
+### `sentinel_entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `dynamic_property` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
+
 ### `grouping` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,13 +103,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
 
-### `incident_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `create_incident` | string | Yes | - | Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule? |
-| `grouping` | block | Yes | - | A 'grouping' block. |
-
 ### `alert_details_override` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -92,33 +111,14 @@ tfstate_store = {
 | `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
 | `severity_column_name` | string | No | - | The column name to take the alert severity from. |
 | `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
-| `dynamic_property` | block | No | - | A list of 'dynamic_property' blocks. |
+| `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
 
-### `sentinel_entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `field_mapping` block structure
+### `incident_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `dynamic_property` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
-
-### `entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
-| `field_mapping` | block | Yes | - | A list of 'field_mapping' blocks. |
+| `create_incident` | string | Yes | - | Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule? |
+| `grouping` | [block](#incident_configuration-block-structure) | Yes | - | A 'grouping' block. |
 
 
 

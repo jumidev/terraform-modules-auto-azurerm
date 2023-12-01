@@ -54,7 +54,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. |
-| `community_gallery` | block | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
+| `community_gallery` | [block](#sharing-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
 
 
 

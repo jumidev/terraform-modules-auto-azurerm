@@ -57,13 +57,13 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | block | No | - | A 'traffic_category' block. |
+| `traffic_category` | [block](#o365_policy-block-structure) | No | - | A 'traffic_category' block. |
 
 ### `link` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `bgp` | block | No | - | A 'bgp' block. |
+| `bgp` | [block](#link-block-structure) | No | - | A 'bgp' block. |
 | `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
 | `ip_address` | string | No | - | The IP address of this VPN Site Link. |
 | `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |

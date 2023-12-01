@@ -60,20 +60,17 @@ tfstate_store = {
 | **var.live_trace** | [block](#live_trace-block-structure) |  -  |  -  |  A `live_trace` block. | 
 | **var.tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `live_trace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether the live trace is enabled? Defaults to 'true'. |
-| `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
-| `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
-| `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
-
 ### `sku` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
 
 ### `upstream_endpoint` block structure
 
@@ -85,11 +82,14 @@ tfstate_store = {
 | `hub_pattern` | string | Yes | - | The hubs to match on, or '*' for all. |
 | `user_assigned_identity_id` | string | No | - | Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported. |
 
-### `cors` block structure
+### `live_trace` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `enabled` | bool | No | True | Whether the live trace is enabled? Defaults to 'true'. |
+| `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
+| `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
+| `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
 
 ### `identity` block structure
 

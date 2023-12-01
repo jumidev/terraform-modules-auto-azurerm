@@ -48,7 +48,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `service_delegation` | block | Yes | - | A 'service_delegation' block. |
+| `service_delegation` | [block](#delegation-block-structure) | Yes | - | A 'service_delegation' block. |
 
 ### `service_delegation` block structure
 

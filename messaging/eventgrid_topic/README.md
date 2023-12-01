@@ -52,16 +52,6 @@ tfstate_store = {
 | `ip_mask` | string | Yes | - | The IP mask (CIDR) to match on. |
 | `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
 
-### `input_mapping_fields` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `topic` | string | No | - | Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
-| `event_type` | string | No | - | Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
-| `event_time` | string | No | - | Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
-| `data_version` | string | No | - | Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
-| `subject` | string | No | - | Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
-
 ### `input_mapping_default_values` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,6 +66,16 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are 'SystemAssigned', 'UserAssigned'. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic. |
+
+### `input_mapping_fields` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `topic` | string | No | - | Specifies the topic of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
+| `event_type` | string | No | - | Specifies the event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
+| `event_time` | string | No | - | Specifies the event time of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
+| `data_version` | string | No | - | Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
+| `subject` | string | No | - | Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 
 
 

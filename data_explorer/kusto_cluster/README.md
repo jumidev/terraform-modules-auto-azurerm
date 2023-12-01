@@ -61,19 +61,6 @@ tfstate_store = {
 | **var.trusted_external_tenants** | string |  -  |  -  |  Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants. | 
 | **var.zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created. | 
 
-### `optimized_auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `minimum_instances` | int | Yes | - | The minimum number of allowed instances. Must between '0' and '1000'. |
-| `maximum_instances` | int | Yes | - | The maximum number of allowed instances. Must between '0' and '1000'. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `capacity` | string | No | - | Specifies the node count for the cluster. Boundaries depend on the SKU name. |
-
 ### `virtual_network_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,6 +68,19 @@ tfstate_store = {
 | `subnet_id` | string | Yes | - | The subnet resource id. |
 | `engine_public_ip_id` | string | Yes | - | Engine service's public IP address resource id. |
 | `data_management_public_ip_id` | string | Yes | - | Data management's service public IP address resource id. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `capacity` | string | No | - | Specifies the node count for the cluster. Boundaries depend on the SKU name. |
+
+### `optimized_auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `minimum_instances` | int | Yes | - | The minimum number of allowed instances. Must between '0' and '1000'. |
+| `maximum_instances` | int | Yes | - | The maximum number of allowed instances. Must between '0' and '1000'. |
 
 ### `identity` block structure
 

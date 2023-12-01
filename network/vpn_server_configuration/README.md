@@ -62,7 +62,19 @@ tfstate_store = {
 | **var.client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
 | **var.radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
+### `client_root_certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
 ### `radius` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
+### `client_revoked_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -80,18 +92,6 @@ tfstate_store = {
 | `pfs_group` | string | Yes | - | The Pfs Group, used in IKE Phase 2. Possible values include 'ECP256', 'ECP384', 'PFS1', 'PFS2', 'PFS14', 'PFS24', 'PFS2048', 'PFSMM' and 'None'. |
 | `sa_lifetime_seconds` | int | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. |
 | `sa_data_size_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. |
-
-### `client_root_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-
-### `client_revoked_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 ### `azure_active_directory_authentication` block structure
 

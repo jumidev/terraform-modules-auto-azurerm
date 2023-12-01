@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | block | No | - | An 'access_policy' block. |
+| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
 
 ### `access_policy` block structure
 

@@ -54,8 +54,16 @@ tfstate_store = {
 | `hours` | string | No | - | A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered. |
 | `minutes` | int | No | - | A list containing a single item which specifies the Minute interval at which this recurrence should be triggered. |
 | `month_days` | int | No | - | A list of days of the month that the job should execute on. |
-| `monthly` | block | No | - | A 'monthly' block. |
+| `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block. |
 | `week_days` | string | No | - | A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+
+### `release_criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
+| `message_count` | int | No | - | The message count for the Logic App Integration Batch Configuration. |
+| `recurrence` | [block](#release_criteria-block-structure) | No | - | A 'recurrence' block. |
 
 ### `monthly` block structure
 
@@ -71,17 +79,9 @@ tfstate_store = {
 | `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
 | `interval` | int | Yes | - | The number of 'frequency's between runs. |
 | `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
-| `schedule` | block | No | - | A 'schedule' block. |
+| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
 | `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
 | `time_zone` | string | No | - | The timezone of the start/end time. |
-
-### `release_criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
-| `message_count` | int | No | - | The message count for the Logic App Integration Batch Configuration. |
-| `recurrence` | block | No | - | A 'recurrence' block. |
 
 
 

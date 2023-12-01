@@ -47,12 +47,6 @@ tfstate_store = {
 | **var.pipeline_parameters** | string |  -  |  -  |  The pipeline parameters that the trigger will act upon. | 
 | **var.annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Schedule Trigger. | 
 
-### `pipeline` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameters` | string | No | - | The pipeline parameters that the trigger will act upon. |
-
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -61,7 +55,13 @@ tfstate_store = {
 | `days_of_week` | int | No | - | Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency. |
 | `hours` | string | No | - | Hours of the day on which the trigger is scheduled. |
 | `minutes` | int | No | - | Minutes of the hour on which the trigger is scheduled. |
-| `monthly` | block | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
+| `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
+
+### `pipeline` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameters` | string | No | - | The pipeline parameters that the trigger will act upon. |
 
 ### `monthly` block structure
 
