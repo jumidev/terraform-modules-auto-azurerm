@@ -51,6 +51,15 @@ tfstate_store = {
 | **post_task** | [block](#post_task-block-structure) |  -  |  A `post_task` blocks. | 
 | **pre_task** | [block](#pre_task-block-structure) |  -  |  A `pre_task` blocks. | 
 
+### `linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_included` | string | No | - | Specifies the list of update classifications included in the Software Update Configuration. Possible values are 'Unclassified', 'Critical', 'Security' and 'Other'. |
+| `excluded_packages` | string | No | - | Specifies a list of packages to excluded from the Software Update Configuration. |
+| `included_packages` | string | No | - | Specifies a list of packages to included from the Software Update Configuration. |
+| `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
+
 ### `pre_task` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,30 +74,12 @@ tfstate_store = {
 | `azure_query` | list | No | - | One or more 'azure_query' blocks. |
 | `non_azure_query` | list | No | - | One or more 'non_azure_query' blocks. |
 
-### `linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_included` | string | No | - | Specifies the list of update classifications included in the Software Update Configuration. Possible values are 'Unclassified', 'Critical', 'Security' and 'Other'. |
-| `excluded_packages` | string | No | - | Specifies a list of packages to excluded from the Software Update Configuration. |
-| `included_packages` | string | No | - | Specifies a list of packages to included from the Software Update Configuration. |
-| `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
-
 ### `post_task` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | Specifies a map of parameters for the task. |
 | `source` | string | No | - | The name of the runbook for the post task. |
-
-### `windows` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_included` | string | No | - | Specifies the list of update classification. Possible values are 'Unclassified', 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
-| `excluded_knowledge_base_numbers` | string | No | - | Specifies a list of knowledge base numbers excluded. |
-| `included_knowledge_base_numbers` | string | No | - | Specifies a list of knowledge base numbers included. |
-| `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
 
 ### `schedule` block structure
 
@@ -103,6 +94,15 @@ tfstate_store = {
 | `time_zone` | string | No | Etc/UTC | The timezone of the start time. Defaults to 'Etc/UTC'. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows> |
 | `advanced_week_days` | string | No | - | List of days of the week that the job should execute on. Only valid when frequency is 'Week'. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'. |
 | `advanced_month_days` | int | No | - | List of days of the month that the job should execute on. Must be between '1' and '31'. '-1' for last day of the month. Only valid when frequency is 'Month'. |
+
+### `windows` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_included` | string | No | - | Specifies the list of update classification. Possible values are 'Unclassified', 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
+| `excluded_knowledge_base_numbers` | string | No | - | Specifies a list of knowledge base numbers excluded. |
+| `included_knowledge_base_numbers` | string | No | - | Specifies a list of knowledge base numbers included. |
+| `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
 
 
 

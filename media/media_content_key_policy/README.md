@@ -60,6 +60,17 @@ tfstate_store = {
 | `required_claim` | list | No | - | One or more 'required_claim' blocks. |
 | `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
 
+### `fairplay_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ask` | string | No | - | The key that must be used as FairPlay Application Secret key. |
+| `offline_rental_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'offline_rental_configuration' block. |
+| `pfx` | string | No | - | The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key). |
+| `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
+| `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
+| `rental_duration_seconds` | int | No | - | The rental duration. Must be greater than 0. |
+
 ### `policy_option` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,17 +82,6 @@ tfstate_store = {
 | `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
 | `token_restriction` | [block](#policy_option-block-structure) | No | - | A 'token_restriction' block. |
 | `widevine_configuration_template` | string | No | - | The Widevine template. |
-
-### `fairplay_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ask` | string | No | - | The key that must be used as FairPlay Application Secret key. |
-| `offline_rental_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'offline_rental_configuration' block. |
-| `pfx` | string | No | - | The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key). |
-| `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
-| `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
-| `rental_duration_seconds` | int | No | - | The rental duration. Must be greater than 0. |
 
 ### `offline_rental_configuration` block structure
 

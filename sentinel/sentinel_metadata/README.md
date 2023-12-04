@@ -57,12 +57,11 @@ tfstate_store = {
 | **threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
 | **version** | string |  -  |  Version of the content. | 
 
-### `category` block structure
+### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
-| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 ### `support` block structure
 
@@ -72,11 +71,12 @@ tfstate_store = {
 | `email` | string | No | - | The email address of the support contact. |
 | `link` | string | No | - | The link for support help. |
 
-### `source` block structure
+### `category` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
+| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
 ### `dependency` block structure
 

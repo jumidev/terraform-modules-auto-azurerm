@@ -80,19 +80,19 @@ tfstate_store = {
 | `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
 | `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
-### `frontend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which to receive traffic. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
-
 ### `dns_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
 | `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+
+### `frontend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port on which to receive traffic. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
 
 
 

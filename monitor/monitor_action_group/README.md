@@ -51,36 +51,19 @@ tfstate_store = {
 | **webhook_receiver** | [block](#webhook_receiver-block-structure) |  -  |  One or more `webhook_receiver` blocks. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `sms_receiver` block structure
+### `logic_app_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `country_code` | string | Yes | - | The country code of the SMS receiver. |
-| `phone_number` | int | Yes | - | The phone number of the SMS receiver. |
-
-### `arm_role_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `role_id` | string | Yes | - | The arm role id. |
+| `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
+| `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
-### `webhook_receiver` block structure
+### `azure_app_push_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-| `aad_auth` | [block](#webhook_receiver-block-structure) | No | - | The 'aad_auth' block. |
-
-### `azure_function_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `function_app_resource_id` | string | Yes | - | The Azure resource ID of the function app. |
-| `function_name` | string | Yes | - | The function name in the function app. |
-| `http_trigger_url` | string | Yes | - | The HTTP trigger url where HTTP request sent to. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+| `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
 
 ### `itsm_receiver` block structure
 
@@ -91,13 +74,27 @@ tfstate_store = {
 | `ticket_configuration` | string | Yes | - | A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well. |
 | `region` | string | Yes | - | The region of the workspace. |
 
-### `logic_app_receiver` block structure
+### `arm_role_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
-| `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
+| `role_id` | string | Yes | - | The arm role id. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
+### `aad_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `object_id` | string | Yes | - | The webhook application object Id for AAD auth. |
+| `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
+| `tenant_id` | string | No | - | The tenant id for AAD auth. |
+
+### `sms_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `country_code` | string | Yes | - | The country code of the SMS receiver. |
+| `phone_number` | int | Yes | - | The phone number of the SMS receiver. |
 
 ### `event_hub_receiver` block structure
 
@@ -110,20 +107,20 @@ tfstate_store = {
 | `tenant_id` | string | No | - | The Tenant ID for the subscription containing this Event Hub. |
 | `use_common_alert_schema` | bool | No | - | Indicates whether to use common alert schema. |
 
-### `aad_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `object_id` | string | Yes | - | The webhook application object Id for AAD auth. |
-| `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
-| `tenant_id` | string | No | - | The tenant id for AAD auth. |
-
 ### `voice_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `country_code` | string | Yes | - | The country code of the voice receiver. |
 | `phone_number` | int | Yes | - | The phone number of the voice receiver. |
+
+### `webhook_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+| `aad_auth` | [block](#webhook_receiver-block-structure) | No | - | The 'aad_auth' block. |
 
 ### `automation_runbook_receiver` block structure
 
@@ -143,11 +140,14 @@ tfstate_store = {
 | `email_address` | string | Yes | - | The email address of this receiver. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
-### `azure_app_push_receiver` block structure
+### `azure_function_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
+| `function_app_resource_id` | string | Yes | - | The Azure resource ID of the function app. |
+| `function_name` | string | Yes | - | The function name in the function app. |
+| `http_trigger_url` | string | Yes | - | The HTTP trigger url where HTTP request sent to. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
 
 

@@ -59,12 +59,6 @@ tfstate_store = {
 | `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
 | `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
 
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `capacity` | int | Yes | - | The number of provisioned IoT Device Provisioning Service units. |
-
 ### `linked_hub` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,6 +68,12 @@ tfstate_store = {
 | `apply_allocation_policy` | bool | No | True | Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. |
 | `allocation_weight` | string | No | 1 | The weight applied to the IoT Hub. Defaults to '1'. |
 | `hostname` | string | No | - | (Computed) The IoT Hub hostname. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `capacity` | int | Yes | - | The number of provisioned IoT Device Provisioning Service units. |
 
 
 

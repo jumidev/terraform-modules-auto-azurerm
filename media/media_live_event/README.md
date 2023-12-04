@@ -65,6 +65,13 @@ tfstate_store = {
 | `preview_locator` | string | No | - | The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created. |
 | `streaming_policy_name` | string | No | - | The name of streaming policy used for the live event preview. Changing this forces a new resource to be created. |
 
+### `ip_access_control_allow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | No | - | The IP address or CIDR range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
 ### `input` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,13 +96,6 @@ tfstate_store = {
 | `preset_name` | string | No | - | The optional encoding preset name, used when 'type' is not 'None'. If the 'type' is set to 'Standard', then the default preset name is 'Default720p'. Else if the 'type' is set to 'Premium1080p', Changing this forces a new resource to be created. |
 | `stretch_mode` | string | No | None | Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are 'None', 'AutoFit' or 'AutoSize'. Default is 'None'. |
 | `type` | string | No | None | Live event type. Possible values are 'None', 'Premium1080p', 'PassthroughBasic', 'PassthroughStandard' and 'Standard'. When set to 'None', the service simply passes through the incoming video and audio layer(s) to the output. When 'type' is set to 'Standard' or 'Premium1080p', a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to 'None'. Changing this forces a new resource to be created. |
-
-### `ip_access_control_allow` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address or CIDR range. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 
 

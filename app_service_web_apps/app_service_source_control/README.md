@@ -40,6 +40,15 @@ tfstate_store = {
 | **use_local_git** | bool |  -  |  Should the App use local Git configuration. Changing this forces a new resource to be created. | 
 | **use_mercurial** | bool |  `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
+### `container_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `image_name` | string | Yes | - | The image name for the build. Changing this forces a new resource to be created. |
+| `registry_url` | string | Yes | - | The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created. |
+| `registry_password` | string | No | - | The password used to upload the image to the container registry. Changing this forces a new resource to be created. |
+| `registry_username` | string | No | - | The username used to upload the image to the container registry. Changing this forces a new resource to be created. |
+
 ### `code_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,15 +63,6 @@ tfstate_store = {
 | `code_configuration` | [block](#github_action_configuration-block-structure) | No | - | A 'code_configuration' block. Changing this forces a new resource to be created. |
 | `container_configuration` | [block](#github_action_configuration-block-structure) | No | - | A 'container_configuration' block. |
 | `generate_workflow_file` | bool | No | True | Whether to generate the GitHub work flow file. Defaults to 'true'. Changing this forces a new resource to be created. |
-
-### `container_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `image_name` | string | Yes | - | The image name for the build. Changing this forces a new resource to be created. |
-| `registry_url` | string | Yes | - | The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created. |
-| `registry_password` | string | No | - | The password used to upload the image to the container registry. Changing this forces a new resource to be created. |
-| `registry_username` | string | No | - | The username used to upload the image to the container registry. Changing this forces a new resource to be created. |
 
 
 

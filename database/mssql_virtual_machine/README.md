@@ -48,14 +48,6 @@ tfstate_store = {
 | **wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `auto_patching` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
-| `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
-| `maintenance_window_duration_in_minutes` | int | Yes | - | The size of the Maintenance Window in minutes. |
-
 ### `temp_db_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,6 +59,24 @@ tfstate_store = {
 | `data_file_growth_in_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
 | `log_file_size_mb` | int | No | 256 | The SQL Server default file size - This value defaults to '256' |
 | `log_file_growth_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
+
+### `manual_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `full_backup_frequency` | string | Yes | - | Frequency of full backups. Valid values include 'Daily' or 'Weekly'. |
+| `full_backup_start_hour` | string | Yes | - | Start hour of a given day during which full backups can take place. Valid values are from '0' to '23'. |
+| `full_backup_window_in_hours` | string | Yes | - | Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between '1' and '23'. |
+| `log_backup_frequency_in_minutes` | string | Yes | - | Frequency of log backups, in minutes. Valid values are from '5' to '60'. |
+| `days_of_week` | string | No | - | A list of days on which backup can take place. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday' |
+
+### `key_vault_credential` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
+| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
+| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
 
 ### `auto_backup` block structure
 
@@ -80,13 +90,6 @@ tfstate_store = {
 | `storage_account_access_key` | string | Yes | - | Access key for the storage account where backups will be kept. |
 | `system_databases_backup_enabled` | bool | No | - | Include or exclude system databases from auto backup. |
 
-### `storage_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_file_path` | string | Yes | - | The SQL Server default path |
-| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
-
 ### `sql_instance` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,32 +102,6 @@ tfstate_store = {
 | `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
 | `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
 
-### `assessment` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
-| `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
-| `schedule` | [block](#assessment-block-structure) | No | - | An 'schedule' block. |
-
-### `key_vault_credential` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
-| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
-| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
-
-### `manual_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `full_backup_frequency` | string | Yes | - | Frequency of full backups. Valid values include 'Daily' or 'Weekly'. |
-| `full_backup_start_hour` | string | Yes | - | Start hour of a given day during which full backups can take place. Valid values are from '0' to '23'. |
-| `full_backup_window_in_hours` | string | Yes | - | Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between '1' and '23'. |
-| `log_backup_frequency_in_minutes` | string | Yes | - | Frequency of log backups, in minutes. Valid values are from '5' to '60'. |
-| `days_of_week` | string | No | - | A list of days on which backup can take place. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday' |
-
 ### `storage_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -135,6 +112,29 @@ tfstate_store = {
 | `log_settings` | [block](#storage_configuration-block-structure) | No | - | A 'storage_settings' block. |
 | `system_db_on_data_disk_enabled` | bool | No | False | Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'. |
 | `temp_db_settings` | [block](#storage_configuration-block-structure) | No | - | An 'temp_db_settings' block. |
+
+### `assessment` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
+| `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
+| `schedule` | [block](#assessment-block-structure) | No | - | An 'schedule' block. |
+
+### `storage_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+
+### `auto_patching` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
+| `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
+| `maintenance_window_duration_in_minutes` | int | Yes | - | The size of the Maintenance Window in minutes. |
 
 ### `wsfc_domain_credential` block structure
 

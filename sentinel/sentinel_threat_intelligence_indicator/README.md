@@ -66,6 +66,11 @@ tfstate_store = {
 | `source_name` | string | No | - | The source name of the external reference of the Threat Intelligence Indicator. |
 | `url` | string | No | - | The url of the external reference of the Threat Intelligence Indicator. |
 
+### `kill_chain_phase` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+
 ### `granular_marking` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,11 +78,6 @@ tfstate_store = {
 | `language` | string | No | - | The language of granular marking of the Threat Intelligence Indicator. |
 | `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
 | `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
-
-### `kill_chain_phase` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
 
 
 

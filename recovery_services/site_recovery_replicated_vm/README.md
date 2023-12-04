@@ -71,12 +71,13 @@ tfstate_store = {
 | `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. Changing this forces a new resource to be created. |
 | `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
 
-### `key_encryption_key` block structure
+### `unmanaged_disk` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created. |
-| `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
+| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
 
 ### `network_interface` block structure
 
@@ -90,13 +91,12 @@ tfstate_store = {
 | `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
 | `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
 
-### `unmanaged_disk` block structure
+### `key_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
-| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
-| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created. |
+| `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
 
 ### `managed_disk` block structure
 

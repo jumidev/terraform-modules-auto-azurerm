@@ -37,15 +37,15 @@ variable "certificate_policy" {
 #   secret_properties (block)          : (REQUIRED) A 'secret_properties' block.
 #   x509_certificate_properties (block): A 'x509_certificate_properties' block. Required when 'certificate' block is not specified.
 #
-# x509_certificate_properties block structure:
-#   extended_key_usage (list)                  : A list of Extended/Enhanced Key Usages.
-#   key_usage (string)                         : (REQUIRED) A list of uses associated with this Key. Possible values include 'cRLSign', 'dataEncipherment', 'decipherOnly', 'digitalSignature', 'encipherOnly', 'keyAgreement', 'keyCertSign', 'keyEncipherment' and 'nonRepudiation' and are case-sensitive.
-#   subject (string)                           : (REQUIRED) The Certificate's Subject.
-#   subject_alternative_names (block)          : A 'subject_alternative_names' block.
-#   validity_in_months (string)                : (REQUIRED) The Certificates Validity Period in Months.
+# key_properties block structure:
+#   curve (string)                : Specifies the curve to use when creating an 'EC' key. Possible values are 'P-256', 'P-256K', 'P-384', and 'P-521'. This field will be required in a future release if 'key_type' is 'EC' or 'EC-HSM'.
+#   exportable (bool)             : (REQUIRED) Is this certificate exportable?
+#   key_size (string)             : The size of the key used in the certificate. Possible values include '2048', '3072', and '4096' for 'RSA' keys, or '256', '384', and '521' for 'EC' keys. This property is required when using RSA keys.
+#   key_type (string)             : (REQUIRED) Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'.
+#   reuse_key (bool)              : (REQUIRED) Is the key reusable?
 #
-# secret_properties block structure:
-#   content_type (string)            : (REQUIRED) The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM.
+# action block structure:
+#   action_type (string)  : (REQUIRED) The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'.
 #
 # subject_alternative_names block structure:
 #   dns_names (list)                         : A list of alternative DNS names (FQDNs) identified by the Certificate.
@@ -56,21 +56,21 @@ variable "certificate_policy" {
 #   action (block)                 : (REQUIRED) A 'action' block.
 #   trigger (block)                : (REQUIRED) A 'trigger' block.
 #
-# action block structure:
-#   action_type (string)  : (REQUIRED) The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'.
-#
-# key_properties block structure:
-#   curve (string)                : Specifies the curve to use when creating an 'EC' key. Possible values are 'P-256', 'P-256K', 'P-384', and 'P-521'. This field will be required in a future release if 'key_type' is 'EC' or 'EC-HSM'.
-#   exportable (bool)             : (REQUIRED) Is this certificate exportable?
-#   key_size (string)             : The size of the key used in the certificate. Possible values include '2048', '3072', and '4096' for 'RSA' keys, or '256', '384', and '521' for 'EC' keys. This property is required when using RSA keys.
-#   key_type (string)             : (REQUIRED) Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'.
-#   reuse_key (bool)              : (REQUIRED) Is the key reusable?
+# secret_properties block structure:
+#   content_type (string)            : (REQUIRED) The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM.
 #
 # trigger block structure     :
 #   days_before_expiry (int)    : The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'.
 #   lifetime_percentage (string): The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'.
 #
 # issuer_parameters block structure:
+#
+# x509_certificate_properties block structure:
+#   extended_key_usage (list)                  : A list of Extended/Enhanced Key Usages.
+#   key_usage (string)                         : (REQUIRED) A list of uses associated with this Key. Possible values include 'cRLSign', 'dataEncipherment', 'decipherOnly', 'digitalSignature', 'encipherOnly', 'keyAgreement', 'keyCertSign', 'keyEncipherment' and 'nonRepudiation' and are case-sensitive.
+#   subject (string)                           : (REQUIRED) The Certificate's Subject.
+#   subject_alternative_names (block)          : A 'subject_alternative_names' block.
+#   validity_in_months (string)                : (REQUIRED) The Certificates Validity Period in Months.
 
 
 variable "tags" {

@@ -68,14 +68,6 @@ tfstate_store = {
 | `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
 | `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
 
-### `slice` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data_network` | [block](#slice-block-structure) | Yes | - | An array of 'data_network' block. |
-| `default_data_network_id` | string | Yes | - | The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block. |
-| `slice_id` | string | Yes | - | The ID of the slice that these settings apply to. |
-
 ### `data_network` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -97,6 +89,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
 | `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
+
+### `slice` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `data_network` | [block](#slice-block-structure) | Yes | - | An array of 'data_network' block. |
+| `default_data_network_id` | string | Yes | - | The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block. |
+| `slice_id` | string | Yes | - | The ID of the slice that these settings apply to. |
 
 
 

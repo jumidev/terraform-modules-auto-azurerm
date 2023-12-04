@@ -56,13 +56,6 @@ tfstate_store = {
 | `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
 | `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
 
-### `persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
-| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
-
 ### `custom_persistent_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +72,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
+
+### `persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
+| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
 
 
 

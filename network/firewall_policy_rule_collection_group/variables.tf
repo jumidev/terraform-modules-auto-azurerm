@@ -29,12 +29,12 @@ variable "application_rule_collection" {
 #   priority (string)                          : (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.
 #   rule (block)                               : (REQUIRED) One or more 'application_rule' blocks.
 #
+# http_headers block structure:
+#   value (string)              : (REQUIRED) Specifies the value of the value.
+#
 # protocols block structure:
 #   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
 #   port (int)               : (REQUIRED) Port number of the protocol. Range is 0-64000.
-#
-# http_headers block structure:
-#   value (string)              : (REQUIRED) Specifies the value of the value.
 #
 # application_rule block structure:
 #   description (string)            : The description which should be used for this rule.

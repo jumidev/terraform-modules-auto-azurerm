@@ -56,11 +56,11 @@ tfstate_store = {
 | **kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
 | **pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
-### `kpi` block structure
+### `grouping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
+| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
 
 ### `dataset` block structure
 
@@ -83,11 +83,11 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
 
-### `grouping` block structure
+### `kpi` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
+| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
 
 
 

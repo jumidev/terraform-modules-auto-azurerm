@@ -44,14 +44,6 @@ tfstate_store = {
 | **sas_uri** | string |  The SAS URI. Conflicts with `connection_string_insecure`, `connection_string` and `service_endpoint`. | 
 | **key_vault_sas_token** | [block](#key_vault_sas_token-block-structure) |  A `key_vault_sas_token` block. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required. | 
 
-### `key_vault_sas_token` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
-| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores the SAS token. |
-| `service_principal_linked_key_vault_key` | [block](#key_vault_sas_token-block-structure) | No | - | A 'service_principal_linked_key_vault_key' block. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. |
-
 ### `service_principal_linked_key_vault_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,6 +56,14 @@ tfstate_store = {
 | `service_principal_key` | string | No | - | The service principal key in which to authenticate against the AAzure Blob Storage account. |
 | `storage_kind` | string | No | - | Specify the kind of the storage account. Allowed values are 'Storage', 'StorageV2', 'BlobStorage' and 'BlockBlobStorage'. |
 | `tenant_id` | string | No | - | The tenant id or name in which to authenticate against the Azure Blob Storage account. |
+
+### `key_vault_sas_token` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores the SAS token. |
+| `service_principal_linked_key_vault_key` | [block](#key_vault_sas_token-block-structure) | No | - | A 'service_principal_linked_key_vault_key' block. Use this argument to store Service Principal key in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. |
 
 
 

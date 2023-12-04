@@ -70,11 +70,24 @@ tfstate_store = {
 | `hub_pattern` | string | Yes | - | The hubs to match on, or '*' for all. |
 | `user_assigned_identity_id` | string | No | - | Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR. |
+
 ### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
 
 ### `live_trace` block structure
 
@@ -84,19 +97,6 @@ tfstate_store = {
 | `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
 | `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
 | `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR. |
 
 
 

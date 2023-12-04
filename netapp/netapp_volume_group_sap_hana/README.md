@@ -86,6 +86,12 @@ tfstate_store = {
 | `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
 | `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
+
 ### `export_policy_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -97,12 +103,6 @@ tfstate_store = {
 | `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
-
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 
 
