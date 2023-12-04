@@ -47,19 +47,19 @@ tfstate_store = {
 | `retention_policy` | [block](#log-block-structure) | Yes | - | A 'retention_policy' block. |
 | `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
 
-### `enabled_log` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
-| `retention_policy` | [block](#enabled_log-block-structure) | Yes | - | A 'retention_policy' block. |
-
 ### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | False | Is this Retention Policy enabled? Defaults to 'false'. |
 | `days` | int | No | 0 | The number of days for which this Retention Policy should apply. Defaults to '0'. |
+
+### `enabled_log` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
+| `retention_policy` | [block](#enabled_log-block-structure) | Yes | - | A 'retention_policy' block. |
 
 
 

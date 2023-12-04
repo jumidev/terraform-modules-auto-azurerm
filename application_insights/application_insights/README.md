@@ -59,6 +59,6 @@ tfstate_store = {
 | **id** | string | No  | The ID of the Application Insights component. | 
 | **app_id** | string | No  | The App ID associated with this Application Insights component. | 
 | **instrumentation_key** | string | No  | The Instrumentation Key for this Application Insights component. (Sensitive) | 
-| **connection_string** | string | No  | The Connection String for this Application Insights component. (Sensitive) | 
+| **connection_string** | string | Yes  | The Connection String for this Application Insights component. (Sensitive) | 
 
 Additionally, all variables are provided as outputs.

@@ -33,6 +33,9 @@ variable "application_rule_collection" {
 #   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
 #   port (int)               : (REQUIRED) Port number of the protocol. Range is 0-64000.
 #
+# http_headers block structure:
+#   value (string)              : (REQUIRED) Specifies the value of the value.
+#
 # application_rule block structure:
 #   description (string)            : The description which should be used for this rule.
 #   protocols (block)               : One or more 'protocols' blocks.
@@ -45,9 +48,6 @@ variable "application_rule_collection" {
 #   destination_fqdn_tags (map)     : Specifies a list of destination FQDN tags.
 #   terminate_tls (string)          : Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy.
 #   web_categories (string)         : Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy.
-#
-# http_headers block structure:
-#   value (string)              : (REQUIRED) Specifies the value of the value.
 
 
 variable "nat_rule_collection" {

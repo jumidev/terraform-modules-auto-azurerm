@@ -56,6 +56,14 @@ tfstate_store = {
 | **minimum_elevation_degrees** | string |  Maximum elevation of the antenna during the contact in decimal degrees. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `links` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `channels` | [block](#links-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
+| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
+| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
+
 ### `channels` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,14 +82,6 @@ tfstate_store = {
 | `port` | string | Yes | - | TCP port to listen on to receive data. |
 | `protocol` | string | Yes | - | Protocol of an end point. Possible values are 'TCP' and 'UDP'. |
 | `ip_address` | string | No | - | IP address of an end point. |
-
-### `links` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `channels` | [block](#links-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
-| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
-| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
 
 
 

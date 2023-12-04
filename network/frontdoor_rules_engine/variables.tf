@@ -38,6 +38,11 @@ variable "rule" {
 #   request_header (block) : A 'request_header' block.
 #   response_header (block): A 'response_header' block.
 #
+# response_header block structure:
+#   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
+#   header_name (string)           : header name (string).
+#   value (string)                 : value name (string).
+#
 # request_header block structure:
 #   header_action_type (string)   : can be set to 'Overwrite', 'Append' or 'Delete'.
 #   header_name (string)          : header name (string).
@@ -50,10 +55,5 @@ variable "rule" {
 #   transform (list)               : can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode'
 #   negate_condition (bool)        : can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'.
 #   value (list)                   : (array) can contain one or more strings.
-#
-# response_header block structure:
-#   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
-#   header_name (string)           : header name (string).
-#   value (string)                 : value name (string).
 
 

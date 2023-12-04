@@ -41,9 +41,9 @@ tfstate_store = {
 
 ### 1 optional associated resource
 
-| Variable | Information |
+| tfstate_input variable | Information |
 | -------- | ----------- |
-| **var.private_endpoint_id** | If set to a valid `azurerm_private_endpoint` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - Manages an association between Private Endpoint and Application Security Group. | 
+| **private_endpoint_id** | If set to a valid `azurerm_private_endpoint` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - \\e.g. : `private_endpoint_id = "path/to/component:id"`Manages an association between Private Endpoint and Application Security Group. | 
 
 ## Outputs
 

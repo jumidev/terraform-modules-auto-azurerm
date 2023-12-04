@@ -45,13 +45,6 @@ tfstate_store = {
 | **inbound_ip_rule** | [block](#inbound_ip_rule-block-structure) |  -  |  -  |  One or more `inbound_ip_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic. |
-
 ### `input_mapping_default_values` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -60,12 +53,12 @@ tfstate_store = {
 | `data_version` | string | No | - | Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 | `subject` | string | No | - | Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 
-### `inbound_ip_rule` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_mask` | string | Yes | - | The IP mask (CIDR) to match on. |
-| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid Topic. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Topic. |
 
 ### `input_mapping_fields` block structure
 
@@ -77,6 +70,13 @@ tfstate_store = {
 | `data_version` | string | No | - | Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 | `subject` | string | No | - | Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 
+### `inbound_ip_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_mask` | string | Yes | - | The IP mask (CIDR) to match on. |
+| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
+
 
 
 ## Outputs
@@ -85,8 +85,8 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The EventGrid Topic ID. | 
 | **endpoint** | string | No  | The Endpoint associated with the EventGrid Topic. | 
-| **primary_access_key** | string | No  | The Primary Shared Access Key associated with the EventGrid Topic. | 
-| **secondary_access_key** | string | No  | The Secondary Shared Access Key associated with the EventGrid Topic. | 
+| **primary_access_key** | string | Yes  | The Primary Shared Access Key associated with the EventGrid Topic. | 
+| **secondary_access_key** | string | Yes  | The Secondary Shared Access Key associated with the EventGrid Topic. | 
 | **identity** | block | No  | An `identity` block. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 

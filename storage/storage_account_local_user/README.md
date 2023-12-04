@@ -40,21 +40,6 @@ tfstate_store = {
 | **ssh_key_enabled** | bool |  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
 | **ssh_password_enabled** | bool |  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
 
-### `permission_scope` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permissions` | [block](#permission_scope-block-structure) | Yes | - | A 'permissions' block. |
-| `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
-| `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
-
-### `ssh_authorized_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | The public key value of this SSH authorized key. |
-| `description` | string | No | - | The description of this SSH authorized key. |
-
 ### `permissions` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +50,21 @@ tfstate_store = {
 | `read` | bool | No | False | Specifies if the Local User has the read permission for this scope. Defaults to 'false'. |
 | `write` | bool | No | False | Specifies if the Local User has the write permission for this scope. Defaults to 'false'. |
 
+### `ssh_authorized_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | The public key value of this SSH authorized key. |
+| `description` | string | No | - | The description of this SSH authorized key. |
+
+### `permission_scope` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permissions` | [block](#permission_scope-block-structure) | Yes | - | A 'permissions' block. |
+| `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
+| `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
+
 
 
 ## Outputs
@@ -72,7 +72,7 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Storage Account Local User. | 
-| **password** | string | No  | The value of the password, which is only available when `ssh_password_enabled` is set to `true`. | 
+| **password** | string | Yes  | The value of the password, which is only available when `ssh_password_enabled` is set to `true`. | 
 | **sid** | string | No  | The unique Security Identifier of this Storage Account Local User. | 
 
 Additionally, all variables are provided as outputs.

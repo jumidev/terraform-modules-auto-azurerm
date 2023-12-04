@@ -235,7 +235,7 @@ variable "enable_http2" {
 }
 variable "force_firewall_policy_association" {
   description = "Is the Firewall Policy associated with the Application Gateway?"
-  type        = string
+  type        = bool
   default     = null
 }
 variable "probe" {

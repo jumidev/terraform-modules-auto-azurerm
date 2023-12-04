@@ -36,7 +36,7 @@ tfstate_store = {
 | **storage_endpoint** | string |  -  |  -  |  The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs. | 
 | **retention_in_days** | int |  `0`  |  -  |  The number of days to retain logs for in the storage account. Defaults to `0`. | 
 | **storage_account_access_key** | string |  -  |  -  |  The access key to use for the auditing storage account. | 
-| **storage_account_access_key_is_secondary** | string |  -  |  -  |  Is `storage_account_access_key` value the storage's secondary key? | 
+| **storage_account_access_key_is_secondary** | bool |  -  |  -  |  Is `storage_account_access_key` value the storage's secondary key? | 
 | **log_monitoring_enabled** | bool |  `True`  |  -  |  Enable audit events to Azure Monitor? Defaults to `true`. | 
 
 

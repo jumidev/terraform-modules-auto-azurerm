@@ -65,6 +65,14 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
 
+### `patch_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
+| `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
+| `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
+
 ### `redis_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,14 +92,6 @@ tfstate_store = {
 | `rdb_storage_connection_string` | string | No | - | The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. |
 | `notify_keyspace_events` | string | No | - | Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) |
 
-### `patch_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
-| `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
-| `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
-
 
 
 ## Outputs
@@ -102,8 +102,8 @@ tfstate_store = {
 | **hostname** | string | No  | The Hostname of the Redis Instance | 
 | **ssl_port** | string | No  | The SSL Port of the Redis Instance | 
 | **port** | string | No  | The non-SSL Port of the Redis Instance | 
-| **primary_access_key** | string | No  | The Primary Access Key for the Redis Instance | 
-| **secondary_access_key** | string | No  | The Secondary Access Key for the Redis Instance | 
+| **primary_access_key** | string | Yes  | The Primary Access Key for the Redis Instance | 
+| **secondary_access_key** | string | Yes  | The Secondary Access Key for the Redis Instance | 
 | **primary_connection_string** | string | No  | The primary connection string of the Redis Instance. | 
 | **secondary_connection_string** | string | No  | The secondary connection string of the Redis Instance. | 
 | **redis_configuration** | block | No  | A `redis_configuration` block: | 

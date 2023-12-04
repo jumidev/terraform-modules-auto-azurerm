@@ -60,13 +60,6 @@ tfstate_store = {
 | **traffic_selector_policy** | list |  -  |  -  |  One or more `traffic_selector_policy` blocks which are documented below. A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection. For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `custom_bgp_addresses` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `primary` | string | Yes | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (first one) |
-| `secondary` | string | No | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (second one) |
-
 ### `ipsec_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +72,13 @@ tfstate_store = {
 | `pfs_group` | string | Yes | - | The DH group used in IKE phase 2 for new child SA. Valid options are 'ECP256', 'ECP384', 'PFS1', 'PFS14', 'PFS2', 'PFS2048', 'PFS24', 'PFSMM', or 'None'. |
 | `sa_datasize` | string | No | 102400000 | The IPSec SA payload size in KB. Must be at least '1024' KB. Defaults to '102400000' KB. |
 | `sa_lifetime` | string | No | 27000 | The IPSec SA lifetime in seconds. Must be at least '300' seconds. Defaults to '27000' seconds. |
+
+### `custom_bgp_addresses` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `primary` | string | Yes | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (first one) |
+| `secondary` | string | No | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (second one) |
 
 
 

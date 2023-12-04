@@ -91,9 +91,6 @@ variable "default_node_pool" {
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-#
 # kubelet_config block structure  :
 #   allowed_unsafe_sysctls (string) : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
 #   container_log_max_line (int)    : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
@@ -108,6 +105,9 @@ variable "default_node_pool" {
 #
 # upgrade_settings block structure:
 #   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+#
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 #
 # linux_os_config block structure       :
 #   swap_file_size_mb (int)               : Specifies the size of the swap file on each node in MB.
@@ -348,13 +348,13 @@ variable "maintenance_window" {
 #   allowed (block)                   : One or more 'allowed' blocks.
 #   not_allowed (block)               : One or more 'not_allowed' block.
 #
-# not_allowed block structure:
-#   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
-#   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
-#
 # allowed block structure:
 #   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
 #   hours (string)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
+#
+# not_allowed block structure:
+#   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
+#   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
 
 
 variable "maintenance_window_auto_upgrade" {

@@ -46,10 +46,12 @@ output "id" {
 output "primary_access_key" {
   description = "The Primary Access Key for the Redis Enterprise Database Instance."
   value       = azurerm_redis_enterprise_database.this.primary_access_key
+  sensitive   = true
 }
 
 output "secondary_access_key" {
   description = "The Secondary Access Key for the Redis Enterprise Database Instance."
   value       = azurerm_redis_enterprise_database.this.secondary_access_key
+  sensitive   = true
 }
 

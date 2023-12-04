@@ -67,11 +67,13 @@ output "identity" {
 output "primary_access_key" {
   description = "The Batch account primary access key."
   value       = azurerm_batch_account.this.primary_access_key
+  sensitive   = true
 }
 
 output "secondary_access_key" {
   description = "The Batch account secondary access key."
   value       = azurerm_batch_account.this.secondary_access_key
+  sensitive   = true
 }
 
 output "account_endpoint" {

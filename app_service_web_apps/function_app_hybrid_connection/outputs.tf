@@ -36,6 +36,7 @@ output "relay_name" {
 output "send_key_value" {
   description = "The Primary Access Key for the 'send_key_name'"
   value       = azurerm_function_app_hybrid_connection.this.send_key_value
+  sensitive   = true
 }
 
 output "service_bus_namespace" {

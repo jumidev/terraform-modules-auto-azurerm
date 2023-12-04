@@ -49,6 +49,7 @@ output "tags" {
 output "id" {
   description = "The ID of the Access Key."
   value       = azurerm_app_configuration.this.id
+  sensitive   = true
 }
 
 output "endpoint" {
@@ -94,10 +95,12 @@ output "tenant_id" {
 output "connection_string" {
   description = "The Connection String for this Access Key - comprising of the Endpoint, ID and Secret."
   value       = azurerm_app_configuration.this.connection_string
+  sensitive   = true
 }
 
 output "secret" {
   description = "The Secret of the Access Key."
   value       = azurerm_app_configuration.this.secret
+  sensitive   = true
 }
 

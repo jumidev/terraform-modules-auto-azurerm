@@ -66,6 +66,13 @@ tfstate_store = {
 | `logging_container_id` | string | Yes | - | The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created. |
 | `import_prefix` | string | No | - | The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created. |
 
+### `maintenance_window` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | Yes | - | The day of the week on which the maintenance window will occur. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `time_of_day_in_utc` | string | Yes | - | The time of day (in UTC) to start the maintenance window. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,13 +86,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
 | `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
-
-### `maintenance_window` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | The day of the week on which the maintenance window will occur. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `time_of_day_in_utc` | string | Yes | - | The time of day (in UTC) to start the maintenance window. |
 
 
 

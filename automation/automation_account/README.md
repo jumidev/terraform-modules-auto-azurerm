@@ -50,8 +50,8 @@ tfstate_store = {
 | **id** | string | No  | The ID of the Automation Account. | 
 | **identity** | block | No  | An `identity` block. | 
 | **dsc_server_endpoint** | string | No  | The DSC Server Endpoint associated with this Automation Account. | 
-| **dsc_primary_access_key** | string | No  | The Primary Access Key for the DSC Endpoint associated with this Automation Account. | 
-| **dsc_secondary_access_key** | string | No  | The Secondary Access Key for the DSC Endpoint associated with this Automation Account. | 
+| **dsc_primary_access_key** | string | Yes  | The Primary Access Key for the DSC Endpoint associated with this Automation Account. | 
+| **dsc_secondary_access_key** | string | Yes  | The Secondary Access Key for the DSC Endpoint associated with this Automation Account. | 
 | **hybrid_service_url** | string | No  | The URL of automation hybrid service which is used for hybrid worker on-boarding With this Automation Account. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 

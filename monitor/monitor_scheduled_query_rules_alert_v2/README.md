@@ -66,13 +66,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Monitor Scheduled Query Rule. | 
 | **target_resource_types** | string |  -  |  -  |  List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. | 
 
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
-| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,6 +92,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `minimum_failing_periods_to_trigger_alert` | int | Yes | - | Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6. |
 | `number_of_evaluation_periods` | int | Yes | - | Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
+| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
 
 
 

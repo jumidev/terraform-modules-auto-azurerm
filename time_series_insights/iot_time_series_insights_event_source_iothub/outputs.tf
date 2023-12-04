@@ -23,11 +23,13 @@ output "event_source_resource_id" {
 }
 
 output "shared_access_key_name" {
-  value = azurerm_iot_time_series_insights_event_source_iothub.this.shared_access_key_name
+  value     = azurerm_iot_time_series_insights_event_source_iothub.this.shared_access_key_name
+  sensitive = true
 }
 
 output "shared_access_key" {
-  value = azurerm_iot_time_series_insights_event_source_iothub.this.shared_access_key
+  value     = azurerm_iot_time_series_insights_event_source_iothub.this.shared_access_key
+  sensitive = true
 }
 
 output "timestamp_property_name" {

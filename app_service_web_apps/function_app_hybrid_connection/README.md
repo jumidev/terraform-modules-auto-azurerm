@@ -49,7 +49,7 @@ tfstate_store = {
 | **id** | string | No  | The ID of the Function App Hybrid Connection | 
 | **namespace_name** | string | No  | The name of the Relay Namespace. | 
 | **relay_name** | string | No  | The name of the Relay in use. | 
-| **send_key_value** | string | No  | The Primary Access Key for the `send_key_name` | 
+| **send_key_value** | string | Yes  | The Primary Access Key for the `send_key_name` | 
 | **service_bus_namespace** | string | No  | The Service Bus Namespace. | 
 | **service_bus_suffix** | string | No  | The suffix for the endpoint. | 
 

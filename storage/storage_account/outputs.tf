@@ -280,31 +280,37 @@ output "secondary_web_host" {
 output "primary_access_key" {
   description = "The primary access key for the storage account."
   value       = azurerm_storage_account.this.primary_access_key
+  sensitive   = true
 }
 
 output "secondary_access_key" {
   description = "The secondary access key for the storage account."
   value       = azurerm_storage_account.this.secondary_access_key
+  sensitive   = true
 }
 
 output "primary_connection_string" {
   description = "The connection string associated with the primary location."
   value       = azurerm_storage_account.this.primary_connection_string
+  sensitive   = true
 }
 
 output "secondary_connection_string" {
   description = "The connection string associated with the secondary location."
   value       = azurerm_storage_account.this.secondary_connection_string
+  sensitive   = true
 }
 
 output "primary_blob_connection_string" {
   description = "The connection string associated with the primary blob location."
   value       = azurerm_storage_account.this.primary_blob_connection_string
+  sensitive   = true
 }
 
 output "secondary_blob_connection_string" {
   description = "The connection string associated with the secondary blob location."
   value       = azurerm_storage_account.this.secondary_blob_connection_string
+  sensitive   = true
 }
 
 output "identity" {

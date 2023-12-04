@@ -68,6 +68,13 @@ tfstate_store = {
 | **package_file** | string |  -  |  Specifies the name of the package file on the VM. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Gallery Application Version. | 
 
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `media_link` | string | Yes | - | The Storage Blob URI of the source application package. Changing this forces a new resource to be created. |
+| `default_configuration_link` | string | No | - | The Storage Blob URI of the default configuration. Changing this forces a new resource to be created. |
+
 ### `target_region` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,13 +90,6 @@ tfstate_store = {
 | `install` | string | Yes | - | The command to install the Gallery Application. Changing this forces a new resource to be created. |
 | `remove` | string | Yes | - | The command to remove the Gallery Application. Changing this forces a new resource to be created. |
 | `update` | datetime | No | - | The command to update the Gallery Application. Changing this forces a new resource to be created. |
-
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `media_link` | string | Yes | - | The Storage Blob URI of the source application package. Changing this forces a new resource to be created. |
-| `default_configuration_link` | string | No | - | The Storage Blob URI of the default configuration. Changing this forces a new resource to be created. |
 
 
 

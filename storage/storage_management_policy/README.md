@@ -34,14 +34,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
-### `filters` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `blob_types` | string | Yes | - | An array of predefined values. Valid options are 'blockBlob' and 'appendBlob'. |
-| `prefix_match` | string | No | - | An array of strings for prefixes to be matched. |
-| `match_blob_index_tag` | [block](#filters-block-structure) | No | - | A 'match_blob_index_tag' block. The block defines the blob index tag based filtering for blob objects. |
-
 ### `snapshot` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,6 +43,14 @@ tfstate_store = {
 | `change_tier_to_cool_after_days_since_creation` | int | No | -1 | The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to '-1'. |
 | `tier_to_cold_after_days_since_creation_greater_than` | int | No | -1 | The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between '0' and '99999'. Defaults to '-1'. |
 | `delete_after_days_since_creation_greater_than` | int | No | -1 | The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to '-1'. |
+
+### `filters` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `blob_types` | string | Yes | - | An array of predefined values. Valid options are 'blockBlob' and 'appendBlob'. |
+| `prefix_match` | string | No | - | An array of strings for prefixes to be matched. |
+| `match_blob_index_tag` | [block](#filters-block-structure) | No | - | A 'match_blob_index_tag' block. The block defines the blob index tag based filtering for blob objects. |
 
 ### `match_blob_index_tag` block structure
 

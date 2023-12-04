@@ -45,7 +45,7 @@ variable "daily_quota_gb" {
 }
 variable "cmk_for_query_forced" {
   description = "Is Customer Managed Storage mandatory for query management?"
-  type        = string
+  type        = bool
   default     = null
 }
 variable "identity" {

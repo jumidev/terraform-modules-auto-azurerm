@@ -33,9 +33,9 @@ tfstate_store = {
 
 ### 1 optional associated resource
 
-| Variable | Information |
+| tfstate_input variable | Information |
 | -------- | ----------- |
-| **var.subscription_id** | If set to a valid `azurerm_subscription` `subscription_id`, makes a **azurerm_management_group_subscription_association** - Manages a Management Group Subscription Association.!> **Note:** When using this resource, configuring `subscription_ids` on the `azurerm_management_group` resource is not supported. | 
+| **subscription_id** | If set to a valid `azurerm_subscription` `subscription_id`, makes a **azurerm_management_group_subscription_association** - \\e.g. : `subscription_id = "path/to/component:subscription_id"`Manages a Management Group Subscription Association.!> **Note:** When using this resource, configuring `subscription_ids` on the `azurerm_management_group` resource is not supported. | 
 
 ## Outputs
 

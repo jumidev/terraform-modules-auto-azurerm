@@ -27,11 +27,13 @@ output "namespace_name" {
 }
 
 output "shared_access_key_name" {
-  value = azurerm_iot_time_series_insights_event_source_eventhub.this.shared_access_key_name
+  value     = azurerm_iot_time_series_insights_event_source_eventhub.this.shared_access_key_name
+  sensitive = true
 }
 
 output "shared_access_key" {
-  value = azurerm_iot_time_series_insights_event_source_eventhub.this.shared_access_key
+  value     = azurerm_iot_time_series_insights_event_source_eventhub.this.shared_access_key
+  sensitive = true
 }
 
 output "timestamp_property_name" {

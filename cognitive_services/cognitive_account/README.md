@@ -66,6 +66,13 @@ tfstate_store = {
 | `subnet_id` | string | Yes | - | The ID of the subnet which should be able to access this Cognitive Account. |
 | `ignore_missing_vnet_service_endpoint` | bool | No | False | Whether ignore missing vnet service endpoint or not. Default to 'false'. |
 
+### `storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
+| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,13 +86,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. |
 | `identity_client_id` | string | No | - | The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. |
-
-### `storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
-| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
 
 ### `network_acls` block structure
 
@@ -104,8 +104,8 @@ tfstate_store = {
 | **id** | string | No  | The ID of the Cognitive Service Account. | 
 | **endpoint** | string | No  | The endpoint used to connect to the Cognitive Service Account. | 
 | **identity** | block | No  | An `identity` block. | 
-| **primary_access_key** | string | No  | A primary access key which can be used to connect to the Cognitive Service Account. | 
-| **secondary_access_key** | string | No  | The secondary access key which can be used to connect to the Cognitive Service Account. | 
+| **primary_access_key** | string | Yes  | A primary access key which can be used to connect to the Cognitive Service Account. | 
+| **secondary_access_key** | string | Yes  | The secondary access key which can be used to connect to the Cognitive Service Account. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 

@@ -30,7 +30,7 @@ variable "collation" {
 }
 variable "data_encrypted" {
   description = "Is transparent data encryption enabled?"
-  type        = string
+  type        = bool
   default     = null
 }
 variable "recovery_database_id" {

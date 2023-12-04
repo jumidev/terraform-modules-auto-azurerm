@@ -80,37 +80,11 @@ tfstate_store = {
 | `retention_policy` | [block](#share_properties-block-structure) | No | - | A 'retention_policy' block. |
 | `smb` | [block](#share_properties-block-structure) | No | - | A 'smb' block. |
 
-### `private_link_access` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `endpoint_resource_id` | string | Yes | - | The resource id of the resource access rule to be granted access. |
-| `endpoint_tenant_id` | string | No | - | The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id. |
-
 ### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `days` | int | No | 7 | Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'. |
-
-### `container_delete_retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | int | No | 7 | Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'. |
-
-### `customer_managed_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. |
-| `user_assigned_identity_id` | string | Yes | - | The ID of a user assigned identity. |
-
-### `delete_retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | int | No | 7 | Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'. |
 
 ### `cors_rule` block structure
 
@@ -122,96 +96,12 @@ tfstate_store = {
 | `exposed_headers` | list | Yes | - | A list of response headers that are exposed to CORS clients. |
 | `max_age_in_seconds` | int | Yes | - | The number of seconds the client should cache a preflight response. |
 
-### `routing` block structure
+### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `publish_internet_endpoints` | bool | No | False | Should internet routing storage endpoints be published? Defaults to 'false'. |
-| `publish_microsoft_endpoints` | bool | No | False | Should Microsoft routing storage endpoints be published? Defaults to 'false'. |
-| `choice` | string | No | MicrosoftRouting | Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. |
-
-### `restore_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | int | Yes | - | Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'. |
-
-### `hour_metrics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Indicates whether hour metrics are enabled for the Queue service. |
-| `version` | string | Yes | - | The version of storage analytics to configure. |
-| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
-| `retention_policy_days` | int | No | - | Specifies the number of days that logs will be retained. |
-
-### `smb` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `versions` | string | No | - | A set of SMB protocol versions. Possible values are 'SMB2.1', 'SMB3.0', and 'SMB3.1.1'. |
-| `authentication_types` | string | No | - | A set of SMB authentication methods. Possible values are 'NTLMv2', and 'Kerberos'. |
-| `kerberos_ticket_encryption_type` | string | No | - | A set of Kerberos ticket encryption. Possible values are 'RC4-HMAC', and 'AES-256'. |
-| `channel_encryption_type` | string | No | - | A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'. |
-| `multichannel_enabled` | bool | No | False | Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts. |
-
-### `logging` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `delete` | string | Yes | - | Indicates whether all delete requests should be logged. |
-| `read` | string | Yes | - | Indicates whether all read requests should be logged. |
-| `version` | string | Yes | - | The version of storage analytics to configure. |
-| `write` | string | Yes | - | Indicates whether all write requests should be logged. |
-| `retention_policy_days` | int | No | - | Specifies the number of days that logs will be retained. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account. |
-
-### `queue_properties` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cors_rule` | [block](#queue_properties-block-structure) | No | - | A 'cors_rule' block. |
-| `logging` | [block](#queue_properties-block-structure) | No | - | A 'logging' block. |
-| `minute_metrics` | [block](#queue_properties-block-structure) | No | - | A 'minute_metrics' block. |
-| `hour_metrics` | [block](#queue_properties-block-structure) | No | - | A 'hour_metrics' block. |
-
-### `sas_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `expiration_period` | string | Yes | - | The SAS expiration period in format of 'DD.HH:MM:SS'. |
-| `expiration_action` | string | No | Log | The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. |
-
-### `azure_files_authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `directory_type` | string | Yes | - | Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. |
-| `active_directory` | [block](#azure_files_authentication-block-structure) | No | - | A 'active_directory' block. Required when 'directory_type' is 'AD'. |
-
-### `network_rules` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | Yes | - | Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'. |
-| `bypass` | string | No | - | Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'. |
-| `ip_rules` | string | No | - | List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed. |
-| `virtual_network_subnet_ids` | list | No | - | A list of resource ids for subnets. |
-| `private_link_access` | [block](#network_rules-block-structure) | No | - | One or more 'private_link_access' block. |
-
-### `immutability_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allow_protected_append_writes` | bool | Yes | - | When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. |
-| `state` | string | Yes | - | Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. |
-| `period_since_creation_in_days` | int | Yes | - | The immutability period for the blobs in the container since the policy creation, in days. |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. |
+| `user_assigned_identity_id` | string | Yes | - | The ID of a user assigned identity. |
 
 ### `static_website` block structure
 
@@ -220,11 +110,12 @@ tfstate_store = {
 | `index_document` | string | No | - | The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive. |
 | `error_404_document` | string | No | - | The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file. |
 
-### `custom_domain` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `use_subdomain` | bool | No | - | Should the Custom Domain Name be validated by using indirect CNAME validation? |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account. |
 
 ### `blob_properties` block structure
 
@@ -240,14 +131,15 @@ tfstate_store = {
 | `last_access_time_enabled` | bool | No | False | Is the last access time based tracking enabled? Default to 'false'. |
 | `container_delete_retention_policy` | [block](#blob_properties-block-structure) | No | - | A 'container_delete_retention_policy' block. |
 
-### `minute_metrics` block structure
+### `smb` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Indicates whether minute metrics are enabled for the Queue service. |
-| `version` | string | Yes | - | The version of storage analytics to configure. |
-| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
-| `retention_policy_days` | int | No | - | Specifies the number of days that logs will be retained. |
+| `versions` | string | No | - | A set of SMB protocol versions. Possible values are 'SMB2.1', 'SMB3.0', and 'SMB3.1.1'. |
+| `authentication_types` | string | No | - | A set of SMB authentication methods. Possible values are 'NTLMv2', and 'Kerberos'. |
+| `kerberos_ticket_encryption_type` | string | No | - | A set of Kerberos ticket encryption. Possible values are 'RC4-HMAC', and 'AES-256'. |
+| `channel_encryption_type` | string | No | - | A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'. |
+| `multichannel_enabled` | bool | No | False | Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts. |
 
 ### `active_directory` block structure
 
@@ -259,6 +151,114 @@ tfstate_store = {
 | `storage_sid` | string | No | - | Specifies the security identifier (SID) for Azure Storage. This is required when 'directory_type' is set to 'AD'. |
 | `forest_name` | string | No | - | Specifies the Active Directory forest. This is required when 'directory_type' is set to 'AD'. |
 | `netbios_domain_name` | string | No | - | Specifies the NetBIOS domain name. This is required when 'directory_type' is set to 'AD'. |
+
+### `custom_domain` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `use_subdomain` | bool | No | - | Should the Custom Domain Name be validated by using indirect CNAME validation? |
+
+### `sas_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiration_period` | string | Yes | - | The SAS expiration period in format of 'DD.HH:MM:SS'. |
+| `expiration_action` | string | No | Log | The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. |
+
+### `hour_metrics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Indicates whether hour metrics are enabled for the Queue service. |
+| `version` | string | Yes | - | The version of storage analytics to configure. |
+| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
+| `retention_policy_days` | int | No | - | Specifies the number of days that logs will be retained. |
+
+### `queue_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cors_rule` | [block](#queue_properties-block-structure) | No | - | A 'cors_rule' block. |
+| `logging` | [block](#queue_properties-block-structure) | No | - | A 'logging' block. |
+| `minute_metrics` | [block](#queue_properties-block-structure) | No | - | A 'minute_metrics' block. |
+| `hour_metrics` | [block](#queue_properties-block-structure) | No | - | A 'hour_metrics' block. |
+
+### `minute_metrics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Indicates whether minute metrics are enabled for the Queue service. |
+| `version` | string | Yes | - | The version of storage analytics to configure. |
+| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
+| `retention_policy_days` | int | No | - | Specifies the number of days that logs will be retained. |
+
+### `azure_files_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `directory_type` | string | Yes | - | Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. |
+| `active_directory` | [block](#azure_files_authentication-block-structure) | No | - | A 'active_directory' block. Required when 'directory_type' is 'AD'. |
+
+### `routing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publish_internet_endpoints` | bool | No | False | Should internet routing storage endpoints be published? Defaults to 'false'. |
+| `publish_microsoft_endpoints` | bool | No | False | Should Microsoft routing storage endpoints be published? Defaults to 'false'. |
+| `choice` | string | No | MicrosoftRouting | Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. |
+
+### `restore_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | int | Yes | - | Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'. |
+
+### `container_delete_retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | int | No | 7 | Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'. |
+
+### `network_rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | Yes | - | Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'. |
+| `bypass` | string | No | - | Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'. |
+| `ip_rules` | string | No | - | List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed. |
+| `virtual_network_subnet_ids` | list | No | - | A list of resource ids for subnets. |
+| `private_link_access` | [block](#network_rules-block-structure) | No | - | One or more 'private_link_access' block. |
+
+### `delete_retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | int | No | 7 | Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'. |
+
+### `logging` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `delete` | string | Yes | - | Indicates whether all delete requests should be logged. |
+| `read` | string | Yes | - | Indicates whether all read requests should be logged. |
+| `version` | string | Yes | - | The version of storage analytics to configure. |
+| `write` | string | Yes | - | Indicates whether all write requests should be logged. |
+| `retention_policy_days` | int | No | - | Specifies the number of days that logs will be retained. |
+
+### `immutability_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allow_protected_append_writes` | bool | Yes | - | When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. |
+| `state` | string | Yes | - | Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. |
+| `period_since_creation_in_days` | int | Yes | - | The immutability period for the blobs in the container since the policy creation, in days. |
+
+### `private_link_access` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `endpoint_resource_id` | string | Yes | - | The resource id of the resource access rule to be granted access. |
+| `endpoint_tenant_id` | string | No | - | The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id. |
 
 
 
@@ -293,12 +293,12 @@ tfstate_store = {
 | **primary_web_host** | string | No  | The hostname with port if applicable for web storage in the primary location. | 
 | **secondary_web_endpoint** | string | No  | The endpoint URL for web storage in the secondary location. | 
 | **secondary_web_host** | string | No  | The hostname with port if applicable for web storage in the secondary location. | 
-| **primary_access_key** | string | No  | The primary access key for the storage account. | 
-| **secondary_access_key** | string | No  | The secondary access key for the storage account. | 
-| **primary_connection_string** | string | No  | The connection string associated with the primary location. | 
-| **secondary_connection_string** | string | No  | The connection string associated with the secondary location. | 
-| **primary_blob_connection_string** | string | No  | The connection string associated with the primary blob location. | 
-| **secondary_blob_connection_string** | string | No  | The connection string associated with the secondary blob location. | 
+| **primary_access_key** | string | Yes  | The primary access key for the storage account. | 
+| **secondary_access_key** | string | Yes  | The secondary access key for the storage account. | 
+| **primary_connection_string** | string | Yes  | The connection string associated with the primary location. | 
+| **secondary_connection_string** | string | Yes  | The connection string associated with the secondary location. | 
+| **primary_blob_connection_string** | string | Yes  | The connection string associated with the primary blob location. | 
+| **secondary_blob_connection_string** | string | Yes  | The connection string associated with the secondary blob location. | 
 | **identity** | block | No  | An `identity` block. | 
 | **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Identity of this Storage Account. | 
 | **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this Storage Account. | 

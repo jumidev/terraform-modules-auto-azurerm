@@ -66,7 +66,7 @@ variable "environment_variables" {
 }
 variable "https_only" {
   description = "is only https is allowed?"
-  type        = string
+  type        = bool
   default     = null
 }
 variable "instance_count" {

@@ -44,11 +44,11 @@ tfstate_store = {
 
 ### 3 optional associated resources
 
-| Variable | Information |
+| tfstate_input variable | Information |
 | -------- | ----------- |
-| **var.public_ip_address_id** | If set to a valid `azurerm_public_ip` `id`, makes a **azurerm_nat_gateway_public_ip_association** - Manages the association between a NAT Gateway and a Public IP. | 
-| **var.subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_nat_gateway_association** - Associates a [NAT Gateway](nat_gateway.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
-| **var.public_ip_prefix_id** | If set to a valid `azurerm_public_ip_prefix` `id`, makes a **azurerm_nat_gateway_public_ip_prefix_association** - Manages the association between a NAT Gateway and a Public IP Prefix. | 
+| **public_ip_address_id** | If set to a valid `azurerm_public_ip` `id`, makes a **azurerm_nat_gateway_public_ip_association** - \\e.g. : `public_ip_address_id = "path/to/component:id"`Manages the association between a NAT Gateway and a Public IP. | 
+| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_nat_gateway_association** - \\e.g. : `subnet_id = "path/to/component:id"`Associates a [NAT Gateway](nat_gateway.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
+| **public_ip_prefix_id** | If set to a valid `azurerm_public_ip_prefix` `id`, makes a **azurerm_nat_gateway_public_ip_prefix_association** - \\e.g. : `public_ip_prefix_id = "path/to/component:id"`Manages the association between a NAT Gateway and a Public IP Prefix. | 
 
 ## Outputs
 

@@ -51,36 +51,12 @@ tfstate_store = {
 | **predictive** | [block](#predictive-block-structure) |  -  |  A `predictive` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `email` block structure
+### `notification` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `send_to_subscription_administrator` | bool | No | False | Should email notifications be sent to the subscription administrator? Defaults to 'false'. |
-| `send_to_subscription_co_administrator` | bool | No | False | Should email notifications be sent to the subscription co-administrator? Defaults to 'false'. |
-| `custom_emails` | string | No | - | Specifies a list of custom email addresses to which the email notifications will be sent. |
-
-### `metric_trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `metric_name` | string | Yes | - | The name of the metric that defines what the rule monitors, such as 'Percentage CPU' for 'Virtual Machine Scale Sets' and 'CpuPercentage' for 'App Service Plan'. |
-| `metric_resource_id` | string | Yes | - | The ID of the Resource which the Rule monitors. |
-| `operator` | string | Yes | - | Specifies the operator used to compare the metric data and threshold. Possible values are: 'Equals', 'NotEquals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan', 'LessThanOrEqual'. |
-| `statistic` | string | Yes | - | Specifies how the metrics from multiple instances are combined. Possible values are 'Average', 'Max', 'Min' and 'Sum'. |
-| `time_aggregation` | string | Yes | - | Specifies how the data that's collected should be combined over time. Possible values include 'Average', 'Count', 'Maximum', 'Minimum', 'Last' and 'Total'. |
-| `time_grain` | string | Yes | - | Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string. |
-| `time_window` | string | Yes | - | Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string. |
-| `threshold` | string | Yes | - | Specifies the threshold of the metric that triggers the scale action. |
-| `metric_namespace` | string | No | - | The namespace of the metric that defines what the rule monitors, such as 'microsoft.compute/virtualmachinescalesets' for 'Virtual Machine Scale Sets'. |
-| `dimensions` | [block](#metric_trigger-block-structure) | No | - | One or more 'dimensions' block. |
-| `divide_by_instance_count` | int | No | - | Whether to enable metric divide by instance count. |
-
-### `dimensions` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The dimension operator. Possible values are 'Equals' and 'NotEquals'. 'Equals' means being equal to any of the values. 'NotEquals' means being not equal to any of the values. |
-| `values` | list | Yes | - | A list of dimension values. |
+| `email` | [block](#notification-block-structure) | No | - | A 'email' block. |
+| `webhook` | [block](#notification-block-structure) | No | - | One or more 'webhook' blocks. |
 
 ### `webhook` block structure
 
@@ -106,15 +82,6 @@ tfstate_store = {
 | `start` | string | Yes | - | Specifies the start date for the profile, formatted as an RFC3339 date string. |
 | `timezone` | string | No | UTC | The Time Zone of the 'start' and 'end' times. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'. |
 
-### `recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `timezone` | string | No | UTC | The Time Zone used for the 'hours' field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'. |
-| `days` | string | Yes | - | A list of days that this profile takes effect on. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
-| `hours` | string | Yes | - | A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from '0' to '23'. |
-| `minutes` | int | Yes | - | A list containing a single item which specifies the Minute interval at which this recurrence should be triggered. |
-
 ### `capacity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -123,12 +90,27 @@ tfstate_store = {
 | `maximum` | string | Yes | - | The maximum number of instances for this resource. Valid values are between '0' and '1000'. |
 | `minimum` | string | Yes | - | The minimum number of instances for this resource. Valid values are between '0' and '1000'. |
 
+### `email` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `send_to_subscription_administrator` | bool | No | False | Should email notifications be sent to the subscription administrator? Defaults to 'false'. |
+| `send_to_subscription_co_administrator` | bool | No | False | Should email notifications be sent to the subscription co-administrator? Defaults to 'false'. |
+| `custom_emails` | string | No | - | Specifies a list of custom email addresses to which the email notifications will be sent. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `metric_trigger` | [block](#rule-block-structure) | Yes | - | A 'metric_trigger' block. |
 | `scale_action` | [block](#rule-block-structure) | Yes | - | A 'scale_action' block. |
+
+### `dimensions` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The dimension operator. Possible values are 'Equals' and 'NotEquals'. 'Equals' means being equal to any of the values. 'NotEquals' means being not equal to any of the values. |
+| `values` | list | Yes | - | A list of dimension values. |
 
 ### `scale_action` block structure
 
@@ -139,19 +121,37 @@ tfstate_store = {
 | `type` | string | Yes | - | The type of action that should occur. Possible values are 'ChangeCount', 'ExactCount', 'PercentChangeCount' and 'ServiceAllowedNextValue'. |
 | `value` | int | Yes | - | The number of instances involved in the scaling action. |
 
+### `metric_trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `metric_name` | string | Yes | - | The name of the metric that defines what the rule monitors, such as 'Percentage CPU' for 'Virtual Machine Scale Sets' and 'CpuPercentage' for 'App Service Plan'. |
+| `metric_resource_id` | string | Yes | - | The ID of the Resource which the Rule monitors. |
+| `operator` | string | Yes | - | Specifies the operator used to compare the metric data and threshold. Possible values are: 'Equals', 'NotEquals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan', 'LessThanOrEqual'. |
+| `statistic` | string | Yes | - | Specifies how the metrics from multiple instances are combined. Possible values are 'Average', 'Max', 'Min' and 'Sum'. |
+| `time_aggregation` | string | Yes | - | Specifies how the data that's collected should be combined over time. Possible values include 'Average', 'Count', 'Maximum', 'Minimum', 'Last' and 'Total'. |
+| `time_grain` | string | Yes | - | Specifies the granularity of metrics that the rule monitors, which must be one of the pre-defined values returned from the metric definitions for the metric. This value must be between 1 minute and 12 hours an be formatted as an ISO 8601 string. |
+| `time_window` | string | Yes | - | Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string. |
+| `threshold` | string | Yes | - | Specifies the threshold of the metric that triggers the scale action. |
+| `metric_namespace` | string | No | - | The namespace of the metric that defines what the rule monitors, such as 'microsoft.compute/virtualmachinescalesets' for 'Virtual Machine Scale Sets'. |
+| `dimensions` | [block](#metric_trigger-block-structure) | No | - | One or more 'dimensions' block. |
+| `divide_by_instance_count` | int | No | - | Whether to enable metric divide by instance count. |
+
+### `recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `timezone` | string | No | UTC | The Time Zone used for the 'hours' field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'. |
+| `days` | string | Yes | - | A list of days that this profile takes effect on. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
+| `hours` | string | Yes | - | A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from '0' to '23'. |
+| `minutes` | int | Yes | - | A list containing a single item which specifies the Minute interval at which this recurrence should be triggered. |
+
 ### `predictive` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `scale_mode` | string | Yes | - | Specifies the predictive scale mode. Possible values are 'Enabled' or 'ForecastOnly'. |
 | `look_ahead_time` | string | No | - | Specifies the amount of time by which instances are launched in advance. It must be between 'PT1M' and 'PT1H' in ISO 8601 format. |
-
-### `notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | [block](#notification-block-structure) | No | - | A 'email' block. |
-| `webhook` | [block](#notification-block-structure) | No | - | One or more 'webhook' blocks. |
 
 
 

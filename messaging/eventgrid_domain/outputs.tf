@@ -63,11 +63,13 @@ output "endpoint" {
 output "primary_access_key" {
   description = "The Primary Shared Access Key associated with the EventGrid Domain."
   value       = azurerm_eventgrid_domain.this.primary_access_key
+  sensitive   = true
 }
 
 output "secondary_access_key" {
   description = "The Secondary Shared Access Key associated with the EventGrid Domain."
   value       = azurerm_eventgrid_domain.this.secondary_access_key
+  sensitive   = true
 }
 
 output "identity" {

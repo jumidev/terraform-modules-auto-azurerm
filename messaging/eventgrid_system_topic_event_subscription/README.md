@@ -56,56 +56,6 @@ tfstate_store = {
 | **labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
 | **advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
 
-### `storage_blob_dead_letter_destination` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage blob is located. |
-| `storage_blob_container_name` | string | Yes | - | Specifies the name of the Storage blob container that is the destination of the deadletter events. |
-
-### `advanced_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `bool_equals` | string | No | - | Compares a value of an event using a single boolean value. |
-| `number_greater_than` | string | No | - | Compares a value of an event using a single floating point number. |
-| `number_greater_than_or_equals` | string | No | - | Compares a value of an event using a single floating point number. |
-| `number_less_than` | string | No | - | Compares a value of an event using a single floating point number. |
-| `number_less_than_or_equals` | string | No | - | Compares a value of an event using a single floating point number. |
-| `number_in` | string | No | - | Compares a value of an event using multiple floating point numbers. |
-| `number_not_in` | string | No | - | Compares a value of an event using multiple floating point numbers. |
-| `number_in_range` | string | No | - | Compares a value of an event using multiple floating point number ranges. |
-| `number_not_in_range` | string | No | - | Compares a value of an event using multiple floating point number ranges. |
-| `string_begins_with` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_not_begins_with` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_ends_with` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_not_ends_with` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_contains` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_not_contains` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_in` | string | No | - | Compares a value of an event using multiple string values. |
-| `string_not_in` | string | No | - | Compares a value of an event using multiple string values. |
-| `is_not_null` | string | No | - | Evaluates if a value of an event isn't NULL or undefined. |
-| `is_null_or_undefined` | string | No | - | Evaluates if a value of an event is NULL or undefined. |
-| `key` | string | Yes | - | Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string. |
-| `value` | string | Yes | - | Specifies a single value to compare to when using a single value operator. |
-| `values` | string | Yes | - | Specifies an array of values to compare to when using a multiple values operator. |
-
-### `subject_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
-| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
-| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
-
-### `storage_queue_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
-| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
-| `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
-
 ### `azure_function_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -138,6 +88,55 @@ tfstate_store = {
 | `max_delivery_attempts` | int | Yes | - | Specifies the maximum number of delivery retry attempts for events. |
 | `event_time_to_live` | string | Yes | - | Specifies the time to live (in minutes) for events. Supported range is '1' to '1440'. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details. |
 
+### `dead_letter_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+
+### `subject_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
+| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
+| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
+
+### `advanced_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `bool_equals` | string | No | - | Compares a value of an event using a single boolean value. |
+| `number_greater_than` | string | No | - | Compares a value of an event using a single floating point number. |
+| `number_greater_than_or_equals` | string | No | - | Compares a value of an event using a single floating point number. |
+| `number_less_than` | string | No | - | Compares a value of an event using a single floating point number. |
+| `number_less_than_or_equals` | string | No | - | Compares a value of an event using a single floating point number. |
+| `number_in` | string | No | - | Compares a value of an event using multiple floating point numbers. |
+| `number_not_in` | string | No | - | Compares a value of an event using multiple floating point numbers. |
+| `number_in_range` | string | No | - | Compares a value of an event using multiple floating point number ranges. |
+| `number_not_in_range` | string | No | - | Compares a value of an event using multiple floating point number ranges. |
+| `string_begins_with` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_not_begins_with` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_ends_with` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_not_ends_with` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_contains` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_not_contains` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_in` | string | No | - | Compares a value of an event using multiple string values. |
+| `string_not_in` | string | No | - | Compares a value of an event using multiple string values. |
+| `is_not_null` | string | No | - | Evaluates if a value of an event isn't NULL or undefined. |
+| `is_null_or_undefined` | string | No | - | Evaluates if a value of an event is NULL or undefined. |
+| `key` | string | Yes | - | Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string. |
+| `value` | string | Yes | - | Specifies a single value to compare to when using a single value operator. |
+| `values` | string | Yes | - | Specifies an array of values to compare to when using a multiple values operator. |
+
+### `storage_blob_dead_letter_destination` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage blob is located. |
+| `storage_blob_container_name` | string | Yes | - | Specifies the name of the Storage blob container that is the destination of the deadletter events. |
+
 ### `webhook_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -149,12 +148,13 @@ tfstate_store = {
 | `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
 | `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
 
-### `dead_letter_identity` block structure
+### `storage_queue_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
+| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
+| `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
 
 
 

@@ -55,18 +55,12 @@ tfstate_store = {
 | `default_action` | string | No | Deny | Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
 | `ip_rule` | [block](#node_management_access-block-structure) | No | - | One or more 'ip_rule' blocks. |
 
-### `key_vault_reference` block structure
+### `ip_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
+| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
+| `action` | string | No | Allow | Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'. |
 
 ### `account_access` block structure
 
@@ -82,12 +76,18 @@ tfstate_store = {
 | `account_access` | [block](#network_profile-block-structure) | No | - | An 'account_access' block. |
 | `node_management_access` | [block](#network_profile-block-structure) | No | - | A 'node_management_access' block. |
 
-### `ip_rule` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
-| `action` | string | No | Allow | Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
+
+### `key_vault_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
 
 ### `encryption` block structure
 
@@ -103,8 +103,8 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Batch Account. | 
 | **identity** | block | No  | An `identity` block. | 
-| **primary_access_key** | string | No  | The Batch account primary access key. | 
-| **secondary_access_key** | string | No  | The Batch account secondary access key. | 
+| **primary_access_key** | string | Yes  | The Batch account primary access key. | 
+| **secondary_access_key** | string | Yes  | The Batch account secondary access key. | 
 | **account_endpoint** | string | No  | The account endpoint used to interact with the Batch service. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 

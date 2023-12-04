@@ -31,7 +31,8 @@ output "storage_endpoint" {
 }
 
 output "storage_account_access_key" {
-  value = azurerm_mssql_managed_instance_security_alert_policy.this.storage_account_access_key
+  value     = azurerm_mssql_managed_instance_security_alert_policy.this.storage_account_access_key
+  sensitive = true
 }
 
 output "id" {

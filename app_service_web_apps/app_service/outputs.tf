@@ -146,6 +146,7 @@ output "username" {
 output "password" {
   description = "The password associated with the username, which can be used to publish to this App Service."
   value       = azurerm_app_service.this.password
+  sensitive   = true
 }
 
 output "repo_url" {

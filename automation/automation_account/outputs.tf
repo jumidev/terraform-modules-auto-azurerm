@@ -40,11 +40,13 @@ output "dsc_server_endpoint" {
 output "dsc_primary_access_key" {
   description = "The Primary Access Key for the DSC Endpoint associated with this Automation Account."
   value       = azurerm_automation_account.this.dsc_primary_access_key
+  sensitive   = true
 }
 
 output "dsc_secondary_access_key" {
   description = "The Secondary Access Key for the DSC Endpoint associated with this Automation Account."
   value       = azurerm_automation_account.this.dsc_secondary_access_key
+  sensitive   = true
 }
 
 output "hybrid_service_url" {

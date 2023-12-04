@@ -105,11 +105,13 @@ output "port" {
 output "primary_access_key" {
   description = "The Primary Access Key for the Redis Instance"
   value       = azurerm_redis_cache.this.primary_access_key
+  sensitive   = true
 }
 
 output "secondary_access_key" {
   description = "The Secondary Access Key for the Redis Instance"
   value       = azurerm_redis_cache.this.secondary_access_key
+  sensitive   = true
 }
 
 output "primary_connection_string" {

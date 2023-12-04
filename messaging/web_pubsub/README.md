@@ -75,9 +75,9 @@ tfstate_store = {
 | **external_ip** | string | No  | The publicly accessible IP of the Web PubSub service. | 
 | **public_port** | string | No  | The publicly accessible port of the Web PubSub service which is designed for browser/client use. | 
 | **server_port** | string | No  | The publicly accessible port of the Web PubSub service which is designed for customer server side use. | 
-| **primary_access_key** | string | No  | The primary access key for the Web PubSub service. | 
+| **primary_access_key** | string | Yes  | The primary access key for the Web PubSub service. | 
 | **primary_connection_string** | string | No  | The primary connection string for the Web PubSub service. | 
-| **secondary_access_key** | string | No  | The secondary access key for the Web PubSub service. | 
+| **secondary_access_key** | string | Yes  | The secondary access key for the Web PubSub service. | 
 | **secondary_connection_string** | string | No  | The secondary connection string for the Web PubSub service. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 

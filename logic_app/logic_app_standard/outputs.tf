@@ -137,6 +137,7 @@ output "username" {
 output "password" {
   description = "The password associated with the username, which can be used to publish to this App Service."
   value       = azurerm_logic_app_standard.this.password
+  sensitive   = true
 }
 
 output "auto_swap_slot_name" {

@@ -21,11 +21,11 @@ variable "dataset" {
 #   grouping (block)       : One or more 'grouping' blocks.
 #   sorting (block)        : One or more 'sorting' blocks, containing the order by expression to be used in the report
 #
-# sorting block structure:
-#   direction (string)     : (REQUIRED) Direction of sort. Possible values are 'Ascending' and 'Descending'.
-#
 # grouping block structure:
 #   type (string)           : (REQUIRED) The type of the column. Possible values are 'Dimension' and 'TagKey'.
+#
+# sorting block structure:
+#   direction (string)     : (REQUIRED) Direction of sort. Possible values are 'Ascending' and 'Descending'.
 
 
 variable "display_name" {

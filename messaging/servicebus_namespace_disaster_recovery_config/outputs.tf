@@ -33,10 +33,12 @@ output "secondary_connection_string_alias" {
 output "default_primary_key" {
   description = "The primary access key for the authorization rule 'RootManageSharedAccessKey'."
   value       = azurerm_servicebus_namespace_disaster_recovery_config.this.default_primary_key
+  sensitive   = true
 }
 
 output "default_secondary_key" {
   description = "The secondary access key for the authorization rule 'RootManageSharedAccessKey'."
   value       = azurerm_servicebus_namespace_disaster_recovery_config.this.default_secondary_key
+  sensitive   = true
 }
 

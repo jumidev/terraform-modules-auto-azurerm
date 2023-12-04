@@ -36,11 +36,13 @@ output "secondary_connection_string" {
 output "primary_key" {
   description = "The primary access key for the authorization rule 'RootManageSharedAccessKey'."
   value       = azurerm_relay_namespace.this.primary_key
+  sensitive   = true
 }
 
 output "secondary_key" {
   description = "The secondary access key for the authorization rule 'RootManageSharedAccessKey'."
   value       = azurerm_relay_namespace.this.secondary_key
+  sensitive   = true
 }
 
 output "metric_id" {

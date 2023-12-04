@@ -63,6 +63,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
+### `retry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `count` | int | Yes | - | The maximum retry attempts if the pipeline run failed. |
+| `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
+
 ### `trigger_dependency` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,13 +77,6 @@ tfstate_store = {
 | `offset` | string | No | - | The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency. |
 | `size` | string | No | - | The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss). |
 | `trigger_name` | string | No | - | The dependency trigger name. If not specified, it will use self dependency. |
-
-### `retry` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `count` | int | Yes | - | The maximum retry attempts if the pipeline run failed. |
-| `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
 
 
 

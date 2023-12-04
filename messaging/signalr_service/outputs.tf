@@ -102,6 +102,7 @@ output "server_port" {
 output "primary_access_key" {
   description = "The primary access key for the SignalR service."
   value       = azurerm_signalr_service.this.primary_access_key
+  sensitive   = true
 }
 
 output "primary_connection_string" {
@@ -112,6 +113,7 @@ output "primary_connection_string" {
 output "secondary_access_key" {
   description = "The secondary access key for the SignalR service."
   value       = azurerm_signalr_service.this.secondary_access_key
+  sensitive   = true
 }
 
 output "secondary_connection_string" {

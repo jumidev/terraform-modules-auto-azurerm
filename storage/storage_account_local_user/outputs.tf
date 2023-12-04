@@ -34,6 +34,7 @@ output "id" {
 output "password" {
   description = "The value of the password, which is only available when 'ssh_password_enabled' is set to 'true'."
   value       = azurerm_storage_account_local_user.this.password
+  sensitive   = true
 }
 
 output "sid" {

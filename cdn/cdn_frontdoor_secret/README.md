@@ -38,18 +38,18 @@ tfstate_store = {
 | **cdn_frontdoor_profile_id** | string |  The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created. | 
 | **secret** | [block](#secret-block-structure) |  A `secret` block. Changing this forces a new Front Door Secret to be created. | 
 
+### `secret` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `customer_certificate` | [block](#secret-block-structure) | Yes | - | A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created. |
+
 ### `customer_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_certificate_id` | string | Yes | - | The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created. |
 | `subject_alternative_names` | list | No | - | (Computed) One or more 'subject alternative names' contained within the key vault certificate. |
-
-### `secret` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `customer_certificate` | [block](#secret-block-structure) | Yes | - | A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created. |
 
 
 

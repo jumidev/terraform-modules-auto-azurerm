@@ -11,11 +11,13 @@ output "eventgrid_topic_endpoint" {
 }
 
 output "eventgrid_topic_primary_access_key" {
-  value = azurerm_digital_twins_endpoint_eventgrid.this.eventgrid_topic_primary_access_key
+  value     = azurerm_digital_twins_endpoint_eventgrid.this.eventgrid_topic_primary_access_key
+  sensitive = true
 }
 
 output "eventgrid_topic_secondary_access_key" {
-  value = azurerm_digital_twins_endpoint_eventgrid.this.eventgrid_topic_secondary_access_key
+  value     = azurerm_digital_twins_endpoint_eventgrid.this.eventgrid_topic_secondary_access_key
+  sensitive = true
 }
 
 output "dead_letter_storage_secret" {

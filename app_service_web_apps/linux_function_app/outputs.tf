@@ -205,5 +205,6 @@ output "name" {
 output "password" {
   description = "The Site Credentials Password used for publishing."
   value       = azurerm_linux_function_app.this.password
+  sensitive   = true
 }
 

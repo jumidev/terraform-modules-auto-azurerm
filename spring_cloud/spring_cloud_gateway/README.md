@@ -39,12 +39,38 @@ tfstate_store = {
 | **client_authorization** | [block](#client_authorization-block-structure) |  -  |  -  |  A `client_authorization` block. | 
 | **cors** | [block](#cors-block-structure) |  -  |  -  |  A `cors` block. | 
 | **environment_variables** | string |  -  |  -  |  Specifies the environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
-| **https_only** | string |  -  |  -  |  is only https is allowed? | 
+| **https_only** | bool |  -  |  -  |  is only https is allowed? | 
 | **instance_count** | int |  `1`  |  -  |  Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **public_network_access_enabled** | bool |  -  |  -  |  Indicates whether the Spring Cloud Gateway exposes endpoint. | 
 | **quota** | [block](#quota-block-structure) |  -  |  -  |  A `quota` block. | 
 | **sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
+
+### `api_metadata` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
+| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
+| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
+| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
+| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
+
+### `client_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
+| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
+
+### `sso` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | No | - | The public identifier for the application. |
+| `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
+| `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
+| `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
 
 ### `quota` block structure
 
@@ -64,32 +90,6 @@ tfstate_store = {
 | `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
 | `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
 | `max_age_seconds` | int | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
-
-### `sso` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | No | - | The public identifier for the application. |
-| `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
-| `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
-| `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
-
-### `client_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
-| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
-
-### `api_metadata` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
-| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
-| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
-| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
-| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
 
 
 

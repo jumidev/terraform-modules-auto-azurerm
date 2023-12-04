@@ -49,8 +49,8 @@ tfstate_store = {
 | **id** | string | No  | The Azure Relay Namespace ID. | 
 | **primary_connection_string** | string | No  | The primary connection string for the authorization rule `RootManageSharedAccessKey`. | 
 | **secondary_connection_string** | string | No  | The secondary connection string for the authorization rule `RootManageSharedAccessKey`. | 
-| **primary_key** | string | No  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
-| **secondary_key** | string | No  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
+| **primary_key** | string | Yes  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
+| **secondary_key** | string | Yes  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
 | **metric_id** | string | No  | The Identifier for Azure Insights metrics. | 
 
 Additionally, all variables are provided as outputs.

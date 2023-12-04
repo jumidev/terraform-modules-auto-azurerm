@@ -44,8 +44,8 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Storage Container. | 
-| **has_immutability_policy** | string | No  | Is there an Immutability Policy configured on this Storage Container? | 
-| **has_legal_hold** | string | No  | Is there a Legal Hold configured on this Storage Container? | 
+| **has_immutability_policy** | bool | No  | Is there an Immutability Policy configured on this Storage Container? | 
+| **has_legal_hold** | bool | No  | Is there a Legal Hold configured on this Storage Container? | 
 | **resource_manager_id** | string | No  | The Resource Manager ID of this Storage Container. | 
 
 Additionally, all variables are provided as outputs.

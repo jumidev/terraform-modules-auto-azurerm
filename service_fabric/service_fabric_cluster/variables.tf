@@ -44,13 +44,13 @@ variable "node_type" {
 #   ephemeral_ports (block)             : A 'ephemeral_ports' block.
 #   reverse_proxy_endpoint_port (string): The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster.
 #
-# ephemeral_ports block structure:
-#   start_port (string)            : (REQUIRED) The start of the Ephemeral Port Range on this Node Type.
-#   end_port (string)              : (REQUIRED) The end of the Ephemeral Port Range on this Node Type.
-#
 # application_ports block structure:
 #   start_port (string)              : (REQUIRED) The start of the Application Port Range on this Node Type.
 #   end_port (string)                : (REQUIRED) The end of the Application Port Range on this Node Type.
+#
+# ephemeral_ports block structure:
+#   start_port (string)            : (REQUIRED) The start of the Ephemeral Port Range on this Node Type.
+#   end_port (string)              : (REQUIRED) The end of the Ephemeral Port Range on this Node Type.
 
 
 variable "upgrade_mode" {

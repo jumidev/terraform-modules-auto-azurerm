@@ -49,7 +49,7 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Authorization Rule. | 
-| **primary_access_key** | string | No  | The Primary Access Key associated with this Authorization Rule. | 
-| **secondary_access_key** | string | No  | The Secondary Access Key associated with this Authorization Rule. | 
+| **primary_access_key** | string | Yes  | The Primary Access Key associated with this Authorization Rule. | 
+| **secondary_access_key** | string | Yes  | The Secondary Access Key associated with this Authorization Rule. | 
 
 Additionally, all variables are provided as outputs.

@@ -26,11 +26,13 @@ output "id" {
 output "primary_access_key" {
   description = "The primary key used to authenticate and authorize access to the Maps REST APIs."
   value       = azurerm_maps_account.this.primary_access_key
+  sensitive   = true
 }
 
 output "secondary_access_key" {
   description = "The secondary key used to authenticate and authorize access to the Maps REST APIs."
   value       = azurerm_maps_account.this.secondary_access_key
+  sensitive   = true
 }
 
 output "x_ms_client_id" {

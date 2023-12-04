@@ -46,8 +46,8 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Azure Maps Account. | 
-| **primary_access_key** | string | No  | The primary key used to authenticate and authorize access to the Maps REST APIs. | 
-| **secondary_access_key** | string | No  | The secondary key used to authenticate and authorize access to the Maps REST APIs. | 
+| **primary_access_key** | string | Yes  | The primary key used to authenticate and authorize access to the Maps REST APIs. | 
+| **secondary_access_key** | string | Yes  | The secondary key used to authenticate and authorize access to the Maps REST APIs. | 
 | **x_ms_client_id** | string | No  | A unique identifier for the Maps Account. | 
 
 Additionally, all variables are provided as outputs.

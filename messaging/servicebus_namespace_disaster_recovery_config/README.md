@@ -47,7 +47,7 @@ tfstate_store = {
 | **id** | string | No  | The Service Bus Namespace Disaster Recovery Config ID. | 
 | **primary_connection_string_alias** | string | No  | The alias Primary Connection String for the ServiceBus Namespace. | 
 | **secondary_connection_string_alias** | string | No  | The alias Secondary Connection String for the ServiceBus Namespace | 
-| **default_primary_key** | string | No  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
-| **default_secondary_key** | string | No  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
+| **default_primary_key** | string | Yes  | The primary access key for the authorization rule `RootManageSharedAccessKey`. | 
+| **default_secondary_key** | string | Yes  | The secondary access key for the authorization rule `RootManageSharedAccessKey`. | 
 
 Additionally, all variables are provided as outputs.

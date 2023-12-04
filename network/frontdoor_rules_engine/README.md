@@ -46,6 +46,14 @@ tfstate_store = {
 | `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
 | `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
 
+### `response_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
+
 ### `request_header` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,14 +80,6 @@ tfstate_store = {
 | `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
 | `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
 | `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
-
-### `response_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
 
 
 

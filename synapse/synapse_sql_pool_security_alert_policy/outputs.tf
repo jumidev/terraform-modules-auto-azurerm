@@ -23,7 +23,8 @@ output "retention_days" {
 }
 
 output "storage_account_access_key" {
-  value = azurerm_synapse_sql_pool_security_alert_policy.this.storage_account_access_key
+  value     = azurerm_synapse_sql_pool_security_alert_policy.this.storage_account_access_key
+  sensitive = true
 }
 
 output "storage_endpoint" {

@@ -25,7 +25,7 @@ variable "storage_account_access_key" {
 }
 variable "storage_account_access_key_is_secondary" {
   description = "Is 'storage_account_access_key' value the storage's secondary key?"
-  type        = string
+  type        = bool
   default     = null
 }
 variable "log_monitoring_enabled" {

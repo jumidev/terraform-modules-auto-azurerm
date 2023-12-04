@@ -237,21 +237,25 @@ output "portal_fqdn" {
 output "kube_admin_config" {
   description = "A 'kube_admin_config' block. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled."
   value       = azurerm_kubernetes_cluster.this.kube_admin_config
+  sensitive   = true
 }
 
 output "kube_admin_config_raw" {
   description = "Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts enabled."
   value       = azurerm_kubernetes_cluster.this.kube_admin_config_raw
+  sensitive   = true
 }
 
 output "kube_config" {
   description = "A 'kube_config' block."
   value       = azurerm_kubernetes_cluster.this.kube_config
+  sensitive   = true
 }
 
 output "kube_config_raw" {
   description = "Raw Kubernetes config to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools."
   value       = azurerm_kubernetes_cluster.this.kube_config_raw
+  sensitive   = true
 }
 
 output "http_application_routing_zone_name" {
@@ -337,6 +341,7 @@ output "tenant_id" {
 output "client_key" {
   description = "Base64 encoded private key used by clients to authenticate to the Kubernetes cluster."
   value       = azurerm_kubernetes_cluster.this.client_key
+  sensitive   = true
 }
 
 output "client_certificate" {
@@ -362,6 +367,7 @@ output "username" {
 output "password" {
   description = "A password or token used to authenticate to the Kubernetes cluster."
   value       = azurerm_kubernetes_cluster.this.password
+  sensitive   = true
 }
 
 output "effective_gateway_id" {

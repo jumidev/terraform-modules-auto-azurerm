@@ -69,12 +69,6 @@ tfstate_store = {
 | `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
 | `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
 
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -98,6 +92,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
 
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+
 
 
 ## Outputs
@@ -109,9 +109,9 @@ tfstate_store = {
 | **ip_address** | string | No  | The publicly accessible IP of the SignalR service. | 
 | **public_port** | string | No  | The publicly accessible port of the SignalR service which is designed for browser/client use. | 
 | **server_port** | string | No  | The publicly accessible port of the SignalR service which is designed for customer server side use. | 
-| **primary_access_key** | string | No  | The primary access key for the SignalR service. | 
+| **primary_access_key** | string | Yes  | The primary access key for the SignalR service. | 
 | **primary_connection_string** | string | No  | The primary connection string for the SignalR service. | 
-| **secondary_access_key** | string | No  | The secondary access key for the SignalR service. | 
+| **secondary_access_key** | string | Yes  | The secondary access key for the SignalR service. | 
 | **secondary_connection_string** | string | No  | The secondary connection string for the SignalR service. | 
 
 Additionally, all variables are provided as outputs.
