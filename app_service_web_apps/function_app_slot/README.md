@@ -65,13 +65,20 @@ tfstate_store = {
 | `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
 | `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
 
-### `google` block structure
+### `twitter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
+| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
+| `consumer_secret` | string | Yes | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
+
+### `facebook` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
+| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
 
 ### `auth_settings` block structure
 
@@ -92,46 +99,6 @@ tfstate_store = {
 | `twitter` | [block](#auth_settings-block-structure) | No | - | A 'twitter' block. |
 | `unauthenticated_client_action` | string | No | - | The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'. |
 
-### `microsoft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
-
-### `scm_ip_restriction` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Allow or Deny access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'scm_ip_restriction' as defined below. |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `twitter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
-| `consumer_secret` | string | Yes | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type of the Function App. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. |
-| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
-
 ### `ip_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -143,13 +110,13 @@ tfstate_store = {
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
 
-### `facebook` block structure
+### `microsoft` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
-| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
 
 ### `site_config` block structure
 
@@ -182,6 +149,39 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
 | `support_credentials` | string | No | - | Are credentials supported? |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the identity type of the Function App. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. |
+| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
+
+### `google` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
+
+### `scm_ip_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Allow or Deny access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'scm_ip_restriction' as defined below. |
 
 
 
