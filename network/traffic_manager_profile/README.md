@@ -65,11 +65,12 @@ tfstate_store = {
 | **max_return** | string |  -  |  `1`, `8`  |  The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `custom_header` block structure
+### `dns_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
+| `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
+| `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
 
 ### `monitor_config` block structure
 
@@ -84,12 +85,11 @@ tfstate_store = {
 | `timeout_in_seconds` | string | No | - | The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If 'interval_in_seconds' is set to '30', then 'timeout_in_seconds' can be between '5' and '10'. The default value is '10'. If 'interval_in_seconds' is set to '10', then valid values are between '5' and '9' and 'timeout_in_seconds' is required. |
 | `tolerated_number_of_failures` | string | No | - | The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between '0' and '9'. The default value is '3' |
 
-### `dns_config` block structure
+### `custom_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
-| `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
+| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 
 

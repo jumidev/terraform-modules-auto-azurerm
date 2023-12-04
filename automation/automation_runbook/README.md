@@ -59,6 +59,15 @@ tfstate_store = {
 | `version` | string | No | - | Specifies the version of the content |
 | `hash` | [block](#publish_content_link-block-structure) | No | - | A 'hash' block. |
 
+### `draft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
+| `content_link` | [block](#draft-block-structure) | No | - | A 'publish_content_link' block. |
+| `output_types` | string | No | - | Specifies the output types of the runbook. |
+| `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
+
 ### `parameters` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,15 +77,6 @@ tfstate_store = {
 | `mandatory` | string | No | - | Whether this parameter is mandatory. |
 | `position` | string | No | - | Specifies the position of the parameter. |
 | `default_value` | string | No | - | Specifies the default value of the parameter. |
-
-### `draft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
-| `content_link` | [block](#draft-block-structure) | No | - | A 'publish_content_link' block. |
-| `output_types` | string | No | - | Specifies the output types of the runbook. |
-| `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
 
 ### `hash` block structure
 

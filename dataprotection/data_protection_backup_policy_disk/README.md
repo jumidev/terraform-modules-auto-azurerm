@@ -40,12 +40,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **retention_rule** | [block](#retention_rule-block-structure) |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy Disk to be created. | 
 
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `absolute_criteria` | string | No | - | Possible values are 'FirstOfDay' and 'FirstOfWeek'. Changing this forces a new Backup Policy Disk to be created. |
-
 ### `retention_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -53,6 +47,12 @@ tfstate_store = {
 | `duration` | string | Yes | - | Duration of deletion after given timespan. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy Disk to be created. |
 | `criteria` | [block](#retention_rule-block-structure) | Yes | - | A 'criteria' block. Changing this forces a new Backup Policy Disk to be created. |
 | `priority` | string | Yes | - | Retention Tag priority. Changing this forces a new Backup Policy Disk to be created. |
+
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `absolute_criteria` | string | No | - | Possible values are 'FirstOfDay' and 'FirstOfWeek'. Changing this forces a new Backup Policy Disk to be created. |
 
 
 

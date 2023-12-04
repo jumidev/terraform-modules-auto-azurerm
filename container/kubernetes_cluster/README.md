@@ -102,25 +102,47 @@ tfstate_store = {
 | **web_app_routing** | [block](#web_app_routing-block-structure) |  -  |  -  |  A `web_app_routing` block. | 
 | **windows_profile** | [block](#windows_profile-block-structure) |  -  |  -  |  A `windows_profile` block. | 
 
-### `confidential_computing` block structure
+### `kubelet_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `sgx_quote_helper_enabled` | bool | Yes | - | Should the SGX quote helper be enabled? |
+| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). |
+| `container_log_max_line` | int | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. |
+| `container_log_max_size_mb` | int | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. |
+| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? |
+| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. |
+| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',. |
+| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. |
+| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. |
+| `pod_max_pid` | int | No | - | Specifies the maximum number of processes per pod. |
+| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. |
 
-### `gmsa` block structure
+### `aci_connector_linux` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_server` | string | Yes | - | Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
-| `root_domain` | string | Yes | - | Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
+| `subnet_name` | string | Yes | - | The subnet name for the virtual nodes to run. |
 
-### `not_allowed` block structure
+### `upgrade_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `end` | string | Yes | - | The end of a time span, formatted as an RFC3339 string. |
-| `start` | string | Yes | - | The start of a time span, formatted as an RFC3339 string. |
+| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
+
+### `maintenance_window_auto_upgrade` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
+| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
+| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
+| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
+| `week_index` | string | No | - | Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency. |
+| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
+| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
+| `start_date` | datetime | No | - | The date on which the maintenance window begins to take effect. |
+| `not_allowed` | [block](#maintenance_window_auto_upgrade-block-structure) | No | - | One or more 'not_allowed' block. |
 
 ### `auto_scaler_profile` block structure
 
@@ -144,20 +166,39 @@ tfstate_store = {
 | `skip_nodes_with_local_storage` | bool | No | True | If 'true' cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to 'true'. |
 | `skip_nodes_with_system_pods` | bool | No | True | If 'true' cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to 'true'. |
 
-### `maintenance_window_node_os` block structure
+### `not_allowed` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
-| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
-| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
-| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
-| `week_index` | string | No | - | The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. |
-| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
-| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
-| `start_date` | datetime | No | - | The date on which the maintenance window begins to take effect. |
-| `not_allowed` | [block](#maintenance_window_node_os-block-structure) | No | - | One or more 'not_allowed' block. |
+| `end` | string | Yes | - | The end of a time span, formatted as an RFC3339 string. |
+| `start` | string | Yes | - | The start of a time span, formatted as an RFC3339 string. |
+
+### `api_server_access_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorized_ip_ranges` | string | No | - | Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. |
+| `subnet_id` | string | No | - | The ID of the Subnet where the API server endpoint is delegated to. |
+| `vnet_integration_enabled` | bool | No | - | Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). |
+
+### `web_app_routing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_zone_id` | string | Yes | - | Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''. |
+
+### `confidential_computing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `sgx_quote_helper_enabled` | bool | Yes | - | Should the SGX quote helper be enabled? |
+
+### `service_principal` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The Client ID for the Service Principal. |
+| `client_secret` | string | Yes | - | The Client Secret for the Service Principal. |
 
 ### `key_vault_secrets_provider` block structure
 
@@ -166,13 +207,25 @@ tfstate_store = {
 | `secret_rotation_enabled` | bool | No | - | Should the secret store CSI driver on the AKS cluster be enabled? |
 | `secret_rotation_interval` | string | No | 2m | The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. |
 
-### `kubelet_identity` block structure
+### `microsoft_defender` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | No | - | The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
-| `object_id` | string | No | - | The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
-| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `log_analytics_workspace_id` | string | Yes | - | Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. |
+
+### `oms_agent` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | The ID of the Log Analytics Workspace which the OMS Agent should send data to. |
+| `msi_auth_for_monitoring_enabled` | bool | No | - | Is managed identity authentication for monitoring enabled? |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. |
 
 ### `sysctl_config` block structure
 
@@ -208,82 +261,6 @@ tfstate_store = {
 | `vm_swappiness` | string | No | - | The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 | `vm_vfs_cache_pressure` | string | No | - | The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 
-### `microsoft_defender` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. |
-
-### `nat_gateway_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `idle_timeout_in_minutes` | int | No | 4 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'. |
-| `managed_outbound_ip_count` | int | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
-
-### `kubelet_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). |
-| `container_log_max_line` | int | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. |
-| `container_log_max_size_mb` | int | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. |
-| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? |
-| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. |
-| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',. |
-| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. |
-| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. |
-| `pod_max_pid` | int | No | - | Specifies the maximum number of processes per pod. |
-| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. |
-
-### `storage_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `blob_driver_enabled` | bool | No | False | Is the Blob CSI driver enabled? Defaults to 'false'. |
-| `disk_driver_enabled` | bool | No | True | Is the Disk CSI driver enabled? Defaults to 'true'. |
-| `disk_driver_version` | string | No | v1 | Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'. |
-| `file_driver_enabled` | bool | No | True | Is the File CSI driver enabled? Defaults to 'true'. |
-| `snapshot_controller_enabled` | bool | No | True | Is the Snapshot Controller enabled? Defaults to 'true'. |
-
-### `windows_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The Admin Username for Windows VMs. Changing this forces a new resource to be created. |
-| `admin_password` | string | No | - | The Admin Password for Windows VMs. Length must be between 14 and 123 characters. |
-| `license` | string | No | - | Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. |
-| `gmsa` | [block](#windows_profile-block-structure) | No | - | A 'gmsa' block. |
-
-### `maintenance_window_auto_upgrade` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
-| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
-| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
-| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
-| `week_index` | string | No | - | Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency. |
-| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
-| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
-| `start_date` | datetime | No | - | The date on which the maintenance window begins to take effect. |
-| `not_allowed` | [block](#maintenance_window_auto_upgrade-block-structure) | No | - | One or more 'not_allowed' block. |
-
-### `linux_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The Admin Username for the Cluster. Changing this forces a new resource to be created. |
-| `ssh_key` | [block](#linux_profile-block-structure) | Yes | - | An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). |
-
-### `workload_autoscaler_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `keda_enabled` | bool | No | - | Specifies whether KEDA Autoscaler can be used for workloads. |
-| `vertical_pod_autoscaler_enabled` | bool | No | - | Specifies whether Vertical Pod Autoscaler should be enabled. |
-
 ### `ingress_application_gateway` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -292,6 +269,20 @@ tfstate_store = {
 | `gateway_name` | string | No | - | The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
 | `subnet_cidr` | string | No | - | The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
 | `subnet_id` | string | No | - | The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
+
+### `allowed` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day` | string | Yes | - | A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `hours` | string | Yes | - | An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'. |
+
+### `maintenance_window` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed` | [block](#maintenance_window-block-structure) | No | - | One or more 'allowed' blocks. |
+| `not_allowed` | [block](#maintenance_window-block-structure) | No | - | One or more 'not_allowed' block. |
 
 ### `azure_active_directory_role_based_access_control` block structure
 
@@ -305,11 +296,76 @@ tfstate_store = {
 | `server_app_id` | string | No | - | The Server ID of an Azure Active Directory Application. |
 | `server_app_secret` | string | No | - | The Server Secret of an Azure Active Directory Application. |
 
-### `upgrade_settings` block structure
+### `ssh_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
+| `key_data` | string | Yes | - | The Public SSH Key used to access the cluster. |
+
+### `windows_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | The Admin Username for Windows VMs. Changing this forces a new resource to be created. |
+| `admin_password` | string | No | - | The Admin Password for Windows VMs. Length must be between 14 and 123 characters. |
+| `license` | string | No | - | Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. |
+| `gmsa` | [block](#windows_profile-block-structure) | No | - | A 'gmsa' block. |
+
+### `load_balancer_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `idle_timeout_in_minutes` | int | No | 30 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'. |
+| `managed_outbound_ip_count` | int | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
+| `managed_outbound_ipv6_count` | int | No | - | The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. |
+| `outbound_ip_address_ids` | string | No | - | The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer. |
+| `outbound_ip_prefix_ids` | string | No | - | The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer. |
+| `outbound_ports_allocated` | int | No | 0 | Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'. |
+
+### `nat_gateway_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `idle_timeout_in_minutes` | int | No | 4 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'. |
+| `managed_outbound_ip_count` | int | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
+
+### `key_management_service` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | Yes | - | Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When 'enabled' is 'false', leave the field empty. |
+| `key_vault_network_access` | string | No | Public | Network access of the key vault Network access of key vault. The possible values are 'Public' and 'Private'. 'Public' means the key vault allows public access from all networks. 'Private' means the key vault disables public access and enables private link. Defaults to 'Public'. |
+
+### `http_proxy_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `http_proxy` | string | No | - | The proxy address to be used when communicating over HTTP. |
+| `https_proxy` | string | No | - | The proxy address to be used when communicating over HTTPS. |
+| `no_proxy` | string | No | - | The list of domains that will not use the proxy for communication. |
+| `trusted_ca` | string | No | - | The base64 encoded alternative CA certificate content in PEM format. |
+
+### `kubelet_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | No | - | The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `object_id` | string | No | - | The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+
+### `linux_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | The Admin Username for the Cluster. Changing this forces a new resource to be created. |
+| `ssh_key` | [block](#linux_profile-block-structure) | Yes | - | An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). |
+
+### `gmsa` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_server` | string | Yes | - | Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
+| `root_domain` | string | Yes | - | Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
 
 ### `default_node_pool` block structure
 
@@ -354,6 +410,21 @@ tfstate_store = {
 | `min_count` | int | No | - | The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. |
 | `node_count` | int | No | - | The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'. |
 
+### `maintenance_window_node_os` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
+| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
+| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
+| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
+| `week_index` | string | No | - | The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. |
+| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
+| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
+| `start_date` | datetime | No | - | The date on which the maintenance window begins to take effect. |
+| `not_allowed` | [block](#maintenance_window_node_os-block-structure) | No | - | One or more 'not_allowed' block. |
+
 ### `service_mesh_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -362,37 +433,35 @@ tfstate_store = {
 | `internal_ingress_gateway_enabled` | bool | No | - | Is Istio Internal Ingress Gateway enabled? |
 | `external_ingress_gateway_enabled` | bool | No | - | Is Istio External Ingress Gateway enabled? |
 
-### `service_principal` block structure
+### `monitor_metrics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The Client ID for the Service Principal. |
-| `client_secret` | string | Yes | - | The Client Secret for the Service Principal. |
+| `annotations_allowed` | bool | No | - | Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. |
+| `labels_allowed` | bool | No | - | Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
 
-### `web_app_routing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_zone_id` | string | Yes | - | Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''. |
-
-### `ssh_key` block structure
+### `storage_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_data` | string | Yes | - | The Public SSH Key used to access the cluster. |
+| `blob_driver_enabled` | bool | No | False | Is the Blob CSI driver enabled? Defaults to 'false'. |
+| `disk_driver_enabled` | bool | No | True | Is the Disk CSI driver enabled? Defaults to 'true'. |
+| `disk_driver_version` | string | No | v1 | Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'. |
+| `file_driver_enabled` | bool | No | True | Is the File CSI driver enabled? Defaults to 'true'. |
+| `snapshot_controller_enabled` | bool | No | True | Is the Snapshot Controller enabled? Defaults to 'true'. |
+
+### `workload_autoscaler_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `keda_enabled` | bool | No | - | Specifies whether KEDA Autoscaler can be used for workloads. |
+| `vertical_pod_autoscaler_enabled` | bool | No | - | Specifies whether Vertical Pod Autoscaler should be enabled. |
 
 ### `node_network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
-
-### `oms_agent` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | The ID of the Log Analytics Workspace which the OMS Agent should send data to. |
-| `msi_auth_for_monitoring_enabled` | bool | No | - | Is managed identity authentication for monitoring enabled? |
 
 ### `network_profile` block structure
 
@@ -415,68 +484,6 @@ tfstate_store = {
 | `load_balancer_profile` | [block](#network_profile-block-structure) | No | - | A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created. |
 | `nat_gateway_profile` | [block](#network_profile-block-structure) | No | - | A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created. |
 
-### `http_proxy_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `http_proxy` | string | No | - | The proxy address to be used when communicating over HTTP. |
-| `https_proxy` | string | No | - | The proxy address to be used when communicating over HTTPS. |
-| `no_proxy` | string | No | - | The list of domains that will not use the proxy for communication. |
-| `trusted_ca` | string | No | - | The base64 encoded alternative CA certificate content in PEM format. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. |
-
-### `monitor_metrics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `annotations_allowed` | bool | No | - | Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. |
-| `labels_allowed` | bool | No | - | Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
-
-### `maintenance_window` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed` | [block](#maintenance_window-block-structure) | No | - | One or more 'allowed' blocks. |
-| `not_allowed` | [block](#maintenance_window-block-structure) | No | - | One or more 'not_allowed' block. |
-
-### `key_management_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | Yes | - | Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When 'enabled' is 'false', leave the field empty. |
-| `key_vault_network_access` | string | No | Public | Network access of the key vault Network access of key vault. The possible values are 'Public' and 'Private'. 'Public' means the key vault allows public access from all networks. 'Private' means the key vault disables public access and enables private link. Defaults to 'Public'. |
-
-### `api_server_access_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorized_ip_ranges` | string | No | - | Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. |
-| `subnet_id` | string | No | - | The ID of the Subnet where the API server endpoint is delegated to. |
-| `vnet_integration_enabled` | bool | No | - | Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). |
-
-### `load_balancer_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `idle_timeout_in_minutes` | int | No | 30 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'. |
-| `managed_outbound_ip_count` | int | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
-| `managed_outbound_ipv6_count` | int | No | - | The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. |
-| `outbound_ip_address_ids` | string | No | - | The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer. |
-| `outbound_ip_prefix_ids` | string | No | - | The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer. |
-| `outbound_ports_allocated` | int | No | 0 | Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'. |
-
-### `aci_connector_linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_name` | string | Yes | - | The subnet name for the virtual nodes to run. |
-
 ### `linux_os_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -485,13 +492,6 @@ tfstate_store = {
 | `sysctl_config` | [block](#linux_os_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
 | `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. |
 | `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. |
-
-### `allowed` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day` | string | Yes | - | A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `hours` | string | Yes | - | An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'. |
 
 
 

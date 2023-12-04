@@ -64,16 +64,6 @@ tfstate_store = {
 | `domains` | string | No | - | Specifies a list of domains for the solution content item. |
 | `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
-### `dependency` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `contentId` | string | No | - | ID of the content item that is depended on. |
-| `kind` | string | No | - | Type of the content item that is depended on. |
-| `version` | string | No | - | Version of the content item that is depended on. |
-| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
-| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
-
 ### `support` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,6 +77,16 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+
+### `dependency` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `contentId` | string | No | - | ID of the content item that is depended on. |
+| `kind` | string | No | - | Type of the content item that is depended on. |
+| `version` | string | No | - | Version of the content item that is depended on. |
+| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
+| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
 
 ### `author` block structure
 

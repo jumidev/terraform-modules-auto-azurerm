@@ -50,32 +50,6 @@ tfstate_store = {
 | **window_size** | string |  `PT5M`  |  `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H`, `P1D`  |  The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
-| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
-
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
-| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
-| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
-| `operator` | string | Yes | - | The criteria operator. Possible values are 'Equals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan' and 'LessThanOrEqual'. |
-| `threshold` | string | Yes | - | The criteria threshold value that activates the alert. |
-| `dimension` | [block](#criteria-block-structure) | No | - | One or more 'dimension' blocks. |
-| `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
-| `values` | string | Yes | - | The list of dimension values. |
-
 ### `dynamic_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -91,6 +65,25 @@ tfstate_store = {
 | `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
 | `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
 
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
+| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
+| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
+| `operator` | string | Yes | - | The criteria operator. Possible values are 'Equals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan' and 'LessThanOrEqual'. |
+| `threshold` | string | Yes | - | The criteria threshold value that activates the alert. |
+| `dimension` | [block](#criteria-block-structure) | No | - | One or more 'dimension' blocks. |
+| `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
+| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
+
 ### `application_insights_web_test_location_availability_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -98,6 +91,13 @@ tfstate_store = {
 | `web_test_id` | string | Yes | - | The ID of the Application Insights Web Test. |
 | `component_id` | string | Yes | - | The ID of the Application Insights Resource. |
 | `failed_location_count` | int | Yes | - | The number of failed locations. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
+| `values` | string | Yes | - | The list of dimension values. |
 
 
 

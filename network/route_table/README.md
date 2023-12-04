@@ -53,7 +53,8 @@ tfstate_store = {
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
-| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** -  \\ e.g. : `subnet_id = "path/to/subnet_component:id"`Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). | 
+| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). \
+ e.g. : `subnet_id = "path/to/subnet_component:id"`|
 
 ## Outputs
 

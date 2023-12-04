@@ -59,13 +59,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key` | string | Yes | - | Specifies the storage account access key. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
-| `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
-
 ### `container` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +71,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
 | `value` | string | No | - | Specifies the value of the environment variable. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
+| `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
 
 
 

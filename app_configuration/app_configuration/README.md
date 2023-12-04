@@ -53,18 +53,18 @@ tfstate_store = {
 | `key_vault_key_identifier` | string | No | - | Specifies the URI of the key vault key used to encrypt data. |
 | `identity_client_id` | string | No | - | Specifies the client id of the identity which will be used to access key vault. |
 
+### `replica` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this App Configuration. |
-
-### `replica` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
 
 
 

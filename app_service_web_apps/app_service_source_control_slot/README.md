@@ -40,6 +40,13 @@ tfstate_store = {
 | **use_manual_integration** | bool |  `False`  |  Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **use_mercurial** | bool |  `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
+### `code_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. |
+| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
+
 ### `github_action_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -48,13 +55,6 @@ tfstate_store = {
 | `container_configuration` | [block](#github_action_configuration-block-structure) | No | - | A 'container_configuration' block as detailed below. |
 | `generate_workflow_file` | bool | No | True | Should the service generate the GitHub Action Workflow file. Defaults to 'true' Changing this forces a new resource to be created. |
 | `linux_action` | string | No | - | Denotes this action uses a Linux base image. |
-
-### `code_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. |
-| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
 
 ### `container_configuration` block structure
 

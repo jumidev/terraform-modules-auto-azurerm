@@ -46,6 +46,13 @@ tfstate_store = {
 | **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **encoding** | string |  The encoding format for the file. | 
 
+### `schema_column` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
+| `description` | string | No | - | The description of the column. |
+
 ### `http_server_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,13 +62,6 @@ tfstate_store = {
 | `filename` | string | Yes | - | The filename of the file on the web server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-
-### `schema_column` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
-| `description` | string | No | - | The description of the column. |
 
 ### `azure_blob_storage_location` block structure
 

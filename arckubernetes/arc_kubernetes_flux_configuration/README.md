@@ -62,6 +62,17 @@ tfstate_store = {
 | `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
 | `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
 
+### `service_principal` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | Specifies the client ID for authenticating a Service Principal. |
+| `tenant_id` | string | Yes | - | Specifies the tenant ID for authenticating a Service Principal. |
+| `client_certificate_base64` | string | No | - | Base64-encoded certificate used to authenticate a Service Principal . |
+| `client_certificate_password` | string | No | - | Specifies the password for the certificate used to authenticate a Service Principal . |
+| `client_certificate_send_chain` | string | No | - | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate. |
+| `client_secret` | string | No | - | Specifies the client secret for authenticating a Service Principal. |
+
 ### `git_repository` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,17 +88,6 @@ tfstate_store = {
 | `ssh_known_hosts_base64` | string | No | - | Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH. |
 | `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
 | `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
-
-### `service_principal` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | Specifies the client ID for authenticating a Service Principal. |
-| `tenant_id` | string | Yes | - | Specifies the tenant ID for authenticating a Service Principal. |
-| `client_certificate_base64` | string | No | - | Base64-encoded certificate used to authenticate a Service Principal . |
-| `client_certificate_password` | string | No | - | Specifies the password for the certificate used to authenticate a Service Principal . |
-| `client_certificate_send_chain` | string | No | - | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate. |
-| `client_secret` | string | No | - | Specifies the client secret for authenticating a Service Principal. |
 
 ### `kustomizations` block structure
 

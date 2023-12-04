@@ -38,40 +38,21 @@ tfstate_store = {
 | **certificate_policy** | [block](#certificate_policy-block-structure) |  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `key_properties` block structure
+### `x509_certificate_properties` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `curve` | string | No | - | Specifies the curve to use when creating an 'EC' key. Possible values are 'P-256', 'P-256K', 'P-384', and 'P-521'. This field will be required in a future release if 'key_type' is 'EC' or 'EC-HSM'. |
-| `exportable` | bool | Yes | - | Is this certificate exportable? |
-| `key_size` | string | No | - | The size of the key used in the certificate. Possible values include '2048', '3072', and '4096' for 'RSA' keys, or '256', '384', and '521' for 'EC' keys. This property is required when using RSA keys. |
-| `key_type` | string | Yes | - | Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'. |
-| `reuse_key` | bool | Yes | - | Is the key reusable? |
+| `extended_key_usage` | list | No | - | A list of Extended/Enhanced Key Usages. |
+| `key_usage` | string | Yes | - | A list of uses associated with this Key. Possible values include 'cRLSign', 'dataEncipherment', 'decipherOnly', 'digitalSignature', 'encipherOnly', 'keyAgreement', 'keyCertSign', 'keyEncipherment' and 'nonRepudiation' and are case-sensitive. |
+| `subject` | string | Yes | - | The Certificate's Subject. |
+| `subject_alternative_names` | [block](#x509_certificate_properties-block-structure) | No | - | A 'subject_alternative_names' block. |
+| `validity_in_months` | string | Yes | - | The Certificates Validity Period in Months. |
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
-
-### `issuer_parameters` block structure
+### `secret_properties` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-
-### `trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days_before_expiry` | int | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
-| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
-
-### `lifetime_action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | [block](#lifetime_action-block-structure) | Yes | - | A 'action' block. |
-| `trigger` | [block](#lifetime_action-block-structure) | Yes | - | A 'trigger' block. |
+| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
 
 ### `subject_alternative_names` block structure
 
@@ -81,11 +62,35 @@ tfstate_store = {
 | `emails` | list | No | - | A list of email addresses identified by this Certificate. |
 | `upns` | list | No | - | A list of User Principal Names identified by the Certificate. |
 
-### `secret_properties` block structure
+### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
+| `contents` | string | Yes | - | The base64-encoded certificate contents. |
+| `password` | string | No | - | The password associated with the certificate. |
+
+### `lifetime_action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | [block](#lifetime_action-block-structure) | Yes | - | A 'action' block. |
+| `trigger` | [block](#lifetime_action-block-structure) | Yes | - | A 'trigger' block. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
+
+### `key_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `curve` | string | No | - | Specifies the curve to use when creating an 'EC' key. Possible values are 'P-256', 'P-256K', 'P-384', and 'P-521'. This field will be required in a future release if 'key_type' is 'EC' or 'EC-HSM'. |
+| `exportable` | bool | Yes | - | Is this certificate exportable? |
+| `key_size` | string | No | - | The size of the key used in the certificate. Possible values include '2048', '3072', and '4096' for 'RSA' keys, or '256', '384', and '521' for 'EC' keys. This property is required when using RSA keys. |
+| `key_type` | string | Yes | - | Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'. |
+| `reuse_key` | bool | Yes | - | Is the key reusable? |
 
 ### `certificate_policy` block structure
 
@@ -97,22 +102,17 @@ tfstate_store = {
 | `secret_properties` | [block](#certificate_policy-block-structure) | Yes | - | A 'secret_properties' block. |
 | `x509_certificate_properties` | [block](#certificate_policy-block-structure) | No | - | A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. |
 
-### `certificate` block structure
+### `trigger` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `contents` | string | Yes | - | The base64-encoded certificate contents. |
-| `password` | string | No | - | The password associated with the certificate. |
+| `days_before_expiry` | int | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
+| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
 
-### `x509_certificate_properties` block structure
+### `issuer_parameters` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `extended_key_usage` | list | No | - | A list of Extended/Enhanced Key Usages. |
-| `key_usage` | string | Yes | - | A list of uses associated with this Key. Possible values include 'cRLSign', 'dataEncipherment', 'decipherOnly', 'digitalSignature', 'encipherOnly', 'keyAgreement', 'keyCertSign', 'keyEncipherment' and 'nonRepudiation' and are case-sensitive. |
-| `subject` | string | Yes | - | The Certificate's Subject. |
-| `subject_alternative_names` | [block](#x509_certificate_properties-block-structure) | No | - | A 'subject_alternative_names' block. |
-| `validity_in_months` | string | Yes | - | The Certificates Validity Period in Months. |
 
 
 

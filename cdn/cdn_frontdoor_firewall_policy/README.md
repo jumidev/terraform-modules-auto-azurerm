@@ -46,6 +46,14 @@ tfstate_store = {
 | **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#override-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#override-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,14 +72,6 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include 'Allow', 'Log', 'Block', and 'Redirect'. |
 | `exclusion` | [block](#managed_rule-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `override` | [block](#managed_rule-block-structure) | No | - | One or more 'override' blocks. |
-
-### `override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
-| `exclusion` | [block](#override-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#override-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `custom_rule` block structure
 

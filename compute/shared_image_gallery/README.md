@@ -40,6 +40,13 @@ tfstate_store = {
 | **sharing** | [block](#sharing-block-structure) |  A `sharing` block. Changing this forces a new resource to be created. | 
 | **tags** | map |  A mapping of tags to assign to the Shared Image Gallery. | 
 
+### `sharing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. |
+| `community_gallery` | [block](#sharing-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
+
 ### `community_gallery` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -48,13 +55,6 @@ tfstate_store = {
 | `prefix` | string | Yes | - | Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_email` | string | Yes | - | Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_uri` | string | Yes | - | URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
-
-### `sharing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. |
-| `community_gallery` | [block](#sharing-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
 
 
 

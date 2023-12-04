@@ -60,19 +60,19 @@ tfstate_store = {
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane. | 
 | **software_version** | string |  -  |  Specifies the version of the packet core software that is deployed. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
-
 ### `local_diagnostics_access` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `authentication_type` | string | Yes | - | How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'. |
 | `https_server_certificate_url` | string | No | - | The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
 
 ### `platform` block structure
 

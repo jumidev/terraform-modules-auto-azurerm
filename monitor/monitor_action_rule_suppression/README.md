@@ -48,28 +48,26 @@ tfstate_store = {
 | **condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `suppression` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `recurrence_type` | string | Yes | - | Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'. |
-| `schedule` | [block](#suppression-block-structure) | No | - | A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `start_date_utc` | string | Yes | - | specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z'). |
-| `end_date_utc` | string | Yes | - | specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z'). |
-| `recurrence_weekly` | string | No | - | specifies the list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `recurrence_monthly` | string | No | - | specifies the list of dayOfMonth to recurrence. Possible values are between '1' - '31'. Required if 'recurrence_type' is 'Monthly'. |
-
-### `target_resource_type` block structure
+### `monitor_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'. |
+
+### `severity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals'and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
+
+### `description` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
 
 ### `condition` block structure
 
@@ -83,28 +81,14 @@ tfstate_store = {
 | `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
 | `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
 
-### `scope` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'. |
-| `resource_ids` | list | Yes | - | A list of resource IDs of the given scope type which will be the target of action rule. |
-
-### `severity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals'and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
-
-### `alert_rule_id` block structure
+### `alert_context` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. |
 
-### `alert_context` block structure
+### `alert_rule_id` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -118,19 +102,35 @@ tfstate_store = {
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
 | `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
 
-### `description` block structure
+### `suppression` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
+| `recurrence_type` | string | Yes | - | Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'. |
+| `schedule` | [block](#suppression-block-structure) | No | - | A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'. |
 
-### `monitor_service` block structure
+### `scope` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'. |
+| `resource_ids` | list | Yes | - | A list of resource IDs of the given scope type which will be the target of action rule. |
+
+### `target_resource_type` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_date_utc` | string | Yes | - | specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z'). |
+| `end_date_utc` | string | Yes | - | specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z'). |
+| `recurrence_weekly` | string | No | - | specifies the list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `recurrence_monthly` | string | No | - | specifies the list of dayOfMonth to recurrence. Possible values are between '1' - '31'. Required if 'recurrence_type' is 'Monthly'. |
 
 
 

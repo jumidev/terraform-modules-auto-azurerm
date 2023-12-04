@@ -66,26 +66,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Monitor Scheduled Query Rule. | 
 | **target_resource_types** | string |  -  |  -  |  List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. | 
 
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | Specifies the criteria operator. Possible values are 'Equal', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan',and 'LessThanOrEqual'. |
-| `query` | string | Yes | - | The query to run on logs. The results returned by this query are used to populate the alert. |
-| `threshold` | string | Yes | - | Specifies the criteria threshold value that activates the alert. |
-| `time_aggregation_method` | string | Yes | - | The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'. |
-| `dimension` | [block](#criteria-block-structure) | No | - | A 'dimension' block. |
-| `failing_periods` | [block](#criteria-block-structure) | No | - | A 'failing_periods' block. |
-| `metric_measure_column` | string | No | - | Specifies the column containing the metric measure number. |
-| `resource_id_column` | string | No | - | Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID. |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
-| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,6 +79,26 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `minimum_failing_periods_to_trigger_alert` | int | Yes | - | Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6. |
 | `number_of_evaluation_periods` | int | Yes | - | Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
+| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
+
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | Specifies the criteria operator. Possible values are 'Equal', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan',and 'LessThanOrEqual'. |
+| `query` | string | Yes | - | The query to run on logs. The results returned by this query are used to populate the alert. |
+| `threshold` | string | Yes | - | Specifies the criteria threshold value that activates the alert. |
+| `time_aggregation_method` | string | Yes | - | The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'. |
+| `dimension` | [block](#criteria-block-structure) | No | - | A 'dimension' block. |
+| `failing_periods` | [block](#criteria-block-structure) | No | - | A 'failing_periods' block. |
+| `metric_measure_column` | string | No | - | Specifies the column containing the metric measure number. |
+| `resource_id_column` | string | No | - | Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID. |
 
 
 

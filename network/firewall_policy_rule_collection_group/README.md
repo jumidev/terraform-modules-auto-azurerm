@@ -40,29 +40,6 @@ tfstate_store = {
 | **nat_rule_collection** | [block](#nat_rule_collection-block-structure) |  One or more `nat_rule_collection` blocks. | 
 | **network_rule_collection** | [block](#network_rule_collection-block-structure) |  One or more `network_rule_collection` blocks. | 
 
-### `nat_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
-| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#nat_rule_collection-block-structure) | Yes | - | A 'nat_rule' block. |
-
-### `protocols` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
-| `port` | int | Yes | - | Port number of the protocol. Range is 0-64000. |
-
-### `application_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'. |
-| `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#application_rule_collection-block-structure) | Yes | - | One or more 'application_rule' blocks. |
-
 ### `nat_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,11 +54,12 @@ tfstate_store = {
 | `translated_fqdn` | string | No | - | Specifies the translated FQDN. |
 | `translated_port` | string | Yes | - | Specifies the translated port. |
 
-### `http_headers` block structure
+### `protocols` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | Specifies the value of the value. |
+| `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
+| `port` | int | Yes | - | Port number of the protocol. Range is 0-64000. |
 
 ### `network_rule_collection` block structure
 
@@ -90,6 +68,12 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'. |
 | `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
 | `rule` | [block](#network_rule_collection-block-structure) | Yes | - | One or more 'network_rule' blocks. |
+
+### `http_headers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | Specifies the value of the value. |
 
 ### `application_rule` block structure
 
@@ -119,6 +103,22 @@ tfstate_store = {
 | `destination_addresses` | string | No | - | Specifies a list of destination IP addresses (including CIDR, IP range and '*') or Service Tags. |
 | `destination_ip_groups` | string | No | - | Specifies a list of destination IP groups. |
 | `destination_fqdns` | string | No | - | Specifies a list of destination FQDNs. |
+
+### `nat_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
+| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#nat_rule_collection-block-structure) | Yes | - | A 'nat_rule' block. |
+
+### `application_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'. |
+| `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#application_rule_collection-block-structure) | Yes | - | One or more 'application_rule' blocks. |
 
 
 
