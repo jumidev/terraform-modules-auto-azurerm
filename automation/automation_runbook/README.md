@@ -51,13 +51,6 @@ tfstate_store = {
 | **log_activity_trace_level** | string |  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
 | **draft** | [block](#draft-block-structure) |  -  |  A `draft` block . | 
 
-### `hash` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
-| `value` | string | Yes | - | Specifies the expected hash value of the content. |
-
 ### `publish_content_link` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,6 +77,13 @@ tfstate_store = {
 | `content_link` | [block](#draft-block-structure) | No | - | A 'publish_content_link' block. |
 | `output_types` | string | No | - | Specifies the output types of the runbook. |
 | `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
+
+### `hash` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
+| `value` | string | Yes | - | Specifies the expected hash value of the content. |
 
 
 

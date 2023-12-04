@@ -45,6 +45,15 @@ tfstate_store = {
 | **support** | [block](#support-block-structure) |  A `support` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Plan. | 
 
+### `default_connection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
+| `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
+| `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
+
 ### `default_auto_shutdown` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,15 +71,6 @@ tfstate_store = {
 | `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
 | `phone` | string | No | - | The phone number for the support contact. |
 | `url` | string | No | - | The web address for users of the Lab Service Plan. |
-
-### `default_connection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
-| `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
-| `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
 
 
 

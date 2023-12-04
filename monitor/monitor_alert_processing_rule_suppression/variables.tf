@@ -37,13 +37,29 @@ variable "condition" {
 #   target_resource_group (block): A 'target_resource_group' block.
 #   target_resource_type (block) : A 'target_resource_type' block.
 #
+# signal_type block structure:
+#   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (string)            : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Metric', 'Log', 'Unknown', and 'Health'.
+#
+# target_resource_group block structure:
+#   operator (string)                    : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                        : (REQUIRED) A list of values to match for a given condition. The values should be valid resource group IDs.
+#
+# target_resource_type block structure:
+#   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+#
+# target_resource block structure:
+#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                  : (REQUIRED) A list of values to match for a given condition. The values should be valid resource IDs.
+#
 # severity block structure:
 #   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
 #   values (string)         : (REQUIRED) Specifies list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
 #
-# alert_rule_name block structure:
-#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (string)                : (REQUIRED) Specifies a list of values to match for a given condition.
+# alert_rule_id block structure:
+#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (string)              : (REQUIRED) Specifies a list of values to match for a given condition.
 #
 # alert_context block structure:
 #   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
@@ -53,33 +69,17 @@ variable "condition" {
 #   operator (string)                : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
 #   values (string)                  : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
 #
-# monitor_service block structure:
-#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)                : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Prometheus', 'Resource Health', 'Smart Detector', and 'VM Insights - Health'.
-#
-# target_resource_group block structure:
-#   operator (string)                    : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                        : (REQUIRED) A list of values to match for a given condition. The values should be valid resource group IDs.
-#
-# signal_type block structure:
-#   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)            : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Metric', 'Log', 'Unknown', and 'Health'.
-#
-# alert_rule_id block structure:
-#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (string)              : (REQUIRED) Specifies a list of values to match for a given condition.
-#
-# target_resource block structure:
+# alert_rule_name block structure:
 #   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                  : (REQUIRED) A list of values to match for a given condition. The values should be valid resource IDs.
+#   values (string)                : (REQUIRED) Specifies a list of values to match for a given condition.
 #
 # description block structure:
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (string)            : (REQUIRED) Specifies a list of values to match for a given condition.
 #
-# target_resource_type block structure:
-#   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
+# monitor_service block structure:
+#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (string)                : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Prometheus', 'Resource Health', 'Smart Detector', and 'VM Insights - Health'.
 
 
 variable "description" {
@@ -104,15 +104,15 @@ variable "schedule" {
 #   recurrence (block)      : A 'recurrence' block.
 #   time_zone (string)      : The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to 'UTC'. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
 #
-# recurrence block structure:
-#   daily (list)              : One or more 'daily' blocks.
-#   weekly (block)            : One or more 'weekly' blocks.
-#   monthly (list)            : One or more 'monthly' blocks.
-#
 # weekly block structure:
 #   days_of_week (string) : (REQUIRED) Specifies a list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', and 'Saturday'.
 #   start_time (string)   : Specifies the recurrence start time (H:M:S).
 #   end_time (string)     : Specifies the recurrence end time (H:M:S).
+#
+# recurrence block structure:
+#   daily (list)              : One or more 'daily' blocks.
+#   weekly (block)            : One or more 'weekly' blocks.
+#   monthly (list)            : One or more 'monthly' blocks.
 
 
 variable "tags" {

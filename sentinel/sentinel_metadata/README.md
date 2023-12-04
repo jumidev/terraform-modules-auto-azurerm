@@ -64,12 +64,6 @@ tfstate_store = {
 | `domains` | string | No | - | Specifies a list of domains for the solution content item. |
 | `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
-
 ### `dependency` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,6 +81,12 @@ tfstate_store = {
 | `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
 | `email` | string | No | - | The email address of the support contact. |
 | `link` | string | No | - | The link for support help. |
+
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 ### `author` block structure
 

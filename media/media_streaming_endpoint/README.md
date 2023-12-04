@@ -51,13 +51,6 @@ tfstate_store = {
 | **max_cache_age_seconds** | int |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#access_control-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#access_control-block-structure) | No | - | A 'ip_allow' block. |
-
 ### `cross_site_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,6 +65,13 @@ tfstate_store = {
 | `base64_key` | string | No | - | Authentication key. |
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
+
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | [block](#access_control-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#access_control-block-structure) | No | - | A 'ip_allow' block. |
 
 ### `ip_allow` block structure
 

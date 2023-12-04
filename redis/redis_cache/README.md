@@ -58,13 +58,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
-
 ### `patch_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,6 +65,13 @@ tfstate_store = {
 | `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
 | `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
 | `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
 
 ### `redis_configuration` block structure
 

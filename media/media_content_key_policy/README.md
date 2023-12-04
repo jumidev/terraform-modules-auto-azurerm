@@ -45,6 +45,13 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **description** | string |  A description for the Policy. | 
 
+### `offline_rental_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `playback_duration_seconds` | int | No | - | Playback duration. |
+| `storage_duration_seconds` | int | No | - | Storage duration. |
+
 ### `fairplay_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,13 +77,6 @@ tfstate_store = {
 | `primary_x509_token_key_raw` | string | No | - | The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation. |
 | `required_claim` | list | No | - | One or more 'required_claim' blocks. |
 | `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
-
-### `offline_rental_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `playback_duration_seconds` | int | No | - | Playback duration. |
-| `storage_duration_seconds` | int | No | - | Storage duration. |
 
 ### `policy_option` block structure
 

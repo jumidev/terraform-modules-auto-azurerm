@@ -64,13 +64,6 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  One or more `network_interface` block. | 
 | **multi_vm_group_name** | string |  Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. | 
 
-### `key_encryption_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created. |
-| `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
-
 ### `unmanaged_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -104,6 +97,13 @@ tfstate_store = {
 | `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
 | `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
 | `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
+
+### `key_encryption_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created. |
+| `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
 
 ### `managed_disk` block structure
 

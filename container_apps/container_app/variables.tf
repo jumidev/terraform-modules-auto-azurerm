@@ -40,15 +40,15 @@ variable "template" {
 #   concurrent_requests (int)      : (REQUIRED) - The number of concurrent requests to trigger scaling.
 #   authentication (block)         : Zero or more 'authentication' blocks.
 #
-# custom_scale_rule block structure:
-#   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
-#   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
-#   authentication (block)           : Zero or more 'authentication' blocks.
-#
 # azure_queue_scale_rule block structure:
 #   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
 #   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
 #   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
+#
+# custom_scale_rule block structure:
+#   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
+#   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
+#   authentication (block)           : Zero or more 'authentication' blocks.
 #
 # volume block structure:
 #   storage_name (string) : The name of the 'AzureFile' storage.

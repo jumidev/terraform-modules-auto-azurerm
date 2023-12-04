@@ -24,10 +24,6 @@ variable "rule" {
 #   match_criterion (block)      : A 'match_criterion' block.
 #   next_step_if_matched (string): The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'.
 #
-# action block structure:
-#   parameter (block)     : (REQUIRED) A 'parameter' block.
-#   type (string)         : (REQUIRED) The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'.
-#
 # parameter block structure:
 #   as_path (list)           : A list of AS paths.
 #   community (list)         : A list of BGP communities.
@@ -38,5 +34,9 @@ variable "rule" {
 #   as_path (list)                 : A list of AS paths which this criterion matches.
 #   community (list)               : A list of BGP communities which this criterion matches.
 #   route_prefix (list)            : A list of route prefixes which this criterion matches.
+#
+# action block structure:
+#   parameter (block)     : (REQUIRED) A 'parameter' block.
+#   type (string)         : (REQUIRED) The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'.
 
 

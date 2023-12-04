@@ -57,6 +57,25 @@ tfstate_store = {
 | `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
 | `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
+| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
+| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
+| `operator` | string | Yes | - | The criteria operator. Possible values are 'Equals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan' and 'LessThanOrEqual'. |
+| `threshold` | string | Yes | - | The criteria threshold value that activates the alert. |
+| `dimension` | [block](#criteria-block-structure) | No | - | One or more 'dimension' blocks. |
+| `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
+| `values` | string | Yes | - | The list of dimension values. |
+
 ### `dynamic_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,25 +90,6 @@ tfstate_store = {
 | `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
 | `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
 | `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
-| `values` | string | Yes | - | The list of dimension values. |
-
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
-| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
-| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
-| `operator` | string | Yes | - | The criteria operator. Possible values are 'Equals', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan' and 'LessThanOrEqual'. |
-| `threshold` | string | Yes | - | The criteria threshold value that activates the alert. |
-| `dimension` | [block](#criteria-block-structure) | No | - | One or more 'dimension' blocks. |
-| `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
 
 ### `application_insights_web_test_location_availability_criteria` block structure
 

@@ -36,6 +36,13 @@ tfstate_store = {
 | **log** | [block](#log-block-structure) |  -  |  A `log` block. | 
 | **metric** | [block](#metric-block-structure) |  -  |  A `metric` block. | 
 
+### `filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | Value of the Tag. |
+| `action` | string | Yes | - | Allowed values Include or Exclude. |
+
 ### `metric` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -50,13 +57,6 @@ tfstate_store = {
 | `subscription_log_enabled` | bool | No | - | Whether Azure subscription logs should be sent for the Monitor resource? |
 | `resource_log_enabled` | bool | No | - | Whether Azure resource logs should be sent for the Monitor resource? |
 | `filter` | [block](#log-block-structure) | No | - | A 'filter' block. |
-
-### `filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | Value of the Tag. |
-| `action` | string | Yes | - | Allowed values Include or Exclude. |
 
 
 

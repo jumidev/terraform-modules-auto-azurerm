@@ -60,13 +60,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `access_rule` | list | Yes | - | One or more 'access_rule' blocks (up to three). |
 
-### `dns` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
-| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +73,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
 | `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
+
+### `dns` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
+| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
 
 ### `directory_ldap` block structure
 

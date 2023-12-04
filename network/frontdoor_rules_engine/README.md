@@ -39,6 +39,14 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
+| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
+
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,14 +80,6 @@ tfstate_store = {
 | `transform` | list | No | - | can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode' |
 | `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
 | `value` | list | No | - | (array) can contain one or more strings. |
-
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
-| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
 
 

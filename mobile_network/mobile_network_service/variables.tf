@@ -45,13 +45,13 @@ variable "pcc_rule" {
 #   remote_ip_list (string)                   : (REQUIRED) Specifies the remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value 'any'. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, '192.0.2.54/24').
 #   ports (list)                              : The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than 'ip' in the 'protocol' field. If it is not specified then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: ['8080', '8082-8085'].
 #
-# maximum_bit_rate block structure:
-#   downlink (string)               : (REQUIRED) Downlink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#   uplink (string)                 : (REQUIRED) Uplink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#
 # guaranteed_bit_rate block structure:
 #   downlink (string)                  : (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
 #   uplink (string)                    : (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#
+# maximum_bit_rate block structure:
+#   downlink (string)               : (REQUIRED) Downlink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#   uplink (string)                 : (REQUIRED) Uplink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
 
 
 

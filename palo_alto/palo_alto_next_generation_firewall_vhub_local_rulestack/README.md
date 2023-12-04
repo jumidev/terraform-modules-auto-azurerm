@@ -50,12 +50,13 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Local Rulestack. | 
 
-### `backend_config` block structure
+### `destination_nat` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port number to send traffic to. |
-| `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
+| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
 ### `dns_settings` block structure
 
@@ -71,6 +72,13 @@ tfstate_store = {
 | `port` | string | Yes | - | The port on which traffic will be receiveed. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address resource the traffic will be received on. |
 
+### `backend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port number to send traffic to. |
+| `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
+
 ### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,14 +87,6 @@ tfstate_store = {
 | `public_ip_address_ids` | string | Yes | - | Specifies a list of Public IP IDs to use for this Next Generation Firewall. |
 | `virtual_hub_id` | string | Yes | - | The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. |
 | `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Public IP IDs to use for Egress NAT. |
-
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
 
 

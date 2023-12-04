@@ -55,19 +55,19 @@ tfstate_store = {
 | `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
 | `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
-### `hourly_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
-| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
-
 ### `daily_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
 | `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
+| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
+
+### `hourly_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
 | `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
 ### `monthly_schedule` block structure

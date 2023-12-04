@@ -47,12 +47,12 @@ tfstate_store = {
 | **vnet_integration** | [block](#vnet_integration-block-structure) |  -  |  -  |  A `vnet_integration` block. | 
 | **description** | string |  -  |  -  |  Integration runtime description. | 
 
-### `vnet_integration` block structure
+### `custom_setup_script` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `vnet_id` | string | Yes | - | ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. |
-| `subnet_name` | string | Yes | - | Name of the subnet to which the nodes of the Managed Integration Runtime will be added. |
+| `blob_container_uri` | string | Yes | - | The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
+| `sas_token` | string | Yes | - | A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
 
 ### `catalog_info` block structure
 
@@ -63,12 +63,12 @@ tfstate_store = {
 | `administrator_password` | string | No | - | Administrator login password for the SQL Server. |
 | `pricing_tier` | string | No | Basic | Pricing tier for the database that will be created for the SSIS catalog. Valid values are: 'Basic', 'Standard', 'Premium' and 'PremiumRS'. Defaults to 'Basic'. |
 
-### `custom_setup_script` block structure
+### `vnet_integration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `blob_container_uri` | string | Yes | - | The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
-| `sas_token` | string | Yes | - | A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
+| `vnet_id` | string | Yes | - | ID of the virtual network to which the nodes of the Managed Integration Runtime will be added. |
+| `subnet_name` | string | Yes | - | Name of the subnet to which the nodes of the Managed Integration Runtime will be added. |
 
 
 

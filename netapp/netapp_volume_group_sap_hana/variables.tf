@@ -52,12 +52,6 @@ variable "volume" {
 #   data_protection_replication (block)    : A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost.
 #   data_protection_snapshot_policy (block): A 'data_protection_snapshot_policy' block.
 #
-# data_protection_replication block structure:
-#   remote_volume_location (string)            : (REQUIRED) Location of the primary volume.
-#   remote_volume_resource_id (string)         : (REQUIRED) Resource ID of the primary volume.
-#   replication_frequency (string)             : (REQUIRED) eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'.
-#   endpoint_type (string)                     : The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'.
-#
 # data_protection_snapshot_policy block structure:
 #   snapshot_policy_id (string)                    : (REQUIRED) Resource ID of the snapshot policy to apply to the volume.
 #
@@ -69,5 +63,11 @@ variable "volume" {
 #   rule_index (int)                  : (REQUIRED) The index number of the rule, must start at 1 and maximum 5.
 #   unix_read_only (string)           : Is the file system on unix read only? Defaults to 'false.
 #   unix_read_write (bool)            : Is the file system on unix read and write? Defaults to 'true'.
+#
+# data_protection_replication block structure:
+#   remote_volume_location (string)            : (REQUIRED) Location of the primary volume.
+#   remote_volume_resource_id (string)         : (REQUIRED) Resource ID of the primary volume.
+#   replication_frequency (string)             : (REQUIRED) eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'.
+#   endpoint_type (string)                     : The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'.
 
 

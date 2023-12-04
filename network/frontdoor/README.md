@@ -101,6 +101,18 @@ tfstate_store = {
 | `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
 | `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
 
+### `backend` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
+| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
+| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
+| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
+| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
+| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
+| `weight` | int | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
+
 ### `routing_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -111,6 +123,14 @@ tfstate_store = {
 | `enabled` | bool | No | True | 'Enable' or 'Disable' use of this Backend Routing Rule. Permitted values are 'true' or 'false'. Defaults to 'true'. |
 | `forwarding_configuration` | [block](#routing_rule-block-structure) | No | - | A 'forwarding_configuration' block. |
 | `redirect_configuration` | [block](#routing_rule-block-structure) | No | - | A 'redirect_configuration' block. |
+
+### `backend_pool_load_balancing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `sample_size` | int | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
+| `successful_samples_required` | int | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
+| `additional_latency_milliseconds` | int | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
 
 ### `forwarding_configuration` block structure
 
@@ -125,21 +145,6 @@ tfstate_store = {
 | `custom_forwarding_path` | string | No | - | Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path. |
 | `forwarding_protocol` | string | No | HttpsOnly | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'. |
 
-### `backend_pool_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
-| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
-
-### `backend_pool_load_balancing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `sample_size` | int | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
-| `successful_samples_required` | int | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
-| `additional_latency_milliseconds` | int | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
-
 ### `backend_pool` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -148,17 +153,12 @@ tfstate_store = {
 | `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
 | `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
 
-### `backend` block structure
+### `backend_pool_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
-| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
-| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
-| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
-| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
-| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
-| `weight` | int | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
+| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
+| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
 
 ### `backend_pool_health_probe` block structure
 

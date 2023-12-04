@@ -55,6 +55,23 @@ tfstate_store = {
 | **folder** | string |  The folder that this Data Flow is in. If not specified, the Data Flow will appear at the root level. | 
 | **transformation** | [block](#transformation-block-structure) |  One or more `transformation` blocks. | 
 
+### `dataset` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameters` | string | No | - | A map of parameters to associate with the Data Factory dataset. |
+
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description for the Data Flow Source. |
+| `dataset` | [block](#source-block-structure) | No | - | A 'dataset' block. |
+| `flowlet` | [block](#source-block-structure) | No | - | A 'flowlet' block. |
+| `linked_service` | [block](#source-block-structure) | No | - | A 'linked_service' block. |
+| `rejected_linked_service` | [block](#source-block-structure) | No | - | A 'rejected_linked_service' block. |
+| `schema_linked_service` | [block](#source-block-structure) | No | - | A 'schema_linked_service' block. |
+
 ### `flowlet` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,22 +85,16 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
-### `source` block structure
+### `sink` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `description` | string | No | - | The description for the Data Flow Source. |
-| `dataset` | [block](#source-block-structure) | No | - | A 'dataset' block. |
-| `flowlet` | [block](#source-block-structure) | No | - | A 'flowlet' block. |
-| `linked_service` | [block](#source-block-structure) | No | - | A 'linked_service' block. |
-| `rejected_linked_service` | [block](#source-block-structure) | No | - | A 'rejected_linked_service' block. |
-| `schema_linked_service` | [block](#source-block-structure) | No | - | A 'schema_linked_service' block. |
-
-### `linked_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
+| `dataset` | [block](#sink-block-structure) | No | - | A 'dataset' block. |
+| `flowlet` | [block](#sink-block-structure) | No | - | A 'flowlet' block. |
+| `linked_service` | [block](#sink-block-structure) | No | - | A 'linked_service' block. |
+| `rejected_linked_service` | [block](#sink-block-structure) | No | - | A 'rejected_linked_service' block. |
+| `schema_linked_service` | [block](#sink-block-structure) | No | - | A 'schema_linked_service' block. |
 
 ### `rejected_linked_service` block structure
 
@@ -100,22 +111,11 @@ tfstate_store = {
 | `flowlet` | [block](#transformation-block-structure) | No | - | A 'flowlet' block. |
 | `linked_service` | [block](#transformation-block-structure) | No | - | A 'linked_service' block. |
 
-### `sink` block structure
+### `linked_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description for the Data Flow Source. |
-| `dataset` | [block](#sink-block-structure) | No | - | A 'dataset' block. |
-| `flowlet` | [block](#sink-block-structure) | No | - | A 'flowlet' block. |
-| `linked_service` | [block](#sink-block-structure) | No | - | A 'linked_service' block. |
-| `rejected_linked_service` | [block](#sink-block-structure) | No | - | A 'rejected_linked_service' block. |
-| `schema_linked_service` | [block](#sink-block-structure) | No | - | A 'schema_linked_service' block. |
-
-### `dataset` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameters` | string | No | - | A map of parameters to associate with the Data Factory dataset. |
+| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
 
 

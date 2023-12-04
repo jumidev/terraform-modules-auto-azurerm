@@ -57,6 +57,13 @@ tfstate_store = {
 | `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
 | `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. |
+| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
+
 ### `logging_storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,13 +75,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. |
-| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
 
 ### `frontend_public` block structure
 

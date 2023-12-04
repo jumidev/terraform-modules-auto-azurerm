@@ -47,6 +47,14 @@ tfstate_store = {
 | **triggers_on** | string |  `Incidents`  |  `Alerts`, `Incidents`  |  Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`. | 
 | **triggers_when** | string |  `Created`  |  `Created`, `Updated`  |  Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`. | 
 
+### `condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator to use for evaluate the condition. Possible values include: 'Equals', 'NotEquals', 'Contains', 'NotContains', 'StartsWith', 'NotStartsWith', 'EndsWith', 'NotEndsWith'. |
+| `property` | string | Yes | - | The property to use for evaluate the condition. Possible values are 'AccountAadTenantId', 'AccountAadUserId', 'AccountNTDomain', 'AccountName', 'AccountObjectGuid', 'AccountPUID', 'AccountSid', 'AccountUPNSuffix', 'AlertAnalyticRuleIds', 'AlertProductNames', 'AzureResourceResourceId', 'AzureResourceSubscriptionId', 'CloudApplicationAppId', 'CloudApplicationAppName', 'DNSDomainName', 'FileDirectory', 'FileHashValue', 'FileName', 'HostAzureID', 'HostNTDomain', 'HostName', 'HostNetBiosName', 'HostOSVersion', 'IPAddress', 'IncidentCustomDetailsKey', 'IncidentCustomDetailsValue', 'IncidentDescription', 'IncidentLabel', 'IncidentProviderName', 'IncidentRelatedAnalyticRuleIds', 'IncidentSeverity', 'IncidentStatus', 'IncidentTactics', 'IncidentTitle', 'IncidentUpdatedBySource', 'IoTDeviceId', 'IoTDeviceModel', 'IoTDeviceName', 'IoTDeviceOperatingSystem', 'IoTDeviceType', 'IoTDeviceVendor', 'MailMessageDeliveryAction', 'MailMessageDeliveryLocation', 'MailMessageP1Sender', 'MailMessageP2Sender', 'MailMessageRecipient', 'MailMessageSenderIP', 'MailMessageSubject', 'MailboxDisplayName', 'MailboxPrimaryAddress', 'MailboxUPN', 'MalwareCategory', 'MalwareName', 'ProcessCommandLine', 'ProcessId', 'RegistryKey', 'RegistryValueData' and 'Url'. |
+| `values` | string | Yes | - | Specifies a list of values to use for evaluate the condition. |
+
 ### `action_incident` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,14 +74,6 @@ tfstate_store = {
 | `logic_app_id` | string | Yes | - | The ID of the Logic App that defines the playbook's logic. |
 | `order` | string | Yes | - | The execution order of this action. |
 | `tenant_id` | string | No | - | The ID of the Tenant that owns the playbook. |
-
-### `condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator to use for evaluate the condition. Possible values include: 'Equals', 'NotEquals', 'Contains', 'NotContains', 'StartsWith', 'NotStartsWith', 'EndsWith', 'NotEndsWith'. |
-| `property` | string | Yes | - | The property to use for evaluate the condition. Possible values are 'AccountAadTenantId', 'AccountAadUserId', 'AccountNTDomain', 'AccountName', 'AccountObjectGuid', 'AccountPUID', 'AccountSid', 'AccountUPNSuffix', 'AlertAnalyticRuleIds', 'AlertProductNames', 'AzureResourceResourceId', 'AzureResourceSubscriptionId', 'CloudApplicationAppId', 'CloudApplicationAppName', 'DNSDomainName', 'FileDirectory', 'FileHashValue', 'FileName', 'HostAzureID', 'HostNTDomain', 'HostName', 'HostNetBiosName', 'HostOSVersion', 'IPAddress', 'IncidentCustomDetailsKey', 'IncidentCustomDetailsValue', 'IncidentDescription', 'IncidentLabel', 'IncidentProviderName', 'IncidentRelatedAnalyticRuleIds', 'IncidentSeverity', 'IncidentStatus', 'IncidentTactics', 'IncidentTitle', 'IncidentUpdatedBySource', 'IoTDeviceId', 'IoTDeviceModel', 'IoTDeviceName', 'IoTDeviceOperatingSystem', 'IoTDeviceType', 'IoTDeviceVendor', 'MailMessageDeliveryAction', 'MailMessageDeliveryLocation', 'MailMessageP1Sender', 'MailMessageP2Sender', 'MailMessageRecipient', 'MailMessageSenderIP', 'MailMessageSubject', 'MailboxDisplayName', 'MailboxPrimaryAddress', 'MailboxUPN', 'MalwareCategory', 'MalwareName', 'ProcessCommandLine', 'ProcessId', 'RegistryKey', 'RegistryValueData' and 'Url'. |
-| `values` | string | Yes | - | Specifies a list of values to use for evaluate the condition. |
 
 
 

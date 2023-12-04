@@ -53,6 +53,12 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 
+### `cluster_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
+
 ### `schema` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,12 +78,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Type of the column to be created. |
-
-### `cluster_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
 
 
 

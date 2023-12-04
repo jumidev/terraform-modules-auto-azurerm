@@ -62,15 +62,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether the resource monitoring is enabled? Defaults to `true`. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the logz Monitor. | 
 
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `billing_cycle` | string | Yes | - | Different billing cycles. Possible values are 'MONTHLY' or 'WEEKLY'. Changing this forces a new logz Monitor to be created. |
-| `effective_date` | datetime | Yes | - | Date when plan was applied. Changing this forces a new logz Monitor to be created. |
-| `usage_type` | string | Yes | - | Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created. |
-| `plan_id` | string | No | 100gb14days | Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created. |
-
 ### `user` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +70,15 @@ tfstate_store = {
 | `first_name` | string | Yes | - | First Name of the user. Changing this forces a new logz Monitor to be created. |
 | `last_name` | string | Yes | - | Last Name of the user. Changing this forces a new logz Monitor to be created. |
 | `phone_number` | int | Yes | - | Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
+
+### `plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `billing_cycle` | string | Yes | - | Different billing cycles. Possible values are 'MONTHLY' or 'WEEKLY'. Changing this forces a new logz Monitor to be created. |
+| `effective_date` | datetime | Yes | - | Date when plan was applied. Changing this forces a new logz Monitor to be created. |
+| `usage_type` | string | Yes | - | Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created. |
+| `plan_id` | string | No | 100gb14days | Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created. |
 
 
 

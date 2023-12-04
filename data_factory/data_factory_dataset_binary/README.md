@@ -46,6 +46,15 @@ tfstate_store = {
 | **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
 
+### `sftp_server_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | The folder path to the file on the SFTP server. |
+| `filename` | string | Yes | - | The filename of the file on the SFTP server. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
 ### `azure_blob_storage_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,15 +73,6 @@ tfstate_store = {
 | `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
 | `path` | string | Yes | - | The folder path to the file on the web server. |
 | `filename` | string | Yes | - | The filename of the file on the web server. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-
-### `sftp_server_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | The folder path to the file on the SFTP server. |
-| `filename` | string | Yes | - | The filename of the file on the SFTP server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 

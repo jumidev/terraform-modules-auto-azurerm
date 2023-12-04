@@ -37,19 +37,19 @@ tfstate_store = {
 | **inherited_role_names** | list |  A list of Mongo Roles which are inherited to the Mongo Role Definition. | 
 | **privilege** | [block](#privilege-block-structure) |  A `privilege` block. | 
 
-### `resource` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `collection_name` | string | No | - | The name of the Mongo DB Collection that the Role Definition is applied. |
-| `db_name` | string | No | - | The name of the Mongo DB that the Role Definition is applied. |
-
 ### `privilege` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `actions` | list | Yes | - | A list of actions that are allowed. |
 | `resource` | [block](#privilege-block-structure) | Yes | - | A 'resource' block. |
+
+### `resource` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `collection_name` | string | No | - | The name of the Mongo DB Collection that the Role Definition is applied. |
+| `db_name` | string | No | - | The name of the Mongo DB that the Role Definition is applied. |
 
 
 
