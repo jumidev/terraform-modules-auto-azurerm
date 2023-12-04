@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   ip_group_id = "ip_group_id of ip_group_cidr" 
+   # ip_group_id → set in tfstate_inputs
    cidr = "cidr of ip_group_cidr" 
+}
+
+tfstate_inputs = {
+   ip_group_id = "path/to/ip_group_component:id" 
 }
 
 tfstate_store = {

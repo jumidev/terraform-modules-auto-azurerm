@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of private_dns_resolver_dns_forwarding_ruleset" 
    resource_group_name = "${resource_group}" 
-   private_dns_resolver_outbound_endpoint_ids = "private_dns_resolver_outbound_endpoint_ids of private_dns_resolver_dns_forwarding_ruleset" 
+   # private_dns_resolver_outbound_endpoint_ids → set in tfstate_inputs
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   private_dns_resolver_outbound_endpoint_ids = "path/to/private_dns_resolver_outbound_endpoint_component:id" 
 }
 
 tfstate_store = {

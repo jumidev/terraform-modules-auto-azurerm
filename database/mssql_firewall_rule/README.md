@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of mssql_firewall_rule" 
-   server_id = "server_id of mssql_firewall_rule" 
+   # server_id → set in tfstate_inputs
    start_ip_address = "start_ip_address of mssql_firewall_rule" 
    end_ip_address = "end_ip_address of mssql_firewall_rule" 
+}
+
+tfstate_inputs = {
+   server_id = "path/to/mssql_server_component:id" 
 }
 
 tfstate_store = {

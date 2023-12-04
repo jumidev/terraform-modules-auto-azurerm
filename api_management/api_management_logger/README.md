@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of api_management_logger" 
    resource_group_name = "${resource_group}" 
-   api_management_name = "api_management_name of api_management_logger" 
+   # api_management_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

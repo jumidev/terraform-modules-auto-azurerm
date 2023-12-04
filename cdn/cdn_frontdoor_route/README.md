@@ -12,11 +12,17 @@ source = {
 
 inputs = {
    name = "name of cdn_frontdoor_route" 
-   cdn_frontdoor_endpoint_id = "cdn_frontdoor_endpoint_id of cdn_frontdoor_route" 
-   cdn_frontdoor_origin_group_id = "cdn_frontdoor_origin_group_id of cdn_frontdoor_route" 
-   cdn_frontdoor_origin_ids = "cdn_frontdoor_origin_ids of cdn_frontdoor_route" 
+   # cdn_frontdoor_endpoint_id → set in tfstate_inputs
+   # cdn_frontdoor_origin_group_id → set in tfstate_inputs
+   # cdn_frontdoor_origin_ids → set in tfstate_inputs
    patterns_to_match = "patterns_to_match of cdn_frontdoor_route" 
    supported_protocols = "supported_protocols of cdn_frontdoor_route" 
+}
+
+tfstate_inputs = {
+   cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id" 
+   cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id" 
+   cdn_frontdoor_origin_ids = "path/to/cdn_frontdoor_origin_component:id" 
 }
 
 tfstate_store = {

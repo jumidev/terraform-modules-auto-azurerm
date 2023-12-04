@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of express_route_connection" 
-   express_route_circuit_peering_id = "express_route_circuit_peering_id of express_route_connection" 
-   express_route_gateway_id = "express_route_gateway_id of express_route_connection" 
+   # express_route_circuit_peering_id → set in tfstate_inputs
+   # express_route_gateway_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   express_route_circuit_peering_id = "path/to/express_route_circuit_peering_component:id" 
+   express_route_gateway_id = "path/to/express_route_gateway_component:id" 
 }
 
 tfstate_store = {
@@ -42,6 +47,13 @@ tfstate_store = {
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 | **routing_weight** | string |  `0`  |  The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`. | 
 
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `labels` | string | No | - | The list of labels to logically group route tables. |
+| `route_table_ids` | list | No | - | A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table. |
+
 ### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -50,13 +62,6 @@ tfstate_store = {
 | `inbound_route_map_id` | string | No | - | The ID of the Route Map associated with this Express Route Connection for inbound routes. |
 | `outbound_route_map_id` | string | No | - | The ID of the Route Map associated with this Express Route Connection for outbound routes. |
 | `propagated_route_table` | [block](#routing-block-structure) | No | - | A 'propagated_route_table' block. |
-
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `labels` | string | No | - | The list of labels to logically group route tables. |
-| `route_table_ids` | list | No | - | A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table. |
 
 
 

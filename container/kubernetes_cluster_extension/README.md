@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of kubernetes_cluster_extension" 
-   cluster_id = "cluster_id of kubernetes_cluster_extension" 
+   # cluster_id → set in tfstate_inputs
    extension_type = "extension_type of kubernetes_cluster_extension" 
+}
+
+tfstate_inputs = {
+   cluster_id = "path/to/kubernetes_cluster_component:id" 
 }
 
 tfstate_store = {

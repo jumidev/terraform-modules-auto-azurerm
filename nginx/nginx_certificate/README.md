@@ -12,10 +12,15 @@ source = {
 
 inputs = {
    name = "name of nginx_certificate" 
-   nginx_deployment_id = "nginx_deployment_id of nginx_certificate" 
+   # nginx_deployment_id → set in tfstate_inputs
    certificate_virtual_path = "certificate_virtual_path of nginx_certificate" 
    key_virtual_path = "key_virtual_path of nginx_certificate" 
-   key_vault_secret_id = "key_vault_secret_id of nginx_certificate" 
+   # key_vault_secret_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   nginx_deployment_id = "path/to/nginx_deployment_component:id" 
+   key_vault_secret_id = "path/to/key_vault_secret_component:id" 
 }
 
 tfstate_store = {

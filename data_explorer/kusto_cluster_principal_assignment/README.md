@@ -17,7 +17,11 @@ inputs = {
    principal_id = "principal_id of kusto_cluster_principal_assignment" 
    principal_type = "principal_type of kusto_cluster_principal_assignment" 
    role = "role of kusto_cluster_principal_assignment" 
-   tenant_id = "tenant_id of kusto_cluster_principal_assignment" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

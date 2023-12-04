@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of cdn_frontdoor_origin" 
-   cdn_frontdoor_origin_group_id = "cdn_frontdoor_origin_group_id of cdn_frontdoor_origin" 
+   # cdn_frontdoor_origin_group_id → set in tfstate_inputs
    host_name = "host_name of cdn_frontdoor_origin" 
    certificate_name_check_enabled = "certificate_name_check_enabled of cdn_frontdoor_origin" 
+}
+
+tfstate_inputs = {
+   cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id" 
 }
 
 tfstate_store = {

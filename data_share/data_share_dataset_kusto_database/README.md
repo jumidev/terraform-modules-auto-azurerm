@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of data_share_dataset_kusto_database" 
    share_id = "share_id of data_share_dataset_kusto_database" 
-   kusto_database_id = "kusto_database_id of data_share_dataset_kusto_database" 
+   # kusto_database_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   kusto_database_id = "path/to/kusto_database_component:id" 
 }
 
 tfstate_store = {

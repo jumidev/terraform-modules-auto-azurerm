@@ -15,7 +15,11 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    display_name = "display_name of iot_security_solution" 
-   iothub_ids = "iothub_ids of iot_security_solution" 
+   # iothub_ids → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   iothub_ids = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {

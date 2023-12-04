@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of data_factory_custom_dataset" 
-   data_factory_id = "data_factory_id of data_factory_custom_dataset" 
+   # data_factory_id → set in tfstate_inputs
    linked_service = {
       example_linked_service = {
       }
@@ -21,6 +21,10 @@ inputs = {
  
    type = "type of data_factory_custom_dataset" 
    type_properties_json = "type_properties_json of data_factory_custom_dataset" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

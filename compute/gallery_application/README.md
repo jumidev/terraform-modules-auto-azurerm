@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of gallery_application" 
-   gallery_id = "gallery_id of gallery_application" 
+   # gallery_id → set in tfstate_inputs
    location = "${location}" 
    supported_os_type = "supported_os_type of gallery_application" 
+}
+
+tfstate_inputs = {
+   gallery_id = "path/to/shared_image_gallery_component:id" 
 }
 
 tfstate_store = {

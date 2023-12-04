@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of network_manager_security_admin_configuration" 
-   network_manager_id = "network_manager_id of network_manager_security_admin_configuration" 
+   # network_manager_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   network_manager_id = "path/to/network_manager_component:id" 
 }
 
 tfstate_store = {

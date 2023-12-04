@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of api_management_gateway_host_name_configuration" 
-   api_management_id = "api_management_id of api_management_gateway_host_name_configuration" 
+   # api_management_id → set in tfstate_inputs
    gateway_name = "gateway_name of api_management_gateway_host_name_configuration" 
    certificate_id = "certificate_id of api_management_gateway_host_name_configuration" 
    host_name = "host_name of api_management_gateway_host_name_configuration" 
+}
+
+tfstate_inputs = {
+   api_management_id = "path/to/api_management_component:id" 
 }
 
 tfstate_store = {

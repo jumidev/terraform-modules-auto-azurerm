@@ -11,11 +11,16 @@ source = {
 }
 
 inputs = {
-   api_management_logger_id = "api_management_logger_id of api_management_api_diagnostic" 
-   api_management_name = "api_management_name of api_management_api_diagnostic" 
+   # api_management_logger_id → set in tfstate_inputs
+   # api_management_name → set in tfstate_inputs
    api_name = "api_name of api_management_api_diagnostic" 
    identifier = "identifier of api_management_api_diagnostic" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   api_management_logger_id = "path/to/api_management_logger_component:id" 
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {
@@ -51,12 +56,13 @@ tfstate_store = {
 | **verbosity** | string |  -  |  `verbose`, `information`, `error`  |  Logging verbosity. Possible values are `verbose`, `information` or `error`. | 
 | **operation_name_format** | string |  `Name`  |  `Name`, `Url`  |  The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`. | 
 
-### `query_params` block structure
+### `backend_request` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
-| `value` | string | Yes | - | The name of the header or the query parameter to mask. |
+| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | [block](#backend_request-block-structure) | No | - | A 'data_masking' block. |
 
 ### `frontend_response` block structure
 
@@ -66,35 +72,19 @@ tfstate_store = {
 | `headers_to_log` | string | No | - | Specifies a list of headers to log. |
 | `data_masking` | [block](#frontend_response-block-structure) | No | - | A 'data_masking' block. |
 
-### `headers` block structure
+### `query_params` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
 | `value` | string | Yes | - | The name of the header or the query parameter to mask. |
 
-### `backend_request` block structure
+### `headers` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
-| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
-| `data_masking` | [block](#backend_request-block-structure) | No | - | A 'data_masking' block. |
-
-### `backend_response` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
-| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
-| `data_masking` | [block](#backend_response-block-structure) | No | - | A 'data_masking' block. |
-
-### `data_masking` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `query_params` | [block](#data_masking-block-structure) | No | - | A 'query_params' block. |
-| `headers` | [block](#data_masking-block-structure) | No | - | A 'headers' block. |
+| `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
+| `value` | string | Yes | - | The name of the header or the query parameter to mask. |
 
 ### `frontend_request` block structure
 
@@ -103,6 +93,21 @@ tfstate_store = {
 | `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
 | `headers_to_log` | string | No | - | Specifies a list of headers to log. |
 | `data_masking` | [block](#frontend_request-block-structure) | No | - | A 'data_masking' block. |
+
+### `data_masking` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `query_params` | [block](#data_masking-block-structure) | No | - | A 'query_params' block. |
+| `headers` | [block](#data_masking-block-structure) | No | - | A 'headers' block. |
+
+### `backend_response` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `body_bytes` | int | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | [block](#backend_response-block-structure) | No | - | A 'data_masking' block. |
 
 
 

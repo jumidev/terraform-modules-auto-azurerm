@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of spring_cloud_build_pack_binding" 
-   spring_cloud_builder_id = "spring_cloud_builder_id of spring_cloud_build_pack_binding" 
+   # spring_cloud_builder_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   spring_cloud_builder_id = "path/to/spring_cloud_builder_component:id" 
 }
 
 tfstate_store = {

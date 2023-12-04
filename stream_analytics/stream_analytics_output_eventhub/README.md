@@ -13,8 +13,8 @@ source = {
 inputs = {
    name = "name of stream_analytics_output_eventhub" 
    resource_group_name = "${resource_group}" 
-   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_eventhub" 
-   eventhub_name = "eventhub_name of stream_analytics_output_eventhub" 
+   # stream_analytics_job_name → set in tfstate_inputs
+   # eventhub_name → set in tfstate_inputs
    servicebus_namespace = "servicebus_namespace of stream_analytics_output_eventhub" 
    serialization = {
       example_serialization = {
@@ -23,6 +23,11 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   eventhub_name = "path/to/eventhub_component:name" 
 }
 
 tfstate_store = {

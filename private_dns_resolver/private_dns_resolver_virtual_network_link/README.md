@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of private_dns_resolver_virtual_network_link" 
    dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_virtual_network_link" 
-   virtual_network_id = "virtual_network_id of private_dns_resolver_virtual_network_link" 
+   # virtual_network_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_network_id = "path/to/virtual_network_component:id" 
 }
 
 tfstate_store = {

@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    name = "name of data_factory_trigger_custom_event" 
-   data_factory_id = "data_factory_id of data_factory_trigger_custom_event" 
-   eventgrid_topic_id = "eventgrid_topic_id of data_factory_trigger_custom_event" 
+   # data_factory_id → set in tfstate_inputs
+   # eventgrid_topic_id → set in tfstate_inputs
    events = "events of data_factory_trigger_custom_event" 
    pipeline = {
       example_pipeline = {
@@ -21,6 +21,11 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
+   eventgrid_topic_id = "path/to/eventgrid_topic_component:id" 
 }
 
 tfstate_store = {

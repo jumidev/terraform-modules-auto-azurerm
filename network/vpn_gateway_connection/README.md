@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    name = "name of vpn_gateway_connection" 
-   remote_vpn_site_id = "remote_vpn_site_id of vpn_gateway_connection" 
-   vpn_gateway_id = "vpn_gateway_id of vpn_gateway_connection" 
+   # remote_vpn_site_id → set in tfstate_inputs
+   # vpn_gateway_id → set in tfstate_inputs
    vpn_link = {
       example_vpn_link = {
          vpn_site_link_id = "..."   
@@ -21,6 +21,11 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   remote_vpn_site_id = "path/to/vpn_site_component:id" 
+   vpn_gateway_id = "path/to/vpn_gateway_component:id" 
 }
 
 tfstate_store = {
@@ -55,14 +60,12 @@ tfstate_store = {
 | `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
 | `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
 
-### `routing` block structure
+### `traffic_selector_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
-| `propagated_route_table` | [block](#routing-block-structure) | No | - | A 'propagated_route_table' block. |
-| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
-| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
+| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
+| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
 
 ### `propagated_route_table` block structure
 
@@ -70,13 +73,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `route_table_ids` | list | Yes | - | A list of Route Table IDs to associated with this VPN Gateway Connection. |
 | `labels` | list | No | - | A list of labels to assign to this route table. |
-
-### `traffic_selector_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
-| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
 
 ### `vpn_link` block structure
 
@@ -96,6 +92,15 @@ tfstate_store = {
 | `local_azure_ip_address_enabled` | bool | No | False | Whether to use local Azure IP to initiate connection? Defaults to 'false'. |
 | `policy_based_traffic_selector_enabled` | bool | No | False | Whether to enable policy-based traffic selectors? Defaults to 'false'. |
 | `custom_bgp_address` | [block](#vpn_link-block-structure) | No | - | One or more 'custom_bgp_address' blocks. |
+
+### `routing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
+| `propagated_route_table` | [block](#routing-block-structure) | No | - | A 'propagated_route_table' block. |
+| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
+| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 
 
 

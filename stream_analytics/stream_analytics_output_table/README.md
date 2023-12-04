@@ -13,13 +13,18 @@ source = {
 inputs = {
    name = "name of stream_analytics_output_table" 
    resource_group_name = "${resource_group}" 
-   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_table" 
-   storage_account_name = "storage_account_name of stream_analytics_output_table" 
+   # stream_analytics_job_name → set in tfstate_inputs
+   # storage_account_name → set in tfstate_inputs
    storage_account_key = "storage_account_key of stream_analytics_output_table" 
    table = "table of stream_analytics_output_table" 
    partition_key = "partition_key of stream_analytics_output_table" 
    row_key = "row_key of stream_analytics_output_table" 
    batch_size = "batch_size of stream_analytics_output_table" 
+}
+
+tfstate_inputs = {
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   storage_account_name = "path/to/storage_account_component:name" 
 }
 
 tfstate_store = {

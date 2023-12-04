@@ -14,7 +14,7 @@ inputs = {
    name = "name of mssql_elasticpool" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   server_name = "server_name of mssql_elasticpool" 
+   # server_name → set in tfstate_inputs
    sku = {
       example_sku = {
          capacity = "..."   
@@ -31,6 +31,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   server_name = "path/to/mssql_server_component:name" 
 }
 
 tfstate_store = {
@@ -63,6 +67,13 @@ tfstate_store = {
 | **zone_redundant** | string |  -  |  -  |  Whether or not this elastic pool is zone redundant. `tier` needs to be `Premium` for `DTU` based or `BusinessCritical` for `vCore` based `sku`. | 
 | **license_type** | string |  -  |  `LicenseIncluded`, `BasePrice`  |  Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`. | 
 
+### `per_database_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `min_capacity` | string | Yes | - | The minimum capacity all databases are guaranteed. |
+| `max_capacity` | string | Yes | - | The maximum capacity any one database can consume. |
+
 ### `sku` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,13 +81,6 @@ tfstate_store = {
 | `capacity` | string | Yes | - | The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools). |
 | `tier` | string | Yes | - | The tier of the particular SKU. Possible values are 'GeneralPurpose', 'BusinessCritical', 'Basic', 'Standard', 'Premium', or 'HyperScale'. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools). |
 | `family` | string | No | - | The 'family' of hardware 'Gen4', 'Gen5', 'Fsv2' or 'DC'. |
-
-### `per_database_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `min_capacity` | string | Yes | - | The minimum capacity all databases are guaranteed. |
-| `max_capacity` | string | Yes | - | The maximum capacity any one database can consume. |
 
 
 

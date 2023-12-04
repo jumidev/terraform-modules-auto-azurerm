@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   key_vault_id = "key_vault_id of key_vault_certificate_contacts" 
+   # key_vault_id → set in tfstate_inputs
    contact = {
       example_contact = {
          email = "..."   
@@ -19,6 +19,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   key_vault_id = "path/to/key_vault_component:id" 
 }
 
 tfstate_store = {

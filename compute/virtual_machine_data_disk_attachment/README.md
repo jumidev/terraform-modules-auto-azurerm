@@ -11,10 +11,15 @@ source = {
 }
 
 inputs = {
-   virtual_machine_id = "virtual_machine_id of virtual_machine_data_disk_attachment" 
-   managed_disk_id = "managed_disk_id of virtual_machine_data_disk_attachment" 
+   # virtual_machine_id → set in tfstate_inputs
+   # managed_disk_id → set in tfstate_inputs
    lun = "lun of virtual_machine_data_disk_attachment" 
    caching = "caching of virtual_machine_data_disk_attachment" 
+}
+
+tfstate_inputs = {
+   virtual_machine_id = "path/to/virtual_machine_component:id" 
+   managed_disk_id = "path/to/managed_disk_component:id" 
 }
 
 tfstate_store = {

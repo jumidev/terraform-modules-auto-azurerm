@@ -13,8 +13,13 @@ source = {
 inputs = {
    name = "name of web_pubsub_custom_domain" 
    domain_name = "domain_name of web_pubsub_custom_domain" 
-   web_pubsub_id = "web_pubsub_id of web_pubsub_custom_domain" 
-   web_pubsub_custom_certificate_id = "web_pubsub_custom_certificate_id of web_pubsub_custom_domain" 
+   # web_pubsub_id → set in tfstate_inputs
+   # web_pubsub_custom_certificate_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   web_pubsub_id = "path/to/web_pubsub_component:id" 
+   web_pubsub_custom_certificate_id = "path/to/web_pubsub_custom_certificate_component:id" 
 }
 
 tfstate_store = {

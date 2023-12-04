@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   signalr_service_id = "signalr_service_id of signalr_service_network_acl" 
+   # signalr_service_id → set in tfstate_inputs
    default_action = "default_action of signalr_service_network_acl" 
    public_network = {
       example_public_network = {
@@ -19,6 +19,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   signalr_service_id = "path/to/signalr_service_component:id" 
 }
 
 tfstate_store = {
@@ -43,19 +47,19 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **private_endpoint** | [block](#private_endpoint-block-structure) |  A `private_endpoint` block. | 
 
-### `public_network` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_request_types` | string | No | - | The allowed request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
-| `denied_request_types` | string | No | - | The denied request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
-
 ### `private_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_request_types` | string | No | - | The allowed request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
 | `denied_request_types` | string | No | - | The denied request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
+
+### `public_network` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_request_types` | string | No | - | The allowed request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
+| `denied_request_types` | string | No | - | The denied request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
 
 
 

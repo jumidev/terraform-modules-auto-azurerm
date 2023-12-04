@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of subnet" 
    resource_group_name = "${resource_group}" 
-   virtual_network_name = "virtual_network_name of subnet" 
+   # virtual_network_name → set in tfstate_inputs
    address_prefixes = "address_prefixes of subnet" 
+}
+
+tfstate_inputs = {
+   virtual_network_name = "path/to/virtual_network_component:name" 
 }
 
 tfstate_store = {

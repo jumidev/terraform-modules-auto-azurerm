@@ -11,9 +11,14 @@ source = {
 }
 
 inputs = {
-   domain_service_id = "domain_service_id of active_directory_domain_service_replica_set" 
+   # domain_service_id → set in tfstate_inputs
    location = "${location}" 
-   subnet_id = "subnet_id of active_directory_domain_service_replica_set" 
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   domain_service_id = "path/to/active_directory_domain_service_component:id" 
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

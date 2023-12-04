@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of vpn_gateway_nat_rule" 
    resource_group_name = "${resource_group}" 
-   vpn_gateway_id = "vpn_gateway_id of vpn_gateway_nat_rule" 
+   # vpn_gateway_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   vpn_gateway_id = "path/to/vpn_gateway_component:id" 
 }
 
 tfstate_store = {

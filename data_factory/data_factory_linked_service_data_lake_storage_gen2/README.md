@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of data_factory_linked_service_data_lake_storage_gen2" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_data_lake_storage_gen2" 
+   # data_factory_id → set in tfstate_inputs
    url = "url of data_factory_linked_service_data_lake_storage_gen2" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

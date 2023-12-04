@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   storage_account_name = "storage_account_name of storage_table_entity" 
+   # storage_account_name → set in tfstate_inputs
    table_name = "table_name of storage_table_entity" 
    partition_key = "partition_key of storage_table_entity" 
    row_key = "row_key of storage_table_entity" 
    entity = "entity of storage_table_entity" 
+}
+
+tfstate_inputs = {
+   storage_account_name = "path/to/storage_account_component:name" 
 }
 
 tfstate_store = {

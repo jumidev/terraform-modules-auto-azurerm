@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of iothub_device_update_instance" 
    device_update_account_id = "device_update_account_id of iothub_device_update_instance" 
-   iothub_id = "iothub_id of iothub_device_update_instance" 
+   # iothub_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   iothub_id = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {

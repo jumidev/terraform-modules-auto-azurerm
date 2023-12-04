@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of sentinel_data_connector_aws_s3" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_data_connector_aws_s3" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    aws_role_arn = "aws_role_arn of sentinel_data_connector_aws_s3" 
    destination_table = "destination_table of sentinel_data_connector_aws_s3" 
    sqs_urls = "sqs_urls of sentinel_data_connector_aws_s3" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

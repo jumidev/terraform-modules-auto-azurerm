@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of automation_connection" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_connection" 
+   # automation_account_name → set in tfstate_inputs
    type = "type of automation_connection" 
    values = "values of automation_connection" 
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
 }
 
 tfstate_store = {

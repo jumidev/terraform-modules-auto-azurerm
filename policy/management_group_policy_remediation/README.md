@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of management_group_policy_remediation" 
-   management_group_id = "management_group_id of management_group_policy_remediation" 
+   # management_group_id → set in tfstate_inputs
    policy_assignment_id = "policy_assignment_id of management_group_policy_remediation" 
+}
+
+tfstate_inputs = {
+   management_group_id = "path/to/management_group_component:id" 
 }
 
 tfstate_store = {

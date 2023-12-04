@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   api_management_name = "api_management_name of api_management_subscription" 
+   # api_management_name → set in tfstate_inputs
    display_name = "display_name of api_management_subscription" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

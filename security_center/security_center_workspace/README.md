@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    scope = "scope of security_center_workspace" 
-   workspace_id = "workspace_id of security_center_workspace" 
+   # workspace_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

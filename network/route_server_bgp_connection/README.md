@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of route_server_bgp_connection" 
-   route_server_id = "route_server_id of route_server_bgp_connection" 
+   # route_server_id → set in tfstate_inputs
    peer_asn = "peer_asn of route_server_bgp_connection" 
    peer_ip = "peer_ip of route_server_bgp_connection" 
+}
+
+tfstate_inputs = {
+   route_server_id = "path/to/route_server_component:id" 
 }
 
 tfstate_store = {

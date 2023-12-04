@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of container_app_environment_certificate" 
-   container_app_environment_id = "container_app_environment_id of container_app_environment_certificate" 
+   # container_app_environment_id → set in tfstate_inputs
    certificate_blob_base64 = "certificate_blob_base64 of container_app_environment_certificate" 
    certificate_password = "certificate_password of container_app_environment_certificate" 
+}
+
+tfstate_inputs = {
+   container_app_environment_id = "path/to/container_app_environment_component:id" 
 }
 
 tfstate_store = {

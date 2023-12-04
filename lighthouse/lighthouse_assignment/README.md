@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    scope = "scope of lighthouse_assignment" 
-   lighthouse_definition_id = "lighthouse_definition_id of lighthouse_assignment" 
+   # lighthouse_definition_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   lighthouse_definition_id = "path/to/lighthouse_definition_component:id" 
 }
 
 tfstate_store = {

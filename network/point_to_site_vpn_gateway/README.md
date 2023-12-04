@@ -22,8 +22,13 @@ inputs = {
    }
  
    scale_unit = "scale_unit of point_to_site_vpn_gateway" 
-   virtual_hub_id = "virtual_hub_id of point_to_site_vpn_gateway" 
-   vpn_server_configuration_id = "vpn_server_configuration_id of point_to_site_vpn_gateway" 
+   # virtual_hub_id → set in tfstate_inputs
+   # vpn_server_configuration_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id" 
 }
 
 tfstate_store = {
@@ -54,12 +59,6 @@ tfstate_store = {
 | **routing_preference_internet_enabled** | bool |  `False`  |  Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Point-to-Site VPN Gateway. | 
 
-### `vpn_client_address_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
-
 ### `connection_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,6 +66,19 @@ tfstate_store = {
 | `vpn_client_address_pool` | [block](#connection_configuration-block-structure) | Yes | - | A 'vpn_client_address_pool' block. |
 | `route` | [block](#connection_configuration-block-structure) | No | - | A 'route' block. |
 | `internet_security_enabled` | bool | No | False | Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'. |
+
+### `vpn_client_address_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
+
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
+| `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
 
 ### `route` block structure
 
@@ -76,13 +88,6 @@ tfstate_store = {
 | `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
 | `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 | `propagated_route_table` | [block](#route-block-structure) | No | - | A 'propagated_route_table' block. |
-
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
-| `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
 
 
 

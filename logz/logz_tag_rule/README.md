@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   logz_monitor_id = "logz_monitor_id of logz_tag_rule" 
+   # logz_monitor_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   logz_monitor_id = "path/to/logz_monitor_component:id" 
 }
 
 tfstate_store = {

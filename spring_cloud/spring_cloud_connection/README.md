@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "name of spring_cloud_connection" 
    spring_cloud_id = "spring_cloud_id of spring_cloud_connection" 
-   target_resource_id = "target_resource_id of spring_cloud_connection" 
+   # target_resource_id → set in tfstate_inputs
    authentication = {
       example_authentication = {
          type = "..."   
@@ -25,6 +25,7 @@ inputs = {
 }
 
 tfstate_inputs = {
+   target_resource_id = "path/to/any_resource_component:id" 
    authentication.example_authentication.subscription_id = "path/to/subscription_component:subscription_id" 
 }
 

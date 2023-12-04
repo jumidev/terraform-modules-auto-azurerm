@@ -14,9 +14,13 @@ inputs = {
    name = "name of sql_elasticpool" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   server_name = "server_name of sql_elasticpool" 
+   # server_name → set in tfstate_inputs
    edition = "edition of sql_elasticpool" 
    dtu = "dtu of sql_elasticpool" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/sql_server_component:name" 
 }
 
 tfstate_store = {

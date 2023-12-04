@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "name of automation_module" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_module" 
+   # automation_account_name → set in tfstate_inputs
    module_link = {
       example_module_link = {
          uri = "..."   
@@ -21,6 +21,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
 }
 
 tfstate_store = {

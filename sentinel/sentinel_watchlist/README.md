@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of sentinel_watchlist" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_watchlist" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    display_name = "display_name of sentinel_watchlist" 
    item_search_key = "item_search_key of sentinel_watchlist" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

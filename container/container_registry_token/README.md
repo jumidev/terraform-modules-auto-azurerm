@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of container_registry_token" 
    resource_group_name = "${resource_group}" 
-   container_registry_name = "container_registry_name of container_registry_token" 
+   # container_registry_name → set in tfstate_inputs
    scope_map_id = "scope_map_id of container_registry_token" 
+}
+
+tfstate_inputs = {
+   container_registry_name = "path/to/container_registry_component:name" 
 }
 
 tfstate_store = {

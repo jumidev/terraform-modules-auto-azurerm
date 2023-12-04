@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   route_table_id = "route_table_id of virtual_hub_route_table_route" 
+   # route_table_id → set in tfstate_inputs
    name = "name of virtual_hub_route_table_route" 
    destinations = "destinations of virtual_hub_route_table_route" 
    destinations_type = "destinations_type of virtual_hub_route_table_route" 
    next_hop = "next_hop of virtual_hub_route_table_route" 
+}
+
+tfstate_inputs = {
+   route_table_id = "path/to/route_table_component:id" 
 }
 
 tfstate_store = {

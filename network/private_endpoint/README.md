@@ -14,7 +14,7 @@ inputs = {
    name = "name of private_endpoint" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   subnet_id = "subnet_id of private_endpoint" 
+   # subnet_id → set in tfstate_inputs
    private_service_connection = {
       example_private_service_connection = {
          is_manual_connection = "..."   
@@ -22,6 +22,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

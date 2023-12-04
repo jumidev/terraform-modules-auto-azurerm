@@ -11,10 +11,15 @@ source = {
 }
 
 inputs = {
-   mobile_network_data_network_name = "mobile_network_data_network_name of mobile_network_attached_data_network" 
-   mobile_network_packet_core_data_plane_id = "mobile_network_packet_core_data_plane_id of mobile_network_attached_data_network" 
+   # mobile_network_data_network_name → set in tfstate_inputs
+   # mobile_network_packet_core_data_plane_id → set in tfstate_inputs
    location = "${location}" 
    dns_addresses = "dns_addresses of mobile_network_attached_data_network" 
+}
+
+tfstate_inputs = {
+   mobile_network_data_network_name = "path/to/mobile_network_data_network_component:name" 
+   mobile_network_packet_core_data_plane_id = "path/to/mobile_network_packet_core_data_plane_component:id" 
 }
 
 tfstate_store = {

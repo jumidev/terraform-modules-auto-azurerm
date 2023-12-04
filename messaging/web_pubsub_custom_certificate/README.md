@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of web_pubsub_custom_certificate" 
-   web_pubsub_id = "web_pubsub_id of web_pubsub_custom_certificate" 
+   # web_pubsub_id → set in tfstate_inputs
    custom_certificate_id = "custom_certificate_id of web_pubsub_custom_certificate" 
+}
+
+tfstate_inputs = {
+   web_pubsub_id = "path/to/web_pubsub_component:id" 
 }
 
 tfstate_store = {

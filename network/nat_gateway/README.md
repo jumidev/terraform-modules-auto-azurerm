@@ -23,7 +23,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Optional associated resources
 
 | tfstate_input variable | Information |
 | -------- | ----------- |

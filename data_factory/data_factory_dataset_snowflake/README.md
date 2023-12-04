@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of data_factory_dataset_snowflake" 
-   data_factory_id = "data_factory_id of data_factory_dataset_snowflake" 
+   # data_factory_id → set in tfstate_inputs
    linked_service_name = "linked_service_name of data_factory_dataset_snowflake" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

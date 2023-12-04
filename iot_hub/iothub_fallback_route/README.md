@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}" 
-   iothub_name = "iothub_name of iothub_fallback_route" 
+   # iothub_name → set in tfstate_inputs
    enabled = "enabled of iothub_fallback_route" 
    endpoint_names = "endpoint_names of iothub_fallback_route" 
+}
+
+tfstate_inputs = {
+   iothub_name = "path/to/iothub_component:name" 
 }
 
 tfstate_store = {

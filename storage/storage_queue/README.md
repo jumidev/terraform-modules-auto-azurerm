@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of storage_queue" 
-   storage_account_name = "storage_account_name of storage_queue" 
+   # storage_account_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_account_name = "path/to/storage_account_component:name" 
 }
 
 tfstate_store = {

@@ -11,10 +11,15 @@ source = {
 }
 
 inputs = {
-   api_management_name = "api_management_name of api_management_product_tag" 
-   api_management_product_id = "api_management_product_id of api_management_product_tag" 
+   # api_management_name → set in tfstate_inputs
+   # api_management_product_id → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    name = "name of api_management_product_tag" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
+   api_management_product_id = "path/to/api_management_product_component:id" 
 }
 
 tfstate_store = {

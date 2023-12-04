@@ -11,13 +11,17 @@ source = {
 }
 
 inputs = {
-   container_registry_token_id = "container_registry_token_id of container_registry_token_password" 
+   # container_registry_token_id → set in tfstate_inputs
    password1 = {
       example_password = {
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   container_registry_token_id = "path/to/container_registry_token_component:id" 
 }
 
 tfstate_store = {

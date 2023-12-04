@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}" 
-   workspace_id = "workspace_id of log_analytics_linked_service" 
+   # workspace_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

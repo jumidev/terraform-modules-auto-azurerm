@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of mobile_network_packet_core_data_plane" 
-   mobile_network_packet_core_control_plane_id = "mobile_network_packet_core_control_plane_id of mobile_network_packet_core_data_plane" 
+   # mobile_network_packet_core_control_plane_id → set in tfstate_inputs
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   mobile_network_packet_core_control_plane_id = "path/to/mobile_network_packet_core_control_plane_component:id" 
 }
 
 tfstate_store = {

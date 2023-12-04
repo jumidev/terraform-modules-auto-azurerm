@@ -24,8 +24,12 @@ inputs = {
  
    sku_name = "sku_name of managed_lustre_file_system" 
    storage_capacity_in_tb = "storage_capacity_in_tb of managed_lustre_file_system" 
-   subnet_id = "subnet_id of managed_lustre_file_system" 
+   # subnet_id → set in tfstate_inputs
    zones = "zones of managed_lustre_file_system" 
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {
@@ -58,6 +62,13 @@ tfstate_store = {
 | **encryption_key** | [block](#encryption_key-block-structure) |  An `encryption_key` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Azure Managed Lustre File System. | 
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
+| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created. |
+
 ### `encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,13 +82,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `day_of_week` | string | Yes | - | The day of the week on which the maintenance window will occur. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `time_of_day_in_utc` | string | Yes | - | The time of day (in UTC) to start the maintenance window. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of Managed Service Identity that should be configured on this Azure Managed Lustre File System. Only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
-| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created. |
 
 ### `hsm_setting` block structure
 

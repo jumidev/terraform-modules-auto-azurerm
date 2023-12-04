@@ -11,9 +11,14 @@ source = {
 }
 
 inputs = {
-   key_vault_id = "key_vault_id of key_vault_access_policy" 
-   tenant_id = "tenant_id of key_vault_access_policy" 
+   # key_vault_id → set in tfstate_inputs
+   # tenant_id → set in tfstate_inputs
    object_id = "object_id of key_vault_access_policy" 
+}
+
+tfstate_inputs = {
+   key_vault_id = "path/to/key_vault_component:id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

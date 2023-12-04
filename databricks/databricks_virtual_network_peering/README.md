@@ -13,10 +13,14 @@ source = {
 inputs = {
    name = "name of databricks_virtual_network_peering" 
    resource_group_name = "${resource_group}" 
-   workspace_id = "workspace_id of databricks_virtual_network_peering" 
+   # workspace_id → set in tfstate_inputs
    address_space_prefixes = "address_space_prefixes of databricks_virtual_network_peering" 
    remote_address_space_prefixes = "remote_address_space_prefixes of databricks_virtual_network_peering" 
    remote_virtual_network_id = "remote_virtual_network_id of databricks_virtual_network_peering" 
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

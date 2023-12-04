@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of spring_cloud_builder" 
-   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_builder" 
+   # spring_cloud_service_id → set in tfstate_inputs
    build_pack_group = {
       example_build_pack_group = {
       }
@@ -26,6 +26,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
 }
 
 tfstate_store = {
@@ -45,17 +49,17 @@ tfstate_store = {
 | **build_pack_group** | [block](#build_pack_group-block-structure) |  One or more `build_pack_group` blocks. | 
 | **stack** | [block](#stack-block-structure) |  A `stack` block. | 
 
-### `stack` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `version` | string | Yes | - | Specifies the version of the ClusterStack |
-
 ### `build_pack_group` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
+
+### `stack` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `version` | string | Yes | - | Specifies the version of the ClusterStack |
 
 
 

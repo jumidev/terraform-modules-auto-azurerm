@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   iotcentral_application_id = "iotcentral_application_id of iotcentral_application_network_rule_set" 
+   # iotcentral_application_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   iotcentral_application_id = "path/to/iotcentral_application_component:id" 
 }
 
 tfstate_store = {

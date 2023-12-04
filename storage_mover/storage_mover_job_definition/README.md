@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of storage_mover_job_definition" 
-   storage_mover_project_id = "storage_mover_project_id of storage_mover_job_definition" 
+   # storage_mover_project_id → set in tfstate_inputs
    source_name = "source_name of storage_mover_job_definition" 
    target_name = "target_name of storage_mover_job_definition" 
    copy_mode = "copy_mode of storage_mover_job_definition" 
+}
+
+tfstate_inputs = {
+   storage_mover_project_id = "path/to/storage_mover_project_component:id" 
 }
 
 tfstate_store = {

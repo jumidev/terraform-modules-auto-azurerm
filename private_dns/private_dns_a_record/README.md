@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of private_dns_a_record" 
    resource_group_name = "${resource_group}" 
-   zone_name = "zone_name of private_dns_a_record" 
+   # zone_name → set in tfstate_inputs
    ttl = "ttl of private_dns_a_record" 
    records = "records of private_dns_a_record" 
+}
+
+tfstate_inputs = {
+   zone_name = "path/to/private_dns_zone_component:name" 
 }
 
 tfstate_store = {

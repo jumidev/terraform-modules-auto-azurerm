@@ -70,15 +70,6 @@ tfstate_store = {
 | **throttling** | string |  -  |  -  |  Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `metric_trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `metric_trigger_type` | string | Yes | - | Metric Trigger Type - 'Consecutive' or 'Total'. |
-| `operator` | string | Yes | - | Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
-| `threshold` | string | Yes | - | The threshold of the metric trigger. Values must be between 0 and 10000 inclusive. |
-| `metric_column` | string | No | - | Evaluation of metric on a particular column. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +85,15 @@ tfstate_store = {
 | `metric_trigger` | [block](#trigger-block-structure) | No | - | A 'metric_trigger' block. Trigger condition for metric query rule. |
 | `operator` | string | Yes | - | Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
 | `threshold` | string | Yes | - | Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. |
+
+### `metric_trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `metric_trigger_type` | string | Yes | - | Metric Trigger Type - 'Consecutive' or 'Total'. |
+| `operator` | string | Yes | - | Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
+| `threshold` | string | Yes | - | The threshold of the metric trigger. Values must be between 0 and 10000 inclusive. |
+| `metric_column` | string | No | - | Evaluation of metric on a particular column. |
 
 
 

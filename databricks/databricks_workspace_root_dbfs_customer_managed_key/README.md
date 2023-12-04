@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   workspace_id = "workspace_id of databricks_workspace_root_dbfs_customer_managed_key" 
-   key_vault_key_id = "key_vault_key_id of databricks_workspace_root_dbfs_customer_managed_key" 
+   # workspace_id → set in tfstate_inputs
+   # key_vault_key_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   key_vault_key_id = "path/to/key_vault_key_component:id" 
 }
 
 tfstate_store = {

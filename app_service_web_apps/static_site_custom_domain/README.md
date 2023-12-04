@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    domain_name = "domain_name of static_site_custom_domain" 
-   static_site_id = "static_site_id of static_site_custom_domain" 
+   # static_site_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   static_site_id = "path/to/static_site_component:id" 
 }
 
 tfstate_store = {

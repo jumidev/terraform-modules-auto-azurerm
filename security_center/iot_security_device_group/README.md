@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of iot_security_device_group" 
-   iothub_id = "iothub_id of iot_security_device_group" 
+   # iothub_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   iothub_id = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {
@@ -37,15 +41,6 @@ tfstate_store = {
 | **allow_rule** | [block](#allow_rule-block-structure) |  an `allow_rule` blocks. | 
 | **range_rule** | [block](#range_rule-block-structure) |  One or more `range_rule` blocks. | 
 
-### `range_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `duration` | string | Yes | - | Specifies the time range. represented in ISO 8601 duration format. |
-| `max` | string | Yes | - | The maximum threshold in the given time window. |
-| `min` | string | Yes | - | The minimum threshold in the given time window. |
-| `type` | string | Yes | - | The type of supported rule type. Possible Values are 'ActiveConnectionsNotInAllowedRange', 'AmqpC2DMessagesNotInAllowedRange', 'MqttC2DMessagesNotInAllowedRange', 'HttpC2DMessagesNotInAllowedRange', 'AmqpC2DRejectedMessagesNotInAllowedRange', 'MqttC2DRejectedMessagesNotInAllowedRange', 'HttpC2DRejectedMessagesNotInAllowedRange', 'AmqpD2CMessagesNotInAllowedRange', 'MqttD2CMessagesNotInAllowedRange', 'HttpD2CMessagesNotInAllowedRange', 'DirectMethodInvokesNotInAllowedRange', 'FailedLocalLoginsNotInAllowedRange', 'FileUploadsNotInAllowedRange', 'QueuePurgesNotInAllowedRange', 'TwinUpdatesNotInAllowedRange' and 'UnauthorizedOperationsNotInAllowedRange'. |
-
 ### `allow_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,6 +49,15 @@ tfstate_store = {
 | `connection_to_ips_not_allowed` | bool | No | - | Specifies which IP is not allowed to be connected to in current device group for outbound connection. |
 | `local_users_not_allowed` | bool | No | - | Specifies which local user is not allowed to login in current device group. |
 | `processes_not_allowed` | bool | No | - | Specifies which process is not allowed to be executed in current device group. |
+
+### `range_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `duration` | string | Yes | - | Specifies the time range. represented in ISO 8601 duration format. |
+| `max` | string | Yes | - | The maximum threshold in the given time window. |
+| `min` | string | Yes | - | The minimum threshold in the given time window. |
+| `type` | string | Yes | - | The type of supported rule type. Possible Values are 'ActiveConnectionsNotInAllowedRange', 'AmqpC2DMessagesNotInAllowedRange', 'MqttC2DMessagesNotInAllowedRange', 'HttpC2DMessagesNotInAllowedRange', 'AmqpC2DRejectedMessagesNotInAllowedRange', 'MqttC2DRejectedMessagesNotInAllowedRange', 'HttpC2DRejectedMessagesNotInAllowedRange', 'AmqpD2CMessagesNotInAllowedRange', 'MqttD2CMessagesNotInAllowedRange', 'HttpD2CMessagesNotInAllowedRange', 'DirectMethodInvokesNotInAllowedRange', 'FailedLocalLoginsNotInAllowedRange', 'FileUploadsNotInAllowedRange', 'QueuePurgesNotInAllowedRange', 'TwinUpdatesNotInAllowedRange' and 'UnauthorizedOperationsNotInAllowedRange'. |
 
 
 

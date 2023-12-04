@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of data_share_dataset_kusto_cluster" 
    share_id = "share_id of data_share_dataset_kusto_cluster" 
-   kusto_cluster_id = "kusto_cluster_id of data_share_dataset_kusto_cluster" 
+   # kusto_cluster_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   kusto_cluster_id = "path/to/kusto_cluster_component:id" 
 }
 
 tfstate_store = {

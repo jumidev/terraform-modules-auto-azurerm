@@ -11,11 +11,16 @@ source = {
 }
 
 inputs = {
-   server_name = "server_name of sql_active_directory_administrator" 
+   # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    login = "login of sql_active_directory_administrator" 
    object_id = "object_id of sql_active_directory_administrator" 
-   tenant_id = "tenant_id of sql_active_directory_administrator" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   server_name = "path/to/sql_server_component:name" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

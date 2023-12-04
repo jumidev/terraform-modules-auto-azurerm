@@ -16,7 +16,11 @@ inputs = {
    location = "${location}" 
    zones = "zones of disk_pool" 
    sku_name = "sku_name of disk_pool" 
-   subnet_id = "subnet_id of disk_pool" 
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

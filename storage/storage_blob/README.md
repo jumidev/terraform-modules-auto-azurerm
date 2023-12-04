@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of storage_blob" 
-   storage_account_name = "storage_account_name of storage_blob" 
-   storage_container_name = "storage_container_name of storage_blob" 
+   # storage_account_name → set in tfstate_inputs
+   # storage_container_name → set in tfstate_inputs
    type = "type of storage_blob" 
+}
+
+tfstate_inputs = {
+   storage_account_name = "path/to/storage_account_component:name" 
+   storage_container_name = "path/to/storage_container_component:name" 
 }
 
 tfstate_store = {

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of sql_managed_database" 
-   sql_managed_instance_id = "sql_managed_instance_id of sql_managed_database" 
+   # sql_managed_instance_id → set in tfstate_inputs
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   sql_managed_instance_id = "path/to/sql_managed_instance_component:id" 
 }
 
 tfstate_store = {

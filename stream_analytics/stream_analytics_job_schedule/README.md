@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_job_schedule" 
+   # stream_analytics_job_id → set in tfstate_inputs
    start_mode = "start_mode of stream_analytics_job_schedule" 
+}
+
+tfstate_inputs = {
+   stream_analytics_job_id = "path/to/stream_analytics_job_component:id" 
 }
 
 tfstate_store = {

@@ -11,12 +11,16 @@ source = {
 }
 
 inputs = {
-   api_management_name = "api_management_name of api_management_user" 
+   # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    email = "email of api_management_user" 
    first_name = "first_name of api_management_user" 
    last_name = "last_name of api_management_user" 
    user_id = "user_id of api_management_user" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    location = "${location}" 
-   maintenance_configuration_id = "maintenance_configuration_id of maintenance_assignment_dedicated_host" 
-   dedicated_host_id = "dedicated_host_id of maintenance_assignment_dedicated_host" 
+   # maintenance_configuration_id → set in tfstate_inputs
+   # dedicated_host_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   maintenance_configuration_id = "path/to/maintenance_configuration_component:id" 
+   dedicated_host_id = "path/to/dedicated_host_component:id" 
 }
 
 tfstate_store = {

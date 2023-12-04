@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   storage_account_id = "storage_account_id of storage_account_network_rules" 
+   # storage_account_id → set in tfstate_inputs
    default_action = "default_action of storage_account_network_rules" 
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

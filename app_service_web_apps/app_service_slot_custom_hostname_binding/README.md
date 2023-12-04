@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   app_service_slot_id = "app_service_slot_id of app_service_slot_custom_hostname_binding" 
+   # app_service_slot_id → set in tfstate_inputs
    hostname = "hostname of app_service_slot_custom_hostname_binding" 
+}
+
+tfstate_inputs = {
+   app_service_slot_id = "path/to/app_service_slot_component:id" 
 }
 
 tfstate_store = {

@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of spring_cloud_storage" 
-   spring_cloud_service_id = "spring_cloud_service_id of spring_cloud_storage" 
+   # spring_cloud_service_id → set in tfstate_inputs
    storage_account_key = "storage_account_key of spring_cloud_storage" 
-   storage_account_name = "storage_account_name of spring_cloud_storage" 
+   # storage_account_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
+   storage_account_name = "path/to/storage_account_component:name" 
 }
 
 tfstate_store = {

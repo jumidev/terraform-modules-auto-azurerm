@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of synapse_integration_runtime_azure" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_integration_runtime_azure" 
+   # synapse_workspace_id → set in tfstate_inputs
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {

@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   synapse_workspace_id = "synapse_workspace_id of synapse_workspace_security_alert_policy" 
+   # synapse_workspace_id → set in tfstate_inputs
    policy_state = "policy_state of synapse_workspace_security_alert_policy" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {

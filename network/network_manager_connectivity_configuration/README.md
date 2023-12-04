@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of network_manager_connectivity_configuration" 
-   network_manager_id = "network_manager_id of network_manager_connectivity_configuration" 
+   # network_manager_id → set in tfstate_inputs
    applies_to_group = {
       example_applies_to_group = {
          group_connectivity = "..."   
@@ -22,6 +22,10 @@ inputs = {
    }
  
    connectivity_topology = "connectivity_topology of network_manager_connectivity_configuration" 
+}
+
+tfstate_inputs = {
+   network_manager_id = "path/to/network_manager_component:id" 
 }
 
 tfstate_store = {
@@ -50,6 +54,13 @@ tfstate_store = {
 | **global_mesh_enabled** | string |  `true`, `false`  |  Indicates whether to global mesh is supported. Possible values are `true` and `false`. | 
 | **hub** | [block](#hub-block-structure) |  -  |  A `hub` block. | 
 
+### `hub` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `resource_id` | string | Yes | - | Specifies the resource ID used as hub in Hub And Spoke topology. |
+| `resource_type` | string | Yes | - | Specifies the resource Type used as hub in Hub And Spoke topology. |
+
 ### `applies_to_group` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,13 +69,6 @@ tfstate_store = {
 | `network_group_id` | string | Yes | - | Specifies the resource ID of Network Group which the configuration applies to. |
 | `global_mesh_enabled` | string | No | - | Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'. |
 | `use_hub_gateway` | string | No | - | Indicates whether the hub gateway is used. Possible values are 'true' and 'false'. |
-
-### `hub` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `resource_id` | string | Yes | - | Specifies the resource ID used as hub in Hub And Spoke topology. |
-| `resource_type` | string | Yes | - | Specifies the resource Type used as hub in Hub And Spoke topology. |
 
 
 

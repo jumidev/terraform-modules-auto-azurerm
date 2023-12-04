@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of stream_analytics_function_javascript_uda" 
-   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_function_javascript_uda" 
+   # stream_analytics_job_id → set in tfstate_inputs
    input = {
       example_input = {
          type = "..."   
@@ -28,6 +28,10 @@ inputs = {
    }
  
    script = "script of stream_analytics_function_javascript_uda" 
+}
+
+tfstate_inputs = {
+   stream_analytics_job_id = "path/to/stream_analytics_job_component:id" 
 }
 
 tfstate_store = {
@@ -48,18 +52,18 @@ tfstate_store = {
 | **output** | [block](#output-block-structure) |  An `output` block. | 
 | **script** | string |  The JavaScript of this UDA Function. | 
 
+### `output` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The output data type from this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
+
 ### `input` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The input data type of this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
 | `configuration_parameter` | bool | No | False | Is this input parameter a configuration parameter? Defaults to 'false'. |
-
-### `output` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The output data type from this JavaScript Function. Possible values include 'any', 'array', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
 
 
 

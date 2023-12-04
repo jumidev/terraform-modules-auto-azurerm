@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of storage_table" 
-   storage_account_name = "storage_account_name of storage_table" 
+   # storage_account_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_account_name = "path/to/storage_account_component:name" 
 }
 
 tfstate_store = {
@@ -36,12 +40,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **acl** | [block](#acl-block-structure) |  One or more `acl` blocks. | 
 
-### `acl` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
-
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -49,6 +47,12 @@ tfstate_store = {
 | `expiry` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid until. |
 | `permissions` | string | Yes | - | The permissions which should associated with this Shared Identifier. |
 | `start` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid from. |
+
+### `acl` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
 
 
 

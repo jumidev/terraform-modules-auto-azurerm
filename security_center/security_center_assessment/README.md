@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    assessment_policy_id = "assessment_policy_id of security_center_assessment" 
-   target_resource_id = "target_resource_id of security_center_assessment" 
+   # target_resource_id → set in tfstate_inputs
    status = {
       example_status = {
          code = "..."   
@@ -20,6 +20,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

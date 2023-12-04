@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   iothub_id = "iothub_id of iothub_file_upload" 
+   # iothub_id → set in tfstate_inputs
    connection_string = "connection_string of iothub_file_upload" 
    container_name = "container_name of iothub_file_upload" 
+}
+
+tfstate_inputs = {
+   iothub_id = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {

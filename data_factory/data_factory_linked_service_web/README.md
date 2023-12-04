@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of data_factory_linked_service_web" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_web" 
+   # data_factory_id → set in tfstate_inputs
    authentication_type = "authentication_type of data_factory_linked_service_web" 
    url = "url of data_factory_linked_service_web" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

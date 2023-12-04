@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of data_factory_linked_service_postgresql" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_postgresql" 
+   # data_factory_id → set in tfstate_inputs
    connection_string = "connection_string of data_factory_linked_service_postgresql" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

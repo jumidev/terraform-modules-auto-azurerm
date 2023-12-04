@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of web_pubsub_shared_private_link" 
-   web_pubsub_id = "web_pubsub_id of web_pubsub_shared_private_link" 
+   # web_pubsub_id → set in tfstate_inputs
    subresource_name = "subresource_name of web_pubsub_shared_private_link" 
-   target_resource_id = "target_resource_id of web_pubsub_shared_private_link" 
+   # target_resource_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   web_pubsub_id = "path/to/web_pubsub_component:id" 
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

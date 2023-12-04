@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of voice_services_communications_gateway_test_line" 
    location = "${location}" 
-   voice_services_communications_gateway_id = "voice_services_communications_gateway_id of voice_services_communications_gateway_test_line" 
+   # voice_services_communications_gateway_id → set in tfstate_inputs
    phone_number = "phone_number of voice_services_communications_gateway_test_line" 
    purpose = "purpose of voice_services_communications_gateway_test_line" 
+}
+
+tfstate_inputs = {
+   voice_services_communications_gateway_id = "path/to/voice_services_communications_gateway_component:id" 
 }
 
 tfstate_store = {

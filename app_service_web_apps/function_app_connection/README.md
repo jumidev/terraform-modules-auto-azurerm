@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    name = "name of function_app_connection" 
-   function_app_id = "function_app_id of function_app_connection" 
-   target_resource_id = "target_resource_id of function_app_connection" 
+   # function_app_id → set in tfstate_inputs
+   # target_resource_id → set in tfstate_inputs
    authentication = {
       example_authentication = {
          type = "..."   
@@ -25,6 +25,8 @@ inputs = {
 }
 
 tfstate_inputs = {
+   function_app_id = "path/to/function_app_component:id" 
+   target_resource_id = "path/to/any_resource_component:id" 
    authentication.example_authentication.subscription_id = "path/to/subscription_component:subscription_id" 
 }
 

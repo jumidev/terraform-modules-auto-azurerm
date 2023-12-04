@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    name = "name of virtual_machine_scale_set_packet_capture" 
-   network_watcher_id = "network_watcher_id of virtual_machine_scale_set_packet_capture" 
-   virtual_machine_scale_set_id = "virtual_machine_scale_set_id of virtual_machine_scale_set_packet_capture" 
+   # network_watcher_id → set in tfstate_inputs
+   # virtual_machine_scale_set_id → set in tfstate_inputs
    storage_location = {
       example_storage_location = {
          # storage_account_id → set in tfstate_inputs
@@ -24,6 +24,8 @@ inputs = {
 }
 
 tfstate_inputs = {
+   network_watcher_id = "path/to/network_watcher_component:id" 
+   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id" 
    storage_location.example_storage_location.storage_account_id = "path/to/storage_account_component:id" 
 }
 
@@ -54,6 +56,13 @@ tfstate_store = {
 | **filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
 | **machine_scope** | [block](#machine_scope-block-structure) |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
 
+### `storage_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
+| `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
+
 ### `machine_scope` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,13 +79,6 @@ tfstate_store = {
 | `protocol` | string | Yes | - | The Protocol to be filtered on. Possible values include 'Any', 'TCP' and 'UDP'. Changing this forces a new resource to be created. |
 | `remote_ip_address` | string | No | - | The remote IP Address to be filtered on. Specify '127.0.0.1' for a single address entry, '127.0.0.1-127.0.0.255' for a range and '127.0.0.1;127.0.0.5' for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created. |
 | `remote_port` | string | No | - | The remote port to be filtered on. Specify '80' for single port entry, '80-85' for a range and '80;443;' for multiple entries. Multiple ranges and mixing ranges with multiple entries are currently not supported. Changing this forces a new resource to be created. |
-
-### `storage_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
-| `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
 
 
 

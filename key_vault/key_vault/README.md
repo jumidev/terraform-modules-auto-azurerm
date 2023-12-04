@@ -15,7 +15,11 @@ inputs = {
    location = "${location}" 
    resource_group_name = "${resource_group}" 
    sku_name = "sku_name of key_vault" 
-   tenant_id = "tenant_id of key_vault" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {
@@ -52,15 +56,6 @@ tfstate_store = {
 | **contact** | [block](#contact-block-structure) |  -  |  One or more `contact` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `network_acls` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
-| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
-| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
-| `virtual_network_subnet_ids` | list | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
-
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +74,15 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `email` | string | Yes | - | E-mail address of the contact. |
 | `phone` | int | No | - | Phone number of the contact. |
+
+### `network_acls` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
+| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
+| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
+| `virtual_network_subnet_ids` | list | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
 
 
 

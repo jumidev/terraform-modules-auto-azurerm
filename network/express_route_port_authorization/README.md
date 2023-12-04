@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of express_route_port_authorization" 
    resource_group_name = "${resource_group}" 
-   express_route_port_name = "express_route_port_name of express_route_port_authorization" 
+   # express_route_port_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   express_route_port_name = "path/to/express_route_port_component:name" 
 }
 
 tfstate_store = {

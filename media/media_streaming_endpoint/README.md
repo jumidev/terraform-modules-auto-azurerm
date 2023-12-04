@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    location = "${location}" 
-   media_services_account_name = "media_services_account_name of media_streaming_endpoint" 
+   # media_services_account_name → set in tfstate_inputs
    name = "name of media_streaming_endpoint" 
    resource_group_name = "${resource_group}" 
    scale_units = "scale_units of media_streaming_endpoint" 
+}
+
+tfstate_inputs = {
+   media_services_account_name = "path/to/media_services_account_component:name" 
 }
 
 tfstate_store = {
@@ -58,12 +62,13 @@ tfstate_store = {
 | `akamai_signature_header_authentication_key` | [block](#access_control-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
 | `ip_allow` | [block](#access_control-block-structure) | No | - | A 'ip_allow' block. |
 
-### `ip_allow` block structure
+### `akamai_signature_header_authentication_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address to allow. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+| `base64_key` | string | No | - | Authentication key. |
+| `expiration` | string | No | - | The expiration time of the authentication key. |
+| `identifier` | string | No | - | Identifier of the key. |
 
 ### `cross_site_access_policy` block structure
 
@@ -72,13 +77,12 @@ tfstate_store = {
 | `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
 
-### `akamai_signature_header_authentication_key` block structure
+### `ip_allow` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `base64_key` | string | No | - | Authentication key. |
-| `expiration` | string | No | - | The expiration time of the authentication key. |
-| `identifier` | string | No | - | Identifier of the key. |
+| `address` | string | No | - | The IP address to allow. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 
 

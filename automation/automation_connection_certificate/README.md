@@ -13,9 +13,15 @@ source = {
 inputs = {
    name = "name of automation_connection_certificate" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_connection_certificate" 
-   automation_certificate_name = "automation_certificate_name of automation_connection_certificate" 
-   subscription_id = "subscription_id of automation_connection_certificate" 
+   # automation_account_name → set in tfstate_inputs
+   # automation_certificate_name → set in tfstate_inputs
+   # subscription_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
+   automation_certificate_name = "path/to/automation_certificate_component:name" 
+   subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {

@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "name of private_dns_srv_record" 
    resource_group_name = "${resource_group}" 
-   zone_name = "zone_name of private_dns_srv_record" 
+   # zone_name → set in tfstate_inputs
    record = {
       example_record = {
          priority = "..."   
@@ -25,6 +25,10 @@ inputs = {
    }
  
    ttl = "ttl of private_dns_srv_record" 
+}
+
+tfstate_inputs = {
+   zone_name = "path/to/private_dns_zone_component:name" 
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   api_management_name = "api_management_name of api_management_identity_provider_aadb2c" 
+   # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    client_id = "client_id of api_management_identity_provider_aadb2c" 
    client_secret = "client_secret of api_management_identity_provider_aadb2c" 
@@ -20,6 +20,10 @@ inputs = {
    authority = "authority of api_management_identity_provider_aadb2c" 
    signin_policy = "signin_policy of api_management_identity_provider_aadb2c" 
    signup_policy = "signup_policy of api_management_identity_provider_aadb2c" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

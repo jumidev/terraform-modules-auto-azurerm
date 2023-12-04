@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of application_load_balancer_frontend" 
-   application_load_balancer_id = "application_load_balancer_id of application_load_balancer_frontend" 
+   # application_load_balancer_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   application_load_balancer_id = "path/to/application_load_balancer_component:id" 
 }
 
 tfstate_store = {

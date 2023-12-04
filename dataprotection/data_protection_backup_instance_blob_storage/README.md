@@ -14,8 +14,12 @@ inputs = {
    name = "name of data_protection_backup_instance_blob_storage" 
    location = "${location}" 
    vault_id = "vault_id of data_protection_backup_instance_blob_storage" 
-   storage_account_id = "storage_account_id of data_protection_backup_instance_blob_storage" 
+   # storage_account_id → set in tfstate_inputs
    backup_policy_id = "backup_policy_id of data_protection_backup_instance_blob_storage" 
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

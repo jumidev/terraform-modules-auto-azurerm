@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of storage_data_lake_gen2_filesystem" 
-   storage_account_id = "storage_account_id of storage_data_lake_gen2_filesystem" 
+   # storage_account_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

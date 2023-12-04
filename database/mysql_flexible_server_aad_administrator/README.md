@@ -15,7 +15,11 @@ inputs = {
    identity_id = "identity_id of mysql_flexible_server_aad_administrator" 
    login = "login of mysql_flexible_server_aad_administrator" 
    object_id = "object_id of mysql_flexible_server_aad_administrator" 
-   tenant_id = "tenant_id of mysql_flexible_server_aad_administrator" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

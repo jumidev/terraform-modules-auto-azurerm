@@ -12,9 +12,15 @@ source = {
 
 inputs = {
    name = "name of storage_mover_target_endpoint" 
-   storage_mover_id = "storage_mover_id of storage_mover_target_endpoint" 
-   storage_account_id = "storage_account_id of storage_mover_target_endpoint" 
-   storage_container_name = "storage_container_name of storage_mover_target_endpoint" 
+   # storage_mover_id → set in tfstate_inputs
+   # storage_account_id → set in tfstate_inputs
+   # storage_container_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_mover_id = "path/to/storage_mover_component:id" 
+   storage_account_id = "path/to/storage_account_component:id" 
+   storage_container_name = "path/to/storage_container_component:name" 
 }
 
 tfstate_store = {

@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   nginx_deployment_id = "nginx_deployment_id of nginx_configuration" 
+   # nginx_deployment_id → set in tfstate_inputs
    root_file = "root_file of nginx_configuration" 
+}
+
+tfstate_inputs = {
+   nginx_deployment_id = "path/to/nginx_deployment_component:id" 
 }
 
 tfstate_store = {

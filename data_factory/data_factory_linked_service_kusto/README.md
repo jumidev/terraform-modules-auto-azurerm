@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of data_factory_linked_service_kusto" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_kusto" 
+   # data_factory_id → set in tfstate_inputs
    kusto_endpoint = "kusto_endpoint of data_factory_linked_service_kusto" 
-   kusto_database_name = "kusto_database_name of data_factory_linked_service_kusto" 
+   # kusto_database_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
+   kusto_database_name = "path/to/kusto_database_component:name" 
 }
 
 tfstate_store = {

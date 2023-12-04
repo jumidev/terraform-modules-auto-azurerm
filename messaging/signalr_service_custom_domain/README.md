@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of signalr_service_custom_domain" 
    domain_name = "domain_name of signalr_service_custom_domain" 
-   signalr_service_id = "signalr_service_id of signalr_service_custom_domain" 
+   # signalr_service_id → set in tfstate_inputs
    signalr_custom_certificate_id = "signalr_custom_certificate_id of signalr_service_custom_domain" 
+}
+
+tfstate_inputs = {
+   signalr_service_id = "path/to/signalr_service_component:id" 
 }
 
 tfstate_store = {

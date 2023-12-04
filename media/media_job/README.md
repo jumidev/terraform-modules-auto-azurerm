@@ -17,7 +17,7 @@ inputs = {
   
    }
  
-   media_services_account_name = "media_services_account_name of media_job" 
+   # media_services_account_name → set in tfstate_inputs
    name = "name of media_job" 
    output_asset = {
       example_output_asset = {
@@ -27,6 +27,10 @@ inputs = {
  
    resource_group_name = "${resource_group}" 
    transform_name = "transform_name of media_job" 
+}
+
+tfstate_inputs = {
+   media_services_account_name = "path/to/media_services_account_component:name" 
 }
 
 tfstate_store = {

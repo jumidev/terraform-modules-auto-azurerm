@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of machine_learning_synapse_spark" 
-   machine_learning_workspace_id = "machine_learning_workspace_id of machine_learning_synapse_spark" 
+   # machine_learning_workspace_id → set in tfstate_inputs
    location = "${location}" 
-   synapse_spark_pool_id = "synapse_spark_pool_id of machine_learning_synapse_spark" 
+   # synapse_spark_pool_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id" 
+   synapse_spark_pool_id = "path/to/synapse_spark_pool_component:id" 
 }
 
 tfstate_store = {

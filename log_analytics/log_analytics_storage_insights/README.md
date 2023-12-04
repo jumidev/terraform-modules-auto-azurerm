@@ -13,9 +13,14 @@ source = {
 inputs = {
    name = "name of log_analytics_storage_insights" 
    resource_group_name = "${resource_group}" 
-   workspace_id = "workspace_id of log_analytics_storage_insights" 
-   storage_account_id = "storage_account_id of log_analytics_storage_insights" 
+   # workspace_id → set in tfstate_inputs
+   # storage_account_id → set in tfstate_inputs
    storage_account_key = "storage_account_key of log_analytics_storage_insights" 
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of hpc_cache_access_policy" 
-   hpc_cache_id = "hpc_cache_id of hpc_cache_access_policy" 
+   # hpc_cache_id → set in tfstate_inputs
    access_rule = "access_rule of hpc_cache_access_policy" 
+}
+
+tfstate_inputs = {
+   hpc_cache_id = "path/to/hpc_cache_component:id" 
 }
 
 tfstate_store = {

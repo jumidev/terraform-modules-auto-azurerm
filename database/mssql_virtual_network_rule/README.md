@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of mssql_virtual_network_rule" 
-   server_id = "server_id of mssql_virtual_network_rule" 
-   subnet_id = "subnet_id of mssql_virtual_network_rule" 
+   # server_id → set in tfstate_inputs
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   server_id = "path/to/mssql_server_component:id" 
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

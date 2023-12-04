@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   cdn_frontdoor_route_id = "cdn_frontdoor_route_id of cdn_frontdoor_route_disable_link_to_default_domain" 
-   cdn_frontdoor_custom_domain_ids = "cdn_frontdoor_custom_domain_ids of cdn_frontdoor_route_disable_link_to_default_domain" 
+   # cdn_frontdoor_route_id → set in tfstate_inputs
+   # cdn_frontdoor_custom_domain_ids → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   cdn_frontdoor_route_id = "path/to/cdn_frontdoor_route_component:id" 
+   cdn_frontdoor_custom_domain_ids = "path/to/cdn_frontdoor_custom_domain_component:id" 
 }
 
 tfstate_store = {

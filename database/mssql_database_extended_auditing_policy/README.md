@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   database_id = "database_id of mssql_database_extended_auditing_policy" 
+   # database_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   database_id = "path/to/mssql_database_component:id" 
 }
 
 tfstate_store = {

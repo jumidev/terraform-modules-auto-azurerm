@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of network_manager_management_group_connection" 
-   management_group_id = "management_group_id of network_manager_management_group_connection" 
-   network_manager_id = "network_manager_id of network_manager_management_group_connection" 
+   # management_group_id → set in tfstate_inputs
+   # network_manager_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   management_group_id = "path/to/management_group_component:id" 
+   network_manager_id = "path/to/network_manager_component:id" 
 }
 
 tfstate_store = {

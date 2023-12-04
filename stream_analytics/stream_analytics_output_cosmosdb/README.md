@@ -12,10 +12,15 @@ source = {
 
 inputs = {
    name = "name of stream_analytics_output_cosmosdb" 
-   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_output_cosmosdb" 
+   # stream_analytics_job_id → set in tfstate_inputs
    cosmosdb_account_key = "cosmosdb_account_key of stream_analytics_output_cosmosdb" 
-   cosmosdb_sql_database_id = "cosmosdb_sql_database_id of stream_analytics_output_cosmosdb" 
+   # cosmosdb_sql_database_id → set in tfstate_inputs
    container_name = "container_name of stream_analytics_output_cosmosdb" 
+}
+
+tfstate_inputs = {
+   stream_analytics_job_id = "path/to/stream_analytics_job_component:id" 
+   cosmosdb_sql_database_id = "path/to/cosmosdb_sql_database_component:id" 
 }
 
 tfstate_store = {

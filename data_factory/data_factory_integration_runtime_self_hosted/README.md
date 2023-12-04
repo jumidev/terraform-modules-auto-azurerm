@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   data_factory_id = "data_factory_id of data_factory_integration_runtime_self_hosted" 
+   # data_factory_id → set in tfstate_inputs
    name = "name of data_factory_integration_runtime_self_hosted" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

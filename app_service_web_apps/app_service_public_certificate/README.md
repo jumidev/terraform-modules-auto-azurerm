@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   app_service_name = "app_service_name of app_service_public_certificate" 
+   # app_service_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    certificate_name = "certificate_name of app_service_public_certificate" 
    certificate_location = "certificate_location of app_service_public_certificate" 
    blob = "blob of app_service_public_certificate" 
+}
+
+tfstate_inputs = {
+   app_service_name = "path/to/app_service_component:name" 
 }
 
 tfstate_store = {

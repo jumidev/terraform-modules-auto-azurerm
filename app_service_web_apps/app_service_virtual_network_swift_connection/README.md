@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   app_service_id = "app_service_id of app_service_virtual_network_swift_connection" 
-   subnet_id = "subnet_id of app_service_virtual_network_swift_connection" 
+   # app_service_id → set in tfstate_inputs
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   app_service_id = "path/to/app_service_component:id" 
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

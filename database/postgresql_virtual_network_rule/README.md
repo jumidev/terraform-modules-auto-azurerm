@@ -13,8 +13,13 @@ source = {
 inputs = {
    name = "name of postgresql_virtual_network_rule" 
    resource_group_name = "${resource_group}" 
-   server_name = "server_name of postgresql_virtual_network_rule" 
-   subnet_id = "subnet_id of postgresql_virtual_network_rule" 
+   # server_name → set in tfstate_inputs
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   server_name = "path/to/postgresql_server_component:name" 
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

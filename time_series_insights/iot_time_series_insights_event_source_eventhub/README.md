@@ -14,12 +14,17 @@ inputs = {
    name = "name of iot_time_series_insights_event_source_eventhub" 
    environment_id = "environment_id of iot_time_series_insights_event_source_eventhub" 
    location = "${location}" 
-   eventhub_name = "eventhub_name of iot_time_series_insights_event_source_eventhub" 
+   # eventhub_name → set in tfstate_inputs
    consumer_group_name = "consumer_group_name of iot_time_series_insights_event_source_eventhub" 
    event_source_resource_id = "event_source_resource_id of iot_time_series_insights_event_source_eventhub" 
-   namespace_name = "namespace_name of iot_time_series_insights_event_source_eventhub" 
+   # namespace_name → set in tfstate_inputs
    shared_access_key_name = "shared_access_key_name of iot_time_series_insights_event_source_eventhub" 
    shared_access_key = "shared_access_key of iot_time_series_insights_event_source_eventhub" 
+}
+
+tfstate_inputs = {
+   eventhub_name = "path/to/eventhub_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name" 
 }
 
 tfstate_store = {

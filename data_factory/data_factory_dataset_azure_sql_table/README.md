@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of data_factory_dataset_azure_sql_table" 
-   data_factory_id = "data_factory_id of data_factory_dataset_azure_sql_table" 
+   # data_factory_id → set in tfstate_inputs
    linked_service_id = "linked_service_id of data_factory_dataset_azure_sql_table" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

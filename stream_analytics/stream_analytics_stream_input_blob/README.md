@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "name of stream_analytics_stream_input_blob" 
    resource_group_name = "${resource_group}" 
-   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_stream_input_blob" 
+   # stream_analytics_job_name → set in tfstate_inputs
    date_format = "date_format of stream_analytics_stream_input_blob" 
    path_pattern = "path_pattern of stream_analytics_stream_input_blob" 
-   storage_account_name = "storage_account_name of stream_analytics_stream_input_blob" 
+   # storage_account_name → set in tfstate_inputs
    storage_account_key = "storage_account_key of stream_analytics_stream_input_blob" 
-   storage_container_name = "storage_container_name of stream_analytics_stream_input_blob" 
+   # storage_container_name → set in tfstate_inputs
    time_format = "time_format of stream_analytics_stream_input_blob" 
    serialization = {
       example_serialization = {
@@ -27,6 +27,12 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   storage_account_name = "path/to/storage_account_component:name" 
+   storage_container_name = "path/to/storage_container_component:name" 
 }
 
 tfstate_store = {

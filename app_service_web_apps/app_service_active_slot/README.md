@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}" 
-   app_service_name = "app_service_name of app_service_active_slot" 
-   app_service_slot_name = "app_service_slot_name of app_service_active_slot" 
+   # app_service_name → set in tfstate_inputs
+   # app_service_slot_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   app_service_name = "path/to/app_service_component:name" 
+   app_service_slot_name = "path/to/app_service_slot_component:name" 
 }
 
 tfstate_store = {

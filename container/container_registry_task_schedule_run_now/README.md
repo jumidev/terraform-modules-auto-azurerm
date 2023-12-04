@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   container_registry_task_id = "container_registry_task_id of container_registry_task_schedule_run_now" 
+   # container_registry_task_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   container_registry_task_id = "path/to/container_registry_task_component:id" 
 }
 
 tfstate_store = {

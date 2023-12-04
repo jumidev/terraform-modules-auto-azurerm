@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_anomaly_built_in" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    enabled = "enabled of sentinel_alert_rule_anomaly_built_in" 
    mode = "mode of sentinel_alert_rule_anomaly_built_in" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

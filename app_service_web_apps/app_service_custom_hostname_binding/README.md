@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    hostname = "hostname of app_service_custom_hostname_binding" 
-   app_service_name = "app_service_name of app_service_custom_hostname_binding" 
+   # app_service_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   app_service_name = "path/to/app_service_component:name" 
 }
 
 tfstate_store = {

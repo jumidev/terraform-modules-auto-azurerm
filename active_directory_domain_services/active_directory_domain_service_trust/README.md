@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   domain_service_id = "domain_service_id of active_directory_domain_service_trust" 
+   # domain_service_id → set in tfstate_inputs
    name = "name of active_directory_domain_service_trust" 
    password = "password of active_directory_domain_service_trust" 
    trusted_domain_dns_ips = "trusted_domain_dns_ips of active_directory_domain_service_trust" 
    trusted_domain_fqdn = "trusted_domain_fqdn of active_directory_domain_service_trust" 
+}
+
+tfstate_inputs = {
+   domain_service_id = "path/to/active_directory_domain_service_component:id" 
 }
 
 tfstate_store = {

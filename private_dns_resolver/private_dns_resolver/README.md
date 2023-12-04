@@ -14,7 +14,11 @@ inputs = {
    name = "name of private_dns_resolver" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   virtual_network_id = "virtual_network_id of private_dns_resolver" 
+   # virtual_network_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_network_id = "path/to/virtual_network_component:id" 
 }
 
 tfstate_store = {

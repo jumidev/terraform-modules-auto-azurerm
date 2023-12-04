@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   backend_address_pool_id = "backend_address_pool_id of lb_backend_address_pool_address" 
+   # backend_address_pool_id → set in tfstate_inputs
    name = "name of lb_backend_address_pool_address" 
+}
+
+tfstate_inputs = {
+   backend_address_pool_id = "path/to/lb_backend_address_pool_component:id" 
 }
 
 tfstate_store = {

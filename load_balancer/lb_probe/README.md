@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of lb_probe" 
-   loadbalancer_id = "loadbalancer_id of lb_probe" 
+   # loadbalancer_id → set in tfstate_inputs
    port = "port of lb_probe" 
+}
+
+tfstate_inputs = {
+   loadbalancer_id = "path/to/lb_component:id" 
 }
 
 tfstate_store = {

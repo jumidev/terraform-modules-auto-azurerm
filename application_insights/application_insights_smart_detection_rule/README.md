@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of application_insights_smart_detection_rule" 
-   application_insights_id = "application_insights_id of application_insights_smart_detection_rule" 
+   # application_insights_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   application_insights_id = "path/to/application_insights_component:id" 
 }
 
 tfstate_store = {

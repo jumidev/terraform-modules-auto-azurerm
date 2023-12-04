@@ -13,10 +13,15 @@ source = {
 inputs = {
    name = "name of lb_nat_rule" 
    resource_group_name = "${resource_group}" 
-   loadbalancer_id = "loadbalancer_id of lb_nat_rule" 
-   frontend_ip_configuration_name = "frontend_ip_configuration_name of lb_nat_rule" 
+   # loadbalancer_id → set in tfstate_inputs
+   # frontend_ip_configuration_name → set in tfstate_inputs
    protocol = "protocol of lb_nat_rule" 
    backend_port = "backend_port of lb_nat_rule" 
+}
+
+tfstate_inputs = {
+   loadbalancer_id = "path/to/lb_component:id" 
+   frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration" 
 }
 
 tfstate_store = {

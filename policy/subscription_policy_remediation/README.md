@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of subscription_policy_remediation" 
-   subscription_id = "subscription_id of subscription_policy_remediation" 
+   # subscription_id → set in tfstate_inputs
    policy_assignment_id = "policy_assignment_id of subscription_policy_remediation" 
+}
+
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {

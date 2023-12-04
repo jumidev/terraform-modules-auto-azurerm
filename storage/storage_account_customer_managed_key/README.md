@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   storage_account_id = "storage_account_id of storage_account_customer_managed_key" 
+   # storage_account_id → set in tfstate_inputs
    key_name = "key_name of storage_account_customer_managed_key" 
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

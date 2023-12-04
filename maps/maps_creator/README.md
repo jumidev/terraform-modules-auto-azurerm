@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of maps_creator" 
-   maps_account_id = "maps_account_id of maps_creator" 
+   # maps_account_id → set in tfstate_inputs
    location = "${location}" 
    storage_units = "storage_units of maps_creator" 
+}
+
+tfstate_inputs = {
+   maps_account_id = "path/to/maps_account_component:id" 
 }
 
 tfstate_store = {

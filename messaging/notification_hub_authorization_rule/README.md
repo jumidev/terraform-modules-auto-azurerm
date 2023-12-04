@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of notification_hub_authorization_rule" 
-   notification_hub_name = "notification_hub_name of notification_hub_authorization_rule" 
-   namespace_name = "namespace_name of notification_hub_authorization_rule" 
+   # notification_hub_name → set in tfstate_inputs
+   # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   notification_hub_name = "path/to/notification_hub_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name" 
 }
 
 tfstate_store = {

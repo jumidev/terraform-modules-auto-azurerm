@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of machine_learning_compute_cluster" 
-   machine_learning_workspace_id = "machine_learning_workspace_id of machine_learning_compute_cluster" 
+   # machine_learning_workspace_id → set in tfstate_inputs
    location = "${location}" 
    vm_priority = "vm_priority of machine_learning_compute_cluster" 
    vm_size = "vm_size of machine_learning_compute_cluster" 
@@ -25,6 +25,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id" 
 }
 
 tfstate_store = {
@@ -59,14 +63,6 @@ tfstate_store = {
 | **subnet_resource_id** | string |  -  |  The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
-### `ssh` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created. |
-| `admin_password` | string | No | - | Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
-| `key_value` | string | No | - | SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
-
 ### `scale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,6 +77,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created. |
+
+### `ssh` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created. |
+| `admin_password` | string | No | - | Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
+| `key_value` | string | No | - | SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
 
 
 

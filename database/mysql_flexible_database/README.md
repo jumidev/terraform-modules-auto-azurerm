@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of mysql_flexible_database" 
-   server_name = "server_name of mysql_flexible_database" 
+   # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    charset = "charset of mysql_flexible_database" 
    collation = "collation of mysql_flexible_database" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/mysql_flexible_server_component:name" 
 }
 
 tfstate_store = {

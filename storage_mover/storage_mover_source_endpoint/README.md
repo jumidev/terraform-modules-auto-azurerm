@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of storage_mover_source_endpoint" 
-   storage_mover_id = "storage_mover_id of storage_mover_source_endpoint" 
+   # storage_mover_id → set in tfstate_inputs
    host = "host of storage_mover_source_endpoint" 
+}
+
+tfstate_inputs = {
+   storage_mover_id = "path/to/storage_mover_component:id" 
 }
 
 tfstate_store = {

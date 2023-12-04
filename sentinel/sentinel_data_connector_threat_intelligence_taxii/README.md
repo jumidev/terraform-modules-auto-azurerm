@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_data_connector_threat_intelligence_taxii" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    name = "name of sentinel_data_connector_threat_intelligence_taxii" 
    display_name = "display_name of sentinel_data_connector_threat_intelligence_taxii" 
    api_root_url = "api_root_url of sentinel_data_connector_threat_intelligence_taxii" 
    collection_id = "collection_id of sentinel_data_connector_threat_intelligence_taxii" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

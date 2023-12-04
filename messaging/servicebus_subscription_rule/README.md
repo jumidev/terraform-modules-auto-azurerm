@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of servicebus_subscription_rule" 
-   subscription_id = "subscription_id of servicebus_subscription_rule" 
+   # subscription_id → set in tfstate_inputs
    filter_type = "filter_type of servicebus_subscription_rule" 
+}
+
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {

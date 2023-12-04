@@ -16,9 +16,15 @@ inputs = {
    resource_group_name = "${resource_group}" 
    cluster_name = "cluster_name of kusto_eventgrid_data_connection" 
    database_name = "database_name of kusto_eventgrid_data_connection" 
-   storage_account_id = "storage_account_id of kusto_eventgrid_data_connection" 
-   eventhub_id = "eventhub_id of kusto_eventgrid_data_connection" 
-   eventhub_consumer_group_name = "eventhub_consumer_group_name of kusto_eventgrid_data_connection" 
+   # storage_account_id → set in tfstate_inputs
+   # eventhub_id → set in tfstate_inputs
+   # eventhub_consumer_group_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
+   eventhub_id = "path/to/eventhub_component:id" 
+   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name" 
 }
 
 tfstate_store = {

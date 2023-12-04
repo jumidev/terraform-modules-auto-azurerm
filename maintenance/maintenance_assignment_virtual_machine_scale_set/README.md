@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    location = "${location}" 
-   maintenance_configuration_id = "maintenance_configuration_id of maintenance_assignment_virtual_machine_scale_set" 
-   virtual_machine_scale_set_id = "virtual_machine_scale_set_id of maintenance_assignment_virtual_machine_scale_set" 
+   # maintenance_configuration_id → set in tfstate_inputs
+   # virtual_machine_scale_set_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   maintenance_configuration_id = "path/to/maintenance_configuration_component:id" 
+   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id" 
 }
 
 tfstate_store = {

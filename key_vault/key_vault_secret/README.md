@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of key_vault_secret" 
    value = "value of key_vault_secret" 
-   key_vault_id = "key_vault_id of key_vault_secret" 
+   # key_vault_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   key_vault_id = "path/to/key_vault_component:id" 
 }
 
 tfstate_store = {

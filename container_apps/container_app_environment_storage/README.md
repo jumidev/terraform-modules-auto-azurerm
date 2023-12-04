@@ -12,11 +12,15 @@ source = {
 
 inputs = {
    name = "name of container_app_environment_storage" 
-   container_app_environment_id = "container_app_environment_id of container_app_environment_storage" 
+   # container_app_environment_id → set in tfstate_inputs
    account_name = "account_name of container_app_environment_storage" 
    access_key = "access_key of container_app_environment_storage" 
    share_name = "share_name of container_app_environment_storage" 
    access_mode = "access_mode of container_app_environment_storage" 
+}
+
+tfstate_inputs = {
+   container_app_environment_id = "path/to/container_app_environment_component:id" 
 }
 
 tfstate_store = {

@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of storage_sync_cloud_endpoint" 
-   storage_sync_group_id = "storage_sync_group_id of storage_sync_cloud_endpoint" 
+   # storage_sync_group_id → set in tfstate_inputs
    file_share_name = "file_share_name of storage_sync_cloud_endpoint" 
-   storage_account_id = "storage_account_id of storage_sync_cloud_endpoint" 
+   # storage_account_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_sync_group_id = "path/to/storage_sync_group_component:id" 
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

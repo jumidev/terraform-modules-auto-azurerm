@@ -12,11 +12,16 @@ source = {
 
 inputs = {
    name = "name of shared_image_version" 
-   gallery_name = "gallery_name of shared_image_version" 
-   image_name = "image_name of shared_image_version" 
+   # gallery_name → set in tfstate_inputs
+   # image_name → set in tfstate_inputs
    location = "${location}" 
    resource_group_name = "${resource_group}" 
    target_region = "target_region of shared_image_version" 
+}
+
+tfstate_inputs = {
+   gallery_name = "path/to/shared_image_gallery_component:name" 
+   image_name = "path/to/image_component:name" 
 }
 
 tfstate_store = {

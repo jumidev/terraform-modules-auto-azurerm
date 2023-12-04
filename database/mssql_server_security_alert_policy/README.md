@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}" 
-   server_name = "server_name of mssql_server_security_alert_policy" 
+   # server_name → set in tfstate_inputs
    state = "state of mssql_server_security_alert_policy" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/mssql_server_component:name" 
 }
 
 tfstate_store = {

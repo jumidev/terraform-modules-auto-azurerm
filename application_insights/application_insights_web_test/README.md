@@ -13,11 +13,15 @@ source = {
 inputs = {
    name = "name of application_insights_web_test" 
    resource_group_name = "${resource_group}" 
-   application_insights_id = "application_insights_id of application_insights_web_test" 
+   # application_insights_id → set in tfstate_inputs
    location = "${location}" 
    kind = "kind of application_insights_web_test" 
    geo_locations = "geo_locations of application_insights_web_test" 
    configuration = "configuration of application_insights_web_test" 
+}
+
+tfstate_inputs = {
+   application_insights_id = "path/to/application_insights_component:id" 
 }
 
 tfstate_store = {

@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   batch_pool_id = "batch_pool_id of batch_job" 
+   # batch_pool_id → set in tfstate_inputs
    name = "name of batch_job" 
+}
+
+tfstate_inputs = {
+   batch_pool_id = "path/to/batch_pool_component:id" 
 }
 
 tfstate_store = {

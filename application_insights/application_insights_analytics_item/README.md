@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of application_insights_analytics_item" 
-   application_insights_id = "application_insights_id of application_insights_analytics_item" 
+   # application_insights_id → set in tfstate_inputs
    type = "type of application_insights_analytics_item" 
    scope = "scope of application_insights_analytics_item" 
    content = "content of application_insights_analytics_item" 
+}
+
+tfstate_inputs = {
+   application_insights_id = "path/to/application_insights_component:id" 
 }
 
 tfstate_store = {

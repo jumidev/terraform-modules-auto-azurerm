@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of subscription_policy_exemption" 
-   subscription_id = "subscription_id of subscription_policy_exemption" 
+   # subscription_id → set in tfstate_inputs
    exemption_category = "exemption_category of subscription_policy_exemption" 
    policy_assignment_id = "policy_assignment_id of subscription_policy_exemption" 
+}
+
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {

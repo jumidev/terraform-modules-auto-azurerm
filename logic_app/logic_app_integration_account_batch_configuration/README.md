@@ -47,17 +47,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **metadata** | string |  A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration. | 
 
-### `recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
-| `interval` | int | Yes | - | The number of 'frequency's between runs. |
-| `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
-| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
-| `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
-| `time_zone` | string | No | - | The timezone of the start/end time. |
-
 ### `release_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +71,17 @@ tfstate_store = {
 | `month_days` | int | No | - | A list of days of the month that the job should execute on. |
 | `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block. |
 | `week_days` | string | No | - | A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+
+### `recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
+| `interval` | int | Yes | - | The number of 'frequency's between runs. |
+| `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
+| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
+| `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
+| `time_zone` | string | No | - | The timezone of the start/end time. |
 
 
 

@@ -11,10 +11,14 @@ source = {
 }
 
 inputs = {
-   api_management_name = "api_management_name of api_management_identity_provider_facebook" 
+   # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    app_id = "app_id of api_management_identity_provider_facebook" 
    app_secret = "app_secret of api_management_identity_provider_facebook" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

@@ -11,12 +11,16 @@ source = {
 }
 
 inputs = {
-   automation_account_id = "automation_account_id of automation_watcher" 
+   # automation_account_id → set in tfstate_inputs
    name = "name of automation_watcher" 
    execution_frequency_in_seconds = "execution_frequency_in_seconds of automation_watcher" 
    location = "${location}" 
    script_name = "script_name of automation_watcher" 
    script_run_on = "script_run_on of automation_watcher" 
+}
+
+tfstate_inputs = {
+   automation_account_id = "path/to/automation_account_component:id" 
 }
 
 tfstate_store = {

@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of signalr_shared_private_link" 
-   signalr_service_id = "signalr_service_id of signalr_shared_private_link" 
+   # signalr_service_id → set in tfstate_inputs
    sub_resource_name = "sub_resource_name of signalr_shared_private_link" 
-   target_resource_id = "target_resource_id of signalr_shared_private_link" 
+   # target_resource_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   signalr_service_id = "path/to/signalr_service_component:id" 
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

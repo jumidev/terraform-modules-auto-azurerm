@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of iothub_consumer_group" 
-   iothub_name = "iothub_name of iothub_consumer_group" 
+   # iothub_name → set in tfstate_inputs
    eventhub_endpoint_name = "eventhub_endpoint_name of iothub_consumer_group" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   iothub_name = "path/to/iothub_component:name" 
 }
 
 tfstate_store = {

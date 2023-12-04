@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of automation_credential" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_credential" 
+   # automation_account_name → set in tfstate_inputs
    username = "username of automation_credential" 
    password = "password of automation_credential" 
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
 }
 
 tfstate_store = {

@@ -13,8 +13,8 @@ source = {
 inputs = {
    name = "name of stream_analytics_output_servicebus_queue" 
    resource_group_name = "${resource_group}" 
-   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_servicebus_queue" 
-   queue_name = "queue_name of stream_analytics_output_servicebus_queue" 
+   # stream_analytics_job_name → set in tfstate_inputs
+   # queue_name → set in tfstate_inputs
    servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_queue" 
    serialization = {
       example_serialization = {
@@ -23,6 +23,11 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   queue_name = "path/to/servicebus_queue_component:name" 
 }
 
 tfstate_store = {

@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    template_name = "template_name of api_management_email_template" 
-   api_management_name = "api_management_name of api_management_email_template" 
+   # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    subject = "subject of api_management_email_template" 
    body = "body of api_management_email_template" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

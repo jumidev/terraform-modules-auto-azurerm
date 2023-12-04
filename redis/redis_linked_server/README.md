@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   linked_redis_cache_id = "linked_redis_cache_id of redis_linked_server" 
+   # linked_redis_cache_id → set in tfstate_inputs
    linked_redis_cache_location = "linked_redis_cache_location of redis_linked_server" 
    target_redis_cache_name = "target_redis_cache_name of redis_linked_server" 
    resource_group_name = "${resource_group}" 
    server_role = "server_role of redis_linked_server" 
+}
+
+tfstate_inputs = {
+   linked_redis_cache_id = "path/to/redis_cache_component:id" 
 }
 
 tfstate_store = {

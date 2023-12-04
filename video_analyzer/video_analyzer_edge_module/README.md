@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of video_analyzer_edge_module" 
    resource_group_name = "${resource_group}" 
-   video_analyzer_name = "video_analyzer_name of video_analyzer_edge_module" 
+   # video_analyzer_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   video_analyzer_name = "path/to/video_analyzer_component:name" 
 }
 
 tfstate_store = {

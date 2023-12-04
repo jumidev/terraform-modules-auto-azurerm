@@ -14,8 +14,12 @@ inputs = {
    name = "name of express_route_gateway" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   virtual_hub_id = "virtual_hub_id of express_route_gateway" 
+   # virtual_hub_id → set in tfstate_inputs
    scale_units = "scale_units of express_route_gateway" 
+}
+
+tfstate_inputs = {
+   virtual_hub_id = "path/to/virtual_hub_component:id" 
 }
 
 tfstate_store = {

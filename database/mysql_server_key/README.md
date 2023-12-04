@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    server_id = "server_id of mysql_server_key" 
-   key_vault_key_id = "key_vault_key_id of mysql_server_key" 
+   # key_vault_key_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   key_vault_key_id = "path/to/key_vault_key_component:id" 
 }
 
 tfstate_store = {

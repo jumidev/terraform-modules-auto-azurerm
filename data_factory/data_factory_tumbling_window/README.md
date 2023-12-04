@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of data_factory_tumbling_window" 
-   data_factory_id = "data_factory_id of data_factory_tumbling_window" 
+   # data_factory_id → set in tfstate_inputs
    frequency = "frequency of data_factory_tumbling_window" 
    interval = "interval of data_factory_tumbling_window" 
    pipeline = {
@@ -22,6 +22,10 @@ inputs = {
    }
  
    start_time = "start_time of data_factory_tumbling_window" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {
@@ -57,13 +61,6 @@ tfstate_store = {
 | **retry** | [block](#retry-block-structure) |  -  |  -  |  A `retry` block. | 
 | **trigger_dependency** | [block](#trigger_dependency-block-structure) |  -  |  -  |  One or more `trigger_dependency` block. | 
 
-### `retry` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `count` | int | Yes | - | The maximum retry attempts if the pipeline run failed. |
-| `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
-
 ### `trigger_dependency` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,6 +74,13 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
+
+### `retry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `count` | int | Yes | - | The maximum retry attempts if the pipeline run failed. |
+| `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
 
 
 

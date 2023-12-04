@@ -13,11 +13,17 @@ source = {
 inputs = {
    name = "name of automation_connection_service_principal" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_connection_service_principal" 
+   # automation_account_name → set in tfstate_inputs
    application_id = "application_id of automation_connection_service_principal" 
    certificate_thumbprint = "certificate_thumbprint of automation_connection_service_principal" 
-   subscription_id = "subscription_id of automation_connection_service_principal" 
-   tenant_id = "tenant_id of automation_connection_service_principal" 
+   # subscription_id → set in tfstate_inputs
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
+   subscription_id = "path/to/subscription_component:subscription_id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

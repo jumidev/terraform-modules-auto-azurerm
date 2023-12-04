@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   virtual_network_id = "virtual_network_id of virtual_network_dns_servers" 
+   # virtual_network_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_network_id = "path/to/virtual_network_component:id" 
 }
 
 tfstate_store = {

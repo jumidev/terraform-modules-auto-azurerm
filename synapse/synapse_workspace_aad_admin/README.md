@@ -11,10 +11,15 @@ source = {
 }
 
 inputs = {
-   synapse_workspace_id = "synapse_workspace_id of synapse_workspace_aad_admin" 
+   # synapse_workspace_id → set in tfstate_inputs
    login = "login of synapse_workspace_aad_admin" 
    object_id = "object_id of synapse_workspace_aad_admin" 
-   tenant_id = "tenant_id of synapse_workspace_aad_admin" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

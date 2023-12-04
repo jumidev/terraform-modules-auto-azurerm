@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of mobile_network_site" 
-   mobile_network_id = "mobile_network_id of mobile_network_site" 
+   # mobile_network_id → set in tfstate_inputs
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   mobile_network_id = "path/to/mobile_network_component:id" 
 }
 
 tfstate_store = {

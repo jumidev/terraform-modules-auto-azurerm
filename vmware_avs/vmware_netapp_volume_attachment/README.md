@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of vmware_netapp_volume_attachment" 
-   netapp_volume_id = "netapp_volume_id of vmware_netapp_volume_attachment" 
-   vmware_cluster_id = "vmware_cluster_id of vmware_netapp_volume_attachment" 
+   # netapp_volume_id → set in tfstate_inputs
+   # vmware_cluster_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   netapp_volume_id = "path/to/netapp_volume_component:id" 
+   vmware_cluster_id = "path/to/vmware_cluster_component:id" 
 }
 
 tfstate_store = {

@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of iothub_certificate" 
    resource_group_name = "${resource_group}" 
-   iothub_name = "iothub_name of iothub_certificate" 
+   # iothub_name → set in tfstate_inputs
    certificate_content = "certificate_content of iothub_certificate" 
+}
+
+tfstate_inputs = {
+   iothub_name = "path/to/iothub_component:name" 
 }
 
 tfstate_store = {

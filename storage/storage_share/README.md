@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of storage_share" 
-   storage_account_name = "storage_account_name of storage_share" 
+   # storage_account_name → set in tfstate_inputs
    quota = "quota of storage_share" 
+}
+
+tfstate_inputs = {
+   storage_account_name = "path/to/storage_account_component:name" 
 }
 
 tfstate_store = {
@@ -41,12 +45,6 @@ tfstate_store = {
 | **enabled_protocol** | string |  `SMB`  |  `SMB`, `NFS`  |  The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created. | 
 | **metadata** | string |  -  |  -  |  A mapping of MetaData for this File Share. | 
 
-### `acl` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
-
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,6 +52,12 @@ tfstate_store = {
 | `permissions` | string | Yes | - | The permissions which should be associated with this Shared Identifier. Possible value is combination of 'r' (read), 'w' (write), 'd' (delete), and 'l' (list). |
 | `start` | string | No | - | The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
 | `expiry` | string | No | - | The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
+
+### `acl` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
 
 
 

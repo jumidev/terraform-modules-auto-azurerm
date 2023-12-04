@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of synapse_sql_pool" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_sql_pool" 
+   # synapse_workspace_id → set in tfstate_inputs
    sku_name = "sku_name of synapse_sql_pool" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {

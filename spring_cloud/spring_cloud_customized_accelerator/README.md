@@ -19,7 +19,11 @@ inputs = {
    }
  
    name = "name of spring_cloud_customized_accelerator" 
-   spring_cloud_accelerator_id = "spring_cloud_accelerator_id of spring_cloud_customized_accelerator" 
+   # spring_cloud_accelerator_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   spring_cloud_accelerator_id = "path/to/spring_cloud_accelerator_component:id" 
 }
 
 tfstate_store = {

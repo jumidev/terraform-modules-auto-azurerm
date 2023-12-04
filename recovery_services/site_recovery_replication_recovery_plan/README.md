@@ -44,6 +44,15 @@ tfstate_store = {
 | **boot_recovery_group** | [block](#boot_recovery_group-block-structure) |  One or more `boot_recovery_group` blocks. | 
 | **azure_to_azure_settings** | [block](#azure_to_azure_settings-block-structure) |  An `azure_to_azure_settings` block. | 
 
+### `azure_to_azure_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `primary_zone` | string | No | - | The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `recovery_zone` | string | No | - | The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `primary_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `recovery_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+
 ### `shutdown_recovery_group` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,6 +67,14 @@ tfstate_store = {
 | `pre_action` | [block](#failover_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
 | `post_action` | [block](#failover_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
+### `boot_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
+| `pre_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
+
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,23 +86,6 @@ tfstate_store = {
 | `runbook_id` | string | No | - | Id of runbook. |
 | `manual_action_instruction` | string | No | - | Instructions of manual action. |
 | `script_path` | string | No | - | Path of action script. |
-
-### `boot_recovery_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
-| `pre_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
-### `azure_to_azure_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `primary_zone` | string | No | - | The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
-| `recovery_zone` | string | No | - | The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
-| `primary_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
-| `recovery_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
 
 
 

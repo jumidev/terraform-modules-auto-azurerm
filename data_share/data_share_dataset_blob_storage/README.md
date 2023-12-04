@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of data_share_dataset_blob_storage" 
-   data_share_id = "data_share_id of data_share_dataset_blob_storage" 
+   # data_share_id → set in tfstate_inputs
    container_name = "container_name of data_share_dataset_blob_storage" 
    storage_account = {
       example_storage_account = {
@@ -25,6 +25,7 @@ inputs = {
 }
 
 tfstate_inputs = {
+   data_share_id = "path/to/data_share_component:id" 
    storage_account.example_storage_account.resource_group_name = "path/to/resource_group_component:name" 
    storage_account.example_storage_account.subscription_id = "path/to/subscription_component:subscription_id" 
 }

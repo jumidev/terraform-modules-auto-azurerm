@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of virtual_hub_route_table" 
-   virtual_hub_id = "virtual_hub_id of virtual_hub_route_table" 
+   # virtual_hub_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_hub_id = "path/to/virtual_hub_component:id" 
 }
 
 tfstate_store = {

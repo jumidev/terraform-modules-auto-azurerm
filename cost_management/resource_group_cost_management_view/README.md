@@ -62,21 +62,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
 
-### `kpi` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
-
-### `dataset` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `aggregation` | list | Yes | - | One or more 'aggregation' blocks. |
-| `granularity` | string | Yes | - | The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'. |
-| `grouping` | [block](#dataset-block-structure) | No | - | One or more 'grouping' blocks. |
-| `sorting` | [block](#dataset-block-structure) | No | - | One or more 'sorting' blocks, containing the order by expression to be used in the report |
-
 ### `grouping` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +73,21 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
+
+### `dataset` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aggregation` | list | Yes | - | One or more 'aggregation' blocks. |
+| `granularity` | string | Yes | - | The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'. |
+| `grouping` | [block](#dataset-block-structure) | No | - | One or more 'grouping' blocks. |
+| `sorting` | [block](#dataset-block-structure) | No | - | One or more 'sorting' blocks, containing the order by expression to be used in the report |
+
+### `kpi` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
 
 
 

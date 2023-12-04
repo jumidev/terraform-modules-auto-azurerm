@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    alert_rule_template_guid = "alert_rule_template_guid of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

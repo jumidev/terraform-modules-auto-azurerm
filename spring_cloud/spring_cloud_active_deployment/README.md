@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   spring_cloud_app_id = "spring_cloud_app_id of spring_cloud_active_deployment" 
+   # spring_cloud_app_id → set in tfstate_inputs
    deployment_name = "deployment_name of spring_cloud_active_deployment" 
+}
+
+tfstate_inputs = {
+   spring_cloud_app_id = "path/to/spring_cloud_app_component:id" 
 }
 
 tfstate_store = {

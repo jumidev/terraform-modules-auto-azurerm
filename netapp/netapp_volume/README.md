@@ -18,8 +18,12 @@ inputs = {
    volume_path = "volume_path of netapp_volume" 
    pool_name = "pool_name of netapp_volume" 
    service_level = "service_level of netapp_volume" 
-   subnet_id = "subnet_id of netapp_volume" 
+   # subnet_id → set in tfstate_inputs
    storage_quota_in_gb = "storage_quota_in_gb of netapp_volume" 
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

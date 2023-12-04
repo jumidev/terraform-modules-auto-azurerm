@@ -12,11 +12,15 @@ source = {
 
 inputs = {
    name = "name of mobile_network_sim" 
-   mobile_network_sim_group_id = "mobile_network_sim_group_id of mobile_network_sim" 
+   # mobile_network_sim_group_id → set in tfstate_inputs
    authentication_key = "authentication_key of mobile_network_sim" 
    international_mobile_subscriber_identity = "international_mobile_subscriber_identity of mobile_network_sim" 
    integrated_circuit_card_identifier = "integrated_circuit_card_identifier of mobile_network_sim" 
    operator_key_code = "operator_key_code of mobile_network_sim" 
+}
+
+tfstate_inputs = {
+   mobile_network_sim_group_id = "path/to/mobile_network_sim_group_component:id" 
 }
 
 tfstate_store = {

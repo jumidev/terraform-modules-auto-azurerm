@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of management_group_policy_exemption" 
-   management_group_id = "management_group_id of management_group_policy_exemption" 
+   # management_group_id → set in tfstate_inputs
    exemption_category = "exemption_category of management_group_policy_exemption" 
    policy_assignment_id = "policy_assignment_id of management_group_policy_exemption" 
+}
+
+tfstate_inputs = {
+   management_group_id = "path/to/management_group_component:id" 
 }
 
 tfstate_store = {

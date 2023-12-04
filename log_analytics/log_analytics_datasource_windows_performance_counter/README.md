@@ -13,11 +13,15 @@ source = {
 inputs = {
    name = "name of log_analytics_datasource_windows_performance_counter" 
    resource_group_name = "${resource_group}" 
-   workspace_name = "workspace_name of log_analytics_datasource_windows_performance_counter" 
+   # workspace_name → set in tfstate_inputs
    object_name = "object_name of log_analytics_datasource_windows_performance_counter" 
    instance_name = "instance_name of log_analytics_datasource_windows_performance_counter" 
    counter_name = "counter_name of log_analytics_datasource_windows_performance_counter" 
    interval_seconds = "interval_seconds of log_analytics_datasource_windows_performance_counter" 
+}
+
+tfstate_inputs = {
+   workspace_name = "path/to/log_analytics_workspace_component:name" 
 }
 
 tfstate_store = {

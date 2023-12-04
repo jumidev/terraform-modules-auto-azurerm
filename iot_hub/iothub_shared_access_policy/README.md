@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of iothub_shared_access_policy" 
    resource_group_name = "${resource_group}" 
-   iothub_name = "iothub_name of iothub_shared_access_policy" 
+   # iothub_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   iothub_name = "path/to/iothub_component:name" 
 }
 
 tfstate_store = {

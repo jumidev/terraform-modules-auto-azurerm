@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    principal_id = "principal_id of pim_eligible_role_assignment" 
-   role_definition_id = "role_definition_id of pim_eligible_role_assignment" 
+   # role_definition_id → set in tfstate_inputs
    scope = "scope of pim_eligible_role_assignment" 
+}
+
+tfstate_inputs = {
+   role_definition_id = "path/to/role_definition_component:id" 
 }
 
 tfstate_store = {
@@ -40,12 +44,13 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 | **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 
-### `ticket` block structure
+### `expiration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `number` | string | No | - | The ticket number. |
-| `system` | string | No | - | The ticket system. |
+| `duration_days` | int | No | - | The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created. |
 
 ### `schedule` block structure
 
@@ -54,13 +59,12 @@ tfstate_store = {
 | `expiration` | [block](#schedule-block-structure) | No | - | A 'expiration' block. |
 | `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. |
 
-### `expiration` block structure
+### `ticket` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `duration_days` | int | No | - | The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
-| `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
-| `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `number` | string | No | - | The ticket number. |
+| `system` | string | No | - | The ticket system. |
 
 
 

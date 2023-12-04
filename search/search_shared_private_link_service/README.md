@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of search_shared_private_link_service" 
-   search_service_id = "search_service_id of search_shared_private_link_service" 
+   # search_service_id → set in tfstate_inputs
    subresource_name = "subresource_name of search_shared_private_link_service" 
-   target_resource_id = "target_resource_id of search_shared_private_link_service" 
+   # target_resource_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   search_service_id = "path/to/search_service_component:id" 
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

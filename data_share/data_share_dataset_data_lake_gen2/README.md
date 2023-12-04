@@ -14,7 +14,11 @@ inputs = {
    name = "name of data_share_dataset_data_lake_gen2" 
    share_id = "share_id of data_share_dataset_data_lake_gen2" 
    file_system_name = "file_system_name of data_share_dataset_data_lake_gen2" 
-   storage_account_id = "storage_account_id of data_share_dataset_data_lake_gen2" 
+   # storage_account_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

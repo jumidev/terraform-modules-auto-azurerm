@@ -12,12 +12,18 @@ source = {
 
 inputs = {
    name = "name of healthcare_medtech_service" 
-   workspace_id = "workspace_id of healthcare_medtech_service" 
+   # workspace_id → set in tfstate_inputs
    location = "${location}" 
    eventhub_namespace_name = "eventhub_namespace_name of healthcare_medtech_service" 
-   eventhub_name = "eventhub_name of healthcare_medtech_service" 
-   eventhub_consumer_group_name = "eventhub_consumer_group_name of healthcare_medtech_service" 
+   # eventhub_name → set in tfstate_inputs
+   # eventhub_consumer_group_name → set in tfstate_inputs
    device_mapping_json = "device_mapping_json of healthcare_medtech_service" 
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   eventhub_name = "path/to/eventhub_component:name" 
+   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name" 
 }
 
 tfstate_store = {

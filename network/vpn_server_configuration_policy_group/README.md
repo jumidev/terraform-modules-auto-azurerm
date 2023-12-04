@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of vpn_server_configuration_policy_group" 
-   vpn_server_configuration_id = "vpn_server_configuration_id of vpn_server_configuration_policy_group" 
+   # vpn_server_configuration_id → set in tfstate_inputs
    policy = "policy of vpn_server_configuration_policy_group" 
+}
+
+tfstate_inputs = {
+   vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id" 
 }
 
 tfstate_store = {

@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   server_id = "server_id of mssql_server_transparent_data_encryption" 
+   # server_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   server_id = "path/to/mssql_server_component:id" 
 }
 
 tfstate_store = {

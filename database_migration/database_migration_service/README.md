@@ -14,8 +14,12 @@ inputs = {
    name = "name of database_migration_service" 
    location = "${location}" 
    resource_group_name = "${resource_group}" 
-   subnet_id = "subnet_id of database_migration_service" 
+   # subnet_id → set in tfstate_inputs
    sku_name = "sku_name of database_migration_service" 
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

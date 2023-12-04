@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of sentinel_automation_rule" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_automation_rule" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    display_name = "display_name of sentinel_automation_rule" 
    order = "order of sentinel_automation_rule" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

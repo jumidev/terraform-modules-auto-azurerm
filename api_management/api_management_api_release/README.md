@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of api_management_api_release" 
-   api_id = "api_id of api_management_api_release" 
+   # api_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   api_id = "path/to/api_management_component:id" 
 }
 
 tfstate_store = {

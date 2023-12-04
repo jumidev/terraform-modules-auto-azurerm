@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of network_manager_subscription_connection" 
-   subscription_id = "subscription_id of network_manager_subscription_connection" 
-   network_manager_id = "network_manager_id of network_manager_subscription_connection" 
+   # subscription_id → set in tfstate_inputs
+   # network_manager_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id" 
+   network_manager_id = "path/to/network_manager_component:id" 
 }
 
 tfstate_store = {

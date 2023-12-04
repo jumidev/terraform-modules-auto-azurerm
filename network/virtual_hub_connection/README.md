@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of virtual_hub_connection" 
-   virtual_hub_id = "virtual_hub_id of virtual_hub_connection" 
+   # virtual_hub_id → set in tfstate_inputs
    remote_virtual_network_id = "remote_virtual_network_id of virtual_hub_connection" 
+}
+
+tfstate_inputs = {
+   virtual_hub_id = "path/to/virtual_hub_component:id" 
 }
 
 tfstate_store = {
@@ -39,6 +43,13 @@ tfstate_store = {
 | **internet_security_enabled** | bool |  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `labels` | string | No | - | The list of labels to assign to this route table. |
+| `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
+
 ### `static_vnet_route` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,13 +67,6 @@ tfstate_store = {
 | `propagated_route_table` | [block](#routing-block-structure) | No | - | A 'propagated_route_table' block. |
 | `static_vnet_local_route_override_criteria` | string | No | Contains | The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created. |
 | `static_vnet_route` | [block](#routing-block-structure) | No | - | A 'static_vnet_route' block. |
-
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `labels` | string | No | - | The list of labels to assign to this route table. |
-| `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
 
 
 

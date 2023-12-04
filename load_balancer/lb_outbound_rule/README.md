@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of lb_outbound_rule" 
-   loadbalancer_id = "loadbalancer_id of lb_outbound_rule" 
-   backend_address_pool_id = "backend_address_pool_id of lb_outbound_rule" 
+   # loadbalancer_id → set in tfstate_inputs
+   # backend_address_pool_id → set in tfstate_inputs
    protocol = "protocol of lb_outbound_rule" 
+}
+
+tfstate_inputs = {
+   loadbalancer_id = "path/to/lb_component:id" 
+   backend_address_pool_id = "path/to/lb_backend_address_pool_component:id" 
 }
 
 tfstate_store = {

@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of sentinel_alert_rule_ms_security_incident" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_ms_security_incident" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    display_name = "display_name of sentinel_alert_rule_ms_security_incident" 
    product_filter = "product_filter of sentinel_alert_rule_ms_security_incident" 
    severity_filter = "severity_filter of sentinel_alert_rule_ms_security_incident" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

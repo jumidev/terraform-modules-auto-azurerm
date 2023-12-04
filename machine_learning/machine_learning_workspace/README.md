@@ -14,9 +14,9 @@ inputs = {
    name = "name of machine_learning_workspace" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   application_insights_id = "application_insights_id of machine_learning_workspace" 
-   key_vault_id = "key_vault_id of machine_learning_workspace" 
-   storage_account_id = "storage_account_id of machine_learning_workspace" 
+   # application_insights_id → set in tfstate_inputs
+   # key_vault_id → set in tfstate_inputs
+   # storage_account_id → set in tfstate_inputs
    identity = {
       example_identity = {
          type = "..."   
@@ -24,6 +24,12 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   application_insights_id = "path/to/application_insights_component:id" 
+   key_vault_id = "path/to/key_vault_component:id" 
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

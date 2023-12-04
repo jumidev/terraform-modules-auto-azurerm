@@ -13,10 +13,14 @@ source = {
 inputs = {
    name = "name of iothub_endpoint_cosmosdb_account" 
    resource_group_name = "${resource_group}" 
-   iothub_id = "iothub_id of iothub_endpoint_cosmosdb_account" 
+   # iothub_id → set in tfstate_inputs
    container_name = "container_name of iothub_endpoint_cosmosdb_account" 
    database_name = "database_name of iothub_endpoint_cosmosdb_account" 
    endpoint_uri = "endpoint_uri of iothub_endpoint_cosmosdb_account" 
+}
+
+tfstate_inputs = {
+   iothub_id = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {

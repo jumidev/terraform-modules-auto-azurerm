@@ -13,11 +13,15 @@ source = {
 inputs = {
    operation_id = "operation_id of api_management_api_operation" 
    api_name = "api_name of api_management_api_operation" 
-   api_management_name = "api_management_name of api_management_api_operation" 
+   # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    display_name = "display_name of api_management_api_operation" 
    method = "method of api_management_api_operation" 
    url_template = "url_template of api_management_api_operation" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {
@@ -49,15 +53,6 @@ tfstate_store = {
 | **response** | [block](#response-block-structure) |  One or more `response` blocks. | 
 | **template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
-### `request` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
-| `representation` | [block](#request-block-structure) | No | - | One or more 'representation' blocks. |
-
 ### `response` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,15 +62,14 @@ tfstate_store = {
 | `header` | list | No | - | One or more 'header' blocks. |
 | `representation` | [block](#response-block-structure) | No | - | One or more 'representation' blocks. |
 
-### `representation` block structure
+### `request` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content_type` | string | Yes | - | The Content Type of this representation, such as 'application/json'. |
-| `form_parameter` | list | No | - | One or more 'form_parameter' block. |
-| `example` | list | No | - | One or more 'example' blocks. |
-| `schema_id` | string | No | - | The ID of an API Management Schema which represents this Response. |
-| `type_name` | string | No | - | The Type Name defined by the Schema. |
+| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
+| `representation` | [block](#request-block-structure) | No | - | One or more 'representation' blocks. |
 
 ### `template_parameter` block structure
 
@@ -89,6 +83,16 @@ tfstate_store = {
 | `example` | list | No | - | One or more 'example' blocks. |
 | `schema_id` | string | No | - | The name of the Schema. |
 | `type_name` | string | No | - | The type name defined by the Schema. |
+
+### `representation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_type` | string | Yes | - | The Content Type of this representation, such as 'application/json'. |
+| `form_parameter` | list | No | - | One or more 'form_parameter' block. |
+| `example` | list | No | - | One or more 'example' blocks. |
+| `schema_id` | string | No | - | The ID of an API Management Schema which represents this Response. |
+| `type_name` | string | No | - | The Type Name defined by the Schema. |
 
 
 

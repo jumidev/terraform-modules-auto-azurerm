@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of synapse_spark_pool" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_spark_pool" 
+   # synapse_workspace_id → set in tfstate_inputs
    node_size_family = "node_size_family of synapse_spark_pool" 
    node_size = "node_size of synapse_spark_pool" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {
@@ -54,13 +58,6 @@ tfstate_store = {
 | **spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
 
-### `auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-
 ### `spark_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +77,13 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
+
+### `auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
 
 

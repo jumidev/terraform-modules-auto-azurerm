@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of postgresql_firewall_rule" 
-   server_name = "server_name of postgresql_firewall_rule" 
+   # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    start_ip_address = "start_ip_address of postgresql_firewall_rule" 
    end_ip_address = "end_ip_address of postgresql_firewall_rule" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/postgresql_server_component:name" 
 }
 
 tfstate_store = {

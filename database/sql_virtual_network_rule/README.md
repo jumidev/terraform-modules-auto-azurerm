@@ -14,7 +14,11 @@ inputs = {
    name = "name of sql_virtual_network_rule" 
    resource_group_name = "${resource_group}" 
    server_name = "server_name of sql_virtual_network_rule" 
-   subnet_id = "subnet_id of sql_virtual_network_rule" 
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

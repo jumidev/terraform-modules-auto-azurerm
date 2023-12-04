@@ -12,11 +12,15 @@ source = {
 
 inputs = {
    name = "name of stream_analytics_output_powerbi" 
-   stream_analytics_job_id = "stream_analytics_job_id of stream_analytics_output_powerbi" 
+   # stream_analytics_job_id → set in tfstate_inputs
    dataset = "dataset of stream_analytics_output_powerbi" 
    table = "table of stream_analytics_output_powerbi" 
    group_id = "group_id of stream_analytics_output_powerbi" 
    group_name = "group_name of stream_analytics_output_powerbi" 
+}
+
+tfstate_inputs = {
+   stream_analytics_job_id = "path/to/stream_analytics_job_component:id" 
 }
 
 tfstate_store = {

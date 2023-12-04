@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of api_management_redis_cache" 
-   api_management_id = "api_management_id of api_management_redis_cache" 
+   # api_management_id → set in tfstate_inputs
    connection_string = "connection_string of api_management_redis_cache" 
+}
+
+tfstate_inputs = {
+   api_management_id = "path/to/api_management_component:id" 
 }
 
 tfstate_store = {

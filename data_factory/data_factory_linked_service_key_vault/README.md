@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of data_factory_linked_service_key_vault" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_key_vault" 
-   key_vault_id = "key_vault_id of data_factory_linked_service_key_vault" 
+   # data_factory_id → set in tfstate_inputs
+   # key_vault_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
+   key_vault_id = "path/to/key_vault_component:id" 
 }
 
 tfstate_store = {

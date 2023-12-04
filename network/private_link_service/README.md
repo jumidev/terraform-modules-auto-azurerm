@@ -22,11 +22,12 @@ inputs = {
   
    }
  
-   load_balancer_frontend_ip_configuration_ids = "load_balancer_frontend_ip_configuration_ids of private_link_service" 
+   # load_balancer_frontend_ip_configuration_ids → set in tfstate_inputs
 }
 
 tfstate_inputs = {
    nat_ip_configuration.example_nat_ip_configuration.subnet_id = "path/to/subnet_component:id" 
+   load_balancer_frontend_ip_configuration_ids = "path/to/lb_outbound_rule_component:frontend_ip_configuration" 
 }
 
 tfstate_store = {

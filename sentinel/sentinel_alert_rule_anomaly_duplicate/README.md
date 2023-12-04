@@ -13,9 +13,13 @@ source = {
 inputs = {
    display_name = "display_name of sentinel_alert_rule_anomaly_duplicate" 
    built_in_rule_id = "built_in_rule_id of sentinel_alert_rule_anomaly_duplicate" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_anomaly_duplicate" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    enabled = "enabled of sentinel_alert_rule_anomaly_duplicate" 
    mode = "mode of sentinel_alert_rule_anomaly_duplicate" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {
@@ -45,22 +49,6 @@ tfstate_store = {
 | **prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
 | **threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
 
-### `prioritized_exclude_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the prioritized exclude observation. |
-| `prioritize` | string | No | - | The prioritized value per 'description'. |
-| `exclude` | string | No | - | The excluded value per 'description'. |
-
-### `multi_select_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the multi select observation. |
-| `supported_values` | list | No | - | A list of supported values of the multi select observation. |
-| `values` | list | Yes | - | A list of values of the multi select observation. |
-
 ### `threshold_observation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,6 +65,22 @@ tfstate_store = {
 | `description` | string | No | - | The description of the single select observation. |
 | `supported_values` | list | No | - | A list of supported values of the single select observation. |
 | `value` | string | Yes | - | The value of the multi select observation. |
+
+### `prioritized_exclude_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description of the prioritized exclude observation. |
+| `prioritize` | string | No | - | The prioritized value per 'description'. |
+| `exclude` | string | No | - | The excluded value per 'description'. |
+
+### `multi_select_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description of the multi select observation. |
+| `supported_values` | list | No | - | A list of supported values of the multi select observation. |
+| `values` | list | Yes | - | A list of values of the multi select observation. |
 
 
 

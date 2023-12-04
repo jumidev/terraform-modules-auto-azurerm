@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of media_services_account_filter" 
    resource_group_name = "${resource_group}" 
-   media_services_account_name = "media_services_account_name of media_services_account_filter" 
+   # media_services_account_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   media_services_account_name = "path/to/media_services_account_component:name" 
 }
 
 tfstate_store = {

@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   managed_disk_id = "managed_disk_id of disk_sas_token" 
+   # managed_disk_id → set in tfstate_inputs
    duration_in_seconds = "duration_in_seconds of disk_sas_token" 
    access_level = "access_level of disk_sas_token" 
+}
+
+tfstate_inputs = {
+   managed_disk_id = "path/to/managed_disk_component:id" 
 }
 
 tfstate_store = {

@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of redis_firewall_rule" 
-   redis_cache_name = "redis_cache_name of redis_firewall_rule" 
+   # redis_cache_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    start_ip = "start_ip of redis_firewall_rule" 
    end_ip = "end_ip of redis_firewall_rule" 
+}
+
+tfstate_inputs = {
+   redis_cache_name = "path/to/redis_cache_component:name" 
 }
 
 tfstate_store = {

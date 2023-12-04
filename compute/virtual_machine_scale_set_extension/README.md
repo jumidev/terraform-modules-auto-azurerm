@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of virtual_machine_scale_set_extension" 
-   virtual_machine_scale_set_id = "virtual_machine_scale_set_id of virtual_machine_scale_set_extension" 
+   # virtual_machine_scale_set_id → set in tfstate_inputs
    publisher = "publisher of virtual_machine_scale_set_extension" 
    type = "type of virtual_machine_scale_set_extension" 
    type_handler_version = "type_handler_version of virtual_machine_scale_set_extension" 
+}
+
+tfstate_inputs = {
+   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id" 
 }
 
 tfstate_store = {

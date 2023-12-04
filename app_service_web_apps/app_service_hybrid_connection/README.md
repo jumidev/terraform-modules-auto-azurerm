@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   app_service_name = "app_service_name of app_service_hybrid_connection" 
+   # app_service_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    relay_id = "relay_id of app_service_hybrid_connection" 
    hostname = "hostname of app_service_hybrid_connection" 
    port = "port of app_service_hybrid_connection" 
+}
+
+tfstate_inputs = {
+   app_service_name = "path/to/app_service_component:name" 
 }
 
 tfstate_store = {

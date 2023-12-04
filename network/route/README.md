@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of route" 
    resource_group_name = "${resource_group}" 
-   route_table_name = "route_table_name of route" 
+   # route_table_name → set in tfstate_inputs
    address_prefix = "address_prefix of route" 
    next_hop_type = "next_hop_type of route" 
+}
+
+tfstate_inputs = {
+   route_table_name = "path/to/route_table_component:name" 
 }
 
 tfstate_store = {

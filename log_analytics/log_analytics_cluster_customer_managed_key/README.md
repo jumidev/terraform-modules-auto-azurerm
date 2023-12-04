@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   key_vault_key_id = "key_vault_key_id of log_analytics_cluster_customer_managed_key" 
-   log_analytics_cluster_id = "log_analytics_cluster_id of log_analytics_cluster_customer_managed_key" 
+   # key_vault_key_id → set in tfstate_inputs
+   # log_analytics_cluster_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   key_vault_key_id = "path/to/key_vault_key_component:id" 
+   log_analytics_cluster_id = "path/to/log_analytics_cluster_component:id" 
 }
 
 tfstate_store = {

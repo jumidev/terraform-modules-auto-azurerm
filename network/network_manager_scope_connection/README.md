@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of network_manager_scope_connection" 
-   network_manager_id = "network_manager_id of network_manager_scope_connection" 
+   # network_manager_id → set in tfstate_inputs
    target_scope_id = "target_scope_id of network_manager_scope_connection" 
-   tenant_id = "tenant_id of network_manager_scope_connection" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   network_manager_id = "path/to/network_manager_component:id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

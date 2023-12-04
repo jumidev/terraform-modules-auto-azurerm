@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of dns_caa_record" 
    resource_group_name = "${resource_group}" 
-   zone_name = "zone_name of dns_caa_record" 
+   # zone_name → set in tfstate_inputs
    ttl = "ttl of dns_caa_record" 
+}
+
+tfstate_inputs = {
+   zone_name = "path/to/dns_zone_component:name" 
 }
 
 tfstate_store = {

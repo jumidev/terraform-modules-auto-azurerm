@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of eventhub" 
-   namespace_name = "namespace_name of eventhub" 
+   # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    partition_count = "partition_count of eventhub" 
    message_retention = "message_retention of eventhub" 
+}
+
+tfstate_inputs = {
+   namespace_name = "path/to/eventhub_namespace_component:name" 
 }
 
 tfstate_store = {

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    adb_domain = "adb_domain of data_factory_linked_service_azure_databricks" 
-   data_factory_id = "data_factory_id of data_factory_linked_service_azure_databricks" 
+   # data_factory_id → set in tfstate_inputs
    name = "name of data_factory_linked_service_azure_databricks" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

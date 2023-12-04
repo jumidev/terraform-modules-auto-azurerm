@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of mssql_job_agent" 
    location = "${location}" 
-   database_id = "database_id of mssql_job_agent" 
+   # database_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   database_id = "path/to/mssql_database_component:id" 
 }
 
 tfstate_store = {

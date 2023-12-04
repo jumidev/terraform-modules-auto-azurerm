@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of resource_group_policy_assignment" 
-   policy_definition_id = "policy_definition_id of resource_group_policy_assignment" 
+   # policy_definition_id → set in tfstate_inputs
    resource_group_id = "resource_group_id of resource_group_policy_assignment" 
+}
+
+tfstate_inputs = {
+   policy_definition_id = "path/to/policy_definition_component:id" 
 }
 
 tfstate_store = {
@@ -48,13 +52,6 @@ tfstate_store = {
 | **overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
 | **resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
 
-### `overrides` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
-| `selectors` | [block](#overrides-block-structure) | No | - | One or more 'override_selector' block. |
-
 ### `non_compliance_message` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,6 +65,20 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
 
+### `overrides` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
+| `selectors` | [block](#overrides-block-structure) | No | - | One or more 'override_selector' block. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
+
 ### `resource_selectors` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,13 +91,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
 | `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
-| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
 
 
 

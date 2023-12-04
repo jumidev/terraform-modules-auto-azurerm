@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of cdn_frontdoor_custom_domain" 
-   cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_custom_domain" 
+   # cdn_frontdoor_profile_id → set in tfstate_inputs
    host_name = "host_name of cdn_frontdoor_custom_domain" 
    tls = {
       example_tls = {
@@ -24,6 +24,7 @@ inputs = {
 }
 
 tfstate_inputs = {
+   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id" 
    tls.example_tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id" 
 }
 

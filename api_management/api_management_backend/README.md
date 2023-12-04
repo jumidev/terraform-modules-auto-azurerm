@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of api_management_backend" 
-   api_management_name = "api_management_name of api_management_backend" 
+   # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    protocol = "protocol of api_management_backend" 
    url = "url of api_management_backend" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {
@@ -48,12 +52,32 @@ tfstate_store = {
 | **title** | string |  The title of the backend. | 
 | **tls** | [block](#tls-block-structure) |  A `tls` block. | 
 
+### `credentials` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorization` | [block](#credentials-block-structure) | No | - | An 'authorization' block. |
+| `certificate` | list | No | - | A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service. |
+| `header` | string | No | - | A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API. |
+| `query` | string | No | - | A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API. |
+
 ### `tls` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `validate_certificate_chain` | string | No | - | Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host. |
 | `validate_certificate_name` | string | No | - | Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host. |
+
+### `service_fabric_cluster` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_certificate_thumbprint` | string | No | - | The client certificate thumbprint for the management endpoint. |
+| `client_certificate_id` | string | No | - | The client certificate resource id for the management endpoint. |
+| `management_endpoints` | list | Yes | - | A list of cluster management endpoints. |
+| `max_partition_resolution_retries` | int | Yes | - | The maximum number of retries when attempting resolve the partition. |
+| `server_certificate_thumbprints` | list | No | - | A list of thumbprints of the server certificates of the Service Fabric cluster. |
+| `server_x509_name` | list | No | - | One or more 'server_x509_name' blocks. |
 
 ### `authorization` block structure
 
@@ -69,26 +93,6 @@ tfstate_store = {
 | `password` | string | No | - | The password to connect to the proxy server. |
 | `url` | string | Yes | - | The URL of the proxy server. |
 | `username` | string | Yes | - | The username to connect to the proxy server. |
-
-### `credentials` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorization` | [block](#credentials-block-structure) | No | - | An 'authorization' block. |
-| `certificate` | list | No | - | A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service. |
-| `header` | string | No | - | A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API. |
-| `query` | string | No | - | A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API. |
-
-### `service_fabric_cluster` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_certificate_thumbprint` | string | No | - | The client certificate thumbprint for the management endpoint. |
-| `client_certificate_id` | string | No | - | The client certificate resource id for the management endpoint. |
-| `management_endpoints` | list | Yes | - | A list of cluster management endpoints. |
-| `max_partition_resolution_retries` | int | Yes | - | The maximum number of retries when attempting resolve the partition. |
-| `server_certificate_thumbprints` | list | No | - | A list of thumbprints of the server certificates of the Service Fabric cluster. |
-| `server_x509_name` | list | No | - | One or more 'server_x509_name' blocks. |
 
 
 

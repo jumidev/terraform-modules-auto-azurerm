@@ -14,7 +14,7 @@ inputs = {
    name = "name of application_insights_standard_web_test" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   application_insights_id = "application_insights_id of application_insights_standard_web_test" 
+   # application_insights_id → set in tfstate_inputs
    geo_locations = "geo_locations of application_insights_standard_web_test" 
    request = {
       example_request = {
@@ -23,6 +23,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   application_insights_id = "path/to/application_insights_component:id" 
 }
 
 tfstate_store = {

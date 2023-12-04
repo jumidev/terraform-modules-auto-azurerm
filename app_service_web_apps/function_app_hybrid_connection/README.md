@@ -11,10 +11,14 @@ source = {
 }
 
 inputs = {
-   function_app_id = "function_app_id of function_app_hybrid_connection" 
+   # function_app_id → set in tfstate_inputs
    relay_id = "relay_id of function_app_hybrid_connection" 
    hostname = "hostname of function_app_hybrid_connection" 
    port = "port of function_app_hybrid_connection" 
+}
+
+tfstate_inputs = {
+   function_app_id = "path/to/function_app_component:id" 
 }
 
 tfstate_store = {

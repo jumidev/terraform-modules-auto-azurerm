@@ -11,10 +11,14 @@ source = {
 }
 
 inputs = {
-   container_registry_name = "container_registry_name of container_registry_agent_pool" 
+   # container_registry_name → set in tfstate_inputs
    location = "${location}" 
    name = "name of container_registry_agent_pool" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   container_registry_name = "path/to/container_registry_component:name" 
 }
 
 tfstate_store = {

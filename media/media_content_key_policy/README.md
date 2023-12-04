@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   media_services_account_name = "media_services_account_name of media_content_key_policy" 
+   # media_services_account_name → set in tfstate_inputs
    name = "name of media_content_key_policy" 
    policy_option = {
       example_policy_option = {
@@ -20,6 +20,10 @@ inputs = {
    }
  
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   media_services_account_name = "path/to/media_services_account_component:name" 
 }
 
 tfstate_store = {
@@ -60,6 +64,13 @@ tfstate_store = {
 | `required_claim` | list | No | - | One or more 'required_claim' blocks. |
 | `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
 
+### `offline_rental_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `playback_duration_seconds` | int | No | - | Playback duration. |
+| `storage_duration_seconds` | int | No | - | Storage duration. |
+
 ### `policy_option` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,13 +82,6 @@ tfstate_store = {
 | `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
 | `token_restriction` | [block](#policy_option-block-structure) | No | - | A 'token_restriction' block. |
 | `widevine_configuration_template` | string | No | - | The Widevine template. |
-
-### `offline_rental_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `playback_duration_seconds` | int | No | - | Playback duration. |
-| `storage_duration_seconds` | int | No | - | Storage duration. |
 
 ### `fairplay_configuration` block structure
 

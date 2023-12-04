@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of automation_schedule" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_schedule" 
+   # automation_account_name → set in tfstate_inputs
    frequency = "frequency of automation_schedule" 
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
 }
 
 tfstate_store = {

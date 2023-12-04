@@ -13,9 +13,14 @@ source = {
 inputs = {
    name = "name of stream_analytics_managed_private_endpoint" 
    resource_group_name = "${resource_group}" 
-   stream_analytics_cluster_name = "stream_analytics_cluster_name of stream_analytics_managed_private_endpoint" 
-   target_resource_id = "target_resource_id of stream_analytics_managed_private_endpoint" 
+   # stream_analytics_cluster_name → set in tfstate_inputs
+   # target_resource_id → set in tfstate_inputs
    subresource_name = "subresource_name of stream_analytics_managed_private_endpoint" 
+}
+
+tfstate_inputs = {
+   stream_analytics_cluster_name = "path/to/stream_analytics_cluster_component:name" 
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

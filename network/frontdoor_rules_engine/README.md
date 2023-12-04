@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of frontdoor_rules_engine" 
-   frontdoor_name = "frontdoor_name of frontdoor_rules_engine" 
+   # frontdoor_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   frontdoor_name = "path/to/frontdoor_component:name" 
 }
 
 tfstate_store = {
@@ -39,14 +43,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
-
 ### `match_condition` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -57,6 +53,22 @@ tfstate_store = {
 | `transform` | list | No | - | can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode' |
 | `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
 | `value` | list | No | - | (array) can contain one or more strings. |
+
+### `request_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
+| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
 ### `action` block structure
 
@@ -72,14 +84,6 @@ tfstate_store = {
 | `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
-
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
-| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
 
 

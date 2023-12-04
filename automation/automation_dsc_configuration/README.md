@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of automation_dsc_configuration" 
    resource_group_name = "${resource_group}" 
-   automation_account_name = "automation_account_name of automation_dsc_configuration" 
+   # automation_account_name → set in tfstate_inputs
    content_embedded = "content_embedded of automation_dsc_configuration" 
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
 }
 
 tfstate_store = {

@@ -13,11 +13,15 @@ source = {
 inputs = {
    name = "name of network_security_rule" 
    resource_group_name = "${resource_group}" 
-   network_security_group_name = "network_security_group_name of network_security_rule" 
+   # network_security_group_name → set in tfstate_inputs
    protocol = "protocol of network_security_rule" 
    access = "access of network_security_rule" 
    priority = "priority of network_security_rule" 
    direction = "direction of network_security_rule" 
+}
+
+tfstate_inputs = {
+   network_security_group_name = "path/to/network_security_group_component:name" 
 }
 
 tfstate_store = {

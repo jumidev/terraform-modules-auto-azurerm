@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of servicebus_queue_authorization_rule" 
-   queue_id = "queue_id of servicebus_queue_authorization_rule" 
+   # queue_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   queue_id = "path/to/servicebus_queue_component:id" 
 }
 
 tfstate_store = {

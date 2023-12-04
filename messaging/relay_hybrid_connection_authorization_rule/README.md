@@ -13,8 +13,12 @@ source = {
 inputs = {
    name = "name of relay_hybrid_connection_authorization_rule" 
    hybrid_connection_name = "hybrid_connection_name of relay_hybrid_connection_authorization_rule" 
-   namespace_name = "namespace_name of relay_hybrid_connection_authorization_rule" 
+   # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   namespace_name = "path/to/eventhub_namespace_component:name" 
 }
 
 tfstate_store = {

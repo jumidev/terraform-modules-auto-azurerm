@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   eventhub_namespace_id = "eventhub_namespace_id of eventhub_namespace_customer_managed_key" 
-   key_vault_key_ids = "key_vault_key_ids of eventhub_namespace_customer_managed_key" 
+   # eventhub_namespace_id → set in tfstate_inputs
+   # key_vault_key_ids → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   eventhub_namespace_id = "path/to/eventhub_namespace_component:id" 
+   key_vault_key_ids = "path/to/key_vault_key_component:id" 
 }
 
 tfstate_store = {

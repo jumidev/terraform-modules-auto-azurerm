@@ -14,7 +14,11 @@ inputs = {
    managed_instance_id = "managed_instance_id of mssql_managed_instance_active_directory_administrator" 
    login_username = "login_username of mssql_managed_instance_active_directory_administrator" 
    object_id = "object_id of mssql_managed_instance_active_directory_administrator" 
-   tenant_id = "tenant_id of mssql_managed_instance_active_directory_administrator" 
+   # tenant_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
 }
 
 tfstate_store = {

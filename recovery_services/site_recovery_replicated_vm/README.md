@@ -64,6 +64,13 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  One or more `network_interface` block. | 
 | **multi_vm_group_name** | string |  Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. | 
 
+### `target_disk_encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_encryption_key` | [block](#target_disk_encryption-block-structure) | Yes | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#target_disk_encryption-block-structure) | No | - | A 'key_encryption_key' block. |
+
 ### `managed_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,13 +97,6 @@ tfstate_store = {
 | `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
 | `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
 | `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
-
-### `target_disk_encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | [block](#target_disk_encryption-block-structure) | Yes | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | [block](#target_disk_encryption-block-structure) | No | - | A 'key_encryption_key' block. |
 
 ### `disk_encryption_key` block structure
 

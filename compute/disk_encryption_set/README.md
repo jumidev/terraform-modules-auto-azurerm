@@ -14,7 +14,7 @@ inputs = {
    name = "name of disk_encryption_set" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   key_vault_key_id = "key_vault_key_id of disk_encryption_set" 
+   # key_vault_key_id → set in tfstate_inputs
    identity = {
       example_identity = {
          type = "..."   
@@ -22,6 +22,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   key_vault_key_id = "path/to/key_vault_key_component:id" 
 }
 
 tfstate_store = {

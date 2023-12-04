@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of dedicated_host" 
-   dedicated_host_group_id = "dedicated_host_group_id of dedicated_host" 
+   # dedicated_host_group_id → set in tfstate_inputs
    location = "${location}" 
    sku_name = "sku_name of dedicated_host" 
    platform_fault_domain = "platform_fault_domain of dedicated_host" 
+}
+
+tfstate_inputs = {
+   dedicated_host_group_id = "path/to/dedicated_host_group_component:id" 
 }
 
 tfstate_store = {

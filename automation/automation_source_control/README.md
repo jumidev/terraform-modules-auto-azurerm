@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of automation_source_control" 
-   automation_account_id = "automation_account_id of automation_source_control" 
+   # automation_account_id → set in tfstate_inputs
    folder_path = "folder_path of automation_source_control" 
    repository_url = "repository_url of automation_source_control" 
    security = {
@@ -24,6 +24,10 @@ inputs = {
    }
  
    source_control_type = "source_control_type of automation_source_control" 
+}
+
+tfstate_inputs = {
+   automation_account_id = "path/to/automation_account_component:id" 
 }
 
 tfstate_store = {

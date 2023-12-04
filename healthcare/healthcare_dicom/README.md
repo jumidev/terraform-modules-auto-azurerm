@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of healthcare_dicom" 
-   workspace_id = "workspace_id of healthcare_dicom" 
+   # workspace_id → set in tfstate_inputs
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

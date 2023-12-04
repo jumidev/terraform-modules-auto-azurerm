@@ -11,10 +11,14 @@ source = {
 }
 
 inputs = {
-   network_manager_id = "network_manager_id of network_manager_deployment" 
+   # network_manager_id → set in tfstate_inputs
    location = "${location}" 
    scope_access = "scope_access of network_manager_deployment" 
    configuration_ids = "configuration_ids of network_manager_deployment" 
+}
+
+tfstate_inputs = {
+   network_manager_id = "path/to/network_manager_component:id" 
 }
 
 tfstate_store = {

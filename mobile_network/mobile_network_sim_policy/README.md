@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of mobile_network_sim_policy" 
-   mobile_network_id = "mobile_network_id of mobile_network_sim_policy" 
+   # mobile_network_id → set in tfstate_inputs
    default_slice_id = "default_slice_id of mobile_network_sim_policy" 
    location = "${location}" 
    user_equipment_aggregate_maximum_bit_rate = {
@@ -32,6 +32,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   mobile_network_id = "path/to/mobile_network_component:id" 
 }
 
 tfstate_store = {
@@ -61,6 +65,21 @@ tfstate_store = {
 | **rat_frequency_selection_priority_index** | string |  -  |  RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Sim Policies. | 
 
+### `user_equipment_aggregate_maximum_bit_rate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
+| `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
+
+### `slice` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `data_network` | [block](#slice-block-structure) | Yes | - | An array of 'data_network' block. |
+| `default_data_network_id` | string | Yes | - | The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block. |
+| `slice_id` | string | Yes | - | The ID of the slice that these settings apply to. |
+
 ### `data_network` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,21 +94,6 @@ tfstate_store = {
 | `max_buffered_packets` | int | No | 10 | The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to '10', Must be at least '0', See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions. |
 | `preemption_capability` | string | No | NotPreempt | The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreempt' and 'MayPreempt', Defaults to 'NotPreempt'. |
 | `preemption_vulnerability` | string | No | NotPreemptable | The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreemptable' and 'Preemptable'. Defaults to 'NotPreemptable'. |
-
-### `slice` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data_network` | [block](#slice-block-structure) | Yes | - | An array of 'data_network' block. |
-| `default_data_network_id` | string | Yes | - | The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block. |
-| `slice_id` | string | Yes | - | The ID of the slice that these settings apply to. |
-
-### `user_equipment_aggregate_maximum_bit_rate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
-| `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
 
 ### `session_aggregate_maximum_bit_rate` block structure
 

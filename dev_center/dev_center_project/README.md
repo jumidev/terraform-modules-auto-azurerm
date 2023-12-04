@@ -11,10 +11,14 @@ source = {
 }
 
 inputs = {
-   dev_center_id = "dev_center_id of dev_center_project" 
+   # dev_center_id → set in tfstate_inputs
    location = "${location}" 
    name = "name of dev_center_project" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   dev_center_id = "path/to/dev_center_component:id" 
 }
 
 tfstate_store = {

@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of key_vault_managed_storage_account_sas_token_definition" 
-   managed_storage_account_id = "managed_storage_account_id of key_vault_managed_storage_account_sas_token_definition" 
+   # managed_storage_account_id → set in tfstate_inputs
    sas_template_uri = "sas_template_uri of key_vault_managed_storage_account_sas_token_definition" 
    sas_type = "sas_type of key_vault_managed_storage_account_sas_token_definition" 
    validity_period = "validity_period of key_vault_managed_storage_account_sas_token_definition" 
+}
+
+tfstate_inputs = {
+   managed_storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

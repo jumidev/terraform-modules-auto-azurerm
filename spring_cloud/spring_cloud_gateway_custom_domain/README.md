@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of spring_cloud_gateway_custom_domain" 
-   spring_cloud_gateway_id = "spring_cloud_gateway_id of spring_cloud_gateway_custom_domain" 
+   # spring_cloud_gateway_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   spring_cloud_gateway_id = "path/to/spring_cloud_gateway_component:id" 
 }
 
 tfstate_store = {

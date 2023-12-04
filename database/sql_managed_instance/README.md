@@ -20,7 +20,11 @@ inputs = {
    license_type = "license_type of sql_managed_instance" 
    administrator_login = "administrator_login of sql_managed_instance" 
    administrator_login_password = "administrator_login_password of sql_managed_instance" 
-   subnet_id = "subnet_id of sql_managed_instance" 
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

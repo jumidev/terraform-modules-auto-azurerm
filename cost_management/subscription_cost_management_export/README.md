@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of subscription_cost_management_export" 
-   subscription_id = "subscription_id of subscription_cost_management_export" 
+   # subscription_id → set in tfstate_inputs
    recurrence_type = "recurrence_type of subscription_cost_management_export" 
    recurrence_period_start_date = "recurrence_period_start_date of subscription_cost_management_export" 
    recurrence_period_end_date = "recurrence_period_end_date of subscription_cost_management_export" 
@@ -32,6 +32,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {
@@ -60,19 +64,19 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **active** | bool |  `True`  |  Is the cost management export active? Default is `true`. | 
 
-### `export_data_options` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'. |
-| `time_frame` | string | Yes | - | The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'. |
-
 ### `export_data_storage_location` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_id` | string | Yes | - | The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created. |
 | `root_folder_path` | string | Yes | - | The path of the directory where exports will be uploaded. Changing this forces a new resource to be created. |
+
+### `export_data_options` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'. |
+| `time_frame` | string | Yes | - | The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'. |
 
 
 

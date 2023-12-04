@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of iothub_endpoint_servicebus_queue" 
    resource_group_name = "${resource_group}" 
-   iothub_id = "iothub_id of iothub_endpoint_servicebus_queue" 
+   # iothub_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   iothub_id = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {

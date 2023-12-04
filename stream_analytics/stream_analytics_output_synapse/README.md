@@ -13,12 +13,16 @@ source = {
 inputs = {
    name = "name of stream_analytics_output_synapse" 
    resource_group_name = "${resource_group}" 
-   stream_analytics_job_name = "stream_analytics_job_name of stream_analytics_output_synapse" 
+   # stream_analytics_job_name → set in tfstate_inputs
    server = "server of stream_analytics_output_synapse" 
    database = "database of stream_analytics_output_synapse" 
    user = "user of stream_analytics_output_synapse" 
    password = "password of stream_analytics_output_synapse" 
    table = "table of stream_analytics_output_synapse" 
+}
+
+tfstate_inputs = {
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
 }
 
 tfstate_store = {

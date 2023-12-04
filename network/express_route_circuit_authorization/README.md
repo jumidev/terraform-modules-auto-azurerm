@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of express_route_circuit_authorization" 
    resource_group_name = "${resource_group}" 
-   express_route_circuit_name = "express_route_circuit_name of express_route_circuit_authorization" 
+   # express_route_circuit_name → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   express_route_circuit_name = "path/to/express_route_circuit_component:name" 
 }
 
 tfstate_store = {

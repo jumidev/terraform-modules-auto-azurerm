@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   cognitive_account_id = "cognitive_account_id of cognitive_account_customer_managed_key" 
-   key_vault_key_id = "key_vault_key_id of cognitive_account_customer_managed_key" 
+   # cognitive_account_id → set in tfstate_inputs
+   # key_vault_key_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   cognitive_account_id = "path/to/cognitive_account_component:id" 
+   key_vault_key_id = "path/to/key_vault_key_component:id" 
 }
 
 tfstate_store = {

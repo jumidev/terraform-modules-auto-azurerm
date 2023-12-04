@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of firewall_network_rule_collection" 
-   azure_firewall_name = "azure_firewall_name of firewall_network_rule_collection" 
+   # azure_firewall_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    priority = "priority of firewall_network_rule_collection" 
    action = "action of firewall_network_rule_collection" 
@@ -24,6 +24,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   azure_firewall_name = "path/to/firewall_component:name" 
 }
 
 tfstate_store = {

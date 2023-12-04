@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of mariadb_database" 
-   server_name = "server_name of mariadb_database" 
+   # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    charset = "charset of mariadb_database" 
    collation = "collation of mariadb_database" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/mariadb_server_component:name" 
 }
 
 tfstate_store = {

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}" 
-   virtual_machine_id = "virtual_machine_id of dev_test_global_vm_shutdown_schedule" 
+   # virtual_machine_id → set in tfstate_inputs
    timezone = "timezone of dev_test_global_vm_shutdown_schedule" 
    daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule" 
    notification_settings = {
@@ -22,6 +22,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   virtual_machine_id = "path/to/virtual_machine_component:id" 
 }
 
 tfstate_store = {

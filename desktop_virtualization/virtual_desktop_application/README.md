@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of virtual_desktop_application" 
-   application_group_id = "application_group_id of virtual_desktop_application" 
+   # application_group_id → set in tfstate_inputs
    path = "path of virtual_desktop_application" 
    command_line_argument_policy = "command_line_argument_policy of virtual_desktop_application" 
+}
+
+tfstate_inputs = {
+   application_group_id = "path/to/virtual_desktop_application_group_component:id" 
 }
 
 tfstate_store = {

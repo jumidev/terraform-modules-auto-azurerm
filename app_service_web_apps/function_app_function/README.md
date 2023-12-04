@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of function_app_function" 
-   function_app_id = "function_app_id of function_app_function" 
+   # function_app_id → set in tfstate_inputs
    config_json = "config_json of function_app_function" 
+}
+
+tfstate_inputs = {
+   function_app_id = "path/to/function_app_component:id" 
 }
 
 tfstate_store = {

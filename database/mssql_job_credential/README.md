@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of mssql_job_credential" 
-   job_agent_id = "job_agent_id of mssql_job_credential" 
+   # job_agent_id → set in tfstate_inputs
    username = "username of mssql_job_credential" 
    password = "password of mssql_job_credential" 
+}
+
+tfstate_inputs = {
+   job_agent_id = "path/to/mssql_job_agent_component:id" 
 }
 
 tfstate_store = {

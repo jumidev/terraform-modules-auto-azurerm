@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of log_analytics_datasource_windows_event" 
    resource_group_name = "${resource_group}" 
-   workspace_name = "workspace_name of log_analytics_datasource_windows_event" 
+   # workspace_name → set in tfstate_inputs
    event_log_name = "event_log_name of log_analytics_datasource_windows_event" 
    event_types = "event_types of log_analytics_datasource_windows_event" 
+}
+
+tfstate_inputs = {
+   workspace_name = "path/to/log_analytics_workspace_component:name" 
 }
 
 tfstate_store = {

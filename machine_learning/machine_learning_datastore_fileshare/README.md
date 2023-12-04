@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of machine_learning_datastore_fileshare" 
-   workspace_id = "workspace_id of machine_learning_datastore_fileshare" 
+   # workspace_id → set in tfstate_inputs
    storage_fileshare_id = "storage_fileshare_id of machine_learning_datastore_fileshare" 
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

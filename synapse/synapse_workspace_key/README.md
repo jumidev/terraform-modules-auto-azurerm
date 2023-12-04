@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    customer_managed_key_name = "customer_managed_key_name of synapse_workspace_key" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_workspace_key" 
+   # synapse_workspace_id → set in tfstate_inputs
    active = "active of synapse_workspace_key" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {

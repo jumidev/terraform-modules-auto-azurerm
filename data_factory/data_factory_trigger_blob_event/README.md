@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    name = "name of data_factory_trigger_blob_event" 
-   data_factory_id = "data_factory_id of data_factory_trigger_blob_event" 
-   storage_account_id = "storage_account_id of data_factory_trigger_blob_event" 
+   # data_factory_id → set in tfstate_inputs
+   # storage_account_id → set in tfstate_inputs
    events = "events of data_factory_trigger_blob_event" 
    pipeline = {
       example_pipeline = {
@@ -21,6 +21,11 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

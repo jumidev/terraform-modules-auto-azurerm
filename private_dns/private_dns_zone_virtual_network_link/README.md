@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of private_dns_zone_virtual_network_link" 
-   private_dns_zone_name = "private_dns_zone_name of private_dns_zone_virtual_network_link" 
+   # private_dns_zone_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
-   virtual_network_id = "virtual_network_id of private_dns_zone_virtual_network_link" 
+   # virtual_network_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   private_dns_zone_name = "path/to/private_dns_zone_component:name" 
+   virtual_network_id = "path/to/virtual_network_component:id" 
 }
 
 tfstate_store = {

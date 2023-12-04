@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of data_factory_pipeline" 
-   data_factory_id = "data_factory_id of data_factory_pipeline" 
+   # data_factory_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {

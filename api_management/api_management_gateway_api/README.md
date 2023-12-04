@@ -11,8 +11,13 @@ source = {
 }
 
 inputs = {
-   gateway_id = "gateway_id of api_management_gateway_api" 
-   api_id = "api_id of api_management_gateway_api" 
+   # gateway_id → set in tfstate_inputs
+   # api_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   gateway_id = "path/to/api_management_gateway_component:id" 
+   api_id = "path/to/api_management_component:id" 
 }
 
 tfstate_store = {

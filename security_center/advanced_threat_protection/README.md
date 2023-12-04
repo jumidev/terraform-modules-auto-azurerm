@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   target_resource_id = "target_resource_id of advanced_threat_protection" 
+   # target_resource_id → set in tfstate_inputs
    enabled = "enabled of advanced_threat_protection" 
+}
+
+tfstate_inputs = {
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

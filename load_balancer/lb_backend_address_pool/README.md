@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of lb_backend_address_pool" 
-   loadbalancer_id = "loadbalancer_id of lb_backend_address_pool" 
+   # loadbalancer_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   loadbalancer_id = "path/to/lb_component:id" 
 }
 
 tfstate_store = {

@@ -46,6 +46,16 @@ tfstate_store = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
+### `custom_persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
+| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
+| `share_name` | string | Yes | - | The share name of the Azure File share. |
+| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
+| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
+
 ### `persistent_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,16 +72,6 @@ tfstate_store = {
 | `send_timeout_in_seconds` | int | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
 | `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
 | `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
-
-### `custom_persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
-| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
-| `share_name` | string | Yes | - | The share name of the Azure File share. |
-| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
-| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
 
 ### `identity` block structure
 

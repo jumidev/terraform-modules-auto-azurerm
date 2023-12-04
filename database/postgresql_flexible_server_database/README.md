@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of postgresql_flexible_server_database" 
-   server_id = "server_id of postgresql_flexible_server_database" 
+   # server_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   server_id = "path/to/postgresql_flexible_server_component:id" 
 }
 
 tfstate_store = {

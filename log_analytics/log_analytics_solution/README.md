@@ -15,7 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    workspace_resource_id = "workspace_resource_id of log_analytics_solution" 
-   workspace_name = "workspace_name of log_analytics_solution" 
+   # workspace_name → set in tfstate_inputs
    plan = {
       example_plan = {
          publisher = "..."   
@@ -24,6 +24,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   workspace_name = "path/to/log_analytics_workspace_component:name" 
 }
 
 tfstate_store = {

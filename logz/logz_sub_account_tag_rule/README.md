@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   logz_sub_account_id = "logz_sub_account_id of logz_sub_account_tag_rule" 
+   # logz_sub_account_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   logz_sub_account_id = "path/to/logz_sub_account_component:id" 
 }
 
 tfstate_store = {

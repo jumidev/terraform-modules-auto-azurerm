@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of postgresql_configuration" 
-   server_name = "server_name of postgresql_configuration" 
+   # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    value = "value of postgresql_configuration" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/postgresql_server_component:name" 
 }
 
 tfstate_store = {

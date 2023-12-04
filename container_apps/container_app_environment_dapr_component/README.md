@@ -11,10 +11,14 @@ source = {
 }
 
 inputs = {
-   container_app_environment_id = "container_app_environment_id of container_app_environment_dapr_component" 
+   # container_app_environment_id → set in tfstate_inputs
    name = "name of container_app_environment_dapr_component" 
    component_type = "component_type of container_app_environment_dapr_component" 
    version = "version of container_app_environment_dapr_component" 
+}
+
+tfstate_inputs = {
+   container_app_environment_id = "path/to/container_app_environment_component:id" 
 }
 
 tfstate_store = {

@@ -14,7 +14,11 @@ inputs = {
    name = "name of vpn_gateway" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   virtual_hub_id = "virtual_hub_id of vpn_gateway" 
+   # virtual_hub_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_hub_id = "path/to/virtual_hub_component:id" 
 }
 
 tfstate_store = {

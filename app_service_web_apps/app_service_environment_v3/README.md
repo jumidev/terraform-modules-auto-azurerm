@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "name of app_service_environment_v3" 
    resource_group_name = "subnet_id" 
-   subnet_id = "subnet_id of app_service_environment_v3" 
+   # subnet_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

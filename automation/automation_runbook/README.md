@@ -14,10 +14,14 @@ inputs = {
    name = "name of automation_runbook" 
    resource_group_name = "${resource_group}" 
    location = "${location}" 
-   automation_account_name = "automation_account_name of automation_runbook" 
+   # automation_account_name → set in tfstate_inputs
    runbook_type = "runbook_type of automation_runbook" 
    log_progress = "log_progress of automation_runbook" 
    log_verbose = "log_verbose of automation_runbook" 
+}
+
+tfstate_inputs = {
+   automation_account_name = "path/to/automation_account_component:name" 
 }
 
 tfstate_store = {
@@ -58,15 +62,6 @@ tfstate_store = {
 | `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
 | `value` | string | Yes | - | Specifies the expected hash value of the content. |
 
-### `draft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
-| `content_link` | [block](#draft-block-structure) | No | - | A 'publish_content_link' block. |
-| `output_types` | string | No | - | Specifies the output types of the runbook. |
-| `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
-
 ### `parameters` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,6 +71,15 @@ tfstate_store = {
 | `mandatory` | string | No | - | Whether this parameter is mandatory. |
 | `position` | string | No | - | Specifies the position of the parameter. |
 | `default_value` | string | No | - | Specifies the default value of the parameter. |
+
+### `draft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
+| `content_link` | [block](#draft-block-structure) | No | - | A 'publish_content_link' block. |
+| `output_types` | string | No | - | Specifies the output types of the runbook. |
+| `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
 
 ### `publish_content_link` block structure
 

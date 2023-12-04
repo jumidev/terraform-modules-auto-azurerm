@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "name of storage_share_file" 
-   storage_share_id = "storage_share_id of storage_share_file" 
+   # storage_share_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_share_id = "path/to/storage_share_component:id" 
 }
 
 tfstate_store = {

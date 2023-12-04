@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    iscsi_target_id = "iscsi_target_id of disk_pool_iscsi_target_lun" 
-   disk_pool_managed_disk_attachment_id = "disk_pool_managed_disk_attachment_id of disk_pool_iscsi_target_lun" 
+   # disk_pool_managed_disk_attachment_id → set in tfstate_inputs
    name = "name of disk_pool_iscsi_target_lun" 
+}
+
+tfstate_inputs = {
+   disk_pool_managed_disk_attachment_id = "path/to/disk_pool_managed_disk_attachment_component:id" 
 }
 
 tfstate_store = {

@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of synapse_linked_service" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_linked_service" 
+   # synapse_workspace_id → set in tfstate_inputs
    type = "type of synapse_linked_service" 
    type_properties_json = "type_properties_json of synapse_linked_service" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {

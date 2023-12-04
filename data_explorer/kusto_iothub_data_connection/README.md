@@ -16,9 +16,13 @@ inputs = {
    resource_group_name = "${resource_group}" 
    cluster_name = "cluster_name of kusto_iothub_data_connection" 
    database_name = "database_name of kusto_iothub_data_connection" 
-   iothub_id = "iothub_id of kusto_iothub_data_connection" 
+   # iothub_id → set in tfstate_inputs
    consumer_group = "consumer_group of kusto_iothub_data_connection" 
    shared_access_policy_name = "shared_access_policy_name of kusto_iothub_data_connection" 
+}
+
+tfstate_inputs = {
+   iothub_id = "path/to/iothub_component:id" 
 }
 
 tfstate_store = {

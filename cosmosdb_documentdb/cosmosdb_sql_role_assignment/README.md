@@ -14,8 +14,12 @@ inputs = {
    resource_group_name = "${resource_group}" 
    account_name = "account_name of cosmosdb_sql_role_assignment" 
    principal_id = "principal_id of cosmosdb_sql_role_assignment" 
-   role_definition_id = "role_definition_id of cosmosdb_sql_role_assignment" 
+   # role_definition_id → set in tfstate_inputs
    scope = "scope of cosmosdb_sql_role_assignment" 
+}
+
+tfstate_inputs = {
+   role_definition_id = "path/to/role_definition_component:id" 
 }
 
 tfstate_store = {

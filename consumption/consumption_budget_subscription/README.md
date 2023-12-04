@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of consumption_budget_subscription" 
-   subscription_id = "subscription_id of consumption_budget_subscription" 
+   # subscription_id → set in tfstate_inputs
    amount = "amount of consumption_budget_subscription" 
    time_period = {
       example_time_period = {
@@ -29,6 +29,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {
@@ -56,13 +60,6 @@ tfstate_store = {
 | **time_grain** | string |  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
 | **filter** | [block](#filter-block-structure) |  -  |  -  |  A `filter` block. | 
 
-### `time_period` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created. |
-| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
-
 ### `notification` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,19 +72,26 @@ tfstate_store = {
 | `contact_roles` | string | No | - | Specifies a list of contact roles to send the budget notification to when the threshold is exceeded. |
 | `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
-### `filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dimension` | [block](#filter-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
-| `tag` | [block](#filter-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
-
 ### `tag` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
 | `values` | string | Yes | - | Specifies a list of values for the tag. |
+
+### `time_period` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Subscription Consumption Budget to be created. |
+| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
+
+### `filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dimension` | [block](#filter-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
+| `tag` | [block](#filter-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
 
 ### `dimension` block structure
 

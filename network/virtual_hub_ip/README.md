@@ -12,9 +12,15 @@ source = {
 
 inputs = {
    name = "name of virtual_hub_ip" 
-   virtual_hub_id = "virtual_hub_id of virtual_hub_ip" 
-   subnet_id = "subnet_id of virtual_hub_ip" 
-   public_ip_address_id = "public_ip_address_id of virtual_hub_ip" 
+   # virtual_hub_id → set in tfstate_inputs
+   # subnet_id → set in tfstate_inputs
+   # public_ip_address_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   subnet_id = "path/to/subnet_component:id" 
+   public_ip_address_id = "path/to/public_ip_component:id" 
 }
 
 tfstate_store = {

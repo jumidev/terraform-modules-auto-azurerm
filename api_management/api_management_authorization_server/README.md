@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   api_management_name = "api_management_name of api_management_authorization_server" 
+   # api_management_name → set in tfstate_inputs
    authorization_methods = "authorization_methods of api_management_authorization_server" 
    authorization_endpoint = "authorization_endpoint of api_management_authorization_server" 
    client_id = "client_id of api_management_authorization_server" 
@@ -20,6 +20,10 @@ inputs = {
    grant_types = "grant_types of api_management_authorization_server" 
    name = "name of api_management_authorization_server" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   api_management_name = "path/to/api_management_component:name" 
 }
 
 tfstate_store = {

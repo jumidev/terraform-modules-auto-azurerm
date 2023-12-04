@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "name of synapse_firewall_rule" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_firewall_rule" 
+   # synapse_workspace_id → set in tfstate_inputs
    start_ip_address = "start_ip_address of synapse_firewall_rule" 
    end_ip_address = "end_ip_address of synapse_firewall_rule" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
 }
 
 tfstate_store = {

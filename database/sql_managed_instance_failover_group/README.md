@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of sql_managed_instance_failover_group" 
-   managed_instance_name = "managed_instance_name of sql_managed_instance_failover_group" 
+   # managed_instance_name → set in tfstate_inputs
    location = "${location}" 
    partner_managed_instance_id = "partner_managed_instance_id of sql_managed_instance_failover_group" 
    read_write_endpoint_failover_policy = {
@@ -23,6 +23,10 @@ inputs = {
    }
  
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   managed_instance_name = "path/to/sql_server_component:name" 
 }
 
 tfstate_store = {

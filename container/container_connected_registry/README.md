@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   container_registry_id = "container_registry_id of container_connected_registry" 
+   # container_registry_id → set in tfstate_inputs
    name = "name of container_connected_registry" 
    sync_token_id = "sync_token_id of container_connected_registry" 
+}
+
+tfstate_inputs = {
+   container_registry_id = "path/to/container_registry_component:id" 
 }
 
 tfstate_store = {

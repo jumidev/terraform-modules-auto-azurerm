@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of data_factory_managed_private_endpoint" 
-   data_factory_id = "data_factory_id of data_factory_managed_private_endpoint" 
-   target_resource_id = "target_resource_id of data_factory_managed_private_endpoint" 
+   # data_factory_id → set in tfstate_inputs
+   # target_resource_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

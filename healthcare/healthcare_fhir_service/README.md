@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "name of healthcare_fhir_service" 
    resource_group_name = "${resource_group}" 
-   workspace_id = "workspace_id of healthcare_fhir_service" 
+   # workspace_id → set in tfstate_inputs
    location = "${location}" 
    authentication = {
       example_authentication = {
@@ -23,6 +23,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {
@@ -74,6 +78,13 @@ tfstate_store = {
 | `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
 | `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
+| `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
+
 ### `oci_artifact` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,13 +92,6 @@ tfstate_store = {
 | `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
 | `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
 | `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
-| `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
 
 
 

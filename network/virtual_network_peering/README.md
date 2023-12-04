@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of virtual_network_peering" 
-   virtual_network_name = "virtual_network_name of virtual_network_peering" 
-   remote_virtual_network_id = "remote_virtual_network_id of virtual_network_peering" 
+   # virtual_network_name → set in tfstate_inputs
+   # remote_virtual_network_id → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   virtual_network_name = "path/to/virtual_network_component:name" 
+   remote_virtual_network_id = "path/to/virtual_network_component:id" 
 }
 
 tfstate_store = {

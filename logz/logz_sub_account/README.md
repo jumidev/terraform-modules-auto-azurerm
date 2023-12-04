@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of logz_sub_account" 
-   logz_monitor_id = "logz_monitor_id of logz_sub_account" 
+   # logz_monitor_id → set in tfstate_inputs
    user = {
       example_user = {
          email = "..."   
@@ -23,6 +23,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   logz_monitor_id = "path/to/logz_monitor_component:id" 
 }
 
 tfstate_store = {

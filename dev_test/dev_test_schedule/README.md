@@ -68,12 +68,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `time` | string | Yes | - | The time each day when the schedule takes effect. |
 
-### `hourly_recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
-
 ### `notification_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,6 +75,12 @@ tfstate_store = {
 | `status` | string | No | Disabled | The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled' |
 | `time_in_minutes` | int | No | - | Time in minutes before event at which notification will be sent. |
 | `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
+
+### `hourly_recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
 
 

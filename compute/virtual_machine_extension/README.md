@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of virtual_machine_extension" 
-   virtual_machine_id = "virtual_machine_id of virtual_machine_extension" 
+   # virtual_machine_id → set in tfstate_inputs
    publisher = "publisher of virtual_machine_extension" 
    type = "type of virtual_machine_extension" 
    type_handler_version = "type_handler_version of virtual_machine_extension" 
+}
+
+tfstate_inputs = {
+   virtual_machine_id = "path/to/virtual_machine_component:id" 
 }
 
 tfstate_store = {

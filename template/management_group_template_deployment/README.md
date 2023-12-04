@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    location = "${location}" 
-   management_group_id = "management_group_id of management_group_template_deployment" 
+   # management_group_id → set in tfstate_inputs
    name = "name of management_group_template_deployment" 
+}
+
+tfstate_inputs = {
+   management_group_id = "path/to/management_group_component:id" 
 }
 
 tfstate_store = {

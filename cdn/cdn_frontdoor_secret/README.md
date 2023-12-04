@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of cdn_frontdoor_secret" 
-   cdn_frontdoor_profile_id = "cdn_frontdoor_profile_id of cdn_frontdoor_secret" 
+   # cdn_frontdoor_profile_id → set in tfstate_inputs
    secret = {
       example_secret = {
          customer_certificate = "..."   
@@ -20,6 +20,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id" 
 }
 
 tfstate_store = {

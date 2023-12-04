@@ -12,9 +12,14 @@ source = {
 
 inputs = {
    name = "name of synapse_managed_private_endpoint" 
-   synapse_workspace_id = "synapse_workspace_id of synapse_managed_private_endpoint" 
-   target_resource_id = "target_resource_id of synapse_managed_private_endpoint" 
+   # synapse_workspace_id → set in tfstate_inputs
+   # target_resource_id → set in tfstate_inputs
    subresource_name = "subresource_name of synapse_managed_private_endpoint" 
+}
+
+tfstate_inputs = {
+   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
+   target_resource_id = "path/to/any_resource_component:id" 
 }
 
 tfstate_store = {

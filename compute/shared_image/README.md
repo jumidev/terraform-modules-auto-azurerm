@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "name of shared_image" 
-   gallery_name = "gallery_name of shared_image" 
+   # gallery_name → set in tfstate_inputs
    resource_group_name = "${resource_group}" 
    location = "${location}" 
    identifier = {
@@ -25,6 +25,10 @@ inputs = {
    }
  
    os_type = "os_type of shared_image" 
+}
+
+tfstate_inputs = {
+   gallery_name = "path/to/shared_image_gallery_component:name" 
 }
 
 tfstate_store = {

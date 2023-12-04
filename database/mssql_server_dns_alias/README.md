@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   mssql_server_id = "mssql_server_id of mssql_server_dns_alias" 
+   # mssql_server_id → set in tfstate_inputs
    name = "name of mssql_server_dns_alias" 
+}
+
+tfstate_inputs = {
+   mssql_server_id = "path/to/mssql_server_component:id" 
 }
 
 tfstate_store = {

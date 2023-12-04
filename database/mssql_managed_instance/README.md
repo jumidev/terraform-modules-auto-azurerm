@@ -19,8 +19,12 @@ inputs = {
    resource_group_name = "${resource_group}" 
    sku_name = "sku_name of mssql_managed_instance" 
    storage_size_in_gb = "storage_size_in_gb of mssql_managed_instance" 
-   subnet_id = "subnet_id of mssql_managed_instance" 
+   # subnet_id → set in tfstate_inputs
    vcores = "vcores of mssql_managed_instance" 
+}
+
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

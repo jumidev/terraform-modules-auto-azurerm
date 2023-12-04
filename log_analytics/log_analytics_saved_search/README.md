@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "name of log_analytics_saved_search" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of log_analytics_saved_search" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    display_name = "display_name of log_analytics_saved_search" 
    category = "category of log_analytics_saved_search" 
    query = "query of log_analytics_saved_search" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

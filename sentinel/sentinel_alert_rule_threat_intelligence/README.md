@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of sentinel_alert_rule_threat_intelligence" 
-   log_analytics_workspace_id = "log_analytics_workspace_id of sentinel_alert_rule_threat_intelligence" 
+   # log_analytics_workspace_id → set in tfstate_inputs
    alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_threat_intelligence" 
+}
+
+tfstate_inputs = {
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
 }
 
 tfstate_store = {

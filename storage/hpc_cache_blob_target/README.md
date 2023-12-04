@@ -15,7 +15,11 @@ inputs = {
    name = "name of hpc_cache_blob_target" 
    resource_group_name = "${resource_group}" 
    namespace_path = "namespace_path of hpc_cache_blob_target" 
-   storage_container_id = "storage_container_id of hpc_cache_blob_target" 
+   # storage_container_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_container_id = "path/to/storage_container_component:id" 
 }
 
 tfstate_store = {

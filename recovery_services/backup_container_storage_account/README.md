@@ -13,7 +13,11 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}" 
    recovery_vault_name = "recovery_vault_name of backup_container_storage_account" 
-   storage_account_id = "storage_account_id of backup_container_storage_account" 
+   # storage_account_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {

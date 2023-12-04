@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "name of data_factory_dataset_delimited_text" 
-   data_factory_id = "data_factory_id of data_factory_dataset_delimited_text" 
+   # data_factory_id → set in tfstate_inputs
    linked_service_name = "linked_service_name of data_factory_dataset_delimited_text" 
+}
+
+tfstate_inputs = {
+   data_factory_id = "path/to/data_factory_component:id" 
 }
 
 tfstate_store = {
@@ -72,17 +76,6 @@ tfstate_store = {
 | `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
 | `description` | string | No | - | The description of the column. |
 
-### `azure_blob_fs_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `file_system` | string | No | - | The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file. |
-| `dynamic_file_system_enabled` | bool | No | False | Is the 'file_system' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `path` | string | No | - | The folder path to the file. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `filename` | string | No | - | The filename of the file. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-
 ### `azure_blob_storage_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -92,6 +85,17 @@ tfstate_store = {
 | `filename` | string | No | - | The filename of the file. |
 | `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
+### `azure_blob_fs_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `file_system` | string | No | - | The storage data lake gen2 file system on the Azure Blob Storage Account hosting the file. |
+| `dynamic_file_system_enabled` | bool | No | False | Is the 'file_system' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `path` | string | No | - | The folder path to the file. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `filename` | string | No | - | The filename of the file. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
 

@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "name of sql_firewall_rule" 
    resource_group_name = "${resource_group}" 
-   server_name = "server_name of sql_firewall_rule" 
+   # server_name → set in tfstate_inputs
    start_ip_address = "start_ip_address of sql_firewall_rule" 
    end_ip_address = "end_ip_address of sql_firewall_rule" 
+}
+
+tfstate_inputs = {
+   server_name = "path/to/sql_server_component:name" 
 }
 
 tfstate_store = {

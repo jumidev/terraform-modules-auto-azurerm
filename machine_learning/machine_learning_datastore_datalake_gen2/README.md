@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "name of machine_learning_datastore_datalake_gen2" 
-   workspace_id = "workspace_id of machine_learning_datastore_datalake_gen2" 
-   storage_container_id = "storage_container_id of machine_learning_datastore_datalake_gen2" 
+   # workspace_id → set in tfstate_inputs
+   # storage_container_id → set in tfstate_inputs
+}
+
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   storage_container_id = "path/to/storage_container_component:id" 
 }
 
 tfstate_store = {
