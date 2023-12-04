@@ -57,6 +57,11 @@ tfstate_store = {
 | **threat_types** | string |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
 | **validate_until_utc** | string |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
 
+### `kill_chain_phase` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+
 ### `external_reference` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,11 +70,6 @@ tfstate_store = {
 | `hashes` | string | No | - | The list of hashes of the external reference of the Threat Intelligence Indicator. |
 | `source_name` | string | No | - | The source name of the external reference of the Threat Intelligence Indicator. |
 | `url` | string | No | - | The url of the external reference of the Threat Intelligence Indicator. |
-
-### `kill_chain_phase` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
 
 ### `granular_marking` block structure
 

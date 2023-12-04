@@ -16,8 +16,8 @@ inputs = {
    location = "${location}" 
    scope = {
       example_scope = {
-         management_group_ids = "..."   
-         subscription_ids = "..."   
+         # management_group_ids → set in tfstate_inputs
+         # subscription_ids → set in tfstate_inputs
       }
   
    }

@@ -18,7 +18,7 @@ inputs = {
       example_network_profile = {
          primary = "..."   
          ip_configuration = "..."   
-         network_security_group_id = "..."   
+         # network_security_group_id → set in tfstate_inputs
       }
   
    }
@@ -102,6 +102,67 @@ tfstate_store = {
 | `key_data` | string | No | - | The Public SSH Key which should be written to the 'path' defined above. |
 | `path` | string | Yes | - | The path of the destination file on the virtual machine |
 
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | No | - | Specifies the tier of virtual machines in a scale set. Possible values, 'standard' or 'basic'. |
+| `capacity` | int | Yes | - | Specifies the number of virtual machines in the scale set. |
+
+### `storage_profile_os_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `vhd_containers` | string | No | - | Specifies the VHD URI. Cannot be used when 'image' or 'managed_disk_type' is specified. |
+| `managed_disk_type` | string | No | - | Specifies the type of managed disk to create. Value you must be either 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. Cannot be used when 'vhd_containers' or 'image' is specified. |
+| `create_option` | string | Yes | - | Specifies how the virtual machine should be created. The only possible option is 'FromImage'. |
+| `caching` | string | No | - | Specifies the caching requirements. Possible values include: 'None' (default), 'ReadOnly', 'ReadWrite'. |
+| `image` | string | No | - | Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image. Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them. When setting this field 'os_type' needs to be specified. Cannot be used when 'vhd_containers', 'managed_disk_type' or 'storage_profile_image_reference' are specified. |
+| `os_type` | string | No | - | Specifies the operating system Type, valid values are windows, Linux. |
+
+### `boot_diagnostics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Whether to enable boot diagnostics for the virtual machine. Defaults to 'true'. |
+| `storage_uri` | string | Yes | - | Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the identity type to be assigned to the scale set. Allowable values are 'SystemAssigned' and 'UserAssigned'. For the 'SystemAssigned' identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned to the VMSS. Required if 'type' is 'UserAssigned'. |
+
+### `os_profile_linux_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disable_password_authentication` | bool | No | False | Specifies whether password authentication should be disabled. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `ssh_keys` | [block](#os_profile_linux_config-block-structure) | No | - | One or more 'ssh_keys' blocks. |
+
+### `winrm` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | Specifies the protocol of listener |
+| `certificate_url` | string | No | - | Specifies URL of the certificate with which new Virtual Machines is provisioned. |
+
+### `os_profile_windows_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `provision_vm_agent` | string | No | - | Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set. |
+| `enable_automatic_upgrades` | bool | No | - | Indicates whether virtual machines in the scale set are enabled for automatic updates. |
+| `winrm` | [block](#os_profile_windows_config-block-structure) | No | - | A collection of 'winrm' blocks. |
+| `additional_unattend_config` | [block](#os_profile_windows_config-block-structure) | No | - | An 'additional_unattend_config' block. |
+
+### `dns_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | string | Yes | - | Specifies an array of DNS servers. |
+
 ### `os_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -119,67 +180,6 @@ tfstate_store = {
 | `component` | string | Yes | - | Specifies the name of the component to configure with the added content. The only allowable value is 'Microsoft-Windows-Shell-Setup'. |
 | `setting_name` | string | Yes | - | Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'. |
 | `content` | string | Yes | - | Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component. |
-
-### `dns_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | Yes | - | Specifies an array of DNS servers. |
-
-### `winrm` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | Specifies the protocol of listener |
-| `certificate_url` | string | No | - | Specifies URL of the certificate with which new Virtual Machines is provisioned. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | No | - | Specifies the tier of virtual machines in a scale set. Possible values, 'standard' or 'basic'. |
-| `capacity` | int | Yes | - | Specifies the number of virtual machines in the scale set. |
-
-### `boot_diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether to enable boot diagnostics for the virtual machine. Defaults to 'true'. |
-| `storage_uri` | string | Yes | - | Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container. |
-
-### `os_profile_linux_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disable_password_authentication` | bool | No | False | Specifies whether password authentication should be disabled. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `ssh_keys` | [block](#os_profile_linux_config-block-structure) | No | - | One or more 'ssh_keys' blocks. |
-
-### `storage_profile_os_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `vhd_containers` | string | No | - | Specifies the VHD URI. Cannot be used when 'image' or 'managed_disk_type' is specified. |
-| `managed_disk_type` | string | No | - | Specifies the type of managed disk to create. Value you must be either 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. Cannot be used when 'vhd_containers' or 'image' is specified. |
-| `create_option` | string | Yes | - | Specifies how the virtual machine should be created. The only possible option is 'FromImage'. |
-| `caching` | string | No | - | Specifies the caching requirements. Possible values include: 'None' (default), 'ReadOnly', 'ReadWrite'. |
-| `image` | string | No | - | Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image. Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them. When setting this field 'os_type' needs to be specified. Cannot be used when 'vhd_containers', 'managed_disk_type' or 'storage_profile_image_reference' are specified. |
-| `os_type` | string | No | - | Specifies the operating system Type, valid values are windows, Linux. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type to be assigned to the scale set. Allowable values are 'SystemAssigned' and 'UserAssigned'. For the 'SystemAssigned' identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned to the VMSS. Required if 'type' is 'UserAssigned'. |
-
-### `os_profile_windows_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `provision_vm_agent` | string | No | - | Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set. |
-| `enable_automatic_upgrades` | bool | No | - | Indicates whether virtual machines in the scale set are enabled for automatic updates. |
-| `winrm` | [block](#os_profile_windows_config-block-structure) | No | - | A collection of 'winrm' blocks. |
-| `additional_unattend_config` | [block](#os_profile_windows_config-block-structure) | No | - | An 'additional_unattend_config' block. |
 
 ### `ip_configuration` block structure
 

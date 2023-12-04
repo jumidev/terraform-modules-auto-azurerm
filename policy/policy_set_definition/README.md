@@ -16,7 +16,7 @@ inputs = {
    display_name = "display_name of policy_set_definition" 
    policy_definition_reference = {
       example_policy_definition_reference = {
-         policy_definition_id = "..."   
+         # policy_definition_id → set in tfstate_inputs
       }
   
    }
@@ -54,15 +54,6 @@ tfstate_store = {
 | **metadata** | string |  The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition. | 
 | **parameters** | string |  Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition. | 
 
-### `policy_definition_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `display_name` | string | No | - | The display name of this policy definition group. |
-| `category` | string | No | - | The category of this policy definition group. |
-| `description` | string | No | - | The description of this policy definition group. |
-| `additional_metadata_resource_id` | string | No | - | The ID of a resource that contains additional metadata about this policy definition group. |
-
 ### `policy_definition_reference` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,6 +62,15 @@ tfstate_store = {
 | `parameter_values` | string | No | - | Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule. |
 | `reference_id` | string | No | - | A unique ID within this policy set definition for this policy definition reference. |
 | `policy_group_names` | list | No | - | A list of names of the policy definition groups that this policy definition reference belongs to. |
+
+### `policy_definition_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `display_name` | string | No | - | The display name of this policy definition group. |
+| `category` | string | No | - | The category of this policy definition group. |
+| `description` | string | No | - | The description of this policy definition group. |
+| `additional_metadata_resource_id` | string | No | - | The ID of a resource that contains additional metadata about this policy definition group. |
 
 
 

@@ -59,6 +59,11 @@ variable "auth_settings" {
 #   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
 #   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
 #
+# google block structure:
+#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
+#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+#
 # active_directory block structure:
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
@@ -68,11 +73,6 @@ variable "auth_settings" {
 #   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
 #   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
 #   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-#
-# google block structure:
-#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
-#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 
 
 variable "backup" {
@@ -162,14 +162,14 @@ variable "logs" {
 #   file_system (block)       : A 'file_system' block.
 #   azure_blob_storage (block): An 'azure_blob_storage' block.
 #
-# file_system block structure:
-#   retention_in_days (int)    : (REQUIRED) The number of days to retain logs for.
-#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
-#
 # azure_blob_storage block structure:
 #   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
 #   sas_url (string)                  : (REQUIRED) The URL to the storage container with a shared access signature token appended.
 #   retention_in_days (int)           : (REQUIRED) The number of days to retain logs for.
+#
+# file_system block structure:
+#   retention_in_days (int)    : (REQUIRED) The number of days to retain logs for.
+#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
 #
 # application_logs block structure:
 #   azure_blob_storage (block)      : An 'azure_blob_storage' block.

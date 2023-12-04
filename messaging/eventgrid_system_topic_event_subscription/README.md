@@ -56,6 +56,17 @@ tfstate_store = {
 | **labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
 | **advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
 
+### `webhook_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | Specifies the url of the webhook where the Event Subscription will receive events. |
+| `base_url` | string | No | - | (Computed) The base url of the webhook where the Event Subscription will receive events. |
+| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
+| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
+| `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
+| `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
+
 ### `azure_function_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,16 +75,6 @@ tfstate_store = {
 | `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
 | `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
 
-### `delivery_property` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_name` | string | Yes | - | The name of the header to send on to the destination. |
-| `type` | string | Yes | - | Either 'Static' or 'Dynamic'. |
-| `value` | string | No | - | If the 'type' is 'Static', then provide the value to use. |
-| `source_field` | string | No | - | If the 'type' is 'Dynamic', then provide the payload field to be used as the value. Valid source fields differ by subscription type. |
-| `secret` | string | No | - | Set to 'true' if the 'value' is a secret and should be protected, otherwise 'false'. If 'true' then this value won't be returned from Azure API calls. |
-
 ### `storage_blob_dead_letter_destination` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,11 +82,11 @@ tfstate_store = {
 | `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage blob is located. |
 | `storage_blob_container_name` | string | Yes | - | Specifies the name of the Storage blob container that is the destination of the deadletter events. |
 
-### `dead_letter_identity` block structure
+### `delivery_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is 'SystemAssigned', 'UserAssigned'. |
 | `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
 
 ### `retry_policy` block structure
@@ -95,12 +96,13 @@ tfstate_store = {
 | `max_delivery_attempts` | int | Yes | - | Specifies the maximum number of delivery retry attempts for events. |
 | `event_time_to_live` | string | Yes | - | Specifies the time to live (in minutes) for events. Supported range is '1' to '1440'. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details. |
 
-### `delivery_identity` block structure
+### `subject_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
+| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
+| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
 
 ### `advanced_filter` block structure
 
@@ -129,6 +131,16 @@ tfstate_store = {
 | `value` | string | Yes | - | Specifies a single value to compare to when using a single value operator. |
 | `values` | string | Yes | - | Specifies an array of values to compare to when using a multiple values operator. |
 
+### `delivery_property` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_name` | string | Yes | - | The name of the header to send on to the destination. |
+| `type` | string | Yes | - | Either 'Static' or 'Dynamic'. |
+| `value` | string | No | - | If the 'type' is 'Static', then provide the value to use. |
+| `source_field` | string | No | - | If the 'type' is 'Dynamic', then provide the payload field to be used as the value. Valid source fields differ by subscription type. |
+| `secret` | string | No | - | Set to 'true' if the 'value' is a secret and should be protected, otherwise 'false'. If 'true' then this value won't be returned from Azure API calls. |
+
 ### `storage_queue_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -137,24 +149,12 @@ tfstate_store = {
 | `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
 | `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
 
-### `subject_filter` block structure
+### `dead_letter_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
-| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
-| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
-
-### `webhook_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | Specifies the url of the webhook where the Event Subscription will receive events. |
-| `base_url` | string | No | - | (Computed) The base url of the webhook where the Event Subscription will receive events. |
-| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
-| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
-| `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
-| `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
 
 
 

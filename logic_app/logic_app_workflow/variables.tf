@@ -36,8 +36,8 @@ variable "access_control" {
 # action block structure                :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #
-# open_authentication_policy block structure:
-#   claim (block)                             : (REQUIRED) A 'claim' block.
+# content block structure               :
+#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #
 # trigger block structure               :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
@@ -46,8 +46,8 @@ variable "access_control" {
 # workflow_management block structure   :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #
-# content block structure               :
-#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
+# open_authentication_policy block structure:
+#   claim (block)                             : (REQUIRED) A 'claim' block.
 
 
 variable "identity" {

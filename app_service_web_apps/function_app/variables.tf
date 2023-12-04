@@ -69,6 +69,11 @@ variable "auth_settings" {
 #   consumer_key (string)   : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
 #   consumer_secret (string): (REQUIRED) The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 #
+# google block structure:
+#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
+#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+#
 # active_directory block structure:
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
@@ -78,11 +83,6 @@ variable "auth_settings" {
 #   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
 #   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
 #   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-#
-# google block structure:
-#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
-#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 
 
 variable "connection_string" {

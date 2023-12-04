@@ -20,7 +20,7 @@ inputs = {
       example_wsfc_domain_profile = {
          cluster_subnet_type = "..."   
          fqdn = "..."   
-         storage_account_url = "..."   
+         # storage_account_url → set in tfstate_inputs
       }
   
    }

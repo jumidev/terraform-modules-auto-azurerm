@@ -57,6 +57,13 @@ tfstate_store = {
 | `subnet_id` | string | Yes | - | The id of the subnet to match on. |
 | `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
+
 ### `network_rulesets` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,13 +73,6 @@ tfstate_store = {
 | `trusted_service_access_enabled` | bool | No | - | Whether Trusted Microsoft Services are allowed to bypass firewall. |
 | `virtual_network_rule` | [block](#network_rulesets-block-structure) | No | - | One or more 'virtual_network_rule' blocks. |
 | `ip_rule` | [block](#network_rulesets-block-structure) | No | - | One or more 'ip_rule' blocks. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
 
 ### `ip_rule` block structure
 

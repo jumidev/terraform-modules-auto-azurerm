@@ -16,7 +16,7 @@ inputs = {
    name = "name of active_directory_domain_service" 
    initial_replica_set = {
       example_initial_replica_set = {
-         subnet_id = "..."   
+         # subnet_id → set in tfstate_inputs
       }
   
    }
@@ -59,6 +59,12 @@ tfstate_store = {
 | **security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `initial_replica_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
+
 ### `security` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,12 +93,6 @@ tfstate_store = {
 | `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
 | `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
 | `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
-
-### `initial_replica_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
 
 
 

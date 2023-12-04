@@ -55,11 +55,6 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `partner_servers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-
 ### `read_write_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,6 +67,11 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
+
+### `partner_servers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
 
 
 

@@ -17,7 +17,7 @@ inputs = {
    authentication = {
       example_authentication = {
          type = "..."   
-         subscription_id = "..."   
+         # subscription_id → set in tfstate_inputs
       }
   
    }

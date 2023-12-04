@@ -60,6 +60,13 @@ tfstate_store = {
 | `output_types` | string | No | - | Specifies the output types of the runbook. |
 | `parameters` | [block](#draft-block-structure) | No | - | A list of 'parameters' block. |
 
+### `hash` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
+| `value` | string | Yes | - | Specifies the expected hash value of the content. |
+
 ### `publish_content_link` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,13 +74,6 @@ tfstate_store = {
 | `uri` | string | Yes | - | The URI of the runbook content. |
 | `version` | string | No | - | Specifies the version of the content |
 | `hash` | [block](#publish_content_link-block-structure) | No | - | A 'hash' block. |
-
-### `hash` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
-| `value` | string | Yes | - | Specifies the expected hash value of the content. |
 
 ### `parameters` block structure
 

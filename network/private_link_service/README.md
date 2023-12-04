@@ -16,7 +16,7 @@ inputs = {
    location = "${location}" 
    nat_ip_configuration = {
       example_nat_ip_configuration = {
-         subnet_id = "..."   
+         # subnet_id → set in tfstate_inputs
          primary =    
       }
   

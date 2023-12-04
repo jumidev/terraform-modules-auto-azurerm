@@ -15,7 +15,7 @@ inputs = {
    private_dns_resolver_id = "private_dns_resolver_id of private_dns_resolver_inbound_endpoint" 
    ip_configurations = {
       example_ip_configurations = {
-         subnet_id = "..."   
+         # subnet_id → set in tfstate_inputs
       }
   
    }

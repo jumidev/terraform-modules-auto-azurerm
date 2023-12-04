@@ -48,19 +48,11 @@ tfstate_store = {
 | **analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
-### `schema` block structure
+### `autoscale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `column` | [block](#schema-block-structure) | Yes | - | One or more 'column' blocks. |
-| `partition_key` | [block](#schema-block-structure) | Yes | - | One or more 'partition_key' blocks. |
-| `cluster_key` | [block](#schema-block-structure) | No | - | One or more 'cluster_key' blocks. |
-
-### `cluster_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
+| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 ### `column` block structure
 
@@ -68,16 +60,24 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Type of the column to be created. |
 
-### `autoscale_settings` block structure
+### `cluster_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
 
 ### `partition_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+
+### `schema` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column` | [block](#schema-block-structure) | Yes | - | One or more 'column' blocks. |
+| `partition_key` | [block](#schema-block-structure) | Yes | - | One or more 'partition_key' blocks. |
+| `cluster_key` | [block](#schema-block-structure) | No | - | One or more 'cluster_key' blocks. |
 
 
 

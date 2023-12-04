@@ -15,7 +15,7 @@ inputs = {
    name = "name of palo_alto_next_generation_firewall_virtual_network_panorama" 
    network_profile = {
       example_network_profile = {
-         public_ip_address_ids = "..."   
+         # public_ip_address_ids → set in tfstate_inputs
          vnet_configuration = "..."   
       }
   
@@ -55,13 +55,6 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama. | 
 
-### `backend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port number to send traffic to. |
-| `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
-
 ### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,12 +71,13 @@ tfstate_store = {
 | `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
 | `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
 
-### `dns_settings` block structure
+### `destination_nat` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
-| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
 ### `frontend_config` block structure
 
@@ -92,13 +86,19 @@ tfstate_store = {
 | `port` | string | Yes | - | The port on which to receive traffic. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
 
-### `destination_nat` block structure
+### `dns_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
+| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
+| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+
+### `backend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port number to send traffic to. |
+| `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
 
 
 

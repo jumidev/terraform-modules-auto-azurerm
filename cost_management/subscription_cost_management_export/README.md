@@ -60,19 +60,19 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **active** | bool |  `True`  |  Is the cost management export active? Default is `true`. | 
 
-### `export_data_options` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'. |
-| `time_frame` | string | Yes | - | The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'. |
-
 ### `export_data_storage_location` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_id` | string | Yes | - | The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created. |
 | `root_folder_path` | string | Yes | - | The path of the directory where exports will be uploaded. Changing this forces a new resource to be created. |
+
+### `export_data_options` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'. |
+| `time_frame` | string | Yes | - | The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'. |
 
 
 

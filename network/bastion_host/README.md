@@ -16,8 +16,8 @@ inputs = {
    location = "${location}" 
    ip_configuration = {
       primary = {
-         subnet_id = "..."   
-         public_ip_address_id = "..."   
+         # subnet_id → set in tfstate_inputs
+         # public_ip_address_id → set in tfstate_inputs
       }
   
    }

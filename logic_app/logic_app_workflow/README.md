@@ -66,11 +66,11 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
 
-### `open_authentication_policy` block structure
+### `content` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `claim` | [block](#open_authentication_policy-block-structure) | Yes | - | A 'claim' block. |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
 
 ### `trigger` block structure
 
@@ -78,18 +78,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
 | `open_authentication_policy` | [block](#trigger-block-structure) | No | - | A 'open_authentication_policy' block. |
-
-### `workflow_management` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
-
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
 
 ### `access_control` block structure
 
@@ -99,6 +87,18 @@ tfstate_store = {
 | `content` | [block](#access_control-block-structure) | No | - | A 'content' block. |
 | `trigger` | [block](#access_control-block-structure) | No | - | A 'trigger' block. |
 | `workflow_management` | [block](#access_control-block-structure) | No | - | A 'workflow_management' block. |
+
+### `workflow_management` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+
+### `open_authentication_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `claim` | [block](#open_authentication_policy-block-structure) | Yes | - | A 'claim' block. |
 
 
 

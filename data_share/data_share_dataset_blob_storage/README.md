@@ -16,8 +16,8 @@ inputs = {
    container_name = "container_name of data_share_dataset_blob_storage" 
    storage_account = {
       example_storage_account = {
-         resource_group_name = "..."   
-         subscription_id = "..."   
+         # resource_group_name → set in tfstate_inputs
+         # subscription_id → set in tfstate_inputs
       }
   
    }

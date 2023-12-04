@@ -43,12 +43,6 @@ tfstate_store = {
 | **priority** | string |  -  |  -  |  Specifies the priority of this Endpoint, this must be specified for Profiles using the `Priority` traffic routing method. Supports values between 1 and 1000, with no Endpoints sharing the same value. If omitted the value will be computed in order of creation. | 
 | **subnet** | [block](#subnet-block-structure) |  -  |  -  |  One or more `subnet` blocks. Changing this forces a new resource to be created. | 
 
-### `custom_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
-
 ### `subnet` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,6 +50,12 @@ tfstate_store = {
 | `first` | string | Yes | - | The first IP Address in this subnet. |
 | `last` | string | No | - | The last IP Address in this subnet. |
 | `scope` | int | No | - | The block size (number of leading bits in the subnet mask). |
+
+### `custom_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 
 

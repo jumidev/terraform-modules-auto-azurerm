@@ -39,14 +39,14 @@ tfstate_store = {
 | **metric_tag_filter** | [block](#metric_tag_filter-block-structure) |  -  |  A `metric_tag_filter` block. | 
 | **subscription_log_enabled** | bool |  `False`  |  Whether subscription logs should be sent for the Monitor resource. Defaults to `false`. | 
 
-### `log_tag_filter` block structure
+### `metric_tag_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
 | `value` | string | Yes | - | Specifies the value of the tag. |
 
-### `metric_tag_filter` block structure
+### `log_tag_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

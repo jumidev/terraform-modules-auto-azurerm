@@ -47,25 +47,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **metadata** | string |  A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration. | 
 
-### `recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
-| `interval` | int | Yes | - | The number of 'frequency's between runs. |
-| `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
-| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
-| `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
-| `time_zone` | string | No | - | The timezone of the start/end time. |
-
-### `release_criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
-| `message_count` | int | No | - | The message count for the Logic App Integration Batch Configuration. |
-| `recurrence` | [block](#release_criteria-block-structure) | No | - | A 'recurrence' block. |
-
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +63,25 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `weekday` | string | Yes | - | The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `week` | string | Yes | - | The occurrence of the week within the month. |
+
+### `release_criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
+| `message_count` | int | No | - | The message count for the Logic App Integration Batch Configuration. |
+| `recurrence` | [block](#release_criteria-block-structure) | No | - | A 'recurrence' block. |
+
+### `recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
+| `interval` | int | Yes | - | The number of 'frequency's between runs. |
+| `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
+| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
+| `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
+| `time_zone` | string | No | - | The timezone of the start/end time. |
 
 
 

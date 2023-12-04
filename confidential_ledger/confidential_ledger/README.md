@@ -18,7 +18,7 @@ inputs = {
       example_azuread_based_service_principal = {
          ledger_role_name = "..."   
          principal_id = "..."   
-         tenant_id = "..."   
+         # tenant_id → set in tfstate_inputs
       }
   
    }

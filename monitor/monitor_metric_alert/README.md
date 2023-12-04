@@ -58,20 +58,12 @@ tfstate_store = {
 | `component_id` | string | Yes | - | The ID of the Application Insights Resource. |
 | `failed_location_count` | int | Yes | - | The number of failed locations. |
 
-### `dynamic_criteria` block structure
+### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
-| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
-| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
-| `operator` | string | Yes | - | The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'. |
-| `alert_sensitivity` | string | Yes | - | The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'. |
-| `dimension` | [block](#dynamic_criteria-block-structure) | No | - | One or more 'dimension' blocks. |
-| `evaluation_total_count` | int | No | 4 | The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'. |
-| `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
-| `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
-| `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
+| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
+| `values` | string | Yes | - | The list of dimension values. |
 
 ### `action` block structure
 
@@ -92,12 +84,20 @@ tfstate_store = {
 | `dimension` | [block](#criteria-block-structure) | No | - | One or more 'dimension' blocks. |
 | `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
 
-### `dimension` block structure
+### `dynamic_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
-| `values` | string | Yes | - | The list of dimension values. |
+| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
+| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
+| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
+| `operator` | string | Yes | - | The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'. |
+| `alert_sensitivity` | string | Yes | - | The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'. |
+| `dimension` | [block](#dynamic_criteria-block-structure) | No | - | One or more 'dimension' blocks. |
+| `evaluation_total_count` | int | No | 4 | The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'. |
+| `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
+| `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
+| `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
 
 
 
