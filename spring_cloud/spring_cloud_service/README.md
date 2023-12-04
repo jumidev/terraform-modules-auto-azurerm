@@ -49,56 +49,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **zone_redundant** | bool |  `False`  |  -  |  Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`. | 
 
-### `network` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_subnet_id` | string | Yes | - | Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created. |
-| `service_runtime_subnet_id` | string | Yes | - | Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created. |
-| `cidr_ranges` | list | Yes | - | A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created. |
-| `app_network_resource_group` | string | No | - | Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created. |
-| `outbound_type` | string | No | loadBalancer | Specifies the egress traffic type of the Spring Cloud Service. Possible values are 'loadBalancer' and 'userDefinedRouting'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created. |
-| `read_timeout_seconds` | int | No | - | Ingress read time out in seconds. |
-| `service_runtime_network_resource_group` | string | No | - | Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created. |
-
-### `marketplace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `plan` | string | Yes | - | Specifies the plan ID of the 3rd Party Artifact that is being procured. |
-| `publisher` | string | Yes | - | Specifies the publisher ID of the 3rd Party Artifact that is being procured. |
-| `product` | string | Yes | - | Specifies the 3rd Party artifact that is being procured. |
-
-### `trace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `connection_string` | string | No | - | The connection string used for Application Insights. |
-| `sample_rate` | string | No | 10.0 | The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. |
-
-### `default_build_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_registry_name` | string | No | - | Specifies the name of the container registry used in the default build service. |
-
-### `container_registry` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | Specifies the username of the container registry. |
-| `password` | string | Yes | - | Specifies the password of the container registry. |
-| `server` | string | Yes | - | Specifies the login server of the container registry. |
-
-### `ssh_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `private_key` | string | Yes | - | The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'. |
-| `host_key` | string | No | - | The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'. |
-| `host_key_algorithm` | string | No | - | The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists. |
-| `strict_host_key_checking_enabled` | bool | No | True | Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'. |
-
 ### `config_server_git_setting` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -110,12 +60,27 @@ tfstate_store = {
 | `ssh_auth` | [block](#config_server_git_setting-block-structure) | No | - | A 'ssh_auth' block. |
 | `repository` | [block](#config_server_git_setting-block-structure) | No | - | One or more 'repository' blocks. |
 
+### `marketplace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `plan` | string | Yes | - | Specifies the plan ID of the 3rd Party Artifact that is being procured. |
+| `publisher` | string | Yes | - | Specifies the publisher ID of the 3rd Party Artifact that is being procured. |
+| `product` | string | Yes | - | Specifies the 3rd Party artifact that is being procured. |
+
 ### `http_basic_auth` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `username` | string | Yes | - | The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
 | `password` | string | Yes | - | The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
+
+### `trace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `connection_string` | string | No | - | The connection string used for Application Insights. |
+| `sample_rate` | string | No | 10.0 | The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. |
 
 ### `repository` block structure
 
@@ -127,6 +92,41 @@ tfstate_store = {
 | `search_paths` | string | No | - | An array of strings used to search subdirectories of the Git repository. |
 | `http_basic_auth` | [block](#repository-block-structure) | No | - | A 'http_basic_auth' block. |
 | `ssh_auth` | [block](#repository-block-structure) | No | - | A 'ssh_auth' block. |
+
+### `ssh_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `private_key` | string | Yes | - | The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'. |
+| `host_key` | string | No | - | The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'. |
+| `host_key_algorithm` | string | No | - | The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists. |
+| `strict_host_key_checking_enabled` | bool | No | True | Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'. |
+
+### `container_registry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | Specifies the username of the container registry. |
+| `password` | string | Yes | - | Specifies the password of the container registry. |
+| `server` | string | Yes | - | Specifies the login server of the container registry. |
+
+### `default_build_service` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container_registry_name` | string | No | - | Specifies the name of the container registry used in the default build service. |
+
+### `network` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_subnet_id` | string | Yes | - | Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created. |
+| `service_runtime_subnet_id` | string | Yes | - | Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created. |
+| `cidr_ranges` | list | Yes | - | A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created. |
+| `app_network_resource_group` | string | No | - | Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created. |
+| `outbound_type` | string | No | loadBalancer | Specifies the egress traffic type of the Spring Cloud Service. Possible values are 'loadBalancer' and 'userDefinedRouting'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created. |
+| `read_timeout_seconds` | int | No | - | Ingress read time out in seconds. |
+| `service_runtime_network_resource_group` | string | No | - | Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created. |
 
 
 

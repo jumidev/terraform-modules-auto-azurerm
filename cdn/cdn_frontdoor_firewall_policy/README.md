@@ -46,6 +46,14 @@ tfstate_store = {
 | **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#override-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#override-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
+
 ### `managed_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,14 +63,6 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include 'Allow', 'Log', 'Block', and 'Redirect'. |
 | `exclusion` | [block](#managed_rule-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `override` | [block](#managed_rule-block-structure) | No | - | One or more 'override' blocks. |
-
-### `override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
-| `exclusion` | [block](#override-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#override-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `custom_rule` block structure
 
@@ -76,6 +76,14 @@ tfstate_store = {
 | `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
 | `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
+### `exclusion` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames' |
+| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
+| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,14 +92,6 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#rule-block-structure) | No | - | One or more 'exclusion' blocks. |
-
-### `exclusion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames' |
-| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
-| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
 
 
 

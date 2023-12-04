@@ -57,33 +57,11 @@ tfstate_store = {
 | **threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
 | **version** | string |  -  |  Version of the content. | 
 
-### `support` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
-| `email` | string | No | - | The email address of the support contact. |
-| `link` | string | No | - | The link for support help. |
-
-### `author` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address of the author contact. |
-| `link` | string | No | - | The link for author/vendor page. |
-
 ### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
-
-### `category` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
-| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
 ### `dependency` block structure
 
@@ -94,6 +72,28 @@ tfstate_store = {
 | `version` | string | No | - | Version of the content item that is depended on. |
 | `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
 | `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
+
+### `support` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
+| `email` | string | No | - | The email address of the support contact. |
+| `link` | string | No | - | The link for support help. |
+
+### `category` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
+| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
+
+### `author` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | No | - | The email address of the author contact. |
+| `link` | string | No | - | The link for author/vendor page. |
 
 
 

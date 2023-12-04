@@ -28,9 +28,6 @@ variable "network_profile" {
 #   ip_forwarding (bool)              : Whether IP forwarding is enabled on this NIC. Defaults to 'false'.
 #   network_security_group_id (string): Specifies the identifier for the network security group.
 #
-# dns_settings block structure:
-#   dns_servers (string)        : (REQUIRED) Specifies an array of DNS servers.
-#
 # ip_configuration block structure                     :
 #   subnet_id (string)                                   : (REQUIRED) Specifies the identifier of the subnet.
 #   application_gateway_backend_address_pool_ids (string): Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
@@ -39,6 +36,9 @@ variable "network_profile" {
 #   primary (string)                                     : (REQUIRED) Specifies if this ip_configuration is the primary one.
 #   application_security_group_ids (string)              : Specifies up to '20' application security group IDs.
 #   public_ip_address_configuration (string)             : Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The 'public_ip_address_configuration' block is documented below.
+#
+# dns_settings block structure:
+#   dns_servers (string)        : (REQUIRED) Specifies an array of DNS servers.
 
 
 variable "os_profile" {
@@ -97,15 +97,15 @@ variable "os_profile_windows_config" {
 #   winrm (block)                            : A collection of 'winrm' blocks.
 #   additional_unattend_config (block)       : An 'additional_unattend_config' block.
 #
-# winrm block structure   :
-#   protocol (string)       : (REQUIRED) Specifies the protocol of listener
-#   certificate_url (string): Specifies URL of the certificate with which new Virtual Machines is provisioned.
-#
 # additional_unattend_config block structure:
 #   pass (string)                             : (REQUIRED) Specifies the name of the pass that the content applies to. The only allowable value is 'oobeSystem'.
 #   component (string)                        : (REQUIRED) Specifies the name of the component to configure with the added content. The only allowable value is 'Microsoft-Windows-Shell-Setup'.
 #   setting_name (string)                     : (REQUIRED) Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'.
 #   content (string)                          : (REQUIRED) Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
+#
+# winrm block structure   :
+#   protocol (string)       : (REQUIRED) Specifies the protocol of listener
+#   certificate_url (string): Specifies URL of the certificate with which new Virtual Machines is provisioned.
 
 
 variable "os_profile_linux_config" {

@@ -37,14 +37,14 @@ tfstate_store = {
 }
 
 ```
-### 2 optional associated resources
+## Optional associated resource
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
 | **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.|
 | **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.|
 
-### using associated resources
+Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {

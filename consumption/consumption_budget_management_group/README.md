@@ -57,6 +57,13 @@ tfstate_store = {
 | **time_grain** | string |  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
 | **filter** | [block](#filter-block-structure) |  -  |  -  |  A `filter` block. | 
 
+### `time_period` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created. |
+| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
+
 ### `notification` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,20 +73,6 @@ tfstate_store = {
 | `contact_emails` | string | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
 | `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
 | `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
-
-### `time_period` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created. |
-| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
-| `values` | string | Yes | - | Specifies a list of values for the column. |
 
 ### `filter` block structure
 
@@ -94,6 +87,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
 | `values` | string | Yes | - | Specifies a list of values for the tag. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | string | Yes | - | Specifies a list of values for the column. |
 
 
 

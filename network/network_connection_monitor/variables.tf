@@ -52,11 +52,16 @@ variable "test_configuration" {
 #   success_threshold (block)         : A 'success_threshold' block.
 #   tcp_configuration (block)         : A 'tcp_configuration' block.
 #
-# icmp_configuration block structure:
-#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
-#
 # request_header block structure:
 #   value (string)                : (REQUIRED) The value of the HTTP header.
+#
+# http_configuration block structure:
+#   method (string)                   : The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'.
+#   port (string)                     : The port for the HTTP connection.
+#   path (string)                     : The path component of the URI. It only accepts the absolute path.
+#   prefer_https (bool)               : Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'.
+#   request_header (block)            : A 'request_header' block.
+#   valid_status_code_ranges (string) : The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'.
 #
 # tcp_configuration block structure :
 #   port (string)                     : (REQUIRED) The port for the TCP connection.
@@ -67,13 +72,8 @@ variable "test_configuration" {
 #   checks_failed_percent (string)   : The maximum percentage of failed checks permitted for a test to be successful.
 #   round_trip_time_ms (string)      : The maximum round-trip time in milliseconds permitted for a test to be successful.
 #
-# http_configuration block structure:
-#   method (string)                   : The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'.
-#   port (string)                     : The port for the HTTP connection.
-#   path (string)                     : The path component of the URI. It only accepts the absolute path.
-#   prefer_https (bool)               : Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'.
-#   request_header (block)            : A 'request_header' block.
-#   valid_status_code_ranges (string) : The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'.
+# icmp_configuration block structure:
+#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 
 
 variable "test_group" {

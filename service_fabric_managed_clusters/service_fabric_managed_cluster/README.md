@@ -71,6 +71,13 @@ tfstate_store = {
 | `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
 | `common_name` | string | No | - | The certificate's CN. |
 
+### `vm_secrets` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
+| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
+
 ### `custom_fabric_setting` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +85,14 @@ tfstate_store = {
 | `parameter` | string | Yes | - | Parameter name. |
 | `section` | string | Yes | - | Section name. |
 | `value` | string | Yes | - | Parameter value. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_application_id` | string | Yes | - | The ID of the Client Application. |
+| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
+| `tenant_id` | string | Yes | - | The ID of the Tenant. |
 
 ### `lb_rule` block structure
 
@@ -116,21 +131,6 @@ tfstate_store = {
 | `primary` | string | No | - | If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created. |
 | `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
 | `vm_secrets` | [block](#node_type-block-structure) | No | - | One or more 'vm_secrets' blocks. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_application_id` | string | Yes | - | The ID of the Client Application. |
-| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
-| `tenant_id` | string | Yes | - | The ID of the Tenant. |
-
-### `vm_secrets` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
-| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
 
 
 

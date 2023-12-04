@@ -61,31 +61,6 @@ tfstate_store = {
 | `garbage_collection_enabled` | bool | No | False | Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to 'false'. |
 | `depends_on` | string | No | - | Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation. |
 
-### `blob_storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_id` | string | Yes | - | Specifies the Azure Blob container ID. |
-| `account_key` | string | No | - | Specifies the account key (shared key) to access the storage account. |
-| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
-| `sas_token` | string | No | - | Specifies the shared access token to access the storage container. |
-| `service_principal` | [block](#blob_storage-block-structure) | No | - | A 'service_principal' block. |
-| `sync_interval_in_seconds` | int | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
-| `timeout_in_seconds` | int | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
-
-### `bucket` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `bucket_name` | string | Yes | - | Specifies the bucket name to sync from the url endpoint for the flux configuration. |
-| `url` | string | Yes | - | Specifies the URL to sync for the flux configuration S3 bucket. It must start with 'http://' or 'https://'. |
-| `access_key` | string | No | - | Specifies the plaintext access key used to securely access the S3 bucket. |
-| `secret_key_base64` | string | No | - | Specifies the Base64-encoded secret key used to authenticate with the bucket source. |
-| `tls_enabled` | bool | No | True | Specify whether to communicate with a bucket using TLS is enabled. Defaults to 'true'. |
-| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
-| `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
-| `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
-
 ### `service_principal` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -112,6 +87,31 @@ tfstate_store = {
 | `ssh_known_hosts_base64` | string | No | - | Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH. |
 | `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
 | `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
+
+### `bucket` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `bucket_name` | string | Yes | - | Specifies the bucket name to sync from the url endpoint for the flux configuration. |
+| `url` | string | Yes | - | Specifies the URL to sync for the flux configuration S3 bucket. It must start with 'http://' or 'https://'. |
+| `access_key` | string | No | - | Specifies the plaintext access key used to securely access the S3 bucket. |
+| `secret_key_base64` | string | No | - | Specifies the Base64-encoded secret key used to authenticate with the bucket source. |
+| `tls_enabled` | bool | No | True | Specify whether to communicate with a bucket using TLS is enabled. Defaults to 'true'. |
+| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
+| `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
+| `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
+
+### `blob_storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container_id` | string | Yes | - | Specifies the Azure Blob container ID. |
+| `account_key` | string | No | - | Specifies the account key (shared key) to access the storage account. |
+| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
+| `sas_token` | string | No | - | Specifies the shared access token to access the storage container. |
+| `service_principal` | [block](#blob_storage-block-structure) | No | - | A 'service_principal' block. |
+| `sync_interval_in_seconds` | int | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
+| `timeout_in_seconds` | int | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
 
 
 

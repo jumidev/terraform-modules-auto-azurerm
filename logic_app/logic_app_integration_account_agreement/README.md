@@ -64,18 +64,18 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **metadata** | string |  The metadata of the Logic App Integration Account Agreement. | 
 
-### `host_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `qualifier` | string | Yes | - | The authenticating body that provides unique host identities to organizations. |
-| `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
-
 ### `guest_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `qualifier` | string | Yes | - | The authenticating body that provides unique guest identities to organizations. |
+| `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
+
+### `host_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `qualifier` | string | Yes | - | The authenticating body that provides unique host identities to organizations. |
 | `value` | string | Yes | - | The value that identifies the documents that your logic apps receive. |
 
 

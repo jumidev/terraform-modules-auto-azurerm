@@ -56,6 +56,24 @@ tfstate_store = {
 | **configuration_export_storage_account_name** | string |  -  |  -  |  Specifies the name of the storage account which the operation configuration information is exported to. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Healthcare FHIR Service. | 
 
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authority` | string | Yes | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
+| `audience` | string | Yes | - | The intended audience to receive authentication tokens for the service. |
+| `smart_proxy_enabled` | bool | No | - | Whether smart proxy is enabled. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | Yes | - | A set of origins to be allowed via CORS. |
+| `allowed_headers` | string | Yes | - | A set of headers to be allowed via CORS. |
+| `allowed_methods` | string | Yes | - | The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'. |
+| `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
+| `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
+
 ### `oci_artifact` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,24 +88,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
 | `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | string | Yes | - | A set of origins to be allowed via CORS. |
-| `allowed_headers` | string | Yes | - | A set of headers to be allowed via CORS. |
-| `allowed_methods` | string | Yes | - | The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'. |
-| `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
-| `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
-
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authority` | string | Yes | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
-| `audience` | string | Yes | - | The intended audience to receive authentication tokens for the service. |
-| `smart_proxy_enabled` | bool | No | - | Whether smart proxy is enabled. |
 
 
 

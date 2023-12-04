@@ -34,13 +34,13 @@ tfstate_store = {
 }
 
 ```
-### 1 optional associated resource
+## Optional associated resource
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
 | **cdn_frontdoor_route_ids** | If set to a list containing one or more valid `azurerm_cdn_frontdoor_route` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.|
 
-### using associated resources
+Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {

@@ -54,6 +54,12 @@ tfstate_store = {
 | **data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 
 
+### `trust_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
+
 ### `georeplications` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,20 +69,6 @@ tfstate_store = {
 | `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. |
 | `tags` | map | No | - | A mapping of tags to assign to this replication location. |
 
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | int | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. |
-
 ### `virtual_network` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,12 +76,20 @@ tfstate_store = {
 | `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
 | `subnet_id` | string | Yes | - | The subnet id from which requests will match the rule. |
 
-### `ip_rule` block structure
+### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
-| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
+| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
+| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. |
+
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | int | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
 ### `network_rule_set` block structure
 
@@ -99,19 +99,19 @@ tfstate_store = {
 | `ip_rule` | [block](#network_rule_set-block-structure) | No | - | One or more 'ip_rule' blocks. |
 | `virtual_network` | [block](#network_rule_set-block-structure) | No | - | One or more 'virtual_network' blocks. |
 
-### `trust_policy` block structure
+### `ip_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
+| `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
+| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
 
-### `encryption` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
-| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
-| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. |
 
 
 

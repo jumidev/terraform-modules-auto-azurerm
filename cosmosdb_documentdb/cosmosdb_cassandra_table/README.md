@@ -48,11 +48,11 @@ tfstate_store = {
 | **analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
-### `autoscale_settings` block structure
+### `cluster_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
 
 ### `column` block structure
 
@@ -60,16 +60,16 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Type of the column to be created. |
 
-### `cluster_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
-
 ### `partition_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+
+### `autoscale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 ### `schema` block structure
 

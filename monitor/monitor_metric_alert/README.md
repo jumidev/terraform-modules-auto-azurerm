@@ -50,6 +50,21 @@ tfstate_store = {
 | **window_size** | string |  `PT5M`  |  `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H`, `P1D`  |  The period of time that is used to monitor alert activity, represented in ISO 8601 duration format. This value must be greater than `frequency`. Possible values are `PT1M`, `PT5M`, `PT15M`, `PT30M`, `PT1H`, `PT6H`, `PT12H` and `P1D`. Defaults to `PT5M`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `dynamic_criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
+| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
+| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
+| `operator` | string | Yes | - | The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'. |
+| `alert_sensitivity` | string | Yes | - | The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'. |
+| `dimension` | [block](#dynamic_criteria-block-structure) | No | - | One or more 'dimension' blocks. |
+| `evaluation_total_count` | int | No | 4 | The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'. |
+| `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
+| `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
+| `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
+
 ### `application_insights_web_test_location_availability_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -57,13 +72,6 @@ tfstate_store = {
 | `web_test_id` | string | Yes | - | The ID of the Application Insights Web Test. |
 | `component_id` | string | Yes | - | The ID of the Application Insights Resource. |
 | `failed_location_count` | int | Yes | - | The number of failed locations. |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
-| `values` | string | Yes | - | The list of dimension values. |
 
 ### `action` block structure
 
@@ -84,20 +92,12 @@ tfstate_store = {
 | `dimension` | [block](#criteria-block-structure) | No | - | One or more 'dimension' blocks. |
 | `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
 
-### `dynamic_criteria` block structure
+### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `metric_namespace` | string | Yes | - | One of the metric namespaces to be monitored. |
-| `metric_name` | string | Yes | - | One of the metric names to be monitored. |
-| `aggregation` | string | Yes | - | The statistic that runs over the metric values. Possible values are 'Average', 'Count', 'Minimum', 'Maximum' and 'Total'. |
-| `operator` | string | Yes | - | The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'. |
-| `alert_sensitivity` | string | Yes | - | The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'. |
-| `dimension` | [block](#dynamic_criteria-block-structure) | No | - | One or more 'dimension' blocks. |
-| `evaluation_total_count` | int | No | 4 | The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'. |
-| `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
-| `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
-| `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
+| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
+| `values` | string | Yes | - | The list of dimension values. |
 
 
 

@@ -23,13 +23,13 @@ tfstate_store = {
 }
 
 ```
-### 1 optional associated resource
+## Optional associated resource
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
 | **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
 
-### using associated resources
+Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {

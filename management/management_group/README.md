@@ -20,13 +20,13 @@ tfstate_store = {
 }
 
 ```
-### 1 optional associated resource
+## Optional associated resource
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
 | **subscription_id** | If set to a valid `azurerm_subscription` `subscription_id`, makes a **azurerm_management_group_subscription_association** - Manages a Management Group Subscription Association.!> **Note:** When using this resource, configuring `subscription_ids` on the `azurerm_management_group` resource is not supported.|
 
-### using associated resources
+Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {

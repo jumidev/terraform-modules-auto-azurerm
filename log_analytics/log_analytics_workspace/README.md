@@ -23,13 +23,13 @@ tfstate_store = {
 }
 
 ```
-### 1 optional associated resource
+## Optional associated resource
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
 | **application_group_id** | If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association.|
 
-### using associated resources
+Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {

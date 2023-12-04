@@ -48,13 +48,6 @@ tfstate_store = {
 | **display_name** | string |  -  |  -  |  Specifies the display name of the Spring Cloud Customized Accelerator.. | 
 | **icon_url** | string |  -  |  -  |  Specifies the icon URL of the Spring Cloud Customized Accelerator.. | 
 
-### `basic_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
-| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
-
 ### `git_repository` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,6 +69,13 @@ tfstate_store = {
 | `private_key` | string | Yes | - | Specifies the Private SSH Key of git repository basic auth. |
 | `host_key` | string | No | - | Specifies the Public SSH Key of git repository basic auth. |
 | `host_key_algorithm` | string | No | - | Specifies the SSH Key algorithm of git repository basic auth. |
+
+### `basic_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
+| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
 
 
 

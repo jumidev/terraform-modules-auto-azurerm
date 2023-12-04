@@ -36,15 +36,6 @@ tfstate_store = {
 | **log** | [block](#log-block-structure) |  -  |  A `log` block. | 
 | **metric** | [block](#metric-block-structure) |  -  |  A `metric` block. | 
 
-### `log` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `aad_log_enabled` | bool | No | - | Whether AAD logs should be sent for the Monitor resource? |
-| `subscription_log_enabled` | bool | No | - | Whether Azure subscription logs should be sent for the Monitor resource? |
-| `resource_log_enabled` | bool | No | - | Whether Azure resource logs should be sent for the Monitor resource? |
-| `filter` | [block](#log-block-structure) | No | - | A 'filter' block. |
-
 ### `metric` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -57,6 +48,15 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `value` | string | Yes | - | Value of the Tag. |
 | `action` | string | Yes | - | Allowed values Include or Exclude. |
+
+### `log` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aad_log_enabled` | bool | No | - | Whether AAD logs should be sent for the Monitor resource? |
+| `subscription_log_enabled` | bool | No | - | Whether Azure subscription logs should be sent for the Monitor resource? |
+| `resource_log_enabled` | bool | No | - | Whether Azure resource logs should be sent for the Monitor resource? |
+| `filter` | [block](#log-block-structure) | No | - | A 'filter' block. |
 
 
 

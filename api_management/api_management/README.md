@@ -64,6 +64,23 @@ tfstate_store = {
 | **virtual_network_configuration** | [block](#virtual_network_configuration-block-structure) |  -  |  -  |  A `virtual_network_configuration` block. Required when `virtual_network_type` is `External` or `Internal`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `additional_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | The name of the Azure Region in which the API Management Service should be expanded to. |
+| `capacity` | int | No | - | The number of compute units in this region. Defaults to the capacity of the main region. |
+| `zones` | list | No | - | A list of availability zones. Changing this forces a new resource to be created. |
+| `public_ip_address_id` | string | No | - | ID of a standard SKU IPv4 Public IP. |
+| `virtual_network_configuration` | [block](#additional_location-block-structure) | No | - | A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'. |
+| `gateway_disabled` | bool | No | - | Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location. |
+
+### `virtual_network_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The id of the subnet that will be used for the API Management. |
+
 ### `hostname_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,18 +91,13 @@ tfstate_store = {
 | `proxy` | list | No | - | One or more 'proxy' blocks. |
 | `scm` | list | No | - | One or more 'scm' blocks. |
 
-### `virtual_network_configuration` block structure
+### `terms_of_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The id of the subnet that will be used for the API Management. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. |
+| `consent_required` | string | Yes | - | Should the user be asked for consent during sign up? |
+| `enabled` | bool | Yes | - | Should Terms of Service be displayed during sign up?. |
+| `text` | string | No | - | The Terms of Service which users are required to agree to in order to sign up. |
 
 ### `security` block structure
 
@@ -109,16 +121,11 @@ tfstate_store = {
 | `tls_rsa_with_aes256_cbc_sha_ciphers_enabled` | bool | No | False | Should the 'TLS_RSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'. |
 | `triple_des_ciphers_enabled` | bool | No | - | Should the 'TLS_RSA_WITH_3DES_EDE_CBC_SHA' cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? |
 
-### `additional_location` block structure
+### `tenant_access` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | The name of the Azure Region in which the API Management Service should be expanded to. |
-| `capacity` | int | No | - | The number of compute units in this region. Defaults to the capacity of the main region. |
-| `zones` | list | No | - | A list of availability zones. Changing this forces a new resource to be created. |
-| `public_ip_address_id` | string | No | - | ID of a standard SKU IPv4 Public IP. |
-| `virtual_network_configuration` | [block](#additional_location-block-structure) | No | - | A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'. |
-| `gateway_disabled` | bool | No | - | Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location. |
+| `enabled` | bool | Yes | - | Should the access to the management API be enabled? |
 
 ### `delegation` block structure
 
@@ -136,12 +143,6 @@ tfstate_store = {
 | `xml_content` | string | No | - | The XML Content for this Policy. |
 | `xml_link` | string | No | - | A link to an API Management Policy XML Document, which must be publicly available. |
 
-### `sign_in` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should anonymous users be redirected to the sign in page? |
-
 ### `sign_up` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -149,25 +150,24 @@ tfstate_store = {
 | `enabled` | bool | Yes | - | Can users sign up on the development portal? |
 | `terms_of_service` | [block](#sign_up-block-structure) | Yes | - | A 'terms_of_service' block. |
 
-### `tenant_access` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the access to the management API be enabled? |
-
-### `terms_of_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consent_required` | string | Yes | - | Should the user be asked for consent during sign up? |
-| `enabled` | bool | Yes | - | Should Terms of Service be displayed during sign up?. |
-| `text` | string | No | - | The Terms of Service which users are required to agree to in order to sign up. |
-
 ### `protocols` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enable_http2` | bool | No | False | Should HTTP/2 be supported by the API Management Service? Defaults to 'false'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. |
+
+### `sign_in` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should anonymous users be redirected to the sign in page? |
 
 
 

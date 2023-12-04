@@ -52,6 +52,13 @@ tfstate_store = {
 | **interval** | string |  `PT1M`, `PT15M`  |  Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Alert Management Prometheus Rule Group. | 
 
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
+| `action_properties` | string | No | - | Specifies the properties of an action group object. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,13 +80,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `auto_resolved` | string | No | - | Is the alert auto-resolution? Possible values are 'true' and 'false'. |
 | `time_to_resolve` | string | No | - | Specifies the alert auto-resolution interval, represented in ISO 8601 duration format. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
-| `action_properties` | string | No | - | Specifies the properties of an action group object. |
 
 
 

@@ -48,6 +48,25 @@ tfstate_store = {
 | **encryption** | [block](#encryption-block-structure) |  -  |  -  |  Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `node_management_access` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | No | Deny | Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
+| `ip_rule` | [block](#node_management_access-block-structure) | No | - | One or more 'ip_rule' blocks. |
+
+### `encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
+
+### `key_vault_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
+
 ### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,11 +74,12 @@ tfstate_store = {
 | `account_access` | [block](#network_profile-block-structure) | No | - | An 'account_access' block. |
 | `node_management_access` | [block](#network_profile-block-structure) | No | - | A 'node_management_access' block. |
 
-### `key_vault_reference` block structure
+### `ip_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
+| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
+| `action` | string | No | Allow | Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'. |
 
 ### `identity` block structure
 
@@ -74,26 +94,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `default_action` | string | No | Deny | Specifies the default action for the account access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
 | `ip_rule` | [block](#account_access-block-structure) | No | - | One or more 'ip_rule' blocks. |
-
-### `ip_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
-| `action` | string | No | Allow | Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'. |
-
-### `node_management_access` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Deny | Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
-| `ip_rule` | [block](#node_management_access-block-structure) | No | - | One or more 'ip_rule' blocks. |
-
-### `encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
 
 
 
