@@ -65,6 +65,22 @@ tfstate_store = {
 | `email` | string | No | - | The email address of the support contact. |
 | `link` | string | No | - | The link for support help. |
 
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+
+### `dependency` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `contentId` | string | No | - | ID of the content item that is depended on. |
+| `kind` | string | No | - | Type of the content item that is depended on. |
+| `version` | string | No | - | Version of the content item that is depended on. |
+| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
+| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
+
 ### `category` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,22 +94,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `email` | string | No | - | The email address of the author contact. |
 | `link` | string | No | - | The link for author/vendor page. |
-
-### `dependency` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `contentId` | string | No | - | ID of the content item that is depended on. |
-| `kind` | string | No | - | Type of the content item that is depended on. |
-| `version` | string | No | - | Version of the content item that is depended on. |
-| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
-| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
-
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 
 

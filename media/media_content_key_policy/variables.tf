@@ -24,18 +24,6 @@ variable "policy_option" {
 #   token_restriction (block)               : A 'token_restriction' block.
 #   widevine_configuration_template (string): The Widevine template.
 #
-# token_restriction block structure          :
-#   alternate_key (list)                       : One or more 'alternate_key' block.
-#   audience (string)                          : The audience for the token.
-#   issuer (string)                            : The token issuer.
-#   open_id_connect_discovery_document (string): The OpenID connect discovery document.
-#   primary_rsa_token_key_exponent (string)    : The RSA parameter exponent.
-#   primary_rsa_token_key_modulus (string)     : The RSA parameter modulus.
-#   primary_symmetric_token_key (string)       : The key value of the key. Specifies a symmetric key for token validation.
-#   primary_x509_token_key_raw (string)        : The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
-#   required_claim (list)                      : One or more 'required_claim' blocks.
-#   token_type (string)                        : The type of token. Supported values are 'Jwt' or 'Swt'.
-#
 # offline_rental_configuration block structure:
 #   playback_duration_seconds (int)             : Playback duration.
 #   storage_duration_seconds (int)              : Storage duration.
@@ -47,6 +35,18 @@ variable "policy_option" {
 #   pfx_password (string)                 : The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 #   rental_and_lease_key_type (string)    : The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'.
 #   rental_duration_seconds (int)         : The rental duration. Must be greater than 0.
+#
+# token_restriction block structure          :
+#   alternate_key (list)                       : One or more 'alternate_key' block.
+#   audience (string)                          : The audience for the token.
+#   issuer (string)                            : The token issuer.
+#   open_id_connect_discovery_document (string): The OpenID connect discovery document.
+#   primary_rsa_token_key_exponent (string)    : The RSA parameter exponent.
+#   primary_rsa_token_key_modulus (string)     : The RSA parameter modulus.
+#   primary_symmetric_token_key (string)       : The key value of the key. Specifies a symmetric key for token validation.
+#   primary_x509_token_key_raw (string)        : The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
+#   required_claim (list)                      : One or more 'required_claim' blocks.
+#   token_type (string)                        : The type of token. Supported values are 'Jwt' or 'Swt'.
 
 
 variable "resource_group_name" {

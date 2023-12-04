@@ -81,6 +81,21 @@ tfstate_store = {
 | **backend_pool_settings** | [block](#backend_pool_settings-block-structure) |  -  |  A `backend_pool_settings` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `backend_pool_load_balancing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `sample_size` | int | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
+| `successful_samples_required` | int | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
+| `additional_latency_milliseconds` | int | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
+
+### `backend_pool_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
+| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
+
 ### `backend` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -93,6 +108,23 @@ tfstate_store = {
 | `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
 | `weight` | int | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
 
+### `backend_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend` | [block](#backend_pool-block-structure) | Yes | - | A 'backend' block. |
+| `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
+| `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
+
+### `frontend_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `host_name` | string | Yes | - | Specifies the host name of the 'frontend_endpoint'. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name. |
+| `session_affinity_enabled` | bool | No | False | Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'. |
+| `session_affinity_ttl_seconds` | int | No | 0 | The TTL to use in seconds for session affinity, if applicable. Defaults to '0'. |
+| `web_application_firewall_policy_link_id` | string | No | - | Defines the Web Application Firewall policy 'ID' for each host. |
+
 ### `backend_pool_health_probe` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -102,6 +134,19 @@ tfstate_store = {
 | `protocol` | string | No | Http | Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'. |
 | `probe_method` | string | No | GET | Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'. |
 | `interval_in_seconds` | int | No | 120 | The number of seconds between each Health Probe. Defaults to '120'. |
+
+### `forwarding_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_pool_name` | string | Yes | - | Specifies the name of the Backend Pool to forward the incoming traffic to. |
+| `cache_enabled` | bool | No | False | Specifies whether to Enable caching or not. Valid options are 'true' or 'false'. Defaults to 'false'. |
+| `cache_use_dynamic_compression` | bool | No | False | Whether to use dynamic compression when caching. Valid options are 'true' or 'false'. Defaults to 'false'. |
+| `cache_query_parameter_strip_directive` | string | No | StripAll | Defines cache behaviour in relation to query string parameters. Valid options are 'StripAll', 'StripAllExcept', 'StripOnly' or 'StripNone'. Defaults to 'StripAll'. |
+| `cache_query_parameters` | string | No | - | Specify query parameters (array). Works only in combination with 'cache_query_parameter_strip_directive' set to 'StripAllExcept' or 'StripOnly'. |
+| `cache_duration` | string | No | - | Specify the minimum caching duration (in ISO8601 notation e.g. 'P1DT2H' for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. 'cache_duration' works only in combination with 'cache_enabled' set to 'true'. |
+| `custom_forwarding_path` | string | No | - | Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path. |
+| `forwarding_protocol` | string | No | HttpsOnly | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'. |
 
 ### `redirect_configuration` block structure
 
@@ -124,51 +169,6 @@ tfstate_store = {
 | `enabled` | bool | No | True | 'Enable' or 'Disable' use of this Backend Routing Rule. Permitted values are 'true' or 'false'. Defaults to 'true'. |
 | `forwarding_configuration` | [block](#routing_rule-block-structure) | No | - | A 'forwarding_configuration' block. |
 | `redirect_configuration` | [block](#routing_rule-block-structure) | No | - | A 'redirect_configuration' block. |
-
-### `backend_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend` | [block](#backend_pool-block-structure) | Yes | - | A 'backend' block. |
-| `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
-| `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
-
-### `backend_pool_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
-| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
-
-### `forwarding_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_pool_name` | string | Yes | - | Specifies the name of the Backend Pool to forward the incoming traffic to. |
-| `cache_enabled` | bool | No | False | Specifies whether to Enable caching or not. Valid options are 'true' or 'false'. Defaults to 'false'. |
-| `cache_use_dynamic_compression` | bool | No | False | Whether to use dynamic compression when caching. Valid options are 'true' or 'false'. Defaults to 'false'. |
-| `cache_query_parameter_strip_directive` | string | No | StripAll | Defines cache behaviour in relation to query string parameters. Valid options are 'StripAll', 'StripAllExcept', 'StripOnly' or 'StripNone'. Defaults to 'StripAll'. |
-| `cache_query_parameters` | string | No | - | Specify query parameters (array). Works only in combination with 'cache_query_parameter_strip_directive' set to 'StripAllExcept' or 'StripOnly'. |
-| `cache_duration` | string | No | - | Specify the minimum caching duration (in ISO8601 notation e.g. 'P1DT2H' for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. 'cache_duration' works only in combination with 'cache_enabled' set to 'true'. |
-| `custom_forwarding_path` | string | No | - | Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path. |
-| `forwarding_protocol` | string | No | HttpsOnly | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'. |
-
-### `backend_pool_load_balancing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `sample_size` | int | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
-| `successful_samples_required` | int | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
-| `additional_latency_milliseconds` | int | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
-
-### `frontend_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `host_name` | string | Yes | - | Specifies the host name of the 'frontend_endpoint'. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name. |
-| `session_affinity_enabled` | bool | No | False | Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'. |
-| `session_affinity_ttl_seconds` | int | No | 0 | The TTL to use in seconds for session affinity, if applicable. Defaults to '0'. |
-| `web_application_firewall_policy_link_id` | string | No | - | Defines the Web Application Firewall policy 'ID' for each host. |
 
 
 

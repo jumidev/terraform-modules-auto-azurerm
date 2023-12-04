@@ -47,24 +47,6 @@ tfstate_store = {
 | **status_change_alert_enabled** | bool |  `False`  |  Whether the status change alert is enabled. Defaults to `false`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `antimalware` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `exclusions` | [block](#antimalware-block-structure) | No | - | A 'exclusions' block. |
-| `real_time_protection_enabled` | bool | No | False | Whether the real time protection is enabled. Defaults to 'false'. |
-| `scheduled_scan_enabled` | bool | No | False | Whether the scheduled scan is enabled. Defaults to 'false'. |
-| `scheduled_scan_type` | string | No | Quick | The type of the scheduled scan. Possible values are 'Quick' and 'Full'. Defaults to 'Quick'. |
-| `scheduled_scan_day` | string | No | 8 | The day of the scheduled scan. Possible values are '0' to '8' where '0' is daily, '1' to '7' are the days of the week and '8' is Disabled. Defaults to '8'. |
-| `scheduled_scan_time_in_minutes` | string | No | - | The time of the scheduled scan in minutes. Possible values are '0' to '1439' where '0' is 12:00 AM and '1439' is 11:59 PM. |
-
-### `daily_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `retention_times` | string | No | - | The retention times of the backup policy. |
-| `retention_duration` | [block](#daily_schedule-block-structure) | No | - | A 'retention_duration' block. |
-
 ### `exclusions` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,20 +54,6 @@ tfstate_store = {
 | `extensions` | string | No | - | The extensions to exclude from the antimalware scan, separated by ';'. For example '.ext1;.ext2'. |
 | `paths` | string | No | - | The paths to exclude from the antimalware scan, separated by ';'. For example 'C:''Windows''Temp;D:''Temp'. |
 | `processes` | string | No | - | The processes to exclude from the antimalware scan, separated by ';'. For example 'svchost.exe;notepad.exe'. |
-
-### `azure_security_baseline` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `assignment_type` | string | No | ApplyAndAutoCorrect | The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'. |
-
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `retention_policy_type` | string | No | LongTermRetentionPolicy | The retention policy type of the backup policy. Possible value is 'LongTermRetentionPolicy'. Defaults to 'LongTermRetentionPolicy'. |
-| `daily_schedule` | [block](#retention_policy-block-structure) | No | - | A 'daily_schedule' block. |
-| `weekly_schedule` | [block](#retention_policy-block-structure) | No | - | A 'weekly_schedule' block. |
 
 ### `backup` block structure
 
@@ -97,12 +65,51 @@ tfstate_store = {
 | `schedule_policy` | [block](#backup-block-structure) | No | - | A 'schedule_policy' block. |
 | `retention_policy` | [block](#backup-block-structure) | No | - | A 'retention_policy' block. |
 
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `retention_policy_type` | string | No | LongTermRetentionPolicy | The retention policy type of the backup policy. Possible value is 'LongTermRetentionPolicy'. Defaults to 'LongTermRetentionPolicy'. |
+| `daily_schedule` | [block](#retention_policy-block-structure) | No | - | A 'daily_schedule' block. |
+| `weekly_schedule` | [block](#retention_policy-block-structure) | No | - | A 'weekly_schedule' block. |
+
+### `daily_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `retention_times` | string | No | - | The retention times of the backup policy. |
+| `retention_duration` | [block](#daily_schedule-block-structure) | No | - | A 'retention_duration' block. |
+
+### `weekly_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `retention_times` | string | No | - | The retention times of the backup policy. |
+| `retention_duration` | [block](#weekly_schedule-block-structure) | No | - | A 'retention_duration' block. |
+
+### `azure_security_baseline` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `assignment_type` | string | No | ApplyAndAutoCorrect | The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'. |
+
 ### `retention_duration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `count` | int | No | - | The count of the retention duration of the backup policy. Valid value inside 'daily_schedule' is '7' to '9999' and inside 'weekly_schedule' is '1' to '5163'. |
 | `duration_type` | string | No | Days | The duration type of the retention duration of the backup policy. Valid value inside 'daily_schedule' is 'Days' and inside 'weekly_schedule' is 'Weeks'. Defaults to 'Days'. |
+
+### `antimalware` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `exclusions` | [block](#antimalware-block-structure) | No | - | A 'exclusions' block. |
+| `real_time_protection_enabled` | bool | No | False | Whether the real time protection is enabled. Defaults to 'false'. |
+| `scheduled_scan_enabled` | bool | No | False | Whether the scheduled scan is enabled. Defaults to 'false'. |
+| `scheduled_scan_type` | string | No | Quick | The type of the scheduled scan. Possible values are 'Quick' and 'Full'. Defaults to 'Quick'. |
+| `scheduled_scan_day` | string | No | 8 | The day of the scheduled scan. Possible values are '0' to '8' where '0' is daily, '1' to '7' are the days of the week and '8' is Disabled. Defaults to '8'. |
+| `scheduled_scan_time_in_minutes` | string | No | - | The time of the scheduled scan in minutes. Possible values are '0' to '1439' where '0' is 12:00 AM and '1439' is 11:59 PM. |
 
 ### `schedule_policy` block structure
 
@@ -112,13 +119,6 @@ tfstate_store = {
 | `schedule_run_times` | string | No | - | The schedule run times of the backup policy. |
 | `schedule_run_days` | string | No | - | The schedule run days of the backup policy. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `schedule_policy_type` | string | No | SimpleSchedulePolicy | The schedule policy type of the backup policy. Possible value is 'SimpleSchedulePolicy'. Defaults to 'SimpleSchedulePolicy'. |
-
-### `weekly_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `retention_times` | string | No | - | The retention times of the backup policy. |
-| `retention_duration` | [block](#weekly_schedule-block-structure) | No | - | A 'retention_duration' block. |
 
 
 

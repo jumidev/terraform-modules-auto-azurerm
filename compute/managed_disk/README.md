@@ -71,12 +71,12 @@ tfstate_store = {
 | **disk_access_id** | string |  -  |  -  |  The ID of the disk access resource for using private endpoints on disks. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether it is allowed to access the disk via public network. Defaults to `true`. | 
 
-### `encryption_settings` block structure
+### `disk_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'key_encryption_key' block. |
+| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
 ### `key_encryption_key` block structure
 
@@ -85,12 +85,12 @@ tfstate_store = {
 | `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
 | `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
-### `disk_encryption_key` block structure
+### `encryption_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
+| `disk_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'key_encryption_key' block. |
 
 
 

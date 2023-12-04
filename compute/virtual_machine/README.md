@@ -72,12 +72,49 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Virtual Machine. | 
 | **zones** | list |  -  |  -  |  A list of a single item of the Availability Zone which the Virtual Machine should be allocated in. Changing this forces a new resource to be created. | 
 
-### `os_profile_linux_config` block structure
+### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disable_password_authentication` | bool | Yes | - | Specifies whether password authentication should be disabled. If set to 'false', an 'admin_password' must be specified. |
-| `ssh_keys` | [block](#os_profile_linux_config-block-structure) | No | - | One or more 'ssh_keys' blocks. This field is required if 'disable_password_authentication' is set to 'true'. |
+| `publisher` | string | Yes | - | Specifies the publisher of the image. |
+| `product` | string | Yes | - | Specifies the product of the image from the marketplace. |
+
+### `storage_os_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `create_option` | string | Yes | - | Specifies how the OS Disk should be created. Possible values are 'Attach' (managed disks only) and 'FromImage'. |
+| `caching` | string | No | - | Specifies the caching requirements for the OS Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'. |
+| `disk_size_gb` | int | No | - | Specifies the size of the OS Disk in gigabytes. |
+| `image_uri` | string | No | - | Specifies the Image URI in the format 'publisherName:offer:skus:version'. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the 'os_type' field must be set. |
+| `os_type` | string | No | - | Specifies the Operating System on the OS Disk. Possible values are 'Linux' and 'Windows'. |
+| `write_accelerator_enabled` | bool | No | False | Specifies if Write Accelerator is enabled on the disk. This can only be enabled on 'Premium_LRS' managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to 'false'. |
+| `managed_disk_id` | string | No | - | Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the 'create_option' must be set to 'Attach'. Changing this forces a new resource to be created. |
+| `managed_disk_type` | string | No | - | Specifies the type of Managed Disk which should be created. Possible values are 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. |
+| `vhd_uri` | string | No | - | Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created. |
+
+### `ssh_keys` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_data` | string | Yes | - | The Public SSH Key which should be written to the 'path' defined above. |
+| `path` | string | Yes | - | The path of the destination file on the virtual machine |
+
+### `vault_certificates` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_url` | string | Yes | - | The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be: |
+| `certificate_store` | string | No | - | (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as 'My'. |
+
+### `storage_image_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publisher` | string | No | - | Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created. |
+| `offer` | string | No | - | Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created. |
+| `sku` | string | No | - | Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created. |
+| `version` | string | No | - | Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created. |
 
 ### `additional_unattend_config` block structure
 
@@ -88,19 +125,14 @@ tfstate_store = {
 | `setting_name` | string | Yes | - | Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'. |
 | `content` | string | Yes | - | Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component. |
 
-### `vault_certificates` block structure
+### `os_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `certificate_url` | string | Yes | - | The ID of the Key Vault Secret. Stored secret is the Base64 encoding of a JSON Object that which is encoded in UTF-8 of which the contents need to be: |
-| `certificate_store` | string | No | - | (Required, on windows machines) Specifies the certificate store on the Virtual Machine where the certificate should be added to, such as 'My'. |
-
-### `os_profile_secrets` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `source_vault_id` | string | Yes | - | Specifies the ID of the Key Vault to use. |
-| `vault_certificates` | [block](#os_profile_secrets-block-structure) | No | - | One or more 'vault_certificates' blocks. |
+| `computer_name` | string | Yes | - | Specifies the name of the Virtual Machine. Changing this forces a new resource to be created. |
+| `admin_username` | string | Yes | - | Specifies the name of the local administrator account. |
+| `admin_password` | string | No | - | (Optional for Windows, Optional for Linux) The password associated with the local administrator account. |
+| `custom_data` | string | No | - | Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, Terraform will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created. |
 
 ### `storage_data_disk` block structure
 
@@ -115,19 +147,39 @@ tfstate_store = {
 | `managed_disk_id` | string | No | - | Specifies the ID of an Existing Managed Disk which should be attached to this Virtual Machine. When this field is set 'create_option' must be set to 'Attach'. |
 | `vhd_uri` | string | No | - | Specifies the URI of the VHD file backing this Unmanaged Data Disk. |
 
-### `plan` block structure
+### `winrm` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `publisher` | string | Yes | - | Specifies the publisher of the image. |
-| `product` | string | Yes | - | Specifies the product of the image from the marketplace. |
+| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'HTTP' or 'HTTPS'. |
+| `certificate_url` | string | No | - | The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the 'vault_certificates' block within the 'os_profile_secrets' block. |
 
-### `ssh_keys` block structure
+### `additional_capabilities` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_data` | string | Yes | - | The Public SSH Key which should be written to the 'path' defined above. |
-| `path` | string | Yes | - | The path of the destination file on the virtual machine |
+| `ultra_ssd_enabled` | bool | Yes | - | Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created. |
+
+### `boot_diagnostics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should Boot Diagnostics be enabled for this Virtual Machine? |
+| `storage_uri` | string | Yes | - | The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files. |
+
+### `os_profile_secrets` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_vault_id` | string | Yes | - | Specifies the ID of the Key Vault to use. |
+| `vault_certificates` | [block](#os_profile_secrets-block-structure) | No | - | One or more 'vault_certificates' blocks. |
+
+### `os_profile_linux_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disable_password_authentication` | bool | Yes | - | Specifies whether password authentication should be disabled. If set to 'false', an 'admin_password' must be specified. |
+| `ssh_keys` | [block](#os_profile_linux_config-block-structure) | No | - | One or more 'ssh_keys' blocks. This field is required if 'disable_password_authentication' is set to 'true'. |
 
 ### `identity` block structure
 
@@ -145,58 +197,6 @@ tfstate_store = {
 | `timezone` | string | No | - | Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created. |
 | `winrm` | [block](#os_profile_windows_config-block-structure) | No | - | One or more 'winrm' blocks. |
 | `additional_unattend_config` | [block](#os_profile_windows_config-block-structure) | No | - | An 'additional_unattend_config' block. |
-
-### `os_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `computer_name` | string | Yes | - | Specifies the name of the Virtual Machine. Changing this forces a new resource to be created. |
-| `admin_username` | string | Yes | - | Specifies the name of the local administrator account. |
-| `admin_password` | string | No | - | (Optional for Windows, Optional for Linux) The password associated with the local administrator account. |
-| `custom_data` | string | No | - | Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, Terraform will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. Changing this forces a new resource to be created. |
-
-### `additional_capabilities` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ultra_ssd_enabled` | bool | Yes | - | Should Ultra SSD disk be enabled for this Virtual Machine? Changing this forces a new resource to be created. |
-
-### `storage_os_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `create_option` | string | Yes | - | Specifies how the OS Disk should be created. Possible values are 'Attach' (managed disks only) and 'FromImage'. |
-| `caching` | string | No | - | Specifies the caching requirements for the OS Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'. |
-| `disk_size_gb` | int | No | - | Specifies the size of the OS Disk in gigabytes. |
-| `image_uri` | string | No | - | Specifies the Image URI in the format 'publisherName:offer:skus:version'. This field can also specify the [VHD URI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images) of a custom VM image to clone. When cloning a Custom (Unmanaged) Disk Image the 'os_type' field must be set. |
-| `os_type` | string | No | - | Specifies the Operating System on the OS Disk. Possible values are 'Linux' and 'Windows'. |
-| `write_accelerator_enabled` | bool | No | False | Specifies if Write Accelerator is enabled on the disk. This can only be enabled on 'Premium_LRS' managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to 'false'. |
-| `managed_disk_id` | string | No | - | Specifies the ID of an existing Managed Disk which should be attached as the OS Disk of this Virtual Machine. If this is set then the 'create_option' must be set to 'Attach'. Changing this forces a new resource to be created. |
-| `managed_disk_type` | string | No | - | Specifies the type of Managed Disk which should be created. Possible values are 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. |
-| `vhd_uri` | string | No | - | Specifies the URI of the VHD file backing this Unmanaged OS Disk. Changing this forces a new resource to be created. |
-
-### `boot_diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should Boot Diagnostics be enabled for this Virtual Machine? |
-| `storage_uri` | string | Yes | - | The Storage Account's Blob Endpoint which should hold the virtual machine's diagnostic files. |
-
-### `winrm` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'HTTP' or 'HTTPS'. |
-| `certificate_url` | string | No | - | The ID of the Key Vault Secret which contains the encrypted Certificate which should be installed on the Virtual Machine. This certificate must also be specified in the 'vault_certificates' block within the 'os_profile_secrets' block. |
-
-### `storage_image_reference` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `publisher` | string | No | - | Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created. |
-| `offer` | string | No | - | Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created. |
-| `sku` | string | No | - | Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created. |
-| `version` | string | No | - | Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created. |
 
 
 

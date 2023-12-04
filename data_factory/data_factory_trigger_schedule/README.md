@@ -47,16 +47,6 @@ tfstate_store = {
 | **pipeline_parameters** | string |  -  |  -  |  The pipeline parameters that the trigger will act upon. | 
 | **annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Schedule Trigger. | 
 
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days_of_month` | int | No | - | Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only. |
-| `days_of_week` | int | No | - | Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency. |
-| `hours` | string | No | - | Hours of the day on which the trigger is scheduled. |
-| `minutes` | int | No | - | Minutes of the hour on which the trigger is scheduled. |
-| `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
-
 ### `monthly` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,6 +59,16 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | The pipeline parameters that the trigger will act upon. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days_of_month` | int | No | - | Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only. |
+| `days_of_week` | int | No | - | Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency. |
+| `hours` | string | No | - | Hours of the day on which the trigger is scheduled. |
+| `minutes` | int | No | - | Minutes of the hour on which the trigger is scheduled. |
+| `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
 
 
 

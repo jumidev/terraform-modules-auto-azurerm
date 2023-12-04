@@ -64,12 +64,12 @@ tfstate_store = {
 | `dimension` | [block](#filter-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
 | `tag` | [block](#filter-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
 
-### `time_period` block structure
+### `tag` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created. |
-| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | string | Yes | - | Specifies a list of values for the tag. |
 
 ### `notification` block structure
 
@@ -81,19 +81,19 @@ tfstate_store = {
 | `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
 | `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
+### `time_period` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_date` | datetime | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created. |
+| `end_date` | datetime | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
+
 ### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
 | `values` | string | Yes | - | Specifies a list of values for the column. |
-
-### `tag` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
-| `values` | string | Yes | - | Specifies a list of values for the tag. |
 
 
 

@@ -23,6 +23,20 @@ tfstate_store = {
 }
 
 ```
+### 1 optional associated resource
+
+| tfstate_input variable | Information |
+| -------- | ----------- |
+| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
+
+### using associated resources
+
+```hcl
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id"
+}
+```
+
 
 ## Required Variables
 
@@ -49,11 +63,6 @@ tfstate_store = {
 | `next_hop_in_ip_address` | string | No | - | Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is 'VirtualAppliance'. |
 
 
-### 1 optional associated resource
-
-| tfstate_input variable | Information |
-| -------- | ----------- |
-| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). \\ \\ e.g. : `subnet_id = "path/to/subnet_component:id"`|
 
 ## Outputs
 

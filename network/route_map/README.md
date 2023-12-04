@@ -36,13 +36,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | [block](#action-block-structure) | Yes | - | A 'parameter' block. |
-| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
-
 ### `match_criterion` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -59,6 +52,13 @@ tfstate_store = {
 | `as_path` | list | No | - | A list of AS paths. |
 | `community` | list | No | - | A list of BGP communities. |
 | `route_prefix` | list | No | - | A list of route prefixes. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameter` | [block](#action-block-structure) | Yes | - | A 'parameter' block. |
+| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
 ### `rule` block structure
 

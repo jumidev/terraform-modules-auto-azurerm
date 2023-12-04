@@ -38,36 +38,6 @@ tfstate_store = {
 | **certificate_policy** | [block](#certificate_policy-block-structure) |  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days_before_expiry` | int | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
-| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
-
-### `lifetime_action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | [block](#lifetime_action-block-structure) | Yes | - | A 'action' block. |
-| `trigger` | [block](#lifetime_action-block-structure) | Yes | - | A 'trigger' block. |
-
-### `certificate_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `issuer_parameters` | [block](#certificate_policy-block-structure) | Yes | - | A 'issuer_parameters' block. |
-| `key_properties` | [block](#certificate_policy-block-structure) | Yes | - | A 'key_properties' block. |
-| `lifetime_action` | [block](#certificate_policy-block-structure) | No | - | A 'lifetime_action' block. |
-| `secret_properties` | [block](#certificate_policy-block-structure) | Yes | - | A 'secret_properties' block. |
-| `x509_certificate_properties` | [block](#certificate_policy-block-structure) | No | - | A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. |
-
-### `secret_properties` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
-
 ### `x509_certificate_properties` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,12 +53,43 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 
+### `subject_alternative_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_names` | list | No | - | A list of alternative DNS names (FQDNs) identified by the Certificate. |
+| `emails` | list | No | - | A list of email addresses identified by this Certificate. |
+| `upns` | list | No | - | A list of User Principal Names identified by the Certificate. |
+
+### `certificate_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `issuer_parameters` | [block](#certificate_policy-block-structure) | Yes | - | A 'issuer_parameters' block. |
+| `key_properties` | [block](#certificate_policy-block-structure) | Yes | - | A 'key_properties' block. |
+| `lifetime_action` | [block](#certificate_policy-block-structure) | No | - | A 'lifetime_action' block. |
+| `secret_properties` | [block](#certificate_policy-block-structure) | Yes | - | A 'secret_properties' block. |
+| `x509_certificate_properties` | [block](#certificate_policy-block-structure) | No | - | A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
+
 ### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `contents` | string | Yes | - | The base64-encoded certificate contents. |
 | `password` | string | No | - | The password associated with the certificate. |
+
+### `trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days_before_expiry` | int | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
+| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
 
 ### `key_properties` block structure
 
@@ -100,19 +101,18 @@ tfstate_store = {
 | `key_type` | string | Yes | - | Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'. |
 | `reuse_key` | bool | Yes | - | Is the key reusable? |
 
-### `subject_alternative_names` block structure
+### `secret_properties` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_names` | list | No | - | A list of alternative DNS names (FQDNs) identified by the Certificate. |
-| `emails` | list | No | - | A list of email addresses identified by this Certificate. |
-| `upns` | list | No | - | A list of User Principal Names identified by the Certificate. |
+| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
 
-### `action` block structure
+### `lifetime_action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
+| `action` | [block](#lifetime_action-block-structure) | Yes | - | A 'action' block. |
+| `trigger` | [block](#lifetime_action-block-structure) | Yes | - | A 'trigger' block. |
 
 
 

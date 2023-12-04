@@ -448,6 +448,10 @@ variable "network_profile" {
 #   load_balancer_profile (block)  : A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created.
 #   nat_gateway_profile (block)    : A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created.
 #
+# nat_gateway_profile block structure:
+#   idle_timeout_in_minutes (int)      : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
+#   managed_outbound_ip_count (int)    : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
+#
 # load_balancer_profile block structure:
 #   idle_timeout_in_minutes (int)        : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
 #   managed_outbound_ip_count (int)      : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
@@ -455,10 +459,6 @@ variable "network_profile" {
 #   outbound_ip_address_ids (string)     : The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 #   outbound_ip_prefix_ids (string)      : The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 #   outbound_ports_allocated (int)       : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
-#
-# nat_gateway_profile block structure:
-#   idle_timeout_in_minutes (int)      : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
-#   managed_outbound_ip_count (int)    : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
 
 
 variable "node_os_channel_upgrade" {

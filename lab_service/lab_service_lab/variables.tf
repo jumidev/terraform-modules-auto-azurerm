@@ -44,14 +44,6 @@ variable "virtual_machine" {
 #   shared_password_enabled (bool)                    : Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created.
 #   usage_quota (string)                              : The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string.
 #
-# non_admin_user block structure:
-#   username (string)             : (REQUIRED) The username to use when signing in to Lab Service Lab VMs.
-#   password (string)             : (REQUIRED) The password for the user.
-#
-# admin_user block structure:
-#   username (string)         : (REQUIRED) The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
-#   password (string)         : (REQUIRED) The password for the Lab user. Changing this forces a new resource to be created.
-#
 # image_reference block structure:
 #   offer (string)                 : The image offer if applicable. Changing this forces a new resource to be created.
 #   publisher (string)             : The image publisher. Changing this forces a new resource to be created.
@@ -60,6 +52,14 @@ variable "virtual_machine" {
 #
 # sku block structure:
 #   capacity (string)  : (REQUIRED) The capacity for the SKU. Possible values are between '0' and '400'.
+#
+# admin_user block structure:
+#   username (string)         : (REQUIRED) The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created.
+#   password (string)         : (REQUIRED) The password for the Lab user. Changing this forces a new resource to be created.
+#
+# non_admin_user block structure:
+#   username (string)             : (REQUIRED) The username to use when signing in to Lab Service Lab VMs.
+#   password (string)             : (REQUIRED) The password for the user.
 
 
 

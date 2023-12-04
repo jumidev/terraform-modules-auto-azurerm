@@ -23,6 +23,20 @@ tfstate_store = {
 }
 
 ```
+### 1 optional associated resource
+
+| tfstate_input variable | Information |
+| -------- | ----------- |
+| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_network_security_group_association** - Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
+
+### using associated resources
+
+```hcl
+tfstate_inputs = {
+   subnet_id = "path/to/subnet_component:id"
+}
+```
+
 
 ## Required Variables
 
@@ -56,11 +70,6 @@ tfstate_store = {
 | `direction` | string | Yes | Inbound | The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are 'Inbound' and 'Outbound'. |
 
 
-### 1 optional associated resource
-
-| tfstate_input variable | Information |
-| -------- | ----------- |
-| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_network_security_group_association** - Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html). \\ \\ e.g. : `subnet_id = "path/to/subnet_component:id"`|
 
 ## Outputs
 

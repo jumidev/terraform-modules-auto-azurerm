@@ -65,10 +65,10 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'.
 #
-# google block structure:
-#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
-#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+# microsoft block structure:
+#   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
+#   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
+#   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
 #
 # twitter block structure :
 #   consumer_key (string)   : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -84,10 +84,10 @@ variable "auth_settings" {
 #   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
 #   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
 #
-# microsoft block structure:
-#   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
-#   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
-#   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+# google block structure:
+#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
+#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 
 
 variable "enable_builtin_logging" {

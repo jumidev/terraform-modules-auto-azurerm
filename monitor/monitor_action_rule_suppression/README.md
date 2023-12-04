@@ -48,12 +48,19 @@ tfstate_store = {
 | **condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `monitor` block structure
+### `monitor_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'. |
+
+### `description` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
 
 ### `schedule` block structure
 
@@ -64,12 +71,12 @@ tfstate_store = {
 | `recurrence_weekly` | string | No | - | specifies the list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `recurrence_monthly` | string | No | - | specifies the list of dayOfMonth to recurrence. Possible values are between '1' - '31'. Required if 'recurrence_type' is 'Monthly'. |
 
-### `severity` block structure
+### `alert_rule_id` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals'and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
 
 ### `target_resource_type` block structure
 
@@ -77,6 +84,32 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. |
+
+### `condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
+| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
+| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
+| `monitor` | [block](#condition-block-structure) | No | - | A 'monitor' block. |
+| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
+| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
+| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
+
+### `monitor` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
+
+### `suppression` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `recurrence_type` | string | Yes | - | Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'. |
+| `schedule` | [block](#suppression-block-structure) | No | - | A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'. |
 
 ### `scope` block structure
 
@@ -92,45 +125,12 @@ tfstate_store = {
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. |
 
-### `suppression` block structure
+### `severity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `recurrence_type` | string | Yes | - | Specifies the type of suppression. Possible values are 'Always', 'Daily', 'Monthly', 'Once', and 'Weekly'. |
-| `schedule` | [block](#suppression-block-structure) | No | - | A 'schedule' block. Required if 'recurrence_type' is 'Daily', 'Monthly', 'Once' or 'Weekly'. |
-
-### `monitor_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'. |
-
-### `condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
-| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
-| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
-| `monitor` | [block](#condition-block-structure) | No | - | A 'monitor' block. |
-| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
-| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
-| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
-
-### `alert_rule_id` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
-
-### `description` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals'and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
 
 
 

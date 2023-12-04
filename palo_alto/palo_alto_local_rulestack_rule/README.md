@@ -67,13 +67,6 @@ tfstate_store = {
 | **protocol_ports** | string |  -  |  -  |  Specifies a list of Protocol:Port entries. E.g. `[ "TCP:80", "UDP:5431" ]`. Conflicts with `protocol`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Palo Alto Local Rulestack Rule. | 
 
-### `category` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `feeds` | string | No | - | Specifies a list of feeds to match. |
-| `custom_urls` | string | Yes | - | Specifies a list of URL categories to match. Possible values include 'abortion', 'abused-drugs', 'adult', 'alcohol-and-tobacco', 'auctions', 'business-and-economy', 'command-and-control', 'computer-and-internet-info', 'content-delivery-networks', 'copyright-infringement', 'cryptocurrency', 'dating', 'dynamic-dns', 'educational-institutions', 'entertainment-and-arts', 'extremism', 'financial-services', 'gambling', 'games', 'government', 'grayware', 'hacking', 'health-and-medicine', 'high-risk', 'home-and-garden', 'hunting-and-fishing', 'insufficient-content', 'internet-communications-and-telephony', 'internet-portals', 'job-search', 'legal', 'low-risk', 'malware', 'medium-risk', 'military', 'motor-vehicles', 'music', 'newly-registered-domain', 'news', 'not-resolved', 'nudity', 'online-storage-and-backup', 'parked', 'peer-to-peer', 'personal-sites-and-blogs', 'philosophy-and-political-advocacy', 'phishing', 'private-ip-addresses', 'proxy-avoidance-and-anonymizers', 'questionable', 'real-estate', 'real-time-detection', 'recreation-and-hobbies', 'reference-and-research', 'religion', 'search-engines', 'sex-education', 'shareware-and-freeware', 'shopping', 'social-networking', 'society', 'sports', 'stock-advice-and-tools', 'streaming-media', 'swimsuits-and-intimate-apparel', 'training-and-tools', 'translation', 'travel', 'unknown', 'weapons', 'web-advertisements', 'web-based-email', and 'web-hosting'. |
-
 ### `source` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -92,6 +85,13 @@ tfstate_store = {
 | `feeds` | string | No | - | Specifies a list of Feeds. |
 | `local_rulestack_fqdn_list_ids` | string | No | - | Specifies a list of FQDN lists. |
 | `local_rulestack_prefix_list_ids` | string | No | - | Specifies a list of Prefix Lists. |
+
+### `category` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `feeds` | string | No | - | Specifies a list of feeds to match. |
+| `custom_urls` | string | Yes | - | Specifies a list of URL categories to match. Possible values include 'abortion', 'abused-drugs', 'adult', 'alcohol-and-tobacco', 'auctions', 'business-and-economy', 'command-and-control', 'computer-and-internet-info', 'content-delivery-networks', 'copyright-infringement', 'cryptocurrency', 'dating', 'dynamic-dns', 'educational-institutions', 'entertainment-and-arts', 'extremism', 'financial-services', 'gambling', 'games', 'government', 'grayware', 'hacking', 'health-and-medicine', 'high-risk', 'home-and-garden', 'hunting-and-fishing', 'insufficient-content', 'internet-communications-and-telephony', 'internet-portals', 'job-search', 'legal', 'low-risk', 'malware', 'medium-risk', 'military', 'motor-vehicles', 'music', 'newly-registered-domain', 'news', 'not-resolved', 'nudity', 'online-storage-and-backup', 'parked', 'peer-to-peer', 'personal-sites-and-blogs', 'philosophy-and-political-advocacy', 'phishing', 'private-ip-addresses', 'proxy-avoidance-and-anonymizers', 'questionable', 'real-estate', 'real-time-detection', 'recreation-and-hobbies', 'reference-and-research', 'religion', 'search-engines', 'sex-education', 'shareware-and-freeware', 'shopping', 'social-networking', 'society', 'sports', 'stock-advice-and-tools', 'streaming-media', 'swimsuits-and-intimate-apparel', 'training-and-tools', 'translation', 'travel', 'unknown', 'weapons', 'web-advertisements', 'web-based-email', and 'web-hosting'. |
 
 
 

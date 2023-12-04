@@ -23,6 +23,20 @@ tfstate_store = {
 }
 
 ```
+### 1 optional associated resource
+
+| tfstate_input variable | Information |
+| -------- | ----------- |
+| **application_group_id** | If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association.|
+
+### using associated resources
+
+```hcl
+tfstate_inputs = {
+   application_group_id = "path/to/virtual_desktop_application_group_component:id"
+}
+```
+
 
 ## Required Variables
 
@@ -57,11 +71,6 @@ tfstate_store = {
 | `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
 
 
-### 1 optional associated resource
-
-| tfstate_input variable | Information |
-| -------- | ----------- |
-| **application_group_id** | If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association. \\ \\ e.g. : `application_group_id = "path/to/virtual_desktop_application_group_component:id"`|
 
 ## Outputs
 

@@ -54,13 +54,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `selectors` | [block](#resource_selectors-block-structure) | Yes | - | One or more 'resource_selector' block. |
 
-### `resource_selector` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
-| `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
-
 ### `overrides` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,6 +67,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
 
+### `non_compliance_message` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
+| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,12 +81,12 @@ tfstate_store = {
 | `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' or 'UserAssigned'. |
 | `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
 
-### `non_compliance_message` block structure
+### `resource_selector` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
-| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+| `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
+| `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
 
 
 

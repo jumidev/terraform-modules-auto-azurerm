@@ -42,19 +42,26 @@ tfstate_store = {
 | **condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `monitor` block structure
+### `description` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
+
+### `monitor_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'. |
 
-### `severity` block structure
+### `alert_rule_id` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals'and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
 
 ### `target_resource_type` block structure
 
@@ -62,6 +69,25 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. |
+
+### `condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
+| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
+| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
+| `monitor` | [block](#condition-block-structure) | No | - | A 'monitor' block. |
+| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
+| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
+| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
+
+### `monitor` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
 
 ### `scope` block structure
 
@@ -77,38 +103,12 @@ tfstate_store = {
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. |
 
-### `monitor_service` block structure
+### `severity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'. |
-
-### `condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
-| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
-| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
-| `monitor` | [block](#condition-block-structure) | No | - | A 'monitor' block. |
-| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
-| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
-| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
-
-### `alert_rule_id` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
-
-### `description` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals'and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
 
 
 

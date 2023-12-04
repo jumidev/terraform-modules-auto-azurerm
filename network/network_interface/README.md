@@ -37,6 +37,22 @@ tfstate_store = {
 }
 
 ```
+### 2 optional associated resources
+
+| tfstate_input variable | Information |
+| -------- | ----------- |
+| **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.|
+| **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.|
+
+### using associated resources
+
+```hcl
+tfstate_inputs = {
+   application_security_group_id = "path/to/application_security_group_component:id"
+   network_security_group_id = "path/to/network_security_group_component:id"
+}
+```
+
 
 ## Required Variables
 
@@ -73,12 +89,6 @@ tfstate_store = {
 | `private_ip_address` | string | No | - | The Static IP Address which should be used. |
 
 
-### 2 optional associated resources
-
-| tfstate_input variable | Information |
-| -------- | ----------- |
-| **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group. \\ \\ e.g. : `application_security_group_id = "path/to/application_security_group_component:id"`|
-| **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group. \\ \\ e.g. : `network_security_group_id = "path/to/network_security_group_component:id"`|
 
 ## Outputs
 

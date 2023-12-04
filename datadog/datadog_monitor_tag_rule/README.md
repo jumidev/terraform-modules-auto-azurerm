@@ -36,18 +36,18 @@ tfstate_store = {
 | **log** | [block](#log-block-structure) |  -  |  A `log` block. | 
 | **metric** | [block](#metric-block-structure) |  -  |  A `metric` block. | 
 
+### `metric` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `filter` | [block](#metric-block-structure) | No | - | A 'filter' block. |
+
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `value` | string | Yes | - | Value of the Tag. |
 | `action` | string | Yes | - | Allowed values Include or Exclude. |
-
-### `metric` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `filter` | [block](#metric-block-structure) | No | - | A 'filter' block. |
 
 ### `log` block structure
 
