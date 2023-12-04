@@ -62,12 +62,6 @@ tfstate_store = {
 | **client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
 | **radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
-### `client_root_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-
 ### `azure_active_directory_authentication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,13 +83,19 @@ tfstate_store = {
 | `sa_lifetime_seconds` | int | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. |
 | `sa_data_size_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. |
 
+### `radius` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
 ### `client_revoked_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
-### `radius` block structure
+### `client_root_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

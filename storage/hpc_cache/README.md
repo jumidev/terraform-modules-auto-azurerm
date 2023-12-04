@@ -54,6 +54,12 @@ tfstate_store = {
 | **automatically_rotate_key_to_latest_enabled** | bool |  -  |  Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the HPC Cache. | 
 
+### `default_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_rule` | list | Yes | - | One or more 'access_rule' blocks (up to three). |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,25 +79,6 @@ tfstate_store = {
 | `password` | string | Yes | - | The password of the Active Directory domain administrator. |
 | `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
 
-### `dns` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
-| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
-
-### `default_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_rule` | list | Yes | - | One or more 'access_rule' blocks (up to three). |
-
-### `bind` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
-
 ### `directory_ldap` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -109,6 +96,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
 | `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
+
+### `bind` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
+
+### `dns` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
+| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
 
 
 

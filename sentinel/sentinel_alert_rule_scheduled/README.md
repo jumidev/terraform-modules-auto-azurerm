@@ -59,37 +59,17 @@ tfstate_store = {
 | **trigger_operator** | string |  `GreaterThan`  |  `Equal`, `GreaterThan`, `LessThan`, `NotEqual`  |  The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`. | 
 | **trigger_threshold** | int |  `0`  |  -  |  The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`. | 
 
-### `grouping` block structure
+### `dynamic_property` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to 'true'. |
-| `lookback_duration` | string | No | PT5M | Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to 'PT5M'. |
-| `reopen_closed_incidents` | bool | No | False | Whether to re-open closed matching incidents? Defaults to 'false'. |
-| `entity_matching_method` | string | No | AnyAlert | The method used to group incidents. Possible values are 'AnyAlert', 'Selected' and 'AllEntities'. Defaults to 'AnyAlert'. |
-| `group_by_entities` | string | No | - | A list of entity types to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
-| `group_by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
-| `group_by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
+| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
 
 ### `sentinel_entity_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `incident_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `create_incident` | string | Yes | - | Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule? |
-| `grouping` | [block](#incident_configuration-block-structure) | Yes | - | A 'grouping' block. |
-
-### `entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
-| `field_mapping` | [block](#entity_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
 
 ### `alert_details_override` block structure
 
@@ -108,11 +88,31 @@ tfstate_store = {
 | `identifier` | string | Yes | - | The identifier of the entity. |
 | `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
-### `dynamic_property` block structure
+### `incident_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
+| `create_incident` | string | Yes | - | Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule? |
+| `grouping` | [block](#incident_configuration-block-structure) | Yes | - | A 'grouping' block. |
+
+### `grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Enable grouping incidents created from alerts triggered by this Sentinel Scheduled Alert Rule. Defaults to 'true'. |
+| `lookback_duration` | string | No | PT5M | Limit the group to alerts created within the lookback duration (in ISO 8601 duration format). Defaults to 'PT5M'. |
+| `reopen_closed_incidents` | bool | No | False | Whether to re-open closed matching incidents? Defaults to 'false'. |
+| `entity_matching_method` | string | No | AnyAlert | The method used to group incidents. Possible values are 'AnyAlert', 'Selected' and 'AllEntities'. Defaults to 'AnyAlert'. |
+| `group_by_entities` | string | No | - | A list of entity types to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
+| `group_by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
+| `group_by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
+
+### `entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
+| `field_mapping` | [block](#entity_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
 
 ### `event_grouping` block structure
 

@@ -65,6 +65,13 @@ tfstate_store = {
 | **max_return** | string |  -  |  `1`, `8`  |  The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `dns_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
+| `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
+
 ### `monitor_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,13 +90,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
-
-### `dns_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
-| `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
 
 
 

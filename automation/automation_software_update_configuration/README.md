@@ -51,15 +51,6 @@ tfstate_store = {
 | **post_task** | [block](#post_task-block-structure) |  -  |  A `post_task` blocks. | 
 | **pre_task** | [block](#pre_task-block-structure) |  -  |  A `pre_task` blocks. | 
 
-### `linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_included` | string | No | - | Specifies the list of update classifications included in the Software Update Configuration. Possible values are 'Unclassified', 'Critical', 'Security' and 'Other'. |
-| `excluded_packages` | string | No | - | Specifies a list of packages to excluded from the Software Update Configuration. |
-| `included_packages` | string | No | - | Specifies a list of packages to included from the Software Update Configuration. |
-| `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
-
 ### `pre_task` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +71,15 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | Specifies a map of parameters for the task. |
 | `source` | string | No | - | The name of the runbook for the post task. |
+
+### `linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_included` | string | No | - | Specifies the list of update classifications included in the Software Update Configuration. Possible values are 'Unclassified', 'Critical', 'Security' and 'Other'. |
+| `excluded_packages` | string | No | - | Specifies a list of packages to excluded from the Software Update Configuration. |
+| `included_packages` | string | No | - | Specifies a list of packages to included from the Software Update Configuration. |
+| `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
 
 ### `schedule` block structure
 

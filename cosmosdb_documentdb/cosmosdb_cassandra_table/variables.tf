@@ -20,13 +20,13 @@ variable "schema" {
 #   partition_key (block) : (REQUIRED) One or more 'partition_key' blocks.
 #   cluster_key (block)   : One or more 'cluster_key' blocks.
 #
-# partition_key block structure:
-#
 # column block structure:
 #   type (string)         : (REQUIRED) Type of the column to be created.
 #
 # cluster_key block structure:
 #   order_by (string)          : (REQUIRED) Order of the key. Currently supported values are 'Asc' and 'Desc'.
+#
+# partition_key block structure:
 
 
 

@@ -65,19 +65,6 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is 'UserAssigned'. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy. |
 
-### `log_analytics_workspace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `firewall_location` | string | Yes | - | The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs. |
-
-### `dns` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `proxy_enabled` | bool | No | False | Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to 'false'. |
-| `servers` | list | No | - | A list of custom DNS servers' IP addresses. |
-
 ### `insights` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -86,18 +73,6 @@ tfstate_store = {
 | `default_log_analytics_workspace_id` | string | Yes | - | The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the 'log_analytics_workspace'. |
 | `retention_in_days` | int | No | - | The log retention period in days. |
 | `log_analytics_workspace` | [block](#insights-block-structure) | No | - | A list of 'log_analytics_workspace' block. |
-
-### `signature_overrides` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `state` | string | No | - | state can be any of 'Off', 'Alert' or 'Deny'. |
-
-### `tls_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_secret_id` | string | Yes | - | The ID of the Key Vault, where the secret or certificate is stored. |
 
 ### `explicit_proxy` block structure
 
@@ -122,6 +97,18 @@ tfstate_store = {
 | `source_addresses` | string | No | - | Specifies a list of source addresses that shall be bypassed by intrusion detection. |
 | `source_ip_groups` | string | No | - | Specifies a list of source IP groups that shall be bypassed by intrusion detection. |
 
+### `log_analytics_workspace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `firewall_location` | string | Yes | - | The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs. |
+
+### `signature_overrides` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `state` | string | No | - | state can be any of 'Off', 'Alert' or 'Deny'. |
+
 ### `intrusion_detection` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -130,6 +117,19 @@ tfstate_store = {
 | `signature_overrides` | [block](#intrusion_detection-block-structure) | No | - | One or more 'signature_overrides' blocks. |
 | `traffic_bypass` | [block](#intrusion_detection-block-structure) | No | - | One or more 'traffic_bypass' blocks. |
 | `private_ranges` | list | No | - | A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. |
+
+### `tls_certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_secret_id` | string | Yes | - | The ID of the Key Vault, where the secret or certificate is stored. |
+
+### `dns` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `proxy_enabled` | bool | No | False | Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to 'false'. |
+| `servers` | list | No | - | A list of custom DNS servers' IP addresses. |
 
 
 

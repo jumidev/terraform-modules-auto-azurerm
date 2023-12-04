@@ -38,14 +38,14 @@ variable "access_control" {
 #   akamai_signature_header_authentication_key (block): One or more 'akamai_signature_header_authentication_key' blocks.
 #   ip_allow (block)                                  : A 'ip_allow' block.
 #
+# ip_allow block structure     :
+#   address (string)             : The IP address to allow.
+#   subnet_prefix_length (string): The subnet mask prefix length (see CIDR notation).
+#
 # akamai_signature_header_authentication_key block structure:
 #   base64_key (string)                                       : Authentication key.
 #   expiration (string)                                       : The expiration time of the authentication key.
 #   identifier (string)                                       : Identifier of the key.
-#
-# ip_allow block structure     :
-#   address (string)             : The IP address to allow.
-#   subnet_prefix_length (string): The subnet mask prefix length (see CIDR notation).
 
 
 variable "auto_start_enabled" {

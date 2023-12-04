@@ -105,15 +105,15 @@ variable "config_server_git_setting" {
 #   http_basic_auth (block)   : A 'http_basic_auth' block.
 #   ssh_auth (block)          : A 'ssh_auth' block.
 #
+# http_basic_auth block structure:
+#   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+#   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+#
 # ssh_auth block structure               :
 #   private_key (string)                   : (REQUIRED) The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'.
 #   host_key (string)                      : The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'.
 #   host_key_algorithm (string)            : The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists.
 #   strict_host_key_checking_enabled (bool): Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'.
-#
-# http_basic_auth block structure:
-#   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
-#   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 
 
 variable "service_registry_enabled" {

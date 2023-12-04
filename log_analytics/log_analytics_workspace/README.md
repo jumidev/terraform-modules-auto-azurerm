@@ -61,7 +61,7 @@ tfstate_store = {
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
-| **application_group_id** | If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association. \ \ e.g. : `application_group_id = "path/to/virtual_desktop_application_group_component:id"`|
+| **application_group_id** | If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association. \\ \\ e.g. : `application_group_id = "path/to/virtual_desktop_application_group_component:id"`|
 
 ## Outputs
 

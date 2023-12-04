@@ -57,16 +57,12 @@ tfstate_store = {
 | **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `ip_restriction` block structure
+### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
-| `headers` | [block](#ip_restriction-block-structure) | No | - | The 'headers' block for this specific as a 'ip_restriction' block. |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
 
 ### `identity` block structure
 
@@ -84,23 +80,12 @@ tfstate_store = {
 | `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
 | `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
 
-### `scm_ip_restriction` block structure
+### `connection_string` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
 
 ### `site_config` block structure
 
@@ -127,12 +112,27 @@ tfstate_store = {
 | `vnet_route_all_enabled` | bool | No | - | Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. |
 | `websockets_enabled` | bool | No | - | Should WebSockets be enabled? |
 
-### `connection_string` block structure
+### `ip_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
+| `headers` | [block](#ip_restriction-block-structure) | No | - | The 'headers' block for this specific as a 'ip_restriction' block. |
+
+### `scm_ip_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
 
 
 

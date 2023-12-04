@@ -74,6 +74,9 @@ variable "indexing_policy" {
 # excluded_path block structure:
 #   path (string)                : (REQUIRED) Path that is excluded from indexing.
 #
+# included_path block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
+#
 # composite_index block structure:
 #   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
@@ -83,9 +86,6 @@ variable "indexing_policy" {
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
-#
-# included_path block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
 
 
 variable "default_ttl" {

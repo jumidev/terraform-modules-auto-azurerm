@@ -72,8 +72,8 @@ tfstate_store = {
 
 | tfstate_input variable | Information |
 | -------- | ----------- |
-| **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group. \ \ e.g. : `application_security_group_id = "path/to/application_security_group_component:id"`|
-| **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group. \ \ e.g. : `network_security_group_id = "path/to/network_security_group_component:id"`|
+| **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group. \\ \\ e.g. : `application_security_group_id = "path/to/application_security_group_component:id"`|
+| **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group. \\ \\ e.g. : `network_security_group_id = "path/to/network_security_group_component:id"`|
 
 ## Outputs
 

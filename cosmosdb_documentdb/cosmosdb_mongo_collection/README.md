@@ -45,18 +45,18 @@ tfstate_store = {
 | **throughput** | string |  The throughput of the MongoDB collection (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
+### `autoscale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the MongoDB collection (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+
 ### `index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `keys` | string | Yes | - | Specifies the list of user settable keys for each Cosmos DB Mongo Collection. |
 | `unique` | bool | No | False | Is the index unique or not? Defaults to 'false'. |
-
-### `autoscale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the MongoDB collection (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 
 

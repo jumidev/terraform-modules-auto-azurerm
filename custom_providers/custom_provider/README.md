@@ -41,6 +41,13 @@ tfstate_store = {
 | **validation** | [block](#validation-block-structure) |  Any number of `validation` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
+### `resource_type` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `endpoint` | string | Yes | - | Specifies the endpoint of the route definition. |
+| `routing_type` | string | No | Proxy | The routing type that is supported for the resource request. Valid values are 'Proxy' and 'Proxy,Cache'. Defaults to 'Proxy'. |
+
 ### `validation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -52,13 +59,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `endpoint` | string | Yes | - | Specifies the endpoint of the action. |
-
-### `resource_type` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `endpoint` | string | Yes | - | Specifies the endpoint of the route definition. |
-| `routing_type` | string | No | Proxy | The routing type that is supported for the resource request. Valid values are 'Proxy' and 'Proxy,Cache'. Defaults to 'Proxy'. |
 
 
 

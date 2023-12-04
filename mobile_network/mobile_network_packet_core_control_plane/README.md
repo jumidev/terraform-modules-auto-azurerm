@@ -60,12 +60,12 @@ tfstate_store = {
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane. | 
 | **software_version** | string |  -  |  Specifies the version of the packet core software that is deployed. | 
 
-### `identity` block structure
+### `local_diagnostics_access` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
+| `authentication_type` | string | Yes | - | How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'. |
+| `https_server_certificate_url` | string | No | - | The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress. |
 
 ### `platform` block structure
 
@@ -77,12 +77,12 @@ tfstate_store = {
 | `stack_hci_cluster_id` | string | No | - | The ID of the Azure Stack HCI cluster where the packet core is deployed. |
 | `custom_location_id` | string | No | - | The ID of the Azure Arc custom location where the packet core is deployed. |
 
-### `local_diagnostics_access` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `authentication_type` | string | Yes | - | How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'. |
-| `https_server_certificate_url` | string | No | - | The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
 
 
 
