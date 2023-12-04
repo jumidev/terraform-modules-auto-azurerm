@@ -39,7 +39,7 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
-### `response_header` block structure
+### `request_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -55,13 +55,6 @@ tfstate_store = {
 | `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
 | `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
-| `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
-
 ### `match_condition` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,7 +66,14 @@ tfstate_store = {
 | `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
 | `value` | list | No | - | (array) can contain one or more strings. |
 
-### `request_header` block structure
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
+| `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
+
+### `response_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

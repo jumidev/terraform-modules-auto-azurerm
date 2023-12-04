@@ -16,13 +16,18 @@ inputs = {
    location = "${location}" 
    scope = {
       example_scope = {
-         management_group_ids = "TODO link to management.management_group.id"   
-         subscription_ids = "TODO link to base.subscription.id"   
+         management_group_ids = "..."   
+         subscription_ids = "..."   
       }
   
    }
  
    scope_accesses = "scope_accesses of network_manager" 
+}
+
+tfstate_inputs = {
+   scope.example_scope.management_group_ids = "path/to/management_group_component:id" 
+   scope.example_scope.subscription_ids = "path/to/subscription_component:id" 
 }
 
 tfstate_store = {

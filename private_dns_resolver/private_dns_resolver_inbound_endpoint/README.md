@@ -15,12 +15,16 @@ inputs = {
    private_dns_resolver_id = "private_dns_resolver_id of private_dns_resolver_inbound_endpoint" 
    ip_configurations = {
       example_ip_configurations = {
-         subnet_id = "TODO link to network.subnet.id"   
+         subnet_id = "..."   
       }
   
    }
  
    location = "${location}" 
+}
+
+tfstate_inputs = {
+   ip_configurations.example_ip_configurations.subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

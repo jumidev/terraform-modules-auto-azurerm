@@ -61,11 +61,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
-### `daily_recurrence` block structure
+### `weekly_recurrence` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `time` | string | Yes | - | The time each day when the schedule takes effect. |
+| `time` | string | Yes | - | The time when the schedule takes effect. |
+| `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
 
 ### `notification_settings` block structure
 
@@ -75,12 +76,11 @@ tfstate_store = {
 | `time_in_minutes` | int | No | - | Time in minutes before event at which notification will be sent. |
 | `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
 
-### `weekly_recurrence` block structure
+### `daily_recurrence` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `time` | string | Yes | - | The time when the schedule takes effect. |
-| `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
+| `time` | string | Yes | - | The time each day when the schedule takes effect. |
 
 
 

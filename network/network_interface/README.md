@@ -13,9 +13,9 @@ source = {
 inputs = {
    ip_configuration = {
       primary = {
-         subnet_id = "TODO link to network.subnet.id"   
+         subnet_id = "..."   
          private_ip_address_allocation = "Dynamic"   
-         public_ip_address_id = "TODO link to network.public_ip.id"   
+         public_ip_address_id = "..."   
       }
   
    }
@@ -23,6 +23,11 @@ inputs = {
    location = "${location}" 
    name = "name of network_interface" 
    resource_group_name = "${resource_group}" 
+}
+
+tfstate_inputs = {
+   ip_configuration.primary.subnet_id = "path/to/subnet_component:id" 
+   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id" 
 }
 
 tfstate_store = {

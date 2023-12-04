@@ -16,13 +16,17 @@ inputs = {
    location = "${location}" 
    nat_ip_configuration = {
       example_nat_ip_configuration = {
-         subnet_id = "TODO link to network.subnet.id"   
+         subnet_id = "..."   
          primary =    
       }
   
    }
  
    load_balancer_frontend_ip_configuration_ids = "load_balancer_frontend_ip_configuration_ids of private_link_service" 
+}
+
+tfstate_inputs = {
+   nat_ip_configuration.example_nat_ip_configuration.subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

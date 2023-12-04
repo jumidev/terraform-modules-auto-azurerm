@@ -48,17 +48,17 @@ tfstate_store = {
 | `endpoint` | string | Yes | - | Specifies the endpoint of the route definition. |
 | `routing_type` | string | No | Proxy | The routing type that is supported for the resource request. Valid values are 'Proxy' and 'Proxy,Cache'. Defaults to 'Proxy'. |
 
-### `validation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `specification` | string | Yes | - | The endpoint where the validation specification is located. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `endpoint` | string | Yes | - | Specifies the endpoint of the action. |
+
+### `validation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `specification` | string | Yes | - | The endpoint where the validation specification is located. |
 
 
 

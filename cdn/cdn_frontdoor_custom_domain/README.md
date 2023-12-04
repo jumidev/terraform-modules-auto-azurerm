@@ -16,11 +16,15 @@ inputs = {
    host_name = "host_name of cdn_frontdoor_custom_domain" 
    tls = {
       example_tls = {
-         cdn_frontdoor_secret_id = "TODO link to cdn.cdn_frontdoor_secret.id"   
+         cdn_frontdoor_secret_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   tls.example_tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id" 
 }
 
 tfstate_store = {

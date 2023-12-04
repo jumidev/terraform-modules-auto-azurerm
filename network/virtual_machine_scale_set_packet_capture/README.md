@@ -16,11 +16,15 @@ inputs = {
    virtual_machine_scale_set_id = "virtual_machine_scale_set_id of virtual_machine_scale_set_packet_capture" 
    storage_location = {
       example_storage_location = {
-         storage_account_id = "TODO link to storage.storage_account.id"   
+         storage_account_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   storage_location.example_storage_location.storage_account_id = "path/to/storage_account_component:id" 
 }
 
 tfstate_store = {
@@ -50,13 +54,6 @@ tfstate_store = {
 | **filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
 | **machine_scope** | [block](#machine_scope-block-structure) |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
 
-### `storage_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
-| `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
-
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,6 +70,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `exclude_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. '['0', '2']'. Changing this forces a new resource to be created. |
 | `include_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. '['1', '3']'. Changing this forces a new resource to be created. |
+
+### `storage_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
+| `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
 
 
 

@@ -21,12 +21,12 @@ inputs = {
       example_volume = {
          capacity_pool_id = "..."   
          protocols = "..."   
-         proximity_placement_group_id = "TODO link to compute.proximity_placement_group.id"   
+         proximity_placement_group_id = "..."   
          security_style = "..."   
          service_level = "..."   
          snapshot_directory_visible = "..."   
          storage_quota_in_gb = "..."   
-         subnet_id = "TODO link to network.subnet.id"   
+         subnet_id = "..."   
          throughput_in_mibps = "..."   
          volume_path = "..."   
          volume_spec_name = "..."   
@@ -35,6 +35,11 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   volume.example_volume.proximity_placement_group_id = "path/to/proximity_placement_group_component:id" 
+   volume.example_volume.subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {
@@ -57,6 +62,12 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
+
 ### `export_policy_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,21 +79,6 @@ tfstate_store = {
 | `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
-
-### `data_protection_replication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
-| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
-| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
-| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
-
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 ### `volume` block structure
 
@@ -103,6 +99,15 @@ tfstate_store = {
 | `export_policy_rule` | [block](#volume-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
 | `data_protection_replication` | [block](#volume-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `data_protection_snapshot_policy` | [block](#volume-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
+
+### `data_protection_replication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
+| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
 
 

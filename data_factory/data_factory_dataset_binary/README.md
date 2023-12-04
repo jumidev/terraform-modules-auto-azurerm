@@ -56,6 +56,17 @@ tfstate_store = {
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
+### `azure_blob_storage_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container` | string | Yes | - | The container on the Azure Blob Storage Account hosting the file. |
+| `path` | string | No | - | The folder path to the file in the blob container. |
+| `filename` | string | No | - | The filename of the file in the blob container. |
+| `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
 ### `sftp_server_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,17 +82,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'. |
 | `level` | string | No | - | The level of compression. Possible values are 'Fastest' and 'Optimal'. |
-
-### `azure_blob_storage_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container` | string | Yes | - | The container on the Azure Blob Storage Account hosting the file. |
-| `path` | string | No | - | The folder path to the file in the blob container. |
-| `filename` | string | No | - | The filename of the file in the blob container. |
-| `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
 
 

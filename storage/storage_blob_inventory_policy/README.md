@@ -14,7 +14,7 @@ inputs = {
    storage_account_id = "storage_account_id of storage_blob_inventory_policy" 
    rules = {
       example_rules = {
-         storage_container_name = "TODO link to storage.storage_container.name"   
+         storage_container_name = "..."   
          format = "..."   
          schedule = "..."   
          scope = "..."   
@@ -23,6 +23,10 @@ inputs = {
   
    }
  
+}
+
+tfstate_inputs = {
+   rules.example_rules.storage_container_name = "path/to/storage_container_component:name" 
 }
 
 tfstate_store = {

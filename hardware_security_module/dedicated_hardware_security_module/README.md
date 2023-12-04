@@ -17,12 +17,16 @@ inputs = {
    network_profile = {
       example_network_profile = {
          network_interface_private_ip_addresses = "..."   
-         subnet_id = "TODO link to network.subnet.id"   
+         subnet_id = "..."   
       }
   
    }
  
    sku_name = "sku_name of dedicated_hardware_security_module" 
+}
+
+tfstate_inputs = {
+   network_profile.example_network_profile.subnet_id = "path/to/subnet_component:id" 
 }
 
 tfstate_store = {

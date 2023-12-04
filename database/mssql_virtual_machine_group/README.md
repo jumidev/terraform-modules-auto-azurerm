@@ -20,11 +20,15 @@ inputs = {
       example_wsfc_domain_profile = {
          cluster_subnet_type = "..."   
          fqdn = "..."   
-         storage_account_url = "TODO link to storage.storage_account.url"   
+         storage_account_url = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   wsfc_domain_profile.example_wsfc_domain_profile.storage_account_url = "path/to/storage_account_component:url" 
 }
 
 tfstate_store = {

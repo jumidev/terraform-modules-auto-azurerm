@@ -55,17 +55,11 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `path` | string | Yes | - | Path that is excluded from indexing. |
 
-### `included_path` block structure
+### `composite_index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
-
-### `autoscale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the SQL container (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+| `index` | [block](#composite_index-block-structure) | Yes | - | One or more 'index' blocks. |
 
 ### `unique_key` block structure
 
@@ -79,18 +73,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
 | `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
-
-### `composite_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `index` | [block](#composite_index-block-structure) | Yes | - | One or more 'index' blocks. |
-
-### `spatial_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
 
 ### `conflict_resolution_policy` block structure
 
@@ -109,6 +91,24 @@ tfstate_store = {
 | `excluded_path` | [block](#indexing_policy-block-structure) | No | - | One or more 'excluded_path' blocks. Either 'included_path' or 'excluded_path' must contain the 'path' '/*' |
 | `composite_index` | [block](#indexing_policy-block-structure) | No | - | One or more 'composite_index' blocks. |
 | `spatial_index` | [block](#indexing_policy-block-structure) | No | - | One or more 'spatial_index' blocks. |
+
+### `spatial_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
+
+### `included_path` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
+
+### `autoscale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the SQL container (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 
 

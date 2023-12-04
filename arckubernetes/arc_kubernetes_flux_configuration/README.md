@@ -49,22 +49,6 @@ tfstate_store = {
 | **scope** | string |  `namespace`  |  `cluster`, `namespace`  |  Specifies the scope at which the operator will be installed. Possible values are `cluster` and `namespace`. Defaults to `namespace`. Changing this forces a new Arc Kubernetes Flux Configuration to be created. | 
 | **continuous_reconciliation_enabled** | bool |  `True`  |  -  |  Whether the configuration will keep its reconciliation of its kustomizations and sources with the repository. Defaults to `true`. | 
 
-### `git_repository` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | Specifies the URL to sync for the flux configuration git repository. It must start with 'http://', 'https://', 'git@' or 'ssh://'. |
-| `reference_type` | string | Yes | - | Specifies the source reference type for the GitRepository object. Possible values are 'branch', 'commit', 'semver' and 'tag'. |
-| `reference_value` | string | Yes | - | Specifies the source reference value for the GitRepository object. |
-| `https_ca_cert_base64` | string | No | - | Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS. |
-| `https_user` | string | No | - | Specifies the plaintext HTTPS username used to access private git repositories over HTTPS. |
-| `https_key_base64` | string | No | - | Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository. |
-| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number. |
-| `ssh_private_key_base64` | string | No | - | Specifies the Base64-encoded SSH private key in PEM format. |
-| `ssh_known_hosts_base64` | string | No | - | Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH. |
-| `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
-| `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
-
 ### `kustomizations` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,6 +74,33 @@ tfstate_store = {
 | `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
 | `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
 
+### `service_principal` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | Specifies the client ID for authenticating a Service Principal. |
+| `tenant_id` | string | Yes | - | Specifies the tenant ID for authenticating a Service Principal. |
+| `client_certificate_base64` | string | No | - | Base64-encoded certificate used to authenticate a Service Principal . |
+| `client_certificate_password` | string | No | - | Specifies the password for the certificate used to authenticate a Service Principal . |
+| `client_certificate_send_chain` | string | No | - | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate. |
+| `client_secret` | string | No | - | Specifies the client secret for authenticating a Service Principal. |
+
+### `git_repository` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | Specifies the URL to sync for the flux configuration git repository. It must start with 'http://', 'https://', 'git@' or 'ssh://'. |
+| `reference_type` | string | Yes | - | Specifies the source reference type for the GitRepository object. Possible values are 'branch', 'commit', 'semver' and 'tag'. |
+| `reference_value` | string | Yes | - | Specifies the source reference value for the GitRepository object. |
+| `https_ca_cert_base64` | string | No | - | Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS. |
+| `https_user` | string | No | - | Specifies the plaintext HTTPS username used to access private git repositories over HTTPS. |
+| `https_key_base64` | string | No | - | Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository. |
+| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number. |
+| `ssh_private_key_base64` | string | No | - | Specifies the Base64-encoded SSH private key in PEM format. |
+| `ssh_known_hosts_base64` | string | No | - | Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH. |
+| `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
+| `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
+
 ### `blob_storage` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -101,17 +112,6 @@ tfstate_store = {
 | `service_principal` | [block](#blob_storage-block-structure) | No | - | A 'service_principal' block. |
 | `sync_interval_in_seconds` | int | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
 | `timeout_in_seconds` | int | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
-
-### `service_principal` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | Specifies the client ID for authenticating a Service Principal. |
-| `tenant_id` | string | Yes | - | Specifies the tenant ID for authenticating a Service Principal. |
-| `client_certificate_base64` | string | No | - | Base64-encoded certificate used to authenticate a Service Principal . |
-| `client_certificate_password` | string | No | - | Specifies the password for the certificate used to authenticate a Service Principal . |
-| `client_certificate_send_chain` | string | No | - | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate. |
-| `client_secret` | string | No | - | Specifies the client secret for authenticating a Service Principal. |
 
 
 

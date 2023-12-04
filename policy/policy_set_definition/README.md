@@ -16,11 +16,15 @@ inputs = {
    display_name = "display_name of policy_set_definition" 
    policy_definition_reference = {
       example_policy_definition_reference = {
-         policy_definition_id = "TODO link to policy.policy_definition.id"   
+         policy_definition_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   policy_definition_reference.example_policy_definition_reference.policy_definition_id = "path/to/policy_definition_component:id" 
 }
 
 tfstate_store = {

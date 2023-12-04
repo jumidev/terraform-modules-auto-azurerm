@@ -50,13 +50,13 @@ variable "destination_nat" {
 #   backend_config (block)         : A 'backend_config' block.
 #   frontend_config (block)        : A 'frontend_config' block.
 #
-# backend_config block structure:
-#   port (string)                 : (REQUIRED) The port number to send traffic to.
-#   public_ip_address (string)    : (REQUIRED) The IP Address to send the traffic to.
-#
 # frontend_config block structure:
 #   port (string)                  : (REQUIRED) The port on which to receive traffic.
 #   public_ip_address_id (string)  : (REQUIRED) The ID of the Public IP Address on which to receive traffic.
+#
+# backend_config block structure:
+#   port (string)                 : (REQUIRED) The port number to send traffic to.
+#   public_ip_address (string)    : (REQUIRED) The IP Address to send the traffic to.
 
 
 variable "dns_settings" {

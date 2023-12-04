@@ -17,11 +17,15 @@ inputs = {
    authentication = {
       example_authentication = {
          type = "..."   
-         subscription_id = "TODO link to base.subscription.subscription_id"   
+         subscription_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   authentication.example_authentication.subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {

@@ -65,6 +65,15 @@ tfstate_store = {
 | `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
 | `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
 
+### `storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `auto_grow_enabled` | bool | No | True | Should Storage Auto Grow be enabled? Defaults to 'true'. |
+| `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
+| `iops` | string | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
+| `size_gb` | string | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,15 +87,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. |
 | `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. |
-
-### `storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `auto_grow_enabled` | bool | No | True | Should Storage Auto Grow be enabled? Defaults to 'true'. |
-| `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
-| `iops` | string | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
-| `size_gb` | string | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
 
 ### `maintenance_window` block structure
 

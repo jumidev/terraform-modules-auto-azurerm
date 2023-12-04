@@ -16,12 +16,17 @@ inputs = {
    location = "${location}" 
    ip_configuration = {
       primary = {
-         subnet_id = "TODO link to network.subnet.id"   
-         public_ip_address_id = "TODO link to network.public_ip.id"   
+         subnet_id = "..."   
+         public_ip_address_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   ip_configuration.primary.subnet_id = "path/to/subnet_component:id" 
+   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id" 
 }
 
 tfstate_store = {

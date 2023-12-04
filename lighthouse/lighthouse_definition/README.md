@@ -17,11 +17,15 @@ inputs = {
    authorization = {
       example_authorization = {
          principal_id = "..."   
-         role_definition_id = "TODO link to authorization.role_definition.id"   
+         role_definition_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   authorization.example_authorization.role_definition_id = "path/to/role_definition_component:id" 
 }
 
 tfstate_store = {
@@ -50,6 +54,15 @@ tfstate_store = {
 | **eligible_authorization** | [block](#eligible_authorization-block-structure) |  An `eligible_authorization` block. | 
 | **plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
+### `eligible_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. |
+| `role_definition_id` | string | Yes | - | The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope. |
+| `just_in_time_access_policy` | [block](#eligible_authorization-block-structure) | No | - | A 'just_in_time_access_policy' block. |
+| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal. |
+
 ### `just_in_time_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,6 +79,13 @@ tfstate_store = {
 | `product` | string | Yes | - | The product code of the plan. |
 | `version` | string | Yes | - | The version of the plan. |
 
+### `approver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
+| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
+
 ### `authorization` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,22 +94,6 @@ tfstate_store = {
 | `role_definition_id` | string | Yes | - | The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role. |
 | `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
 | `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
-
-### `eligible_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. |
-| `role_definition_id` | string | Yes | - | The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope. |
-| `just_in_time_access_policy` | [block](#eligible_authorization-block-structure) | No | - | A 'just_in_time_access_policy' block. |
-| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal. |
-
-### `approver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
-| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
 
 
 

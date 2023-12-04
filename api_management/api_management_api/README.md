@@ -65,6 +65,27 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `url` | string | No | - | Absolute URL of the license. |
 
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | No | - | The email address of the contact person/organization. |
+| `url` | string | No | - | Absolute URL of the contact information. |
+
+### `subscription_key_parameter_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
+| `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
+
+### `oauth2_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
+| `scope` | string | No | - | Operations scope. |
+
 ### `wsdl_selector` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -86,27 +107,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `openid_provider_name` | string | Yes | - | OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html). |
 | `bearer_token_sending_methods` | string | No | - | How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'. |
-
-### `oauth2_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
-| `scope` | string | No | - | Operations scope. |
-
-### `subscription_key_parameter_names` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
-| `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
-
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address of the contact person/organization. |
-| `url` | string | No | - | Absolute URL of the contact information. |
 
 
 

@@ -48,6 +48,13 @@ tfstate_store = {
 | **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Express Route Port. | 
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'. |
+| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port. |
+
 ### `link` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -57,13 +64,6 @@ tfstate_store = {
 | `macsec_ckn_keyvault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link. |
 | `macsec_cak_keyvault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link. |
 | `macsec_sci_enabled` | bool | No | False | Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'. |
-| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port. |
 
 
 

@@ -45,14 +45,6 @@ tfstate_store = {
 | **prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
 | **threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
 
-### `prioritized_exclude_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the prioritized exclude observation. |
-| `prioritize` | string | No | - | The prioritized value per 'description'. |
-| `exclude` | string | No | - | The excluded value per 'description'. |
-
 ### `single_select_observation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,6 +61,14 @@ tfstate_store = {
 | `max` | string | No | - | The max value of the threshold observation. |
 | `min` | string | No | - | The min value of the threshold observation. |
 | `value` | string | Yes | - | The value of the threshold observation. |
+
+### `prioritized_exclude_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | The description of the prioritized exclude observation. |
+| `prioritize` | string | No | - | The prioritized value per 'description'. |
+| `exclude` | string | No | - | The excluded value per 'description'. |
 
 ### `multi_select_observation` block structure
 

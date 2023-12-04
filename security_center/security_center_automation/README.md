@@ -59,12 +59,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Boolean to enable or disable this Security Center Automation. Defaults to `true`. | 
 | **tags** | map |  -  |  A mapping of tags assigned to the resource. | 
 
-### `rule_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule` | [block](#rule_set-block-structure) | Yes | - | One or more 'rule' blocks. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +74,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `event_source` | string | Yes | - | Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations |
 | `rule_set` | [block](#source-block-structure) | No | - | A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks. |
+
+### `rule_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule` | [block](#rule_set-block-structure) | Yes | - | One or more 'rule' blocks. |
 
 ### `rule` block structure
 

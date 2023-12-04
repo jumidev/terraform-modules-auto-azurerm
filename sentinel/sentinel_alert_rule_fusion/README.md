@@ -39,19 +39,19 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Should this Sentinel Fusion Alert Rule be enabled? Defaults to `true`. | 
 | **source** | [block](#source-block-structure) |  -  |  One or more `source` blocks. | 
 
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'. |
-| `sub_type` | [block](#source-block-structure) | No | - | One or more 'sub_type' blocks. |
-
 ### `sub_type` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | True | Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to 'true'. |
 | `severities_allowed` | string | Yes | - | A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are 'High', 'Medium', 'Low', 'Informational'. |
+
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'. |
+| `sub_type` | [block](#source-block-structure) | No | - | One or more 'sub_type' blocks. |
 
 
 

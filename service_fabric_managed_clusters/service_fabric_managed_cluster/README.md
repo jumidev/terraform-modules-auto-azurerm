@@ -63,6 +63,13 @@ tfstate_store = {
 | **upgrade_wave** | string |  `Wave0`  |  `Wave0`, `Wave1`, `Wave2`  |  Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`. | 
 | **username** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
 
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory` | [block](#authentication-block-structure) | No | - | A 'active_directory' block. |
+| `certificate` | [block](#authentication-block-structure) | No | - | One or more 'certificate' blocks. |
+
 ### `node_type` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -102,6 +109,14 @@ tfstate_store = {
 | `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
 | `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
 
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_application_id` | string | Yes | - | The ID of the Client Application. |
+| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
+| `tenant_id` | string | Yes | - | The ID of the Tenant. |
+
 ### `vm_secrets` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -116,21 +131,6 @@ tfstate_store = {
 | `parameter` | string | Yes | - | Parameter name. |
 | `section` | string | Yes | - | Section name. |
 | `value` | string | Yes | - | Parameter value. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_application_id` | string | Yes | - | The ID of the Client Application. |
-| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
-| `tenant_id` | string | Yes | - | The ID of the Tenant. |
-
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `active_directory` | [block](#authentication-block-structure) | No | - | A 'active_directory' block. |
-| `certificate` | [block](#authentication-block-structure) | No | - | One or more 'certificate' blocks. |
 
 
 

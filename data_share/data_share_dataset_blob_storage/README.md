@@ -16,12 +16,17 @@ inputs = {
    container_name = "container_name of data_share_dataset_blob_storage" 
    storage_account = {
       example_storage_account = {
-         resource_group_name = "TODO link to base.resource_group.name"   
-         subscription_id = "TODO link to base.subscription.subscription_id"   
+         resource_group_name = "..."   
+         subscription_id = "..."   
       }
   
    }
  
+}
+
+tfstate_inputs = {
+   storage_account.example_storage_account.resource_group_name = "path/to/resource_group_component:name" 
+   storage_account.example_storage_account.subscription_id = "path/to/subscription_component:subscription_id" 
 }
 
 tfstate_store = {
