@@ -6,34 +6,34 @@ Manages a Stream Analytics Output to a ServiceBus Queue.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_output_servicebus_queue" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_output_servicebus_queue"   
 }
 
 inputs = {
-   name = "name of stream_analytics_output_servicebus_queue" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_output_servicebus_queue"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
    # queue_name → set in tfstate_inputs
-   servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_queue" 
+   servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_queue"   
    serialization = {
-      example_serialization = {
-         type = "..."   
+      this_serialization = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
-   queue_name = "path/to/servicebus_queue_component:name" 
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
+   queue_name = "path/to/servicebus_queue_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,25 +6,25 @@ Manages a Nested Endpoint within a Traffic Manager Profile.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/traffic_manager_nested_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/traffic_manager_nested_endpoint"   
 }
 
 inputs = {
-   minimum_child_endpoints = "minimum_child_endpoints of traffic_manager_nested_endpoint" 
-   name = "name of traffic_manager_nested_endpoint" 
-   profile_id = "profile_id of traffic_manager_nested_endpoint" 
+   minimum_child_endpoints = "minimum_child_endpoints of traffic_manager_nested_endpoint"   
+   name = "name of traffic_manager_nested_endpoint"   
+   profile_id = "profile_id of traffic_manager_nested_endpoint"   
    # target_resource_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   target_resource_id = "path/to/any_resource_component:id" 
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -64,6 +64,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the custom header. |
 | `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 

@@ -6,25 +6,25 @@ Manages an IotHub Fallback Route## Disclaimers~> **Note:** Fallback route can be
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_fallback_route" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_fallback_route"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # iothub_name → set in tfstate_inputs
-   enabled = "enabled of iothub_fallback_route" 
-   endpoint_names = "endpoint_names of iothub_fallback_route" 
+   enabled = "enabled of iothub_fallback_route"   
+   endpoint_names = "endpoint_names of iothub_fallback_route"   
 }
 
 tfstate_inputs = {
-   iothub_name = "path/to/iothub_component:name" 
+   iothub_name = "path/to/iothub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

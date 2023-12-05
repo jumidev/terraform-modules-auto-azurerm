@@ -6,25 +6,25 @@ Manages an Azure Container Registry token. Tokens are a preview feature only ava
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_token" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_registry_token"   
 }
 
 inputs = {
-   name = "name of container_registry_token" 
-   resource_group_name = "${resource_group}" 
+   name = "name of container_registry_token"   
+   resource_group_name = "${resource_group}"   
    # container_registry_name → set in tfstate_inputs
-   scope_map_id = "scope_map_id of container_registry_token" 
+   scope_map_id = "scope_map_id of container_registry_token"   
 }
 
 tfstate_inputs = {
-   container_registry_name = "path/to/container_registry_component:name" 
+   container_registry_name = "path/to/container_registry_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

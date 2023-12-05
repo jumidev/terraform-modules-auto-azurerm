@@ -6,23 +6,23 @@ Manages a Spring Cloud Gateway Route Config.-> **NOTE:** This resource is applic
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_gateway_route_config" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_gateway_route_config"   
 }
 
 inputs = {
-   name = "name of spring_cloud_gateway_route_config" 
+   name = "name of spring_cloud_gateway_route_config"   
    # spring_cloud_gateway_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_gateway_id = "path/to/spring_cloud_gateway_component:id" 
+   spring_cloud_gateway_id = "path/to/spring_cloud_gateway_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -46,6 +46,12 @@ tfstate_store = {
 | **protocol** | string |  `HTTP`  |  `HTTP`, `HTTPS`  |  Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. | 
 | **spring_cloud_app_id** | string |  -  |  -  |  The ID of the Spring Cloud App. | 
 
+### `open_api` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `uri` | string | No | - | The URI of OpenAPI specification. |
+
 ### `route` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -59,12 +65,6 @@ tfstate_store = {
 | `title` | string | No | - | Specifies the title which will be applied to methods in the generated OpenAPI documentation. |
 | `token_relay` | string | No | - | Should pass currently-authenticated user's identity token to application service? |
 | `uri` | string | No | - | Specifies the full uri which will override 'appName'. |
-
-### `open_api` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `uri` | string | No | - | The URI of OpenAPI specification. |
 
 
 

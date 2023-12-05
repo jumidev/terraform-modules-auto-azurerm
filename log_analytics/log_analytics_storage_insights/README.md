@@ -6,27 +6,27 @@ Manages a Log Analytics Storage Insights resource.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_storage_insights" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_storage_insights"   
 }
 
 inputs = {
-   name = "name of log_analytics_storage_insights" 
-   resource_group_name = "${resource_group}" 
+   name = "name of log_analytics_storage_insights"   
+   resource_group_name = "${resource_group}"   
    # workspace_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   storage_account_key = "storage_account_key of log_analytics_storage_insights" 
+   storage_account_key = "storage_account_key of log_analytics_storage_insights"   
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
-   storage_account_id = "path/to/storage_account_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

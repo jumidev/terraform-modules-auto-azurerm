@@ -6,26 +6,26 @@ Manages the Shared Private Link Resource for a Web Pubsub service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/web_pubsub_shared_private_link" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/web_pubsub_shared_private_link"   
 }
 
 inputs = {
-   name = "name of web_pubsub_shared_private_link" 
+   name = "name of web_pubsub_shared_private_link"   
    # web_pubsub_id → set in tfstate_inputs
-   subresource_name = "subresource_name of web_pubsub_shared_private_link" 
+   subresource_name = "subresource_name of web_pubsub_shared_private_link"   
    # target_resource_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   web_pubsub_id = "path/to/web_pubsub_component:id" 
-   target_resource_id = "path/to/any_resource_component:id" 
+   web_pubsub_id = "path/to/web_pubsub_component:id"   
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

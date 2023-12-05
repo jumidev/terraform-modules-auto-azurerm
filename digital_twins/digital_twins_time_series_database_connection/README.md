@@ -6,32 +6,32 @@ Manages a Digital Twins Time Series Database Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "digital_twins/digital_twins_time_series_database_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "digital_twins/digital_twins_time_series_database_connection"   
 }
 
 inputs = {
-   name = "name of digital_twins_time_series_database_connection" 
-   digital_twins_id = "digital_twins_id of digital_twins_time_series_database_connection" 
+   name = "name of digital_twins_time_series_database_connection"   
+   digital_twins_id = "digital_twins_id of digital_twins_time_series_database_connection"   
    # eventhub_name → set in tfstate_inputs
-   eventhub_namespace_endpoint_uri = "eventhub_namespace_endpoint_uri of digital_twins_time_series_database_connection" 
+   eventhub_namespace_endpoint_uri = "eventhub_namespace_endpoint_uri of digital_twins_time_series_database_connection"   
    # eventhub_namespace_id → set in tfstate_inputs
    # kusto_cluster_id → set in tfstate_inputs
-   kusto_cluster_uri = "kusto_cluster_uri of digital_twins_time_series_database_connection" 
+   kusto_cluster_uri = "kusto_cluster_uri of digital_twins_time_series_database_connection"   
    # kusto_database_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   eventhub_name = "path/to/eventhub_component:name" 
-   eventhub_namespace_id = "path/to/eventhub_namespace_component:id" 
-   kusto_cluster_id = "path/to/kusto_cluster_component:id" 
-   kusto_database_name = "path/to/kusto_database_component:name" 
+   eventhub_name = "path/to/eventhub_component:name"   
+   eventhub_namespace_id = "path/to/eventhub_namespace_component:id"   
+   kusto_cluster_id = "path/to/kusto_cluster_component:id"   
+   kusto_database_name = "path/to/kusto_database_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

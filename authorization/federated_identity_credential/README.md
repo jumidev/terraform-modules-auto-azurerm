@@ -6,23 +6,23 @@ Manages a Federated Identity Credential.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "authorization/federated_identity_credential" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "authorization/federated_identity_credential"   
 }
 
 inputs = {
-   name = "name of federated_identity_credential" 
-   resource_group_name = "${resource_group}" 
-   audience = "audience of federated_identity_credential" 
-   issuer = "issuer of federated_identity_credential" 
-   parent_id = "parent_id of federated_identity_credential" 
-   subject = "subject of federated_identity_credential" 
+   name = "name of federated_identity_credential"   
+   resource_group_name = "${resource_group}"   
+   audience = "audience of federated_identity_credential"   
+   issuer = "issuer of federated_identity_credential"   
+   parent_id = "parent_id of federated_identity_credential"   
+   subject = "subject of federated_identity_credential"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

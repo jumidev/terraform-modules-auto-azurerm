@@ -6,30 +6,30 @@ Applies a Guest Configuration Policy to a Virtual Machine.~> **NOTE:** You can c
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/policy_virtual_machine_configuration_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "policy/policy_virtual_machine_configuration_assignment"   
 }
 
 inputs = {
-   name = "name of policy_virtual_machine_configuration_assignment" 
-   location = "${location}" 
+   name = "name of policy_virtual_machine_configuration_assignment"   
+   location = "${location}"   
    # virtual_machine_id → set in tfstate_inputs
    configuration = {
-      example_configuration = {
+      this_configuration = {
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   virtual_machine_id = "path/to/virtual_machine_component:id" 
+   virtual_machine_id = "path/to/virtual_machine_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -43,6 +43,13 @@ tfstate_store = {
 | **virtual_machine_id** | string |  The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created. | 
 | **configuration** | [block](#configuration-block-structure) |  A `configuration` block. | 
 
+### `parameter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the configuration parameter to check. |
+| `value` | string | Yes | - | The value to check the configuration parameter with. |
+
 ### `configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -52,12 +59,6 @@ tfstate_store = {
 | `content_uri` | string | No | - | The content URI where the Guest Configuration package is stored. |
 | `parameter` | [block](#configuration-block-structure) | No | - | One or more 'parameter' blocks which define what configuration parameters and values against. |
 | `version` | string | No | - | The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment. |
-
-### `parameter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | The value to check the configuration parameter with. |
 
 
 

@@ -6,26 +6,26 @@ Manages a MariaDB Virtual Network Rule.-> **NOTE:** MariaDB Virtual Network Rule
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mariadb_virtual_network_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mariadb_virtual_network_rule"   
 }
 
 inputs = {
-   name = "name of mariadb_virtual_network_rule" 
-   resource_group_name = "${resource_group}" 
+   name = "name of mariadb_virtual_network_rule"   
+   resource_group_name = "${resource_group}"   
    # server_name → set in tfstate_inputs
    # subnet_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   server_name = "path/to/mariadb_server_component:name" 
-   subnet_id = "path/to/subnet_component:id" 
+   server_name = "path/to/mariadb_server_component:name"   
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

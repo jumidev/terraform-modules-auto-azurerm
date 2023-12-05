@@ -6,8 +6,8 @@ Runs a Container Registry Task Schedule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_task_schedule_run_now" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_registry_task_schedule_run_now"   
 }
 
 inputs = {
@@ -15,13 +15,13 @@ inputs = {
 }
 
 tfstate_inputs = {
-   container_registry_task_id = "path/to/container_registry_task_component:id" 
+   container_registry_task_id = "path/to/container_registry_task_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

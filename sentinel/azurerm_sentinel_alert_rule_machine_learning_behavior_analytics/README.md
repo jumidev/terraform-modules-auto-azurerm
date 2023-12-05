@@ -6,24 +6,24 @@ Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/azurerm_sentinel_alert_rule_machine_learning_behavior_analytics"   
 }
 
 inputs = {
-   name = "name of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+   name = "name of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   alert_rule_template_guid = "alert_rule_template_guid of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics" 
+   alert_rule_template_guid = "alert_rule_template_guid of azurerm_sentinel_alert_rule_machine_learning_behavior_analytics"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

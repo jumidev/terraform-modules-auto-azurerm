@@ -42,17 +42,18 @@ variable "destination_nat" {
 }
 #
 # destination_nat block structure:
+#   name (string)                  : (REQUIRED) The name which should be used for this NAT.
 #   protocol (string)              : (REQUIRED) The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'.
 #   backend_config (block)         : A 'backend_config' block.
 #   frontend_config (block)        : A 'frontend_config' block.
 #
-# frontend_config block structure:
-#   port (string)                  : (REQUIRED) The port on which traffic will be receiveed.
-#   public_ip_address_id (string)  : (REQUIRED) The ID of the Public IP Address resource the traffic will be received on.
-#
 # backend_config block structure:
 #   port (string)                 : (REQUIRED) The port number to send traffic to.
 #   public_ip_address (string)    : (REQUIRED) The Public IP Address to send the traffic to.
+#
+# frontend_config block structure:
+#   port (string)                  : (REQUIRED) The port on which traffic will be receiveed.
+#   public_ip_address_id (string)  : (REQUIRED) The ID of the Public IP Address resource the traffic will be received on.
 
 
 variable "dns_settings" {

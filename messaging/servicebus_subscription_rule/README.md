@@ -6,24 +6,24 @@ Manages a ServiceBus Subscription Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_subscription_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_subscription_rule"   
 }
 
 inputs = {
-   name = "name of servicebus_subscription_rule" 
+   name = "name of servicebus_subscription_rule"   
    # subscription_id → set in tfstate_inputs
-   filter_type = "filter_type of servicebus_subscription_rule" 
+   filter_type = "filter_type of servicebus_subscription_rule"   
 }
 
 tfstate_inputs = {
-   subscription_id = "path/to/subscription_component:subscription_id" 
+   subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

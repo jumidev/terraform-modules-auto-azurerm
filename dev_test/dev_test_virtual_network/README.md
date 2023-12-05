@@ -6,20 +6,20 @@ Manages a Virtual Network within a DevTest Lab.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dev_test/dev_test_virtual_network" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dev_test/dev_test_virtual_network"   
 }
 
 inputs = {
-   name = "name of dev_test_virtual_network" 
-   lab_name = "lab_name of dev_test_virtual_network" 
-   resource_group_name = "${resource_group}" 
+   name = "name of dev_test_virtual_network"   
+   lab_name = "lab_name of dev_test_virtual_network"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

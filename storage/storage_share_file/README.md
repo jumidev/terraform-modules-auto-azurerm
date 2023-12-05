@@ -6,23 +6,23 @@ Manages a File within an Azure Storage File Share.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_share_file" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_share_file"   
 }
 
 inputs = {
-   name = "name of storage_share_file" 
+   name = "name of storage_share_file"   
    # storage_share_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_share_id = "path/to/storage_share_component:id" 
+   storage_share_id = "path/to/storage_share_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

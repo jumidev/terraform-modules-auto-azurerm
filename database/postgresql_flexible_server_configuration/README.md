@@ -6,24 +6,24 @@ Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/postgresql_flexible_server_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/postgresql_flexible_server_configuration"   
 }
 
 inputs = {
-   name = "name of postgresql_flexible_server_configuration" 
+   name = "name of postgresql_flexible_server_configuration"   
    # server_id → set in tfstate_inputs
-   value = "value of postgresql_flexible_server_configuration" 
+   value = "value of postgresql_flexible_server_configuration"   
 }
 
 tfstate_inputs = {
-   server_id = "path/to/postgresql_flexible_server_component:id" 
+   server_id = "path/to/postgresql_flexible_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

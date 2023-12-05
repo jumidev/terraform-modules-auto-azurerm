@@ -6,20 +6,20 @@ Manages a Synapse Private Link Hub.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_private_link_hub" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_private_link_hub"   
 }
 
 inputs = {
-   name = "name of synapse_private_link_hub" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of synapse_private_link_hub"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

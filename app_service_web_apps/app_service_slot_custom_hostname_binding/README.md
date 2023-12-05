@@ -6,23 +6,23 @@ Manages a Hostname Binding within an App Service Slot.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_slot_custom_hostname_binding" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_slot_custom_hostname_binding"   
 }
 
 inputs = {
    # app_service_slot_id → set in tfstate_inputs
-   hostname = "hostname of app_service_slot_custom_hostname_binding" 
+   hostname = "hostname of app_service_slot_custom_hostname_binding"   
 }
 
 tfstate_inputs = {
-   app_service_slot_id = "path/to/app_service_slot_component:id" 
+   app_service_slot_id = "path/to/app_service_slot_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

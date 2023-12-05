@@ -6,35 +6,35 @@ Manages a Shared Image within a Shared Image Gallery.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/shared_image" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/shared_image"   
 }
 
 inputs = {
-   name = "name of shared_image" 
+   name = "name of shared_image"   
    # gallery_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    identifier = {
-      example_identifier = {
-         offer = "..."   
-         publisher = "..."   
-         sku = "..."   
+      this_identifier = {
+         offer = "..."         
+         publisher = "..."         
+         sku = "..."         
       }
-  
+      
    }
- 
-   os_type = "os_type of shared_image" 
+   
+   os_type = "os_type of shared_image"   
 }
 
 tfstate_inputs = {
-   gallery_name = "path/to/shared_image_gallery_component:name" 
+   gallery_name = "path/to/shared_image_gallery_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -79,6 +79,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created. |
 | `publisher` | string | No | - | The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created. |
 | `product` | string | No | - | The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. |
 

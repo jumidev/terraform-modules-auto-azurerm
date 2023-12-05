@@ -6,20 +6,20 @@ Manages a Public IP Prefix.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/public_ip_prefix" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/public_ip_prefix"   
 }
 
 inputs = {
-   name = "name of public_ip_prefix" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of public_ip_prefix"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,18 +6,18 @@ Manages the Pricing Tier for Azure Security Center in the current subscription.~
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_subscription_pricing" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_subscription_pricing"   
 }
 
 inputs = {
-   tier = "tier of security_center_subscription_pricing" 
+   tier = "tier of security_center_subscription_pricing"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -40,6 +40,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of extension. |
 | `additional_extension_properties` | string | No | - | Key/Value pairs that are required for some extensions. |
 
 

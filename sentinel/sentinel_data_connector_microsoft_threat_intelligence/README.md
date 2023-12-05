@@ -6,23 +6,23 @@ Manages a Microsoft Threat Intelligence Data Connector.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_data_connector_microsoft_threat_intelligence" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_data_connector_microsoft_threat_intelligence"   
 }
 
 inputs = {
-   name = "name of sentinel_data_connector_microsoft_threat_intelligence" 
+   name = "name of sentinel_data_connector_microsoft_threat_intelligence"   
    # log_analytics_workspace_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

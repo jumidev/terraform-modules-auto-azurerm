@@ -6,46 +6,47 @@ Manages a Gallery Application Version.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/gallery_application_version" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/gallery_application_version"   
 }
 
 inputs = {
-   name = "name of gallery_application_version" 
+   name = "name of gallery_application_version"   
    # gallery_application_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
    manage_action = {
-      example_manage_action = {
-         install = "..."   
-         remove = "..."   
+      this_manage_action = {
+         install = "..."         
+         remove = "..."         
       }
-  
+      
    }
- 
+   
    source = {
-      example_source = {
-         media_link = "..."   
+      this_source = {
+         media_link = "..."         
       }
-  
+      
    }
- 
+   
    target_region = {
-      example_target_region = {
-         regional_replica_count = "..."   
+      this_target_region = {
+         name = "..."         
+         regional_replica_count = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   gallery_application_id = "path/to/gallery_application_component:id" 
+   gallery_application_id = "path/to/gallery_application_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -72,14 +73,6 @@ tfstate_store = {
 | **package_file** | string |  -  |  Specifies the name of the package file on the VM. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Gallery Application Version. | 
 
-### `target_region` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `regional_replica_count` | string | Yes | - | The number of replicas of the Gallery Application Version to be created per region. Possible values are between '1' and '10'. |
-| `exclude_from_latest` | bool | No | False | Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'. |
-| `storage_account_type` | string | No | Standard_LRS | The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. |
-
 ### `manage_action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,6 +80,15 @@ tfstate_store = {
 | `install` | string | Yes | - | The command to install the Gallery Application. Changing this forces a new resource to be created. |
 | `remove` | string | Yes | - | The command to remove the Gallery Application. Changing this forces a new resource to be created. |
 | `update` | datetime | No | - | The command to update the Gallery Application. Changing this forces a new resource to be created. |
+
+### `target_region` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Azure Region in which the Gallery Application Version exists. |
+| `regional_replica_count` | string | Yes | - | The number of replicas of the Gallery Application Version to be created per region. Possible values are between '1' and '10'. |
+| `exclude_from_latest` | bool | No | False | Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'. |
+| `storage_account_type` | string | No | Standard_LRS | The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. |
 
 ### `source` block structure
 

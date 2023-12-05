@@ -37,6 +37,7 @@ variable "volume" {
 #
 # volume block structure                 :
 #   capacity_pool_id (string)              : (REQUIRED) The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
+#   name (string)                          : (REQUIRED) The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
 #   protocols (string)                     : (REQUIRED) The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include 'NFSv3' or 'NFSv4.1', multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
 #   proximity_placement_group_id (string)  : The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
 #   security_style (string)                : (REQUIRED) Volume security style. Possible values are 'ntfs' and 'unix'. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -52,9 +53,6 @@ variable "volume" {
 #   data_protection_replication (block)    : A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost.
 #   data_protection_snapshot_policy (block): A 'data_protection_snapshot_policy' block.
 #
-# data_protection_snapshot_policy block structure:
-#   snapshot_policy_id (string)                    : (REQUIRED) Resource ID of the snapshot policy to apply to the volume.
-#
 # data_protection_replication block structure:
 #   remote_volume_location (string)            : (REQUIRED) Location of the primary volume.
 #   remote_volume_resource_id (string)         : (REQUIRED) Resource ID of the primary volume.
@@ -69,5 +67,8 @@ variable "volume" {
 #   rule_index (int)                  : (REQUIRED) The index number of the rule, must start at 1 and maximum 5.
 #   unix_read_only (string)           : Is the file system on unix read only? Defaults to 'false.
 #   unix_read_write (bool)            : Is the file system on unix read and write? Defaults to 'true'.
+#
+# data_protection_snapshot_policy block structure:
+#   snapshot_policy_id (string)                    : (REQUIRED) Resource ID of the snapshot policy to apply to the volume.
 
 

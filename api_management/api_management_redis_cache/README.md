@@ -6,24 +6,24 @@ Manages a API Management Redis Cache.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_redis_cache" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_redis_cache"   
 }
 
 inputs = {
-   name = "name of api_management_redis_cache" 
+   name = "name of api_management_redis_cache"   
    # api_management_id → set in tfstate_inputs
-   connection_string = "connection_string of api_management_redis_cache" 
+   connection_string = "connection_string of api_management_redis_cache"   
 }
 
 tfstate_inputs = {
-   api_management_id = "path/to/api_management_component:id" 
+   api_management_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,24 +6,24 @@ Manages a Snowflake Dataset inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_snowflake" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_dataset_snowflake"   
 }
 
 inputs = {
-   name = "name of data_factory_dataset_snowflake" 
+   name = "name of data_factory_dataset_snowflake"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_snowflake" 
+   linked_service_name = "linked_service_name of data_factory_dataset_snowflake"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -53,6 +53,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column. |
 | `type` | string | No | - | Type of the column. Valid values are 'NUMBER', 'DECIMAL', 'NUMERIC', 'INT', 'INTEGER', 'BIGINT', 'SMALLINT', 'FLOAT''FLOAT4', 'FLOAT8', 'DOUBLE', 'DOUBLE PRECISION', 'REAL', 'VARCHAR', 'CHAR', 'CHARACTER', 'STRING', 'TEXT', 'BINARY', 'VARBINARY', 'BOOLEAN', 'DATE', 'DATETIME', 'TIME', 'TIMESTAMP', 'TIMESTAMP_LTZ', 'TIMESTAMP_NTZ', 'TIMESTAMP_TZ', 'VARIANT', 'OBJECT', 'ARRAY', 'GEOGRAPHY'. Please note these values are case sensitive. |
 | `precision` | int | No | - | The total number of digits allowed. |
 | `scale` | int | No | - | The number of digits allowed to the right of the decimal point. |

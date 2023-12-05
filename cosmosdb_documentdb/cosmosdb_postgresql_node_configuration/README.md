@@ -6,20 +6,20 @@ Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_postgresql_node_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cosmosdb_documentdb/cosmosdb_postgresql_node_configuration"   
 }
 
 inputs = {
-   name = "name of cosmosdb_postgresql_node_configuration" 
-   cluster_id = "cluster_id of cosmosdb_postgresql_node_configuration" 
-   value = "value of cosmosdb_postgresql_node_configuration" 
+   name = "name of cosmosdb_postgresql_node_configuration"   
+   cluster_id = "cluster_id of cosmosdb_postgresql_node_configuration"   
+   value = "value of cosmosdb_postgresql_node_configuration"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

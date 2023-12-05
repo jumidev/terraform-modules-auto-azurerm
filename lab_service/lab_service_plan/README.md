@@ -6,21 +6,21 @@ Manages a Lab Service Plan.-> **Note:** Before using this resource, it's require
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "lab_service/lab_service_plan" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "lab_service/lab_service_plan"   
 }
 
 inputs = {
-   name = "name of lab_service_plan" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   allowed_regions = "allowed_regions of lab_service_plan" 
+   name = "name of lab_service_plan"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   allowed_regions = "allowed_regions of lab_service_plan"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -45,14 +45,14 @@ tfstate_store = {
 | **support** | [block](#support-block-structure) |  A `support` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Plan. | 
 
-### `default_auto_shutdown` block structure
+### `default_connection` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `shutdown_on_idle` | string | No | - | Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'. |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
+| `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
+| `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
 
 ### `support` block structure
 
@@ -63,14 +63,14 @@ tfstate_store = {
 | `phone` | string | No | - | The phone number for the support contact. |
 | `url` | string | No | - | The web address for users of the Lab Service Plan. |
 
-### `default_connection` block structure
+### `default_auto_shutdown` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
-| `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
-| `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
+| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `shutdown_on_idle` | string | No | - | Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'. |
 
 
 

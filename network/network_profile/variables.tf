@@ -21,6 +21,7 @@ variable "container_network_interface" {
 }
 #
 # container_network_interface block structure:
+#   name (string)                              : (REQUIRED) Specifies the name of the IP Configuration.
 #   ip_configuration (list)                    : (REQUIRED) One or more 'ip_configuration' blocks.
 
 

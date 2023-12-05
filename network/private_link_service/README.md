@@ -6,34 +6,35 @@ Manages a Private Link Service.-> **NOTE** Private Link is now in [GA](https://d
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/private_link_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/private_link_service"   
 }
 
 inputs = {
-   name = "name of private_link_service" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of private_link_service"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    nat_ip_configuration = {
-      example_nat_ip_configuration = {
+      this_nat_ip_configuration = {
+         name = "..."         
          # subnet_id → set in tfstate_inputs
-         primary =    
+         primary =          
       }
-  
+      
    }
- 
+   
    # load_balancer_frontend_ip_configuration_ids → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   nat_ip_configuration.example_nat_ip_configuration.subnet_id = "path/to/subnet_component:id" 
-   load_balancer_frontend_ip_configuration_ids = "path/to/lb_outbound_rule_component:frontend_ip_configuration" 
+   nat_ip_configuration.this_nat_ip_configuration.subnet_id = "path/to/subnet_component:id"   
+   load_balancer_frontend_ip_configuration_ids = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,6 +63,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created. |
 | `subnet_id` | string | Yes | - | Specifies the ID of the Subnet which should be used for the Private Link Service. |
 | `primary` | bool | Yes | True | Is this is the Primary IP Configuration? Changing this forces a new resource to be created. |
 | `private_ip_address` | string | No | - | Specifies a Private Static IP Address for this IP Configuration. |

@@ -6,25 +6,25 @@ Manages a Machine Learning Compute Instance.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "machine_learning/machine_learning_compute_instance" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "machine_learning/machine_learning_compute_instance"   
 }
 
 inputs = {
-   name = "name of machine_learning_compute_instance" 
-   location = "${location}" 
+   name = "name of machine_learning_compute_instance"   
+   location = "${location}"   
    # machine_learning_workspace_id → set in tfstate_inputs
-   virtual_machine_size = "virtual_machine_size of machine_learning_compute_instance" 
+   virtual_machine_size = "virtual_machine_size of machine_learning_compute_instance"   
 }
 
 tfstate_inputs = {
-   machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id" 
+   machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,12 +52,11 @@ tfstate_store = {
 | **node_public_ip_enabled** | bool |  `True`  |  -  |  Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
 
-### `identity` block structure
+### `ssh` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created. |
+| `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
 
 ### `assign_to_user` block structure
 
@@ -66,11 +65,12 @@ tfstate_store = {
 | `object_id` | string | No | - | User’s AAD Object Id. |
 | `tenant_id` | string | No | - | User’s AAD Tenant Id. |
 
-### `ssh` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created. |
 
 
 

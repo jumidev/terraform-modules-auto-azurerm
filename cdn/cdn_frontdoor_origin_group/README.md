@@ -6,29 +6,29 @@ Manages a Front Door (standard/premium) Origin Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_frontdoor_origin_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_frontdoor_origin_group"   
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_origin_group" 
+   name = "name of cdn_frontdoor_origin_group"   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
    load_balancing = {
-      example_load_balancing = {
+      this_load_balancing = {
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id" 
+   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,14 +49,6 @@ tfstate_store = {
 | **restore_traffic_time_to_healed_or_new_endpoint_in_minutes** | string |  `10`  |  `0`, `50`, `10`  |  Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes. | 
 | **session_affinity_enabled** | bool |  `True`  |  -  |  Specifies whether session affinity should be enabled on this host. Defaults to `true`. | 
 
-### `load_balancing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `additional_latency_in_milliseconds` | string | No | 50 | Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between '0' and '1000' milliseconds (inclusive). Defaults to '50'. |
-| `sample_size` | string | No | 4 | Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'. |
-| `successful_samples_required` | string | No | 3 | Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'. |
-
 ### `health_probe` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +57,14 @@ tfstate_store = {
 | `interval_in_seconds` | string | Yes | - | Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive). |
 | `request_type` | string | No | HEAD | Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'. |
 | `path` | string | No | / | Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'. |
+
+### `load_balancing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `additional_latency_in_milliseconds` | string | No | 50 | Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between '0' and '1000' milliseconds (inclusive). Defaults to '50'. |
+| `sample_size` | string | No | 4 | Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'. |
+| `successful_samples_required` | string | No | 3 | Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'. |
 
 
 

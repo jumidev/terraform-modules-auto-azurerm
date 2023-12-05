@@ -6,25 +6,25 @@ Manages an Azure Relay Hybrid Connection Authorization Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/relay_hybrid_connection_authorization_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/relay_hybrid_connection_authorization_rule"   
 }
 
 inputs = {
-   name = "name of relay_hybrid_connection_authorization_rule" 
-   hybrid_connection_name = "hybrid_connection_name of relay_hybrid_connection_authorization_rule" 
+   name = "name of relay_hybrid_connection_authorization_rule"   
+   hybrid_connection_name = "hybrid_connection_name of relay_hybrid_connection_authorization_rule"   
    # namespace_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   namespace_name = "path/to/eventhub_namespace_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

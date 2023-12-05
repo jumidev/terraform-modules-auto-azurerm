@@ -6,28 +6,28 @@ Manages a Automation Runbook.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_runbook" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_runbook"   
 }
 
 inputs = {
-   name = "name of automation_runbook" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of automation_runbook"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # automation_account_name → set in tfstate_inputs
-   runbook_type = "runbook_type of automation_runbook" 
-   log_progress = "log_progress of automation_runbook" 
-   log_verbose = "log_verbose of automation_runbook" 
+   runbook_type = "runbook_type of automation_runbook"   
+   log_progress = "log_progress of automation_runbook"   
+   log_verbose = "log_verbose of automation_runbook"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -55,23 +55,6 @@ tfstate_store = {
 | **log_activity_trace_level** | string |  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
 | **draft** | [block](#draft-block-structure) |  -  |  A `draft` block . | 
 
-### `hash` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
-| `value` | string | Yes | - | Specifies the expected hash value of the content. |
-
-### `parameters` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | The name of the parameter. |
-| `type` | string | Yes | - | Specifies the type of this parameter. |
-| `mandatory` | string | No | - | Whether this parameter is mandatory. |
-| `position` | string | No | - | Specifies the position of the parameter. |
-| `default_value` | string | No | - | Specifies the default value of the parameter. |
-
 ### `draft` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +71,23 @@ tfstate_store = {
 | `uri` | string | Yes | - | The URI of the runbook content. |
 | `version` | string | No | - | Specifies the version of the content |
 | `hash` | [block](#publish_content_link-block-structure) | No | - | A 'hash' block. |
+
+### `hash` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
+| `value` | string | Yes | - | Specifies the expected hash value of the content. |
+
+### `parameters` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | The name of the parameter. |
+| `type` | string | Yes | - | Specifies the type of this parameter. |
+| `mandatory` | string | No | - | Whether this parameter is mandatory. |
+| `position` | string | No | - | Specifies the position of the parameter. |
+| `default_value` | string | No | - | Specifies the default value of the parameter. |
 
 
 

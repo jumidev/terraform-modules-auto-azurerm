@@ -6,42 +6,42 @@ Manages a Cost Management Export for a Subscription.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cost_management/subscription_cost_management_export" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cost_management/subscription_cost_management_export"   
 }
 
 inputs = {
-   name = "name of subscription_cost_management_export" 
+   name = "name of subscription_cost_management_export"   
    # subscription_id → set in tfstate_inputs
-   recurrence_type = "recurrence_type of subscription_cost_management_export" 
-   recurrence_period_start_date = "recurrence_period_start_date of subscription_cost_management_export" 
-   recurrence_period_end_date = "recurrence_period_end_date of subscription_cost_management_export" 
+   recurrence_type = "recurrence_type of subscription_cost_management_export"   
+   recurrence_period_start_date = "recurrence_period_start_date of subscription_cost_management_export"   
+   recurrence_period_end_date = "recurrence_period_end_date of subscription_cost_management_export"   
    export_data_storage_location = {
-      example_export_data_storage_location = {
-         container_id = "..."   
-         root_folder_path = "..."   
+      this_export_data_storage_location = {
+         container_id = "..."         
+         root_folder_path = "..."         
       }
-  
+      
    }
- 
+   
    export_data_options = {
-      example_export_data_options = {
-         type = "..."   
-         time_frame = "..."   
+      this_export_data_options = {
+         type = "..."         
+         time_frame = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   subscription_id = "path/to/subscription_component:subscription_id" 
+   subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

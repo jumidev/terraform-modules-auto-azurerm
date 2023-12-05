@@ -6,21 +6,21 @@ Manages a Mongo Collection within a Cosmos DB Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_mongo_collection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cosmosdb_documentdb/cosmosdb_mongo_collection"   
 }
 
 inputs = {
-   name = "name of cosmosdb_mongo_collection" 
-   resource_group_name = "${resource_group}" 
-   account_name = "account_name of cosmosdb_mongo_collection" 
-   database_name = "database_name of cosmosdb_mongo_collection" 
+   name = "name of cosmosdb_mongo_collection"   
+   resource_group_name = "${resource_group}"   
+   account_name = "account_name of cosmosdb_mongo_collection"   
+   database_name = "database_name of cosmosdb_mongo_collection"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

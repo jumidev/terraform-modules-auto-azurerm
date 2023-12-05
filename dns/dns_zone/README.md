@@ -6,19 +6,19 @@ Enables you to manage DNS zones within Azure DNS. These zones are hosted on Azur
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dns/dns_zone" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dns/dns_zone"   
 }
 
 inputs = {
-   name = "name of dns_zone" 
-   resource_group_name = "${resource_group}" 
+   name = "name of dns_zone"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

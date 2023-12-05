@@ -21,6 +21,7 @@ variable "sku" {
 }
 #
 # sku block structure:
+#   name (string)      : (REQUIRED) The name of the sku. Currently can only be set to 'S1'.
 #   capacity (int)     : (REQUIRED) The number of provisioned IoT Device Provisioning Service units.
 
 
@@ -63,6 +64,7 @@ variable "ip_filter_rule" {
 }
 #
 # ip_filter_rule block structure:
+#   name (string)                 : (REQUIRED) The name of the filter.
 #   ip_mask (string)              : (REQUIRED) The IP address range in CIDR notation for the rule.
 #   action (string)               : (REQUIRED) The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject'
 #   target (string)               : Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'.

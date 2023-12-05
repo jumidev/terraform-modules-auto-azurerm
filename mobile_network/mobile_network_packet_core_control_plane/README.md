@@ -6,29 +6,29 @@ Manages a Mobile Network Packet Core Control Plane.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network_packet_core_control_plane" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mobile_network/mobile_network_packet_core_control_plane"   
 }
 
 inputs = {
-   name = "name of mobile_network_packet_core_control_plane" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   site_ids = "site_ids of mobile_network_packet_core_control_plane" 
-   sku = "sku of mobile_network_packet_core_control_plane" 
+   name = "name of mobile_network_packet_core_control_plane"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   site_ids = "site_ids of mobile_network_packet_core_control_plane"   
+   sku = "sku of mobile_network_packet_core_control_plane"   
    local_diagnostics_access = {
-      example_local_diagnostics_access = {
-         authentication_type = "..."   
+      this_local_diagnostics_access = {
+         authentication_type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -60,13 +60,6 @@ tfstate_store = {
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane. | 
 | **software_version** | string |  -  |  Specifies the version of the packet core software that is deployed. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
-
 ### `local_diagnostics_access` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,6 +76,13 @@ tfstate_store = {
 | `arc_kubernetes_cluster_id` | string | No | - | The ID of the Azure Arc connected cluster where the packet core is deployed. |
 | `stack_hci_cluster_id` | string | No | - | The ID of the Azure Stack HCI cluster where the packet core is deployed. |
 | `custom_location_id` | string | No | - | The ID of the Azure Arc custom location where the packet core is deployed. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
 
 
 

@@ -6,8 +6,8 @@ Manages the Link To Default Domain property of a Front Door (standard/premium) R
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_frontdoor_route_disable_link_to_default_domain" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_frontdoor_route_disable_link_to_default_domain"   
 }
 
 inputs = {
@@ -16,14 +16,14 @@ inputs = {
 }
 
 tfstate_inputs = {
-   cdn_frontdoor_route_id = "path/to/cdn_frontdoor_route_component:id" 
-   cdn_frontdoor_custom_domain_ids = "path/to/cdn_frontdoor_custom_domain_component:id" 
+   cdn_frontdoor_route_id = "path/to/cdn_frontdoor_route_component:id"   
+   cdn_frontdoor_custom_domain_ids = "path/to/cdn_frontdoor_custom_domain_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

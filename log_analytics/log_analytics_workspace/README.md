@@ -6,26 +6,26 @@ Manages a Log Analytics (formally Operational Insights) Workspace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_workspace" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_workspace"   
 }
 
 inputs = {
-   name = "name of log_analytics_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of log_analytics_workspace"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resource
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **application_group_id** | If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association.|
 

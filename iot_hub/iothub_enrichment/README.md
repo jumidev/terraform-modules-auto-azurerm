@@ -6,26 +6,26 @@ Manages an IotHub Enrichment~> **NOTE:** Enrichment can be defined either direct
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_enrichment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_enrichment"   
 }
 
 inputs = {
    # iothub_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   key = "key of iothub_enrichment" 
-   value = "value of iothub_enrichment" 
-   endpoint_names = "endpoint_names of iothub_enrichment" 
+   resource_group_name = "${resource_group}"   
+   key = "key of iothub_enrichment"   
+   value = "value of iothub_enrichment"   
+   endpoint_names = "endpoint_names of iothub_enrichment"   
 }
 
 tfstate_inputs = {
-   iothub_name = "path/to/iothub_component:name" 
+   iothub_name = "path/to/iothub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

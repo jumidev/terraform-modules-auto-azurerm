@@ -6,26 +6,26 @@ Manages a Sentinel NRT Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_nrt" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_alert_rule_nrt"   
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_nrt" 
+   name = "name of sentinel_alert_rule_nrt"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_alert_rule_nrt" 
-   severity = "severity of sentinel_alert_rule_nrt" 
-   query = "query of sentinel_alert_rule_nrt" 
+   display_name = "display_name of sentinel_alert_rule_nrt"   
+   severity = "severity of sentinel_alert_rule_nrt"   
+   query = "query of sentinel_alert_rule_nrt"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -59,6 +59,28 @@ tfstate_store = {
 | **tactics** | string |  -  |  `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance`, `ResourceDevelopment`  |  A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`. | 
 | **techniques** | list |  -  |  -  |  A list of techniques of attacks by which to classify the rule. | 
 
+### `event_grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
+
+### `sentinel_entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `alert_details_override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description_format` | string | No | - | The format containing columns name(s) to override the description of this Sentinel Alert Rule. |
+| `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
+| `severity_column_name` | string | No | - | The column name to take the alert severity from. |
+| `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
+| `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
+
 ### `grouping` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,10 +93,11 @@ tfstate_store = {
 | `by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
 | `by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
 
-### `sentinel_entity_mapping` block structure
+### `field_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `identifier` | string | Yes | - | The identifier of the entity. |
 | `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 ### `incident` block structure
@@ -95,30 +118,8 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the dynamic property. Possible Values are 'AlertLink', 'ConfidenceLevel', 'ConfidenceScore', 'ExtendedLinks', 'ProductComponentName', 'ProductName', 'ProviderName', 'RemediationSteps' and 'Techniques'. |
 | `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
-
-### `field_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `alert_details_override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description_format` | string | No | - | The format containing columns name(s) to override the description of this Sentinel Alert Rule. |
-| `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
-| `severity_column_name` | string | No | - | The column name to take the alert severity from. |
-| `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
-| `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
-
-### `event_grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
 
 
 

@@ -6,35 +6,35 @@ Manages a Palo Alto Next Generation Firewall VHub Panorama.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "palo_alto/palo_alto_next_generation_firewall_vhub_panorama" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "palo_alto/palo_alto_next_generation_firewall_vhub_panorama"   
 }
 
 inputs = {
-   name = "name of palo_alto_next_generation_firewall_vhub_panorama" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_vhub_panorama" 
+   name = "name of palo_alto_next_generation_firewall_vhub_panorama"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_vhub_panorama"   
    network_profile = {
-      example_network_profile = {
-         network_virtual_appliance_id = "..."   
+      this_network_profile = {
+         network_virtual_appliance_id = "..."         
          # public_ip_address_ids → set in tfstate_inputs
          # virtual_hub_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   network_profile.example_network_profile.public_ip_address_ids = "path/to/public_ip_component:id" 
-   network_profile.example_network_profile.virtual_hub_id = "path/to/virtual_hub_component:id" 
+   network_profile.this_network_profile.public_ip_address_ids = "path/to/public_ip_component:id"   
+   network_profile.this_network_profile.virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -57,21 +57,6 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama. | 
 
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
-
-### `backend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port number to send traffic to. |
-| `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
-
 ### `frontend_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -86,6 +71,13 @@ tfstate_store = {
 | `dns_servers` | string | No | - | Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'. |
 | `use_azure_dns` | bool | No | False | Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
 
+### `backend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port number to send traffic to. |
+| `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
+
 ### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +86,15 @@ tfstate_store = {
 | `public_ip_address_ids` | string | Yes | - | Specifies a list of Public IP IDs to use for this Next Generation Firewall. |
 | `virtual_hub_id` | string | Yes | - | The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. |
 | `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Public IP IDs to use for Egress NAT. |
+
+### `destination_nat` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this NAT. |
+| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
 
 

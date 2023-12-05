@@ -6,19 +6,19 @@ Manages the Security Center Assessment Metadata for Azure Security Center.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_assessment_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_assessment_policy"   
 }
 
 inputs = {
-   description = "description of security_center_assessment_policy" 
-   display_name = "display_name of security_center_assessment_policy" 
+   description = "description of security_center_assessment_policy"   
+   display_name = "display_name of security_center_assessment_policy"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,26 +6,26 @@ Manages an Azure NAT Gateway.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/nat_gateway" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/nat_gateway"   
 }
 
 inputs = {
-   name = "name of nat_gateway" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of nat_gateway"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resources
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **public_ip_address_id** | If set to a valid `azurerm_public_ip` `id`, makes a **azurerm_nat_gateway_public_ip_association** - Manages the association between a NAT Gateway and a Public IP.|
 | **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_nat_gateway_association** - Associates a [NAT Gateway](nat_gateway.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|

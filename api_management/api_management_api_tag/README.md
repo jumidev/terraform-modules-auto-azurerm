@@ -6,23 +6,23 @@ Manages the Assignment of an API Management API Tag to an API.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_api_tag" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_api_tag"   
 }
 
 inputs = {
    # api_id → set in tfstate_inputs
-   name = "name of api_management_api_tag" 
+   name = "name of api_management_api_tag"   
 }
 
 tfstate_inputs = {
-   api_id = "path/to/api_management_component:id" 
+   api_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

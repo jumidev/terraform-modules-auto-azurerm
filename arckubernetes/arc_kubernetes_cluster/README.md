@@ -6,28 +6,28 @@ Manages an Arc Kubernetes Cluster.-> **Note:** Installing and configuring the Az
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "arckubernetes/arc_kubernetes_cluster" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "arckubernetes/arc_kubernetes_cluster"   
 }
 
 inputs = {
-   name = "name of arc_kubernetes_cluster" 
-   resource_group_name = "${resource_group}" 
-   agent_public_key_certificate = "agent_public_key_certificate of arc_kubernetes_cluster" 
+   name = "name of arc_kubernetes_cluster"   
+   resource_group_name = "${resource_group}"   
+   agent_public_key_certificate = "agent_public_key_certificate of arc_kubernetes_cluster"   
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
-   location = "${location}" 
+   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

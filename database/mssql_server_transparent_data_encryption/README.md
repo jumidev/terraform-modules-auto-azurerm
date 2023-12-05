@@ -6,8 +6,8 @@ Manages the transparent data encryption configuration for a MSSQL Server!> **IMP
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_server_transparent_data_encryption" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_server_transparent_data_encryption"   
 }
 
 inputs = {
@@ -15,13 +15,13 @@ inputs = {
 }
 
 tfstate_inputs = {
-   server_id = "path/to/mssql_server_component:id" 
+   server_id = "path/to/mssql_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

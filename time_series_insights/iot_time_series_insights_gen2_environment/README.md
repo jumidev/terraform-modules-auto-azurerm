@@ -6,29 +6,30 @@ Manages an Azure IoT Time Series Insights Gen2 Environment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "time_series_insights/iot_time_series_insights_gen2_environment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "time_series_insights/iot_time_series_insights_gen2_environment"   
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_gen2_environment" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku_name = "sku_name of iot_time_series_insights_gen2_environment" 
+   name = "name of iot_time_series_insights_gen2_environment"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku_name = "sku_name of iot_time_series_insights_gen2_environment"   
    storage = {
-      example_storage = {
-         key = "..."   
+      this_storage = {
+         name = "..."         
+         key = "..."         
       }
-  
+      
    }
- 
-   id_properties = "id_properties of iot_time_series_insights_gen2_environment" 
+   
+   id_properties = "id_properties of iot_time_series_insights_gen2_environment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -55,6 +56,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of storage account for Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. |
 | `key` | string | Yes | - | Access key of storage account for Azure IoT Time Series Insights Gen2 Environment |
 
 

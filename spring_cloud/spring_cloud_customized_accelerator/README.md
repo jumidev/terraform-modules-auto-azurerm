@@ -6,30 +6,30 @@ Manages a Spring Cloud Customized Accelerator.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_customized_accelerator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_customized_accelerator"   
 }
 
 inputs = {
    git_repository = {
-      example_git_repository = {
-         url = "..."   
+      this_git_repository = {
+         url = "..."         
       }
-  
+      
    }
- 
-   name = "name of spring_cloud_customized_accelerator" 
+   
+   name = "name of spring_cloud_customized_accelerator"   
    # spring_cloud_accelerator_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_accelerator_id = "path/to/spring_cloud_accelerator_component:id" 
+   spring_cloud_accelerator_id = "path/to/spring_cloud_accelerator_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,13 @@ tfstate_store = {
 | **display_name** | string |  -  |  -  |  Specifies the display name of the Spring Cloud Customized Accelerator.. | 
 | **icon_url** | string |  -  |  -  |  Specifies the icon URL of the Spring Cloud Customized Accelerator.. | 
 
+### `basic_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
+| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
+
 ### `git_repository` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,13 +80,6 @@ tfstate_store = {
 | `private_key` | string | Yes | - | Specifies the Private SSH Key of git repository basic auth. |
 | `host_key` | string | No | - | Specifies the Public SSH Key of git repository basic auth. |
 | `host_key_algorithm` | string | No | - | Specifies the SSH Key algorithm of git repository basic auth. |
-
-### `basic_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
-| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
 
 
 

@@ -6,21 +6,21 @@ Manages a Logic App Integration Account Assembly.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_integration_account_assembly" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/logic_app_integration_account_assembly"   
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_assembly" 
-   resource_group_name = "${resource_group}" 
-   integration_account_name = "integration_account_name of logic_app_integration_account_assembly" 
-   assembly_name = "assembly_name of logic_app_integration_account_assembly" 
+   name = "name of logic_app_integration_account_assembly"   
+   resource_group_name = "${resource_group}"   
+   integration_account_name = "integration_account_name of logic_app_integration_account_assembly"   
+   assembly_name = "assembly_name of logic_app_integration_account_assembly"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

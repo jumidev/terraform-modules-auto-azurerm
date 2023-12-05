@@ -6,26 +6,26 @@ Manages an App Service Hybrid Connection for an existing App Service, Relay and 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_hybrid_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_hybrid_connection"   
 }
 
 inputs = {
    # app_service_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   relay_id = "relay_id of app_service_hybrid_connection" 
-   hostname = "hostname of app_service_hybrid_connection" 
-   port = "port of app_service_hybrid_connection" 
+   resource_group_name = "${resource_group}"   
+   relay_id = "relay_id of app_service_hybrid_connection"   
+   hostname = "hostname of app_service_hybrid_connection"   
+   port = "port of app_service_hybrid_connection"   
 }
 
 tfstate_inputs = {
-   app_service_name = "path/to/app_service_component:name" 
+   app_service_name = "path/to/app_service_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

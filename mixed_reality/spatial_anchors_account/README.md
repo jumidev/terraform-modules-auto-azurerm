@@ -6,20 +6,20 @@ Manages an Azure Spatial Anchors Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mixed_reality/spatial_anchors_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mixed_reality/spatial_anchors_account"   
 }
 
 inputs = {
-   name = "name of spatial_anchors_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of spatial_anchors_account"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

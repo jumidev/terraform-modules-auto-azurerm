@@ -6,32 +6,32 @@ Manages a Network Manager Connectivity Configuration.-> **Note:** The `azurerm_n
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_connectivity_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_connectivity_configuration"   
 }
 
 inputs = {
-   name = "name of network_manager_connectivity_configuration" 
+   name = "name of network_manager_connectivity_configuration"   
    # network_manager_id → set in tfstate_inputs
    applies_to_group = {
-      example_applies_to_group = {
-         group_connectivity = "..."   
-         network_group_id = "..."   
+      this_applies_to_group = {
+         group_connectivity = "..."         
+         network_group_id = "..."         
       }
-  
+      
    }
- 
-   connectivity_topology = "connectivity_topology of network_manager_connectivity_configuration" 
+   
+   connectivity_topology = "connectivity_topology of network_manager_connectivity_configuration"   
 }
 
 tfstate_inputs = {
-   network_manager_id = "path/to/network_manager_component:id" 
+   network_manager_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

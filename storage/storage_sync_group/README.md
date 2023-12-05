@@ -6,23 +6,23 @@ Manages a Storage Sync Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_sync_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_sync_group"   
 }
 
 inputs = {
-   name = "name of storage_sync_group" 
+   name = "name of storage_sync_group"   
    # storage_sync_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_sync_id = "path/to/storage_sync_component:id" 
+   storage_sync_id = "path/to/storage_sync_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

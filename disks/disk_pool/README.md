@@ -6,27 +6,27 @@ Manages a Disk Pool.!> **Note:** Azure are officially [halting](https://learn.mi
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "disks/disk_pool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "disks/disk_pool"   
 }
 
 inputs = {
-   name = "name of disk_pool" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   zones = "zones of disk_pool" 
-   sku_name = "sku_name of disk_pool" 
+   name = "name of disk_pool"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   zones = "zones of disk_pool"   
+   sku_name = "sku_name of disk_pool"   
    # subnet_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   subnet_id = "path/to/subnet_component:id" 
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

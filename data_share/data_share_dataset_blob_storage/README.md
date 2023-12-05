@@ -6,34 +6,35 @@ Manages a Data Share Blob Storage Dataset.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_share/data_share_dataset_blob_storage" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_share/data_share_dataset_blob_storage"   
 }
 
 inputs = {
-   name = "name of data_share_dataset_blob_storage" 
+   name = "name of data_share_dataset_blob_storage"   
    # data_share_id → set in tfstate_inputs
-   container_name = "container_name of data_share_dataset_blob_storage" 
+   container_name = "container_name of data_share_dataset_blob_storage"   
    storage_account = {
-      example_storage_account = {
+      this_storage_account = {
+         name = "..."         
          # resource_group_name → set in tfstate_inputs
          # subscription_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   data_share_id = "path/to/data_share_component:id" 
-   storage_account.example_storage_account.resource_group_name = "path/to/resource_group_component:name" 
-   storage_account.example_storage_account.subscription_id = "path/to/subscription_component:subscription_id" 
+   data_share_id = "path/to/data_share_component:id"   
+   storage_account.this_storage_account.resource_group_name = "path/to/resource_group_component:name"   
+   storage_account.this_storage_account.subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -58,6 +59,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. |
 | `resource_group_name` | string | Yes | - | The resource group name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. |
 | `subscription_id` | string | Yes | - | The subscription id of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created. |
 

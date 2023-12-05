@@ -6,24 +6,24 @@ Manages a Security Alert Policy for a MSSQL Server.-> **NOTE** Security Alert Po
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_server_security_alert_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_server_security_alert_policy"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # server_name → set in tfstate_inputs
-   state = "state of mssql_server_security_alert_policy" 
+   state = "state of mssql_server_security_alert_policy"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/mssql_server_component:name" 
+   server_name = "path/to/mssql_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

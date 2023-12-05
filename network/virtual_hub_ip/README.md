@@ -6,27 +6,27 @@ Manages a Virtual Hub IP. This resource is also known as a Route Server.~> **NOT
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_hub_ip" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_hub_ip"   
 }
 
 inputs = {
-   name = "name of virtual_hub_ip" 
+   name = "name of virtual_hub_ip"   
    # virtual_hub_id → set in tfstate_inputs
    # subnet_id → set in tfstate_inputs
    # public_ip_address_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
-   subnet_id = "path/to/subnet_component:id" 
-   public_ip_address_id = "path/to/public_ip_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
+   subnet_id = "path/to/subnet_component:id"   
+   public_ip_address_id = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

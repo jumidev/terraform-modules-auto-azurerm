@@ -6,31 +6,32 @@ Manages a Dataset inside an Azure Data Factory. This is a generic resource that 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_custom_dataset" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_custom_dataset"   
 }
 
 inputs = {
-   name = "name of data_factory_custom_dataset" 
+   name = "name of data_factory_custom_dataset"   
    # data_factory_id → set in tfstate_inputs
    linked_service = {
-      example_linked_service = {
+      this_linked_service = {
+         name = "..."         
       }
-  
+      
    }
- 
-   type = "type of data_factory_custom_dataset" 
-   type_properties_json = "type_properties_json of data_factory_custom_dataset" 
+   
+   type = "type of data_factory_custom_dataset"   
+   type_properties_json = "type_properties_json of data_factory_custom_dataset"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -60,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Data Factory Linked Service. |
 | `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
 

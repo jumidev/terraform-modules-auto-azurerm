@@ -6,18 +6,18 @@ Manages a Web App Active Slot.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/web_app_active_slot" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/web_app_active_slot"   
 }
 
 inputs = {
-   slot_id = "slot_id of web_app_active_slot" 
+   slot_id = "slot_id of web_app_active_slot"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

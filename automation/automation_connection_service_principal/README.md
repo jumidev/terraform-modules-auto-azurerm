@@ -6,30 +6,30 @@ Manages an Automation Connection with type `AzureServicePrincipal`.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_connection_service_principal" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_connection_service_principal"   
 }
 
 inputs = {
-   name = "name of automation_connection_service_principal" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_connection_service_principal"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   application_id = "application_id of automation_connection_service_principal" 
-   certificate_thumbprint = "certificate_thumbprint of automation_connection_service_principal" 
+   application_id = "application_id of automation_connection_service_principal"   
+   certificate_thumbprint = "certificate_thumbprint of automation_connection_service_principal"   
    # subscription_id → set in tfstate_inputs
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
-   subscription_id = "path/to/subscription_component:subscription_id" 
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   automation_account_name = "path/to/automation_account_component:name"   
+   subscription_id = "path/to/subscription_component:subscription_id"   
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

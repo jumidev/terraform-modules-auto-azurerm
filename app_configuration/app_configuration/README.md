@@ -6,20 +6,20 @@ Manages an Azure App Configuration.## Disclaimers-> **Note:** Version 3.27.0 and
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_configuration/app_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_configuration/app_configuration"   
 }
 
 inputs = {
-   name = "name of app_configuration" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of app_configuration"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -46,18 +46,19 @@ tfstate_store = {
 | **soft_delete_retention_days** | int |  `7`  |  -  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `replica` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
+| `name` | string | Yes | - | Specifies the name of the replica. |
+
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_key_identifier` | string | No | - | Specifies the URI of the key vault key used to encrypt data. |
 | `identity_client_id` | string | No | - | Specifies the client id of the identity which will be used to access key vault. |
-
-### `replica` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
 
 ### `identity` block structure
 

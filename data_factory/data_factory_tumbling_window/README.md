@@ -6,32 +6,33 @@ Manages a Tumbling Window Trigger inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_tumbling_window" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_tumbling_window"   
 }
 
 inputs = {
-   name = "name of data_factory_tumbling_window" 
+   name = "name of data_factory_tumbling_window"   
    # data_factory_id → set in tfstate_inputs
-   frequency = "frequency of data_factory_tumbling_window" 
-   interval = "interval of data_factory_tumbling_window" 
+   frequency = "frequency of data_factory_tumbling_window"   
+   interval = "interval of data_factory_tumbling_window"   
    pipeline = {
-      example_pipeline = {
+      this_pipeline = {
+         name = "..."         
       }
-  
+      
    }
- 
-   start_time = "start_time of data_factory_tumbling_window" 
+   
+   start_time = "start_time of data_factory_tumbling_window"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -61,18 +62,11 @@ tfstate_store = {
 | **retry** | [block](#retry-block-structure) |  -  |  -  |  A `retry` block. | 
 | **trigger_dependency** | [block](#trigger_dependency-block-structure) |  -  |  -  |  One or more `trigger_dependency` block. | 
 
-### `trigger_dependency` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `offset` | string | No | - | The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency. |
-| `size` | string | No | - | The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss). |
-| `trigger_name` | string | No | - | The dependency trigger name. If not specified, it will use self dependency. |
-
 ### `pipeline` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 ### `retry` block structure
@@ -81,6 +75,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `count` | int | Yes | - | The maximum retry attempts if the pipeline run failed. |
 | `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
+
+### `trigger_dependency` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `offset` | string | No | - | The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency. |
+| `size` | string | No | - | The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss). |
+| `trigger_name` | string | No | - | The dependency trigger name. If not specified, it will use self dependency. |
 
 
 

@@ -6,32 +6,33 @@ Manages a Contact profile.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "orbital/orbital_contact_profile" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "orbital/orbital_contact_profile"   
 }
 
 inputs = {
-   name = "name of orbital_contact_profile" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   minimum_variable_contact_duration = "minimum_variable_contact_duration of orbital_contact_profile" 
-   auto_tracking = "auto_tracking of orbital_contact_profile" 
-   network_configuration_subnet_id = "network_configuration_subnet_id of orbital_contact_profile" 
+   name = "name of orbital_contact_profile"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   minimum_variable_contact_duration = "minimum_variable_contact_duration of orbital_contact_profile"   
+   auto_tracking = "auto_tracking of orbital_contact_profile"   
+   network_configuration_subnet_id = "network_configuration_subnet_id of orbital_contact_profile"   
    links = {
-      example_links = {
-         channels = "..."   
-         direction = "..."   
-         polarization = "..."   
+      this_links = {
+         channels = "..."         
+         direction = "..."         
+         name = "..."         
+         polarization = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -56,15 +57,14 @@ tfstate_store = {
 | **minimum_elevation_degrees** | string |  Maximum elevation of the antenna during the contact in decimal degrees. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `channels` block structure
+### `links` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `center_frequency_mhz` | string | Yes | - | Center frequency in MHz. |
-| `bandwidth_mhz` | string | Yes | - | Bandwidth in MHz. |
-| `end_point` | [block](#channels-block-structure) | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
-| `modulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
-| `demodulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
+| `channels` | [block](#links-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
+| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
+| `name` | string | Yes | - | Name of the link. |
+| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
 
 ### `end_point` block structure
 
@@ -75,13 +75,16 @@ tfstate_store = {
 | `protocol` | string | Yes | - | Protocol of an end point. Possible values are 'TCP' and 'UDP'. |
 | `ip_address` | string | No | - | IP address of an end point. |
 
-### `links` block structure
+### `channels` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `channels` | [block](#links-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
-| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
-| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
+| `name` | string | Yes | - | Name of the channel. |
+| `center_frequency_mhz` | string | Yes | - | Center frequency in MHz. |
+| `bandwidth_mhz` | string | Yes | - | Bandwidth in MHz. |
+| `end_point` | [block](#channels-block-structure) | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
+| `modulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
+| `demodulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
 
 
 

@@ -6,30 +6,30 @@ Manages a Front Door (standard/premium) Secret.## Required Key Vault Permissions
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_frontdoor_secret" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_frontdoor_secret"   
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_secret" 
+   name = "name of cdn_frontdoor_secret"   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
    secret = {
-      example_secret = {
-         customer_certificate = "..."   
+      this_secret = {
+         customer_certificate = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id" 
+   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,22 +6,22 @@ Manages a Managed Application.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "managed_applications/managed_application" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "managed_applications/managed_application"   
 }
 
 inputs = {
-   name = "name of managed_application" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   kind = "kind of managed_application" 
-   managed_resource_group_name = "managed_resource_group_name of managed_application" 
+   name = "name of managed_application"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   kind = "kind of managed_application"   
+   managed_resource_group_name = "managed_resource_group_name of managed_application"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created. |
 | `product` | string | Yes | - | Specifies the product of the plan from the marketplace. Changing this forces a new resource to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the plan. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | Specifies the version of the plan from the marketplace. Changing this forces a new resource to be created. |

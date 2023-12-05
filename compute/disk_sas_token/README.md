@@ -6,24 +6,24 @@ Manages a Disk SAS Token.Use this resource to obtain a Shared Access Signature (
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/disk_sas_token" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/disk_sas_token"   
 }
 
 inputs = {
    # managed_disk_id → set in tfstate_inputs
-   duration_in_seconds = "duration_in_seconds of disk_sas_token" 
-   access_level = "access_level of disk_sas_token" 
+   duration_in_seconds = "duration_in_seconds of disk_sas_token"   
+   access_level = "access_level of disk_sas_token"   
 }
 
 tfstate_inputs = {
-   managed_disk_id = "path/to/managed_disk_component:id" 
+   managed_disk_id = "path/to/managed_disk_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

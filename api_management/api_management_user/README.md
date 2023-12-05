@@ -6,27 +6,27 @@ Manages an API Management User.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_user" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_user"   
 }
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   email = "email of api_management_user" 
-   first_name = "first_name of api_management_user" 
-   last_name = "last_name of api_management_user" 
-   user_id = "user_id of api_management_user" 
+   resource_group_name = "${resource_group}"   
+   email = "email of api_management_user"   
+   first_name = "first_name of api_management_user"   
+   last_name = "last_name of api_management_user"   
+   user_id = "user_id of api_management_user"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

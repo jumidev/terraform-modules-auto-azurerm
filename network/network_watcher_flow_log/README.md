@@ -6,37 +6,37 @@ Manages a Network Watcher Flow Log.~> **Note** The `azurerm_network_watcher_flow
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_watcher_flow_log" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_watcher_flow_log"   
 }
 
 inputs = {
-   name = "name of network_watcher_flow_log" 
+   name = "name of network_watcher_flow_log"   
    # network_watcher_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # network_security_group_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   enabled = "enabled of network_watcher_flow_log" 
+   enabled = "enabled of network_watcher_flow_log"   
    retention_policy = {
-      example_retention_policy = {
-         enabled = "..."   
-         days = "..."   
+      this_retention_policy = {
+         enabled = "..."         
+         days = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   network_watcher_name = "path/to/network_watcher_component:name" 
-   network_security_group_id = "path/to/network_security_group_component:id" 
-   storage_account_id = "path/to/storage_account_component:id" 
+   network_watcher_name = "path/to/network_watcher_component:name"   
+   network_security_group_id = "path/to/network_security_group_component:id"   
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

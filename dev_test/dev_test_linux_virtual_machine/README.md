@@ -6,36 +6,36 @@ Manages a Linux Virtual Machine within a Dev Test Lab.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dev_test/dev_test_linux_virtual_machine" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dev_test/dev_test_linux_virtual_machine"   
 }
 
 inputs = {
-   name = "name of dev_test_linux_virtual_machine" 
-   lab_name = "lab_name of dev_test_linux_virtual_machine" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of dev_test_linux_virtual_machine"   
+   lab_name = "lab_name of dev_test_linux_virtual_machine"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    gallery_image_reference = {
-      example_gallery_image_reference = {
-         offer = "..."   
-         publisher = "..."   
-         sku = "..."   
-         version = "..."   
+      this_gallery_image_reference = {
+         offer = "..."         
+         publisher = "..."         
+         sku = "..."         
+         version = "..."         
       }
-  
+      
    }
- 
-   lab_subnet_name = "lab_subnet_name of dev_test_linux_virtual_machine" 
-   lab_virtual_network_id = "lab_virtual_network_id of dev_test_linux_virtual_machine" 
-   size = "size of dev_test_linux_virtual_machine" 
-   storage_type = "storage_type of dev_test_linux_virtual_machine" 
-   username = "username of dev_test_linux_virtual_machine" 
+   
+   lab_subnet_name = "lab_subnet_name of dev_test_linux_virtual_machine"   
+   lab_virtual_network_id = "lab_virtual_network_id of dev_test_linux_virtual_machine"   
+   size = "size of dev_test_linux_virtual_machine"   
+   storage_type = "storage_type of dev_test_linux_virtual_machine"   
+   username = "username of dev_test_linux_virtual_machine"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,27 +6,27 @@
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_cluster" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_cluster"   
 }
 
 inputs = {
-   name = "name of log_analytics_cluster" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of log_analytics_cluster"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

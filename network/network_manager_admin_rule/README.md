@@ -6,23 +6,23 @@ Manages a Network Manager Admin Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_admin_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_admin_rule"   
 }
 
 inputs = {
-   name = "name of network_manager_admin_rule" 
-   admin_rule_collection_id = "admin_rule_collection_id of network_manager_admin_rule" 
-   action = "action of network_manager_admin_rule" 
-   direction = "direction of network_manager_admin_rule" 
-   priority = "priority of network_manager_admin_rule" 
-   protocol = "protocol of network_manager_admin_rule" 
+   name = "name of network_manager_admin_rule"   
+   admin_rule_collection_id = "admin_rule_collection_id of network_manager_admin_rule"   
+   action = "action of network_manager_admin_rule"   
+   direction = "direction of network_manager_admin_rule"   
+   priority = "priority of network_manager_admin_rule"   
+   protocol = "protocol of network_manager_admin_rule"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -48,14 +48,14 @@ tfstate_store = {
 | **source_port_ranges** | list |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
 | **source** | [block](#source-block-structure) |  One or more `source` blocks. | 
 
-### `source` block structure
+### `destination` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `address_prefix` | string | Yes | - | Specifies the address prefix. |
 | `address_prefix_type` | string | Yes | - | Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types). |
 
-### `destination` block structure
+### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

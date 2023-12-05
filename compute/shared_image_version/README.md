@@ -6,28 +6,28 @@ Manages a Version of a Shared Image within a Shared Image Gallery.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/shared_image_version" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/shared_image_version"   
 }
 
 inputs = {
-   name = "name of shared_image_version" 
+   name = "name of shared_image_version"   
    # gallery_name → set in tfstate_inputs
    # image_name → set in tfstate_inputs
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   target_region = "target_region of shared_image_version" 
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
+   target_region = "target_region of shared_image_version"   
 }
 
 tfstate_inputs = {
-   gallery_name = "path/to/shared_image_gallery_component:name" 
-   image_name = "path/to/image_component:name" 
+   gallery_name = "path/to/shared_image_gallery_component:name"   
+   image_name = "path/to/image_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

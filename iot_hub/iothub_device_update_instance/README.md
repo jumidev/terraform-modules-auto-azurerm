@@ -6,24 +6,24 @@ Manages an IoT Hub Device Update Instance.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_device_update_instance" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_device_update_instance"   
 }
 
 inputs = {
-   name = "name of iothub_device_update_instance" 
-   device_update_account_id = "device_update_account_id of iothub_device_update_instance" 
+   name = "name of iothub_device_update_instance"   
+   device_update_account_id = "device_update_account_id of iothub_device_update_instance"   
    # iothub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_id = "path/to/iothub_component:id" 
+   iothub_id = "path/to/iothub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

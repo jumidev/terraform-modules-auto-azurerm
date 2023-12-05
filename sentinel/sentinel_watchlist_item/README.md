@@ -6,19 +6,19 @@ Manages a Sentinel Watchlist Item.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_watchlist_item" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_watchlist_item"   
 }
 
 inputs = {
-   watchlist_id = "watchlist_id of sentinel_watchlist_item" 
-   properties = "properties of sentinel_watchlist_item" 
+   watchlist_id = "watchlist_id of sentinel_watchlist_item"   
+   properties = "properties of sentinel_watchlist_item"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

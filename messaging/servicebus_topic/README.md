@@ -6,19 +6,19 @@ Manages a ServiceBus Topic.**Note** Topics can only be created in Namespaces wit
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_topic" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_topic"   
 }
 
 inputs = {
-   name = "name of servicebus_topic" 
-   namespace_id = "namespace_id of servicebus_topic" 
+   name = "name of servicebus_topic"   
+   namespace_id = "namespace_id of servicebus_topic"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

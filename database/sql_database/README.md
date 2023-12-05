@@ -6,25 +6,25 @@ Allows you to manage an Azure SQL Database-> **Note:** The `azurerm_sql_database
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/sql_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/sql_database"   
 }
 
 inputs = {
-   name = "name of sql_database" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of sql_database"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # server_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   server_name = "path/to/sql_server_component:name" 
+   server_name = "path/to/sql_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

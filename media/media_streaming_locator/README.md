@@ -6,26 +6,26 @@ Manages a Media Streaming Locator.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_streaming_locator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "media/media_streaming_locator"   
 }
 
 inputs = {
-   asset_name = "asset_name of media_streaming_locator" 
+   asset_name = "asset_name of media_streaming_locator"   
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_streaming_locator" 
-   resource_group_name = "${resource_group}" 
-   streaming_policy_name = "streaming_policy_name of media_streaming_locator" 
+   name = "name of media_streaming_locator"   
+   resource_group_name = "${resource_group}"   
+   streaming_policy_name = "streaming_policy_name of media_streaming_locator"   
 }
 
 tfstate_inputs = {
-   media_services_account_name = "path/to/media_services_account_component:name" 
+   media_services_account_name = "path/to/media_services_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

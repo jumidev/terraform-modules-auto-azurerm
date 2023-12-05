@@ -42,6 +42,7 @@ variable "logs" {
 #
 # filtering_tag block structure:
 #   action (string)              : (REQUIRED) Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'.
+#   name (string)                : (REQUIRED) Specifies the name (key) of the Tag which should be filtered.
 #   value (string)               : (REQUIRED) Specifies the value of the Tag which should be filtered.
 
 

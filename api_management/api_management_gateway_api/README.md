@@ -6,8 +6,8 @@ Manages a API Management Gateway API.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_gateway_api" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_gateway_api"   
 }
 
 inputs = {
@@ -16,14 +16,14 @@ inputs = {
 }
 
 tfstate_inputs = {
-   gateway_id = "path/to/api_management_gateway_component:id" 
-   api_id = "path/to/api_management_component:id" 
+   gateway_id = "path/to/api_management_gateway_component:id"   
+   api_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

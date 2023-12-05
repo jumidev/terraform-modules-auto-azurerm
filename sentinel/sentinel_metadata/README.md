@@ -6,26 +6,26 @@ Manages a Sentinel Metadata.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_metadata" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_metadata"   
 }
 
 inputs = {
-   content_id = "content_id of sentinel_metadata" 
-   kind = "kind of sentinel_metadata" 
-   name = "name of sentinel_metadata" 
-   parent_id = "parent_id of sentinel_metadata" 
+   content_id = "content_id of sentinel_metadata"   
+   kind = "kind of sentinel_metadata"   
+   name = "name of sentinel_metadata"   
+   parent_id = "parent_id of sentinel_metadata"   
    # workspace_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -61,6 +61,37 @@ tfstate_store = {
 | **threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
 | **version** | string |  -  |  Version of the content. | 
 
+### `category` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
+| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
+
+### `support` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
+| `email` | string | No | - | The email address of the support contact. |
+| `link` | string | No | - | The link for support help. |
+| `name` | string | No | - | The name of the support contact. |
+
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+
+### `author` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the author, company or person. |
+| `email` | string | No | - | The email address of the author contact. |
+| `link` | string | No | - | The link for author/vendor page. |
+
 ### `dependency` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,34 +101,6 @@ tfstate_store = {
 | `version` | string | No | - | Version of the content item that is depended on. |
 | `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
 | `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
-
-### `author` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address of the author contact. |
-| `link` | string | No | - | The link for author/vendor page. |
-
-### `support` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
-| `email` | string | No | - | The email address of the support contact. |
-| `link` | string | No | - | The link for support help. |
-
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
-
-### `category` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
-| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
 
 

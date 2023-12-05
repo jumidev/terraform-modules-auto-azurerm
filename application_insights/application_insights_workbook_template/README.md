@@ -6,28 +6,29 @@ Manages an Application Insights Workbook Template.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights_workbook_template" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "application_insights/application_insights_workbook_template"   
 }
 
 inputs = {
-   name = "name of application_insights_workbook_template" 
-   resource_group_name = "${resource_group}" 
+   name = "name of application_insights_workbook_template"   
+   resource_group_name = "${resource_group}"   
    galleries = {
-      example_galleries = {
-         category = "..."   
+      this_galleries = {
+         name = "..."         
+         category = "..."         
       }
-  
+      
    }
- 
-   location = "${location}" 
-   template_data = "template_data of application_insights_workbook_template" 
+   
+   location = "${location}"   
+   template_data = "template_data of application_insights_workbook_template"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -55,6 +56,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the workbook template in the gallery. |
 | `category` | string | Yes | - | Category for the gallery. |
 | `order` | string | No | 0 | Order of the template within the gallery. Defaults to '0'. |
 | `resource_type` | string | No | Azure Monitor | Azure resource type supported by the gallery. Defaults to 'Azure Monitor'. |

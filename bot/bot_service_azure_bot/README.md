@@ -6,22 +6,22 @@ Manages an Azure Bot Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_service_azure_bot" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_service_azure_bot"   
 }
 
 inputs = {
-   name = "name of bot_service_azure_bot" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   microsoft_app_id = "microsoft_app_id of bot_service_azure_bot" 
-   sku = "sku of bot_service_azure_bot" 
+   name = "name of bot_service_azure_bot"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   microsoft_app_id = "microsoft_app_id of bot_service_azure_bot"   
+   sku = "sku of bot_service_azure_bot"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

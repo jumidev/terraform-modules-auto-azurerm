@@ -6,37 +6,38 @@ Manages a VPN Server Configuration.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/vpn_server_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/vpn_server_configuration"   
 }
 
 inputs = {
-   name = "name of vpn_server_configuration" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   vpn_authentication_types = "vpn_authentication_types of vpn_server_configuration" 
+   name = "name of vpn_server_configuration"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   vpn_authentication_types = "vpn_authentication_types of vpn_server_configuration"   
    azure_active_directory_authentication = {
-      example_azure_active_directory_authentication = {
-         audience = "..."   
-         issuer = "..."   
-         tenant = "..."   
+      this_azure_active_directory_authentication = {
+         audience = "..."         
+         issuer = "..."         
+         tenant = "..."         
       }
-  
+      
    }
- 
+   
    client_root_certificate = {
-      example_client_root_certificate = {
-         thumbprint = "..."   
+      this_client_root_certificate = {
+         name = "..."         
+         thumbprint = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,20 +63,6 @@ tfstate_store = {
 | **client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
 | **radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
-### `azure_active_directory_authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `audience` | string | Yes | - | The Audience which should be used for authentication. |
-| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
-| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
-
-### `radius` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-
 ### `ipsec_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,16 +76,33 @@ tfstate_store = {
 | `sa_lifetime_seconds` | int | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. |
 | `sa_data_size_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. |
 
-### `client_revoked_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-
 ### `client_root_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
+### `client_revoked_certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
+### `azure_active_directory_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `audience` | string | Yes | - | The Audience which should be used for authentication. |
+| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
+| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
+
+### `radius` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 

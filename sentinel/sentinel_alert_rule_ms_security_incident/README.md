@@ -6,26 +6,26 @@ Manages a Sentinel MS Security Incident Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_ms_security_incident" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_alert_rule_ms_security_incident"   
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_ms_security_incident" 
+   name = "name of sentinel_alert_rule_ms_security_incident"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_alert_rule_ms_security_incident" 
-   product_filter = "product_filter of sentinel_alert_rule_ms_security_incident" 
-   severity_filter = "severity_filter of sentinel_alert_rule_ms_security_incident" 
+   display_name = "display_name of sentinel_alert_rule_ms_security_incident"   
+   product_filter = "product_filter of sentinel_alert_rule_ms_security_incident"   
+   severity_filter = "severity_filter of sentinel_alert_rule_ms_security_incident"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

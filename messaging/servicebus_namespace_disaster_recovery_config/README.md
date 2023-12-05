@@ -6,20 +6,20 @@ Manages a Disaster Recovery Config for a Service Bus Namespace.~> **NOTE:** Disa
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_namespace_disaster_recovery_config" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_namespace_disaster_recovery_config"   
 }
 
 inputs = {
-   name = "name of servicebus_namespace_disaster_recovery_config" 
-   primary_namespace_id = "primary_namespace_id of servicebus_namespace_disaster_recovery_config" 
-   partner_namespace_id = "partner_namespace_id of servicebus_namespace_disaster_recovery_config" 
+   name = "name of servicebus_namespace_disaster_recovery_config"   
+   primary_namespace_id = "primary_namespace_id of servicebus_namespace_disaster_recovery_config"   
+   partner_namespace_id = "partner_namespace_id of servicebus_namespace_disaster_recovery_config"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

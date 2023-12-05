@@ -6,20 +6,20 @@ Manages an Azure Data Factory (Version 2).
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory"   
 }
 
 inputs = {
-   name = "name of data_factory" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of data_factory"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -47,6 +47,14 @@ tfstate_store = {
 | **purview_id** | string |  -  |  Specifies the ID of the purview account resource associated with the Data Factory. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `global_parameter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the global parameter name. |
+| `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
+| `value` | string | Yes | - | Specifies the global parameter value. |
+
 ### `vsts_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -59,13 +67,6 @@ tfstate_store = {
 | `tenant_id` | string | Yes | - | Specifies the Tenant ID associated with the VSTS account. |
 | `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
-
 ### `github_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,12 +78,12 @@ tfstate_store = {
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
-### `global_parameter` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
-| `value` | string | Yes | - | Specifies the global parameter value. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
 
 
 

@@ -6,36 +6,36 @@ Manages Security Center Automation and Continuous Export. This resource supports
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_automation" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_automation"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of security_center_automation" 
-   resource_group_name = "${resource_group}" 
-   scopes = "scopes of security_center_automation" 
+   location = "${location}"   
+   name = "name of security_center_automation"   
+   resource_group_name = "${resource_group}"   
+   scopes = "scopes of security_center_automation"   
    source = {
-      example_source = {
-         event_source = "..."   
+      this_source = {
+         event_source = "..."         
       }
-  
+      
    }
- 
+   
    action = {
-      example_action = {
-         type = "..."   
-         resource_id = "..."   
+      this_action = {
+         type = "..."         
+         resource_id = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

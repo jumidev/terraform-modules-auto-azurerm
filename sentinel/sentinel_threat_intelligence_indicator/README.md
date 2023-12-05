@@ -6,27 +6,27 @@ Manages a Sentinel Threat Intelligence Indicator.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_threat_intelligence_indicator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_threat_intelligence_indicator"   
 }
 
 inputs = {
-   display_name = "display_name of sentinel_threat_intelligence_indicator" 
-   pattern_type = "pattern_type of sentinel_threat_intelligence_indicator" 
-   pattern = "pattern of sentinel_threat_intelligence_indicator" 
-   source = "source of sentinel_threat_intelligence_indicator" 
-   validate_from_utc = "validate_from_utc of sentinel_threat_intelligence_indicator" 
+   display_name = "display_name of sentinel_threat_intelligence_indicator"   
+   pattern_type = "pattern_type of sentinel_threat_intelligence_indicator"   
+   pattern = "pattern of sentinel_threat_intelligence_indicator"   
+   source = "source of sentinel_threat_intelligence_indicator"   
+   validate_from_utc = "validate_from_utc of sentinel_threat_intelligence_indicator"   
    # workspace_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -61,11 +61,6 @@ tfstate_store = {
 | **threat_types** | string |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
 | **validate_until_utc** | string |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
 
-### `kill_chain_phase` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-
 ### `granular_marking` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,6 +68,12 @@ tfstate_store = {
 | `language` | string | No | - | The language of granular marking of the Threat Intelligence Indicator. |
 | `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
 | `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
+
+### `kill_chain_phase` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
 
 ### `external_reference` block structure
 

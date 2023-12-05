@@ -6,20 +6,20 @@ Manages an Azure Relay Hybrid Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/relay_hybrid_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/relay_hybrid_connection"   
 }
 
 inputs = {
-   name = "name of relay_hybrid_connection" 
-   resource_group_name = "${resource_group}" 
-   relay_namespace_name = "relay_namespace_name of relay_hybrid_connection" 
+   name = "name of relay_hybrid_connection"   
+   resource_group_name = "${resource_group}"   
+   relay_namespace_name = "relay_namespace_name of relay_hybrid_connection"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

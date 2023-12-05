@@ -6,32 +6,33 @@ Manages an Application Rule Collection within an Azure Firewall.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/firewall_application_rule_collection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/firewall_application_rule_collection"   
 }
 
 inputs = {
-   name = "name of firewall_application_rule_collection" 
+   name = "name of firewall_application_rule_collection"   
    # azure_firewall_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   priority = "priority of firewall_application_rule_collection" 
-   action = "action of firewall_application_rule_collection" 
+   resource_group_name = "${resource_group}"   
+   priority = "priority of firewall_application_rule_collection"   
+   action = "action of firewall_application_rule_collection"   
    rule = {
-      example_rule = {
+      this_rule = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   azure_firewall_name = "path/to/firewall_component:name" 
+   azure_firewall_name = "path/to/firewall_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -51,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the rule. |
 | `description` | string | No | - | Specifies a description for the rule. |
 | `source_addresses` | list | No | - | A list of source IP addresses and/or IP ranges. |
 | `source_ip_groups` | list | No | - | A list of source IP Group IDs for the rule. |

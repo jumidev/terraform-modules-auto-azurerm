@@ -6,31 +6,31 @@ Manages a Kusto (also known as Azure Data Explorer) Event Grid Data Connection
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_eventgrid_data_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_explorer/kusto_eventgrid_data_connection"   
 }
 
 inputs = {
-   name = "name of kusto_eventgrid_data_connection" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   cluster_name = "cluster_name of kusto_eventgrid_data_connection" 
-   database_name = "database_name of kusto_eventgrid_data_connection" 
+   name = "name of kusto_eventgrid_data_connection"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
+   cluster_name = "cluster_name of kusto_eventgrid_data_connection"   
+   database_name = "database_name of kusto_eventgrid_data_connection"   
    # storage_account_id → set in tfstate_inputs
    # eventhub_id → set in tfstate_inputs
    # eventhub_consumer_group_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
-   eventhub_id = "path/to/eventhub_component:id" 
-   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name" 
+   storage_account_id = "path/to/storage_account_component:id"   
+   eventhub_id = "path/to/eventhub_component:id"   
+   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

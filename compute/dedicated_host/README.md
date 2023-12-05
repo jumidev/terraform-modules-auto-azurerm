@@ -6,26 +6,26 @@ Manage a Dedicated Host within a Dedicated Host Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/dedicated_host" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/dedicated_host"   
 }
 
 inputs = {
-   name = "name of dedicated_host" 
+   name = "name of dedicated_host"   
    # dedicated_host_group_id → set in tfstate_inputs
-   location = "${location}" 
-   sku_name = "sku_name of dedicated_host" 
-   platform_fault_domain = "platform_fault_domain of dedicated_host" 
+   location = "${location}"   
+   sku_name = "sku_name of dedicated_host"   
+   platform_fault_domain = "platform_fault_domain of dedicated_host"   
 }
 
 tfstate_inputs = {
-   dedicated_host_group_id = "path/to/dedicated_host_group_component:id" 
+   dedicated_host_group_id = "path/to/dedicated_host_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

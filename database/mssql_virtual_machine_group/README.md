@@ -6,35 +6,35 @@ Manages a Microsoft SQL Virtual Machine Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_virtual_machine_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_virtual_machine_group"   
 }
 
 inputs = {
-   name = "name of mssql_virtual_machine_group" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sql_image_offer = "sql_image_offer of mssql_virtual_machine_group" 
-   sql_image_sku = "sql_image_sku of mssql_virtual_machine_group" 
+   name = "name of mssql_virtual_machine_group"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sql_image_offer = "sql_image_offer of mssql_virtual_machine_group"   
+   sql_image_sku = "sql_image_sku of mssql_virtual_machine_group"   
    wsfc_domain_profile = {
-      example_wsfc_domain_profile = {
-         cluster_subnet_type = "..."   
-         fqdn = "..."   
+      this_wsfc_domain_profile = {
+         cluster_subnet_type = "..."         
+         fqdn = "..."         
          # storage_account_url → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   wsfc_domain_profile.example_wsfc_domain_profile.storage_account_url = "path/to/storage_account_component:url" 
+   wsfc_domain_profile.this_wsfc_domain_profile.storage_account_url = "path/to/storage_account_component:url"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

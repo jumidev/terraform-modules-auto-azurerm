@@ -6,30 +6,31 @@ Manages a Content Key Policy.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_content_key_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "media/media_content_key_policy"   
 }
 
 inputs = {
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_content_key_policy" 
+   name = "name of media_content_key_policy"   
    policy_option = {
-      example_policy_option = {
+      this_policy_option = {
+         name = "..."         
       }
-  
+      
    }
- 
-   resource_group_name = "${resource_group}" 
+   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   media_services_account_name = "path/to/media_services_account_component:name" 
+   media_services_account_name = "path/to/media_services_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -75,6 +76,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this Policy Option. |
 | `clear_key_configuration_enabled` | bool | No | - | Enable a configuration for non-DRM keys. |
 | `fairplay_configuration` | [block](#policy_option-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
 | `open_restriction_enabled` | bool | No | - | Enable an open restriction. License or key will be delivered on every request. |

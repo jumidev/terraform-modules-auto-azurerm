@@ -6,33 +6,33 @@ Manages a Application Insights Standard WebTest.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights_standard_web_test" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "application_insights/application_insights_standard_web_test"   
 }
 
 inputs = {
-   name = "name of application_insights_standard_web_test" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of application_insights_standard_web_test"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # application_insights_id → set in tfstate_inputs
-   geo_locations = "geo_locations of application_insights_standard_web_test" 
+   geo_locations = "geo_locations of application_insights_standard_web_test"   
    request = {
-      example_request = {
-         url = "..."   
+      this_request = {
+         url = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   application_insights_id = "path/to/application_insights_component:id" 
+   application_insights_id = "path/to/application_insights_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -60,6 +60,14 @@ tfstate_store = {
 | **timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
 | **validation_rules** | [block](#validation_rules-block-structure) |  -  |  -  |  A `validation_rules` block. | 
 
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_match` | string | Yes | - | A string value containing the content to match on. |
+| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
+| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
+
 ### `request` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,14 +87,6 @@ tfstate_store = {
 | `expected_status_code` | string | No | - | The expected status code of the response. Default is '200', '0' means 'response code < 400' |
 | `ssl_cert_remaining_lifetime` | int | No | - | The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365. |
 | `ssl_check_enabled` | bool | No | - | Should the SSL check be enabled? |
-
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_match` | string | Yes | - | A string value containing the content to match on. |
-| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
-| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
 
 
 

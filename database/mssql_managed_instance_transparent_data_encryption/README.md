@@ -6,18 +6,18 @@ Manages the transparent data encryption configuration for a MSSQL Managed Instan
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_managed_instance_transparent_data_encryption" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_managed_instance_transparent_data_encryption"   
 }
 
 inputs = {
-   managed_instance_id = "managed_instance_id of mssql_managed_instance_transparent_data_encryption" 
+   managed_instance_id = "managed_instance_id of mssql_managed_instance_transparent_data_encryption"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

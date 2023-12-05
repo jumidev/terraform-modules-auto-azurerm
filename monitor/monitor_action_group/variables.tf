@@ -30,6 +30,7 @@ variable "arm_role_receiver" {
 }
 #
 # arm_role_receiver block structure:
+#   name (string)                    : (REQUIRED) The name of the ARM role receiver.
 #   role_id (string)                 : (REQUIRED) The arm role id.
 #   use_common_alert_schema (bool)   : Enables or disables the common alert schema.
 
@@ -41,6 +42,7 @@ variable "automation_runbook_receiver" {
 }
 #
 # automation_runbook_receiver block structure:
+#   name (string)                              : (REQUIRED) The name of the automation runbook receiver.
 #   automation_account_id (string)             : (REQUIRED) The automation account ID which holds this runbook and authenticates to Azure resources.
 #   runbook_name (string)                      : (REQUIRED) The name for this runbook.
 #   webhook_resource_id (string)               : (REQUIRED) The resource id for webhook linked to this runbook.
@@ -56,6 +58,7 @@ variable "azure_app_push_receiver" {
 }
 #
 # azure_app_push_receiver block structure:
+#   name (string)                          : (REQUIRED) The name of the Azure app push receiver.
 #   email_address (string)                 : (REQUIRED) The email address of the user signed into the mobile app who will receive push notifications from this receiver.
 
 
@@ -66,6 +69,7 @@ variable "azure_function_receiver" {
 }
 #
 # azure_function_receiver block structure:
+#   name (string)                          : (REQUIRED) The name of the Azure Function receiver.
 #   function_app_resource_id (string)      : (REQUIRED) The Azure resource ID of the function app.
 #   function_name (string)                 : (REQUIRED) The function name in the function app.
 #   http_trigger_url (string)              : (REQUIRED) The HTTP trigger url where HTTP request sent to.
@@ -79,6 +83,7 @@ variable "email_receiver" {
 }
 #
 # email_receiver block structure:
+#   name (string)                 : (REQUIRED) The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 #   email_address (string)        : (REQUIRED) The email address of this receiver.
 #   use_common_alert_schema (bool): Enables or disables the common alert schema.
 
@@ -90,6 +95,7 @@ variable "event_hub_receiver" {
 }
 #
 # event_hub_receiver block structure:
+#   name (string)                     : (REQUIRED) The name of the EventHub Receiver, must be unique within action group.
 #   event_hub_id (string)             : The resource ID of the respective Event Hub.
 #   event_hub_name (string)           : The name of the specific Event Hub queue.
 #   event_hub_namespace (string)      : The namespace name of the Event Hub.
@@ -105,6 +111,7 @@ variable "itsm_receiver" {
 }
 #
 # itsm_receiver block structure:
+#   name (string)                : (REQUIRED) The name of the ITSM receiver.
 #   workspace_id (string)        : (REQUIRED) The Azure Log Analytics workspace ID where this connection is defined. Format is '<subscription id>|<workspace id>', for example '00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000'.
 #   connection_id (string)       : (REQUIRED) The unique connection identifier of the ITSM connection.
 #   ticket_configuration (string): (REQUIRED) A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
@@ -123,6 +130,7 @@ variable "logic_app_receiver" {
 }
 #
 # logic_app_receiver block structure:
+#   name (string)                     : (REQUIRED) The name of the logic app receiver.
 #   resource_id (string)              : (REQUIRED) The Azure resource ID of the logic app.
 #   callback_url (string)             : (REQUIRED) The callback url where HTTP request sent to.
 #   use_common_alert_schema (bool)    : Enables or disables the common alert schema.
@@ -135,6 +143,7 @@ variable "sms_receiver" {
 }
 #
 # sms_receiver block structure:
+#   name (string)               : (REQUIRED) The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 #   country_code (string)       : (REQUIRED) The country code of the SMS receiver.
 #   phone_number (int)          : (REQUIRED) The phone number of the SMS receiver.
 
@@ -146,6 +155,7 @@ variable "voice_receiver" {
 }
 #
 # voice_receiver block structure:
+#   name (string)                 : (REQUIRED) The name of the voice receiver.
 #   country_code (string)         : (REQUIRED) The country code of the voice receiver.
 #   phone_number (int)            : (REQUIRED) The phone number of the voice receiver.
 
@@ -157,6 +167,7 @@ variable "webhook_receiver" {
 }
 #
 # webhook_receiver block structure:
+#   name (string)                   : (REQUIRED) The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 #   service_uri (string)            : (REQUIRED) The URI where webhooks should be sent.
 #   use_common_alert_schema (bool)  : Enables or disables the common alert schema.
 #   aad_auth (block)                : The 'aad_auth' block.

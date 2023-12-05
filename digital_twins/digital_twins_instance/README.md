@@ -6,20 +6,20 @@ Manages a Digital Twins instance.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "digital_twins/digital_twins_instance" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "digital_twins/digital_twins_instance"   
 }
 
 inputs = {
-   name = "name of digital_twins_instance" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of digital_twins_instance"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

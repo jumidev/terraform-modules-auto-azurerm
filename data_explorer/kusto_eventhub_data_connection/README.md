@@ -6,28 +6,28 @@ Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_eventhub_data_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_explorer/kusto_eventhub_data_connection"   
 }
 
 inputs = {
-   name = "name of kusto_eventhub_data_connection" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   cluster_name = "cluster_name of kusto_eventhub_data_connection" 
-   database_name = "database_name of kusto_eventhub_data_connection" 
+   name = "name of kusto_eventhub_data_connection"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
+   cluster_name = "cluster_name of kusto_eventhub_data_connection"   
+   database_name = "database_name of kusto_eventhub_data_connection"   
    # eventhub_id → set in tfstate_inputs
-   consumer_group = "consumer_group of kusto_eventhub_data_connection" 
+   consumer_group = "consumer_group of kusto_eventhub_data_connection"   
 }
 
 tfstate_inputs = {
-   eventhub_id = "path/to/eventhub_component:id" 
+   eventhub_id = "path/to/eventhub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,25 +6,25 @@ Manages a Bgp Connection for a Route Server
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/route_server_bgp_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/route_server_bgp_connection"   
 }
 
 inputs = {
-   name = "name of route_server_bgp_connection" 
+   name = "name of route_server_bgp_connection"   
    # route_server_id → set in tfstate_inputs
-   peer_asn = "peer_asn of route_server_bgp_connection" 
-   peer_ip = "peer_ip of route_server_bgp_connection" 
+   peer_asn = "peer_asn of route_server_bgp_connection"   
+   peer_ip = "peer_ip of route_server_bgp_connection"   
 }
 
 tfstate_inputs = {
-   route_server_id = "path/to/route_server_component:id" 
+   route_server_id = "path/to/route_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

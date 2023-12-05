@@ -6,22 +6,22 @@ Manages a Email integration for a Bot Channel~> **Note** A bot can only have a s
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_channel_email" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_channel_email"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bot_name = "bot_name of bot_channel_email" 
-   email_address = "email_address of bot_channel_email" 
-   email_password = "email_password of bot_channel_email" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bot_name = "bot_name of bot_channel_email"   
+   email_address = "email_address of bot_channel_email"   
+   email_password = "email_password of bot_channel_email"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

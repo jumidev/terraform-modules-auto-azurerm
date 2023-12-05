@@ -6,27 +6,27 @@ Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_cassandra_table" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cosmosdb_documentdb/cosmosdb_cassandra_table"   
 }
 
 inputs = {
-   name = "name of cosmosdb_cassandra_table" 
-   cassandra_keyspace_id = "cassandra_keyspace_id of cosmosdb_cassandra_table" 
+   name = "name of cosmosdb_cassandra_table"   
+   cassandra_keyspace_id = "cassandra_keyspace_id of cosmosdb_cassandra_table"   
    schema = {
-      example_schema = {
-         column = "..."   
-         partition_key = "..."   
+      this_schema = {
+         column = "..."         
+         partition_key = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -48,11 +48,18 @@ tfstate_store = {
 | **analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
-### `column` block structure
+### `cluster_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Type of the column to be created. |
+| `name` | string | Yes | - | Name of the cluster key to be created. |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
+
+### `partition_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the column to partition by. |
 
 ### `schema` block structure
 
@@ -68,16 +75,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
-### `cluster_key` block structure
+### `column` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
-
-### `partition_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the column to be created. |
+| `type` | string | Yes | - | Type of the column to be created. |
 
 
 

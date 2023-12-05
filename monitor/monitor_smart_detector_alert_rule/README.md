@@ -6,30 +6,30 @@ Manages an Monitor Smart Detector Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_smart_detector_alert_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_smart_detector_alert_rule"   
 }
 
 inputs = {
-   name = "name of monitor_smart_detector_alert_rule" 
-   resource_group_name = "${resource_group}" 
-   detector_type = "detector_type of monitor_smart_detector_alert_rule" 
-   scope_resource_ids = "scope_resource_ids of monitor_smart_detector_alert_rule" 
+   name = "name of monitor_smart_detector_alert_rule"   
+   resource_group_name = "${resource_group}"   
+   detector_type = "detector_type of monitor_smart_detector_alert_rule"   
+   scope_resource_ids = "scope_resource_ids of monitor_smart_detector_alert_rule"   
    action_group = {
-      example_action_group = {
-         ids = "..."   
+      this_action_group = {
+         ids = "..."         
       }
-  
+      
    }
- 
-   severity = "severity of monitor_smart_detector_alert_rule" 
-   frequency = "frequency of monitor_smart_detector_alert_rule" 
+   
+   severity = "severity of monitor_smart_detector_alert_rule"   
+   frequency = "frequency of monitor_smart_detector_alert_rule"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

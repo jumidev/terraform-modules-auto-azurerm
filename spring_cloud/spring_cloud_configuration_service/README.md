@@ -6,23 +6,23 @@ Manages a Spring Cloud Configuration Service.-> **NOTE:** This resource is appli
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_configuration_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_configuration_service"   
 }
 
 inputs = {
-   name = "name of spring_cloud_configuration_service" 
+   name = "name of spring_cloud_configuration_service"   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -46,6 +46,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `label` | string | Yes | - | Specifies the label of the repository. |
+| `name` | string | Yes | - | Specifies the name which should be used for this repository. |
 | `patterns` | string | Yes | - | Specifies the collection of patterns of the repository. |
 | `uri` | string | Yes | - | Specifies the URI of the repository. |
 | `ca_certificate_id` | string | No | - | Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS. |

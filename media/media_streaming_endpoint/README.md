@@ -6,26 +6,26 @@ Manages a Streaming Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_streaming_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "media/media_streaming_endpoint"   
 }
 
 inputs = {
-   location = "${location}" 
+   location = "${location}"   
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_streaming_endpoint" 
-   resource_group_name = "${resource_group}" 
-   scale_units = "scale_units of media_streaming_endpoint" 
+   name = "name of media_streaming_endpoint"   
+   resource_group_name = "${resource_group}"   
+   scale_units = "scale_units of media_streaming_endpoint"   
 }
 
 tfstate_inputs = {
-   media_services_account_name = "path/to/media_services_account_component:name" 
+   media_services_account_name = "path/to/media_services_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -55,13 +55,6 @@ tfstate_store = {
 | **max_cache_age_seconds** | int |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#access_control-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#access_control-block-structure) | No | - | A 'ip_allow' block. |
-
 ### `akamai_signature_header_authentication_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,6 +63,14 @@ tfstate_store = {
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
 
+### `ip_allow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | No | - | The IP address to allow. |
+| `name` | string | No | - | The friendly name for the IP address range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
 ### `cross_site_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,12 +78,12 @@ tfstate_store = {
 | `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
 
-### `ip_allow` block structure
+### `access_control` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address to allow. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+| `akamai_signature_header_authentication_key` | [block](#access_control-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#access_control-block-structure) | No | - | A 'ip_allow' block. |
 
 
 

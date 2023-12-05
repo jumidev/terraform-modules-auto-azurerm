@@ -6,25 +6,25 @@ Manages an Azure Container Registry Agent Pool.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_agent_pool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_registry_agent_pool"   
 }
 
 inputs = {
    # container_registry_name → set in tfstate_inputs
-   location = "${location}" 
-   name = "name of container_registry_agent_pool" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of container_registry_agent_pool"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   container_registry_name = "path/to/container_registry_component:name" 
+   container_registry_name = "path/to/container_registry_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

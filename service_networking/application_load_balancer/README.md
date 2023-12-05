@@ -6,20 +6,20 @@ Manages an Application Gateway for Containers (ALB).
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "service_networking/application_load_balancer" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "service_networking/application_load_balancer"   
 }
 
 inputs = {
-   name = "name of application_load_balancer" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of application_load_balancer"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

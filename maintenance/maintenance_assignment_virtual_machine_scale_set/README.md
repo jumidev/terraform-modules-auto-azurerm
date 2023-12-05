@@ -6,25 +6,25 @@ Manages a maintenance assignment to a virtual machine scale set.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "maintenance/maintenance_assignment_virtual_machine_scale_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "maintenance/maintenance_assignment_virtual_machine_scale_set"   
 }
 
 inputs = {
-   location = "${location}" 
+   location = "${location}"   
    # maintenance_configuration_id → set in tfstate_inputs
    # virtual_machine_scale_set_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   maintenance_configuration_id = "path/to/maintenance_configuration_component:id" 
-   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id" 
+   maintenance_configuration_id = "path/to/maintenance_configuration_component:id"   
+   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

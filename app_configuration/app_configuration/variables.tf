@@ -63,6 +63,7 @@ variable "replica" {
 #
 # replica block structure:
 #   location (string)      : (REQUIRED) Specifies the supported Azure location where the replica exists.
+#   name (string)          : (REQUIRED) Specifies the name of the replica.
 
 
 variable "sku" {

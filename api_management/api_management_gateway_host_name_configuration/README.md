@@ -6,26 +6,26 @@ Manages an API Management Gateway Host Name Configuration.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_gateway_host_name_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_gateway_host_name_configuration"   
 }
 
 inputs = {
-   name = "name of api_management_gateway_host_name_configuration" 
+   name = "name of api_management_gateway_host_name_configuration"   
    # api_management_id → set in tfstate_inputs
-   gateway_name = "gateway_name of api_management_gateway_host_name_configuration" 
-   certificate_id = "certificate_id of api_management_gateway_host_name_configuration" 
-   host_name = "host_name of api_management_gateway_host_name_configuration" 
+   gateway_name = "gateway_name of api_management_gateway_host_name_configuration"   
+   certificate_id = "certificate_id of api_management_gateway_host_name_configuration"   
+   host_name = "host_name of api_management_gateway_host_name_configuration"   
 }
 
 tfstate_inputs = {
-   api_management_id = "path/to/api_management_component:id" 
+   api_management_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

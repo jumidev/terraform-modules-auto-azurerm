@@ -6,19 +6,19 @@ Manages an Azure Monitor Private Link Scope.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_private_link_scope" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_private_link_scope"   
 }
 
 inputs = {
-   name = "name of monitor_private_link_scope" 
-   resource_group_name = "${resource_group}" 
+   name = "name of monitor_private_link_scope"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

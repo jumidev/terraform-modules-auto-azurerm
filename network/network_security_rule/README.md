@@ -6,28 +6,28 @@ Manages a Network Security Rule.~> **NOTE on Network Security Groups and Network
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_security_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_security_rule"   
 }
 
 inputs = {
-   name = "name of network_security_rule" 
-   resource_group_name = "${resource_group}" 
+   name = "name of network_security_rule"   
+   resource_group_name = "${resource_group}"   
    # network_security_group_name → set in tfstate_inputs
-   protocol = "protocol of network_security_rule" 
-   access = "access of network_security_rule" 
-   priority = "priority of network_security_rule" 
-   direction = "direction of network_security_rule" 
+   protocol = "protocol of network_security_rule"   
+   access = "access of network_security_rule"   
+   priority = "priority of network_security_rule"   
+   direction = "direction of network_security_rule"   
 }
 
 tfstate_inputs = {
-   network_security_group_name = "path/to/network_security_group_component:name" 
+   network_security_group_name = "path/to/network_security_group_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

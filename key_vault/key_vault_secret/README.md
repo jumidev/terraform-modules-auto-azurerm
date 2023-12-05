@@ -6,24 +6,24 @@ Manages a Key Vault Secret.~> **Note:** All arguments including the secret value
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_secret" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_secret"   
 }
 
 inputs = {
-   name = "name of key_vault_secret" 
-   value = "value of key_vault_secret" 
+   name = "name of key_vault_secret"   
+   value = "value of key_vault_secret"   
    # key_vault_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
+   key_vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,23 +6,23 @@ Manages a Load Balancer Backend Address Pool.~> **NOTE:** When using this resour
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_balancer/lb_backend_address_pool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_balancer/lb_backend_address_pool"   
 }
 
 inputs = {
-   name = "name of lb_backend_address_pool" 
+   name = "name of lb_backend_address_pool"   
    # loadbalancer_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   loadbalancer_id = "path/to/lb_component:id" 
+   loadbalancer_id = "path/to/lb_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,22 +6,22 @@ Manages a PowerBI Embedded.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "powerbi/powerbi_embedded" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "powerbi/powerbi_embedded"   
 }
 
 inputs = {
-   name = "name of powerbi_embedded" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku_name = "sku_name of powerbi_embedded" 
-   administrators = "administrators of powerbi_embedded" 
+   name = "name of powerbi_embedded"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku_name = "sku_name of powerbi_embedded"   
+   administrators = "administrators of powerbi_embedded"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

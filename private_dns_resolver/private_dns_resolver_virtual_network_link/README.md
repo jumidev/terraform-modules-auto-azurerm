@@ -6,24 +6,24 @@ Manages a Private DNS Resolver Virtual Network Link.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "private_dns_resolver/private_dns_resolver_virtual_network_link" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "private_dns_resolver/private_dns_resolver_virtual_network_link"   
 }
 
 inputs = {
-   name = "name of private_dns_resolver_virtual_network_link" 
-   dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_virtual_network_link" 
+   name = "name of private_dns_resolver_virtual_network_link"   
+   dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_virtual_network_link"   
    # virtual_network_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_network_id = "path/to/virtual_network_component:id" 
+   virtual_network_id = "path/to/virtual_network_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

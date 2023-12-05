@@ -6,37 +6,38 @@ Manages a NAT Rule Collection within an Azure Firewall.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/firewall_nat_rule_collection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/firewall_nat_rule_collection"   
 }
 
 inputs = {
-   name = "name of firewall_nat_rule_collection" 
+   name = "name of firewall_nat_rule_collection"   
    # azure_firewall_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   priority = "priority of firewall_nat_rule_collection" 
-   action = "action of firewall_nat_rule_collection" 
+   resource_group_name = "${resource_group}"   
+   priority = "priority of firewall_nat_rule_collection"   
+   action = "action of firewall_nat_rule_collection"   
    rule = {
-      example_rule = {
-         destination_addresses = "..."   
-         destination_ports = "..."   
-         protocols = "..."   
-         translated_address = "..."   
-         translated_port = "..."   
+      this_rule = {
+         name = "..."         
+         destination_addresses = "..."         
+         destination_ports = "..."         
+         protocols = "..."         
+         translated_address = "..."         
+         translated_port = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   azure_firewall_name = "path/to/firewall_component:name" 
+   azure_firewall_name = "path/to/firewall_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -56,6 +57,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the rule. |
 | `description` | string | No | - | Specifies a description for the rule. |
 | `destination_addresses` | list | Yes | - | A list of destination IP addresses and/or IP ranges. |
 | `destination_ports` | list | Yes | - | A list of destination ports. |

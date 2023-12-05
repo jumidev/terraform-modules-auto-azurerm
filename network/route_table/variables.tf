@@ -25,6 +25,7 @@ variable "route" {
 }
 #
 # route block structure          :
+#   name (string)                  : (REQUIRED) The name of the route.
 #   address_prefix (string)        : (REQUIRED) The destination to which the route applies. Can be CIDR (such as '10.1.0.0/16') or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as 'ApiManagement', 'AzureBackup' or 'AzureMonitor') format.
 #   next_hop_type (string)         : (REQUIRED) The type of Azure hop the packet should be sent to. Possible values are 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance' and 'None'.
 #   next_hop_in_ip_address (string): Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is 'VirtualAppliance'.

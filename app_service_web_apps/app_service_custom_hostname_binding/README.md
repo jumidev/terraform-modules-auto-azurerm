@@ -6,24 +6,24 @@ Manages a Hostname Binding within an App Service (or Function App).
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_custom_hostname_binding" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_custom_hostname_binding"   
 }
 
 inputs = {
-   hostname = "hostname of app_service_custom_hostname_binding" 
+   hostname = "hostname of app_service_custom_hostname_binding"   
    # app_service_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   app_service_name = "path/to/app_service_component:name" 
+   app_service_name = "path/to/app_service_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

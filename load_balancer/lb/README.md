@@ -6,20 +6,20 @@ Manages a Load Balancer Resource.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_balancer/lb" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_balancer/lb"   
 }
 
 inputs = {
-   name = "name of lb" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of lb"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,25 +6,25 @@ Manages a Function App Hybrid Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/function_app_hybrid_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/function_app_hybrid_connection"   
 }
 
 inputs = {
    # function_app_id → set in tfstate_inputs
-   relay_id = "relay_id of function_app_hybrid_connection" 
-   hostname = "hostname of function_app_hybrid_connection" 
-   port = "port of function_app_hybrid_connection" 
+   relay_id = "relay_id of function_app_hybrid_connection"   
+   hostname = "hostname of function_app_hybrid_connection"   
+   port = "port of function_app_hybrid_connection"   
 }
 
 tfstate_inputs = {
-   function_app_id = "path/to/function_app_component:id" 
+   function_app_id = "path/to/function_app_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

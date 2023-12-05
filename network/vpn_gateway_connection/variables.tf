@@ -21,6 +21,7 @@ variable "vpn_link" {
 }
 #
 # vpn_link block structure                    :
+#   name (string)                               : (REQUIRED) The name which should be used for this VPN Link Connection.
 #   egress_nat_rule_ids (list)                  : A list of the egress NAT Rule Ids.
 #   ingress_nat_rule_ids (list)                 : A list of the ingress NAT Rule Ids.
 #   vpn_site_link_id (string)                   : (REQUIRED) The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.

@@ -6,36 +6,36 @@ Manages a Microsoft Azure SQL Failover Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_failover_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_failover_group"   
 }
 
 inputs = {
-   name = "name of mssql_failover_group" 
+   name = "name of mssql_failover_group"   
    # server_id → set in tfstate_inputs
    partner_server = {
-      example_partner_server = {
+      this_partner_server = {
       }
-  
+      
    }
- 
+   
    read_write_endpoint_failover_policy = {
-      example_read_write_endpoint_failover_policy = {
-         mode = "..."   
+      this_read_write_endpoint_failover_policy = {
+         mode = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   server_id = "path/to/mssql_server_component:id" 
+   server_id = "path/to/mssql_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -57,17 +57,17 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy_enabled** | bool |  `False`  |  Whether failover is enabled for the readonly endpoint. Defaults to `false`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `partner_server` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+
 ### `read_write_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | The failover policy of the read-write endpoint for the failover group. Possible values are 'Automatic' or 'Manual'. |
 | `grace_minutes` | int | No | - | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. |
-
-### `partner_server` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
 
 
 

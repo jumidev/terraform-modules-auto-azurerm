@@ -6,25 +6,25 @@ Promotes an App Service Slot to Production within an App Service.!> **NOTE:** Th
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_active_slot" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_active_slot"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # app_service_name → set in tfstate_inputs
    # app_service_slot_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   app_service_name = "path/to/app_service_component:name" 
-   app_service_slot_name = "path/to/app_service_slot_component:name" 
+   app_service_name = "path/to/app_service_component:name"   
+   app_service_slot_name = "path/to/app_service_slot_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

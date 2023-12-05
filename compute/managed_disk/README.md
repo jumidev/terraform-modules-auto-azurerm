@@ -6,22 +6,22 @@ Manages a managed disk.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/managed_disk" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/managed_disk"   
 }
 
 inputs = {
-   name = "name of managed_disk" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   storage_account_type = "storage_account_type of managed_disk" 
-   create_option = "create_option of managed_disk" 
+   name = "name of managed_disk"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   storage_account_type = "storage_account_type of managed_disk"   
+   create_option = "create_option of managed_disk"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -78,18 +78,18 @@ tfstate_store = {
 | `disk_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'disk_encryption_key' block. |
 | `key_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'key_encryption_key' block. |
 
-### `disk_encryption_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
-
 ### `key_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
+
+### `disk_encryption_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
 | `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
 

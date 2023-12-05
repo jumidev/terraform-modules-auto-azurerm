@@ -6,21 +6,21 @@ Manages an EventHub Cluster
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub_cluster" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventhub_cluster"   
 }
 
 inputs = {
-   name = "name of eventhub_cluster" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku_name = "sku_name of eventhub_cluster" 
+   name = "name of eventhub_cluster"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku_name = "sku_name of eventhub_cluster"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

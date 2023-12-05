@@ -6,27 +6,27 @@ Manages a Kusto / Cosmos Database Data Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_cosmosdb_data_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_explorer/kusto_cosmosdb_data_connection"   
 }
 
 inputs = {
-   cosmosdb_container_id = "cosmosdb_container_id of kusto_cosmosdb_data_connection" 
+   cosmosdb_container_id = "cosmosdb_container_id of kusto_cosmosdb_data_connection"   
    # kusto_database_id → set in tfstate_inputs
-   location = "${location}" 
-   managed_identity_id = "managed_identity_id of kusto_cosmosdb_data_connection" 
-   name = "name of kusto_cosmosdb_data_connection" 
-   table_name = "table_name of kusto_cosmosdb_data_connection" 
+   location = "${location}"   
+   managed_identity_id = "managed_identity_id of kusto_cosmosdb_data_connection"   
+   name = "name of kusto_cosmosdb_data_connection"   
+   table_name = "table_name of kusto_cosmosdb_data_connection"   
 }
 
 tfstate_inputs = {
-   kusto_database_id = "path/to/kusto_database_component:id" 
+   kusto_database_id = "path/to/kusto_database_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

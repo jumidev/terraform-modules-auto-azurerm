@@ -6,26 +6,26 @@ Manages a Duplicated Anomaly Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_anomaly_duplicate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_alert_rule_anomaly_duplicate"   
 }
 
 inputs = {
-   display_name = "display_name of sentinel_alert_rule_anomaly_duplicate" 
-   built_in_rule_id = "built_in_rule_id of sentinel_alert_rule_anomaly_duplicate" 
+   display_name = "display_name of sentinel_alert_rule_anomaly_duplicate"   
+   built_in_rule_id = "built_in_rule_id of sentinel_alert_rule_anomaly_duplicate"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   enabled = "enabled of sentinel_alert_rule_anomaly_duplicate" 
-   mode = "mode of sentinel_alert_rule_anomaly_duplicate" 
+   enabled = "enabled of sentinel_alert_rule_anomaly_duplicate"   
+   mode = "mode of sentinel_alert_rule_anomaly_duplicate"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,38 +49,42 @@ tfstate_store = {
 | **prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
 | **threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
 
-### `threshold_observation` block structure
+### `multi_select_observation` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the threshold observation. |
-| `max` | string | No | - | The max value of the threshold observation. |
-| `min` | string | No | - | The min value of the threshold observation. |
-| `value` | string | Yes | - | The value of the threshold observation. |
-
-### `single_select_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the single select observation. |
-| `supported_values` | list | No | - | A list of supported values of the single select observation. |
-| `value` | string | Yes | - | The value of the multi select observation. |
+| `name` | string | Yes | - | The name of the multi select observation. |
+| `description` | string | No | - | The description of the multi select observation. |
+| `supported_values` | list | No | - | A list of supported values of the multi select observation. |
+| `values` | list | Yes | - | A list of values of the multi select observation. |
 
 ### `prioritized_exclude_observation` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the prioritized exclude observation. |
 | `description` | string | No | - | The description of the prioritized exclude observation. |
 | `prioritize` | string | No | - | The prioritized value per 'description'. |
 | `exclude` | string | No | - | The excluded value per 'description'. |
 
-### `multi_select_observation` block structure
+### `single_select_observation` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the multi select observation. |
-| `supported_values` | list | No | - | A list of supported values of the multi select observation. |
-| `values` | list | Yes | - | A list of values of the multi select observation. |
+| `name` | string | Yes | - | The name of the single select observation. |
+| `description` | string | No | - | The description of the single select observation. |
+| `supported_values` | list | No | - | A list of supported values of the single select observation. |
+| `value` | string | Yes | - | The value of the multi select observation. |
+
+### `threshold_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the threshold observation. |
+| `description` | string | No | - | The description of the threshold observation. |
+| `max` | string | No | - | The max value of the threshold observation. |
+| `min` | string | No | - | The min value of the threshold observation. |
+| `value` | string | Yes | - | The value of the threshold observation. |
 
 
 

@@ -6,26 +6,26 @@ Manages an Application Insights Analytics Item component.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights_analytics_item" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "application_insights/application_insights_analytics_item"   
 }
 
 inputs = {
-   name = "name of application_insights_analytics_item" 
+   name = "name of application_insights_analytics_item"   
    # application_insights_id → set in tfstate_inputs
-   type = "type of application_insights_analytics_item" 
-   scope = "scope of application_insights_analytics_item" 
-   content = "content of application_insights_analytics_item" 
+   type = "type of application_insights_analytics_item"   
+   scope = "scope of application_insights_analytics_item"   
+   content = "content of application_insights_analytics_item"   
 }
 
 tfstate_inputs = {
-   application_insights_id = "path/to/application_insights_component:id" 
+   application_insights_id = "path/to/application_insights_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

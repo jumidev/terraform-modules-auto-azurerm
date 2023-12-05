@@ -6,26 +6,26 @@ Manages a Firewall Rule for a MySQL Server.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mysql_firewall_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mysql_firewall_rule"   
 }
 
 inputs = {
-   name = "name of mysql_firewall_rule" 
+   name = "name of mysql_firewall_rule"   
    # server_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   start_ip_address = "start_ip_address of mysql_firewall_rule" 
-   end_ip_address = "end_ip_address of mysql_firewall_rule" 
+   resource_group_name = "${resource_group}"   
+   start_ip_address = "start_ip_address of mysql_firewall_rule"   
+   end_ip_address = "end_ip_address of mysql_firewall_rule"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/mysql_server_component:name" 
+   server_name = "path/to/mysql_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

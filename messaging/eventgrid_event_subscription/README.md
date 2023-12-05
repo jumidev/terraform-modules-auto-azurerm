@@ -6,19 +6,19 @@ Manages an EventGrid Event Subscription
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventgrid_event_subscription" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventgrid_event_subscription"   
 }
 
 inputs = {
-   name = "name of eventgrid_event_subscription" 
-   scope = "scope of eventgrid_event_subscription" 
+   name = "name of eventgrid_event_subscription"   
+   scope = "scope of eventgrid_event_subscription"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -54,22 +54,6 @@ tfstate_store = {
 | **labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
 | **advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
 
-### `subject_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
-| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
-| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
-
-### `azure_function_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `function_id` | string | Yes | - | Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}. |
-| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
-| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
-
 ### `delivery_identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -86,28 +70,6 @@ tfstate_store = {
 | `value` | string | No | - | If the 'type' is 'Static', then provide the value to use |
 | `source_field` | string | No | - | If the 'type' is 'Dynamic', then provide the payload field to be used as the value. Valid source fields differ by subscription type. |
 | `secret` | string | No | - | True if the 'value' is a secret and should be protected, otherwise false. If True, then this value won't be returned from Azure API calls |
-
-### `dead_letter_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
-
-### `storage_queue_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
-| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
-| `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
-
-### `retry_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_delivery_attempts` | int | Yes | - | Specifies the maximum number of delivery retry attempts for events. |
-| `event_time_to_live` | string | Yes | - | Specifies the time to live (in minutes) for events. Supported range is '1' to '1440'. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details. |
 
 ### `advanced_filter` block structure
 
@@ -136,6 +98,14 @@ tfstate_store = {
 | `value` | string | Yes | - | Specifies a single value to compare to when using a single value operator. |
 | `values` | string | Yes | - | Specifies an array of values to compare to when using a multiple values operator. |
 
+### `azure_function_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `function_id` | string | Yes | - | Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}. |
+| `max_events_per_batch` | int | No | - | Maximum number of events per batch. |
+| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
+
 ### `webhook_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -147,12 +117,42 @@ tfstate_store = {
 | `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
 | `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
 
+### `storage_queue_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
+| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
+| `queue_message_time_to_live_in_seconds` | int | No | - | Storage queue message time to live in seconds. |
+
+### `retry_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_delivery_attempts` | int | Yes | - | Specifies the maximum number of delivery retry attempts for events. |
+| `event_time_to_live` | string | Yes | - | Specifies the time to live (in minutes) for events. Supported range is '1' to '1440'. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details. |
+
+### `dead_letter_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+
 ### `storage_blob_dead_letter_destination` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage blob is located. |
 | `storage_blob_container_name` | string | Yes | - | Specifies the name of the Storage blob container that is the destination of the deadletter events. |
+
+### `subject_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
+| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
+| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
 
 
 

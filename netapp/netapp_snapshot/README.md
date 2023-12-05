@@ -6,23 +6,23 @@ Manages a NetApp Snapshot.## NetApp Snapshot Usage```hclresource "azurerm_resour
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "netapp/netapp_snapshot" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "netapp/netapp_snapshot"   
 }
 
 inputs = {
-   name = "name of netapp_snapshot" 
-   resource_group_name = "${resource_group}" 
-   account_name = "account_name of netapp_snapshot" 
-   pool_name = "pool_name of netapp_snapshot" 
-   volume_name = "volume_name of netapp_snapshot" 
-   location = "${location}" 
+   name = "name of netapp_snapshot"   
+   resource_group_name = "${resource_group}"   
+   account_name = "account_name of netapp_snapshot"   
+   pool_name = "pool_name of netapp_snapshot"   
+   volume_name = "volume_name of netapp_snapshot"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

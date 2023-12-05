@@ -6,25 +6,25 @@ Allows you to manage an Azure SQL Firewall Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_firewall_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_firewall_rule"   
 }
 
 inputs = {
-   name = "name of mssql_firewall_rule" 
+   name = "name of mssql_firewall_rule"   
    # server_id → set in tfstate_inputs
-   start_ip_address = "start_ip_address of mssql_firewall_rule" 
-   end_ip_address = "end_ip_address of mssql_firewall_rule" 
+   start_ip_address = "start_ip_address of mssql_firewall_rule"   
+   end_ip_address = "end_ip_address of mssql_firewall_rule"   
 }
 
 tfstate_inputs = {
-   server_id = "path/to/mssql_server_component:id" 
+   server_id = "path/to/mssql_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

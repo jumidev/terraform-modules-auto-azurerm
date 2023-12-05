@@ -6,24 +6,24 @@ Manages a Linked Service (connection) between an Azure Function and Azure Data F
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_azure_function" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_linked_service_azure_function"   
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_azure_function" 
+   name = "name of data_factory_linked_service_azure_function"   
    # data_factory_id → set in tfstate_inputs
-   url = "url of data_factory_linked_service_azure_function" 
+   url = "url of data_factory_linked_service_azure_function"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

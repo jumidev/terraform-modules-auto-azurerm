@@ -6,26 +6,26 @@ Manages an Active Directory administrator on a MySQL Flexible Server
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mysql_flexible_server_aad_administrator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mysql_flexible_server_aad_administrator"   
 }
 
 inputs = {
-   server_id = "server_id of mysql_flexible_server_aad_administrator" 
-   identity_id = "identity_id of mysql_flexible_server_aad_administrator" 
-   login = "login of mysql_flexible_server_aad_administrator" 
-   object_id = "object_id of mysql_flexible_server_aad_administrator" 
+   server_id = "server_id of mysql_flexible_server_aad_administrator"   
+   identity_id = "identity_id of mysql_flexible_server_aad_administrator"   
+   login = "login of mysql_flexible_server_aad_administrator"   
+   object_id = "object_id of mysql_flexible_server_aad_administrator"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

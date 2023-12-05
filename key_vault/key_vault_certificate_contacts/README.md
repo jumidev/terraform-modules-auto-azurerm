@@ -6,29 +6,29 @@ Manages Key Vault Certificate Contacts.## Disclaimers~> **Note:** It's possible 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_certificate_contacts" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_certificate_contacts"   
 }
 
 inputs = {
    # key_vault_id → set in tfstate_inputs
    contact = {
-      example_contact = {
-         email = "..."   
+      this_contact = {
+         email = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
+   key_vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -45,6 +45,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `email` | string | Yes | - | E-mail address of the contact. |
+| `name` | string | No | - | Name of the contact. |
 | `phone` | int | No | - | Phone number of the contact. |
 
 

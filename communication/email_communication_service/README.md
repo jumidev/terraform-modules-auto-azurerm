@@ -6,20 +6,20 @@ Manages an Email Communication Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "communication/email_communication_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "communication/email_communication_service"   
 }
 
 inputs = {
-   name = "name of email_communication_service" 
-   resource_group_name = "${resource_group}" 
-   data_location = "data_location of email_communication_service" 
+   name = "name of email_communication_service"   
+   resource_group_name = "${resource_group}"   
+   data_location = "data_location of email_communication_service"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

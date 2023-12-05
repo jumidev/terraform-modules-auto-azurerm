@@ -6,25 +6,25 @@ Manages a Network Manager Deployment.~> **NOTE on Virtual Network Peering:** Usi
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_deployment"   
 }
 
 inputs = {
    # network_manager_id → set in tfstate_inputs
-   location = "${location}" 
-   scope_access = "scope_access of network_manager_deployment" 
-   configuration_ids = "configuration_ids of network_manager_deployment" 
+   location = "${location}"   
+   scope_access = "scope_access of network_manager_deployment"   
+   configuration_ids = "configuration_ids of network_manager_deployment"   
 }
 
 tfstate_inputs = {
-   network_manager_id = "path/to/network_manager_component:id" 
+   network_manager_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

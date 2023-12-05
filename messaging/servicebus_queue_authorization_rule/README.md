@@ -6,23 +6,23 @@ Manages an Authorization Rule for a ServiceBus Queue.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_queue_authorization_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_queue_authorization_rule"   
 }
 
 inputs = {
-   name = "name of servicebus_queue_authorization_rule" 
+   name = "name of servicebus_queue_authorization_rule"   
    # queue_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   queue_id = "path/to/servicebus_queue_component:id" 
+   queue_id = "path/to/servicebus_queue_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,28 +6,28 @@ Manages an API Operation within an API Management Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_api_operation" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_api_operation"   
 }
 
 inputs = {
-   operation_id = "operation_id of api_management_api_operation" 
-   api_name = "api_name of api_management_api_operation" 
+   operation_id = "operation_id of api_management_api_operation"   
+   api_name = "api_name of api_management_api_operation"   
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   display_name = "display_name of api_management_api_operation" 
-   method = "method of api_management_api_operation" 
-   url_template = "url_template of api_management_api_operation" 
+   resource_group_name = "${resource_group}"   
+   display_name = "display_name of api_management_api_operation"   
+   method = "method of api_management_api_operation"   
+   url_template = "url_template of api_management_api_operation"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -53,6 +53,20 @@ tfstate_store = {
 | **response** | [block](#response-block-structure) |  One or more `response` blocks. | 
 | **template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
+### `template_parameter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name of this Template Parameter. |
+| `required` | bool | Yes | - | Is this Template Parameter Required? |
+| `type` | string | Yes | - | The Type of this Template Parameter, such as a 'string'. |
+| `description` | string | No | - | A description of this Template Parameter. |
+| `default_value` | string | No | - | The default value for this Template Parameter. |
+| `values` | list | No | - | One or more acceptable values for this Template Parameter. |
+| `example` | list | No | - | One or more 'example' blocks. |
+| `schema_id` | string | No | - | The name of the Schema. |
+| `type_name` | string | No | - | The type name defined by the Schema. |
+
 ### `response` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,19 +84,6 @@ tfstate_store = {
 | `header` | list | No | - | One or more 'header' blocks. |
 | `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
 | `representation` | [block](#request-block-structure) | No | - | One or more 'representation' blocks. |
-
-### `template_parameter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `required` | bool | Yes | - | Is this Template Parameter Required? |
-| `type` | string | Yes | - | The Type of this Template Parameter, such as a 'string'. |
-| `description` | string | No | - | A description of this Template Parameter. |
-| `default_value` | string | No | - | The default value for this Template Parameter. |
-| `values` | list | No | - | One or more acceptable values for this Template Parameter. |
-| `example` | list | No | - | One or more 'example' blocks. |
-| `schema_id` | string | No | - | The name of the Schema. |
-| `type_name` | string | No | - | The type name defined by the Schema. |
 
 ### `representation` block structure
 

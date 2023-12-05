@@ -6,20 +6,20 @@ Manages a NetApp Account.~> **NOTE:** Azure allows only one active directory can
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "netapp/netapp_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "netapp/netapp_account"   
 }
 
 inputs = {
-   name = "name of netapp_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of netapp_account"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

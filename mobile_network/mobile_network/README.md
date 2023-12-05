@@ -6,22 +6,22 @@ Manages a Mobile Network.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mobile_network/mobile_network"   
 }
 
 inputs = {
-   name = "name of mobile_network" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   mobile_country_code = "mobile_country_code of mobile_network" 
-   mobile_network_code = "mobile_network_code of mobile_network" 
+   name = "name of mobile_network"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   mobile_country_code = "mobile_country_code of mobile_network"   
+   mobile_network_code = "mobile_network_code of mobile_network"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

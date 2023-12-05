@@ -6,28 +6,28 @@ Manages an Azure Route Server
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/route_server" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/route_server"   
 }
 
 inputs = {
-   name = "name of route_server" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of route_server"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # subnet_id → set in tfstate_inputs
-   sku = "sku of route_server" 
+   sku = "sku of route_server"   
    # public_ip_address_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   subnet_id = "path/to/subnet_component:id" 
-   public_ip_address_id = "path/to/public_ip_component:id" 
+   subnet_id = "path/to/subnet_component:id"   
+   public_ip_address_id = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

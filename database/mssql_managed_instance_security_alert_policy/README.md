@@ -6,19 +6,19 @@ Manages a Security Alert Policy for an MS SQL Managed Instance.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_managed_instance_security_alert_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_managed_instance_security_alert_policy"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   managed_instance_name = "managed_instance_name of mssql_managed_instance_security_alert_policy" 
+   resource_group_name = "${resource_group}"   
+   managed_instance_name = "managed_instance_name of mssql_managed_instance_security_alert_policy"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

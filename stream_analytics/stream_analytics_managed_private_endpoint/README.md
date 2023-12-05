@@ -6,27 +6,27 @@ Manages a Stream Analytics Managed Private Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_managed_private_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_managed_private_endpoint"   
 }
 
 inputs = {
-   name = "name of stream_analytics_managed_private_endpoint" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_managed_private_endpoint"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_cluster_name → set in tfstate_inputs
    # target_resource_id → set in tfstate_inputs
-   subresource_name = "subresource_name of stream_analytics_managed_private_endpoint" 
+   subresource_name = "subresource_name of stream_analytics_managed_private_endpoint"   
 }
 
 tfstate_inputs = {
-   stream_analytics_cluster_name = "path/to/stream_analytics_cluster_component:name" 
-   target_resource_id = "path/to/any_resource_component:id" 
+   stream_analytics_cluster_name = "path/to/stream_analytics_cluster_component:name"   
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

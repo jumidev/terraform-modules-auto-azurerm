@@ -6,26 +6,26 @@ Manages a Load Balancer Outbound Rule.~> **NOTE** When using this resource, the 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_balancer/lb_outbound_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_balancer/lb_outbound_rule"   
 }
 
 inputs = {
-   name = "name of lb_outbound_rule" 
+   name = "name of lb_outbound_rule"   
    # loadbalancer_id → set in tfstate_inputs
    # backend_address_pool_id → set in tfstate_inputs
-   protocol = "protocol of lb_outbound_rule" 
+   protocol = "protocol of lb_outbound_rule"   
 }
 
 tfstate_inputs = {
-   loadbalancer_id = "path/to/lb_component:id" 
-   backend_address_pool_id = "path/to/lb_backend_address_pool_component:id" 
+   loadbalancer_id = "path/to/lb_component:id"   
+   backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Frontend IP Configuration. |
 
 
 

@@ -6,18 +6,18 @@ Manages TagRules on the datadog Monitor.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "datadog/datadog_monitor_tag_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "datadog/datadog_monitor_tag_rule"   
 }
 
 inputs = {
-   datadog_monitor_id = "datadog_monitor_id of datadog_monitor_tag_rule" 
+   datadog_monitor_id = "datadog_monitor_id of datadog_monitor_tag_rule"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -40,8 +40,15 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the Tag. |
 | `value` | string | Yes | - | Value of the Tag. |
 | `action` | string | Yes | - | Allowed values Include or Exclude. |
+
+### `metric` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `filter` | [block](#metric-block-structure) | No | - | A 'filter' block. |
 
 ### `log` block structure
 
@@ -51,12 +58,6 @@ tfstate_store = {
 | `subscription_log_enabled` | bool | No | - | Whether Azure subscription logs should be sent for the Monitor resource? |
 | `resource_log_enabled` | bool | No | - | Whether Azure resource logs should be sent for the Monitor resource? |
 | `filter` | [block](#log-block-structure) | No | - | A 'filter' block. |
-
-### `metric` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `filter` | [block](#metric-block-structure) | No | - | A 'filter' block. |
 
 
 

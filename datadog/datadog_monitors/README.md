@@ -6,36 +6,37 @@ Manages a datadog Monitor.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "datadog/datadog_monitors" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "datadog/datadog_monitors"   
 }
 
 inputs = {
-   name = "name of datadog_monitors" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku_name = "sku_name of datadog_monitors" 
+   name = "name of datadog_monitors"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku_name = "sku_name of datadog_monitors"   
    user = {
-      example_user = {
-         email = "..."   
+      this_user = {
+         name = "..."         
+         email = "..."         
       }
-  
+      
    }
- 
+   
    datadog_organization = {
-      example_datadog_organization = {
-         api_key = "..."   
-         application_key = "..."   
+      this_datadog_organization = {
+         api_key = "..."         
+         application_key = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -59,6 +60,14 @@ tfstate_store = {
 | **monitoring_enabled** | bool |  `True`  |  Is monitoring enabled? Defaults to `true`. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
 
+### `user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this user_info. Changing this forces a new resource to be created. |
+| `email` | string | Yes | - | Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created. |
+| `phone_number` | int | No | - | Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created. |
+
 ### `datadog_organization` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,13 +84,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'. |
-
-### `user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | Yes | - | Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created. |
-| `phone_number` | int | No | - | Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created. |
 
 
 

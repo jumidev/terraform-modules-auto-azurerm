@@ -6,26 +6,26 @@ Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Fac
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_kusto" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_linked_service_kusto"   
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_kusto" 
+   name = "name of data_factory_linked_service_kusto"   
    # data_factory_id → set in tfstate_inputs
-   kusto_endpoint = "kusto_endpoint of data_factory_linked_service_kusto" 
+   kusto_endpoint = "kusto_endpoint of data_factory_linked_service_kusto"   
    # kusto_database_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
-   kusto_database_name = "path/to/kusto_database_component:name" 
+   data_factory_id = "path/to/data_factory_component:id"   
+   kusto_database_name = "path/to/kusto_database_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

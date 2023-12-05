@@ -6,20 +6,20 @@ Manages an API Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "connections/api_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "connections/api_connection"   
 }
 
 inputs = {
-   managed_api_id = "managed_api_id of api_connection" 
-   name = "name of api_connection" 
-   resource_group_name = "${resource_group}" 
+   managed_api_id = "managed_api_id of api_connection"   
+   name = "name of api_connection"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

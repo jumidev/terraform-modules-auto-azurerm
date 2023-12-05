@@ -6,24 +6,24 @@ Manages a Mobile Network Packet Core Data Plane.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network_packet_core_data_plane" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mobile_network/mobile_network_packet_core_data_plane"   
 }
 
 inputs = {
-   name = "name of mobile_network_packet_core_data_plane" 
+   name = "name of mobile_network_packet_core_data_plane"   
    # mobile_network_packet_core_control_plane_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
 }
 
 tfstate_inputs = {
-   mobile_network_packet_core_control_plane_id = "path/to/mobile_network_packet_core_control_plane_component:id" 
+   mobile_network_packet_core_control_plane_id = "path/to/mobile_network_packet_core_control_plane_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

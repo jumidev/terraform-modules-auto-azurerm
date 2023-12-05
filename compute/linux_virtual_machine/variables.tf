@@ -31,6 +31,7 @@ variable "os_disk" {
 #   diff_disk_settings (block)               : A 'diff_disk_settings' block. Changing this forces a new resource to be created.
 #   disk_encryption_set_id (string)          : The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'.
 #   disk_size_gb (int)                       : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+#   name (string)                            : The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 #   secure_vm_disk_encryption_set_id (string): The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created.
 #   security_encryption_type (string)        : Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created.
 #   write_accelerator_enabled (bool)         : Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'.
@@ -200,6 +201,7 @@ variable "plan" {
 }
 #
 # plan block structure:
+#   name (string)       : (REQUIRED) Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 #   product (string)    : (REQUIRED) Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 #   publisher (string)  : (REQUIRED) Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
 

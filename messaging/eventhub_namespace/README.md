@@ -6,21 +6,21 @@ Manages an EventHub Namespace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub_namespace" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventhub_namespace"   
 }
 
 inputs = {
-   name = "name of eventhub_namespace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of eventhub_namespace" 
+   name = "name of eventhub_namespace"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku = "sku of eventhub_namespace"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -50,13 +50,6 @@ tfstate_store = {
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
 | **minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
 
-### `ip_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_mask` | string | Yes | - | The IP mask to match on. |
-| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
-
 ### `network_rulesets` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,19 +60,26 @@ tfstate_store = {
 | `virtual_network_rule` | [block](#network_rulesets-block-structure) | No | - | One or more 'virtual_network_rule' blocks. |
 | `ip_rule` | [block](#network_rulesets-block-structure) | No | - | One or more 'ip_rule' blocks. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
-
 ### `virtual_network_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | The id of the subnet to match on. |
 | `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
+
+### `ip_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_mask` | string | Yes | - | The IP mask to match on. |
+| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
 
 
 

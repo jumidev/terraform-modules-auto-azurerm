@@ -6,8 +6,8 @@ Manages a Customer Managed Key for a Cognitive Services Account.~> **NOTE:** It'
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cognitive_services/cognitive_account_customer_managed_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cognitive_services/cognitive_account_customer_managed_key"   
 }
 
 inputs = {
@@ -16,14 +16,14 @@ inputs = {
 }
 
 tfstate_inputs = {
-   cognitive_account_id = "path/to/cognitive_account_component:id" 
-   key_vault_key_id = "path/to/key_vault_key_component:id" 
+   cognitive_account_id = "path/to/cognitive_account_component:id"   
+   key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

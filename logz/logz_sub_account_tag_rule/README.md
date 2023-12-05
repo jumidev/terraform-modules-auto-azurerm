@@ -6,8 +6,8 @@ Manages a Logz Sub Account Tag Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logz/logz_sub_account_tag_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logz/logz_sub_account_tag_rule"   
 }
 
 inputs = {
@@ -15,13 +15,13 @@ inputs = {
 }
 
 tfstate_inputs = {
-   logz_sub_account_id = "path/to/logz_sub_account_component:id" 
+   logz_sub_account_id = "path/to/logz_sub_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -45,6 +45,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the tag to match. |
 | `action` | string | Yes | - | The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are 'Include' and 'Exclude'. Note that the 'Exclude' takes priority over the 'Include'. |
 | `value` | string | No | - | The value of the tag to match. |
 

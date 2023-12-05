@@ -6,26 +6,26 @@ Manages a Route within a Route Table.~> **NOTE on Route Tables and Routes:** Ter
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/route" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/route"   
 }
 
 inputs = {
-   name = "name of route" 
-   resource_group_name = "${resource_group}" 
+   name = "name of route"   
+   resource_group_name = "${resource_group}"   
    # route_table_name → set in tfstate_inputs
-   address_prefix = "address_prefix of route" 
-   next_hop_type = "next_hop_type of route" 
+   address_prefix = "address_prefix of route"   
+   next_hop_type = "next_hop_type of route"   
 }
 
 tfstate_inputs = {
-   route_table_name = "path/to/route_table_component:name" 
+   route_table_name = "path/to/route_table_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

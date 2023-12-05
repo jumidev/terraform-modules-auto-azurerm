@@ -6,24 +6,24 @@ Manages an Elastic Job Agent.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_job_agent" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_job_agent"   
 }
 
 inputs = {
-   name = "name of mssql_job_agent" 
-   location = "${location}" 
+   name = "name of mssql_job_agent"   
+   location = "${location}"   
    # database_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   database_id = "path/to/mssql_database_component:id" 
+   database_id = "path/to/mssql_database_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,20 +6,20 @@ Manages a Load Test Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_test/load_test" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_test/load_test"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of load_test" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of load_test"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

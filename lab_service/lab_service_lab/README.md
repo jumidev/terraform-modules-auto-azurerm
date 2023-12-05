@@ -6,37 +6,37 @@ Manages a Lab Service Lab.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "lab_service/lab_service_lab" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "lab_service/lab_service_lab"   
 }
 
 inputs = {
-   name = "name of lab_service_lab" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of lab_service_lab"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    security = {
-      example_security = {
-         open_access_enabled = "..."   
+      this_security = {
+         open_access_enabled = "..."         
       }
-  
+      
    }
- 
-   title = "title of lab_service_lab" 
+   
+   title = "title of lab_service_lab"   
    virtual_machine = {
-      example_virtual_machine = {
-         admin_user = "..."   
-         image_reference = "..."   
-         sku = "..."   
+      this_virtual_machine = {
+         admin_user = "..."         
+         image_reference = "..."         
+         sku = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -64,19 +64,6 @@ tfstate_store = {
 | **roster** | [block](#roster-block-structure) |  A `roster` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Lab. | 
 
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
-
-### `connection_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
-
 ### `virtual_machine` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +76,12 @@ tfstate_store = {
 | `non_admin_user` | [block](#virtual_machine-block-structure) | No | - | A 'non_admin_user' block. |
 | `shared_password_enabled` | bool | No | False | Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created. |
 | `usage_quota` | string | No | PT0S | The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string. |
+
+### `network` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
 
 ### `image_reference` block structure
 
@@ -106,12 +99,6 @@ tfstate_store = {
 | `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created. |
 | `password` | string | Yes | - | The password for the Lab user. Changing this forces a new resource to be created. |
 
-### `network` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
-
 ### `roster` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -127,6 +114,20 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
+
+### `connection_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the SKU. Changing this forces a new resource to be created. |
+| `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
 
 ### `auto_shutdown` block structure
 

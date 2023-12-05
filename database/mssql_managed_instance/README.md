@@ -6,31 +6,31 @@ Manages a Microsoft SQL Azure Managed Instance.~> **Note:** All arguments includ
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_managed_instance" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_managed_instance"   
 }
 
 inputs = {
-   administrator_login = "administrator_login of mssql_managed_instance" 
-   administrator_login_password = "administrator_login_password of mssql_managed_instance" 
-   license_type = "license_type of mssql_managed_instance" 
-   location = "${location}" 
-   name = "name of mssql_managed_instance" 
-   resource_group_name = "${resource_group}" 
-   sku_name = "sku_name of mssql_managed_instance" 
-   storage_size_in_gb = "storage_size_in_gb of mssql_managed_instance" 
+   administrator_login = "administrator_login of mssql_managed_instance"   
+   administrator_login_password = "administrator_login_password of mssql_managed_instance"   
+   license_type = "license_type of mssql_managed_instance"   
+   location = "${location}"   
+   name = "name of mssql_managed_instance"   
+   resource_group_name = "${resource_group}"   
+   sku_name = "sku_name of mssql_managed_instance"   
+   storage_size_in_gb = "storage_size_in_gb of mssql_managed_instance"   
    # subnet_id → set in tfstate_inputs
-   vcores = "vcores of mssql_managed_instance" 
+   vcores = "vcores of mssql_managed_instance"   
 }
 
 tfstate_inputs = {
-   subnet_id = "path/to/subnet_component:id" 
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

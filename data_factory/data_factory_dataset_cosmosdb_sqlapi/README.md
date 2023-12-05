@@ -6,24 +6,24 @@ Manages an Azure Cosmos DB SQL API Dataset inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_cosmosdb_sqlapi" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_dataset_cosmosdb_sqlapi"   
 }
 
 inputs = {
-   name = "name of data_factory_dataset_cosmosdb_sqlapi" 
+   name = "name of data_factory_dataset_cosmosdb_sqlapi"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_cosmosdb_sqlapi" 
+   linked_service_name = "linked_service_name of data_factory_dataset_cosmosdb_sqlapi"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column. |
 | `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
 | `description` | string | No | - | The description of the column. |
 

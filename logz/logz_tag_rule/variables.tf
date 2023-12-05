@@ -15,6 +15,7 @@ variable "tag_filter" {
 }
 #
 # tag_filter block structure:
+#   name (string)             : (REQUIRED) The name of this 'tag_filter'.
 #   action (string)           : (REQUIRED) The action for a filtering tag. Possible values are 'Include' and 'Exclude' is allowed. Note that the 'Exclude' takes priority over the 'Include'.
 #   value (string)            : The value of this 'tag_filter'.
 

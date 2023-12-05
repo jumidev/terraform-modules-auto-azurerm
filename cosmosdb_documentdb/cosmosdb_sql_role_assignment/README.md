@@ -6,26 +6,26 @@ Manages a Cosmos DB SQL Role Assignment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_sql_role_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cosmosdb_documentdb/cosmosdb_sql_role_assignment"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   account_name = "account_name of cosmosdb_sql_role_assignment" 
-   principal_id = "principal_id of cosmosdb_sql_role_assignment" 
+   resource_group_name = "${resource_group}"   
+   account_name = "account_name of cosmosdb_sql_role_assignment"   
+   principal_id = "principal_id of cosmosdb_sql_role_assignment"   
    # role_definition_id → set in tfstate_inputs
-   scope = "scope of cosmosdb_sql_role_assignment" 
+   scope = "scope of cosmosdb_sql_role_assignment"   
 }
 
 tfstate_inputs = {
-   role_definition_id = "path/to/role_definition_component:id" 
+   role_definition_id = "path/to/role_definition_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

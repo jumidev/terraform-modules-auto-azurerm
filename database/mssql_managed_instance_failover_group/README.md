@@ -6,28 +6,28 @@ Manages an Azure SQL Managed Instance Failover Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_managed_instance_failover_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_managed_instance_failover_group"   
 }
 
 inputs = {
-   name = "name of mssql_managed_instance_failover_group" 
-   location = "${location}" 
-   managed_instance_id = "managed_instance_id of mssql_managed_instance_failover_group" 
-   partner_managed_instance_id = "partner_managed_instance_id of mssql_managed_instance_failover_group" 
+   name = "name of mssql_managed_instance_failover_group"   
+   location = "${location}"   
+   managed_instance_id = "managed_instance_id of mssql_managed_instance_failover_group"   
+   partner_managed_instance_id = "partner_managed_instance_id of mssql_managed_instance_failover_group"   
    read_write_endpoint_failover_policy = {
-      example_read_write_endpoint_failover_policy = {
-         mode = "..."   
+      this_read_write_endpoint_failover_policy = {
+         mode = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

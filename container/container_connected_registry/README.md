@@ -6,24 +6,24 @@ Manages a Container Connected Registry.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_connected_registry" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_connected_registry"   
 }
 
 inputs = {
    # container_registry_id → set in tfstate_inputs
-   name = "name of container_connected_registry" 
-   sync_token_id = "sync_token_id of container_connected_registry" 
+   name = "name of container_connected_registry"   
+   sync_token_id = "sync_token_id of container_connected_registry"   
 }
 
 tfstate_inputs = {
-   container_registry_id = "path/to/container_registry_component:id" 
+   container_registry_id = "path/to/container_registry_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -54,6 +54,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the artifact that wants to be subscribed for the Connected Registry. |
 | `action` | string | Yes | - | The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are 'push', 'delete' and '*' (i.e. any). |
 | `tag` | string | No | - | The tag of the artifact that wants to be subscribed for the Connected Registry. |
 | `digest` | string | No | - | The digest of the artifact that wants to be subscribed for the Connected Registry. |

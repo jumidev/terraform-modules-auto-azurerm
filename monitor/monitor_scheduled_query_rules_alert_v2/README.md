@@ -6,33 +6,33 @@ Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_scheduled_query_rules_alert_v2" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_scheduled_query_rules_alert_v2"   
 }
 
 inputs = {
-   name = "name of monitor_scheduled_query_rules_alert_v2" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of monitor_scheduled_query_rules_alert_v2"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    criteria = {
-      example_criteria = {
-         operator = "..."   
-         query = "..."   
-         threshold = "..."   
-         time_aggregation_method = "..."   
+      this_criteria = {
+         operator = "..."         
+         query = "..."         
+         threshold = "..."         
+         time_aggregation_method = "..."         
       }
-  
+      
    }
- 
-   scopes = "scopes of monitor_scheduled_query_rules_alert_v2" 
-   severity = "severity of monitor_scheduled_query_rules_alert_v2" 
-   window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2" 
+   
+   scopes = "scopes of monitor_scheduled_query_rules_alert_v2"   
+   severity = "severity of monitor_scheduled_query_rules_alert_v2"   
+   window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -86,19 +86,20 @@ tfstate_store = {
 | `metric_measure_column` | string | No | - | Specifies the column containing the metric measure number. |
 | `resource_id_column` | string | No | - | Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID. |
 
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the dimension. |
+| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
+| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
+
 ### `failing_periods` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `minimum_failing_periods_to_trigger_alert` | int | Yes | - | Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6. |
 | `number_of_evaluation_periods` | int | Yes | - | Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6. |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
-| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
 
 
 

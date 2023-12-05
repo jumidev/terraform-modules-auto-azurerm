@@ -6,27 +6,27 @@ Manages a Certificate for an NGinx Deployment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "nginx/nginx_certificate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "nginx/nginx_certificate"   
 }
 
 inputs = {
-   name = "name of nginx_certificate" 
+   name = "name of nginx_certificate"   
    # nginx_deployment_id → set in tfstate_inputs
-   certificate_virtual_path = "certificate_virtual_path of nginx_certificate" 
-   key_virtual_path = "key_virtual_path of nginx_certificate" 
+   certificate_virtual_path = "certificate_virtual_path of nginx_certificate"   
+   key_virtual_path = "key_virtual_path of nginx_certificate"   
    # key_vault_secret_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   nginx_deployment_id = "path/to/nginx_deployment_component:id" 
-   key_vault_secret_id = "path/to/key_vault_secret_component:id" 
+   nginx_deployment_id = "path/to/nginx_deployment_component:id"   
+   key_vault_secret_id = "path/to/key_vault_secret_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -30,6 +30,7 @@ variable "rule" {
 }
 #
 # rule block structure   :
+#   name (string)          : (REQUIRED) The name of the rule.
 #   priority (string)      : (REQUIRED) Priority of the rule, must be unique per rules engine definition.
 #   action (block)         : An 'action' block.
 #   match_condition (block): One or more 'match_condition' block.
@@ -47,13 +48,13 @@ variable "rule" {
 #   header_name (string)          : header name (string).
 #   value (string)                : value name (string).
 #
-# action block structure :
-#   request_header (block) : A 'request_header' block.
-#   response_header (block): A 'response_header' block.
-#
 # response_header block structure:
 #   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
 #   header_name (string)           : header name (string).
 #   value (string)                 : value name (string).
+#
+# action block structure :
+#   request_header (block) : A 'request_header' block.
+#   response_header (block): A 'response_header' block.
 
 

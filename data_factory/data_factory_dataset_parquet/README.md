@@ -6,24 +6,24 @@ Manages an Azure Parquet Dataset inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_parquet" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_dataset_parquet"   
 }
 
 inputs = {
-   name = "name of data_factory_dataset_parquet" 
+   name = "name of data_factory_dataset_parquet"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_parquet" 
+   linked_service_name = "linked_service_name of data_factory_dataset_parquet"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,23 +52,6 @@ tfstate_store = {
 | **compression_codec** | string |  `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, `lz4`  |  The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive. | 
 | **compression_level** | string |  `Optimal`, `Fastest`  |  Specifies the compression level. Possible values are `Optimal` and `Fastest`, | 
 
-### `http_server_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
-| `filename` | string | Yes | - | The filename of the file on the web server. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `path` | string | No | - | The folder path to the file on the web server. |
-
-### `schema_column` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
-| `description` | string | No | - | The description of the column. |
-
 ### `azure_blob_storage_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,6 +73,24 @@ tfstate_store = {
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `filename` | string | No | - | The filename of the file on the Azure Data Lake Storage Account. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
+### `schema_column` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column. |
+| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
+| `description` | string | No | - | The description of the column. |
+
+### `http_server_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
+| `filename` | string | Yes | - | The filename of the file on the web server. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `path` | string | No | - | The folder path to the file on the web server. |
 
 
 

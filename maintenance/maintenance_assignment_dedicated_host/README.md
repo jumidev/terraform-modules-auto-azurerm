@@ -6,25 +6,25 @@ Manages a maintenance assignment to Dedicated Host.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "maintenance/maintenance_assignment_dedicated_host" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "maintenance/maintenance_assignment_dedicated_host"   
 }
 
 inputs = {
-   location = "${location}" 
+   location = "${location}"   
    # maintenance_configuration_id → set in tfstate_inputs
    # dedicated_host_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   maintenance_configuration_id = "path/to/maintenance_configuration_component:id" 
-   dedicated_host_id = "path/to/dedicated_host_component:id" 
+   maintenance_configuration_id = "path/to/maintenance_configuration_component:id"   
+   dedicated_host_id = "path/to/dedicated_host_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

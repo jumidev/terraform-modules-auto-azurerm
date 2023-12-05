@@ -38,20 +38,22 @@ variable "links" {
 # links block structure:
 #   channels (block)     : (REQUIRED) A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created.
 #   direction (string)   : (REQUIRED) Direction of the link. Possible values are 'Uplink' and 'Downlink'.
+#   name (string)        : (REQUIRED) Name of the link.
 #   polarization (string): (REQUIRED) Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'.
-#
-# channels block structure           :
-#   center_frequency_mhz (string)      : (REQUIRED) Center frequency in MHz.
-#   bandwidth_mhz (string)             : (REQUIRED) Bandwidth in MHz.
-#   end_point (block)                  : (REQUIRED) Customer End point to store/retrieve data during a contact. An 'end_point' block.
-#   modulation_configuration (string)  : Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
-#   demodulation_configuration (string): Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 #
 # end_point block structure:
 #   end_point_name (string)  : (REQUIRED) Name of an end point.
 #   port (string)            : (REQUIRED) TCP port to listen on to receive data.
 #   protocol (string)        : (REQUIRED) Protocol of an end point. Possible values are 'TCP' and 'UDP'.
 #   ip_address (string)      : IP address of an end point.
+#
+# channels block structure           :
+#   name (string)                      : (REQUIRED) Name of the channel.
+#   center_frequency_mhz (string)      : (REQUIRED) Center frequency in MHz.
+#   bandwidth_mhz (string)             : (REQUIRED) Bandwidth in MHz.
+#   end_point (block)                  : (REQUIRED) Customer End point to store/retrieve data during a contact. An 'end_point' block.
+#   modulation_configuration (string)  : Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
+#   demodulation_configuration (string): Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 
 
 

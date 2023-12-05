@@ -6,25 +6,25 @@ Manages a Sentinel Watchlist.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_watchlist" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_watchlist"   
 }
 
 inputs = {
-   name = "name of sentinel_watchlist" 
+   name = "name of sentinel_watchlist"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_watchlist" 
-   item_search_key = "item_search_key of sentinel_watchlist" 
+   display_name = "display_name of sentinel_watchlist"   
+   item_search_key = "item_search_key of sentinel_watchlist"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

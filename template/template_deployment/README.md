@@ -6,20 +6,20 @@ Manages a template deployment of resources~> **Note:** The `azurerm_template_dep
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "template/template_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "template/template_deployment"   
 }
 
 inputs = {
-   name = "name of template_deployment" 
-   resource_group_name = "${resource_group}" 
-   deployment_mode = "deployment_mode of template_deployment" 
+   name = "name of template_deployment"   
+   resource_group_name = "${resource_group}"   
+   deployment_mode = "deployment_mode of template_deployment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

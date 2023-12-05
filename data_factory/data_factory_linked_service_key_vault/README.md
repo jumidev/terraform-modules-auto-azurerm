@@ -6,25 +6,25 @@ Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_key_vault" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_linked_service_key_vault"   
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_key_vault" 
+   name = "name of data_factory_linked_service_key_vault"   
    # data_factory_id → set in tfstate_inputs
    # key_vault_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
-   key_vault_id = "path/to/key_vault_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
+   key_vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

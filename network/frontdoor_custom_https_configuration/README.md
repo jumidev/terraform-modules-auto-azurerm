@@ -6,23 +6,23 @@
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/frontdoor_custom_https_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/frontdoor_custom_https_configuration"   
 }
 
 inputs = {
    # frontend_endpoint_id → set in tfstate_inputs
-   custom_https_provisioning_enabled = "custom_https_provisioning_enabled of frontdoor_custom_https_configuration" 
+   custom_https_provisioning_enabled = "custom_https_provisioning_enabled of frontdoor_custom_https_configuration"   
 }
 
 tfstate_inputs = {
-   frontend_endpoint_id = "path/to/frontdoor_component:id" 
+   frontend_endpoint_id = "path/to/frontdoor_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

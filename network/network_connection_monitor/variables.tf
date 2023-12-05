@@ -21,6 +21,7 @@ variable "endpoint" {
 }
 #
 # endpoint block structure     :
+#   name (string)                : (REQUIRED) The name of the endpoint for the Network Connection Monitor .
 #   address (string)             : The IP address or domain name of the Network Connection Monitor endpoint.
 #   coverage_level (string)      : The test coverage for the Network Connection Monitor endpoint. Possible values are 'AboveAverage', 'Average', 'BelowAverage', 'Default', 'Full' and 'Low'.
 #   excluded_ip_addresses (list) : A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
@@ -44,6 +45,7 @@ variable "test_configuration" {
 }
 #
 # test_configuration block structure:
+#   name (string)                     : (REQUIRED) The name of test configuration for the Network Connection Monitor.
 #   protocol (string)                 : (REQUIRED) The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'.
 #   test_frequency_in_seconds (int)   : The time interval in seconds at which the test evaluation will happen. Defaults to '60'.
 #   http_configuration (block)        : A 'http_configuration' block.
@@ -51,6 +53,13 @@ variable "test_configuration" {
 #   preferred_ip_version (string)     : The preferred IP version which is used in the test evaluation. Possible values are 'IPv4' and 'IPv6'.
 #   success_threshold (block)         : A 'success_threshold' block.
 #   tcp_configuration (block)         : A 'tcp_configuration' block.
+#
+# request_header block structure:
+#   name (string)                 : (REQUIRED) The name of the HTTP header.
+#   value (string)                : (REQUIRED) The value of the HTTP header.
+#
+# icmp_configuration block structure:
+#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 #
 # http_configuration block structure:
 #   method (string)                   : The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'.
@@ -64,16 +73,10 @@ variable "test_configuration" {
 #   checks_failed_percent (string)   : The maximum percentage of failed checks permitted for a test to be successful.
 #   round_trip_time_ms (string)      : The maximum round-trip time in milliseconds permitted for a test to be successful.
 #
-# request_header block structure:
-#   value (string)                : (REQUIRED) The value of the HTTP header.
-#
 # tcp_configuration block structure :
 #   port (string)                     : (REQUIRED) The port for the TCP connection.
 #   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 #   destination_port_behavior (string): The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'.
-#
-# icmp_configuration block structure:
-#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 
 
 variable "test_group" {
@@ -82,6 +85,7 @@ variable "test_group" {
 }
 #
 # test_group block structure     :
+#   name (string)                  : (REQUIRED) The name of the test group for the Network Connection Monitor.
 #   destination_endpoints (list)   : (REQUIRED) A list of destination endpoint names.
 #   source_endpoints (list)        : (REQUIRED) A list of source endpoint names.
 #   test_configuration_names (list): (REQUIRED) A list of test configuration names.

@@ -6,25 +6,25 @@ Manages a Data Factory Managed Private Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_managed_private_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_managed_private_endpoint"   
 }
 
 inputs = {
-   name = "name of data_factory_managed_private_endpoint" 
+   name = "name of data_factory_managed_private_endpoint"   
    # data_factory_id → set in tfstate_inputs
    # target_resource_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
-   target_resource_id = "path/to/any_resource_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

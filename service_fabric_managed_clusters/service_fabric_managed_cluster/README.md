@@ -6,32 +6,32 @@ Manages a Resource Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "service_fabric_managed_clusters/service_fabric_managed_cluster" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "service_fabric_managed_clusters/service_fabric_managed_cluster"   
 }
 
 inputs = {
-   client_connection_port = "client_connection_port of service_fabric_managed_cluster" 
-   http_gateway_port = "http_gateway_port of service_fabric_managed_cluster" 
+   client_connection_port = "client_connection_port of service_fabric_managed_cluster"   
+   http_gateway_port = "http_gateway_port of service_fabric_managed_cluster"   
    lb_rule = {
-      example_lb_rule = {
-         backend_port = "..."   
-         frontend_port = "..."   
-         probe_protocol = "..."   
-         protocol = "..."   
+      this_lb_rule = {
+         backend_port = "..."         
+         frontend_port = "..."         
+         probe_protocol = "..."         
+         protocol = "..."         
       }
-  
+      
    }
- 
-   location = "${location}" 
-   name = "name of service_fabric_managed_cluster" 
-   resource_group_name = "${resource_group}" 
+   
+   location = "${location}"   
+   name = "name of service_fabric_managed_cluster"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -63,12 +63,12 @@ tfstate_store = {
 | **upgrade_wave** | string |  `Wave0`  |  `Wave0`, `Wave1`, `Wave2`  |  Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`. | 
 | **username** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
 
-### `authentication` block structure
+### `vm_secrets` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `active_directory` | [block](#authentication-block-structure) | No | - | A 'active_directory' block. |
-| `certificate` | [block](#authentication-block-structure) | No | - | One or more 'certificate' blocks. |
+| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
+| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
 
 ### `custom_fabric_setting` block structure
 
@@ -78,14 +78,6 @@ tfstate_store = {
 | `section` | string | Yes | - | Section name. |
 | `value` | string | Yes | - | Parameter value. |
 
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_application_id` | string | Yes | - | The ID of the Client Application. |
-| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
-| `tenant_id` | string | Yes | - | The ID of the Tenant. |
-
 ### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +86,31 @@ tfstate_store = {
 | `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
 | `common_name` | string | No | - | The certificate's CN. |
 
+### `lb_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_port` | string | Yes | - | LB Backend port. |
+| `frontend_port` | string | Yes | - | LB Frontend port. |
+| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
+| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
+| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_application_id` | string | Yes | - | The ID of the Client Application. |
+| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
+| `tenant_id` | string | Yes | - | The ID of the Tenant. |
+
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory` | [block](#authentication-block-structure) | No | - | A 'active_directory' block. |
+| `certificate` | [block](#authentication-block-structure) | No | - | One or more 'certificate' blocks. |
+
 ### `node_type` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -101,6 +118,7 @@ tfstate_store = {
 | `application_port_range` | string | Yes | - | Sets the port range available for applications. Format is '<from_port>-<to_port>', for example '10000-20000'. |
 | `data_disk_size_gb` | int | Yes | - | The size of the data disk in gigabytes.. |
 | `ephemeral_port_range` | string | Yes | - | Sets the port range available for the OS. Format is '<from_port>-<to_port>', for example '10000-20000'. There has to be at least 255 ports available and cannot overlap with 'application_port_range'.. |
+| `name` | string | Yes | - | The name which should be used for this node type. |
 | `vm_image_offer` | string | Yes | - | The offer type of the marketplace image cluster VMs will use. |
 | `vm_image_publisher` | string | Yes | - | The publisher of the marketplace image cluster VMs will use. |
 | `vm_image_sku` | string | Yes | - | The SKU of the marketplace image cluster VMs will use. |
@@ -114,23 +132,6 @@ tfstate_store = {
 | `primary` | string | No | - | If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created. |
 | `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
 | `vm_secrets` | [block](#node_type-block-structure) | No | - | One or more 'vm_secrets' blocks. |
-
-### `vm_secrets` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
-| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
-
-### `lb_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_port` | string | Yes | - | LB Backend port. |
-| `frontend_port` | string | Yes | - | LB Frontend port. |
-| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
-| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
-| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
 
 
 

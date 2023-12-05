@@ -6,20 +6,20 @@ Manages a Subnet Service Endpoint Storage Policy.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/subnet_service_endpoint_storage_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/subnet_service_endpoint_storage_policy"   
 }
 
 inputs = {
-   name = "name of subnet_service_endpoint_storage_policy" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of subnet_service_endpoint_storage_policy"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -43,6 +43,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this Subnet Service Endpoint Storage Policy Definition. |
 | `service` | string | No | Microsoft.Storage | The type of service resources. Valid values are 'Microsoft.Storage' or 'Global'. When the 'service_resources' property contains resource IDs, this property must be 'Microsoft.Storage'. When the 'service_resources' property contains Aliases, this property must be 'Global'. Defaults to 'Microsoft.Storage'. |
 | `service_resources` | string | Yes | - | Specifies a list of resources or aliases that this Subnet Service Endpoint Storage Policy Definition applies to. |
 | `description` | string | No | - | The description of this Subnet Service Endpoint Storage Policy Definition. |

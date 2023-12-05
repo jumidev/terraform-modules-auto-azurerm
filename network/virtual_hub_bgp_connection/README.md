@@ -6,25 +6,25 @@ Manages a Bgp Connection for a Virtual Hub.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_hub_bgp_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_hub_bgp_connection"   
 }
 
 inputs = {
-   name = "name of virtual_hub_bgp_connection" 
+   name = "name of virtual_hub_bgp_connection"   
    # virtual_hub_id → set in tfstate_inputs
-   peer_asn = "peer_asn of virtual_hub_bgp_connection" 
-   peer_ip = "peer_ip of virtual_hub_bgp_connection" 
+   peer_asn = "peer_asn of virtual_hub_bgp_connection"   
+   peer_ip = "peer_ip of virtual_hub_bgp_connection"   
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

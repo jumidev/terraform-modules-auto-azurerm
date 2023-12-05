@@ -6,26 +6,26 @@ Manages a Blob Target within a HPC Cache.~> **NOTE:**: By request of the service
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/hpc_cache_blob_target" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/hpc_cache_blob_target"   
 }
 
 inputs = {
-   cache_name = "cache_name of hpc_cache_blob_target" 
-   name = "name of hpc_cache_blob_target" 
-   resource_group_name = "${resource_group}" 
-   namespace_path = "namespace_path of hpc_cache_blob_target" 
+   cache_name = "cache_name of hpc_cache_blob_target"   
+   name = "name of hpc_cache_blob_target"   
+   resource_group_name = "${resource_group}"   
+   namespace_path = "namespace_path of hpc_cache_blob_target"   
    # storage_container_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_container_id = "path/to/storage_container_component:id" 
+   storage_container_id = "path/to/storage_container_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

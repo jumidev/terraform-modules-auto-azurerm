@@ -6,24 +6,24 @@ Manages a Data Share Kusto Database Dataset.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_share/data_share_dataset_kusto_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_share/data_share_dataset_kusto_database"   
 }
 
 inputs = {
-   name = "name of data_share_dataset_kusto_database" 
-   share_id = "share_id of data_share_dataset_kusto_database" 
+   name = "name of data_share_dataset_kusto_database"   
+   share_id = "share_id of data_share_dataset_kusto_database"   
    # kusto_database_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   kusto_database_id = "path/to/kusto_database_component:id" 
+   kusto_database_id = "path/to/kusto_database_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

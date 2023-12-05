@@ -6,23 +6,23 @@ Manages a Diagnostic Setting for an existing Resource.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_diagnostic_setting" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_diagnostic_setting"   
 }
 
 inputs = {
-   name = "name of monitor_diagnostic_setting" 
+   name = "name of monitor_diagnostic_setting"   
    # target_resource_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   target_resource_id = "path/to/any_resource_component:id" 
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -56,15 +56,6 @@ tfstate_store = {
 | `category_group` | string | No | - | The name of a Diagnostic Log Category Group for this Resource. |
 | `retention_policy` | [block](#enabled_log-block-structure) | No | - | A 'retention_policy' block. |
 
-### `log` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `category` | string | No | - | The name of a Diagnostic Log Category for this Resource. |
-| `category_group` | string | No | - | The name of a Diagnostic Log Category Group for this Resource. |
-| `retention_policy` | [block](#log-block-structure) | No | - | A 'retention_policy' block. |
-| `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
-
 ### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +70,15 @@ tfstate_store = {
 | `category` | string | Yes | - | The name of a Diagnostic Metric Category for this Resource. |
 | `retention_policy` | [block](#metric-block-structure) | No | - | A 'retention_policy' block. |
 | `enabled` | bool | No | True | Is this Diagnostic Metric enabled? Defaults to 'true'. |
+
+### `log` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `category` | string | No | - | The name of a Diagnostic Log Category for this Resource. |
+| `category_group` | string | No | - | The name of a Diagnostic Log Category Group for this Resource. |
+| `retention_policy` | [block](#log-block-structure) | No | - | A 'retention_policy' block. |
+| `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
 
 
 

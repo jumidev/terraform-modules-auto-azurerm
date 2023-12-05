@@ -6,26 +6,26 @@ Manages a Event Hubs as a nested resource within a Event Hubs namespace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventhub"   
 }
 
 inputs = {
-   name = "name of eventhub" 
+   name = "name of eventhub"   
    # namespace_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   partition_count = "partition_count of eventhub" 
-   message_retention = "message_retention of eventhub" 
+   resource_group_name = "${resource_group}"   
+   partition_count = "partition_count of eventhub"   
+   message_retention = "message_retention of eventhub"   
 }
 
 tfstate_inputs = {
-   namespace_name = "path/to/eventhub_namespace_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -47,6 +47,15 @@ tfstate_store = {
 | **capture_description** | [block](#capture_description-block-structure) |  -  |  -  |  A `capture_description` block. | 
 | **status** | string |  `Active`  |  `Active`, `Disabled`, `SendDisabled`  |  Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`. | 
 
+### `destination` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name of the Destination where the capture should take place. At this time the only supported value is 'EventHubArchive.AzureBlockBlob'. |
+| `archive_name_format` | string | Yes | - | The Blob naming convention for archiving. e.g. '{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}'. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order |
+| `blob_container_name` | string | Yes | - | The name of the Container within the Blob Storage Account where messages should be archived. |
+| `storage_account_id` | string | Yes | - | The ID of the Blob Storage Account where messages should be archived. |
+
 ### `capture_description` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -57,14 +66,6 @@ tfstate_store = {
 | `size_limit_in_bytes` | string | No | 314572800 | Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between '10485760' and '524288000' bytes. Defaults to '314572800' bytes. |
 | `skip_empty_archives` | bool | No | False | Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'. |
 | `destination` | [block](#capture_description-block-structure) | Yes | - | A 'destination' block. |
-
-### `destination` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `archive_name_format` | string | Yes | - | The Blob naming convention for archiving. e.g. '{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}'. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order |
-| `blob_container_name` | string | Yes | - | The name of the Container within the Blob Storage Account where messages should be archived. |
-| `storage_account_id` | string | Yes | - | The ID of the Blob Storage Account where messages should be archived. |
 
 
 

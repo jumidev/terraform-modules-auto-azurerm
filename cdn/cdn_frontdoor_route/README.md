@@ -6,29 +6,29 @@ Manages a Front Door (standard/premium) Route.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_frontdoor_route" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_frontdoor_route"   
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_route" 
+   name = "name of cdn_frontdoor_route"   
    # cdn_frontdoor_endpoint_id → set in tfstate_inputs
    # cdn_frontdoor_origin_group_id → set in tfstate_inputs
    # cdn_frontdoor_origin_ids → set in tfstate_inputs
-   patterns_to_match = "patterns_to_match of cdn_frontdoor_route" 
-   supported_protocols = "supported_protocols of cdn_frontdoor_route" 
+   patterns_to_match = "patterns_to_match of cdn_frontdoor_route"   
+   supported_protocols = "supported_protocols of cdn_frontdoor_route"   
 }
 
 tfstate_inputs = {
-   cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id" 
-   cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id" 
-   cdn_frontdoor_origin_ids = "path/to/cdn_frontdoor_origin_component:id" 
+   cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id"   
+   cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
+   cdn_frontdoor_origin_ids = "path/to/cdn_frontdoor_origin_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,30 +6,31 @@ Manages a Capacity Reservation within a Capacity Reservation Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/capacity_reservation" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/capacity_reservation"   
 }
 
 inputs = {
-   name = "name of capacity_reservation" 
+   name = "name of capacity_reservation"   
    # capacity_reservation_group_id → set in tfstate_inputs
    sku = {
-      example_sku = {
-         capacity = "..."   
+      this_sku = {
+         name = "..."         
+         capacity = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   capacity_reservation_group_id = "path/to/capacity_reservation_group_component:id" 
+   capacity_reservation_group_id = "path/to/capacity_reservation_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -53,6 +54,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created. |
 | `capacity` | int | Yes | - | Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. |
 
 

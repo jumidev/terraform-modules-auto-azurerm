@@ -6,26 +6,26 @@ Manages a Route Table~> **NOTE on Route Tables and Routes:** Terraform currently
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/route_table" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/route_table"   
 }
 
 inputs = {
-   name = "name of route_table" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of route_table"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resource
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
 
@@ -58,6 +58,7 @@ tfstate_inputs = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the route. |
 | `address_prefix` | string | Yes | - | The destination to which the route applies. Can be CIDR (such as '10.1.0.0/16') or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as 'ApiManagement', 'AzureBackup' or 'AzureMonitor') format. |
 | `next_hop_type` | string | Yes | - | The type of Azure hop the packet should be sent to. Possible values are 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance' and 'None'. |
 | `next_hop_in_ip_address` | string | No | - | Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is 'VirtualAppliance'. |

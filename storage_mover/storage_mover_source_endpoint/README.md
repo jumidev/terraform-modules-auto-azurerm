@@ -6,24 +6,24 @@ Manages a Storage Mover Source Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage_mover/storage_mover_source_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage_mover/storage_mover_source_endpoint"   
 }
 
 inputs = {
-   name = "name of storage_mover_source_endpoint" 
+   name = "name of storage_mover_source_endpoint"   
    # storage_mover_id → set in tfstate_inputs
-   host = "host of storage_mover_source_endpoint" 
+   host = "host of storage_mover_source_endpoint"   
 }
 
 tfstate_inputs = {
-   storage_mover_id = "path/to/storage_mover_component:id" 
+   storage_mover_id = "path/to/storage_mover_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

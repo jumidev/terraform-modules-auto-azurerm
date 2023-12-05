@@ -6,39 +6,39 @@ Manages a logz Monitor.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logz/logz_monitor" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logz/logz_monitor"   
 }
 
 inputs = {
-   name = "name of logz_monitor" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of logz_monitor"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    plan = {
-      example_plan = {
-         billing_cycle = "..."   
-         effective_date = "..."   
-         usage_type = "..."   
+      this_plan = {
+         billing_cycle = "..."         
+         effective_date = "..."         
+         usage_type = "..."         
       }
-  
+      
    }
- 
+   
    user = {
-      example_user = {
-         email = "..."   
-         first_name = "..."   
-         last_name = "..."   
-         phone_number = "..."   
+      this_user = {
+         email = "..."         
+         first_name = "..."         
+         last_name = "..."         
+         phone_number = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,15 +62,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether the resource monitoring is enabled? Defaults to `true`. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the logz Monitor. | 
 
-### `user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | Yes | - | Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
-| `first_name` | string | Yes | - | First Name of the user. Changing this forces a new logz Monitor to be created. |
-| `last_name` | string | Yes | - | Last Name of the user. Changing this forces a new logz Monitor to be created. |
-| `phone_number` | int | Yes | - | Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
-
 ### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +70,15 @@ tfstate_store = {
 | `effective_date` | datetime | Yes | - | Date when plan was applied. Changing this forces a new logz Monitor to be created. |
 | `usage_type` | string | Yes | - | Different usage types. Possible values are 'PAYG' or 'COMMITTED'. Changing this forces a new logz Monitor to be created. |
 | `plan_id` | string | No | 100gb14days | Plan id as published by Logz. The only possible value is '100gb14days'. Defaults to '100gb14days'. Changing this forces a new logz Monitor to be created. |
+
+### `user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
+| `first_name` | string | Yes | - | First Name of the user. Changing this forces a new logz Monitor to be created. |
+| `last_name` | string | Yes | - | Last Name of the user. Changing this forces a new logz Monitor to be created. |
+| `phone_number` | int | Yes | - | Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created. |
 
 
 

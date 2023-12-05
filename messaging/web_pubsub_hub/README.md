@@ -6,23 +6,23 @@ Manages the hub settings for a Web Pubsub.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/web_pubsub_hub" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/web_pubsub_hub"   
 }
 
 inputs = {
-   name = "name of web_pubsub_hub" 
+   name = "name of web_pubsub_hub"   
    # web_pubsub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   web_pubsub_id = "path/to/web_pubsub_component:id" 
+   web_pubsub_id = "path/to/web_pubsub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -42,21 +42,6 @@ tfstate_store = {
 | **event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
 | **event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
 
-### `event_listener` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `system_event_name_filter` | string | No | - | Specifies the list of system events. Supported values are 'connected' and 'disconnected'. |
-| `user_event_name_filter` | string | No | - | Specifies the list of matching user event names. '['*']' can be used to match all events. |
-| `eventhub_namespace_name` | string | Yes | - | Specifies the event hub namespace name to receive the events. |
-| `eventhub_name` | string | Yes | - | Specifies the event hub name to receive the events. |
-
-### `auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
-
 ### `event_handler` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +50,21 @@ tfstate_store = {
 | `user_event_pattern` | string | No | - | Specifies the matching event names. There are 3 kind of patterns supported: * '*' matches any event name * ',' Combine multiple events with ',' for example 'event1,event2', it matches event 'event1' and 'event2' * The single event name, for example 'event1', it matches 'event1'. |
 | `system_events` | string | No | - | Specifies the list of system events. Supported values are 'connect', 'connected' and 'disconnected'. |
 | `auth` | [block](#event_handler-block-structure) | No | - | An 'auth' block. |
+
+### `auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
+
+### `event_listener` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `system_event_name_filter` | string | No | - | Specifies the list of system events. Supported values are 'connected' and 'disconnected'. |
+| `user_event_name_filter` | string | No | - | Specifies the list of matching user event names. '['*']' can be used to match all events. |
+| `eventhub_namespace_name` | string | Yes | - | Specifies the event hub namespace name to receive the events. |
+| `eventhub_name` | string | Yes | - | Specifies the event hub name to receive the events. |
 
 
 

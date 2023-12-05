@@ -6,24 +6,24 @@ Manages a Subscription within a API Management Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_subscription" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_subscription"   
 }
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   display_name = "display_name of api_management_subscription" 
-   resource_group_name = "${resource_group}" 
+   display_name = "display_name of api_management_subscription"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

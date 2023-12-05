@@ -6,24 +6,24 @@ Manages an Azure Subscription Policy Remediation.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/subscription_policy_remediation" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "policy/subscription_policy_remediation"   
 }
 
 inputs = {
-   name = "name of subscription_policy_remediation" 
+   name = "name of subscription_policy_remediation"   
    # subscription_id → set in tfstate_inputs
-   policy_assignment_id = "policy_assignment_id of subscription_policy_remediation" 
+   policy_assignment_id = "policy_assignment_id of subscription_policy_remediation"   
 }
 
 tfstate_inputs = {
-   subscription_id = "path/to/subscription_component:subscription_id" 
+   subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

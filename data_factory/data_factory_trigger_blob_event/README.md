@@ -6,32 +6,33 @@ Manages a Blob Event Trigger inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_trigger_blob_event" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_trigger_blob_event"   
 }
 
 inputs = {
-   name = "name of data_factory_trigger_blob_event" 
+   name = "name of data_factory_trigger_blob_event"   
    # data_factory_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   events = "events of data_factory_trigger_blob_event" 
+   events = "events of data_factory_trigger_blob_event"   
    pipeline = {
-      example_pipeline = {
+      this_pipeline = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
-   storage_account_id = "path/to/storage_account_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,6 +63,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 

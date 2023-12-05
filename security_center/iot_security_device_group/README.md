@@ -6,23 +6,23 @@ Manages a Iot Security Device Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/iot_security_device_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/iot_security_device_group"   
 }
 
 inputs = {
-   name = "name of iot_security_device_group" 
+   name = "name of iot_security_device_group"   
    # iothub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_id = "path/to/iothub_component:id" 
+   iothub_id = "path/to/iothub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

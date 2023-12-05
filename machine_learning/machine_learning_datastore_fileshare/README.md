@@ -6,24 +6,24 @@ Manages a Machine Learning File Share DataStore.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "machine_learning/machine_learning_datastore_fileshare" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "machine_learning/machine_learning_datastore_fileshare"   
 }
 
 inputs = {
-   name = "name of machine_learning_datastore_fileshare" 
+   name = "name of machine_learning_datastore_fileshare"   
    # workspace_id → set in tfstate_inputs
-   storage_fileshare_id = "storage_fileshare_id of machine_learning_datastore_fileshare" 
+   storage_fileshare_id = "storage_fileshare_id of machine_learning_datastore_fileshare"   
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

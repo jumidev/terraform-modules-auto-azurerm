@@ -6,26 +6,26 @@ Manages a MySQL Database within a MySQL Flexible Server
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mysql_flexible_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mysql_flexible_database"   
 }
 
 inputs = {
-   name = "name of mysql_flexible_database" 
+   name = "name of mysql_flexible_database"   
    # server_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   charset = "charset of mysql_flexible_database" 
-   collation = "collation of mysql_flexible_database" 
+   resource_group_name = "${resource_group}"   
+   charset = "charset of mysql_flexible_database"   
+   collation = "collation of mysql_flexible_database"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/mysql_flexible_server_component:name" 
+   server_name = "path/to/mysql_flexible_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

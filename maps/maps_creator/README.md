@@ -6,25 +6,25 @@ Manages an Azure Maps Creator.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "maps/maps_creator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "maps/maps_creator"   
 }
 
 inputs = {
-   name = "name of maps_creator" 
+   name = "name of maps_creator"   
    # maps_account_id → set in tfstate_inputs
-   location = "${location}" 
-   storage_units = "storage_units of maps_creator" 
+   location = "${location}"   
+   storage_units = "storage_units of maps_creator"   
 }
 
 tfstate_inputs = {
-   maps_account_id = "path/to/maps_account_component:id" 
+   maps_account_id = "path/to/maps_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

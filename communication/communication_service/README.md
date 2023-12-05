@@ -6,19 +6,19 @@ Manages a Communication Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "communication/communication_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "communication/communication_service"   
 }
 
 inputs = {
-   name = "name of communication_service" 
-   resource_group_name = "${resource_group}" 
+   name = "name of communication_service"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

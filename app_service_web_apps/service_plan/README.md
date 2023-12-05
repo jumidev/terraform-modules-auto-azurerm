@@ -6,22 +6,22 @@ Manages an App Service: Service Plan.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/service_plan" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/service_plan"   
 }
 
 inputs = {
-   name = "name of service_plan" 
-   location = "${location}" 
-   os_type = "os_type of service_plan" 
-   resource_group_name = "${resource_group}" 
-   sku_name = "sku_name of service_plan" 
+   name = "name of service_plan"   
+   location = "${location}"   
+   os_type = "os_type of service_plan"   
+   resource_group_name = "${resource_group}"   
+   sku_name = "sku_name of service_plan"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

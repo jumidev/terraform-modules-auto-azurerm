@@ -6,23 +6,23 @@ Manages a Azure Advanced Threat Protection Data Connector.!> **NOTE:** This reso
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_data_connector_azure_advanced_threat_protection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_data_connector_azure_advanced_threat_protection"   
 }
 
 inputs = {
    # log_analytics_workspace_id → set in tfstate_inputs
-   name = "name of sentinel_data_connector_azure_advanced_threat_protection" 
+   name = "name of sentinel_data_connector_azure_advanced_threat_protection"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

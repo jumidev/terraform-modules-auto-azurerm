@@ -6,24 +6,24 @@ Manages an App Service Environment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_environment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_environment"   
 }
 
 inputs = {
-   name = "name of app_service_environment" 
+   name = "name of app_service_environment"   
    # subnet_id → set in tfstate_inputs
-   resource_group_name = "subnet_id" 
+   resource_group_name = "subnet_id"   
 }
 
 tfstate_inputs = {
-   subnet_id = "path/to/subnet_component:id" 
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -51,6 +51,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Cluster Setting. |
 | `value` | string | Yes | - | The value for the Cluster Setting. |
 
 

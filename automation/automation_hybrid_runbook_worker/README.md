@@ -6,26 +6,26 @@ Manages a Automation Hybrid Runbook Worker.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_hybrid_runbook_worker" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_hybrid_runbook_worker"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   worker_group_name = "worker_group_name of automation_hybrid_runbook_worker" 
-   worker_id = "worker_id of automation_hybrid_runbook_worker" 
-   vm_resource_id = "vm_resource_id of automation_hybrid_runbook_worker" 
+   worker_group_name = "worker_group_name of automation_hybrid_runbook_worker"   
+   worker_id = "worker_id of automation_hybrid_runbook_worker"   
+   vm_resource_id = "vm_resource_id of automation_hybrid_runbook_worker"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

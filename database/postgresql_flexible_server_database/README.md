@@ -6,23 +6,23 @@ Manages a PostgreSQL Flexible Server Database.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/postgresql_flexible_server_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/postgresql_flexible_server_database"   
 }
 
 inputs = {
-   name = "name of postgresql_flexible_server_database" 
+   name = "name of postgresql_flexible_server_database"   
    # server_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   server_id = "path/to/postgresql_flexible_server_component:id" 
+   server_id = "path/to/postgresql_flexible_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

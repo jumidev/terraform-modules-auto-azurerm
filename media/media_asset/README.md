@@ -6,24 +6,24 @@ Manages a Media Asset.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_asset" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "media/media_asset"   
 }
 
 inputs = {
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_asset" 
-   resource_group_name = "${resource_group}" 
+   name = "name of media_asset"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   media_services_account_name = "path/to/media_services_account_component:name" 
+   media_services_account_name = "path/to/media_services_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

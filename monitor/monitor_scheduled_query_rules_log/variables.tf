@@ -25,6 +25,7 @@ variable "criteria" {
 #   metric_name (string)    : (REQUIRED) Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace.
 #
 # dimension block structure:
+#   name (string)            : (REQUIRED) Name of the dimension.
 #   operator (string)        : Operator for dimension values, - 'Include'. Defaults to 'Include'.
 #   values (string)          : (REQUIRED) List of dimension values.
 

@@ -6,27 +6,27 @@ Manages a Key Vault Managed Hardware Security Module.~> **Note:** The Azure Prov
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_managed_hardware_security_module" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_managed_hardware_security_module"   
 }
 
 inputs = {
-   name = "name of key_vault_managed_hardware_security_module" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   admin_object_ids = "admin_object_ids of key_vault_managed_hardware_security_module" 
-   sku_name = "sku_name of key_vault_managed_hardware_security_module" 
+   name = "name of key_vault_managed_hardware_security_module"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   admin_object_ids = "admin_object_ids of key_vault_managed_hardware_security_module"   
+   sku_name = "sku_name of key_vault_managed_hardware_security_module"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

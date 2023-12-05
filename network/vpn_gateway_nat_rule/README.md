@@ -6,24 +6,24 @@ Manages a VPN Gateway NAT Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/vpn_gateway_nat_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/vpn_gateway_nat_rule"   
 }
 
 inputs = {
-   name = "name of vpn_gateway_nat_rule" 
-   resource_group_name = "${resource_group}" 
+   name = "name of vpn_gateway_nat_rule"   
+   resource_group_name = "${resource_group}"   
    # vpn_gateway_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   vpn_gateway_id = "path/to/vpn_gateway_component:id" 
+   vpn_gateway_id = "path/to/vpn_gateway_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

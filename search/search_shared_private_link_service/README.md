@@ -6,26 +6,26 @@ Manages the Shared Private Link Service for an Azure Search Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "search/search_shared_private_link_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "search/search_shared_private_link_service"   
 }
 
 inputs = {
-   name = "name of search_shared_private_link_service" 
+   name = "name of search_shared_private_link_service"   
    # search_service_id → set in tfstate_inputs
-   subresource_name = "subresource_name of search_shared_private_link_service" 
+   subresource_name = "subresource_name of search_shared_private_link_service"   
    # target_resource_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   search_service_id = "path/to/search_service_component:id" 
-   target_resource_id = "path/to/any_resource_component:id" 
+   search_service_id = "path/to/search_service_component:id"   
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

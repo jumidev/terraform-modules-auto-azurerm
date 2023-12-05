@@ -6,26 +6,26 @@ Manages a Spring Cloud Storage.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_storage" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_storage"   
 }
 
 inputs = {
-   name = "name of spring_cloud_storage" 
+   name = "name of spring_cloud_storage"   
    # spring_cloud_service_id → set in tfstate_inputs
-   storage_account_key = "storage_account_key of spring_cloud_storage" 
+   storage_account_key = "storage_account_key of spring_cloud_storage"   
    # storage_account_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
-   storage_account_name = "path/to/storage_account_component:name" 
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
+   storage_account_name = "path/to/storage_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

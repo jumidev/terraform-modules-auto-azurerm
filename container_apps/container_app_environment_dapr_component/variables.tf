@@ -50,6 +50,7 @@ variable "secret" {
 }
 #
 # secret block structure:
+#   name (string)         : (REQUIRED) The Secret name.
 #   value (string)        : (REQUIRED) The value for this secret.
 
 

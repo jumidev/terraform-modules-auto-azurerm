@@ -6,32 +6,32 @@ Manages automated shutdown schedules for Azure VMs that are not within an Azure 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dev_test/dev_test_global_vm_shutdown_schedule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dev_test/dev_test_global_vm_shutdown_schedule"   
 }
 
 inputs = {
-   location = "${location}" 
+   location = "${location}"   
    # virtual_machine_id → set in tfstate_inputs
-   timezone = "timezone of dev_test_global_vm_shutdown_schedule" 
-   daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule" 
+   timezone = "timezone of dev_test_global_vm_shutdown_schedule"   
+   daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule"   
    notification_settings = {
-      example_notification_settings = {
-         enabled = "..."   
+      this_notification_settings = {
+         enabled = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   virtual_machine_id = "path/to/virtual_machine_component:id" 
+   virtual_machine_id = "path/to/virtual_machine_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

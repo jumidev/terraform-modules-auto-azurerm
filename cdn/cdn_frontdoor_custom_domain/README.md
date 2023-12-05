@@ -6,38 +6,38 @@ Manages a Front Door (standard/premium) Custom Domain.!>**IMPORTANT:** If you ar
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_frontdoor_custom_domain" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_frontdoor_custom_domain"   
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_custom_domain" 
+   name = "name of cdn_frontdoor_custom_domain"   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
-   host_name = "host_name of cdn_frontdoor_custom_domain" 
+   host_name = "host_name of cdn_frontdoor_custom_domain"   
    tls = {
-      example_tls = {
+      this_tls = {
          # cdn_frontdoor_secret_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id" 
-   tls.example_tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id" 
+   cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
+   tls.this_tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resource
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **cdn_frontdoor_route_ids** | If set to a list containing one or more valid `azurerm_cdn_frontdoor_route` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.|
 

@@ -6,26 +6,26 @@ Manages attaching a Disk to a Virtual Machine.~> **NOTE:** Data Disks can be att
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/virtual_machine_data_disk_attachment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/virtual_machine_data_disk_attachment"   
 }
 
 inputs = {
    # virtual_machine_id → set in tfstate_inputs
    # managed_disk_id → set in tfstate_inputs
-   lun = "lun of virtual_machine_data_disk_attachment" 
-   caching = "caching of virtual_machine_data_disk_attachment" 
+   lun = "lun of virtual_machine_data_disk_attachment"   
+   caching = "caching of virtual_machine_data_disk_attachment"   
 }
 
 tfstate_inputs = {
-   virtual_machine_id = "path/to/virtual_machine_component:id" 
-   managed_disk_id = "path/to/managed_disk_component:id" 
+   virtual_machine_id = "path/to/virtual_machine_component:id"   
+   managed_disk_id = "path/to/managed_disk_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

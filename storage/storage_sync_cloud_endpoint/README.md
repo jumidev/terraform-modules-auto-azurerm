@@ -6,26 +6,26 @@ Manages a Storage Sync Cloud Endpoint.-> **NOTE:** Please ensure Azure File Sync
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_sync_cloud_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_sync_cloud_endpoint"   
 }
 
 inputs = {
-   name = "name of storage_sync_cloud_endpoint" 
+   name = "name of storage_sync_cloud_endpoint"   
    # storage_sync_group_id → set in tfstate_inputs
-   file_share_name = "file_share_name of storage_sync_cloud_endpoint" 
+   file_share_name = "file_share_name of storage_sync_cloud_endpoint"   
    # storage_account_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_sync_group_id = "path/to/storage_sync_group_component:id" 
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_sync_group_id = "path/to/storage_sync_group_component:id"   
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

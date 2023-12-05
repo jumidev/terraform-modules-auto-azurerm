@@ -6,26 +6,26 @@ Manages private and isolated Logic App instances within an Azure virtual network
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/integration_service_environment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/integration_service_environment"   
 }
 
 inputs = {
-   name = "name of integration_service_environment" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   access_endpoint_type = "access_endpoint_type of integration_service_environment" 
+   name = "name of integration_service_environment"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   access_endpoint_type = "access_endpoint_type of integration_service_environment"   
    # virtual_network_subnet_ids → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_network_subnet_ids = "path/to/subnet_component:id" 
+   virtual_network_subnet_ids = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

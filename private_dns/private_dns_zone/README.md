@@ -6,19 +6,19 @@ Enables you to manage Private DNS zones within Azure DNS. These zones are hosted
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "private_dns/private_dns_zone" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "private_dns/private_dns_zone"   
 }
 
 inputs = {
-   name = "name of private_dns_zone" 
-   resource_group_name = "${resource_group}" 
+   name = "name of private_dns_zone"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

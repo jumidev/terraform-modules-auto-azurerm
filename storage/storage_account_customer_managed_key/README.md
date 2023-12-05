@@ -6,23 +6,23 @@ Manages a Customer Managed Key for a Storage Account.~> **NOTE:** It's possible 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_account_customer_managed_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_account_customer_managed_key"   
 }
 
 inputs = {
    # storage_account_id → set in tfstate_inputs
-   key_name = "key_name of storage_account_customer_managed_key" 
+   key_name = "key_name of storage_account_customer_managed_key"   
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

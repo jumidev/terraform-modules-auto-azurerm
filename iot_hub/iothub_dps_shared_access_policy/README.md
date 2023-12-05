@@ -6,24 +6,24 @@ Manages an IotHub Device Provisioning Service Shared Access Policy
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_dps_shared_access_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_dps_shared_access_policy"   
 }
 
 inputs = {
-   name = "name of iothub_dps_shared_access_policy" 
-   resource_group_name = "${resource_group}" 
+   name = "name of iothub_dps_shared_access_policy"   
+   resource_group_name = "${resource_group}"   
    # iothub_dps_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_dps_name = "path/to/iothub_dps_component:name" 
+   iothub_dps_name = "path/to/iothub_dps_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

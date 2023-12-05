@@ -6,22 +6,22 @@ Manages an Elasticsearch in Elastic Cloud.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "elastic/elastic_cloud_elasticsearch" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "elastic/elastic_cloud_elasticsearch"   
 }
 
 inputs = {
-   elastic_cloud_email_address = "elastic_cloud_email_address of elastic_cloud_elasticsearch" 
-   location = "${location}" 
-   name = "name of elastic_cloud_elasticsearch" 
-   resource_group_name = "${resource_group}" 
-   sku_name = "sku_name of elastic_cloud_elasticsearch" 
+   elastic_cloud_email_address = "elastic_cloud_email_address of elastic_cloud_elasticsearch"   
+   location = "${location}"   
+   name = "name of elastic_cloud_elasticsearch"   
+   resource_group_name = "${resource_group}"   
+   sku_name = "sku_name of elastic_cloud_elasticsearch"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,6 +49,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
+| `name` | string | Yes | - | Specifies the name (key) of the Tag which should be filtered. |
 | `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
 
 ### `logs` block structure

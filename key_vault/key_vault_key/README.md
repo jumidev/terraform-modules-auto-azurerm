@@ -6,25 +6,25 @@ Manages a Key Vault Key.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_key"   
 }
 
 inputs = {
-   name = "name of key_vault_key" 
+   name = "name of key_vault_key"   
    # key_vault_id → set in tfstate_inputs
-   key_type = "key_type of key_vault_key" 
-   key_opts = "key_opts of key_vault_key" 
+   key_type = "key_type of key_vault_key"   
+   key_opts = "key_opts of key_vault_key"   
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
+   key_vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

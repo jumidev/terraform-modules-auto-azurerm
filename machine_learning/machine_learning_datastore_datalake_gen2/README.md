@@ -6,25 +6,25 @@ Manages a Machine Learning Data Lake Gen2 DataStore.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "machine_learning/machine_learning_datastore_datalake_gen2" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "machine_learning/machine_learning_datastore_datalake_gen2"   
 }
 
 inputs = {
-   name = "name of machine_learning_datastore_datalake_gen2" 
+   name = "name of machine_learning_datastore_datalake_gen2"   
    # workspace_id → set in tfstate_inputs
    # storage_container_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
-   storage_container_id = "path/to/storage_container_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
+   storage_container_id = "path/to/storage_container_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

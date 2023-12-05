@@ -6,26 +6,26 @@ Manages a Global Schema within an API Management Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_schema" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_schema"   
 }
 
 inputs = {
-   schema_id = "schema_id of api_management_schema" 
+   schema_id = "schema_id of api_management_schema"   
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   type = "type of api_management_schema" 
-   value = "value of api_management_schema" 
+   resource_group_name = "${resource_group}"   
+   type = "type of api_management_schema"   
+   value = "value of api_management_schema"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

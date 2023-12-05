@@ -6,26 +6,26 @@ Manages a Sentinel Scheduled Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_scheduled" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_alert_rule_scheduled"   
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_scheduled" 
+   name = "name of sentinel_alert_rule_scheduled"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_alert_rule_scheduled" 
-   severity = "severity of sentinel_alert_rule_scheduled" 
-   query = "query of sentinel_alert_rule_scheduled" 
+   display_name = "display_name of sentinel_alert_rule_scheduled"   
+   severity = "severity of sentinel_alert_rule_scheduled"   
+   query = "query of sentinel_alert_rule_scheduled"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -63,6 +63,35 @@ tfstate_store = {
 | **trigger_operator** | string |  `GreaterThan`  |  `Equal`, `GreaterThan`, `LessThan`, `NotEqual`  |  The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule. Possible values are `Equal`, `GreaterThan`, `LessThan`, `NotEqual`. Defaults to `GreaterThan`. | 
 | **trigger_threshold** | int |  `0`  |  -  |  The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to `0`. | 
 
+### `event_grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
+
+### `sentinel_entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `alert_details_override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description_format` | string | No | - | The format containing columns name(s) to override the description of this Sentinel Alert Rule. |
+| `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
+| `severity_column_name` | string | No | - | The column name to take the alert severity from. |
+| `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
+| `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
+
+### `incident_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `create_incident` | string | Yes | - | Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule? |
+| `grouping` | [block](#incident_configuration-block-structure) | Yes | - | A 'grouping' block. |
+
 ### `grouping` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,10 +104,11 @@ tfstate_store = {
 | `group_by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
 | `group_by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
 
-### `sentinel_entity_mapping` block structure
+### `field_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `identifier` | string | Yes | - | The identifier of the entity. |
 | `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 ### `entity_mapping` block structure
@@ -92,37 +122,8 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the dynamic property. Possible Values are 'AlertLink', 'ConfidenceLevel', 'ConfidenceScore', 'ExtendedLinks', 'ProductComponentName', 'ProductName', 'ProviderName', 'RemediationSteps' and 'Techniques'. |
 | `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
-
-### `field_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `alert_details_override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description_format` | string | No | - | The format containing columns name(s) to override the description of this Sentinel Alert Rule. |
-| `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
-| `severity_column_name` | string | No | - | The column name to take the alert severity from. |
-| `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
-| `dynamic_property` | [block](#alert_details_override-block-structure) | No | - | A list of 'dynamic_property' blocks. |
-
-### `event_grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
-
-### `incident_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `create_incident` | string | Yes | - | Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule? |
-| `grouping` | [block](#incident_configuration-block-structure) | Yes | - | A 'grouping' block. |
 
 
 

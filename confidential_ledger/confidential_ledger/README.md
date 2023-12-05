@@ -6,34 +6,34 @@ Manages a Confidential Ledger.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "confidential_ledger/confidential_ledger" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "confidential_ledger/confidential_ledger"   
 }
 
 inputs = {
-   name = "name of confidential_ledger" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of confidential_ledger"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    azuread_based_service_principal = {
-      example_azuread_based_service_principal = {
-         ledger_role_name = "..."   
-         principal_id = "..."   
+      this_azuread_based_service_principal = {
+         ledger_role_name = "..."         
+         principal_id = "..."         
          # tenant_id → set in tfstate_inputs
       }
-  
+      
    }
- 
-   ledger_type = "ledger_type of confidential_ledger" 
+   
+   ledger_type = "ledger_type of confidential_ledger"   
 }
 
 tfstate_inputs = {
-   azuread_based_service_principal.example_azuread_based_service_principal.tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   azuread_based_service_principal.this_azuread_based_service_principal.tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -55,13 +55,6 @@ tfstate_store = {
 | **certificate_based_security_principal** | [block](#certificate_based_security_principal-block-structure) |  A list of `certificate_based_security_principal` blocks. | 
 | **tags** | map |  A mapping of tags to assign to the Confidential Ledger. | 
 
-### `certificate_based_security_principal` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ledger_role_name` | string | Yes | - | Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are 'Administrator', 'Contributor' and 'Reader'. |
-| `pem_public_key` | string | Yes | - | The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger. |
-
 ### `azuread_based_service_principal` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,6 +62,13 @@ tfstate_store = {
 | `ledger_role_name` | string | Yes | - | Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are 'Administrator', 'Contributor' and 'Reader'. |
 | `principal_id` | string | Yes | - | Specifies the Principal ID of the AzureAD Service Principal. |
 | `tenant_id` | string | Yes | - | Specifies the Tenant ID for this AzureAD Service Principal. |
+
+### `certificate_based_security_principal` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ledger_role_name` | string | Yes | - | Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are 'Administrator', 'Contributor' and 'Reader'. |
+| `pem_public_key` | string | Yes | - | The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger. |
 
 
 

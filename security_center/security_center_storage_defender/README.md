@@ -6,8 +6,8 @@ Manages the Defender for Storage.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_storage_defender" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_storage_defender"   
 }
 
 inputs = {
@@ -15,13 +15,13 @@ inputs = {
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

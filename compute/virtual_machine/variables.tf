@@ -31,6 +31,7 @@ variable "storage_os_disk" {
 }
 #
 # storage_os_disk block structure :
+#   name (string)                   : (REQUIRED) Specifies the name of the OS Disk.
 #   create_option (string)          : (REQUIRED) Specifies how the OS Disk should be created. Possible values are 'Attach' (managed disks only) and 'FromImage'.
 #   caching (string)                : Specifies the caching requirements for the OS Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'.
 #   disk_size_gb (int)              : Specifies the size of the OS Disk in gigabytes.
@@ -171,6 +172,7 @@ variable "plan" {
 }
 #
 # plan block structure:
+#   name (string)       : (REQUIRED) Specifies the name of the image from the marketplace.
 #   publisher (string)  : (REQUIRED) Specifies the publisher of the image.
 #   product (string)    : (REQUIRED) Specifies the product of the image from the marketplace.
 
@@ -192,6 +194,7 @@ variable "storage_data_disk" {
 }
 #
 # storage_data_disk block structure:
+#   name (string)                    : (REQUIRED) The name of the Data Disk.
 #   caching (string)                 : Specifies the caching requirements for the Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'.
 #   create_option (string)           : (REQUIRED) Specifies how the data disk should be created. Possible values are 'Attach', 'FromImage' and 'Empty'.
 #   disk_size_gb (int)               : Specifies the size of the data disk in gigabytes.

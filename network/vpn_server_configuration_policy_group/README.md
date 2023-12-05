@@ -6,24 +6,24 @@ Manages a VPN Server Configuration Policy Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/vpn_server_configuration_policy_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/vpn_server_configuration_policy_group"   
 }
 
 inputs = {
-   name = "name of vpn_server_configuration_policy_group" 
+   name = "name of vpn_server_configuration_policy_group"   
    # vpn_server_configuration_id → set in tfstate_inputs
-   policy = "policy of vpn_server_configuration_policy_group" 
+   policy = "policy of vpn_server_configuration_policy_group"   
 }
 
 tfstate_inputs = {
-   vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id" 
+   vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

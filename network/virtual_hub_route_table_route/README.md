@@ -6,26 +6,26 @@ Manages a Route in a Virtual Hub Route Table.~> **Note:** Route table routes can
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_hub_route_table_route" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_hub_route_table_route"   
 }
 
 inputs = {
    # route_table_id → set in tfstate_inputs
-   name = "name of virtual_hub_route_table_route" 
-   destinations = "destinations of virtual_hub_route_table_route" 
-   destinations_type = "destinations_type of virtual_hub_route_table_route" 
-   next_hop = "next_hop of virtual_hub_route_table_route" 
+   name = "name of virtual_hub_route_table_route"   
+   destinations = "destinations of virtual_hub_route_table_route"   
+   destinations_type = "destinations_type of virtual_hub_route_table_route"   
+   next_hop = "next_hop of virtual_hub_route_table_route"   
 }
 
 tfstate_inputs = {
-   route_table_id = "path/to/route_table_component:id" 
+   route_table_id = "path/to/route_table_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

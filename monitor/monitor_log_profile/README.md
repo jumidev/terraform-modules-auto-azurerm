@@ -6,27 +6,27 @@ Manages a [Log Profile](https://docs.microsoft.com/azure/monitoring-and-diagnost
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_log_profile" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_log_profile"   
 }
 
 inputs = {
-   name = "name of monitor_log_profile" 
-   categories = "categories of monitor_log_profile" 
-   locations = "locations of monitor_log_profile" 
+   name = "name of monitor_log_profile"   
+   categories = "categories of monitor_log_profile"   
+   locations = "locations of monitor_log_profile"   
    retention_policy = {
-      example_retention_policy = {
-         enabled = "..."   
+      this_retention_policy = {
+         enabled = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

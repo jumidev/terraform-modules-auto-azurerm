@@ -6,29 +6,29 @@ Manages an Automation Connection with type `AzureClassicCertificate`.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_connection_classic_certificate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_connection_classic_certificate"   
 }
 
 inputs = {
-   name = "name of automation_connection_classic_certificate" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_connection_classic_certificate"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   certificate_asset_name = "certificate_asset_name of automation_connection_classic_certificate" 
+   certificate_asset_name = "certificate_asset_name of automation_connection_classic_certificate"   
    # subscription_name → set in tfstate_inputs
    # subscription_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
-   subscription_name = "path/to/subscription_component:name" 
-   subscription_id = "path/to/subscription_component:subscription_id" 
+   automation_account_name = "path/to/automation_account_component:name"   
+   subscription_name = "path/to/subscription_component:name"   
+   subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

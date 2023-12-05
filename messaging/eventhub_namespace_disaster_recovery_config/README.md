@@ -6,25 +6,25 @@ Manages an Disaster Recovery Config for an Event Hub Namespace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub_namespace_disaster_recovery_config" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventhub_namespace_disaster_recovery_config"   
 }
 
 inputs = {
-   name = "name of eventhub_namespace_disaster_recovery_config" 
+   name = "name of eventhub_namespace_disaster_recovery_config"   
    # namespace_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   partner_namespace_id = "partner_namespace_id of eventhub_namespace_disaster_recovery_config" 
+   resource_group_name = "${resource_group}"   
+   partner_namespace_id = "partner_namespace_id of eventhub_namespace_disaster_recovery_config"   
 }
 
 tfstate_inputs = {
-   namespace_name = "path/to/eventhub_namespace_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

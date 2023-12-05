@@ -6,24 +6,24 @@ Manages a SQL Server Table Dataset inside a Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_sql_server_table" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_dataset_sql_server_table"   
 }
 
 inputs = {
-   name = "name of data_factory_dataset_sql_server_table" 
+   name = "name of data_factory_dataset_sql_server_table"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_sql_server_table" 
+   linked_service_name = "linked_service_name of data_factory_dataset_sql_server_table"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column. |
 | `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
 | `description` | string | No | - | The description of the column. |
 

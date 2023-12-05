@@ -6,24 +6,24 @@ Manages an ExpressRoute Circuit Authorization.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/express_route_circuit_authorization" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/express_route_circuit_authorization"   
 }
 
 inputs = {
-   name = "name of express_route_circuit_authorization" 
-   resource_group_name = "${resource_group}" 
+   name = "name of express_route_circuit_authorization"   
+   resource_group_name = "${resource_group}"   
    # express_route_circuit_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   express_route_circuit_name = "path/to/express_route_circuit_component:name" 
+   express_route_circuit_name = "path/to/express_route_circuit_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

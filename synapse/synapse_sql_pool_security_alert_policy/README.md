@@ -6,19 +6,19 @@ Manages a Security Alert Policy for a Synapse SQL Pool.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_sql_pool_security_alert_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_sql_pool_security_alert_policy"   
 }
 
 inputs = {
-   sql_pool_id = "sql_pool_id of synapse_sql_pool_security_alert_policy" 
-   policy_state = "policy_state of synapse_sql_pool_security_alert_policy" 
+   sql_pool_id = "sql_pool_id of synapse_sql_pool_security_alert_policy"   
+   policy_state = "policy_state of synapse_sql_pool_security_alert_policy"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

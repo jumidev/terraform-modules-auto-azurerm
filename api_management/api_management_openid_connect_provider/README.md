@@ -6,28 +6,28 @@ Manages an OpenID Connect Provider within a API Management Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_openid_connect_provider" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_openid_connect_provider"   
 }
 
 inputs = {
-   name = "name of api_management_openid_connect_provider" 
+   name = "name of api_management_openid_connect_provider"   
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   client_id = "client_id of api_management_openid_connect_provider" 
-   client_secret = "client_secret of api_management_openid_connect_provider" 
-   display_name = "display_name of api_management_openid_connect_provider" 
-   metadata_endpoint = "metadata_endpoint of api_management_openid_connect_provider" 
+   resource_group_name = "${resource_group}"   
+   client_id = "client_id of api_management_openid_connect_provider"   
+   client_secret = "client_secret of api_management_openid_connect_provider"   
+   display_name = "display_name of api_management_openid_connect_provider"   
+   metadata_endpoint = "metadata_endpoint of api_management_openid_connect_provider"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

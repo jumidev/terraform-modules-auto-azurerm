@@ -40,6 +40,7 @@ variable "ip_configuration" {
 }
 #
 # ip_configuration block structure:
+#   name (string)                   : (REQUIRED) Specifies the name of the IP Configuration.
 #   subnet_id (string)              : Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 #   public_ip_address_id (string)   : The ID of the Public IP Address associated with the firewall.
 
@@ -61,6 +62,7 @@ variable "management_ip_configuration" {
 }
 #
 # management_ip_configuration block structure:
+#   name (string)                              : (REQUIRED) Specifies the name of the IP Configuration.
 #   subnet_id (string)                         : (REQUIRED) Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created.
 #   public_ip_address_id (string)              : (REQUIRED) The ID of the Public IP Address associated with the firewall.
 

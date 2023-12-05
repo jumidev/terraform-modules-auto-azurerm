@@ -6,36 +6,36 @@ Manages a Traffic Manager Profile to which multiple endpoints can be attached.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/traffic_manager_profile" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/traffic_manager_profile"   
 }
 
 inputs = {
-   name = "name of traffic_manager_profile" 
-   resource_group_name = "${resource_group}" 
-   traffic_routing_method = "traffic_routing_method of traffic_manager_profile" 
+   name = "name of traffic_manager_profile"   
+   resource_group_name = "${resource_group}"   
+   traffic_routing_method = "traffic_routing_method of traffic_manager_profile"   
    dns_config = {
-      example_dns_config = {
-         relative_name = "..."   
-         ttl = "..."   
+      this_dns_config = {
+         relative_name = "..."         
+         ttl = "..."         
       }
-  
+      
    }
- 
+   
    monitor_config = {
-      example_monitor_config = {
-         protocol = "..."   
-         port = "..."   
+      this_monitor_config = {
+         protocol = "..."         
+         port = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -65,10 +65,18 @@ tfstate_store = {
 | **max_return** | string |  -  |  `1`, `8`  |  The amount of endpoints to return for DNS queries to this Profile. Possible values range from `1` to `8`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `dns_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
+| `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
+
 ### `custom_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the custom header. |
 | `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 ### `monitor_config` block structure
@@ -83,13 +91,6 @@ tfstate_store = {
 | `interval_in_seconds` | int | No | - | The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: '30' (normal probing) and '10' (fast probing). The default value is '30'. |
 | `timeout_in_seconds` | string | No | - | The amount of time the Traffic Manager probing agent should wait before considering that check a failure when a health check probe is sent to the endpoint. If 'interval_in_seconds' is set to '30', then 'timeout_in_seconds' can be between '5' and '10'. The default value is '10'. If 'interval_in_seconds' is set to '10', then valid values are between '5' and '9' and 'timeout_in_seconds' is required. |
 | `tolerated_number_of_failures` | string | No | - | The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between '0' and '9'. The default value is '3' |
-
-### `dns_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `relative_name` | string | Yes | - | The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created. |
-| `ttl` | int | Yes | - | The TTL value of the Profile used by Local DNS resolvers and clients. |
 
 
 

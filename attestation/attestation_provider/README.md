@@ -6,20 +6,20 @@ Manages an Attestation Provider.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "attestation/attestation_provider" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "attestation/attestation_provider"   
 }
 
 inputs = {
-   name = "name of attestation_provider" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of attestation_provider"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

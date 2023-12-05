@@ -6,20 +6,20 @@ Manages a Network Function Azure Traffic Collector.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network_function/network_function_azure_traffic_collector" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network_function/network_function_azure_traffic_collector"   
 }
 
 inputs = {
-   name = "name of network_function_azure_traffic_collector" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of network_function_azure_traffic_collector"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

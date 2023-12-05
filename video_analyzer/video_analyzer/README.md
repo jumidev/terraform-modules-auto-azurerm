@@ -6,35 +6,35 @@ Manages a Video Analyzer.!> Video Analyzer (Preview) is now Deprecated and will 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "video_analyzer/video_analyzer" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "video_analyzer/video_analyzer"   
 }
 
 inputs = {
-   name = "name of video_analyzer" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of video_analyzer"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    storage_account = {
-      example_storage_account = {
-         user_assigned_identity_id = "..."   
+      this_storage_account = {
+         user_assigned_identity_id = "..."         
       }
-  
+      
    }
- 
+   
    identity = {
-      example_identity = {
-         type = "..."   
-         identity_ids = "..."   
+      this_identity = {
+         type = "..."         
+         identity_ids = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

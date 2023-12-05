@@ -6,24 +6,24 @@ Manages a Key Vault Certificate Issuer.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_certificate_issuer" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_certificate_issuer"   
 }
 
 inputs = {
    # key_vault_id → set in tfstate_inputs
-   name = "name of key_vault_certificate_issuer" 
-   provider_name = "provider_name of key_vault_certificate_issuer" 
+   name = "name of key_vault_certificate_issuer"   
+   provider_name = "provider_name of key_vault_certificate_issuer"   
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
+   key_vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

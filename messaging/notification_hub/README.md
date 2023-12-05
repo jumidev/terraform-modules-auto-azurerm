@@ -6,25 +6,25 @@ Manages a Notification Hub within a Notification Hub Namespace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/notification_hub" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/notification_hub"   
 }
 
 inputs = {
-   name = "name of notification_hub" 
+   name = "name of notification_hub"   
    # namespace_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_inputs = {
-   namespace_name = "path/to/eventhub_namespace_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -35,6 +35,7 @@ variable "plan" {
 }
 #
 # plan block structure   :
+#   name (string)          : (REQUIRED) Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 #   product (string)       : (REQUIRED) Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created.
 #   publisher (string)     : (REQUIRED) Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created.
 #   promotion_code (string): Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created.

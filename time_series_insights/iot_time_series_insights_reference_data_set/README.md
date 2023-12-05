@@ -6,27 +6,28 @@ Manages an Azure IoT Time Series Insights Reference Data Set.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "time_series_insights/iot_time_series_insights_reference_data_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "time_series_insights/iot_time_series_insights_reference_data_set"   
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_reference_data_set" 
-   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_reference_data_set" 
-   location = "${location}" 
+   name = "name of iot_time_series_insights_reference_data_set"   
+   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_reference_data_set"   
+   location = "${location}"   
    key_property = {
-      example_key_property = {
-         type = "..."   
+      this_key_property = {
+         name = "..."         
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -51,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the key property. Changing this forces a new resource to be created. |
 | `type` | string | Yes | - | The data type of the key property. Valid values include 'Bool', 'DateTime', 'Double', 'String'. Changing this forces a new resource to be created. |
 
 

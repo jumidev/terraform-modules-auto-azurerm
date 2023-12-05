@@ -6,25 +6,25 @@ Sets a MySQL Flexible Server Configuration value on a MySQL Flexible Server.## D
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mysql_flexible_server_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mysql_flexible_server_configuration"   
 }
 
 inputs = {
-   name = "name of mysql_flexible_server_configuration" 
+   name = "name of mysql_flexible_server_configuration"   
    # server_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   value = "value of mysql_flexible_server_configuration" 
+   resource_group_name = "${resource_group}"   
+   value = "value of mysql_flexible_server_configuration"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/mysql_flexible_server_component:name" 
+   server_name = "path/to/mysql_flexible_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

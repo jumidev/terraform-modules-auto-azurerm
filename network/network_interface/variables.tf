@@ -6,6 +6,7 @@ variable "ip_configuration" {
 }
 #
 # ip_configuration block structure                           :
+#   name (string)                                              : (REQUIRED) A name used for this IP Configuration.
 #   gateway_load_balancer_frontend_ip_configuration_id (string): The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
 #   subnet_id (string)                                         : The ID of the Subnet where this Network Interface should be located in.
 #   private_ip_address_version (string)                        : The IP Version to use. Possible values are 'IPv4' or 'IPv6'. Defaults to 'IPv4'.

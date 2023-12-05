@@ -6,20 +6,20 @@ Manages an External Endpoint within a Traffic Manager Profile.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/traffic_manager_external_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/traffic_manager_external_endpoint"   
 }
 
 inputs = {
-   name = "name of traffic_manager_external_endpoint" 
-   profile_id = "profile_id of traffic_manager_external_endpoint" 
-   target = "target of traffic_manager_external_endpoint" 
+   name = "name of traffic_manager_external_endpoint"   
+   profile_id = "profile_id of traffic_manager_external_endpoint"   
+   target = "target of traffic_manager_external_endpoint"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -56,6 +56,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the custom header. |
 | `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 

@@ -6,34 +6,34 @@ Manages a Network Function Collector Policy.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network_function/network_function_collector_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network_function/network_function_collector_policy"   
 }
 
 inputs = {
-   name = "name of network_function_collector_policy" 
-   traffic_collector_id = "traffic_collector_id of network_function_collector_policy" 
-   location = "${location}" 
+   name = "name of network_function_collector_policy"   
+   traffic_collector_id = "traffic_collector_id of network_function_collector_policy"   
+   location = "${location}"   
    ipfx_emission = {
-      example_ipfx_emission = {
-         destination_types = "..."   
+      this_ipfx_emission = {
+         destination_types = "..."         
       }
-  
+      
    }
- 
+   
    ipfx_ingestion = {
-      example_ipfx_ingestion = {
-         source_resource_ids = "..."   
+      this_ipfx_ingestion = {
+         source_resource_ids = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -54,17 +54,17 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **tags** | map |  A mapping of tags which should be assigned to the Network Function Collector Policy. | 
 
-### `ipfx_emission` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `destination_types` | list | Yes | - | A list of emission destination types. The only possible value is 'AzureMonitor'. Changing this forces a new Network Function Collector Policy to be created. |
-
 ### `ipfx_ingestion` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `source_resource_ids` | list | Yes | - | A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created. |
+
+### `ipfx_emission` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `destination_types` | list | Yes | - | A list of emission destination types. The only possible value is 'AzureMonitor'. Changing this forces a new Network Function Collector Policy to be created. |
 
 
 

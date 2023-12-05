@@ -6,26 +6,26 @@ Manages a Event Hubs authorization Rule within an Event Hub.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub_authorization_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventhub_authorization_rule"   
 }
 
 inputs = {
-   name = "name of eventhub_authorization_rule" 
+   name = "name of eventhub_authorization_rule"   
    # namespace_name → set in tfstate_inputs
    # eventhub_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   namespace_name = "path/to/eventhub_namespace_component:name" 
-   eventhub_name = "path/to/eventhub_component:name" 
+   namespace_name = "path/to/eventhub_namespace_component:name"   
+   eventhub_name = "path/to/eventhub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

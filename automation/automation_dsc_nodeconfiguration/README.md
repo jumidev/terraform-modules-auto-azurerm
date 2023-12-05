@@ -6,25 +6,25 @@ Manages a Automation DSC Node Configuration.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_dsc_nodeconfiguration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_dsc_nodeconfiguration"   
 }
 
 inputs = {
-   name = "name of automation_dsc_nodeconfiguration" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_dsc_nodeconfiguration"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   content_embedded = "content_embedded of automation_dsc_nodeconfiguration" 
+   content_embedded = "content_embedded of automation_dsc_nodeconfiguration"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

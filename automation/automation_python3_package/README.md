@@ -6,25 +6,25 @@ Manages a Automation Python3 Package.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_python3_package" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_python3_package"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   name = "name of automation_python3_package" 
-   content_uri = "content_uri of automation_python3_package" 
+   name = "name of automation_python3_package"   
+   content_uri = "content_uri of automation_python3_package"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,21 +6,21 @@ Manages a Cost Anomaly Alert.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cost_management/cost_anomaly_alert" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cost_management/cost_anomaly_alert"   
 }
 
 inputs = {
-   name = "name of cost_anomaly_alert" 
-   display_name = "display_name of cost_anomaly_alert" 
-   email_addresses = "email_addresses of cost_anomaly_alert" 
-   email_subject = "email_subject of cost_anomaly_alert" 
+   name = "name of cost_anomaly_alert"   
+   display_name = "display_name of cost_anomaly_alert"   
+   email_addresses = "email_addresses of cost_anomaly_alert"   
+   email_subject = "email_subject of cost_anomaly_alert"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

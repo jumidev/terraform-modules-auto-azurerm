@@ -6,24 +6,24 @@ Manages a Sentinel Fusion Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_fusion" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_alert_rule_fusion"   
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_fusion" 
+   name = "name of sentinel_alert_rule_fusion"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_fusion" 
+   alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_fusion"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -47,6 +47,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Fusion source signal. Refer to Fusion alert rule template for supported values. |
 | `enabled` | bool | No | True | Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'. |
 | `sub_type` | [block](#source-block-structure) | No | - | One or more 'sub_type' blocks. |
 
@@ -54,6 +55,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name of the source subtype under a given source signal in Fusion detection. Refer to Fusion alert rule template for supported values. |
 | `enabled` | bool | No | True | Whether this source subtype under source signal is enabled or disabled in Fusion detection. Defaults to 'true'. |
 | `severities_allowed` | string | Yes | - | A list of severities that are enabled for this source subtype consumed in Fusion detection. Possible values for each element are 'High', 'Medium', 'Low', 'Informational'. |
 

@@ -6,25 +6,25 @@ Manages a Private DNS Resolver Dns Forwarding Ruleset.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "private_dns_resolver/private_dns_resolver_dns_forwarding_ruleset" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "private_dns_resolver/private_dns_resolver_dns_forwarding_ruleset"   
 }
 
 inputs = {
-   name = "name of private_dns_resolver_dns_forwarding_ruleset" 
-   resource_group_name = "${resource_group}" 
+   name = "name of private_dns_resolver_dns_forwarding_ruleset"   
+   resource_group_name = "${resource_group}"   
    # private_dns_resolver_outbound_endpoint_ids → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
 }
 
 tfstate_inputs = {
-   private_dns_resolver_outbound_endpoint_ids = "path/to/private_dns_resolver_outbound_endpoint_component:id" 
+   private_dns_resolver_outbound_endpoint_ids = "path/to/private_dns_resolver_outbound_endpoint_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

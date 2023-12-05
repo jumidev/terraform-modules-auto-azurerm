@@ -6,8 +6,8 @@ Manages a Disk Pool Managed Disk Attachment.!> **Note:** Azure are officially [h
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "disks/disk_pool_managed_disk_attachment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "disks/disk_pool_managed_disk_attachment"   
 }
 
 inputs = {
@@ -16,14 +16,14 @@ inputs = {
 }
 
 tfstate_inputs = {
-   disk_pool_id = "path/to/disk_pool_component:id" 
-   managed_disk_id = "path/to/managed_disk_component:id" 
+   disk_pool_id = "path/to/disk_pool_component:id"   
+   managed_disk_id = "path/to/managed_disk_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

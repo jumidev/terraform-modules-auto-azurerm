@@ -6,26 +6,26 @@ Manages the Shared Private Link Resource for a Signalr service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/signalr_shared_private_link" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/signalr_shared_private_link"   
 }
 
 inputs = {
-   name = "name of signalr_shared_private_link" 
+   name = "name of signalr_shared_private_link"   
    # signalr_service_id → set in tfstate_inputs
-   sub_resource_name = "sub_resource_name of signalr_shared_private_link" 
+   sub_resource_name = "sub_resource_name of signalr_shared_private_link"   
    # target_resource_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   signalr_service_id = "path/to/signalr_service_component:id" 
-   target_resource_id = "path/to/any_resource_component:id" 
+   signalr_service_id = "path/to/signalr_service_component:id"   
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

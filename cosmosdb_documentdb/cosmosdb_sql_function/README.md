@@ -6,20 +6,20 @@ Manages an SQL User Defined Function.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cosmosdb_documentdb/cosmosdb_sql_function" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cosmosdb_documentdb/cosmosdb_sql_function"   
 }
 
 inputs = {
-   name = "name of cosmosdb_sql_function" 
-   container_id = "container_id of cosmosdb_sql_function" 
-   body = "body of cosmosdb_sql_function" 
+   name = "name of cosmosdb_sql_function"   
+   container_id = "container_id of cosmosdb_sql_function"   
+   body = "body of cosmosdb_sql_function"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

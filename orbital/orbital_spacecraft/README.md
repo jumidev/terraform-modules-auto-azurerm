@@ -6,33 +6,34 @@ Manages a Spacecraft.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "orbital/orbital_spacecraft" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "orbital/orbital_spacecraft"   
 }
 
 inputs = {
-   name = "name of orbital_spacecraft" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   norad_id = "norad_id of orbital_spacecraft" 
+   name = "name of orbital_spacecraft"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   norad_id = "norad_id of orbital_spacecraft"   
    links = {
-      example_links = {
-         bandwidth_mhz = "..."   
-         center_frequency_mhz = "..."   
-         direction = "..."   
-         polarization = "..."   
+      this_links = {
+         bandwidth_mhz = "..."         
+         center_frequency_mhz = "..."         
+         direction = "..."         
+         polarization = "..."         
+         name = "..."         
       }
-  
+      
    }
- 
-   two_line_elements = "two_line_elements of orbital_spacecraft" 
-   title_line = "title_line of orbital_spacecraft" 
+   
+   two_line_elements = "two_line_elements of orbital_spacecraft"   
+   title_line = "title_line of orbital_spacecraft"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -63,6 +64,7 @@ tfstate_store = {
 | `center_frequency_mhz` | string | Yes | - | Center frequency in Mhz. |
 | `direction` | string | Yes | - | Direction if the communication. Possible values are 'Uplink' and 'Downlink'. |
 | `polarization` | string | Yes | - | Polarization. Possible values are 'RHCP', 'LHCP', 'linearVertical' and 'linearHorizontal'. |
+| `name` | string | Yes | - | Name of the link. |
 
 
 

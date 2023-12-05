@@ -16,6 +16,7 @@ variable "galleries" {
 }
 #
 # galleries block structure:
+#   name (string)            : (REQUIRED) Name of the workbook template in the gallery.
 #   category (string)        : (REQUIRED) Category for the gallery.
 #   order (string)           : Order of the template within the gallery. Defaults to '0'.
 #   resource_type (string)   : Azure resource type supported by the gallery. Defaults to 'Azure Monitor'.

@@ -6,21 +6,21 @@ Manages a Azure Site Recovery Replication Fabric within a Recovery Services vaul
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/site_recovery_fabric" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "recovery_services/site_recovery_fabric"   
 }
 
 inputs = {
-   name = "name of site_recovery_fabric" 
-   resource_group_name = "${resource_group}" 
-   recovery_vault_name = "recovery_vault_name of site_recovery_fabric" 
-   location = "${location}" 
+   name = "name of site_recovery_fabric"   
+   resource_group_name = "${resource_group}"   
+   recovery_vault_name = "recovery_vault_name of site_recovery_fabric"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

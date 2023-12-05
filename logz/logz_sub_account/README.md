@@ -6,33 +6,33 @@ Manages a logz Sub Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logz/logz_sub_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logz/logz_sub_account"   
 }
 
 inputs = {
-   name = "name of logz_sub_account" 
+   name = "name of logz_sub_account"   
    # logz_monitor_id → set in tfstate_inputs
    user = {
-      example_user = {
-         email = "..."   
-         first_name = "..."   
-         last_name = "..."   
-         phone_number = "..."   
+      this_user = {
+         email = "..."         
+         first_name = "..."         
+         last_name = "..."         
+         phone_number = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   logz_monitor_id = "path/to/logz_monitor_component:id" 
+   logz_monitor_id = "path/to/logz_monitor_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

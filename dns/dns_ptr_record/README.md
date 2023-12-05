@@ -6,26 +6,26 @@ Enables you to manage DNS PTR Records within Azure DNS.~> **Note:** [The Azure D
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dns/dns_ptr_record" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dns/dns_ptr_record"   
 }
 
 inputs = {
-   name = "name of dns_ptr_record" 
-   resource_group_name = "${resource_group}" 
+   name = "name of dns_ptr_record"   
+   resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
-   ttl = "ttl of dns_ptr_record" 
-   records = "records of dns_ptr_record" 
+   ttl = "ttl of dns_ptr_record"   
+   records = "records of dns_ptr_record"   
 }
 
 tfstate_inputs = {
-   zone_name = "path/to/dns_zone_component:name" 
+   zone_name = "path/to/dns_zone_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

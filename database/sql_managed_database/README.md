@@ -6,24 +6,24 @@ Manages a SQL Azure Managed Database.-> **Note:** The `azurerm_sql_managed_datab
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/sql_managed_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/sql_managed_database"   
 }
 
 inputs = {
-   name = "name of sql_managed_database" 
+   name = "name of sql_managed_database"   
    # sql_managed_instance_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
 }
 
 tfstate_inputs = {
-   sql_managed_instance_id = "path/to/sql_managed_instance_component:id" 
+   sql_managed_instance_id = "path/to/sql_managed_instance_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

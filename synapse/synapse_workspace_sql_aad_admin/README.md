@@ -6,26 +6,26 @@ Manages an Azure Active Directory SQL Administrator setting for a Synapse Worksp
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_workspace_sql_aad_admin" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_workspace_sql_aad_admin"   
 }
 
 inputs = {
    # synapse_workspace_id → set in tfstate_inputs
-   login = "login of synapse_workspace_sql_aad_admin" 
-   object_id = "object_id of synapse_workspace_sql_aad_admin" 
+   login = "login of synapse_workspace_sql_aad_admin"   
+   object_id = "object_id of synapse_workspace_sql_aad_admin"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   synapse_workspace_id = "path/to/synapse_workspace_component:id"   
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

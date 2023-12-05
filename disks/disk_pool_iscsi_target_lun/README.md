@@ -6,24 +6,24 @@ Manages an iSCSI Target lun.!> **Note:** Azure are officially [halting](https://
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "disks/disk_pool_iscsi_target_lun" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "disks/disk_pool_iscsi_target_lun"   
 }
 
 inputs = {
-   iscsi_target_id = "iscsi_target_id of disk_pool_iscsi_target_lun" 
+   iscsi_target_id = "iscsi_target_id of disk_pool_iscsi_target_lun"   
    # disk_pool_managed_disk_attachment_id → set in tfstate_inputs
-   name = "name of disk_pool_iscsi_target_lun" 
+   name = "name of disk_pool_iscsi_target_lun"   
 }
 
 tfstate_inputs = {
-   disk_pool_managed_disk_attachment_id = "path/to/disk_pool_managed_disk_attachment_component:id" 
+   disk_pool_managed_disk_attachment_id = "path/to/disk_pool_managed_disk_attachment_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

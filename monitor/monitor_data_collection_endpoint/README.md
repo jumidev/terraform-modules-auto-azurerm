@@ -6,20 +6,20 @@ Manages a Data Collection Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_data_collection_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_data_collection_endpoint"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of monitor_data_collection_endpoint" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of monitor_data_collection_endpoint"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

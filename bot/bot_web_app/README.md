@@ -6,22 +6,22 @@ Manages a Bot Web App.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_web_app" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_web_app"   
 }
 
 inputs = {
-   name = "name of bot_web_app" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of bot_web_app" 
-   microsoft_app_id = "microsoft_app_id of bot_web_app" 
+   name = "name of bot_web_app"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku = "sku of bot_web_app"   
+   microsoft_app_id = "microsoft_app_id of bot_web_app"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

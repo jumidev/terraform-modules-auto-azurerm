@@ -6,23 +6,23 @@ Manages IP Group CIDR records.~> Warning Do not use this resource at the same ti
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/ip_group_cidr" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/ip_group_cidr"   
 }
 
 inputs = {
    # ip_group_id → set in tfstate_inputs
-   cidr = "cidr of ip_group_cidr" 
+   cidr = "cidr of ip_group_cidr"   
 }
 
 tfstate_inputs = {
-   ip_group_id = "path/to/ip_group_component:id" 
+   ip_group_id = "path/to/ip_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

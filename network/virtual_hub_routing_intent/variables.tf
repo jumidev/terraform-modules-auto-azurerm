@@ -16,6 +16,7 @@ variable "routing_policy" {
 }
 #
 # routing_policy block structure:
+#   name (string)                 : (REQUIRED) The unique name for the routing policy.
 #   destinations (string)         : (REQUIRED) A list of destinations which this routing policy is applicable to. Possible values are 'Internet' and 'PrivateTraffic'.
 #   next_hop (string)             : (REQUIRED) The resource ID of the next hop on which this routing policy is applicable to.
 

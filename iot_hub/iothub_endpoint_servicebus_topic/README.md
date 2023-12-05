@@ -6,24 +6,24 @@ Manages an IotHub ServiceBus Topic Endpoint~> **NOTE:** Endpoints can be defined
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_endpoint_servicebus_topic" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_endpoint_servicebus_topic"   
 }
 
 inputs = {
-   name = "name of iothub_endpoint_servicebus_topic" 
-   resource_group_name = "${resource_group}" 
+   name = "name of iothub_endpoint_servicebus_topic"   
+   resource_group_name = "${resource_group}"   
    # iothub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_id = "path/to/iothub_component:id" 
+   iothub_id = "path/to/iothub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,21 +6,21 @@ Manages an HTTP Action within a Logic App Workflow
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_action_http" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/logic_app_action_http"   
 }
 
 inputs = {
-   name = "name of logic_app_action_http" 
-   logic_app_id = "logic_app_id of logic_app_action_http" 
-   method = "method of logic_app_action_http" 
-   uri = "uri of logic_app_action_http" 
+   name = "name of logic_app_action_http"   
+   logic_app_id = "logic_app_id of logic_app_action_http"   
+   method = "method of logic_app_action_http"   
+   uri = "uri of logic_app_action_http"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

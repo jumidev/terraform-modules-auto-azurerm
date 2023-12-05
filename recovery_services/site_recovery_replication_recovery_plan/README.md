@@ -6,21 +6,21 @@ Manages a Site Recovery Replication Recovery Plan within a Recovery Services vau
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/site_recovery_replication_recovery_plan" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "recovery_services/site_recovery_replication_recovery_plan"   
 }
 
 inputs = {
-   name = "name of site_recovery_replication_recovery_plan" 
-   recovery_vault_id = "recovery_vault_id of site_recovery_replication_recovery_plan" 
-   source_recovery_fabric_id = "source_recovery_fabric_id of site_recovery_replication_recovery_plan" 
-   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replication_recovery_plan" 
+   name = "name of site_recovery_replication_recovery_plan"   
+   recovery_vault_id = "recovery_vault_id of site_recovery_replication_recovery_plan"   
+   source_recovery_fabric_id = "source_recovery_fabric_id of site_recovery_replication_recovery_plan"   
+   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replication_recovery_plan"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -44,6 +44,34 @@ tfstate_store = {
 | **boot_recovery_group** | [block](#boot_recovery_group-block-structure) |  One or more `boot_recovery_group` blocks. | 
 | **azure_to_azure_settings** | [block](#azure_to_azure_settings-block-structure) |  An `azure_to_azure_settings` block. | 
 
+### `boot_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
+| `pre_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the Action. |
+| `type` | string | Yes | - | Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'. |
+| `fail_over_directions` | string | Yes | - | Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary' |
+| `fail_over_types` | string | Yes | - | Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover' |
+| `fabric_location` | string | No | - | The fabric location of runbook or script. Possible values are 'Primary' and 'Recovery'. It must not be specified when 'type' is 'ManualActionDetails'. |
+| `runbook_id` | string | No | - | Id of runbook. |
+| `manual_action_instruction` | string | No | - | Instructions of manual action. |
+| `script_path` | string | No | - | Path of action script. |
+
+### `failover_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `pre_action` | [block](#failover_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#failover_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
+
 ### `azure_to_azure_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -59,33 +87,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `pre_action` | [block](#shutdown_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
 | `post_action` | [block](#shutdown_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
-### `failover_recovery_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `pre_action` | [block](#failover_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#failover_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
-### `boot_recovery_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
-| `pre_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#boot_recovery_group-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'. |
-| `fail_over_directions` | string | Yes | - | Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary' |
-| `fail_over_types` | string | Yes | - | Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover' |
-| `fabric_location` | string | No | - | The fabric location of runbook or script. Possible values are 'Primary' and 'Recovery'. It must not be specified when 'type' is 'ManualActionDetails'. |
-| `runbook_id` | string | No | - | Id of runbook. |
-| `manual_action_instruction` | string | No | - | Instructions of manual action. |
-| `script_path` | string | No | - | Path of action script. |
 
 
 

@@ -6,25 +6,25 @@ Manages an API Management API Assignment to a Product.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_product_api" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_product_api"   
 }
 
 inputs = {
-   api_name = "api_name of api_management_product_api" 
+   api_name = "api_name of api_management_product_api"   
    # api_management_name → set in tfstate_inputs
-   product_id = "product_id of api_management_product_api" 
-   resource_group_name = "${resource_group}" 
+   product_id = "product_id of api_management_product_api"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

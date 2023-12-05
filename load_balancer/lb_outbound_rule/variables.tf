@@ -30,6 +30,7 @@ variable "frontend_ip_configuration" {
 }
 #
 # frontend_ip_configuration block structure:
+#   name (string)                            : (REQUIRED) The name of the Frontend IP Configuration.
 
 
 variable "enable_tcp_reset" {

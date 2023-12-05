@@ -6,28 +6,28 @@ Manages a Blueprint Assignment resource~> **NOTE:** Azure Blueprints are in Prev
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "blueprints/blueprint_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "blueprints/blueprint_assignment"   
 }
 
 inputs = {
-   name = "name of blueprint_assignment" 
-   target_subscription_id = "target_subscription_id of blueprint_assignment" 
-   location = "${location}" 
+   name = "name of blueprint_assignment"   
+   target_subscription_id = "target_subscription_id of blueprint_assignment"   
+   location = "${location}"   
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
-   version_id = "version_id of blueprint_assignment" 
+   
+   version_id = "version_id of blueprint_assignment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,27 +6,27 @@ Allows you to set a user or group as the AD administrator for an Azure SQL Manag
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/sql_managed_instance_active_directory_administrator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/sql_managed_instance_active_directory_administrator"   
 }
 
 inputs = {
    # managed_instance_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   login = "login of sql_managed_instance_active_directory_administrator" 
-   object_id = "object_id of sql_managed_instance_active_directory_administrator" 
+   resource_group_name = "${resource_group}"   
+   login = "login of sql_managed_instance_active_directory_administrator"   
+   object_id = "object_id of sql_managed_instance_active_directory_administrator"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   managed_instance_name = "path/to/sql_server_component:name" 
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   managed_instance_name = "path/to/sql_server_component:name"   
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

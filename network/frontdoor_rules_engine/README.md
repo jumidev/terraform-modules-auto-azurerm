@@ -6,24 +6,24 @@
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/frontdoor_rules_engine" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/frontdoor_rules_engine"   
 }
 
 inputs = {
-   name = "name of frontdoor_rules_engine" 
+   name = "name of frontdoor_rules_engine"   
    # frontdoor_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   frontdoor_name = "path/to/frontdoor_component:name" 
+   frontdoor_name = "path/to/frontdoor_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,13 +62,13 @@ tfstate_store = {
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
 
-### `rule` block structure
+### `response_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
-| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
 
 ### `action` block structure
 
@@ -77,13 +77,14 @@ tfstate_store = {
 | `request_header` | [block](#action-block-structure) | No | - | A 'request_header' block. |
 | `response_header` | [block](#action-block-structure) | No | - | A 'response_header' block. |
 
-### `response_header` block structure
+### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
+| `name` | string | Yes | - | The name of the rule. |
+| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
+| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#rule-block-structure) | No | - | One or more 'match_condition' block. |
 
 
 

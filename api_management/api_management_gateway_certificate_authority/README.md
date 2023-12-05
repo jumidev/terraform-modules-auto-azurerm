@@ -6,24 +6,24 @@ Manages an API Management Gateway Certificate Authority.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_gateway_certificate_authority" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_gateway_certificate_authority"   
 }
 
 inputs = {
    # api_management_id → set in tfstate_inputs
-   certificate_name = "certificate_name of api_management_gateway_certificate_authority" 
-   gateway_name = "gateway_name of api_management_gateway_certificate_authority" 
+   certificate_name = "certificate_name of api_management_gateway_certificate_authority"   
+   gateway_name = "gateway_name of api_management_gateway_certificate_authority"   
 }
 
 tfstate_inputs = {
-   api_management_id = "path/to/api_management_component:id" 
+   api_management_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,23 +6,23 @@ Manages a Network Manager Network Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_network_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_network_group"   
 }
 
 inputs = {
-   name = "name of network_manager_network_group" 
+   name = "name of network_manager_network_group"   
    # network_manager_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   network_manager_id = "path/to/network_manager_component:id" 
+   network_manager_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

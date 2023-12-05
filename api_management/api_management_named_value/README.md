@@ -6,25 +6,25 @@ Manages an API Management Named Value.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_named_value" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_named_value"   
 }
 
 inputs = {
-   name = "name of api_management_named_value" 
-   resource_group_name = "${resource_group}" 
+   name = "name of api_management_named_value"   
+   resource_group_name = "${resource_group}"   
    # api_management_name → set in tfstate_inputs
-   display_name = "display_name of api_management_named_value" 
+   display_name = "display_name of api_management_named_value"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

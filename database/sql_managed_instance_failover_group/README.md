@@ -6,33 +6,33 @@ Manages a SQL Instance Failover Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/sql_managed_instance_failover_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/sql_managed_instance_failover_group"   
 }
 
 inputs = {
-   name = "name of sql_managed_instance_failover_group" 
+   name = "name of sql_managed_instance_failover_group"   
    # managed_instance_name → set in tfstate_inputs
-   location = "${location}" 
-   partner_managed_instance_id = "partner_managed_instance_id of sql_managed_instance_failover_group" 
+   location = "${location}"   
+   partner_managed_instance_id = "partner_managed_instance_id of sql_managed_instance_failover_group"   
    read_write_endpoint_failover_policy = {
-      example_read_write_endpoint_failover_policy = {
-         mode = "..."   
+      this_read_write_endpoint_failover_policy = {
+         mode = "..."         
       }
-  
+      
    }
- 
-   resource_group_name = "${resource_group}" 
+   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   managed_instance_name = "path/to/sql_server_component:name" 
+   managed_instance_name = "path/to/sql_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

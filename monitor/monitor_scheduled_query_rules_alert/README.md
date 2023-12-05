@@ -6,39 +6,39 @@ Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_scheduled_query_rules_alert" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_scheduled_query_rules_alert"   
 }
 
 inputs = {
-   name = "name of monitor_scheduled_query_rules_alert" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   data_source_id = "data_source_id of monitor_scheduled_query_rules_alert" 
-   frequency = "frequency of monitor_scheduled_query_rules_alert" 
-   query = "query of monitor_scheduled_query_rules_alert" 
-   time_window = "time_window of monitor_scheduled_query_rules_alert" 
+   name = "name of monitor_scheduled_query_rules_alert"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   data_source_id = "data_source_id of monitor_scheduled_query_rules_alert"   
+   frequency = "frequency of monitor_scheduled_query_rules_alert"   
+   query = "query of monitor_scheduled_query_rules_alert"   
+   time_window = "time_window of monitor_scheduled_query_rules_alert"   
    trigger = {
-      example_trigger = {
-         operator = "..."   
-         threshold = "..."   
+      this_trigger = {
+         operator = "..."         
+         threshold = "..."         
       }
-  
+      
    }
- 
+   
    action = {
-      example_action = {
-         action_group = "..."   
+      this_action = {
+         action_group = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -70,14 +70,6 @@ tfstate_store = {
 | **throttling** | string |  -  |  -  |  Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group` | string | Yes | - | List of action group reference resource IDs. |
-| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
-| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
-
 ### `trigger` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +86,14 @@ tfstate_store = {
 | `operator` | string | Yes | - | Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
 | `threshold` | string | Yes | - | The threshold of the metric trigger. Values must be between 0 and 10000 inclusive. |
 | `metric_column` | string | No | - | Evaluation of metric on a particular column. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group` | string | Yes | - | List of action group reference resource IDs. |
+| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
+| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
 
 
 

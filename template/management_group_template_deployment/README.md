@@ -6,24 +6,24 @@ Manages a Template Deployment at a Management Group Scope.~> **Note:** Deleting 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "template/management_group_template_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "template/management_group_template_deployment"   
 }
 
 inputs = {
-   location = "${location}" 
+   location = "${location}"   
    # management_group_id → set in tfstate_inputs
-   name = "name of management_group_template_deployment" 
+   name = "name of management_group_template_deployment"   
 }
 
 tfstate_inputs = {
-   management_group_id = "path/to/management_group_component:id" 
+   management_group_id = "path/to/management_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

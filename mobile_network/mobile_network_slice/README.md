@@ -6,31 +6,31 @@ Manages a Mobile Network Slice.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network_slice" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mobile_network/mobile_network_slice"   
 }
 
 inputs = {
-   name = "name of mobile_network_slice" 
+   name = "name of mobile_network_slice"   
    # mobile_network_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
    single_network_slice_selection_assistance_information = {
-      example_single_network_slice_selection_assistance_information = {
-         slice_service_type = "..."   
+      this_single_network_slice_selection_assistance_information = {
+         slice_service_type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   mobile_network_id = "path/to/mobile_network_component:id" 
+   mobile_network_id = "path/to/mobile_network_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

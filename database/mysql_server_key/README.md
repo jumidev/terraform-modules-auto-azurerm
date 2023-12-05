@@ -6,23 +6,23 @@ Manages a Customer Managed Key for a MySQL Server.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mysql_server_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mysql_server_key"   
 }
 
 inputs = {
-   server_id = "server_id of mysql_server_key" 
+   server_id = "server_id of mysql_server_key"   
    # key_vault_key_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   key_vault_key_id = "path/to/key_vault_key_component:id" 
+   key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

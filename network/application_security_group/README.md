@@ -6,26 +6,26 @@ Manages an Application Security Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/application_security_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/application_security_group"   
 }
 
 inputs = {
-   name = "name of application_security_group" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of application_security_group"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resource
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **private_endpoint_id** | If set to a valid `azurerm_private_endpoint` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - Manages an association between Private Endpoint and Application Security Group.|
 

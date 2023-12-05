@@ -6,19 +6,19 @@ Assigns a given Principal (User or Group) to a given Role.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "authorization/role_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "authorization/role_assignment"   
 }
 
 inputs = {
-   scope = "scope of role_assignment" 
-   principal_id = "principal_id of role_assignment" 
+   scope = "scope of role_assignment"   
+   principal_id = "principal_id of role_assignment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,23 +6,23 @@ Manages a MS SQL Server DNS Alias.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_server_dns_alias" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_server_dns_alias"   
 }
 
 inputs = {
    # mssql_server_id → set in tfstate_inputs
-   name = "name of mssql_server_dns_alias" 
+   name = "name of mssql_server_dns_alias"   
 }
 
 tfstate_inputs = {
-   mssql_server_id = "path/to/mssql_server_component:id" 
+   mssql_server_id = "path/to/mssql_server_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

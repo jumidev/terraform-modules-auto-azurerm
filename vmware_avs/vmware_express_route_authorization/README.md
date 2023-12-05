@@ -6,19 +6,19 @@ Manages an Express Route VMware Authorization.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "vmware_avs/vmware_express_route_authorization" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "vmware_avs/vmware_express_route_authorization"   
 }
 
 inputs = {
-   name = "name of vmware_express_route_authorization" 
-   private_cloud_id = "private_cloud_id of vmware_express_route_authorization" 
+   name = "name of vmware_express_route_authorization"   
+   private_cloud_id = "private_cloud_id of vmware_express_route_authorization"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

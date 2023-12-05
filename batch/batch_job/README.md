@@ -6,23 +6,23 @@ Manages a Batch Job.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "batch/batch_job" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "batch/batch_job"   
 }
 
 inputs = {
    # batch_pool_id → set in tfstate_inputs
-   name = "name of batch_job" 
+   name = "name of batch_job"   
 }
 
 tfstate_inputs = {
-   batch_pool_id = "path/to/batch_pool_component:id" 
+   batch_pool_id = "path/to/batch_pool_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,22 +6,22 @@ Manages a Resource Deployment Script of Azure Cli.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "template/resource_deployment_script_azure_cli" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "template/resource_deployment_script_azure_cli"   
 }
 
 inputs = {
-   name = "name of resource_deployment_script_azure_cli" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   version = "version of resource_deployment_script_azure_cli" 
-   retention_interval = "retention_interval of resource_deployment_script_azure_cli" 
+   name = "name of resource_deployment_script_azure_cli"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   version = "version of resource_deployment_script_azure_cli"   
+   retention_interval = "retention_interval of resource_deployment_script_azure_cli"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -53,31 +53,33 @@ tfstate_store = {
 | **timeout** | string |  `P1D`  |  -  |  Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Deployment Script. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
-| `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
-
 ### `container` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_group_name` | string | No | - | Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. |
 
+### `environment_variable` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the environment variable. |
+| `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
+| `value` | string | No | - | Specifies the value of the environment variable. |
+
 ### `storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key` | string | Yes | - | Specifies the storage account access key. |
+| `name` | string | Yes | - | Specifies the storage account name. |
 
-### `environment_variable` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
-| `value` | string | No | - | Specifies the value of the environment variable. |
+| `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
+| `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
 
 
 

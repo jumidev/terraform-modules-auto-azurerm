@@ -6,19 +6,19 @@ Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_topic_authorization_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_topic_authorization_rule"   
 }
 
 inputs = {
-   name = "name of servicebus_topic_authorization_rule" 
-   topic_id = "topic_id of servicebus_topic_authorization_rule" 
+   name = "name of servicebus_topic_authorization_rule"   
+   topic_id = "topic_id of servicebus_topic_authorization_rule"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

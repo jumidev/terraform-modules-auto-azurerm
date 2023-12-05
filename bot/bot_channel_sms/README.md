@@ -6,23 +6,23 @@ Manages a SMS integration for a Bot Channel~> **Note** A bot can only have a sin
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_channel_sms" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_channel_sms"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bot_name = "bot_name of bot_channel_sms" 
-   phone_number = "phone_number of bot_channel_sms" 
-   sms_channel_account_security_id = "sms_channel_account_security_id of bot_channel_sms" 
-   sms_channel_auth_token = "sms_channel_auth_token of bot_channel_sms" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bot_name = "bot_name of bot_channel_sms"   
+   phone_number = "phone_number of bot_channel_sms"   
+   sms_channel_account_security_id = "sms_channel_account_security_id of bot_channel_sms"   
+   sms_channel_auth_token = "sms_channel_auth_token of bot_channel_sms"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

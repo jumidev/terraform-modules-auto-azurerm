@@ -21,11 +21,13 @@ variable "dataset" {
 #   grouping (block)       : One or more 'grouping' blocks.
 #   sorting (block)        : One or more 'sorting' blocks, containing the order by expression to be used in the report
 #
-# grouping block structure:
-#   type (string)           : (REQUIRED) The type of the column. Possible values are 'Dimension' and 'TagKey'.
-#
 # sorting block structure:
 #   direction (string)     : (REQUIRED) Direction of sort. Possible values are 'Ascending' and 'Descending'.
+#   name (string)          : (REQUIRED) The name of the column to sort.
+#
+# grouping block structure:
+#   name (string)           : (REQUIRED) The name of the column to group.
+#   type (string)           : (REQUIRED) The type of the column. Possible values are 'Dimension' and 'TagKey'.
 
 
 variable "display_name" {
@@ -73,6 +75,7 @@ variable "pivot" {
 }
 #
 # pivot block structure:
+#   name (string)        : (REQUIRED) The name of the column which should be used for this sub-view in the Cost Analysis UI.
 #   type (string)        : (REQUIRED) The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'.
 
 

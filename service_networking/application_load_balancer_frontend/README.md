@@ -6,23 +6,23 @@ Manages an Application Gateway for Containers Frontend.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "service_networking/application_load_balancer_frontend" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "service_networking/application_load_balancer_frontend"   
 }
 
 inputs = {
-   name = "name of application_load_balancer_frontend" 
+   name = "name of application_load_balancer_frontend"   
    # application_load_balancer_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   application_load_balancer_id = "path/to/application_load_balancer_component:id" 
+   application_load_balancer_id = "path/to/application_load_balancer_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

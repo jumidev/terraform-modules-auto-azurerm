@@ -6,25 +6,25 @@ Manages a Dapr Component for a Container App Environment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container_apps/container_app_environment_dapr_component" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container_apps/container_app_environment_dapr_component"   
 }
 
 inputs = {
    # container_app_environment_id → set in tfstate_inputs
-   name = "name of container_app_environment_dapr_component" 
-   component_type = "component_type of container_app_environment_dapr_component" 
-   version = "version of container_app_environment_dapr_component" 
+   name = "name of container_app_environment_dapr_component"   
+   component_type = "component_type of container_app_environment_dapr_component"   
+   version = "version of container_app_environment_dapr_component"   
 }
 
 tfstate_inputs = {
-   container_app_environment_id = "path/to/container_app_environment_component:id" 
+   container_app_environment_id = "path/to/container_app_environment_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Secret name. |
 | `value` | string | Yes | - | The value for this secret. |
 
 

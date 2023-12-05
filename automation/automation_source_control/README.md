@@ -6,34 +6,34 @@ Manages an Automation Source Control.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_source_control" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_source_control"   
 }
 
 inputs = {
-   name = "name of automation_source_control" 
+   name = "name of automation_source_control"   
    # automation_account_id → set in tfstate_inputs
-   folder_path = "folder_path of automation_source_control" 
-   repository_url = "repository_url of automation_source_control" 
+   folder_path = "folder_path of automation_source_control"   
+   repository_url = "repository_url of automation_source_control"   
    security = {
-      example_security = {
-         token = "..."   
-         token_type = "..."   
+      this_security = {
+         token = "..."         
+         token_type = "..."         
       }
-  
+      
    }
- 
-   source_control_type = "source_control_type of automation_source_control" 
+   
+   source_control_type = "source_control_type of automation_source_control"   
 }
 
 tfstate_inputs = {
-   automation_account_id = "path/to/automation_account_component:id" 
+   automation_account_id = "path/to/automation_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,37 +6,37 @@ Manages a Stream Analytics Stream Input IoTHub.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_stream_input_iothub" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_stream_input_iothub"   
 }
 
 inputs = {
-   name = "name of stream_analytics_stream_input_iothub" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_stream_input_iothub"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
    # eventhub_consumer_group_name → set in tfstate_inputs
-   endpoint = "endpoint of stream_analytics_stream_input_iothub" 
-   iothub_namespace = "iothub_namespace of stream_analytics_stream_input_iothub" 
+   endpoint = "endpoint of stream_analytics_stream_input_iothub"   
+   iothub_namespace = "iothub_namespace of stream_analytics_stream_input_iothub"   
    serialization = {
-      example_serialization = {
-         type = "..."   
+      this_serialization = {
+         type = "..."         
       }
-  
+      
    }
- 
-   shared_access_policy_key = "shared_access_policy_key of stream_analytics_stream_input_iothub" 
-   shared_access_policy_name = "shared_access_policy_name of stream_analytics_stream_input_iothub" 
+   
+   shared_access_policy_key = "shared_access_policy_key of stream_analytics_stream_input_iothub"   
+   shared_access_policy_name = "shared_access_policy_name of stream_analytics_stream_input_iothub"   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
-   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name" 
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
+   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

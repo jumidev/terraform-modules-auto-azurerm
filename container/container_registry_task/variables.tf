@@ -110,6 +110,7 @@ variable "base_image_trigger" {
 }
 #
 # base_image_trigger block structure  :
+#   name (string)                       : (REQUIRED) The name which should be used for this trigger.
 #   type (string)                       : (REQUIRED) The type of the trigger. Possible values are 'All' and 'Runtime'.
 #   enabled (bool)                      : Should the trigger be enabled? Defaults to 'true'.
 #   update_trigger_endpoint (string)    : The endpoint URL for receiving the trigger.
@@ -123,6 +124,7 @@ variable "source_trigger" {
 }
 #
 # source_trigger block structure:
+#   name (string)                 : (REQUIRED) The name which should be used for this trigger.
 #   events (string)               : (REQUIRED) Specifies a list of source events corresponding to the trigger. Possible values are 'commit' and 'pullrequest'.
 #   repository_url (string)       : (REQUIRED) The full URL to the source code repository.
 #   source_type (string)          : (REQUIRED) The type of the source control service. Possible values are 'Github' and 'VisualStudioTeamService'.
@@ -145,6 +147,7 @@ variable "timer_trigger" {
 }
 #
 # timer_trigger block structure:
+#   name (string)                : (REQUIRED) The name which should be used for this trigger.
 #   schedule (string)            : (REQUIRED) The CRON expression for the task schedule.
 #   enabled (bool)               : Should the trigger be enabled? Defaults to 'true'.
 

@@ -6,26 +6,26 @@ Manages an iot security solution.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/iot_security_solution" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/iot_security_solution"   
 }
 
 inputs = {
-   name = "name of iot_security_solution" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   display_name = "display_name of iot_security_solution" 
+   name = "name of iot_security_solution"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   display_name = "display_name of iot_security_solution"   
    # iothub_ids → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_ids = "path/to/iothub_component:id" 
+   iothub_ids = "path/to/iothub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

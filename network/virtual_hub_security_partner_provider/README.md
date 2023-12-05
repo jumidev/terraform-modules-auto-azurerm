@@ -6,21 +6,21 @@ Manages a Security Partner Provider which could be associated to virtual hub.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_hub_security_partner_provider" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_hub_security_partner_provider"   
 }
 
 inputs = {
-   name = "name of virtual_hub_security_partner_provider" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   security_provider_name = "security_provider_name of virtual_hub_security_partner_provider" 
+   name = "name of virtual_hub_security_partner_provider"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   security_provider_name = "security_provider_name of virtual_hub_security_partner_provider"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

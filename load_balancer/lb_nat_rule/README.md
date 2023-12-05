@@ -6,28 +6,28 @@ Manages a Load Balancer NAT Rule.-> **NOTE:** This resource cannot be used with 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_balancer/lb_nat_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_balancer/lb_nat_rule"   
 }
 
 inputs = {
-   name = "name of lb_nat_rule" 
-   resource_group_name = "${resource_group}" 
+   name = "name of lb_nat_rule"   
+   resource_group_name = "${resource_group}"   
    # loadbalancer_id → set in tfstate_inputs
    # frontend_ip_configuration_name → set in tfstate_inputs
-   protocol = "protocol of lb_nat_rule" 
-   backend_port = "backend_port of lb_nat_rule" 
+   protocol = "protocol of lb_nat_rule"   
+   backend_port = "backend_port of lb_nat_rule"   
 }
 
 tfstate_inputs = {
-   loadbalancer_id = "path/to/lb_component:id" 
-   frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration" 
+   loadbalancer_id = "path/to/lb_component:id"   
+   frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

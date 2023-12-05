@@ -6,24 +6,24 @@ Manages a Storage Encryption Scope.~> **Note:** Storage Encryption Scopes are in
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_encryption_scope" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_encryption_scope"   
 }
 
 inputs = {
-   name = "name of storage_encryption_scope" 
-   source = "source of storage_encryption_scope" 
+   name = "name of storage_encryption_scope"   
+   source = "source of storage_encryption_scope"   
    # storage_account_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

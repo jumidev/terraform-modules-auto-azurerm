@@ -6,20 +6,20 @@ Manages a Web Chat integration for a Bot Channel
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_channel_web_chat" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_channel_web_chat"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bot_name = "bot_name of bot_channel_web_chat" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bot_name = "bot_name of bot_channel_web_chat"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -43,6 +43,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the site. |
 | `user_upload_enabled` | bool | No | True | Is the user upload enabled for this site? Defaults to 'true'. |
 | `endpoint_parameters_enabled` | bool | No | - | Is the endpoint parameters enabled for this site? |
 | `storage_enabled` | bool | No | True | Is the storage site enabled for detailed logging? Defaults to 'true'. |

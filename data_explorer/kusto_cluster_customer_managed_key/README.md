@@ -6,24 +6,24 @@ Manages a Customer Managed Key for a Kusto Cluster.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_cluster_customer_managed_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_explorer/kusto_cluster_customer_managed_key"   
 }
 
 inputs = {
-   cluster_id = "cluster_id of kusto_cluster_customer_managed_key" 
+   cluster_id = "cluster_id of kusto_cluster_customer_managed_key"   
    # key_vault_id → set in tfstate_inputs
-   key_name = "key_name of kusto_cluster_customer_managed_key" 
+   key_name = "key_name of kusto_cluster_customer_managed_key"   
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
+   key_vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

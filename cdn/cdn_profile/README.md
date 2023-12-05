@@ -6,21 +6,21 @@ Manages a CDN Profile to create a collection of CDN Endpoints.!> **Be Aware:** A
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_profile" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_profile"   
 }
 
 inputs = {
-   name = "name of cdn_profile" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of cdn_profile" 
+   name = "name of cdn_profile"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku = "sku of cdn_profile"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

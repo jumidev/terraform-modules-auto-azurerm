@@ -6,23 +6,23 @@ Manages a Palo Alto Network Virtual Appliance.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "palo_alto/palo_alto_network_virtual_appliance" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "palo_alto/palo_alto_network_virtual_appliance"   
 }
 
 inputs = {
-   name = "name of palo_alto_network_virtual_appliance" 
+   name = "name of palo_alto_network_virtual_appliance"   
    # virtual_hub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

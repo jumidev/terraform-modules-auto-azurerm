@@ -6,23 +6,23 @@ Manages a Storage Account Local User.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_account_local_user" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_account_local_user"   
 }
 
 inputs = {
-   name = "name of storage_account_local_user" 
+   name = "name of storage_account_local_user"   
    # storage_account_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,26 +6,26 @@ Manages a Key Vault Managed Storage Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_managed_storage_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_managed_storage_account"   
 }
 
 inputs = {
-   name = "name of key_vault_managed_storage_account" 
+   name = "name of key_vault_managed_storage_account"   
    # key_vault_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   storage_account_key = "storage_account_key of key_vault_managed_storage_account" 
+   storage_account_key = "storage_account_key of key_vault_managed_storage_account"   
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
-   storage_account_id = "path/to/storage_account_component:id" 
+   key_vault_id = "path/to/key_vault_component:id"   
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

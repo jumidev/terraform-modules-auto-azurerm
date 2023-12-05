@@ -6,24 +6,24 @@ Manages a Video Analyzer Edge Module.!> Video Analyzer (Preview) is now Deprecat
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "video_analyzer/video_analyzer_edge_module" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "video_analyzer/video_analyzer_edge_module"   
 }
 
 inputs = {
-   name = "name of video_analyzer_edge_module" 
-   resource_group_name = "${resource_group}" 
+   name = "name of video_analyzer_edge_module"   
+   resource_group_name = "${resource_group}"   
    # video_analyzer_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   video_analyzer_name = "path/to/video_analyzer_component:name" 
+   video_analyzer_name = "path/to/video_analyzer_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

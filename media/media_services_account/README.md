@@ -6,26 +6,26 @@ Manages a Media Services Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "media/media_services_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "media/media_services_account"   
 }
 
 inputs = {
-   name = "name of media_services_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of media_services_account"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    storage_account = {
-      example_storage_account = {
+      this_storage_account = {
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -65,12 +65,12 @@ tfstate_store = {
 | `key_vault_key_identifier` | string | No | - | Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey). |
 | `managed_identity` | [block](#encryption-block-structure) | No | - | A 'managed_identity' block. |
 
-### `key_delivery_access_control` block structure
+### `managed_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | - | The Default Action to use when no rules match from 'ip_allow_list'. Possible values are 'Allow' and 'Deny'. |
-| `ip_allow_list` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery. |
+| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity. This value can only be set when 'use_system_assigned_identity' is 'false' |
+| `use_system_assigned_identity` | bool | No | - | Whether to use System Assigned Identity. Possible Values are 'true' and 'false'. |
 
 ### `identity` block structure
 
@@ -79,12 +79,12 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account. |
 
-### `managed_identity` block structure
+### `key_delivery_access_control` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity. This value can only be set when 'use_system_assigned_identity' is 'false' |
-| `use_system_assigned_identity` | bool | No | - | Whether to use System Assigned Identity. Possible Values are 'true' and 'false'. |
+| `default_action` | string | No | - | The Default Action to use when no rules match from 'ip_allow_list'. Possible values are 'Allow' and 'Deny'. |
+| `ip_allow_list` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery. |
 
 
 

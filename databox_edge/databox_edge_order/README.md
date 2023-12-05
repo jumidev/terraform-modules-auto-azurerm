@@ -6,39 +6,40 @@ Manages a Databox Edge Order.!> Creation of Databox Edge Order is not supported 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "databox_edge/databox_edge_order" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "databox_edge/databox_edge_order"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   device_name = "device_name of databox_edge_order" 
+   resource_group_name = "${resource_group}"   
+   device_name = "device_name of databox_edge_order"   
    contact = {
-      example_contact = {
-         company_name = "..."   
-         emails = "..."   
-         phone_number = "..."   
+      this_contact = {
+         company_name = "..."         
+         name = "..."         
+         emails = "..."         
+         phone_number = "..."         
       }
-  
+      
    }
- 
+   
    shipment_address = {
-      example_shipment_address = {
-         address = "..."   
-         city = "..."   
-         country = "..."   
-         postal_code = "..."   
-         state = "..."   
+      this_shipment_address = {
+         address = "..."         
+         city = "..."         
+         country = "..."         
+         postal_code = "..."         
+         state = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -67,6 +68,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `company_name` | string | Yes | - | The name of the company. Changing this forces a new Databox Edge Order to be created. |
+| `name` | string | Yes | - | The contact person name. Changing this forces a new Databox Edge Order to be created. |
 | `emails` | list | Yes | - | A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created. |
 | `phone_number` | string | Yes | - | The phone number. Changing this forces a new Databox Edge Order to be created. |
 

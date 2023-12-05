@@ -6,46 +6,47 @@ Manages a Windows Virtual Machine Scale Set.## Disclaimers-> **NOTE:** As of the
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/windows_virtual_machine_scale_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/windows_virtual_machine_scale_set"   
 }
 
 inputs = {
-   name = "name of windows_virtual_machine_scale_set" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   admin_password = "admin_password of windows_virtual_machine_scale_set" 
-   admin_username = "admin_username of windows_virtual_machine_scale_set" 
-   instances = "instances of windows_virtual_machine_scale_set" 
-   sku = "sku of windows_virtual_machine_scale_set" 
+   name = "name of windows_virtual_machine_scale_set"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
+   admin_password = "admin_password of windows_virtual_machine_scale_set"   
+   admin_username = "admin_username of windows_virtual_machine_scale_set"   
+   instances = "instances of windows_virtual_machine_scale_set"   
+   sku = "sku of windows_virtual_machine_scale_set"   
    network_interface = {
-      example_network_interface = {
-         ip_configuration = "..."   
+      this_network_interface = {
+         name = "..."         
+         ip_configuration = "..."         
          # network_security_group_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
    os_disk = {
-      example_os_disk = {
-         caching = "..."   
-         storage_account_type = "..."   
+      this_os_disk = {
+         caching = "..."         
+         storage_account_type = "..."         
          # disk_encryption_set_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   network_interface.example_network_interface.network_security_group_id = "path/to/network_security_group_component:id" 
-   os_disk.example_os_disk.disk_encryption_set_id = "path/to/disk_encryption_set_component:id" 
+   network_interface.this_network_interface.network_security_group_id = "path/to/network_security_group_component:id"   
+   os_disk.this_os_disk.disk_encryption_set_id = "path/to/disk_encryption_set_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -116,37 +117,30 @@ tfstate_store = {
 | **zone_balance** | bool |  `False`  |  -  |  Should the Virtual Machines in this Scale Set be strictly evenly distributed across Availability Zones? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created. | 
 
-### `protected_settings_from_key_vault` block structure
+### `network_interface` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `secret_url` | string | Yes | - | The URL to the Key Vault Secret which stores the protected settings. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. |
+| `name` | string | Yes | - | The Name which should be used for this Network Interface. Changing this forces a new resource to be created. |
+| `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
+| `dns_servers` | list | No | - | A list of IP Addresses of DNS Servers which should be assigned to the Network Interface. |
+| `enable_accelerated_networking` | bool | No | False | Does this Network Interface support Accelerated Networking? Defaults to 'false'. |
+| `enable_ip_forwarding` | bool | No | False | Does this Network Interface support IP Forwarding? Defaults to 'false'. |
+| `network_security_group_id` | string | No | - | The ID of a Network Security Group which should be assigned to this Network Interface. |
+| `primary` | bool | No | - | Is this the Primary IP Configuration? |
 
-### `os_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `caching` | string | Yes | - | The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
-| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created. |
-| `diff_disk_settings` | [block](#os_disk-block-structure) | No | - | A 'diff_disk_settings' block. Changing this forces a new resource to be created. |
-| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'. Changing this forces a new resource to be created. |
-| `disk_size_gb` | int | No | - | The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from. |
-| `secure_vm_disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created. |
-| `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
-| `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
-
-### `automatic_os_upgrade_policy` block structure
+### `secret` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disable_automatic_rollback` | bool | Yes | - | Should automatic rollbacks be disabled? |
-| `enable_automatic_os_upgrade` | bool | Yes | - | Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? |
+| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
 
 ### `extension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
 | `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
 | `type` | string | Yes | - | Specifies the Type of the Extension. |
 | `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
@@ -158,83 +152,20 @@ tfstate_store = {
 | `provision_after_extensions` | string | No | - | An ordered list of Extension names which this should be provisioned after. |
 | `settings` | string | No | - | A JSON String which specifies Settings for the Extension. |
 
-### `scale_in` block structure
+### `automatic_instance_repair` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rule` | string | No | Default | The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are 'Default', 'NewestVM' and 'OldestVM', defaults to 'Default'. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy). |
-| `force_deletion_enabled` | bool | No | False | Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are 'true' or 'false'. Defaults to 'false'. |
-
-### `termination_notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine Scale Set? |
-| `timeout` | string | No | PT5M | Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+| `enabled` | bool | Yes | - | Should the automatic instance repair be enabled on this Virtual Machine Scale Set? |
+| `grace_period` | int | No | PT30M | Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to 'PT30M'. |
 
 ### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
 | `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
-
-### `terminate_notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the terminate notification be enabled on this Virtual Machine Scale Set? |
-| `timeout` | string | No | PT5M | Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
-
-### `rolling_upgrade_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cross_zone_upgrades_enabled` | string | No | - | Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are 'true' or 'false'. |
-| `max_batch_instance_percent` | string | Yes | - | The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. |
-| `max_unhealthy_instance_percent` | string | Yes | - | The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. |
-| `max_unhealthy_upgraded_instance_percent` | string | Yes | - | The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. |
-| `pause_time_between_batches` | string | Yes | - | The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. |
-| `prioritize_unhealthy_instances_enabled` | string | No | - | Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are 'true' or 'false'. |
-
-### `spot_restore` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | False | Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `timeout` | string | No | PT1H | The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between '15' minutes and '120' minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to 'PT1H'. Changing this forces a new resource to be created. |
-
-### `network_interface` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
-| `dns_servers` | list | No | - | A list of IP Addresses of DNS Servers which should be assigned to the Network Interface. |
-| `enable_accelerated_networking` | bool | No | False | Does this Network Interface support Accelerated Networking? Defaults to 'false'. |
-| `enable_ip_forwarding` | bool | No | False | Does this Network Interface support IP Forwarding? Defaults to 'false'. |
-| `network_security_group_id` | string | No | - | The ID of a Network Security Group which should be assigned to this Network Interface. |
-| `primary` | bool | No | - | Is this the Primary IP Configuration? |
-
-### `additional_unattend_content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
-| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
-
-### `winrm_listener` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
-| `protocol` | string | Yes | - | The Protocol of the WinRM Listener. Possible values are 'Http' and 'Https'. Changing this forces a new resource to be created. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set. |
 
 ### `boot_diagnostics` block structure
 
@@ -251,19 +182,12 @@ tfstate_store = {
 | `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. |
 | `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. |
 
-### `diff_disk_settings` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
-| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
-
-### `secret` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
-| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set. |
 
 ### `additional_capabilities` block structure
 
@@ -271,26 +195,85 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine Scale Set? Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
 
-### `data_disk` block structure
+### `os_disk` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `caching` | string | Yes | - | The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
-| `create_option` | string | No | Empty | The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks). |
-| `disk_size_gb` | int | Yes | - | The size of the Data Disk which should be created. |
-| `lun` | int | Yes | - | The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. |
-| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'. |
-| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created. |
-| `ultra_ssd_disk_iops_read_write` | string | No | - | Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
-| `ultra_ssd_disk_mbps_read_write` | int | No | - | Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
-| `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be enabled for this Data Disk? Defaults to 'false'. |
+| `caching` | string | Yes | - | The Type of Caching which should be used for the Internal OS Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
+| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created. |
+| `diff_disk_settings` | [block](#os_disk-block-structure) | No | - | A 'diff_disk_settings' block. Changing this forces a new resource to be created. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'. Changing this forces a new resource to be created. |
+| `disk_size_gb` | int | No | - | The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from. |
+| `secure_vm_disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created. |
+| `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
+| `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
 
-### `automatic_instance_repair` block structure
+### `protected_settings_from_key_vault` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the automatic instance repair be enabled on this Virtual Machine Scale Set? |
-| `grace_period` | int | No | PT30M | Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to 'PT30M'. |
+| `secret_url` | string | Yes | - | The URL to the Key Vault Secret which stores the protected settings. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. |
+
+### `rolling_upgrade_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cross_zone_upgrades_enabled` | string | No | - | Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are 'true' or 'false'. |
+| `max_batch_instance_percent` | string | Yes | - | The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. |
+| `max_unhealthy_instance_percent` | string | Yes | - | The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. |
+| `max_unhealthy_upgraded_instance_percent` | string | Yes | - | The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. |
+| `pause_time_between_batches` | string | Yes | - | The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. |
+| `prioritize_unhealthy_instances_enabled` | string | No | - | Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are 'true' or 'false'. |
+
+### `scale_in` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule` | string | No | Default | The scale-in policy rule that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled in. Possible values for the scale-in policy rules are 'Default', 'NewestVM' and 'OldestVM', defaults to 'Default'. For more information about scale in policy, please [refer to this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy). |
+| `force_deletion_enabled` | bool | No | False | Should the virtual machines chosen for removal be force deleted when the virtual machine scale set is being scaled-in? Possible values are 'true' or 'false'. Defaults to 'false'. |
+
+### `termination_notification` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine Scale Set? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+
+### `spot_restore` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | False | Should the Spot-Try-Restore feature be enabled? The Spot-Try-Restore feature will attempt to automatically restore the evicted Spot Virtual Machine Scale Set VM instances opportunistically based on capacity availability and pricing constraints. Possible values are 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `timeout` | string | No | PT1H | The length of time that the Virtual Machine Scale Set should attempt to restore the Spot VM instances which have been evicted. The time duration should be between '15' minutes and '120' minutes (inclusive). The time duration should be specified in the ISO 8601 format. Defaults to 'PT1H'. Changing this forces a new resource to be created. |
+
+### `terminate_notification` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the terminate notification be enabled on this Virtual Machine Scale Set? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between 5 and 15) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+
+### `diff_disk_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
+| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
+
+### `winrm_listener` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
+| `protocol` | string | Yes | - | The Protocol of the WinRM Listener. Possible values are 'Http' and 'Https'. Changing this forces a new resource to be created. |
+
+### `automatic_os_upgrade_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disable_automatic_rollback` | bool | Yes | - | Should automatic rollbacks be disabled? |
+| `enable_automatic_os_upgrade` | bool | Yes | - | Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available? |
 
 ### `gallery_application` block structure
 
@@ -300,6 +283,28 @@ tfstate_store = {
 | `configuration_blob_uri` | string | No | - | Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created. |
 | `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. Changing this forces a new resource to be created. |
 | `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. Changing this forces a new resource to be created. |
+
+### `additional_unattend_content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
+| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
+
+### `data_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the Data Disk. |
+| `caching` | string | Yes | - | The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. |
+| `create_option` | string | No | Empty | The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks). |
+| `disk_size_gb` | int | Yes | - | The size of the Data Disk which should be created. |
+| `lun` | int | Yes | - | The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. |
+| `storage_account_type` | string | Yes | - | The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'. |
+| `disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created. |
+| `ultra_ssd_disk_iops_read_write` | string | No | - | Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
+| `ultra_ssd_disk_mbps_read_write` | int | No | - | Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'. |
+| `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be enabled for this Data Disk? Defaults to 'false'. |
 
 
 

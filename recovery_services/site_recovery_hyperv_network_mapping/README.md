@@ -6,22 +6,22 @@ Manages a HyperV site recovery network mapping on Azure. A HyperV network mappin
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/site_recovery_hyperv_network_mapping" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "recovery_services/site_recovery_hyperv_network_mapping"   
 }
 
 inputs = {
-   name = "name of site_recovery_hyperv_network_mapping" 
-   recovery_vault_id = "recovery_vault_id of site_recovery_hyperv_network_mapping" 
-   source_system_center_virtual_machine_manager_name = "source_system_center_virtual_machine_manager_name of site_recovery_hyperv_network_mapping" 
-   source_network_name = "source_network_name of site_recovery_hyperv_network_mapping" 
-   target_network_id = "target_network_id of site_recovery_hyperv_network_mapping" 
+   name = "name of site_recovery_hyperv_network_mapping"   
+   recovery_vault_id = "recovery_vault_id of site_recovery_hyperv_network_mapping"   
+   source_system_center_virtual_machine_manager_name = "source_system_center_virtual_machine_manager_name of site_recovery_hyperv_network_mapping"   
+   source_network_name = "source_network_name of site_recovery_hyperv_network_mapping"   
+   target_network_id = "target_network_id of site_recovery_hyperv_network_mapping"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

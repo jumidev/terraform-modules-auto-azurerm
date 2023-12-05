@@ -6,34 +6,34 @@ Manages a Log Analytics (formally Operational Insights) Solution.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_solution" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_solution"   
 }
 
 inputs = {
-   solution_name = "solution_name of log_analytics_solution" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   workspace_resource_id = "workspace_resource_id of log_analytics_solution" 
+   solution_name = "solution_name of log_analytics_solution"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   workspace_resource_id = "workspace_resource_id of log_analytics_solution"   
    # workspace_name → set in tfstate_inputs
    plan = {
-      example_plan = {
-         publisher = "..."   
-         product = "..."   
+      this_plan = {
+         publisher = "..."         
+         product = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   workspace_name = "path/to/log_analytics_workspace_component:name" 
+   workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

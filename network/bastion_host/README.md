@@ -6,33 +6,34 @@ Manages a Bastion Host.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/bastion_host" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/bastion_host"   
 }
 
 inputs = {
-   name = "name of bastion_host" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of bastion_host"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    ip_configuration = {
       primary = {
+         name = "..."         
          # subnet_id → set in tfstate_inputs
          # public_ip_address_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   ip_configuration.primary.subnet_id = "path/to/subnet_component:id" 
-   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id" 
+   ip_configuration.primary.subnet_id = "path/to/subnet_component:id"   
+   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -63,6 +64,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the IP configuration. Changing this forces a new resource to be created. |
 | `subnet_id` | string | Yes | - | Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created. |
 | `public_ip_address_id` | string | Yes | - | Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created. |
 

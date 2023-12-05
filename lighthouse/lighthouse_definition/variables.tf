@@ -69,6 +69,7 @@ variable "plan" {
 }
 #
 # plan block structure:
+#   name (string)       : (REQUIRED) The plan name of the marketplace offer.
 #   publisher (string)  : (REQUIRED) The publisher ID of the plan.
 #   product (string)    : (REQUIRED) The product code of the plan.
 #   version (string)    : (REQUIRED) The version of the plan.

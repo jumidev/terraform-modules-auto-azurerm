@@ -6,20 +6,20 @@ Manages a Data Share.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_share/data_share" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_share/data_share"   
 }
 
 inputs = {
-   name = "name of data_share" 
-   account_id = "account_id of data_share" 
-   kind = "kind of data_share" 
+   name = "name of data_share"   
+   account_id = "account_id of data_share"   
+   kind = "kind of data_share"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the snapshot schedule. |
 | `recurrence` | string | Yes | - | The interval of the synchronization with the source data. Possible values are 'Hour' and 'Day'. |
 | `start_time` | string | Yes | - | The synchronization with the source data's start time. |
 

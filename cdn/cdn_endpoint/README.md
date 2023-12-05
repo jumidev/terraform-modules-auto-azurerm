@@ -6,21 +6,21 @@ A CDN Endpoint is the entity within a CDN Profile containing configuration infor
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_endpoint"   
 }
 
 inputs = {
-   name = "name of cdn_endpoint" 
-   resource_group_name = "${resource_group}" 
-   profile_name = "profile_name of cdn_endpoint" 
-   location = "${location}" 
+   name = "name of cdn_endpoint"   
+   resource_group_name = "${resource_group}"   
+   profile_name = "profile_name of cdn_endpoint"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

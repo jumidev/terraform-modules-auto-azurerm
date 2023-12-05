@@ -6,26 +6,26 @@ Manages the linked service to link an Azure Machine learning workspace to an Azu
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "machine_learning/machine_learning_synapse_spark" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "machine_learning/machine_learning_synapse_spark"   
 }
 
 inputs = {
-   name = "name of machine_learning_synapse_spark" 
+   name = "name of machine_learning_synapse_spark"   
    # machine_learning_workspace_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
    # synapse_spark_pool_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id" 
-   synapse_spark_pool_id = "path/to/synapse_spark_pool_component:id" 
+   machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id"   
+   synapse_spark_pool_id = "path/to/synapse_spark_pool_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

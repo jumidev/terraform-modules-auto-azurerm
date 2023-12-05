@@ -6,56 +6,58 @@ Manages a virtual machine scale set.## Disclaimers!> **Note:** The `azurerm_virt
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/virtual_machine_scale_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/virtual_machine_scale_set"   
 }
 
 inputs = {
-   name = "name of virtual_machine_scale_set" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of virtual_machine_scale_set"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    network_profile = {
-      example_network_profile = {
-         primary = "..."   
-         ip_configuration = "..."   
+      this_network_profile = {
+         name = "..."         
+         primary = "..."         
+         ip_configuration = "..."         
          # network_security_group_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
    os_profile = {
-      example_os_profile = {
-         computer_name_prefix = "..."   
-         admin_username = "..."   
+      this_os_profile = {
+         computer_name_prefix = "..."         
+         admin_username = "..."         
       }
-  
+      
    }
- 
+   
    sku = {
-      example_sku = {
-         capacity = "..."   
+      this_sku = {
+         name = "..."         
+         capacity = "..."         
       }
-  
+      
    }
- 
+   
    storage_profile_os_disk = {
-      example_storage_profile_os_disk = {
-         create_option = "..."   
+      this_storage_profile_os_disk = {
+         create_option = "..."         
       }
-  
+      
    }
- 
-   upgrade_policy_mode = "upgrade_policy_mode of virtual_machine_scale_set" 
+   
+   upgrade_policy_mode = "upgrade_policy_mode of virtual_machine_scale_set"   
 }
 
 tfstate_inputs = {
-   network_profile.example_network_profile.network_security_group_id = "path/to/network_security_group_component:id" 
+   network_profile.this_network_profile.network_security_group_id = "path/to/network_security_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -84,41 +86,6 @@ tfstate_store = {
 | **automatic_os_upgrade** | bool |  `False`  |  Automatic OS patches can be applied by Azure to your scaleset. This is particularly useful when `upgrade_policy_mode` is set to `Rolling`. Defaults to `false`. | 
 | **boot_diagnostics** | [block](#boot_diagnostics-block-structure) |  -  |  A `boot_diagnostics` block as referenced below. | 
 
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | No | - | Specifies the tier of virtual machines in a scale set. Possible values, 'standard' or 'basic'. |
-| `capacity` | int | Yes | - | Specifies the number of virtual machines in the scale set. |
-
-### `ssh_keys` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_data` | string | No | - | The Public SSH Key which should be written to the 'path' defined above. |
-| `path` | string | Yes | - | The path of the destination file on the virtual machine |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type to be assigned to the scale set. Allowable values are 'SystemAssigned' and 'UserAssigned'. For the 'SystemAssigned' identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned to the VMSS. Required if 'type' is 'UserAssigned'. |
-
-### `os_profile_linux_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disable_password_authentication` | bool | No | False | Specifies whether password authentication should be disabled. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `ssh_keys` | [block](#os_profile_linux_config-block-structure) | No | - | One or more 'ssh_keys' blocks. |
-
-### `boot_diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether to enable boot diagnostics for the virtual machine. Defaults to 'true'. |
-| `storage_uri` | string | Yes | - | Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container. |
-
 ### `os_profile` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -128,11 +95,17 @@ tfstate_store = {
 | `admin_password` | string | No | - | Specifies the administrator password to use for all the instances of virtual machines in a scale set. |
 | `custom_data` | string | No | - | Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, Terraform will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes. |
 
-### `dns_settings` block structure
+### `storage_profile_os_disk` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | Yes | - | Specifies an array of DNS servers. |
+| `name` | string | No | - | Specifies the disk name. Must be specified when using unmanaged disk ('managed_disk_type' property not set). |
+| `vhd_containers` | string | No | - | Specifies the VHD URI. Cannot be used when 'image' or 'managed_disk_type' is specified. |
+| `managed_disk_type` | string | No | - | Specifies the type of managed disk to create. Value you must be either 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. Cannot be used when 'vhd_containers' or 'image' is specified. |
+| `create_option` | string | Yes | - | Specifies how the virtual machine should be created. The only possible option is 'FromImage'. |
+| `caching` | string | No | - | Specifies the caching requirements. Possible values include: 'None' (default), 'ReadOnly', 'ReadWrite'. |
+| `image` | string | No | - | Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image. Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them. When setting this field 'os_type' needs to be specified. Cannot be used when 'vhd_containers', 'managed_disk_type' or 'storage_profile_image_reference' are specified. |
+| `os_type` | string | No | - | Specifies the operating system Type, valid values are windows, Linux. |
 
 ### `winrm` block structure
 
@@ -141,19 +114,33 @@ tfstate_store = {
 | `protocol` | string | Yes | - | Specifies the protocol of listener |
 | `certificate_url` | string | No | - | Specifies URL of the certificate with which new Virtual Machines is provisioned. |
 
-### `additional_unattend_config` block structure
+### `boot_diagnostics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `pass` | string | Yes | - | Specifies the name of the pass that the content applies to. The only allowable value is 'oobeSystem'. |
-| `component` | string | Yes | - | Specifies the name of the component to configure with the added content. The only allowable value is 'Microsoft-Windows-Shell-Setup'. |
-| `setting_name` | string | Yes | - | Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'. |
-| `content` | string | Yes | - | Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component. |
+| `enabled` | bool | No | True | Whether to enable boot diagnostics for the virtual machine. Defaults to 'true'. |
+| `storage_uri` | string | Yes | - | Blob endpoint for the storage account to hold the virtual machine's diagnostic files. This must be the root of a storage account, and not a storage container. |
+
+### `os_profile_linux_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disable_password_authentication` | bool | No | False | Specifies whether password authentication should be disabled. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `ssh_keys` | [block](#os_profile_linux_config-block-structure) | No | - | One or more 'ssh_keys' blocks. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the size of virtual machines in a scale set. |
+| `tier` | string | No | - | Specifies the tier of virtual machines in a scale set. Possible values, 'standard' or 'basic'. |
+| `capacity` | int | Yes | - | Specifies the number of virtual machines in the scale set. |
 
 ### `ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies name of the IP configuration. |
 | `subnet_id` | string | Yes | - | Specifies the identifier of the subnet. |
 | `application_gateway_backend_address_pool_ids` | string | No | - | Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway. |
 | `load_balancer_backend_address_pool_ids` | string | No | - | Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer. |
@@ -161,6 +148,12 @@ tfstate_store = {
 | `primary` | string | Yes | True | Specifies if this ip_configuration is the primary one. |
 | `application_security_group_ids` | string | No | - | Specifies up to '20' application security group IDs. |
 | `public_ip_address_configuration` | string | No | - | Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The 'public_ip_address_configuration' block is documented below. |
+
+### `dns_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | string | Yes | - | Specifies an array of DNS servers. |
 
 ### `os_profile_windows_config` block structure
 
@@ -171,27 +164,40 @@ tfstate_store = {
 | `winrm` | [block](#os_profile_windows_config-block-structure) | No | - | A collection of 'winrm' blocks. |
 | `additional_unattend_config` | [block](#os_profile_windows_config-block-structure) | No | - | An 'additional_unattend_config' block. |
 
-### `storage_profile_os_disk` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `vhd_containers` | string | No | - | Specifies the VHD URI. Cannot be used when 'image' or 'managed_disk_type' is specified. |
-| `managed_disk_type` | string | No | - | Specifies the type of managed disk to create. Value you must be either 'Standard_LRS', 'StandardSSD_LRS' or 'Premium_LRS'. Cannot be used when 'vhd_containers' or 'image' is specified. |
-| `create_option` | string | Yes | - | Specifies how the virtual machine should be created. The only possible option is 'FromImage'. |
-| `caching` | string | No | - | Specifies the caching requirements. Possible values include: 'None' (default), 'ReadOnly', 'ReadWrite'. |
-| `image` | string | No | - | Specifies the blob URI for user image. A virtual machine scale set creates an os disk in the same container as the user image. Updating the osDisk image causes the existing disk to be deleted and a new one created with the new image. If the VM scale set is in Manual upgrade mode then the virtual machines are not updated until they have manualUpgrade applied to them. When setting this field 'os_type' needs to be specified. Cannot be used when 'vhd_containers', 'managed_disk_type' or 'storage_profile_image_reference' are specified. |
-| `os_type` | string | No | - | Specifies the operating system Type, valid values are windows, Linux. |
+| `type` | string | Yes | - | Specifies the identity type to be assigned to the scale set. Allowable values are 'SystemAssigned' and 'UserAssigned'. For the 'SystemAssigned' identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned to the VMSS. Required if 'type' is 'UserAssigned'. |
+
+### `ssh_keys` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_data` | string | No | - | The Public SSH Key which should be written to the 'path' defined above. |
+| `path` | string | Yes | - | The path of the destination file on the virtual machine |
 
 ### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the network interface configuration. |
 | `primary` | string | Yes | - | Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM. |
 | `ip_configuration` | [block](#network_profile-block-structure) | Yes | - | An 'ip_configuration' block. |
 | `accelerated_networking` | string | No | - | Specifies whether to enable accelerated networking or not. |
 | `dns_settings` | [block](#network_profile-block-structure) | No | - | A 'dns_settings' block. |
 | `ip_forwarding` | bool | No | False | Whether IP forwarding is enabled on this NIC. Defaults to 'false'. |
 | `network_security_group_id` | string | No | - | Specifies the identifier for the network security group. |
+
+### `additional_unattend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `pass` | string | Yes | - | Specifies the name of the pass that the content applies to. The only allowable value is 'oobeSystem'. |
+| `component` | string | Yes | - | Specifies the name of the component to configure with the added content. The only allowable value is 'Microsoft-Windows-Shell-Setup'. |
+| `setting_name` | string | Yes | - | Specifies the name of the setting to which the content applies. Possible values are: 'FirstLogonCommands' and 'AutoLogon'. |
+| `content` | string | Yes | - | Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component. |
 
 
 

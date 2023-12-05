@@ -6,19 +6,19 @@ Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_managed_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_managed_database"   
 }
 
 inputs = {
-   name = "name of mssql_managed_database" 
-   managed_instance_id = "managed_instance_id of mssql_managed_database" 
+   name = "name of mssql_managed_database"   
+   managed_instance_id = "managed_instance_id of mssql_managed_database"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

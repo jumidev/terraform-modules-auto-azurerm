@@ -6,23 +6,23 @@ Manages a Pool within a NetApp Account.## NetApp Pool Usage```hclresource "azure
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "netapp/netapp_pool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "netapp/netapp_pool"   
 }
 
 inputs = {
-   name = "name of netapp_pool" 
-   resource_group_name = "${resource_group}" 
-   account_name = "account_name of netapp_pool" 
-   location = "${location}" 
-   service_level = "service_level of netapp_pool" 
-   size_in_tb = "size_in_tb of netapp_pool" 
+   name = "name of netapp_pool"   
+   resource_group_name = "${resource_group}"   
+   account_name = "account_name of netapp_pool"   
+   location = "${location}"   
+   service_level = "service_level of netapp_pool"   
+   size_in_tb = "size_in_tb of netapp_pool"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

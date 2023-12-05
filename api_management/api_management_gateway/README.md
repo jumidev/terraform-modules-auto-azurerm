@@ -6,29 +6,30 @@ Manages an API Management Gateway.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_gateway" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_gateway"   
 }
 
 inputs = {
-   name = "name of api_management_gateway" 
+   name = "name of api_management_gateway"   
    # api_management_id → set in tfstate_inputs
    location_data = {
-      example_location_data = {
+      this_location_data = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   api_management_id = "path/to/api_management_component:id" 
+   api_management_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -51,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A canonical name for the geographic or physical location. |
 | `city` | string | No | - | The city or locality where the resource is located. |
 | `district` | string | No | - | The district, state, or province where the resource is located. |
 | `region` | string | No | - | The country or region where the resource is located. |

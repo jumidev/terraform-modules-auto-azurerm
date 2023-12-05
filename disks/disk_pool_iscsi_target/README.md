@@ -6,20 +6,20 @@ Manages an iSCSI Target.!> **Note:** Azure are officially [halting](https://lear
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "disks/disk_pool_iscsi_target" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "disks/disk_pool_iscsi_target"   
 }
 
 inputs = {
-   acl_mode = "acl_mode of disk_pool_iscsi_target" 
-   disks_pool_id = "disks_pool_id of disk_pool_iscsi_target" 
-   name = "name of disk_pool_iscsi_target" 
+   acl_mode = "acl_mode of disk_pool_iscsi_target"   
+   disks_pool_id = "disks_pool_id of disk_pool_iscsi_target"   
+   name = "name of disk_pool_iscsi_target"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

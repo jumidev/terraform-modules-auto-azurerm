@@ -6,24 +6,24 @@ Manages an Azure Delimited Text Dataset inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_delimited_text" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_dataset_delimited_text"   
 }
 
 inputs = {
-   name = "name of data_factory_dataset_delimited_text" 
+   name = "name of data_factory_dataset_delimited_text"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_delimited_text" 
+   linked_service_name = "linked_service_name of data_factory_dataset_delimited_text"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -59,6 +59,17 @@ tfstate_store = {
 | **compression_codec** | string |  -  |  `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, `lz4`  |  The compression codec used to read/write text files. Valid values are `None`, `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy` and `lz4`. Please note these values are case sensitive. | 
 | **compression_level** | string |  -  |  `Fastest`, `Optimal`  |  The compression ratio for the Data Factory Dataset. Valid values are `Fastest` or `Optimal`. Please note these values are case sensitive. | 
 
+### `azure_blob_storage_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container` | string | Yes | - | The container on the Azure Blob Storage Account hosting the file. |
+| `path` | string | No | - | The folder path to the file. This can be an empty string. |
+| `filename` | string | No | - | The filename of the file. |
+| `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
 ### `http_server_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,19 +84,9 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column. |
 | `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
 | `description` | string | No | - | The description of the column. |
-
-### `azure_blob_storage_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container` | string | Yes | - | The container on the Azure Blob Storage Account hosting the file. |
-| `path` | string | No | - | The folder path to the file. This can be an empty string. |
-| `filename` | string | No | - | The filename of the file. |
-| `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
 ### `azure_blob_fs_location` block structure
 

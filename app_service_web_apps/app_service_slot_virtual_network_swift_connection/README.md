@@ -6,25 +6,25 @@ Manages an App Service Slot's Virtual Network Association (this is for the [Regi
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_slot_virtual_network_swift_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_slot_virtual_network_swift_connection"   
 }
 
 inputs = {
    # app_service_id → set in tfstate_inputs
-   slot_name = "slot_name of app_service_slot_virtual_network_swift_connection" 
+   slot_name = "slot_name of app_service_slot_virtual_network_swift_connection"   
    # subnet_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   app_service_id = "path/to/app_service_component:id" 
-   subnet_id = "path/to/subnet_component:id" 
+   app_service_id = "path/to/app_service_component:id"   
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

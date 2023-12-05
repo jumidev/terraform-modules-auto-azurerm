@@ -6,21 +6,21 @@ Manages a Nginx Deployment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "nginx/nginx_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "nginx/nginx_deployment"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   name = "name of nginx_deployment" 
-   location = "${location}" 
-   sku = "sku of nginx_deployment" 
+   resource_group_name = "${resource_group}"   
+   name = "name of nginx_deployment"   
+   location = "${location}"   
+   sku = "sku of nginx_deployment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,12 +49,11 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Nginx Deployment. | 
 
-### `identity` block structure
+### `network_interface` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. |
-| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
+| `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
 
 ### `frontend_public` block structure
 
@@ -70,17 +69,19 @@ tfstate_store = {
 | `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
 | `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. |
+| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
+
 ### `logging_storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_name` | string | No | - | Specify the container name of Stoage Account for logging. |
-
-### `network_interface` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
+| `name` | string | No | - | The account name of the StorageAccount for Nginx Logging. |
 
 
 

@@ -6,23 +6,23 @@
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_gateway" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_gateway"   
 }
 
 inputs = {
-   name = "name of spring_cloud_gateway" 
+   name = "name of spring_cloud_gateway"   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -50,35 +50,6 @@ tfstate_store = {
 | **sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
-| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
-| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
-| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
-| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
-| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
-| `max_age_seconds` | int | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
-
-### `api_metadata` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
-| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
-| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
-| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
-| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
-
-### `client_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
-| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
-
 ### `sso` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +65,35 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
 | `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
+
+### `client_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
+| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
+
+### `api_metadata` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
+| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
+| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
+| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
+| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
+| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
+| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
+| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
+| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
+| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
+| `max_age_seconds` | int | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
 
 
 

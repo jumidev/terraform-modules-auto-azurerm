@@ -6,28 +6,28 @@ Manages an Alert Management Prometheus Rule Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_alert_prometheus_rule_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_alert_prometheus_rule_group"   
 }
 
 inputs = {
-   name = "name of monitor_alert_prometheus_rule_group" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
+   name = "name of monitor_alert_prometheus_rule_group"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
    rule = {
-      example_rule = {
-         expression = "..."   
+      this_rule = {
+         expression = "..."         
       }
-  
+      
    }
- 
-   scopes = "scopes of monitor_alert_prometheus_rule_group" 
+   
+   scopes = "scopes of monitor_alert_prometheus_rule_group"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,19 +52,19 @@ tfstate_store = {
 | **interval** | string |  `PT1M`, `PT15M`  |  Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Alert Management Prometheus Rule Group. | 
 
-### `alert_resolution` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `auto_resolved` | string | No | - | Is the alert auto-resolution? Possible values are 'true' and 'false'. |
-| `time_to_resolve` | string | No | - | Specifies the alert auto-resolution interval, represented in ISO 8601 duration format. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
 | `action_properties` | string | No | - | Specifies the properties of an action group object. |
+
+### `alert_resolution` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `auto_resolved` | string | No | - | Is the alert auto-resolution? Possible values are 'true' and 'false'. |
+| `time_to_resolve` | string | No | - | Specifies the alert auto-resolution interval, represented in ISO 8601 duration format. |
 
 ### `rule` block structure
 

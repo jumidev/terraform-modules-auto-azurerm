@@ -6,26 +6,26 @@ Manages an ExpressRoute Circuit Peering.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/express_route_circuit_peering" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/express_route_circuit_peering"   
 }
 
 inputs = {
-   peering_type = "peering_type of express_route_circuit_peering" 
+   peering_type = "peering_type of express_route_circuit_peering"   
    # express_route_circuit_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # vlan_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   express_route_circuit_name = "path/to/express_route_circuit_component:name" 
-   vlan_id = "path/to/virtual_network_component:id" 
+   express_route_circuit_name = "path/to/express_route_circuit_component:name"   
+   vlan_id = "path/to/virtual_network_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -61,15 +61,6 @@ tfstate_store = {
 | `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
 | `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
 
-### `microsoft_peering` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `advertised_public_prefixes` | list | No | - | A list of Advertised Public Prefixes. |
-| `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
-| `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
-| `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
-
 ### `ipv6` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +70,15 @@ tfstate_store = {
 | `enabled` | bool | No | True | A boolean value indicating whether the IPv6 peering is enabled. Defaults to 'true'. |
 | `microsoft_peering` | [block](#ipv6-block-structure) | No | - | A 'microsoft_peering' block. |
 | `route_filter_id` | string | No | - | The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. |
+
+### `microsoft_peering` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `advertised_public_prefixes` | list | No | - | A list of Advertised Public Prefixes. |
+| `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
+| `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
+| `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
 
 
 

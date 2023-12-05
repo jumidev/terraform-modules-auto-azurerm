@@ -6,26 +6,27 @@ Manages a Directline integration for a Bot Channel
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_channel_directline" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_channel_directline"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bot_name = "bot_name of bot_channel_directline" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bot_name = "bot_name of bot_channel_directline"   
    site = {
-      example_site = {
+      this_site = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -43,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the site |
 | `user_upload_enabled` | bool | No | True | Is the user upload enabled for this site? Defaults to 'true'. |
 | `enabled` | bool | No | True | Enables/Disables this site. Defaults to 'true'. |
 | `endpoint_parameters_enabled` | bool | No | - | Is the endpoint parameters enabled for this site? |

@@ -6,35 +6,36 @@ Manages a Point-to-Site VPN Gateway.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/point_to_site_vpn_gateway" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/point_to_site_vpn_gateway"   
 }
 
 inputs = {
-   name = "name of point_to_site_vpn_gateway" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of point_to_site_vpn_gateway"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    connection_configuration = {
-      example_connection_configuration = {
-         vpn_client_address_pool = "..."   
+      this_connection_configuration = {
+         name = "..."         
+         vpn_client_address_pool = "..."         
       }
-  
+      
    }
- 
-   scale_unit = "scale_unit of point_to_site_vpn_gateway" 
+   
+   scale_unit = "scale_unit of point_to_site_vpn_gateway"   
    # virtual_hub_id → set in tfstate_inputs
    # vpn_server_configuration_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
-   vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
+   vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -63,15 +64,10 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name which should be used for this Connection Configuration. |
 | `vpn_client_address_pool` | [block](#connection_configuration-block-structure) | Yes | - | A 'vpn_client_address_pool' block. |
 | `route` | [block](#connection_configuration-block-structure) | No | - | A 'route' block. |
 | `internet_security_enabled` | bool | No | False | Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'. |
-
-### `vpn_client_address_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
 ### `propagated_route_table` block structure
 
@@ -79,6 +75,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
 | `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
+
+### `vpn_client_address_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
 ### `route` block structure
 

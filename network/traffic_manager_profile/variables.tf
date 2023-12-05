@@ -41,6 +41,7 @@ variable "monitor_config" {
 #   tolerated_number_of_failures (string): The number of failures a Traffic Manager probing agent tolerates before marking that endpoint as unhealthy. Valid values are between '0' and '9'. The default value is '3'
 #
 # custom_header block structure:
+#   name (string)                : (REQUIRED) The name of the custom header.
 #   value (string)               : (REQUIRED) The value of custom header. Applicable for HTTP and HTTPS protocol.
 
 

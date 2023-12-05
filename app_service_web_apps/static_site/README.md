@@ -6,20 +6,20 @@ Manages an App Service Static Site.->**NOTE:** After the Static Site is provisio
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/static_site" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/static_site"   
 }
 
 inputs = {
-   name = "name of static_site" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
+   name = "name of static_site"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

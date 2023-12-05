@@ -6,20 +6,20 @@ Manages the subscription's Security Center Contact.~> **NOTE:** Owner access per
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_contact" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_contact"   
 }
 
 inputs = {
-   alert_notifications = "alert_notifications of security_center_contact" 
-   alerts_to_admins = "alerts_to_admins of security_center_contact" 
-   email = "email of security_center_contact" 
+   alert_notifications = "alert_notifications of security_center_contact"   
+   alerts_to_admins = "alerts_to_admins of security_center_contact"   
+   email = "email of security_center_contact"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

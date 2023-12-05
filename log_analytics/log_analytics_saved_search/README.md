@@ -6,26 +6,26 @@ Manages a Log Analytics (formally Operational Insights) Saved Search.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_saved_search" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_saved_search"   
 }
 
 inputs = {
-   name = "name of log_analytics_saved_search" 
+   name = "name of log_analytics_saved_search"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of log_analytics_saved_search" 
-   category = "category of log_analytics_saved_search" 
-   query = "query of log_analytics_saved_search" 
+   display_name = "display_name of log_analytics_saved_search"   
+   category = "category of log_analytics_saved_search"   
+   query = "query of log_analytics_saved_search"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

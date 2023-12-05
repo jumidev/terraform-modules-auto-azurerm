@@ -26,6 +26,7 @@ variable "sku" {
 }
 #
 # sku block structure:
+#   name (string)      : (REQUIRED) The SKU name. Possible values are 'Premium_LRS' and 'Premium_ZRS'.
 #   tier (string)      : The SKU tier. The only possible value is 'Premium'.
 
 

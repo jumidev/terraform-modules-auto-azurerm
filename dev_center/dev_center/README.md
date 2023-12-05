@@ -6,20 +6,20 @@ Manages a Dev Center.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dev_center/dev_center" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dev_center/dev_center"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of dev_center" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of dev_center"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

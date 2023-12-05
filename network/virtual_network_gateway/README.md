@@ -6,23 +6,23 @@ Manages a Virtual Network Gateway to establish secure, cross-premises connectivi
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_gateway" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_network_gateway"   
 }
 
 inputs = {
-   ip_configuration = "ip_configuration of virtual_network_gateway" 
-   location = "${location}" 
-   name = "name of virtual_network_gateway" 
-   resource_group_name = "${resource_group}" 
-   sku = "sku of virtual_network_gateway" 
-   type = "type of virtual_network_gateway" 
+   ip_configuration = "ip_configuration of virtual_network_gateway"   
+   location = "${location}"   
+   name = "name of virtual_network_gateway"   
+   resource_group_name = "${resource_group}"   
+   sku = "sku of virtual_network_gateway"   
+   type = "type of virtual_network_gateway"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -54,12 +54,6 @@ tfstate_store = {
 | **vpn_client_configuration** | [block](#vpn_client_configuration-block-structure) |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
 | **vpn_type** | string |  `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
 
-### `custom_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
-
 ### `peering_addresses` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,6 +75,12 @@ tfstate_store = {
 | `radius_server_secret` | string | No | - | The secret used by the Radius server. |
 | `vpn_client_protocols` | string | No | - | List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'. |
 | `vpn_auth_types` | string | No | - | List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. |
+
+### `custom_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 ### `bgp_settings` block structure
 

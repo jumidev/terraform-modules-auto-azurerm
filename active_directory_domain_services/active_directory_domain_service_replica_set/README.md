@@ -6,25 +6,25 @@ Manages a Replica Set for an Active Directory Domain Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "active_directory_domain_services/active_directory_domain_service_replica_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "active_directory_domain_services/active_directory_domain_service_replica_set"   
 }
 
 inputs = {
    # domain_service_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
    # subnet_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   domain_service_id = "path/to/active_directory_domain_service_component:id" 
-   subnet_id = "path/to/subnet_component:id" 
+   domain_service_id = "path/to/active_directory_domain_service_component:id"   
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

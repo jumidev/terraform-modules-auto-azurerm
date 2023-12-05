@@ -47,13 +47,9 @@ variable "site_config" {
 #   websockets_enabled (bool)                             : Should Web Sockets be enabled? Defaults to 'false'.
 #   worker_count (int)                                    : The number of Workers for this Linux App Service Slot.
 #
-# cors block structure      :
-#   allowed_origins (string)  : Specifies a list of origins that should be allowed to make cross-origin calls.
-#   support_credentials (bool): Whether CORS requests with credentials are allowed. Defaults to 'false'
-#
-# requests block structure:
-#   count (int)             : (REQUIRED) The number of requests in the specified 'interval' to trigger this rule.
-#   interval (string)       : (REQUIRED) The interval in 'hh:mm:ss'.
+# auto_heal_setting block structure:
+#   action (block)                   : A 'action' block.
+#   trigger (block)                  : A 'trigger' block.
 #
 # application_stack block structure:
 #   docker_image_name (string)       : The docker image, including tag, to be used. e.g. 'appsvc/staticsite:latest'.
@@ -70,18 +66,22 @@ variable "site_config" {
 #   python_version (string)          : The version of Python to run. Possible values include '3.7', '3.8', '3.9', '3.10' and '3.11'.
 #   ruby_version (string)            : Te version of Ruby to run. Possible values include '2.6' and '2.7'.
 #
+# requests block structure:
+#   count (int)             : (REQUIRED) The number of requests in the specified 'interval' to trigger this rule.
+#   interval (string)       : (REQUIRED) The interval in 'hh:mm:ss'.
+#
+# action block structure                 :
+#   action_type (string)                   : (REQUIRED) Predefined action to be taken to an Auto Heal trigger. Possible values include: 'Recycle'.
+#   minimum_process_execution_time (string): The minimum amount of time in 'hh:mm:ss' the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+#
 # trigger block structure:
 #   requests (block)       : A 'requests' block.
 #   slow_request (list)    : One or more 'slow_request' blocks.
 #   status_code (list)     : One or more 'status_code' blocks.
 #
-# auto_heal_setting block structure:
-#   action (block)                   : A 'action' block.
-#   trigger (block)                  : A 'trigger' block.
-#
-# action block structure                 :
-#   action_type (string)                   : (REQUIRED) Predefined action to be taken to an Auto Heal trigger. Possible values include: 'Recycle'.
-#   minimum_process_execution_time (string): The minimum amount of time in 'hh:mm:ss' the Linux Web App must have been running before the defined action will be run in the event of a trigger.
+# cors block structure      :
+#   allowed_origins (string)  : Specifies a list of origins that should be allowed to make cross-origin calls.
+#   support_credentials (bool): Whether CORS requests with credentials are allowed. Defaults to 'false'
 
 
 
@@ -115,10 +115,11 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'.
 #
-# twitter block structure              :
-#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-#   consumer_secret (string)             : The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'.
-#   consumer_secret_setting_name (string): The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'.
+# microsoft block structure          :
+#   client_id (string)                 : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
+#   client_secret (string)             : The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'.
+#   client_secret_setting_name (string): The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'.
+#   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope.
 #
 # active_directory block structure   :
 #   client_id (string)                 : (REQUIRED) The ID of the Client to use to authenticate with Azure Active Directory.
@@ -132,17 +133,16 @@ variable "auth_settings" {
 #   client_secret_setting_name (string): The app setting name that contains the 'client_secret' value used for Google login. Cannot be specified with 'client_secret'.
 #   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, 'openid', 'profile', and 'email' are used as default scopes.
 #
+# twitter block structure              :
+#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+#   consumer_secret (string)             : The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'.
+#   consumer_secret_setting_name (string): The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'.
+#
 # github block structure             :
 #   client_id (string)                 : (REQUIRED) The ID of the GitHub app used for login.
 #   client_secret (string)             : The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'.
 #   client_secret_setting_name (string): The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'.
 #   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
-#
-# microsoft block structure          :
-#   client_id (string)                 : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
-#   client_secret (string)             : The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'.
-#   client_secret_setting_name (string): The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'.
-#   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope.
 #
 # facebook block structure        :
 #   app_id (string)                 : (REQUIRED) The App ID of the Facebook app used for login.
@@ -192,19 +192,15 @@ variable "auth_settings_v2" {
 #   allowed_audiences (string)         : Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
 #   login_scopes (string)              : The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
 #
+# twitter_v2 block structure           :
+#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+#   consumer_secret_setting_name (string): (REQUIRED) The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+#
 # microsoft_v2 block structure       :
 #   client_id (string)                 : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
 #   client_secret_setting_name (string): (REQUIRED) The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 #   allowed_audiences (string)         : Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
 #   login_scopes (string)              : The list of Login scopes that should be requested as part of Microsoft Account authentication.
-#
-# apple_v2 block structure           :
-#   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Apple web application.
-#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for Apple Login.
-#   login_scopes (list)                : A list of Login Scopes provided by this Authentication Provider.
-#
-# azure_static_web_app_v2 block structure:
-#   client_id (string)                     : (REQUIRED) The ID of the Client to use to authenticate with Azure Static Web App Authentication.
 #
 # facebook_v2 block structure     :
 #   app_id (string)                 : (REQUIRED) The App ID of the Facebook app used for login.
@@ -225,7 +221,13 @@ variable "auth_settings_v2" {
 #   validate_nonce (bool)                   : Should the nonce be validated while completing the login flow. Defaults to 'true'.
 #   nonce_expiration_time (string)          : The time after the request is made when the nonce should expire. Defaults to '00:05:00'.
 #
+# apple_v2 block structure           :
+#   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Apple web application.
+#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for Apple Login.
+#   login_scopes (list)                : A list of Login Scopes provided by this Authentication Provider.
+#
 # custom_oidc_v2 block structure        :
+#   name (string)                         : (REQUIRED) The name of the Custom OIDC Authentication Provider.
 #   client_id (string)                    : (REQUIRED) The ID of the Client to use to authenticate with the Custom OIDC.
 #   openid_configuration_endpoint (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for the Custom OIDC Login.
 #   name_claim_type (string)              : The name of the claim that contains the users name.
@@ -236,10 +238,6 @@ variable "auth_settings_v2" {
 #   token_endpoint (string)               : The endpoint used to request a Token as supplied by 'openid_configuration_endpoint' response.
 #   issuer_endpoint (string)              : The endpoint that issued the Token as supplied by 'openid_configuration_endpoint' response.
 #   certification_uri (string)            : The endpoint that provides the keys necessary to validate the token as supplied by 'openid_configuration_endpoint' response.
-#
-# twitter_v2 block structure           :
-#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-#   consumer_secret_setting_name (string): (REQUIRED) The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 #
 # active_directory_v2 block structure          :
 #   client_id (string)                           : (REQUIRED) The ID of the Client to use to authenticate with Azure Active Directory.
@@ -254,6 +252,9 @@ variable "auth_settings_v2" {
 #   allowed_applications (string)                : The list of allowed Applications for the Default Authorisation Policy.
 #   login_parameters (string)                    : A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
 #   allowed_audiences (string)                   : Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+#
+# azure_static_web_app_v2 block structure:
+#   client_id (string)                     : (REQUIRED) The ID of the Client to use to authenticate with Azure Static Web App Authentication.
 
 
 variable "backup" {
@@ -263,6 +264,7 @@ variable "backup" {
 }
 #
 # backup block structure      :
+#   name (string)               : (REQUIRED) The name which should be used for this Backup.
 #   schedule (block)            : (REQUIRED) An 'schedule' block.
 #   storage_account_url (string): (REQUIRED) The SAS URL to the container.
 #   enabled (bool)              : Should this backup job be enabled? Defaults to 'true'.
@@ -302,6 +304,7 @@ variable "connection_string" {
 }
 #
 # connection_string block structure:
+#   name (string)                    : (REQUIRED) The name of the Connection String.
 #   type (string)                    : (REQUIRED) Type of database. Possible values include 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'.
 #   value (string)                   : (REQUIRED) The connection string value.
 
@@ -354,6 +357,14 @@ variable "logs" {
 #   failed_request_tracing (string) : Should the failed request tracing be enabled?
 #   http_logs (block)               : An 'http_logs' block.
 #
+# file_system block structure:
+#   retention_in_days (int)    : (REQUIRED) The retention period in days. A values of '0' means no retention.
+#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that log files can use.
+#
+# application_logs block structure:
+#   azure_blob_storage (block)      : An 'azure_blob_storage' block.
+#   file_system_level (string)      : (REQUIRED) Log level. Possible values include 'Verbose', 'Information', 'Warning', and 'Error'.
+#
 # azure_blob_storage block structure:
 #   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
 #   retention_in_days (int)           : (REQUIRED) The time in days after which to remove blobs. A value of '0' means no retention.
@@ -362,14 +373,6 @@ variable "logs" {
 # http_logs block structure :
 #   azure_blob_storage (block): A 'azure_blob_storage_http' block.
 #   file_system (block)       : A 'file_system' block.
-#
-# file_system block structure:
-#   retention_in_days (int)    : (REQUIRED) The retention period in days. A values of '0' means no retention.
-#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that log files can use.
-#
-# application_logs block structure:
-#   azure_blob_storage (block)      : An 'azure_blob_storage' block.
-#   file_system_level (string)      : (REQUIRED) Log level. Possible values include 'Verbose', 'Information', 'Warning', and 'Error'.
 
 
 variable "service_plan_id" {
@@ -386,6 +389,7 @@ variable "storage_account" {
 # storage_account block structure:
 #   access_key (string)            : (REQUIRED) The Access key for the storage account.
 #   account_name (string)          : (REQUIRED) The Name of the Storage Account.
+#   name (string)                  : (REQUIRED) The name which should be used for this Storage Account.
 #   share_name (string)            : (REQUIRED) The Name of the File Share or Container Name for Blob storage.
 #   type (string)                  : (REQUIRED) The Azure Storage Type. Possible values include 'AzureFiles' and 'AzureBlob'
 #   mount_path (string)            : The path at which to mount the storage share.

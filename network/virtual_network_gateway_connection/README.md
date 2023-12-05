@@ -6,26 +6,26 @@ Manages a connection in an existing Virtual Network Gateway.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_gateway_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_network_gateway_connection"   
 }
 
 inputs = {
-   name = "name of virtual_network_gateway_connection" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   type = "type of virtual_network_gateway_connection" 
+   name = "name of virtual_network_gateway_connection"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   type = "type of virtual_network_gateway_connection"   
    # virtual_network_gateway_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id" 
+   virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

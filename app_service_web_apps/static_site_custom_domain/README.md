@@ -6,23 +6,23 @@ Manages a Static Site Custom Domain.!> DNS validation polling is only done for C
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/static_site_custom_domain" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/static_site_custom_domain"   
 }
 
 inputs = {
-   domain_name = "domain_name of static_site_custom_domain" 
+   domain_name = "domain_name of static_site_custom_domain"   
    # static_site_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   static_site_id = "path/to/static_site_component:id" 
+   static_site_id = "path/to/static_site_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

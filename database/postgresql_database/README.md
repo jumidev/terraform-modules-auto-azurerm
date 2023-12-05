@@ -6,26 +6,26 @@ Manages a PostgreSQL Database within a PostgreSQL Server
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/postgresql_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/postgresql_database"   
 }
 
 inputs = {
-   name = "name of postgresql_database" 
+   name = "name of postgresql_database"   
    # server_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   charset = "charset of postgresql_database" 
-   collation = "collation of postgresql_database" 
+   resource_group_name = "${resource_group}"   
+   charset = "charset of postgresql_database"   
+   collation = "collation of postgresql_database"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/postgresql_server_component:name" 
+   server_name = "path/to/postgresql_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

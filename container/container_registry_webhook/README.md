@@ -6,23 +6,23 @@ Manages an Azure Container Registry Webhook.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_webhook" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_registry_webhook"   
 }
 
 inputs = {
-   name = "name of container_registry_webhook" 
-   resource_group_name = "${resource_group}" 
-   registry_name = "registry_name of container_registry_webhook" 
-   location = "${location}" 
-   service_uri = "service_uri of container_registry_webhook" 
-   actions = "actions of container_registry_webhook" 
+   name = "name of container_registry_webhook"   
+   resource_group_name = "${resource_group}"   
+   registry_name = "registry_name of container_registry_webhook"   
+   location = "${location}"   
+   service_uri = "service_uri of container_registry_webhook"   
+   actions = "actions of container_registry_webhook"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

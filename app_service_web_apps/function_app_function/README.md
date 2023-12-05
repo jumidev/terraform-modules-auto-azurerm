@@ -6,24 +6,24 @@ Manages a Function App Function.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/function_app_function" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/function_app_function"   
 }
 
 inputs = {
-   name = "name of function_app_function" 
+   name = "name of function_app_function"   
    # function_app_id → set in tfstate_inputs
-   config_json = "config_json of function_app_function" 
+   config_json = "config_json of function_app_function"   
 }
 
 tfstate_inputs = {
-   function_app_id = "path/to/function_app_component:id" 
+   function_app_id = "path/to/function_app_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,6 +49,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The filename of the file to be uploaded. Changing this forces a new resource to be created. |
 | `content` | string | Yes | - | The content of the file. Changing this forces a new resource to be created. |
 
 

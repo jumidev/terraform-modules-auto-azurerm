@@ -6,19 +6,19 @@ Manages a Template Deployment at the Tenant Scope.~> **Note:** Deleting a Deploy
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "template/tenant_template_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "template/tenant_template_deployment"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of tenant_template_deployment" 
+   location = "${location}"   
+   name = "name of tenant_template_deployment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,25 +6,25 @@ Manages a Key Vault Access Policy.~> **NOTE:** It's possible to define Key Vault
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_access_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_access_policy"   
 }
 
 inputs = {
    # key_vault_id → set in tfstate_inputs
    # tenant_id → set in tfstate_inputs
-   object_id = "object_id of key_vault_access_policy" 
+   object_id = "object_id of key_vault_access_policy"   
 }
 
 tfstate_inputs = {
-   key_vault_id = "path/to/key_vault_component:id" 
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   key_vault_id = "path/to/key_vault_component:id"   
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

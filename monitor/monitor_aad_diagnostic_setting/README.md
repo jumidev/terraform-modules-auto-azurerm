@@ -6,18 +6,18 @@ Manages an Azure Active Directory Diagnostic Setting for Azure Monitor.!> **Auth
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "monitor/monitor_aad_diagnostic_setting" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "monitor/monitor_aad_diagnostic_setting"   
 }
 
 inputs = {
-   name = "name of monitor_aad_diagnostic_setting" 
+   name = "name of monitor_aad_diagnostic_setting"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -46,6 +46,13 @@ tfstate_store = {
 | `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
 | `retention_policy` | [block](#enabled_log-block-structure) | Yes | - | A 'retention_policy' block. |
 
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | False | Is this Retention Policy enabled? Defaults to 'false'. |
+| `days` | int | No | 0 | The number of days for which this Retention Policy should apply. Defaults to '0'. |
+
 ### `log` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -53,13 +60,6 @@ tfstate_store = {
 | `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
 | `retention_policy` | [block](#log-block-structure) | Yes | - | A 'retention_policy' block. |
 | `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
-
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | False | Is this Retention Policy enabled? Defaults to 'false'. |
-| `days` | int | No | 0 | The number of days for which this Retention Policy should apply. Defaults to '0'. |
 
 
 

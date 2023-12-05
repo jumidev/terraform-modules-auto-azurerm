@@ -6,40 +6,40 @@ Manages a Consumption Budget for a Management Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "consumption/consumption_budget_management_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "consumption/consumption_budget_management_group"   
 }
 
 inputs = {
-   name = "name of consumption_budget_management_group" 
+   name = "name of consumption_budget_management_group"   
    # management_group_id → set in tfstate_inputs
-   amount = "amount of consumption_budget_management_group" 
+   amount = "amount of consumption_budget_management_group"   
    time_period = {
-      example_time_period = {
-         start_date = "..."   
+      this_time_period = {
+         start_date = "..."         
       }
-  
+      
    }
- 
+   
    notification = {
-      example_notification = {
-         operator = "..."   
-         threshold = "..."   
-         contact_emails = "..."   
+      this_notification = {
+         operator = "..."         
+         threshold = "..."         
+         contact_emails = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   management_group_id = "path/to/management_group_component:id" 
+   management_group_id = "path/to/management_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -61,6 +61,14 @@ tfstate_store = {
 | **time_grain** | string |  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
 | **filter** | [block](#filter-block-structure) |  -  |  -  |  A `filter` block. | 
 
+### `tag` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the tag to use for the filter. |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | string | Yes | - | Specifies a list of values for the tag. |
+
 ### `notification` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,12 +79,13 @@ tfstate_store = {
 | `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
 | `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
-### `tag` block structure
+### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column to use for the filter. The allowed values are 'ChargeType', 'Frequency', 'InvoiceId', 'Meter', 'MeterCategory', 'MeterSubCategory', 'PartNumber', 'PricingModel', 'Product', 'ProductOrderId', 'ProductOrderName', 'PublisherType', 'ReservationId', 'ReservationName', 'ResourceGroupName', 'ResourceGuid', 'ResourceId', 'ResourceLocation', 'ResourceType', 'ServiceFamily', 'ServiceName', 'SubscriptionID', 'SubscriptionName', 'UnitOfMeasure'. |
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
-| `values` | string | Yes | - | Specifies a list of values for the tag. |
+| `values` | string | Yes | - | Specifies a list of values for the column. |
 
 ### `time_period` block structure
 
@@ -91,13 +100,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `dimension` | [block](#filter-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
 | `tag` | [block](#filter-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
-
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
-| `values` | string | Yes | - | Specifies a list of values for the column. |
 
 
 

@@ -6,20 +6,20 @@ Manages an Azure Resource Group Policy Remediation.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/resource_group_policy_remediation" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "policy/resource_group_policy_remediation"   
 }
 
 inputs = {
-   name = "name of resource_group_policy_remediation" 
-   resource_group_id = "resource_group_id of resource_group_policy_remediation" 
-   policy_assignment_id = "policy_assignment_id of resource_group_policy_remediation" 
+   name = "name of resource_group_policy_remediation"   
+   resource_group_id = "resource_group_id of resource_group_policy_remediation"   
+   policy_assignment_id = "policy_assignment_id of resource_group_policy_remediation"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

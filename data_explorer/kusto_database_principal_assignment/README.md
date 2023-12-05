@@ -6,29 +6,29 @@ Manages a Kusto (also known as Azure Data Explorer) Database Principal Assignmen
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_database_principal_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_explorer/kusto_database_principal_assignment"   
 }
 
 inputs = {
-   name = "name of kusto_database_principal_assignment" 
-   resource_group_name = "${resource_group}" 
-   cluster_name = "cluster_name of kusto_database_principal_assignment" 
-   database_name = "database_name of kusto_database_principal_assignment" 
-   principal_id = "principal_id of kusto_database_principal_assignment" 
-   principal_type = "principal_type of kusto_database_principal_assignment" 
-   role = "role of kusto_database_principal_assignment" 
+   name = "name of kusto_database_principal_assignment"   
+   resource_group_name = "${resource_group}"   
+   cluster_name = "cluster_name of kusto_database_principal_assignment"   
+   database_name = "database_name of kusto_database_principal_assignment"   
+   principal_id = "principal_id of kusto_database_principal_assignment"   
+   principal_type = "principal_type of kusto_database_principal_assignment"   
+   role = "role of kusto_database_principal_assignment"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

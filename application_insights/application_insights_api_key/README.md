@@ -6,23 +6,23 @@ Manages an Application Insights API key.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights_api_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "application_insights/application_insights_api_key"   
 }
 
 inputs = {
-   name = "name of application_insights_api_key" 
+   name = "name of application_insights_api_key"   
    # application_insights_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   application_insights_id = "path/to/application_insights_component:id" 
+   application_insights_id = "path/to/application_insights_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

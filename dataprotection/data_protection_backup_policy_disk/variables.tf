@@ -30,6 +30,7 @@ variable "retention_rule" {
 }
 #
 # retention_rule block structure:
+#   name (string)                 : (REQUIRED) The name which should be used for this retention rule. Changing this forces a new Backup Policy Disk to be created.
 #   duration (string)             : (REQUIRED) Duration of deletion after given timespan. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy Disk to be created.
 #   criteria (block)              : (REQUIRED) A 'criteria' block. Changing this forces a new Backup Policy Disk to be created.
 #   priority (string)             : (REQUIRED) Retention Tag priority. Changing this forces a new Backup Policy Disk to be created.

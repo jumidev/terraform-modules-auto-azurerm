@@ -6,24 +6,24 @@ Manages a Directory within an Azure Storage File Share.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_share_directory" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_share_directory"   
 }
 
 inputs = {
-   name = "name of storage_share_directory" 
-   share_name = "share_name of storage_share_directory" 
+   name = "name of storage_share_directory"   
+   share_name = "share_name of storage_share_directory"   
    # storage_account_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_account_name = "path/to/storage_account_component:name" 
+   storage_account_name = "path/to/storage_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

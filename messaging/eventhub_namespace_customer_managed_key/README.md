@@ -6,8 +6,8 @@ Manages a Customer Managed Key for a EventHub Namespace.!> **Note:** In 2.x vers
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventhub_namespace_customer_managed_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventhub_namespace_customer_managed_key"   
 }
 
 inputs = {
@@ -16,14 +16,14 @@ inputs = {
 }
 
 tfstate_inputs = {
-   eventhub_namespace_id = "path/to/eventhub_namespace_component:id" 
-   key_vault_key_ids = "path/to/key_vault_key_component:id" 
+   eventhub_namespace_id = "path/to/eventhub_namespace_component:id"   
+   key_vault_key_ids = "path/to/key_vault_key_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

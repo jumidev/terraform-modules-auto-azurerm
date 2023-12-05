@@ -6,25 +6,25 @@ Manages a Storage Mover Agent.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage_mover/storage_mover_agent" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage_mover/storage_mover_agent"   
 }
 
 inputs = {
-   name = "name of storage_mover_agent" 
-   arc_virtual_machine_id = "arc_virtual_machine_id of storage_mover_agent" 
-   arc_virtual_machine_uuid = "arc_virtual_machine_uuid of storage_mover_agent" 
+   name = "name of storage_mover_agent"   
+   arc_virtual_machine_id = "arc_virtual_machine_id of storage_mover_agent"   
+   arc_virtual_machine_uuid = "arc_virtual_machine_uuid of storage_mover_agent"   
    # storage_mover_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_mover_id = "path/to/storage_mover_component:id" 
+   storage_mover_id = "path/to/storage_mover_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

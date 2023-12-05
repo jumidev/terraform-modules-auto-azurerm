@@ -42,6 +42,7 @@ variable "alert_details_override" {
 #   dynamic_property (block)              : A list of 'dynamic_property' blocks.
 #
 # dynamic_property block structure:
+#   name (string)                   : (REQUIRED) The name of the dynamic property. Possible Values are 'AlertLink', 'ConfidenceLevel', 'ConfidenceScore', 'ExtendedLinks', 'ProductComponentName', 'ProductName', 'ProviderName', 'RemediationSteps' and 'Techniques'.
 #   value (string)                  : (REQUIRED) The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'.
 
 

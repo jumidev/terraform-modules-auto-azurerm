@@ -6,27 +6,28 @@ Manages an Elastic SAN resource.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "elastic_san/elastic_san" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "elastic_san/elastic_san"   
 }
 
 inputs = {
-   name = "name of elastic_san" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   base_size_in_tib = "base_size_in_tib of elastic_san" 
+   name = "name of elastic_san"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   base_size_in_tib = "base_size_in_tib of elastic_san"   
    sku = {
-      example_sku = {
+      this_sku = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -53,6 +54,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The SKU name. Possible values are 'Premium_LRS' and 'Premium_ZRS'. |
 | `tier` | string | No | - | The SKU tier. The only possible value is 'Premium'. |
 
 

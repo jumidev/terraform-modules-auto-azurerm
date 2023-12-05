@@ -6,23 +6,23 @@ Manages a Route Map.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/route_map" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/route_map"   
 }
 
 inputs = {
-   name = "name of route_map" 
+   name = "name of route_map"   
    # virtual_hub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -47,14 +47,6 @@ tfstate_store = {
 | `parameter` | [block](#action-block-structure) | Yes | - | A 'parameter' block. |
 | `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
-| `match_criterion` | [block](#rule-block-structure) | No | - | A 'match_criterion' block. |
-| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
-
 ### `parameter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,6 +54,15 @@ tfstate_store = {
 | `as_path` | list | No | - | A list of AS paths. |
 | `community` | list | No | - | A list of BGP communities. |
 | `route_prefix` | list | No | - | A list of route prefixes. |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The unique name for the rule. |
+| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `match_criterion` | [block](#rule-block-structure) | No | - | A 'match_criterion' block. |
+| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
 
 ### `match_criterion` block structure
 

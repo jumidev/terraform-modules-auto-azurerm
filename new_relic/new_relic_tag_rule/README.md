@@ -6,18 +6,18 @@ Manages an Azure Native New Relic Tag Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "new_relic/new_relic_tag_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "new_relic/new_relic_tag_rule"   
 }
 
 inputs = {
-   monitor_id = "monitor_id of new_relic_tag_rule" 
+   monitor_id = "monitor_id of new_relic_tag_rule"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -39,17 +39,19 @@ tfstate_store = {
 | **metric_tag_filter** | [block](#metric_tag_filter-block-structure) |  -  |  A `metric_tag_filter` block. | 
 | **subscription_log_enabled** | bool |  `False`  |  Whether subscription logs should be sent for the Monitor resource. Defaults to `false`. | 
 
-### `log_tag_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
-| `value` | string | Yes | - | Specifies the value of the tag. |
-
 ### `metric_tag_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name (also known as the key) of the tag. |
+| `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
+| `value` | string | Yes | - | Specifies the value of the tag. |
+
+### `log_tag_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name (also known as the key) of the tag. |
 | `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
 | `value` | string | Yes | - | Specifies the value of the tag. |
 

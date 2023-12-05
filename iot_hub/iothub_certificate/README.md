@@ -6,25 +6,25 @@ Manages an IotHub Certificate.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_certificate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_certificate"   
 }
 
 inputs = {
-   name = "name of iothub_certificate" 
-   resource_group_name = "${resource_group}" 
+   name = "name of iothub_certificate"   
+   resource_group_name = "${resource_group}"   
    # iothub_name → set in tfstate_inputs
-   certificate_content = "certificate_content of iothub_certificate" 
+   certificate_content = "certificate_content of iothub_certificate"   
 }
 
 tfstate_inputs = {
-   iothub_name = "path/to/iothub_component:name" 
+   iothub_name = "path/to/iothub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

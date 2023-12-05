@@ -25,11 +25,13 @@ variable "application_rule_collection" {
 }
 #
 # application_rule_collection block structure:
+#   name (string)                              : (REQUIRED) The name which should be used for this application rule collection.
 #   action (string)                            : (REQUIRED) The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'.
 #   priority (string)                          : (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.
 #   rule (block)                               : (REQUIRED) One or more 'application_rule' blocks.
 #
 # application_rule block structure:
+#   name (string)                   : (REQUIRED) The name which should be used for this rule.
 #   description (string)            : The description which should be used for this rule.
 #   protocols (block)               : One or more 'protocols' blocks.
 #   http_headers (block)            : (REQUIRED) Specifies a list of HTTP/HTTPS headers to insert. One or more 'http_headers' blocks.
@@ -42,12 +44,13 @@ variable "application_rule_collection" {
 #   terminate_tls (string)          : Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy.
 #   web_categories (string)         : Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy.
 #
-# http_headers block structure:
-#   value (string)              : (REQUIRED) Specifies the value of the value.
-#
 # protocols block structure:
 #   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
 #   port (int)               : (REQUIRED) Port number of the protocol. Range is 0-64000.
+#
+# http_headers block structure:
+#   name (string)               : (REQUIRED) Specifies the name of the header.
+#   value (string)              : (REQUIRED) Specifies the value of the value.
 
 
 variable "nat_rule_collection" {
@@ -57,11 +60,13 @@ variable "nat_rule_collection" {
 }
 #
 # nat_rule_collection block structure:
+#   name (string)                      : (REQUIRED) The name which should be used for this NAT rule collection.
 #   action (string)                    : (REQUIRED) The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'.
 #   priority (string)                  : (REQUIRED) The priority of the NAT rule collection. The range is '100' - '65000'.
 #   rule (block)                       : (REQUIRED) A 'nat_rule' block.
 #
 # nat_rule block structure    :
+#   name (string)               : (REQUIRED) The name which should be used for this rule.
 #   description (string)        : The description which should be used for this rule.
 #   protocols (string)          : (REQUIRED) Specifies a list of network protocols this rule applies to. Possible values are 'TCP', 'UDP'.
 #   source_addresses (string)   : Specifies a list of source IP addresses (including CIDR, IP range and '*').
@@ -80,11 +85,13 @@ variable "network_rule_collection" {
 }
 #
 # network_rule_collection block structure:
+#   name (string)                          : (REQUIRED) The name which should be used for this network rule collection.
 #   action (string)                        : (REQUIRED) The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'.
 #   priority (string)                      : (REQUIRED) The priority of the network rule collection. The range is '100' - '65000'.
 #   rule (block)                           : (REQUIRED) One or more 'network_rule' blocks.
 #
 # network_rule block structure  :
+#   name (string)                 : (REQUIRED) The name which should be used for this rule.
 #   description (string)          : The description which should be used for this rule.
 #   protocols (string)            : (REQUIRED) Specifies a list of network protocols this rule applies to. Possible values are 'Any', 'TCP', 'UDP', 'ICMP'.
 #   destination_ports (string)    : (REQUIRED) Specifies a list of destination ports.

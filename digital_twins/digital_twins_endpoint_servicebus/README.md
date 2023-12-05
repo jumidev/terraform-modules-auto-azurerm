@@ -6,21 +6,21 @@ Manages a Digital Twins Service Bus Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "digital_twins/digital_twins_endpoint_servicebus" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "digital_twins/digital_twins_endpoint_servicebus"   
 }
 
 inputs = {
-   name = "name of digital_twins_endpoint_servicebus" 
-   digital_twins_id = "digital_twins_id of digital_twins_endpoint_servicebus" 
-   servicebus_primary_connection_string = "servicebus_primary_connection_string of digital_twins_endpoint_servicebus" 
-   servicebus_secondary_connection_string = "servicebus_secondary_connection_string of digital_twins_endpoint_servicebus" 
+   name = "name of digital_twins_endpoint_servicebus"   
+   digital_twins_id = "digital_twins_id of digital_twins_endpoint_servicebus"   
+   servicebus_primary_connection_string = "servicebus_primary_connection_string of digital_twins_endpoint_servicebus"   
+   servicebus_secondary_connection_string = "servicebus_secondary_connection_string of digital_twins_endpoint_servicebus"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -46,6 +46,7 @@ variable "purchase_plan" {
 }
 #
 # purchase_plan block structure:
+#   name (string)                : (REQUIRED) The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created.
 #   publisher (string)           : The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created.
 #   product (string)             : The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created.
 

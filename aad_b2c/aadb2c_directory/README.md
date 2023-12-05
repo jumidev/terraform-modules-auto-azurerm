@@ -6,21 +6,21 @@ Manages an AAD B2C Directory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "aad_b2c/aadb2c_directory" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "aad_b2c/aadb2c_directory"   
 }
 
 inputs = {
-   data_residency_location = "data_residency_location of aadb2c_directory" 
-   domain_name = "domain_name of aadb2c_directory" 
-   resource_group_name = "${resource_group}" 
-   sku_name = "sku_name of aadb2c_directory" 
+   data_residency_location = "data_residency_location of aadb2c_directory"   
+   domain_name = "domain_name of aadb2c_directory"   
+   resource_group_name = "${resource_group}"   
+   sku_name = "sku_name of aadb2c_directory"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

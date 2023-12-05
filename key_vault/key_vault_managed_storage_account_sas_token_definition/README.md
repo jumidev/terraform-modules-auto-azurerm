@@ -6,26 +6,26 @@ Manages a Key Vault Managed Storage Account SAS Definition.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault_managed_storage_account_sas_token_definition" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault_managed_storage_account_sas_token_definition"   
 }
 
 inputs = {
-   name = "name of key_vault_managed_storage_account_sas_token_definition" 
+   name = "name of key_vault_managed_storage_account_sas_token_definition"   
    # managed_storage_account_id → set in tfstate_inputs
-   sas_template_uri = "sas_template_uri of key_vault_managed_storage_account_sas_token_definition" 
-   sas_type = "sas_type of key_vault_managed_storage_account_sas_token_definition" 
-   validity_period = "validity_period of key_vault_managed_storage_account_sas_token_definition" 
+   sas_template_uri = "sas_template_uri of key_vault_managed_storage_account_sas_token_definition"   
+   sas_type = "sas_type of key_vault_managed_storage_account_sas_token_definition"   
+   validity_period = "validity_period of key_vault_managed_storage_account_sas_token_definition"   
 }
 
 tfstate_inputs = {
-   managed_storage_account_id = "path/to/storage_account_component:id" 
+   managed_storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

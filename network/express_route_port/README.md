@@ -6,23 +6,23 @@ Manages a Express Route Port.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/express_route_port" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/express_route_port"   
 }
 
 inputs = {
-   name = "name of express_route_port" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bandwidth_in_gbps = "bandwidth_in_gbps of express_route_port" 
-   encapsulation = "encapsulation of express_route_port" 
-   peering_location = "peering_location of express_route_port" 
+   name = "name of express_route_port"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bandwidth_in_gbps = "bandwidth_in_gbps of express_route_port"   
+   encapsulation = "encapsulation of express_route_port"   
+   peering_location = "peering_location of express_route_port"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

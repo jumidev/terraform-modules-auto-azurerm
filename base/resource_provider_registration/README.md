@@ -6,18 +6,18 @@ Manages the registration of a Resource Provider - which allows access to the API
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "base/resource_provider_registration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "base/resource_provider_registration"   
 }
 
 inputs = {
-   name = "name of resource_provider_registration" 
+   name = "name of resource_provider_registration"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -38,6 +38,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the feature to register. |
 | `registered` | string | Yes | - | Should this feature be Registered or Unregistered? |
 
 

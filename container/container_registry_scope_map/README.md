@@ -6,25 +6,25 @@ Manages an Azure Container Registry scope map.  Scope Maps are a preview feature
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_scope_map" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_registry_scope_map"   
 }
 
 inputs = {
-   name = "name of container_registry_scope_map" 
-   resource_group_name = "${resource_group}" 
+   name = "name of container_registry_scope_map"   
+   resource_group_name = "${resource_group}"   
    # container_registry_name → set in tfstate_inputs
-   actions = "actions of container_registry_scope_map" 
+   actions = "actions of container_registry_scope_map"   
 }
 
 tfstate_inputs = {
-   container_registry_name = "path/to/container_registry_component:name" 
+   container_registry_name = "path/to/container_registry_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

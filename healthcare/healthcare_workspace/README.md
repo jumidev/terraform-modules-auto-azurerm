@@ -6,20 +6,20 @@ Manages a Healthcare workspace
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "healthcare/healthcare_workspace" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "healthcare/healthcare_workspace"   
 }
 
 inputs = {
-   name = "name of healthcare_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of healthcare_workspace"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

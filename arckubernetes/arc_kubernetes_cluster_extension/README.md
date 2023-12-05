@@ -6,27 +6,27 @@ Manages an Arc Kubernetes Cluster Extension.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "arckubernetes/arc_kubernetes_cluster_extension" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "arckubernetes/arc_kubernetes_cluster_extension"   
 }
 
 inputs = {
-   name = "name of arc_kubernetes_cluster_extension" 
-   cluster_id = "cluster_id of arc_kubernetes_cluster_extension" 
-   extension_type = "extension_type of arc_kubernetes_cluster_extension" 
+   name = "name of arc_kubernetes_cluster_extension"   
+   cluster_id = "cluster_id of arc_kubernetes_cluster_extension"   
+   extension_type = "extension_type of arc_kubernetes_cluster_extension"   
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,23 +6,23 @@
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_application_insights_application_performance_monitoring" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_application_insights_application_performance_monitoring"   
 }
 
 inputs = {
-   name = "name of spring_cloud_application_insights_application_performance_monitoring" 
+   name = "name of spring_cloud_application_insights_application_performance_monitoring"   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

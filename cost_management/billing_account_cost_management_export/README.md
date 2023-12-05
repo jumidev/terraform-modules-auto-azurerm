@@ -6,38 +6,38 @@ Manages a Cost Management Export for a Billing Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cost_management/billing_account_cost_management_export" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cost_management/billing_account_cost_management_export"   
 }
 
 inputs = {
-   name = "name of billing_account_cost_management_export" 
-   billing_account_id = "billing_account_id of billing_account_cost_management_export" 
-   recurrence_type = "recurrence_type of billing_account_cost_management_export" 
-   recurrence_period_start_date = "recurrence_period_start_date of billing_account_cost_management_export" 
-   recurrence_period_end_date = "recurrence_period_end_date of billing_account_cost_management_export" 
+   name = "name of billing_account_cost_management_export"   
+   billing_account_id = "billing_account_id of billing_account_cost_management_export"   
+   recurrence_type = "recurrence_type of billing_account_cost_management_export"   
+   recurrence_period_start_date = "recurrence_period_start_date of billing_account_cost_management_export"   
+   recurrence_period_end_date = "recurrence_period_end_date of billing_account_cost_management_export"   
    export_data_storage_location = {
-      example_export_data_storage_location = {
-         container_id = "..."   
-         root_folder_path = "..."   
+      this_export_data_storage_location = {
+         container_id = "..."         
+         root_folder_path = "..."         
       }
-  
+      
    }
- 
+   
    export_data_options = {
-      example_export_data_options = {
-         type = "..."   
-         time_frame = "..."   
+      this_export_data_options = {
+         type = "..."         
+         time_frame = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

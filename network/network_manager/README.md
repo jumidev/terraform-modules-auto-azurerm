@@ -6,34 +6,34 @@ Manages a Network Managers.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager"   
 }
 
 inputs = {
-   name = "name of network_manager" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of network_manager"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    scope = {
-      example_scope = {
+      this_scope = {
          # management_group_ids → set in tfstate_inputs
          # subscription_ids → set in tfstate_inputs
       }
-  
+      
    }
- 
-   scope_accesses = "scope_accesses of network_manager" 
+   
+   scope_accesses = "scope_accesses of network_manager"   
 }
 
 tfstate_inputs = {
-   scope.example_scope.management_group_ids = "path/to/management_group_component:id" 
-   scope.example_scope.subscription_ids = "path/to/subscription_component:id" 
+   scope.this_scope.management_group_ids = "path/to/management_group_component:id"   
+   scope.this_scope.subscription_ids = "path/to/subscription_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

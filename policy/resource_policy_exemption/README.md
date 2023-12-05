@@ -6,21 +6,21 @@ Manages a Resource Policy Exemption.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/resource_policy_exemption" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "policy/resource_policy_exemption"   
 }
 
 inputs = {
-   name = "name of resource_policy_exemption" 
-   resource_id = "resource_id of resource_policy_exemption" 
-   exemption_category = "exemption_category of resource_policy_exemption" 
-   policy_assignment_id = "policy_assignment_id of resource_policy_exemption" 
+   name = "name of resource_policy_exemption"   
+   resource_id = "resource_id of resource_policy_exemption"   
+   exemption_category = "exemption_category of resource_policy_exemption"   
+   policy_assignment_id = "policy_assignment_id of resource_policy_exemption"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

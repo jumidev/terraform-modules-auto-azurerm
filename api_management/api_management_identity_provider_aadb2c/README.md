@@ -6,30 +6,30 @@ Manages an API Management Azure AD B2C Identity Provider.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_identity_provider_aadb2c" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_identity_provider_aadb2c"   
 }
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   client_id = "client_id of api_management_identity_provider_aadb2c" 
-   client_secret = "client_secret of api_management_identity_provider_aadb2c" 
-   allowed_tenant = "allowed_tenant of api_management_identity_provider_aadb2c" 
-   signin_tenant = "signin_tenant of api_management_identity_provider_aadb2c" 
-   authority = "authority of api_management_identity_provider_aadb2c" 
-   signin_policy = "signin_policy of api_management_identity_provider_aadb2c" 
-   signup_policy = "signup_policy of api_management_identity_provider_aadb2c" 
+   resource_group_name = "${resource_group}"   
+   client_id = "client_id of api_management_identity_provider_aadb2c"   
+   client_secret = "client_secret of api_management_identity_provider_aadb2c"   
+   allowed_tenant = "allowed_tenant of api_management_identity_provider_aadb2c"   
+   signin_tenant = "signin_tenant of api_management_identity_provider_aadb2c"   
+   authority = "authority of api_management_identity_provider_aadb2c"   
+   signin_policy = "signin_policy of api_management_identity_provider_aadb2c"   
+   signup_policy = "signup_policy of api_management_identity_provider_aadb2c"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,24 +6,24 @@ Manages a Synapse SQL Pool.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_sql_pool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_sql_pool"   
 }
 
 inputs = {
-   name = "name of synapse_sql_pool" 
+   name = "name of synapse_sql_pool"   
    # synapse_workspace_id → set in tfstate_inputs
-   sku_name = "sku_name of synapse_sql_pool" 
+   sku_name = "sku_name of synapse_sql_pool"   
 }
 
 tfstate_inputs = {
-   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
+   synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

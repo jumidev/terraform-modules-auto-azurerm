@@ -31,6 +31,7 @@ variable "rule" {
 }
 #
 # rule block structure          :
+#   name (string)                 : (REQUIRED) Specifies the name of the rule.
 #   description (string)          : Specifies a description for the rule.
 #   source_addresses (list)       : A list of source IP addresses and/or IP ranges.
 #   source_ip_groups (list)       : A list of IP Group IDs for the rule.

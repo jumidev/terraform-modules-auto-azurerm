@@ -6,27 +6,27 @@ Manages a Stream Analytics Output to Microsoft SQL Server Database.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_output_mssql" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_output_mssql"   
 }
 
 inputs = {
-   name = "name of stream_analytics_output_mssql" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_output_mssql"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   server = "server of stream_analytics_output_mssql" 
-   database = "database of stream_analytics_output_mssql" 
-   table = "table of stream_analytics_output_mssql" 
+   server = "server of stream_analytics_output_mssql"   
+   database = "database of stream_analytics_output_mssql"   
+   table = "table of stream_analytics_output_mssql"   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

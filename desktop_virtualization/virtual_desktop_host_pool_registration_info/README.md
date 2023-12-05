@@ -6,19 +6,19 @@ Manages the Registration Info for a Virtual Desktop Host Pool.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "desktop_virtualization/virtual_desktop_host_pool_registration_info" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "desktop_virtualization/virtual_desktop_host_pool_registration_info"   
 }
 
 inputs = {
-   expiration_date = "expiration_date of virtual_desktop_host_pool_registration_info" 
-   hostpool_id = "hostpool_id of virtual_desktop_host_pool_registration_info" 
+   expiration_date = "expiration_date of virtual_desktop_host_pool_registration_info"   
+   hostpool_id = "hostpool_id of virtual_desktop_host_pool_registration_info"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

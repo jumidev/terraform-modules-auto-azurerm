@@ -26,6 +26,7 @@ variable "private_service_connection" {
 }
 #
 # private_service_connection block structure:
+#   name (string)                             : (REQUIRED) Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
 #   is_manual_connection (string)             : (REQUIRED) Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
 #   private_connection_resource_id (string)   : The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of 'private_connection_resource_id' or 'private_connection_resource_alias' must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 #   private_connection_resource_alias (string): The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of 'private_connection_resource_id' or 'private_connection_resource_alias' must be specified. Changing this forces a new resource to be created.
@@ -48,6 +49,7 @@ variable "private_dns_zone_group" {
 }
 #
 # private_dns_zone_group block structure:
+#   name (string)                         : (REQUIRED) Specifies the Name of the Private DNS Zone Group.
 #   private_dns_zone_ids (string)         : (REQUIRED) Specifies the list of Private DNS Zones to include within the 'private_dns_zone_group'.
 
 
@@ -58,6 +60,7 @@ variable "ip_configuration" {
 }
 #
 # ip_configuration block structure:
+#   name (string)                   : (REQUIRED) Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
 #   private_ip_address (string)     : (REQUIRED) Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 #   subresource_name (string)       : Specifies the subresource this IP address applies to. 'subresource_names' corresponds to 'group_id'. Changing this forces a new resource to be created.
 #   member_name (string)            : Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created.

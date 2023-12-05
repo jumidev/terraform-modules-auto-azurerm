@@ -6,20 +6,20 @@ Manages a User Assigned Identity.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "authorization/user_assigned_identity" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "authorization/user_assigned_identity"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of user_assigned_identity" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of user_assigned_identity"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

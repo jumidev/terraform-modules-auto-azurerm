@@ -6,40 +6,41 @@ Manages a Network Interface.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_interface" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_interface"   
 }
 
 inputs = {
    ip_configuration = {
       primary = {
+         name = "..."         
          # subnet_id → set in tfstate_inputs
-         private_ip_address_allocation = "Dynamic"   
+         private_ip_address_allocation = "Dynamic"         
          # public_ip_address_id → set in tfstate_inputs
       }
-  
+      
    }
- 
-   location = "${location}" 
-   name = "name of network_interface" 
-   resource_group_name = "${resource_group}" 
+   
+   location = "${location}"   
+   name = "name of network_interface"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   ip_configuration.primary.subnet_id = "path/to/subnet_component:id" 
-   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id" 
+   ip_configuration.primary.subnet_id = "path/to/subnet_component:id"   
+   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resources
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.|
 | **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.|
@@ -80,6 +81,7 @@ tfstate_inputs = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | A name used for this IP Configuration. |
 | `gateway_load_balancer_frontend_ip_configuration_id` | string | No | - | The Frontend IP Configuration ID of a Gateway SKU Load Balancer. |
 | `subnet_id` | string | No | - | The ID of the Subnet where this Network Interface should be located in. |
 | `private_ip_address_version` | string | No | IPv4 | The IP Version to use. Possible values are 'IPv4' or 'IPv6'. Defaults to 'IPv4'. |

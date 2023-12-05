@@ -6,26 +6,26 @@ Manages a Synapse Managed Private Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_managed_private_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_managed_private_endpoint"   
 }
 
 inputs = {
-   name = "name of synapse_managed_private_endpoint" 
+   name = "name of synapse_managed_private_endpoint"   
    # synapse_workspace_id → set in tfstate_inputs
    # target_resource_id → set in tfstate_inputs
-   subresource_name = "subresource_name of synapse_managed_private_endpoint" 
+   subresource_name = "subresource_name of synapse_managed_private_endpoint"   
 }
 
 tfstate_inputs = {
-   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
-   target_resource_id = "path/to/any_resource_component:id" 
+   synapse_workspace_id = "path/to/synapse_workspace_component:id"   
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

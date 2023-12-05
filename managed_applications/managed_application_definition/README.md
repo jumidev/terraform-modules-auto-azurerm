@@ -6,22 +6,22 @@ Manages a Managed Application Definition.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "managed_applications/managed_application_definition" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "managed_applications/managed_application_definition"   
 }
 
 inputs = {
-   name = "name of managed_application_definition" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   lock_level = "lock_level of managed_application_definition" 
-   display_name = "display_name of managed_application_definition" 
+   name = "name of managed_application_definition"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   lock_level = "lock_level of managed_application_definition"   
+   display_name = "display_name of managed_application_definition"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

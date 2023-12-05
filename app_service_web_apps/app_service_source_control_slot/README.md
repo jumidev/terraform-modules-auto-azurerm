@@ -6,18 +6,18 @@ Manages an App Service Source Control Slot.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_source_control_slot" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_source_control_slot"   
 }
 
 inputs = {
-   slot_id = "slot_id of app_service_source_control_slot" 
+   slot_id = "slot_id of app_service_source_control_slot"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -40,13 +40,6 @@ tfstate_store = {
 | **use_manual_integration** | bool |  `False`  |  Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **use_mercurial** | bool |  `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
-### `code_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. |
-| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
-
 ### `container_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,6 +48,13 @@ tfstate_store = {
 | `registry_password` | string | No | - | The password used to upload the image to the container registry. Changing this forces a new resource to be created. |
 | `registry_url` | string | Yes | - | The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created. |
 | `registry_username` | string | No | - | The username used to upload the image to the container registry. Changing this forces a new resource to be created. |
+
+### `code_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. |
+| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
 
 ### `github_action_configuration` block structure
 

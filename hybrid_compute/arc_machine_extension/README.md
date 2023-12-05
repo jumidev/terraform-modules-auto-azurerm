@@ -6,22 +6,22 @@ Manages a Hybrid Compute Machine Extension.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "hybrid_compute/arc_machine_extension" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "hybrid_compute/arc_machine_extension"   
 }
 
 inputs = {
-   arc_machine_id = "arc_machine_id of arc_machine_extension" 
-   location = "${location}" 
-   name = "name of arc_machine_extension" 
-   publisher = "publisher of arc_machine_extension" 
-   type = "type of arc_machine_extension" 
+   arc_machine_id = "arc_machine_id of arc_machine_extension"   
+   location = "${location}"   
+   name = "name of arc_machine_extension"   
+   publisher = "publisher of arc_machine_extension"   
+   type = "type of arc_machine_extension"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

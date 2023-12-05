@@ -6,24 +6,24 @@ Manages an Azure SignalR Custom Certificate.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/signalr_service_custom_certificate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/signalr_service_custom_certificate"   
 }
 
 inputs = {
-   name = "name of signalr_service_custom_certificate" 
+   name = "name of signalr_service_custom_certificate"   
    # signalr_service_id → set in tfstate_inputs
-   custom_certificate_id = "custom_certificate_id of signalr_service_custom_certificate" 
+   custom_certificate_id = "custom_certificate_id of signalr_service_custom_certificate"   
 }
 
 tfstate_inputs = {
-   signalr_service_id = "path/to/signalr_service_component:id" 
+   signalr_service_id = "path/to/signalr_service_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

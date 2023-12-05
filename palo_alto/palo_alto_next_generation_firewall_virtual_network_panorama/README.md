@@ -6,33 +6,33 @@ Manages a Palo Alto Next Generation Firewall Virtual Network Panorama.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "palo_alto/palo_alto_next_generation_firewall_virtual_network_panorama" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "palo_alto/palo_alto_next_generation_firewall_virtual_network_panorama"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of palo_alto_next_generation_firewall_virtual_network_panorama" 
+   location = "${location}"   
+   name = "name of palo_alto_next_generation_firewall_virtual_network_panorama"   
    network_profile = {
-      example_network_profile = {
+      this_network_profile = {
          # public_ip_address_ids → set in tfstate_inputs
-         vnet_configuration = "..."   
+         vnet_configuration = "..."         
       }
-  
+      
    }
- 
-   panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_virtual_network_panorama" 
-   resource_group_name = "${resource_group}" 
+   
+   panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_virtual_network_panorama"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   network_profile.example_network_profile.public_ip_address_ids = "path/to/public_ip_component:id" 
+   network_profile.this_network_profile.public_ip_address_ids = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -55,27 +55,19 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama. | 
 
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
-
-### `backend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port number to send traffic to. |
-| `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
-
 ### `frontend_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | Yes | - | The port on which to receive traffic. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+
+### `dns_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
+| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
 
 ### `vnet_configuration` block structure
 
@@ -85,12 +77,12 @@ tfstate_store = {
 | `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
 | `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
 
-### `dns_settings` block structure
+### `backend_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
-| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+| `port` | string | Yes | - | The port number to send traffic to. |
+| `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
 
 ### `network_profile` block structure
 
@@ -99,6 +91,15 @@ tfstate_store = {
 | `public_ip_address_ids` | string | Yes | - | Specifies a list of Azure Public IP Address IDs. |
 | `vnet_configuration` | [block](#network_profile-block-structure) | Yes | - | A 'vnet_configuration' block. |
 | `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation. |
+
+### `destination_nat` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this Destination NAT. |
+| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
 
 

@@ -6,25 +6,25 @@ Manages a Data Lake Gen2 Path in a File System within an Azure Storage Account.~
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_data_lake_gen2_path" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_data_lake_gen2_path"   
 }
 
 inputs = {
-   path = "path of storage_data_lake_gen2_path" 
-   filesystem_name = "filesystem_name of storage_data_lake_gen2_path" 
+   path = "path of storage_data_lake_gen2_path"   
+   filesystem_name = "filesystem_name of storage_data_lake_gen2_path"   
    # storage_account_id → set in tfstate_inputs
-   resource = "resource of storage_data_lake_gen2_path" 
+   resource = "resource of storage_data_lake_gen2_path"   
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

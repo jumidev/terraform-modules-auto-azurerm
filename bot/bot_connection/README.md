@@ -6,24 +6,24 @@ Manages a Bot Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_connection"   
 }
 
 inputs = {
-   name = "name of bot_connection" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bot_name = "bot_name of bot_connection" 
-   service_provider_name = "service_provider_name of bot_connection" 
-   client_id = "client_id of bot_connection" 
-   client_secret = "client_secret of bot_connection" 
+   name = "name of bot_connection"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bot_name = "bot_name of bot_connection"   
+   service_provider_name = "service_provider_name of bot_connection"   
+   client_id = "client_id of bot_connection"   
+   client_secret = "client_secret of bot_connection"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

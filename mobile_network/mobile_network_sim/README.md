@@ -6,27 +6,27 @@ Manages a Mobile Network Sim.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network_sim" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mobile_network/mobile_network_sim"   
 }
 
 inputs = {
-   name = "name of mobile_network_sim" 
+   name = "name of mobile_network_sim"   
    # mobile_network_sim_group_id → set in tfstate_inputs
-   authentication_key = "authentication_key of mobile_network_sim" 
-   international_mobile_subscriber_identity = "international_mobile_subscriber_identity of mobile_network_sim" 
-   integrated_circuit_card_identifier = "integrated_circuit_card_identifier of mobile_network_sim" 
-   operator_key_code = "operator_key_code of mobile_network_sim" 
+   authentication_key = "authentication_key of mobile_network_sim"   
+   international_mobile_subscriber_identity = "international_mobile_subscriber_identity of mobile_network_sim"   
+   integrated_circuit_card_identifier = "integrated_circuit_card_identifier of mobile_network_sim"   
+   operator_key_code = "operator_key_code of mobile_network_sim"   
 }
 
 tfstate_inputs = {
-   mobile_network_sim_group_id = "path/to/mobile_network_sim_group_component:id" 
+   mobile_network_sim_group_id = "path/to/mobile_network_sim_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

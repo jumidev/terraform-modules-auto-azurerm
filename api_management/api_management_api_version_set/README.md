@@ -6,26 +6,26 @@ Manages an API Version Set within an API Management Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_api_version_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_api_version_set"   
 }
 
 inputs = {
-   name = "name of api_management_api_version_set" 
+   name = "name of api_management_api_version_set"   
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   display_name = "display_name of api_management_api_version_set" 
-   versioning_scheme = "versioning_scheme of api_management_api_version_set" 
+   resource_group_name = "${resource_group}"   
+   display_name = "display_name of api_management_api_version_set"   
+   versioning_scheme = "versioning_scheme of api_management_api_version_set"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

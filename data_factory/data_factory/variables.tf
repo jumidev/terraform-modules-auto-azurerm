@@ -40,6 +40,7 @@ variable "global_parameter" {
 }
 #
 # global_parameter block structure:
+#   name (string)                   : (REQUIRED) Specifies the global parameter name.
 #   type (string)                   : (REQUIRED) Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'.
 #   value (string)                  : (REQUIRED) Specifies the global parameter value.
 

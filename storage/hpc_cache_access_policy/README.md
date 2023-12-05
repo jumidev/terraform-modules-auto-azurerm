@@ -6,24 +6,24 @@ Manages a HPC Cache Access Policy.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/hpc_cache_access_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/hpc_cache_access_policy"   
 }
 
 inputs = {
-   name = "name of hpc_cache_access_policy" 
+   name = "name of hpc_cache_access_policy"   
    # hpc_cache_id → set in tfstate_inputs
-   access_rule = "access_rule of hpc_cache_access_policy" 
+   access_rule = "access_rule of hpc_cache_access_policy"   
 }
 
 tfstate_inputs = {
-   hpc_cache_id = "path/to/hpc_cache_component:id" 
+   hpc_cache_id = "path/to/hpc_cache_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

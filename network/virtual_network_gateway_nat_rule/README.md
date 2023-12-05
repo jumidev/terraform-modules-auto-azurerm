@@ -6,26 +6,26 @@ Manages a Virtual Network Gateway Nat Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_gateway_nat_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_network_gateway_nat_rule"   
 }
 
 inputs = {
-   name = "name of virtual_network_gateway_nat_rule" 
-   resource_group_name = "${resource_group}" 
+   name = "name of virtual_network_gateway_nat_rule"   
+   resource_group_name = "${resource_group}"   
    # virtual_network_gateway_id → set in tfstate_inputs
-   external_mapping = "external_mapping of virtual_network_gateway_nat_rule" 
-   internal_mapping = "internal_mapping of virtual_network_gateway_nat_rule" 
+   external_mapping = "external_mapping of virtual_network_gateway_nat_rule"   
+   internal_mapping = "internal_mapping of virtual_network_gateway_nat_rule"   
 }
 
 tfstate_inputs = {
-   virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id" 
+   virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

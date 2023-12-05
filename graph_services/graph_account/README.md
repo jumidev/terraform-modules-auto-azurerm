@@ -6,20 +6,20 @@ Manages a Microsoft Graph Services Account.!> **NOTE:** This resource has been d
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "graph_services/graph_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "graph_services/graph_account"   
 }
 
 inputs = {
-   name = "name of graph_account" 
-   resource_group_name = "${resource_group}" 
-   application_id = "application_id of graph_account" 
+   name = "name of graph_account"   
+   resource_group_name = "${resource_group}"   
+   application_id = "application_id of graph_account"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

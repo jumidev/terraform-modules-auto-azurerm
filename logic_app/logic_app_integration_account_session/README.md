@@ -6,21 +6,21 @@ Manages a Logic App Integration Account Session.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_integration_account_session" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/logic_app_integration_account_session"   
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_session" 
-   resource_group_name = "${resource_group}" 
-   integration_account_name = "integration_account_name of logic_app_integration_account_session" 
-   content = "content of logic_app_integration_account_session" 
+   name = "name of logic_app_integration_account_session"   
+   resource_group_name = "${resource_group}"   
+   integration_account_name = "integration_account_name of logic_app_integration_account_session"   
+   content = "content of logic_app_integration_account_session"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

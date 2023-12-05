@@ -6,18 +6,18 @@ Enables or disables the Security Center Auto Provisioning feature for the subscr
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_auto_provisioning" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_auto_provisioning"   
 }
 
 inputs = {
-   auto_provision = "auto_provision of security_center_auto_provisioning" 
+   auto_provision = "auto_provision of security_center_auto_provisioning"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,24 +6,24 @@ Manages a Pim Eligible Role Assignment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "authorization/pim_eligible_role_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "authorization/pim_eligible_role_assignment"   
 }
 
 inputs = {
-   principal_id = "principal_id of pim_eligible_role_assignment" 
+   principal_id = "principal_id of pim_eligible_role_assignment"   
    # role_definition_id → set in tfstate_inputs
-   scope = "scope of pim_eligible_role_assignment" 
+   scope = "scope of pim_eligible_role_assignment"   
 }
 
 tfstate_inputs = {
-   role_definition_id = "path/to/role_definition_component:id" 
+   role_definition_id = "path/to/role_definition_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -44,14 +44,6 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 | **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 
-### `expiration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `duration_days` | int | No | - | The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
-| `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
-| `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created. |
-
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +57,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `number` | string | No | - | The ticket number. |
 | `system` | string | No | - | The ticket system. |
+
+### `expiration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `duration_days` | int | No | - | The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created. |
 
 
 

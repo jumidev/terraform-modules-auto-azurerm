@@ -21,6 +21,7 @@ variable "ip_configuration" {
 }
 #
 # ip_configuration block structure:
+#   name (string)                   : (REQUIRED) The name of the IP configuration. Changing this forces a new resource to be created.
 #   subnet_id (string)              : (REQUIRED) Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
 #   public_ip_address_id (string)   : (REQUIRED) Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
 

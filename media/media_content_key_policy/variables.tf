@@ -16,6 +16,7 @@ variable "policy_option" {
 }
 #
 # policy_option block structure           :
+#   name (string)                           : (REQUIRED) The name which should be used for this Policy Option.
 #   clear_key_configuration_enabled (bool)  : Enable a configuration for non-DRM keys.
 #   fairplay_configuration (block)          : A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>.
 #   open_restriction_enabled (bool)         : Enable an open restriction. License or key will be delivered on every request.

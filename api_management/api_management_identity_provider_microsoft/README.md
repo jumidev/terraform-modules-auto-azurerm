@@ -6,25 +6,25 @@ Manages an API Management Microsoft Identity Provider.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_identity_provider_microsoft" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_identity_provider_microsoft"   
 }
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   client_id = "client_id of api_management_identity_provider_microsoft" 
-   client_secret = "client_secret of api_management_identity_provider_microsoft" 
+   resource_group_name = "${resource_group}"   
+   client_id = "client_id of api_management_identity_provider_microsoft"   
+   client_secret = "client_secret of api_management_identity_provider_microsoft"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,24 +6,24 @@ Manages a Logger within an API Management Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_logger" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_logger"   
 }
 
 inputs = {
-   name = "name of api_management_logger" 
-   resource_group_name = "${resource_group}" 
+   name = "name of api_management_logger"   
+   resource_group_name = "${resource_group}"   
    # api_management_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of an EventHub. |
 | `connection_string` | string | No | - | The connection string of an EventHub Namespace. |
 | `user_assigned_identity_client_id` | string | No | - | The Client Id of the User Assigned Identity  with the 'Azure Event Hubs Data Sender' role to the target EventHub Namespace. Required when 'endpoint_uri' is set. If not specified the System Assigned Identity will be used. |
 | `endpoint_uri` | string | No | - | The endpoint address of an EventHub Namespace. Required when 'client_id' is set. |

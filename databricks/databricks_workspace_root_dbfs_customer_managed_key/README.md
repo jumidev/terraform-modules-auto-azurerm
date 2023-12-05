@@ -6,8 +6,8 @@ Manages a Customer Managed Key for the Databricks Workspaces root Databricks Fil
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "databricks/databricks_workspace_root_dbfs_customer_managed_key" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "databricks/databricks_workspace_root_dbfs_customer_managed_key"   
 }
 
 inputs = {
@@ -16,14 +16,14 @@ inputs = {
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
-   key_vault_key_id = "path/to/key_vault_key_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
+   key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

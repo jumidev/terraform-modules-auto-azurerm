@@ -6,27 +6,27 @@ Manages a Logic App Integration Account Batch Configuration.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_integration_account_batch_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/logic_app_integration_account_batch_configuration"   
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_batch_configuration" 
-   resource_group_name = "${resource_group}" 
-   integration_account_name = "integration_account_name of logic_app_integration_account_batch_configuration" 
-   batch_group_name = "batch_group_name of logic_app_integration_account_batch_configuration" 
+   name = "name of logic_app_integration_account_batch_configuration"   
+   resource_group_name = "${resource_group}"   
+   integration_account_name = "integration_account_name of logic_app_integration_account_batch_configuration"   
+   batch_group_name = "batch_group_name of logic_app_integration_account_batch_configuration"   
    release_criteria = {
-      example_release_criteria = {
+      this_release_criteria = {
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -46,6 +46,17 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **metadata** | string |  A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration. | 
+
+### `recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
+| `interval` | int | Yes | - | The number of 'frequency's between runs. |
+| `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
+| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
+| `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
+| `time_zone` | string | No | - | The timezone of the start/end time. |
 
 ### `release_criteria` block structure
 
@@ -71,17 +82,6 @@ tfstate_store = {
 | `month_days` | int | No | - | A list of days of the month that the job should execute on. |
 | `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block. |
 | `week_days` | string | No | - | A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-
-### `recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
-| `interval` | int | Yes | - | The number of 'frequency's between runs. |
-| `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
-| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
-| `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
-| `time_zone` | string | No | - | The timezone of the start/end time. |
 
 
 

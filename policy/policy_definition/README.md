@@ -6,21 +6,21 @@ Manages a policy rule definition on a management group or your provider subscrip
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/policy_definition" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "policy/policy_definition"   
 }
 
 inputs = {
-   name = "name of policy_definition" 
-   policy_type = "policy_type of policy_definition" 
-   mode = "mode of policy_definition" 
-   display_name = "display_name of policy_definition" 
+   name = "name of policy_definition"   
+   policy_type = "policy_type of policy_definition"   
+   mode = "mode of policy_definition"   
+   display_name = "display_name of policy_definition"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

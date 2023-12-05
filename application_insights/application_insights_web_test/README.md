@@ -6,28 +6,28 @@ Manages an Application Insights WebTest.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights_web_test" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "application_insights/application_insights_web_test"   
 }
 
 inputs = {
-   name = "name of application_insights_web_test" 
-   resource_group_name = "${resource_group}" 
+   name = "name of application_insights_web_test"   
+   resource_group_name = "${resource_group}"   
    # application_insights_id → set in tfstate_inputs
-   location = "${location}" 
-   kind = "kind of application_insights_web_test" 
-   geo_locations = "geo_locations of application_insights_web_test" 
-   configuration = "configuration of application_insights_web_test" 
+   location = "${location}"   
+   kind = "kind of application_insights_web_test"   
+   geo_locations = "geo_locations of application_insights_web_test"   
+   configuration = "configuration of application_insights_web_test"   
 }
 
 tfstate_inputs = {
-   application_insights_id = "path/to/application_insights_component:id" 
+   application_insights_id = "path/to/application_insights_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

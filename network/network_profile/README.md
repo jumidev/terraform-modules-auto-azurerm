@@ -6,27 +6,28 @@ Manages a Network Profile.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_profile" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_profile"   
 }
 
 inputs = {
-   name = "name of network_profile" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
+   name = "name of network_profile"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
    container_network_interface = {
-      example_container_network_interface = {
-         ip_configuration = "..."   
+      this_container_network_interface = {
+         name = "..."         
+         ip_configuration = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -50,6 +51,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
 | `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
 
 

@@ -6,23 +6,23 @@ Manages a Network Manager Security Admin Configuration.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_security_admin_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_security_admin_configuration"   
 }
 
 inputs = {
-   name = "name of network_manager_security_admin_configuration" 
+   name = "name of network_manager_security_admin_configuration"   
    # network_manager_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   network_manager_id = "path/to/network_manager_component:id" 
+   network_manager_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

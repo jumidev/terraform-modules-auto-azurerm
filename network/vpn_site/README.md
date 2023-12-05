@@ -6,25 +6,25 @@ Manages a VPN Site.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/vpn_site" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/vpn_site"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of vpn_site" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of vpn_site"   
+   resource_group_name = "${resource_group}"   
    # virtual_wan_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_wan_id = "path/to/virtual_wan_component:id" 
+   virtual_wan_id = "path/to/virtual_wan_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,28 +49,12 @@ tfstate_store = {
 | **o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
 
-### `o365_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | [block](#o365_policy-block-structure) | No | - | A 'traffic_category' block. |
-
 ### `bgp` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `asn` | string | Yes | - | The BGP speaker's ASN. |
 | `peering_address` | string | Yes | - | The BGP peering IP address. |
-
-### `link` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `bgp` | [block](#link-block-structure) | No | - | A 'bgp' block. |
-| `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
-| `ip_address` | string | No | - | The IP address of this VPN Site Link. |
-| `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |
-| `speed_in_mbps` | int | No | 0 | The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'. |
 
 ### `traffic_category` block structure
 
@@ -79,6 +63,23 @@ tfstate_store = {
 | `allow_endpoint_enabled` | bool | No | False | Is allow endpoint enabled? The 'Allow' endpoint is required for connectivity to specific O365 services and features, but are not as sensitive to network performance and latency as other endpoint types. Defaults to 'false'. |
 | `default_endpoint_enabled` | bool | No | False | Is default endpoint enabled? The 'Default' endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to 'false'. |
 | `optimize_endpoint_enabled` | bool | No | False | Is optimize endpoint enabled? The 'Optimize' endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to 'false'. |
+
+### `link` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this VPN Site Link. |
+| `bgp` | [block](#link-block-structure) | No | - | A 'bgp' block. |
+| `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
+| `ip_address` | string | No | - | The IP address of this VPN Site Link. |
+| `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |
+| `speed_in_mbps` | int | No | 0 | The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'. |
+
+### `o365_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `traffic_category` | [block](#o365_policy-block-structure) | No | - | A 'traffic_category' block. |
 
 
 

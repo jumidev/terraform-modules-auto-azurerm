@@ -6,22 +6,22 @@ Manages an Event Grid System Topic.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/eventgrid_system_topic" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/eventgrid_system_topic"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of eventgrid_system_topic" 
-   resource_group_name = "${resource_group}" 
-   source_arm_resource_id = "source_arm_resource_id of eventgrid_system_topic" 
-   topic_type = "topic_type of eventgrid_system_topic" 
+   location = "${location}"   
+   name = "name of eventgrid_system_topic"   
+   resource_group_name = "${resource_group}"   
+   source_arm_resource_id = "source_arm_resource_id of eventgrid_system_topic"   
+   topic_type = "topic_type of eventgrid_system_topic"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

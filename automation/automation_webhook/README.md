@@ -6,26 +6,26 @@ Manages an Automation Runbook's Webhook.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_webhook" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_webhook"   
 }
 
 inputs = {
-   name = "name of automation_webhook" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_webhook"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   expiry_time = "expiry_time of automation_webhook" 
-   runbook_name = "runbook_name of automation_webhook" 
+   expiry_time = "expiry_time of automation_webhook"   
+   runbook_name = "runbook_name of automation_webhook"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

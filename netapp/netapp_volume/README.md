@@ -6,30 +6,30 @@ Manages a NetApp Volume.## NetApp Volume Usage```hclresource "azurerm_resource_g
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "netapp/netapp_volume" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "netapp/netapp_volume"   
 }
 
 inputs = {
-   name = "name of netapp_volume" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   account_name = "account_name of netapp_volume" 
-   volume_path = "volume_path of netapp_volume" 
-   pool_name = "pool_name of netapp_volume" 
-   service_level = "service_level of netapp_volume" 
+   name = "name of netapp_volume"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   account_name = "account_name of netapp_volume"   
+   volume_path = "volume_path of netapp_volume"   
+   pool_name = "pool_name of netapp_volume"   
+   service_level = "service_level of netapp_volume"   
    # subnet_id → set in tfstate_inputs
-   storage_quota_in_gb = "storage_quota_in_gb of netapp_volume" 
+   storage_quota_in_gb = "storage_quota_in_gb of netapp_volume"   
 }
 
 tfstate_inputs = {
-   subnet_id = "path/to/subnet_component:id" 
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -65,12 +65,6 @@ tfstate_store = {
 | **throughput_in_mibps** | string |  -  |  -  |  Throughput of this volume in Mibps. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
-
 ### `data_protection_replication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +73,12 @@ tfstate_store = {
 | `remote_volume_location` | string | Yes | - | Location of the primary volume. Changing this forces a new resource to be created. |
 | `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
 | `replication_frequency` | string | Yes | - | Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive. |
+
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 
 

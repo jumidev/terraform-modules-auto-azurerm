@@ -6,23 +6,23 @@ Manages a certificate in an Azure Batch account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "batch/batch_certificate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "batch/batch_certificate"   
 }
 
 inputs = {
-   account_name = "account_name of batch_certificate" 
-   resource_group_name = "${resource_group}" 
-   certificate = "certificate of batch_certificate" 
-   format = "format of batch_certificate" 
-   thumbprint = "thumbprint of batch_certificate" 
-   thumbprint_algorithm = "thumbprint_algorithm of batch_certificate" 
+   account_name = "account_name of batch_certificate"   
+   resource_group_name = "${resource_group}"   
+   certificate = "certificate of batch_certificate"   
+   format = "format of batch_certificate"   
+   thumbprint = "thumbprint of batch_certificate"   
+   thumbprint_algorithm = "thumbprint_algorithm of batch_certificate"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

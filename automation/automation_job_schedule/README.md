@@ -6,25 +6,25 @@ Links an Automation Runbook and Schedule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_job_schedule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_job_schedule"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   runbook_name = "runbook_name of automation_job_schedule" 
-   schedule_name = "schedule_name of automation_job_schedule" 
+   runbook_name = "runbook_name of automation_job_schedule"   
+   schedule_name = "schedule_name of automation_job_schedule"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

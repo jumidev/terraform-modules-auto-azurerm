@@ -6,25 +6,25 @@ Manages an API Management Facebook Identity Provider.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_identity_provider_facebook" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_identity_provider_facebook"   
 }
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   app_id = "app_id of api_management_identity_provider_facebook" 
-   app_secret = "app_secret of api_management_identity_provider_facebook" 
+   resource_group_name = "${resource_group}"   
+   app_id = "app_id of api_management_identity_provider_facebook"   
+   app_secret = "app_secret of api_management_identity_provider_facebook"   
 }
 
 tfstate_inputs = {
-   api_management_name = "path/to/api_management_component:name" 
+   api_management_name = "path/to/api_management_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

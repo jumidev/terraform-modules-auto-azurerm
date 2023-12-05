@@ -6,18 +6,18 @@ Manages an Alias for a Subscription - which adds an Alias to an existing Subscri
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "base/subscription" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "base/subscription"   
 }
 
 inputs = {
-   subscription_name = "subscription_name of subscription" 
+   subscription_name = "subscription_name of subscription"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

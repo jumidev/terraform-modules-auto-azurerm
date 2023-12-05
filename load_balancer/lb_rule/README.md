@@ -6,28 +6,28 @@ Manages a Load Balancer Rule.~> **NOTE** When using this resource, the Load Bala
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_balancer/lb_rule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_balancer/lb_rule"   
 }
 
 inputs = {
-   name = "name of lb_rule" 
+   name = "name of lb_rule"   
    # loadbalancer_id → set in tfstate_inputs
    # frontend_ip_configuration_name → set in tfstate_inputs
-   protocol = "protocol of lb_rule" 
-   frontend_port = "frontend_port of lb_rule" 
-   backend_port = "backend_port of lb_rule" 
+   protocol = "protocol of lb_rule"   
+   frontend_port = "frontend_port of lb_rule"   
+   backend_port = "backend_port of lb_rule"   
 }
 
 tfstate_inputs = {
-   loadbalancer_id = "path/to/lb_component:id" 
-   frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration" 
+   loadbalancer_id = "path/to/lb_component:id"   
+   frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

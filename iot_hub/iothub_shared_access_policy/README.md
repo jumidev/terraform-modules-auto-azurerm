@@ -6,24 +6,24 @@ Manages an IotHub Shared Access Policy
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_shared_access_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_shared_access_policy"   
 }
 
 inputs = {
-   name = "name of iothub_shared_access_policy" 
-   resource_group_name = "${resource_group}" 
+   name = "name of iothub_shared_access_policy"   
+   resource_group_name = "${resource_group}"   
    # iothub_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_name = "path/to/iothub_component:name" 
+   iothub_name = "path/to/iothub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,19 +6,19 @@ Manages a HyperV Site in Recovery Service Vault.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/site_recovery_services_vault_hyperv_site" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "recovery_services/site_recovery_services_vault_hyperv_site"   
 }
 
 inputs = {
-   name = "name of site_recovery_services_vault_hyperv_site" 
-   recovery_vault_id = "recovery_vault_id of site_recovery_services_vault_hyperv_site" 
+   name = "name of site_recovery_services_vault_hyperv_site"   
+   recovery_vault_id = "recovery_vault_id of site_recovery_services_vault_hyperv_site"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

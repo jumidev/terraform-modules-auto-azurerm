@@ -6,21 +6,21 @@ Manages an Azure IoT Time Series Insights Access Policy.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "time_series_insights/iot_time_series_insights_access_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "time_series_insights/iot_time_series_insights_access_policy"   
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_access_policy" 
-   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_access_policy" 
-   principal_object_id = "principal_object_id of iot_time_series_insights_access_policy" 
-   roles = "roles of iot_time_series_insights_access_policy" 
+   name = "name of iot_time_series_insights_access_policy"   
+   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_access_policy"   
+   principal_object_id = "principal_object_id of iot_time_series_insights_access_policy"   
+   roles = "roles of iot_time_series_insights_access_policy"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

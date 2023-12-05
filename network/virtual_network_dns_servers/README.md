@@ -6,8 +6,8 @@ Manages the DNS servers associated with a virtual network.~> **NOTE on Virtual N
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_dns_servers" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_network_dns_servers"   
 }
 
 inputs = {
@@ -15,13 +15,13 @@ inputs = {
 }
 
 tfstate_inputs = {
-   virtual_network_id = "path/to/virtual_network_component:id" 
+   virtual_network_id = "path/to/virtual_network_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

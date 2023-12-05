@@ -6,28 +6,28 @@ Allows you to set a user or group as the AD administrator for a PostgreSQL Flexi
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/postgresql_flexible_server_active_directory_administrator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/postgresql_flexible_server_active_directory_administrator"   
 }
 
 inputs = {
    # server_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   object_id = "object_id of postgresql_flexible_server_active_directory_administrator" 
+   resource_group_name = "${resource_group}"   
+   object_id = "object_id of postgresql_flexible_server_active_directory_administrator"   
    # tenant_id → set in tfstate_inputs
-   principal_name = "principal_name of postgresql_flexible_server_active_directory_administrator" 
-   principal_type = "principal_type of postgresql_flexible_server_active_directory_administrator" 
+   principal_name = "principal_name of postgresql_flexible_server_active_directory_administrator"   
+   principal_type = "principal_type of postgresql_flexible_server_active_directory_administrator"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/postgresql_server_component:name" 
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   server_name = "path/to/postgresql_server_component:name"   
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

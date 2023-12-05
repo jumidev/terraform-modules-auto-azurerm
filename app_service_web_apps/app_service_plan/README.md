@@ -6,28 +6,28 @@ Manages an App Service Plan component.!> **NOTE:** This resource has been deprec
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_service_web_apps/app_service_plan" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_service_web_apps/app_service_plan"   
 }
 
 inputs = {
-   name = "name of app_service_plan" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of app_service_plan"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    sku = {
-      example_sku = {
-         tier = "..."   
-         size = "..."   
+      this_sku = {
+         tier = "..."         
+         size = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

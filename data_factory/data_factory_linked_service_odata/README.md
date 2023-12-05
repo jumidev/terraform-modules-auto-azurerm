@@ -6,24 +6,24 @@ Manages a Linked Service (connection) between a Database and Azure Data Factory 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_odata" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_linked_service_odata"   
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_odata" 
+   name = "name of data_factory_linked_service_odata"   
    # data_factory_id → set in tfstate_inputs
-   url = "url of data_factory_linked_service_odata" 
+   url = "url of data_factory_linked_service_odata"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

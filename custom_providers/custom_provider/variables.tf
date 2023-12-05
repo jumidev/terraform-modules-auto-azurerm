@@ -25,6 +25,7 @@ variable "resource_type" {
 }
 #
 # resource_type block structure:
+#   name (string)                : (REQUIRED) Specifies the name of the route definition.
 #   endpoint (string)            : (REQUIRED) Specifies the endpoint of the route definition.
 #   routing_type (string)        : The routing type that is supported for the resource request. Valid values are 'Proxy' and 'Proxy,Cache'. Defaults to 'Proxy'.
 
@@ -36,6 +37,7 @@ variable "action" {
 }
 #
 # action block structure:
+#   name (string)         : (REQUIRED) Specifies the name of the action.
 #   endpoint (string)     : (REQUIRED) Specifies the endpoint of the action.
 
 

@@ -6,22 +6,22 @@ Manages a Direct Line Speech integration for a Bot Channel
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "bot/bot_channel_direct_line_speech" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "bot/bot_channel_direct_line_speech"   
 }
 
 inputs = {
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   bot_name = "bot_name of bot_channel_direct_line_speech" 
-   cognitive_service_access_key = "cognitive_service_access_key of bot_channel_direct_line_speech" 
-   cognitive_service_location = "cognitive_service_location of bot_channel_direct_line_speech" 
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   bot_name = "bot_name of bot_channel_direct_line_speech"   
+   cognitive_service_access_key = "cognitive_service_access_key of bot_channel_direct_line_speech"   
+   cognitive_service_location = "cognitive_service_location of bot_channel_direct_line_speech"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,26 +6,26 @@ Manages a virtual network peering which allows resources to access otherresource
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_network_peering" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_network_peering"   
 }
 
 inputs = {
-   name = "name of virtual_network_peering" 
+   name = "name of virtual_network_peering"   
    # virtual_network_name → set in tfstate_inputs
    # remote_virtual_network_id → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   virtual_network_name = "path/to/virtual_network_component:name" 
-   remote_virtual_network_id = "path/to/virtual_network_component:id" 
+   virtual_network_name = "path/to/virtual_network_component:name"   
+   remote_virtual_network_id = "path/to/virtual_network_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

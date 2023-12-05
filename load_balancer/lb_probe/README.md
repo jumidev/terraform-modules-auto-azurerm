@@ -6,24 +6,24 @@ Manages a LoadBalancer Probe Resource.~> **NOTE** When using this resource, the 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "load_balancer/lb_probe" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "load_balancer/lb_probe"   
 }
 
 inputs = {
-   name = "name of lb_probe" 
+   name = "name of lb_probe"   
    # loadbalancer_id → set in tfstate_inputs
-   port = "port of lb_probe" 
+   port = "port of lb_probe"   
 }
 
 tfstate_inputs = {
-   loadbalancer_id = "path/to/lb_component:id" 
+   loadbalancer_id = "path/to/lb_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

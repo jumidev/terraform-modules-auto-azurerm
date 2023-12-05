@@ -30,6 +30,7 @@ variable "custom_header" {
 }
 #
 # custom_header block structure:
+#   name (string)                : (REQUIRED) The name of the custom header.
 #   value (string)               : (REQUIRED) The value of custom header. Applicable for HTTP and HTTPS protocol.
 
 

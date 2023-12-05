@@ -6,27 +6,27 @@ Manages a Data Share Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_share/data_share_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_share/data_share_account"   
 }
 
 inputs = {
-   name = "name of data_share_account" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of data_share_account"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

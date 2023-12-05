@@ -6,37 +6,37 @@ Create a failover group of databases on a collection of Azure SQL servers.-> **N
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/sql_failover_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/sql_failover_group"   
 }
 
 inputs = {
-   name = "name of sql_failover_group" 
-   resource_group_name = "${resource_group}" 
+   name = "name of sql_failover_group"   
+   resource_group_name = "${resource_group}"   
    # server_name → set in tfstate_inputs
    partner_servers = {
-      example_partner_servers = {
+      this_partner_servers = {
       }
-  
+      
    }
- 
+   
    read_write_endpoint_failover_policy = {
-      example_read_write_endpoint_failover_policy = {
-         mode = "..."   
+      this_read_write_endpoint_failover_policy = {
+         mode = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/sql_server_component:name" 
+   server_name = "path/to/sql_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -59,12 +59,10 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `read_write_endpoint_failover_policy` block structure
+### `partner_servers` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | the failover mode. Possible values are 'Manual', 'Automatic' |
-| `grace_minutes` | int | No | - | Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted |
 
 ### `readonly_endpoint_failover_policy` block structure
 
@@ -72,10 +70,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
 
-### `partner_servers` block structure
+### `read_write_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | the failover mode. Possible values are 'Manual', 'Automatic' |
+| `grace_minutes` | int | No | - | Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted |
 
 
 

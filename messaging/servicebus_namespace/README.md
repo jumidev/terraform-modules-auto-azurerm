@@ -6,21 +6,21 @@ Manages a ServiceBus Namespace.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_namespace" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_namespace"   
 }
 
 inputs = {
-   name = "name of servicebus_namespace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of servicebus_namespace" 
+   name = "name of servicebus_namespace"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku = "sku of servicebus_namespace"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -56,6 +56,13 @@ tfstate_store = {
 | `identity_id` | string | Yes | - | The ID of the User Assigned Identity that has access to the key. |
 | `infrastructure_encryption_enabled` | bool | No | - | Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. |
 
+### `network_rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
+| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
+
 ### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,13 +79,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
-
-### `network_rules` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
-| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
 
 
 

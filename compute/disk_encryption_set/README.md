@@ -6,32 +6,32 @@ Manages a Disk Encryption Set.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/disk_encryption_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/disk_encryption_set"   
 }
 
 inputs = {
-   name = "name of disk_encryption_set" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of disk_encryption_set"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # key_vault_key_id → set in tfstate_inputs
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   key_vault_key_id = "path/to/key_vault_key_component:id" 
+   key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

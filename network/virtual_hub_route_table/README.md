@@ -6,23 +6,23 @@ Manages a Virtual Hub Route Table.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_hub_route_table" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_hub_route_table"   
 }
 
 inputs = {
-   name = "name of virtual_hub_route_table" 
+   name = "name of virtual_hub_route_table"   
    # virtual_hub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -45,6 +45,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this route. |
 | `destinations` | list | Yes | - | A list of destination addresses for this route. |
 | `destinations_type` | string | Yes | - | The type of destinations. Possible values are 'CIDR', 'ResourceId' and 'Service'. |
 | `next_hop` | string | Yes | - | The next hop's resource ID. |

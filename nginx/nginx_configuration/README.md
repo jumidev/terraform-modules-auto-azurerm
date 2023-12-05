@@ -6,23 +6,23 @@ Manages the configuration for a Nginx Deployment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "nginx/nginx_configuration" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "nginx/nginx_configuration"   
 }
 
 inputs = {
    # nginx_deployment_id → set in tfstate_inputs
-   root_file = "root_file of nginx_configuration" 
+   root_file = "root_file of nginx_configuration"   
 }
 
 tfstate_inputs = {
-   nginx_deployment_id = "path/to/nginx_deployment_component:id" 
+   nginx_deployment_id = "path/to/nginx_deployment_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

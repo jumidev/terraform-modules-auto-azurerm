@@ -6,24 +6,24 @@ Manages a Kubernetes Cluster Extension.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/kubernetes_cluster_extension" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/kubernetes_cluster_extension"   
 }
 
 inputs = {
-   name = "name of kubernetes_cluster_extension" 
+   name = "name of kubernetes_cluster_extension"   
    # cluster_id → set in tfstate_inputs
-   extension_type = "extension_type of kubernetes_cluster_extension" 
+   extension_type = "extension_type of kubernetes_cluster_extension"   
 }
 
 tfstate_inputs = {
-   cluster_id = "path/to/kubernetes_cluster_component:id" 
+   cluster_id = "path/to/kubernetes_cluster_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `product` | string | Yes | - | Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `promotion_code` | string | No | - | Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created. |

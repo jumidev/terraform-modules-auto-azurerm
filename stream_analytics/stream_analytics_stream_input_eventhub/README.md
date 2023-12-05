@@ -6,34 +6,34 @@
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_stream_input_eventhub" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_stream_input_eventhub"   
 }
 
 inputs = {
-   name = "name of stream_analytics_stream_input_eventhub" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_stream_input_eventhub"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
    # eventhub_name → set in tfstate_inputs
-   servicebus_namespace = "servicebus_namespace of stream_analytics_stream_input_eventhub" 
+   servicebus_namespace = "servicebus_namespace of stream_analytics_stream_input_eventhub"   
    serialization = {
-      example_serialization = {
-         type = "..."   
+      this_serialization = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
-   eventhub_name = "path/to/eventhub_component:name" 
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
+   eventhub_name = "path/to/eventhub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

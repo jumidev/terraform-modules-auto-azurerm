@@ -6,36 +6,36 @@ Manages a Azure Machine Learning Workspace~> **NOTE:** For examples on how to se
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "machine_learning/machine_learning_workspace" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "machine_learning/machine_learning_workspace"   
 }
 
 inputs = {
-   name = "name of machine_learning_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of machine_learning_workspace"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # application_insights_id → set in tfstate_inputs
    # key_vault_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
    identity = {
-      example_identity = {
-         type = "..."   
+      this_identity = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   application_insights_id = "path/to/application_insights_component:id" 
-   key_vault_id = "path/to/key_vault_component:id" 
-   storage_account_id = "path/to/storage_account_component:id" 
+   application_insights_id = "path/to/application_insights_component:id"   
+   key_vault_id = "path/to/key_vault_component:id"   
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

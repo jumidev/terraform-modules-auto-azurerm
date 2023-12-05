@@ -6,26 +6,26 @@ Manages a Network Manager Scope Connection which may cross tenants.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_scope_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_scope_connection"   
 }
 
 inputs = {
-   name = "name of network_manager_scope_connection" 
+   name = "name of network_manager_scope_connection"   
    # network_manager_id → set in tfstate_inputs
-   target_scope_id = "target_scope_id of network_manager_scope_connection" 
+   target_scope_id = "target_scope_id of network_manager_scope_connection"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   network_manager_id = "path/to/network_manager_component:id" 
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   network_manager_id = "path/to/network_manager_component:id"   
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

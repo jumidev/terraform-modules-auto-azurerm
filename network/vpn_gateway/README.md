@@ -6,25 +6,25 @@ Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communica
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/vpn_gateway" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/vpn_gateway"   
 }
 
 inputs = {
-   name = "name of vpn_gateway" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of vpn_gateway"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # virtual_hub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

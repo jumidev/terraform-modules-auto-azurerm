@@ -17,6 +17,7 @@ variable "model" {
 #
 # model block structure:
 #   format (string)      : (REQUIRED) The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is 'OpenAI'.
+#   name (string)        : (REQUIRED) The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created.
 #   version (string)     : (REQUIRED) The version of Cognitive Services Account Deployment model.
 
 

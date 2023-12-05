@@ -6,26 +6,26 @@ Manages a network security group that contains a list of network security rules.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_security_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_security_group"   
 }
 
 inputs = {
-   name = "name of network_security_group" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of network_security_group"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
 ## Optional associated resource
 
-| tfstate_input variable | Information |
+| `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_network_security_group_association** - Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
 
@@ -57,6 +57,7 @@ tfstate_inputs = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the security rule. |
 | `description` | string | No | - | A description for this rule. Restricted to 140 characters. |
 | `protocol` | string | Yes | * | Network protocol this rule applies to. Possible values include 'Tcp', 'Udp', 'Icmp', 'Esp', 'Ah' or '*' (which matches all). |
 | `source_port_range` | string | No | * | Source Port or Range. Integer or range between '0' and '65535' or '*' to match any. This is required if 'source_port_ranges' is not specified. |

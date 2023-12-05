@@ -6,23 +6,23 @@ Manages a Spring Cloud Gateway Custom Domain.-> **NOTE:** This resource is appli
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_gateway_custom_domain" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_gateway_custom_domain"   
 }
 
 inputs = {
-   name = "name of spring_cloud_gateway_custom_domain" 
+   name = "name of spring_cloud_gateway_custom_domain"   
    # spring_cloud_gateway_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   spring_cloud_gateway_id = "path/to/spring_cloud_gateway_component:id" 
+   spring_cloud_gateway_id = "path/to/spring_cloud_gateway_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

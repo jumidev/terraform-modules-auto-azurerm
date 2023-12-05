@@ -6,25 +6,25 @@ Manages a Front Door (standard/premium) Origin.!>**IMPORTANT:** If you are attem
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_frontdoor_origin" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_frontdoor_origin"   
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_origin" 
+   name = "name of cdn_frontdoor_origin"   
    # cdn_frontdoor_origin_group_id → set in tfstate_inputs
-   host_name = "host_name of cdn_frontdoor_origin" 
-   certificate_name_check_enabled = "certificate_name_check_enabled of cdn_frontdoor_origin" 
+   host_name = "host_name of cdn_frontdoor_origin"   
+   certificate_name_check_enabled = "certificate_name_check_enabled of cdn_frontdoor_origin"   
 }
 
 tfstate_inputs = {
-   cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id" 
+   cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

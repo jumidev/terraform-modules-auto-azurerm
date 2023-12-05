@@ -6,24 +6,24 @@ Manages a Data Factory Binary Dataset inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_dataset_binary" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_dataset_binary"   
 }
 
 inputs = {
-   name = "name of data_factory_dataset_binary" 
+   name = "name of data_factory_dataset_binary"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_binary" 
+   linked_service_name = "linked_service_name of data_factory_dataset_binary"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -50,13 +50,6 @@ tfstate_store = {
 | **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
 
-### `compression` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'. |
-| `level` | string | No | - | The level of compression. Possible values are 'Fastest' and 'Optimal'. |
-
 ### `sftp_server_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,6 +69,13 @@ tfstate_store = {
 | `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
+### `compression` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'. |
+| `level` | string | No | - | The level of compression. Possible values are 'Fastest' and 'Optimal'. |
 
 ### `http_server_location` block structure
 

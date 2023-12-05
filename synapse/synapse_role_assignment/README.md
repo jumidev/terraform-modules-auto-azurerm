@@ -6,19 +6,19 @@ Manages a Synapse Role Assignment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_role_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_role_assignment"   
 }
 
 inputs = {
-   role_name = "role_name of synapse_role_assignment" 
-   principal_id = "principal_id of synapse_role_assignment" 
+   role_name = "role_name of synapse_role_assignment"   
+   principal_id = "principal_id of synapse_role_assignment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

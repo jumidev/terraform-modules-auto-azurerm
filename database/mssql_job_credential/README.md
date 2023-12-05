@@ -6,25 +6,25 @@ Manages an Elastic Job Credential.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_job_credential" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_job_credential"   
 }
 
 inputs = {
-   name = "name of mssql_job_credential" 
+   name = "name of mssql_job_credential"   
    # job_agent_id → set in tfstate_inputs
-   username = "username of mssql_job_credential" 
-   password = "password of mssql_job_credential" 
+   username = "username of mssql_job_credential"   
+   password = "password of mssql_job_credential"   
 }
 
 tfstate_inputs = {
-   job_agent_id = "path/to/mssql_job_agent_component:id" 
+   job_agent_id = "path/to/mssql_job_agent_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

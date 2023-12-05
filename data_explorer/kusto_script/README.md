@@ -6,19 +6,19 @@ Manages a Kusto Script.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_explorer/kusto_script" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_explorer/kusto_script"   
 }
 
 inputs = {
-   name = "name of kusto_script" 
-   database_id = "database_id of kusto_script" 
+   name = "name of kusto_script"   
+   database_id = "database_id of kusto_script"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

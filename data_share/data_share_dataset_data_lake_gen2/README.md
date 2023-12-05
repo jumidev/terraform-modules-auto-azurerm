@@ -6,25 +6,25 @@ Manages a Data Share Data Lake Gen2 Dataset.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_share/data_share_dataset_data_lake_gen2" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_share/data_share_dataset_data_lake_gen2"   
 }
 
 inputs = {
-   name = "name of data_share_dataset_data_lake_gen2" 
-   share_id = "share_id of data_share_dataset_data_lake_gen2" 
-   file_system_name = "file_system_name of data_share_dataset_data_lake_gen2" 
+   name = "name of data_share_dataset_data_lake_gen2"   
+   share_id = "share_id of data_share_dataset_data_lake_gen2"   
+   file_system_name = "file_system_name of data_share_dataset_data_lake_gen2"   
    # storage_account_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_account_id = "path/to/storage_account_component:id" 
+   storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

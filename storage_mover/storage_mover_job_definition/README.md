@@ -6,26 +6,26 @@ Manages a Storage Mover Job Definition.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage_mover/storage_mover_job_definition" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage_mover/storage_mover_job_definition"   
 }
 
 inputs = {
-   name = "name of storage_mover_job_definition" 
+   name = "name of storage_mover_job_definition"   
    # storage_mover_project_id → set in tfstate_inputs
-   source_name = "source_name of storage_mover_job_definition" 
-   target_name = "target_name of storage_mover_job_definition" 
-   copy_mode = "copy_mode of storage_mover_job_definition" 
+   source_name = "source_name of storage_mover_job_definition"   
+   target_name = "target_name of storage_mover_job_definition"   
+   copy_mode = "copy_mode of storage_mover_job_definition"   
 }
 
 tfstate_inputs = {
-   storage_mover_project_id = "path/to/storage_mover_project_component:id" 
+   storage_mover_project_id = "path/to/storage_mover_project_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

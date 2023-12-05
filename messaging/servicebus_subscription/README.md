@@ -6,20 +6,20 @@ Manages a ServiceBus Subscription.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "messaging/servicebus_subscription" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "messaging/servicebus_subscription"   
 }
 
 inputs = {
-   name = "name of servicebus_subscription" 
-   topic_id = "topic_id of servicebus_subscription" 
-   max_delivery_count = "max_delivery_count of servicebus_subscription" 
+   name = "name of servicebus_subscription"   
+   topic_id = "topic_id of servicebus_subscription"   
+   max_delivery_count = "max_delivery_count of servicebus_subscription"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

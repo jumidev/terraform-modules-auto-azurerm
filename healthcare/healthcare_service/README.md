@@ -6,20 +6,20 @@ Manages a Healthcare Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "healthcare/healthcare_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "healthcare/healthcare_service"   
 }
 
 inputs = {
-   name = "name of healthcare_service" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of healthcare_service"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -45,6 +45,14 @@ tfstate_store = {
 | **kind** | string |  -  |  The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `authentication_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authority` | string | No | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
+| `audience` | string | No | - | The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com> |
+| `smart_proxy_enabled` | bool | No | - | (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations. |
+
 ### `cors_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,14 +62,6 @@ tfstate_store = {
 | `allowed_methods` | string | No | - | The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'. |
 | `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
 | `allow_credentials` | bool | No | - | (Boolean) If credentials are allowed via CORS. |
-
-### `authentication_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authority` | string | No | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
-| `audience` | string | No | - | The intended audience to receive authentication tokens for the service. The default value is <https://azurehealthcareapis.com> |
-| `smart_proxy_enabled` | bool | No | - | (Boolean) Enables the 'SMART on FHIR' option for mobile and web implementations. |
 
 
 

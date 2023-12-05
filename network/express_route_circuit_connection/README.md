@@ -6,25 +6,25 @@ Manages an Express Route Circuit Connection.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/express_route_circuit_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/express_route_circuit_connection"   
 }
 
 inputs = {
-   name = "name of express_route_circuit_connection" 
+   name = "name of express_route_circuit_connection"   
    # peering_id → set in tfstate_inputs
-   peer_peering_id = "peer_peering_id of express_route_circuit_connection" 
-   address_prefix_ipv4 = "address_prefix_ipv4 of express_route_circuit_connection" 
+   peer_peering_id = "peer_peering_id of express_route_circuit_connection"   
+   address_prefix_ipv4 = "address_prefix_ipv4 of express_route_circuit_connection"   
 }
 
 tfstate_inputs = {
-   peering_id = "path/to/express_route_circuit_peering_component:id" 
+   peering_id = "path/to/express_route_circuit_peering_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

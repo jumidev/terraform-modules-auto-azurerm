@@ -6,24 +6,24 @@ Manages a Spring Cloud Build Deployment.-> **NOTE:** This resource is applicable
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_build_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_build_deployment"   
 }
 
 inputs = {
-   name = "name of spring_cloud_build_deployment" 
+   name = "name of spring_cloud_build_deployment"   
    # spring_cloud_app_id → set in tfstate_inputs
-   build_result_id = "build_result_id of spring_cloud_build_deployment" 
+   build_result_id = "build_result_id of spring_cloud_build_deployment"   
 }
 
 tfstate_inputs = {
-   spring_cloud_app_id = "path/to/spring_cloud_app_component:id" 
+   spring_cloud_app_id = "path/to/spring_cloud_app_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

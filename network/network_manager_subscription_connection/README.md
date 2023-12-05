@@ -6,25 +6,25 @@ Manages a Network Manager Subscription Connection which may cross tenants.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_subscription_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_subscription_connection"   
 }
 
 inputs = {
-   name = "name of network_manager_subscription_connection" 
+   name = "name of network_manager_subscription_connection"   
    # subscription_id → set in tfstate_inputs
    # network_manager_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   subscription_id = "path/to/subscription_component:subscription_id" 
-   network_manager_id = "path/to/network_manager_component:id" 
+   subscription_id = "path/to/subscription_component:subscription_id"   
+   network_manager_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

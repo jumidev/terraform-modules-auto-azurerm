@@ -6,24 +6,24 @@ Manages a Linked Service (connection) between an Azure Table Storage and Azure D
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_azure_table_storage" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_linked_service_azure_table_storage"   
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_azure_table_storage" 
+   name = "name of data_factory_linked_service_azure_table_storage"   
    # data_factory_id → set in tfstate_inputs
-   connection_string = "connection_string of data_factory_linked_service_azure_table_storage" 
+   connection_string = "connection_string of data_factory_linked_service_azure_table_storage"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

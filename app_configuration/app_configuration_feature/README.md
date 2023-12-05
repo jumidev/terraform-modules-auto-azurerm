@@ -6,19 +6,19 @@ Manages an Azure App Configuration Feature.-> **Note:** App Configuration Featur
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "app_configuration/app_configuration_feature" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "app_configuration/app_configuration_feature"   
 }
 
 inputs = {
-   configuration_store_id = "configuration_store_id of app_configuration_feature" 
-   name = "name of app_configuration_feature" 
+   configuration_store_id = "configuration_store_id of app_configuration_feature"   
+   name = "name of app_configuration_feature"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the group. |
 | `rollout_percentage` | string | Yes | - | Rollout percentage of the group. |
 
 ### `timewindow_filter` block structure

@@ -6,25 +6,25 @@ Manages a Subscription Policy Exemption.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "policy/subscription_policy_exemption" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "policy/subscription_policy_exemption"   
 }
 
 inputs = {
-   name = "name of subscription_policy_exemption" 
+   name = "name of subscription_policy_exemption"   
    # subscription_id → set in tfstate_inputs
-   exemption_category = "exemption_category of subscription_policy_exemption" 
-   policy_assignment_id = "policy_assignment_id of subscription_policy_exemption" 
+   exemption_category = "exemption_category of subscription_policy_exemption"   
+   policy_assignment_id = "policy_assignment_id of subscription_policy_exemption"   
 }
 
 tfstate_inputs = {
-   subscription_id = "path/to/subscription_component:subscription_id" 
+   subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

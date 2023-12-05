@@ -6,25 +6,25 @@ Manages an Automation Certificate.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_certificate" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_certificate"   
 }
 
 inputs = {
-   name = "name of automation_certificate" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_certificate"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   base64 = "base64 of automation_certificate" 
+   base64 = "base64 of automation_certificate"   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

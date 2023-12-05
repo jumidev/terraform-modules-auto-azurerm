@@ -6,24 +6,24 @@ Manages a Custom Domain for a CDN Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cdn/cdn_endpoint_custom_domain" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cdn/cdn_endpoint_custom_domain"   
 }
 
 inputs = {
-   name = "name of cdn_endpoint_custom_domain" 
+   name = "name of cdn_endpoint_custom_domain"   
    # cdn_endpoint_id → set in tfstate_inputs
-   host_name = "host_name of cdn_endpoint_custom_domain" 
+   host_name = "host_name of cdn_endpoint_custom_domain"   
 }
 
 tfstate_inputs = {
-   cdn_endpoint_id = "path/to/cdn_endpoint_component:id" 
+   cdn_endpoint_id = "path/to/cdn_endpoint_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

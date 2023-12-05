@@ -6,25 +6,25 @@ Manages a Gallery Application.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/gallery_application" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/gallery_application"   
 }
 
 inputs = {
-   name = "name of gallery_application" 
+   name = "name of gallery_application"   
    # gallery_id → set in tfstate_inputs
-   location = "${location}" 
-   supported_os_type = "supported_os_type of gallery_application" 
+   location = "${location}"   
+   supported_os_type = "supported_os_type of gallery_application"   
 }
 
 tfstate_inputs = {
-   gallery_id = "path/to/shared_image_gallery_component:id" 
+   gallery_id = "path/to/shared_image_gallery_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,26 +6,26 @@ Manages a Key Vault.## Disclaimers~> **Note:** It's possible to define Key Vault
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "key_vault/key_vault" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "key_vault/key_vault"   
 }
 
 inputs = {
-   name = "name of key_vault" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   sku_name = "sku_name of key_vault" 
+   name = "name of key_vault"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
+   sku_name = "sku_name of key_vault"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -68,13 +68,6 @@ tfstate_store = {
 | `secret_permissions` | list | No | - | List of secret permissions, must be one or more from the following: 'Backup', 'Delete', 'Get', 'List', 'Purge', 'Recover', 'Restore' and 'Set'. |
 | `storage_permissions` | list | No | - | List of storage permissions, must be one or more from the following: 'Backup', 'Delete', 'DeleteSAS', 'Get', 'GetSAS', 'List', 'ListSAS', 'Purge', 'Recover', 'RegenerateKey', 'Restore', 'Set', 'SetSAS' and 'Update'. |
 
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | Yes | - | E-mail address of the contact. |
-| `phone` | int | No | - | Phone number of the contact. |
-
 ### `network_acls` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,6 +76,14 @@ tfstate_store = {
 | `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
 | `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
 | `virtual_network_subnet_ids` | list | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
+
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | E-mail address of the contact. |
+| `name` | string | No | - | Name of the contact. |
+| `phone` | int | No | - | Phone number of the contact. |
 
 
 

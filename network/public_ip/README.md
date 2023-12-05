@@ -6,21 +6,21 @@ Manages a Public IP Address.~> **Note** If this resource is to be associated wit
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/public_ip" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/public_ip"   
 }
 
 inputs = {
-   name = "name of public_ip" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   allocation_method = "allocation_method of public_ip" 
+   name = "name of public_ip"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   allocation_method = "allocation_method of public_ip"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

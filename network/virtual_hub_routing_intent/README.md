@@ -6,31 +6,32 @@ Manages a Virtual Hub Routing Intent.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/virtual_hub_routing_intent" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/virtual_hub_routing_intent"   
 }
 
 inputs = {
-   name = "name of virtual_hub_routing_intent" 
+   name = "name of virtual_hub_routing_intent"   
    # virtual_hub_id → set in tfstate_inputs
    routing_policy = {
-      example_routing_policy = {
-         destinations = "..."   
-         next_hop = "..."   
+      this_routing_policy = {
+         name = "..."         
+         destinations = "..."         
+         next_hop = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   virtual_hub_id = "path/to/virtual_hub_component:id" 
+   virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -47,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The unique name for the routing policy. |
 | `destinations` | string | Yes | - | A list of destinations which this routing policy is applicable to. Possible values are 'Internet' and 'PrivateTraffic'. |
 | `next_hop` | string | Yes | - | The resource ID of the next hop on which this routing policy is applicable to. |
 

@@ -6,20 +6,20 @@ Manages a Network Manager Static Member.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_static_member" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_static_member"   
 }
 
 inputs = {
-   name = "name of network_manager_static_member" 
-   network_group_id = "network_group_id of network_manager_static_member" 
-   target_virtual_network_id = "target_virtual_network_id of network_manager_static_member" 
+   name = "name of network_manager_static_member"   
+   network_group_id = "network_group_id of network_manager_static_member"   
+   target_virtual_network_id = "target_virtual_network_id of network_manager_static_member"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

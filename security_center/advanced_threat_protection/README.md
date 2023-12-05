@@ -6,23 +6,23 @@ Manages a resources Advanced Threat Protection setting.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/advanced_threat_protection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/advanced_threat_protection"   
 }
 
 inputs = {
    # target_resource_id → set in tfstate_inputs
-   enabled = "enabled of advanced_threat_protection" 
+   enabled = "enabled of advanced_threat_protection"   
 }
 
 tfstate_inputs = {
-   target_resource_id = "path/to/any_resource_component:id" 
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

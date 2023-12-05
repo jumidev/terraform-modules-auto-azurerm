@@ -6,30 +6,30 @@ Manages a Microsoft SQL Virtual Machine Availability Group Listener.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_virtual_machine_availability_group_listener" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_virtual_machine_availability_group_listener"   
 }
 
 inputs = {
-   name = "name of mssql_virtual_machine_availability_group_listener" 
-   sql_virtual_machine_group_id = "sql_virtual_machine_group_id of mssql_virtual_machine_availability_group_listener" 
+   name = "name of mssql_virtual_machine_availability_group_listener"   
+   sql_virtual_machine_group_id = "sql_virtual_machine_group_id of mssql_virtual_machine_availability_group_listener"   
    replica = {
-      example_replica = {
-         commit = "..."   
-         failover_mode = "..."   
-         readable_secondary = "..."   
-         role = "..."   
-         sql_virtual_machine_id = "..."   
+      this_replica = {
+         commit = "..."         
+         failover_mode = "..."         
+         readable_secondary = "..."         
+         role = "..."         
+         sql_virtual_machine_id = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

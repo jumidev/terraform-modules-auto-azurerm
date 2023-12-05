@@ -6,25 +6,25 @@ Manages a Log Analytics Linked Storage Account.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_linked_storage_account" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_linked_storage_account"   
 }
 
 inputs = {
-   data_source_type = "data_source_type of log_analytics_linked_storage_account" 
-   resource_group_name = "${resource_group}" 
-   workspace_resource_id = "workspace_resource_id of log_analytics_linked_storage_account" 
+   data_source_type = "data_source_type of log_analytics_linked_storage_account"   
+   resource_group_name = "${resource_group}"   
+   workspace_resource_id = "workspace_resource_id of log_analytics_linked_storage_account"   
    # storage_account_ids → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_account_ids = "path/to/storage_account_component:id" 
+   storage_account_ids = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

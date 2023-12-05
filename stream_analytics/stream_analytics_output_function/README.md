@@ -6,27 +6,27 @@ Manages a Stream Analytics Output Function.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_output_function" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_output_function"   
 }
 
 inputs = {
-   name = "name of stream_analytics_output_function" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_output_function"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   api_key = "api_key of stream_analytics_output_function" 
-   function_app = "function_app of stream_analytics_output_function" 
-   function_name = "function_name of stream_analytics_output_function" 
+   api_key = "api_key of stream_analytics_output_function"   
+   function_app = "function_app of stream_analytics_output_function"   
+   function_name = "function_name of stream_analytics_output_function"   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

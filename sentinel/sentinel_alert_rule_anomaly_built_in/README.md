@@ -6,24 +6,24 @@ Manages a Built-in Anomaly Alert Rule.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "sentinel/sentinel_alert_rule_anomaly_built_in" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "sentinel/sentinel_alert_rule_anomaly_built_in"   
 }
 
 inputs = {
    # log_analytics_workspace_id → set in tfstate_inputs
-   enabled = "enabled of sentinel_alert_rule_anomaly_built_in" 
-   mode = "mode of sentinel_alert_rule_anomaly_built_in" 
+   enabled = "enabled of sentinel_alert_rule_anomaly_built_in"   
+   mode = "mode of sentinel_alert_rule_anomaly_built_in"   
 }
 
 tfstate_inputs = {
-   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id" 
+   log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

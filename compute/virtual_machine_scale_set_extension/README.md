@@ -6,26 +6,26 @@ Manages an Extension for a Virtual Machine Scale Set.~> **NOTE:** This resource 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/virtual_machine_scale_set_extension" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/virtual_machine_scale_set_extension"   
 }
 
 inputs = {
-   name = "name of virtual_machine_scale_set_extension" 
+   name = "name of virtual_machine_scale_set_extension"   
    # virtual_machine_scale_set_id → set in tfstate_inputs
-   publisher = "publisher of virtual_machine_scale_set_extension" 
-   type = "type of virtual_machine_scale_set_extension" 
-   type_handler_version = "type_handler_version of virtual_machine_scale_set_extension" 
+   publisher = "publisher of virtual_machine_scale_set_extension"   
+   type = "type of virtual_machine_scale_set_extension"   
+   type_handler_version = "type_handler_version of virtual_machine_scale_set_extension"   
 }
 
 tfstate_inputs = {
-   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id" 
+   virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

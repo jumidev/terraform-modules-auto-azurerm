@@ -6,20 +6,20 @@ Manages a Palo Alto Local Rulestack FQDN List.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "palo_alto/palo_alto_local_rulestack_fqdn_list" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "palo_alto/palo_alto_local_rulestack_fqdn_list"   
 }
 
 inputs = {
-   name = "name of palo_alto_local_rulestack_fqdn_list" 
-   rulestack_id = "rulestack_id of palo_alto_local_rulestack_fqdn_list" 
-   fully_qualified_domain_names = "fully_qualified_domain_names of palo_alto_local_rulestack_fqdn_list" 
+   name = "name of palo_alto_local_rulestack_fqdn_list"   
+   rulestack_id = "rulestack_id of palo_alto_local_rulestack_fqdn_list"   
+   fully_qualified_domain_names = "fully_qualified_domain_names of palo_alto_local_rulestack_fqdn_list"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

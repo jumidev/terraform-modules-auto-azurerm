@@ -6,30 +6,30 @@ Manages the Security Center Assessment for Azure Security Center.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_assessment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_assessment"   
 }
 
 inputs = {
-   assessment_policy_id = "assessment_policy_id of security_center_assessment" 
+   assessment_policy_id = "assessment_policy_id of security_center_assessment"   
    # target_resource_id → set in tfstate_inputs
    status = {
-      example_status = {
-         code = "..."   
+      this_status = {
+         code = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   target_resource_id = "path/to/any_resource_component:id" 
+   target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

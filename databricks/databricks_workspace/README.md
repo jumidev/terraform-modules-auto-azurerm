@@ -6,21 +6,21 @@ Manages a Databricks Workspace
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "databricks/databricks_workspace" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "databricks/databricks_workspace"   
 }
 
 inputs = {
-   name = "name of databricks_workspace" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   sku = "sku of databricks_workspace" 
+   name = "name of databricks_workspace"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   sku = "sku of databricks_workspace"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

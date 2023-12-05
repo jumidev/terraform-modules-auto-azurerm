@@ -6,25 +6,25 @@ Manages a Consumer Group within an IotHub
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_consumer_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_consumer_group"   
 }
 
 inputs = {
-   name = "name of iothub_consumer_group" 
+   name = "name of iothub_consumer_group"   
    # iothub_name → set in tfstate_inputs
-   eventhub_endpoint_name = "eventhub_endpoint_name of iothub_consumer_group" 
-   resource_group_name = "${resource_group}" 
+   eventhub_endpoint_name = "eventhub_endpoint_name of iothub_consumer_group"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   iothub_name = "path/to/iothub_component:name" 
+   iothub_name = "path/to/iothub_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

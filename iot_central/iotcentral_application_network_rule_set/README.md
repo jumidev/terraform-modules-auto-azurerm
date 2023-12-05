@@ -6,8 +6,8 @@ Manages an IoT Central Application Network Rule Set.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_central/iotcentral_application_network_rule_set" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_central/iotcentral_application_network_rule_set"   
 }
 
 inputs = {
@@ -15,13 +15,13 @@ inputs = {
 }
 
 tfstate_inputs = {
-   iotcentral_application_id = "path/to/iotcentral_application_component:id" 
+   iotcentral_application_id = "path/to/iotcentral_application_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the IP Rule |
 | `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the IP Rule. |
 
 

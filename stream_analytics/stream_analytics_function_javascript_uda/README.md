@@ -6,38 +6,38 @@ Manages a JavaScript UDA Function within a Stream Analytics Streaming Job.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_function_javascript_uda" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_function_javascript_uda"   
 }
 
 inputs = {
-   name = "name of stream_analytics_function_javascript_uda" 
+   name = "name of stream_analytics_function_javascript_uda"   
    # stream_analytics_job_id → set in tfstate_inputs
    input = {
-      example_input = {
-         type = "..."   
+      this_input = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
    output = {
-      example_output = {
-         type = "..."   
+      this_output = {
+         type = "..."         
       }
-  
+      
    }
- 
-   script = "script of stream_analytics_function_javascript_uda" 
+   
+   script = "script of stream_analytics_function_javascript_uda"   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_id = "path/to/stream_analytics_job_component:id" 
+   stream_analytics_job_id = "path/to/stream_analytics_job_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

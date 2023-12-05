@@ -6,25 +6,25 @@ Manages a Network Manager Management Group Connection which may cross tenants.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_manager_management_group_connection" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_manager_management_group_connection"   
 }
 
 inputs = {
-   name = "name of network_manager_management_group_connection" 
+   name = "name of network_manager_management_group_connection"   
    # management_group_id → set in tfstate_inputs
    # network_manager_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   management_group_id = "path/to/management_group_component:id" 
-   network_manager_id = "path/to/network_manager_component:id" 
+   management_group_id = "path/to/management_group_component:id"   
+   network_manager_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

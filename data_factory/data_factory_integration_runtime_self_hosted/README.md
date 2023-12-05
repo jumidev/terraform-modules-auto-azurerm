@@ -6,23 +6,23 @@ Manages a Data Factory Self-hosted Integration Runtime.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_integration_runtime_self_hosted" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_integration_runtime_self_hosted"   
 }
 
 inputs = {
    # data_factory_id → set in tfstate_inputs
-   name = "name of data_factory_integration_runtime_self_hosted" 
+   name = "name of data_factory_integration_runtime_self_hosted"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

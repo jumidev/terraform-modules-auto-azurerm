@@ -6,18 +6,18 @@ Manages a Redis Enterprise Database.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "redis_enterprise/redis_enterprise_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "redis_enterprise/redis_enterprise_database"   
 }
 
 inputs = {
-   cluster_id = "cluster_id of redis_enterprise_database" 
+   cluster_id = "cluster_id of redis_enterprise_database"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this module. Possible values are 'RedisBloom', 'RedisTimeSeries', 'RediSearch' and 'RedisJSON'. Changing this forces a new Redis Enterprise Database to be created. |
 | `args` | string | No |  | Configuration options for the module (e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'). Changing this forces a new resource to be created. Defaults to ''''. |
 
 

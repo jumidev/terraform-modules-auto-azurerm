@@ -6,33 +6,33 @@ Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "healthcare/healthcare_fhir_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "healthcare/healthcare_fhir_service"   
 }
 
 inputs = {
-   name = "name of healthcare_fhir_service" 
-   resource_group_name = "${resource_group}" 
+   name = "name of healthcare_fhir_service"   
+   resource_group_name = "${resource_group}"   
    # workspace_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
    authentication = {
-      example_authentication = {
-         authority = "..."   
-         audience = "..."   
+      this_authentication = {
+         authority = "..."         
+         audience = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -60,6 +60,14 @@ tfstate_store = {
 | **configuration_export_storage_account_name** | string |  -  |  -  |  Specifies the name of the storage account which the operation configuration information is exported to. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Healthcare FHIR Service. | 
 
+### `oci_artifact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
+| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
+| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
+
 ### `authentication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,14 +92,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
 | `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
-
-### `oci_artifact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
-| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
-| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
 
 
 

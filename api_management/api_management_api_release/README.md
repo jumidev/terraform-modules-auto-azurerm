@@ -6,23 +6,23 @@ Manages a API Management API Release.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "api_management/api_management_api_release" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "api_management/api_management_api_release"   
 }
 
 inputs = {
-   name = "name of api_management_api_release" 
+   name = "name of api_management_api_release"   
    # api_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   api_id = "path/to/api_management_component:id" 
+   api_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

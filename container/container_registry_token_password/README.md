@@ -6,28 +6,28 @@ Manages a Container Registry Token Password.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "container/container_registry_token_password" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "container/container_registry_token_password"   
 }
 
 inputs = {
    # container_registry_token_id → set in tfstate_inputs
    password1 = {
-      example_password = {
+      this_password = {
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   container_registry_token_id = "path/to/container_registry_token_component:id" 
+   container_registry_token_id = "path/to/container_registry_token_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

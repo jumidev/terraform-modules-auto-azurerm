@@ -6,38 +6,39 @@ Manages a Cognitive Services Account Deployment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cognitive_services/cognitive_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cognitive_services/cognitive_deployment"   
 }
 
 inputs = {
-   name = "name of cognitive_deployment" 
+   name = "name of cognitive_deployment"   
    # cognitive_account_id → set in tfstate_inputs
    model = {
-      example_model = {
-         format = "..."   
-         version = "..."   
+      this_model = {
+         format = "..."         
+         name = "..."         
+         version = "..."         
       }
-  
+      
    }
- 
+   
    scale = {
-      example_scale = {
-         type = "..."   
+      this_scale = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   cognitive_account_id = "path/to/cognitive_account_component:id" 
+   cognitive_account_id = "path/to/cognitive_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -63,6 +64,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `format` | string | Yes | - | The format of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. Possible value is 'OpenAI'. |
+| `name` | string | Yes | - | The name of the Cognitive Services Account Deployment model. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | The version of Cognitive Services Account Deployment model. |
 
 ### `scale` block structure

@@ -26,6 +26,7 @@ variable "repository" {
 #
 # repository block structure       :
 #   label (string)                   : (REQUIRED) Specifies the label of the repository.
+#   name (string)                    : (REQUIRED) Specifies the name which should be used for this repository.
 #   patterns (string)                : (REQUIRED) Specifies the collection of patterns of the repository.
 #   uri (string)                     : (REQUIRED) Specifies the URI of the repository.
 #   ca_certificate_id (string)       : Specifies the ID of the Certificate Authority used when retrieving the Git Repository via HTTPS.

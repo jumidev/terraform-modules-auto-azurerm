@@ -6,23 +6,23 @@ Manages a [Lighthouse](https://docs.microsoft.com/azure/lighthouse) Assignment t
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "lighthouse/lighthouse_assignment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "lighthouse/lighthouse_assignment"   
 }
 
 inputs = {
-   scope = "scope of lighthouse_assignment" 
+   scope = "scope of lighthouse_assignment"   
    # lighthouse_definition_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   lighthouse_definition_id = "path/to/lighthouse_definition_component:id" 
+   lighthouse_definition_id = "path/to/lighthouse_definition_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

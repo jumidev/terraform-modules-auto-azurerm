@@ -31,6 +31,7 @@ variable "criteria" {
 #   resource_id_column (string)     : Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 #
 # dimension block structure:
+#   name (string)            : (REQUIRED) Name of the dimension.
 #   operator (string)        : (REQUIRED) Operator for dimension values. Possible values are 'Exclude',and 'Include'.
 #   values (string)          : (REQUIRED) List of dimension values. Use a wildcard '*' to collect all.
 #

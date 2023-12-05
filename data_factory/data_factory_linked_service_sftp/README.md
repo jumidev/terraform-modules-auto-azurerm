@@ -6,28 +6,28 @@ Manages a Linked Service (connection) between a SFTP Server and Azure Data Facto
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_linked_service_sftp" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_linked_service_sftp"   
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_sftp" 
+   name = "name of data_factory_linked_service_sftp"   
    # data_factory_id → set in tfstate_inputs
-   authentication_type = "authentication_type of data_factory_linked_service_sftp" 
-   host = "host of data_factory_linked_service_sftp" 
-   port = "port of data_factory_linked_service_sftp" 
-   username = "username of data_factory_linked_service_sftp" 
-   password = "password of data_factory_linked_service_sftp" 
+   authentication_type = "authentication_type of data_factory_linked_service_sftp"   
+   host = "host of data_factory_linked_service_sftp"   
+   port = "port of data_factory_linked_service_sftp"   
+   username = "username of data_factory_linked_service_sftp"   
+   password = "password of data_factory_linked_service_sftp"   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

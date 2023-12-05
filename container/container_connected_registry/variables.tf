@@ -45,6 +45,7 @@ variable "notification" {
 }
 #
 # notification block structure:
+#   name (string)               : (REQUIRED) The name of the artifact that wants to be subscribed for the Connected Registry.
 #   action (string)             : (REQUIRED) The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are 'push', 'delete' and '*' (i.e. any).
 #   tag (string)                : The tag of the artifact that wants to be subscribed for the Connected Registry.
 #   digest (string)             : The digest of the artifact that wants to be subscribed for the Connected Registry.

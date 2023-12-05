@@ -6,20 +6,20 @@ Manages an Azure Custom Provider.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "custom_providers/custom_provider" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "custom_providers/custom_provider"   
 }
 
 inputs = {
-   name = "name of custom_provider" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of custom_provider"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -41,10 +41,19 @@ tfstate_store = {
 | **validation** | [block](#validation-block-structure) |  Any number of `validation` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
+### `resource_type` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the route definition. |
+| `endpoint` | string | Yes | - | Specifies the endpoint of the route definition. |
+| `routing_type` | string | No | Proxy | The routing type that is supported for the resource request. Valid values are 'Proxy' and 'Proxy,Cache'. Defaults to 'Proxy'. |
+
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the action. |
 | `endpoint` | string | Yes | - | Specifies the endpoint of the action. |
 
 ### `validation` block structure
@@ -52,13 +61,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `specification` | string | Yes | - | The endpoint where the validation specification is located. |
-
-### `resource_type` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `endpoint` | string | Yes | - | Specifies the endpoint of the route definition. |
-| `routing_type` | string | No | Proxy | The routing type that is supported for the resource request. Valid values are 'Proxy' and 'Proxy,Cache'. Defaults to 'Proxy'. |
 
 
 

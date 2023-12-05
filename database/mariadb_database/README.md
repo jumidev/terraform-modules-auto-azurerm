@@ -6,26 +6,26 @@ Manages a MariaDB Database within a MariaDB Server
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mariadb_database" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mariadb_database"   
 }
 
 inputs = {
-   name = "name of mariadb_database" 
+   name = "name of mariadb_database"   
    # server_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
-   charset = "charset of mariadb_database" 
-   collation = "collation of mariadb_database" 
+   resource_group_name = "${resource_group}"   
+   charset = "charset of mariadb_database"   
+   collation = "collation of mariadb_database"   
 }
 
 tfstate_inputs = {
-   server_name = "path/to/mariadb_server_component:name" 
+   server_name = "path/to/mariadb_server_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

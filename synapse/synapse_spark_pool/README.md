@@ -6,25 +6,25 @@ Manages a Synapse Spark Pool.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_spark_pool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_spark_pool"   
 }
 
 inputs = {
-   name = "name of synapse_spark_pool" 
+   name = "name of synapse_spark_pool"   
    # synapse_workspace_id → set in tfstate_inputs
-   node_size_family = "node_size_family of synapse_spark_pool" 
-   node_size = "node_size of synapse_spark_pool" 
+   node_size_family = "node_size_family of synapse_spark_pool"   
+   node_size = "node_size of synapse_spark_pool"   
 }
 
 tfstate_inputs = {
-   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
+   synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -58,12 +58,18 @@ tfstate_store = {
 | **spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
 
-### `spark_config` block structure
+### `auto_scale` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The contents of a spark configuration. |
-| `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
+| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+
+### `auto_pause` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
 
 ### `library_requirement` block structure
 
@@ -72,18 +78,12 @@ tfstate_store = {
 | `content` | string | Yes | - | The content of library requirements. |
 | `filename` | string | Yes | - | The name of the library requirements file. |
 
-### `auto_pause` block structure
+### `spark_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
-
-### `auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `content` | string | Yes | - | The contents of a spark configuration. |
+| `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
 
 
 

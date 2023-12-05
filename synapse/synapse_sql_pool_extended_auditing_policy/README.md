@@ -6,18 +6,18 @@ Manages a Synapse SQL Pool Extended Auditing Policy.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_sql_pool_extended_auditing_policy" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_sql_pool_extended_auditing_policy"   
 }
 
 inputs = {
-   sql_pool_id = "sql_pool_id of synapse_sql_pool_extended_auditing_policy" 
+   sql_pool_id = "sql_pool_id of synapse_sql_pool_extended_auditing_policy"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

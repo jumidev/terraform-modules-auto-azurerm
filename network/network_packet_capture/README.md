@@ -6,34 +6,34 @@ Configures Network Packet Capturing against a Virtual Machine using a Network Wa
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "network/network_packet_capture" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "network/network_packet_capture"   
 }
 
 inputs = {
-   name = "name of network_packet_capture" 
+   name = "name of network_packet_capture"   
    # network_watcher_name → set in tfstate_inputs
-   resource_group_name = "${resource_group}" 
+   resource_group_name = "${resource_group}"   
    # target_resource_id → set in tfstate_inputs
    storage_location = {
-      example_storage_location = {
+      this_storage_location = {
          # storage_account_id → set in tfstate_inputs
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   network_watcher_name = "path/to/network_watcher_component:name" 
-   target_resource_id = "path/to/any_resource_component:id" 
-   storage_location.example_storage_location.storage_account_id = "path/to/storage_account_component:id" 
+   network_watcher_name = "path/to/network_watcher_component:name"   
+   target_resource_id = "path/to/any_resource_component:id"   
+   storage_location.this_storage_location.storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -57,13 +57,6 @@ tfstate_store = {
 | **maximum_capture_duration** | int |  `18000`  |  The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created. | 
 | **filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
 
-### `storage_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
-| `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
-
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,6 +66,13 @@ tfstate_store = {
 | `protocol` | string | Yes | - | The Protocol to be filtered on. Possible values include 'Any', 'TCP' and 'UDP'. Changing this forces a new resource to be created. |
 | `remote_ip_address` | string | No | - | The remote IP Address to be filtered on. Notation: '127.0.0.1' for single address entry. '127.0.0.1-127.0.0.255' for range. '127.0.0.1;127.0.0.5;' for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created. |
 | `remote_port` | string | No | - | The remote port to be filtered on. Notation: '80' for single port entry.'80-85' for range. '80;443;' for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created. |
+
+### `storage_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
+| `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
 
 
 

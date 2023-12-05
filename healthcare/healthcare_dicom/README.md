@@ -6,24 +6,24 @@ Manages a Healthcare DICOM Service
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "healthcare/healthcare_dicom" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "healthcare/healthcare_dicom"   
 }
 
 inputs = {
-   name = "name of healthcare_dicom" 
+   name = "name of healthcare_dicom"   
    # workspace_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

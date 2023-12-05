@@ -55,6 +55,7 @@ variable "key_vault_credential" {
 }
 #
 # key_vault_credential block structure:
+#   name (string)                       : (REQUIRED) The credential name.
 #   key_vault_url (string)              : (REQUIRED) The Azure Key Vault url. Changing this forces a new resource to be created.
 #   service_principal_name (string)     : (REQUIRED) The service principal name to access key vault. Changing this forces a new resource to be created.
 #   service_principal_secret (string)   : (REQUIRED) The service principal name secret to access key vault. Changing this forces a new resource to be created.

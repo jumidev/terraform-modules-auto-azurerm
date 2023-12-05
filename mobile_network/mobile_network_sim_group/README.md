@@ -6,24 +6,24 @@ Manages a Mobile Network Sim Group.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "mobile_network/mobile_network_sim_group" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "mobile_network/mobile_network_sim_group"   
 }
 
 inputs = {
-   name = "name of mobile_network_sim_group" 
-   location = "${location}" 
+   name = "name of mobile_network_sim_group"   
+   location = "${location}"   
    # mobile_network_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   mobile_network_id = "path/to/mobile_network_component:id" 
+   mobile_network_id = "path/to/mobile_network_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,19 +6,19 @@ Manages a Subscription Template Deployment.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "template/subscription_template_deployment" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "template/subscription_template_deployment"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of subscription_template_deployment" 
+   location = "${location}"   
+   name = "name of subscription_template_deployment"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,25 +6,25 @@ Manages an IotHub Storage Container Endpoint~> **NOTE:** Endpoints can be define
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "iot_hub/iothub_endpoint_storage_container" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "iot_hub/iothub_endpoint_storage_container"   
 }
 
 inputs = {
-   name = "name of iothub_endpoint_storage_container" 
-   resource_group_name = "${resource_group}" 
-   container_name = "container_name of iothub_endpoint_storage_container" 
+   name = "name of iothub_endpoint_storage_container"   
+   resource_group_name = "${resource_group}"   
+   container_name = "container_name of iothub_endpoint_storage_container"   
    # iothub_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   iothub_id = "path/to/iothub_component:id" 
+   iothub_id = "path/to/iothub_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

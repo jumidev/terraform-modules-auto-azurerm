@@ -6,26 +6,26 @@ Manages a Private DNS Resolver Outbound Endpoint.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "private_dns_resolver/private_dns_resolver_outbound_endpoint" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "private_dns_resolver/private_dns_resolver_outbound_endpoint"   
 }
 
 inputs = {
-   name = "name of private_dns_resolver_outbound_endpoint" 
+   name = "name of private_dns_resolver_outbound_endpoint"   
    # private_dns_resolver_id → set in tfstate_inputs
-   location = "${location}" 
+   location = "${location}"   
    # subnet_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   private_dns_resolver_id = "path/to/private_dns_resolver_component:id" 
-   subnet_id = "path/to/subnet_component:id" 
+   private_dns_resolver_id = "path/to/private_dns_resolver_component:id"   
+   subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

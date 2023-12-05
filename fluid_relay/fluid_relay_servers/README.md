@@ -6,20 +6,20 @@ Manages a Fluid Relay Server.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "fluid_relay/fluid_relay_servers" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "fluid_relay/fluid_relay_servers"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of fluid_relay_servers" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of fluid_relay_servers"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,35 +6,35 @@ Enables you to manage DNS SRV Records within Azure Private DNS.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "private_dns/private_dns_srv_record" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "private_dns/private_dns_srv_record"   
 }
 
 inputs = {
-   name = "name of private_dns_srv_record" 
-   resource_group_name = "${resource_group}" 
+   name = "name of private_dns_srv_record"   
+   resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
    record = {
-      example_record = {
-         priority = "..."   
-         weight = "..."   
-         port = "..."   
-         target = "..."   
+      this_record = {
+         priority = "..."         
+         weight = "..."         
+         port = "..."         
+         target = "..."         
       }
-  
+      
    }
- 
-   ttl = "ttl of private_dns_srv_record" 
+   
+   ttl = "ttl of private_dns_srv_record"   
 }
 
 tfstate_inputs = {
-   zone_name = "path/to/private_dns_zone_component:name" 
+   zone_name = "path/to/private_dns_zone_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,31 +6,32 @@ Manages anAutomation Connection Type.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_connection_type" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_connection_type"   
 }
 
 inputs = {
-   name = "name of automation_connection_type" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_connection_type"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
    field = {
-      example_field = {
-         type = "..."   
+      this_field = {
+         name = "..."         
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -54,6 +55,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this connection field definition. |
 | `type` | string | Yes | - | The type of the connection field definition. |
 | `is_encrypted` | string | No | - | Whether to set the isEncrypted flag of the connection field definition. |
 | `is_optional` | string | No | - | Whether to set the isOptional flag of the connection field definition. |

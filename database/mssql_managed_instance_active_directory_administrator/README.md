@@ -6,25 +6,25 @@ Allows you to set a user, group or service principal as the AAD Administrator fo
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "database/mssql_managed_instance_active_directory_administrator" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "database/mssql_managed_instance_active_directory_administrator"   
 }
 
 inputs = {
-   managed_instance_id = "managed_instance_id of mssql_managed_instance_active_directory_administrator" 
-   login_username = "login_username of mssql_managed_instance_active_directory_administrator" 
-   object_id = "object_id of mssql_managed_instance_active_directory_administrator" 
+   managed_instance_id = "managed_instance_id of mssql_managed_instance_active_directory_administrator"   
+   login_username = "login_username of mssql_managed_instance_active_directory_administrator"   
+   object_id = "object_id of mssql_managed_instance_active_directory_administrator"   
    # tenant_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id" 
+   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

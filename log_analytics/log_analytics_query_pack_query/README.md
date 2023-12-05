@@ -6,20 +6,20 @@ Manages a Log Analytics Query Pack Query.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "log_analytics/log_analytics_query_pack_query" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "log_analytics/log_analytics_query_pack_query"   
 }
 
 inputs = {
-   query_pack_id = "query_pack_id of log_analytics_query_pack_query" 
-   body = "body of log_analytics_query_pack_query" 
-   display_name = "display_name of log_analytics_query_pack_query" 
+   query_pack_id = "query_pack_id of log_analytics_query_pack_query"   
+   body = "body of log_analytics_query_pack_query"   
+   display_name = "display_name of log_analytics_query_pack_query"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

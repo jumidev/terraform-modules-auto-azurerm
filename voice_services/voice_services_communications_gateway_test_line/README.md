@@ -6,26 +6,26 @@ Manages a Voice Services Communications Gateway Test Line.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "voice_services/voice_services_communications_gateway_test_line" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "voice_services/voice_services_communications_gateway_test_line"   
 }
 
 inputs = {
-   name = "name of voice_services_communications_gateway_test_line" 
-   location = "${location}" 
+   name = "name of voice_services_communications_gateway_test_line"   
+   location = "${location}"   
    # voice_services_communications_gateway_id → set in tfstate_inputs
-   phone_number = "phone_number of voice_services_communications_gateway_test_line" 
-   purpose = "purpose of voice_services_communications_gateway_test_line" 
+   phone_number = "phone_number of voice_services_communications_gateway_test_line"   
+   purpose = "purpose of voice_services_communications_gateway_test_line"   
 }
 
 tfstate_inputs = {
-   voice_services_communications_gateway_id = "path/to/voice_services_communications_gateway_component:id" 
+   voice_services_communications_gateway_id = "path/to/voice_services_communications_gateway_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

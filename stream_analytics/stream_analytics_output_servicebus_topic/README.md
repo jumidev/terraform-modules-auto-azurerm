@@ -6,33 +6,33 @@ Manages a Stream Analytics Output to a ServiceBus Topic.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_output_servicebus_topic" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_output_servicebus_topic"   
 }
 
 inputs = {
-   name = "name of stream_analytics_output_servicebus_topic" 
-   resource_group_name = "${resource_group}" 
+   name = "name of stream_analytics_output_servicebus_topic"   
+   resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   topic_name = "topic_name of stream_analytics_output_servicebus_topic" 
-   servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_topic" 
+   topic_name = "topic_name of stream_analytics_output_servicebus_topic"   
+   servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_topic"   
    serialization = {
-      example_serialization = {
-         type = "..."   
+      this_serialization = {
+         type = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_name = "path/to/stream_analytics_job_component:name" 
+   stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

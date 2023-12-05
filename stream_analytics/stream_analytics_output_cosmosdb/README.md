@@ -6,27 +6,27 @@ Manages a Stream Analytics Output to CosmosDB.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "stream_analytics/stream_analytics_output_cosmosdb" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "stream_analytics/stream_analytics_output_cosmosdb"   
 }
 
 inputs = {
-   name = "name of stream_analytics_output_cosmosdb" 
+   name = "name of stream_analytics_output_cosmosdb"   
    # stream_analytics_job_id → set in tfstate_inputs
-   cosmosdb_account_key = "cosmosdb_account_key of stream_analytics_output_cosmosdb" 
+   cosmosdb_account_key = "cosmosdb_account_key of stream_analytics_output_cosmosdb"   
    # cosmosdb_sql_database_id → set in tfstate_inputs
-   container_name = "container_name of stream_analytics_output_cosmosdb" 
+   container_name = "container_name of stream_analytics_output_cosmosdb"   
 }
 
 tfstate_inputs = {
-   stream_analytics_job_id = "path/to/stream_analytics_job_component:id" 
-   cosmosdb_sql_database_id = "path/to/cosmosdb_sql_database_component:id" 
+   stream_analytics_job_id = "path/to/stream_analytics_job_component:id"   
+   cosmosdb_sql_database_id = "path/to/cosmosdb_sql_database_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

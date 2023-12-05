@@ -6,25 +6,25 @@ Manages a Synapse Linked Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "synapse/synapse_linked_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "synapse/synapse_linked_service"   
 }
 
 inputs = {
-   name = "name of synapse_linked_service" 
+   name = "name of synapse_linked_service"   
    # synapse_workspace_id → set in tfstate_inputs
-   type = "type of synapse_linked_service" 
-   type_properties_json = "type_properties_json of synapse_linked_service" 
+   type = "type of synapse_linked_service"   
+   type_properties_json = "type_properties_json of synapse_linked_service"   
 }
 
 tfstate_inputs = {
-   synapse_workspace_id = "path/to/synapse_workspace_component:id" 
+   synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The integration runtime reference to associate with the Synapse Linked Service. |
 | `parameters` | string | No | - | A map of parameters to associate with the integration runtime. |
 
 

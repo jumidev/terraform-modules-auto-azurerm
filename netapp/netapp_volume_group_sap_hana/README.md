@@ -6,46 +6,47 @@ Manages a Application Volume Group for SAP HANA application.>Note: This feature 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "netapp/netapp_volume_group_sap_hana" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "netapp/netapp_volume_group_sap_hana"   
 }
 
 inputs = {
-   account_name = "account_name of netapp_volume_group_sap_hana" 
-   application_identifier = "application_identifier of netapp_volume_group_sap_hana" 
-   group_description = "group_description of netapp_volume_group_sap_hana" 
-   location = "${location}" 
-   name = "name of netapp_volume_group_sap_hana" 
-   resource_group_name = "${resource_group}" 
+   account_name = "account_name of netapp_volume_group_sap_hana"   
+   application_identifier = "application_identifier of netapp_volume_group_sap_hana"   
+   group_description = "group_description of netapp_volume_group_sap_hana"   
+   location = "${location}"   
+   name = "name of netapp_volume_group_sap_hana"   
+   resource_group_name = "${resource_group}"   
    volume = {
-      example_volume = {
-         capacity_pool_id = "..."   
-         protocols = "..."   
+      this_volume = {
+         capacity_pool_id = "..."         
+         name = "..."         
+         protocols = "..."         
          # proximity_placement_group_id → set in tfstate_inputs
-         security_style = "..."   
-         service_level = "..."   
-         snapshot_directory_visible = "..."   
-         storage_quota_in_gb = "..."   
+         security_style = "..."         
+         service_level = "..."         
+         snapshot_directory_visible = "..."         
+         storage_quota_in_gb = "..."         
          # subnet_id → set in tfstate_inputs
-         throughput_in_mibps = "..."   
-         volume_path = "..."   
-         volume_spec_name = "..."   
-         export_policy_rule = "..."   
+         throughput_in_mibps = "..."         
+         volume_path = "..."         
+         volume_spec_name = "..."         
+         export_policy_rule = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   volume.example_volume.proximity_placement_group_id = "path/to/proximity_placement_group_component:id" 
-   volume.example_volume.subnet_id = "path/to/subnet_component:id" 
+   volume.this_volume.proximity_placement_group_id = "path/to/proximity_placement_group_component:id"   
+   volume.this_volume.subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,11 +63,21 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
+### `data_protection_replication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
+| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
+
 ### `volume` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `capacity_pool_id` | string | Yes | - | The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `name` | string | Yes | - | The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `protocols` | string | Yes | - | The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include 'NFSv3' or 'NFSv4.1', multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details. |
 | `proximity_placement_group_id` | string | No | - | The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements. |
 | `security_style` | string | Yes | - | Volume security style. Possible values are 'ntfs' and 'unix'. Changing this forces a new Application Volume Group to be created and data will be lost. |
@@ -82,21 +93,6 @@ tfstate_store = {
 | `data_protection_replication` | [block](#volume-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `data_protection_snapshot_policy` | [block](#volume-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
 
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
-
-### `data_protection_replication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
-| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
-| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
-| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
-
 ### `export_policy_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -108,6 +104,12 @@ tfstate_store = {
 | `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
+
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 
 

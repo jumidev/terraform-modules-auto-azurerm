@@ -6,20 +6,20 @@ Manages a Databricks Access Connector
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "databricks/databricks_access_connector" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "databricks/databricks_access_connector"   
 }
 
 inputs = {
-   name = "name of databricks_access_connector" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of databricks_access_connector"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

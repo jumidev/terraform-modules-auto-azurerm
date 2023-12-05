@@ -6,32 +6,33 @@ Manages a Custom Event Trigger inside an Azure Data Factory.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "data_factory/data_factory_trigger_custom_event" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "data_factory/data_factory_trigger_custom_event"   
 }
 
 inputs = {
-   name = "name of data_factory_trigger_custom_event" 
+   name = "name of data_factory_trigger_custom_event"   
    # data_factory_id → set in tfstate_inputs
    # eventgrid_topic_id → set in tfstate_inputs
-   events = "events of data_factory_trigger_custom_event" 
+   events = "events of data_factory_trigger_custom_event"   
    pipeline = {
-      example_pipeline = {
+      this_pipeline = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   data_factory_id = "path/to/data_factory_component:id" 
-   eventgrid_topic_id = "path/to/eventgrid_topic_component:id" 
+   data_factory_id = "path/to/data_factory_component:id"   
+   eventgrid_topic_id = "path/to/eventgrid_topic_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -61,6 +62,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 

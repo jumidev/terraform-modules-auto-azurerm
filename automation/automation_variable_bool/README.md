@@ -6,24 +6,24 @@ Manages a boolean variable in Azure Automation
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "automation/automation_variable_bool" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "automation/automation_variable_bool"   
 }
 
 inputs = {
-   name = "name of automation_variable_bool" 
-   resource_group_name = "${resource_group}" 
+   name = "name of automation_variable_bool"   
+   resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   automation_account_name = "path/to/automation_account_component:name" 
+   automation_account_name = "path/to/automation_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

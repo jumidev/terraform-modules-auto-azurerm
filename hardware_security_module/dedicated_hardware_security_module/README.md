@@ -6,33 +6,33 @@ Manages a Dedicated Hardware Security Module.-> **Note:** Before using this reso
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "hardware_security_module/dedicated_hardware_security_module" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "hardware_security_module/dedicated_hardware_security_module"   
 }
 
 inputs = {
-   name = "name of dedicated_hardware_security_module" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of dedicated_hardware_security_module"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    network_profile = {
-      example_network_profile = {
-         network_interface_private_ip_addresses = "..."   
+      this_network_profile = {
+         network_interface_private_ip_addresses = "..."         
          # subnet_id → set in tfstate_inputs
       }
-  
+      
    }
- 
-   sku_name = "sku_name of dedicated_hardware_security_module" 
+   
+   sku_name = "sku_name of dedicated_hardware_security_module"   
 }
 
 tfstate_inputs = {
-   network_profile.example_network_profile.subnet_id = "path/to/subnet_component:id" 
+   network_profile.this_network_profile.subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

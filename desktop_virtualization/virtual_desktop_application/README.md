@@ -6,25 +6,25 @@ Manages a Virtual Desktop Application.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "desktop_virtualization/virtual_desktop_application" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "desktop_virtualization/virtual_desktop_application"   
 }
 
 inputs = {
-   name = "name of virtual_desktop_application" 
+   name = "name of virtual_desktop_application"   
    # application_group_id → set in tfstate_inputs
-   path = "path of virtual_desktop_application" 
-   command_line_argument_policy = "command_line_argument_policy of virtual_desktop_application" 
+   path = "path of virtual_desktop_application"   
+   command_line_argument_policy = "command_line_argument_policy of virtual_desktop_application"   
 }
 
 tfstate_inputs = {
-   application_group_id = "path/to/virtual_desktop_application_group_component:id" 
+   application_group_id = "path/to/virtual_desktop_application_group_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

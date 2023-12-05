@@ -6,36 +6,37 @@ Manages a Spring Cloud Builder.-> **NOTE:** This resource is applicable only for
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "spring_cloud/spring_cloud_builder" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "spring_cloud/spring_cloud_builder"   
 }
 
 inputs = {
-   name = "name of spring_cloud_builder" 
+   name = "name of spring_cloud_builder"   
    # spring_cloud_service_id → set in tfstate_inputs
    build_pack_group = {
-      example_build_pack_group = {
+      this_build_pack_group = {
+         name = "..."         
       }
-  
+      
    }
- 
+   
    stack = {
-      example_stack = {
-         version = "..."   
+      this_stack = {
+         version = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_inputs = {
-   spring_cloud_service_id = "path/to/spring_cloud_service_component:id" 
+   spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -49,17 +50,18 @@ tfstate_store = {
 | **build_pack_group** | [block](#build_pack_group-block-structure) |  One or more `build_pack_group` blocks. | 
 | **stack** | [block](#stack-block-structure) |  A `stack` block. | 
 
-### `build_pack_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
-
 ### `stack` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `version` | string | Yes | - | Specifies the version of the ClusterStack |
+
+### `build_pack_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this build pack group. |
+| `build_pack_ids` | string | No | - | Specifies a list of the build pack's ID. |
 
 
 

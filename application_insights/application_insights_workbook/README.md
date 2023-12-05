@@ -6,22 +6,22 @@ Manages an Azure Workbook.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "application_insights/application_insights_workbook" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "application_insights/application_insights_workbook"   
 }
 
 inputs = {
-   name = "name of application_insights_workbook" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   display_name = "display_name of application_insights_workbook" 
-   data_json = "data_json of application_insights_workbook" 
+   name = "name of application_insights_workbook"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   display_name = "display_name of application_insights_workbook"   
+   data_json = "data_json of application_insights_workbook"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

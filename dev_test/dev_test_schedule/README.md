@@ -6,29 +6,29 @@ Manages automated startup and shutdown schedules for Azure Dev Test Lab.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "dev_test/dev_test_schedule" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "dev_test/dev_test_schedule"   
 }
 
 inputs = {
-   name = "name of dev_test_schedule" 
-   location = "${location}" 
-   resource_group_name = "${resource_group}" 
-   lab_name = "lab_name of dev_test_schedule" 
-   task_type = "task_type of dev_test_schedule" 
-   time_zone_id = "time_zone_id of dev_test_schedule" 
+   name = "name of dev_test_schedule"   
+   location = "${location}"   
+   resource_group_name = "${resource_group}"   
+   lab_name = "lab_name of dev_test_schedule"   
+   task_type = "task_type of dev_test_schedule"   
+   time_zone_id = "time_zone_id of dev_test_schedule"   
    notification_settings = {
-      example_notification_settings = {
+      this_notification_settings = {
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,6 +62,12 @@ tfstate_store = {
 | `time` | string | Yes | - | The time when the schedule takes effect. |
 | `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
 
+### `hourly_recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
+
 ### `daily_recurrence` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,12 +81,6 @@ tfstate_store = {
 | `status` | string | No | Disabled | The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled' |
 | `time_in_minutes` | int | No | - | Time in minutes before event at which notification will be sent. |
 | `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
-
-### `hourly_recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
 
 

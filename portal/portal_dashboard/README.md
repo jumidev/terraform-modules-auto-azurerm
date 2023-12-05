@@ -6,21 +6,21 @@ Manages a shared dashboard in the Azure Portal.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "portal/portal_dashboard" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "portal/portal_dashboard"   
 }
 
 inputs = {
-   name = "name of portal_dashboard" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
-   dashboard_properties = "dashboard_properties of portal_dashboard" 
+   name = "name of portal_dashboard"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
+   dashboard_properties = "dashboard_properties of portal_dashboard"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

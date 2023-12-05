@@ -6,27 +6,27 @@ Manages a VM replicated using Azure Site Recovery (Azure to Azure only). A repli
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "recovery_services/site_recovery_replicated_vm" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "recovery_services/site_recovery_replicated_vm"   
 }
 
 inputs = {
-   name = "name of site_recovery_replicated_vm" 
-   resource_group_name = "${resource_group}" 
-   recovery_vault_name = "recovery_vault_name of site_recovery_replicated_vm" 
-   recovery_replication_policy_id = "recovery_replication_policy_id of site_recovery_replicated_vm" 
-   source_recovery_fabric_name = "source_recovery_fabric_name of site_recovery_replicated_vm" 
-   source_vm_id = "source_vm_id of site_recovery_replicated_vm" 
-   source_recovery_protection_container_name = "source_recovery_protection_container_name of site_recovery_replicated_vm" 
-   target_resource_group_id = "target_resource_group_id of site_recovery_replicated_vm" 
-   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replicated_vm" 
-   target_recovery_protection_container_id = "target_recovery_protection_container_id of site_recovery_replicated_vm" 
+   name = "name of site_recovery_replicated_vm"   
+   resource_group_name = "${resource_group}"   
+   recovery_vault_name = "recovery_vault_name of site_recovery_replicated_vm"   
+   recovery_replication_policy_id = "recovery_replication_policy_id of site_recovery_replicated_vm"   
+   source_recovery_fabric_name = "source_recovery_fabric_name of site_recovery_replicated_vm"   
+   source_vm_id = "source_vm_id of site_recovery_replicated_vm"   
+   source_recovery_protection_container_name = "source_recovery_protection_container_name of site_recovery_replicated_vm"   
+   target_resource_group_id = "target_resource_group_id of site_recovery_replicated_vm"   
+   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replicated_vm"   
+   target_recovery_protection_container_id = "target_recovery_protection_container_id of site_recovery_replicated_vm"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -64,12 +64,32 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  One or more `network_interface` block. | 
 | **multi_vm_group_name** | string |  Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. | 
 
+### `network_interface` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_network_interface_id` | string | No | - | (Required if the network_interface block is specified) Id source network interface. |
+| `target_static_ip` | string | No | - | Static IP to assign when a failover is done. |
+| `target_subnet_name` | string | No | - | Name of the subnet to to use when a failover is done. |
+| `recovery_public_ip_address_id` | string | No | - | Id of the public IP object to use when a failover is done. |
+| `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
+| `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
+| `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
+
 ### `target_disk_encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `disk_encryption_key` | [block](#target_disk_encryption-block-structure) | Yes | - | A 'disk_encryption_key' block. |
 | `key_encryption_key` | [block](#target_disk_encryption-block-structure) | No | - | A 'key_encryption_key' block. |
+
+### `unmanaged_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
 
 ### `managed_disk` block structure
 
@@ -90,32 +110,12 @@ tfstate_store = {
 | `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created. |
 | `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
 
-### `unmanaged_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
-| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
-| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
-
 ### `disk_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. Changing this forces a new resource to be created. |
 | `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
-
-### `network_interface` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `source_network_interface_id` | string | No | - | (Required if the network_interface block is specified) Id source network interface. |
-| `target_static_ip` | string | No | - | Static IP to assign when a failover is done. |
-| `target_subnet_name` | string | No | - | Name of the subnet to to use when a failover is done. |
-| `recovery_public_ip_address_id` | string | No | - | Id of the public IP object to use when a failover is done. |
-| `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
-| `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
-| `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
 
 
 

@@ -6,20 +6,20 @@ Manages a Shared Image Gallery.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "compute/shared_image_gallery" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "compute/shared_image_gallery"   
 }
 
 inputs = {
-   name = "name of shared_image_gallery" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of shared_image_gallery"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -40,6 +40,13 @@ tfstate_store = {
 | **sharing** | [block](#sharing-block-structure) |  A `sharing` block. Changing this forces a new resource to be created. | 
 | **tags** | map |  A mapping of tags to assign to the Shared Image Gallery. | 
 
+### `sharing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. |
+| `community_gallery` | [block](#sharing-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
+
 ### `community_gallery` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -48,13 +55,6 @@ tfstate_store = {
 | `prefix` | string | Yes | - | Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_email` | string | Yes | - | Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_uri` | string | Yes | - | URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
-
-### `sharing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. |
-| `community_gallery` | [block](#sharing-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
 
 
 

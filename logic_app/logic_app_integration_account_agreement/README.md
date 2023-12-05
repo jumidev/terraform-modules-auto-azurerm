@@ -6,40 +6,40 @@ Manages a Logic App Integration Account Agreement.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_integration_account_agreement" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/logic_app_integration_account_agreement"   
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_agreement" 
-   resource_group_name = "${resource_group}" 
-   integration_account_name = "integration_account_name of logic_app_integration_account_agreement" 
-   agreement_type = "agreement_type of logic_app_integration_account_agreement" 
-   content = "content of logic_app_integration_account_agreement" 
+   name = "name of logic_app_integration_account_agreement"   
+   resource_group_name = "${resource_group}"   
+   integration_account_name = "integration_account_name of logic_app_integration_account_agreement"   
+   agreement_type = "agreement_type of logic_app_integration_account_agreement"   
+   content = "content of logic_app_integration_account_agreement"   
    guest_identity = {
-      example_guest_identity = {
-         qualifier = "..."   
-         value = "..."   
+      this_guest_identity = {
+         qualifier = "..."         
+         value = "..."         
       }
-  
+      
    }
- 
-   guest_partner_name = "guest_partner_name of logic_app_integration_account_agreement" 
+   
+   guest_partner_name = "guest_partner_name of logic_app_integration_account_agreement"   
    host_identity = {
-      example_host_identity = {
-         qualifier = "..."   
-         value = "..."   
+      this_host_identity = {
+         qualifier = "..."         
+         value = "..."         
       }
-  
+      
    }
- 
-   host_partner_name = "host_partner_name of logic_app_integration_account_agreement" 
+   
+   host_partner_name = "host_partner_name of logic_app_integration_account_agreement"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

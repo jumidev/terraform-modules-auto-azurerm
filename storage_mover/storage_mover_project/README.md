@@ -6,23 +6,23 @@ Manages a Storage Mover Project.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage_mover/storage_mover_project" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage_mover/storage_mover_project"   
 }
 
 inputs = {
-   name = "name of storage_mover_project" 
+   name = "name of storage_mover_project"   
    # storage_mover_id → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   storage_mover_id = "path/to/storage_mover_component:id" 
+   storage_mover_id = "path/to/storage_mover_component:id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

@@ -6,19 +6,19 @@ Manages a custom Role Definition, used to assign Roles to Users/Principals. See 
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "authorization/role_definition" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "authorization/role_definition"   
 }
 
 inputs = {
-   name = "name of role_definition" 
-   scope = "scope of role_definition" 
+   name = "name of role_definition"   
+   scope = "scope of role_definition"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

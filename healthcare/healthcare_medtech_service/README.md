@@ -6,30 +6,30 @@ Manages a Healthcare Med Tech Service.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "healthcare/healthcare_medtech_service" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "healthcare/healthcare_medtech_service"   
 }
 
 inputs = {
-   name = "name of healthcare_medtech_service" 
+   name = "name of healthcare_medtech_service"   
    # workspace_id → set in tfstate_inputs
-   location = "${location}" 
-   eventhub_namespace_name = "eventhub_namespace_name of healthcare_medtech_service" 
+   location = "${location}"   
+   eventhub_namespace_name = "eventhub_namespace_name of healthcare_medtech_service"   
    # eventhub_name → set in tfstate_inputs
    # eventhub_consumer_group_name → set in tfstate_inputs
-   device_mapping_json = "device_mapping_json of healthcare_medtech_service" 
+   device_mapping_json = "device_mapping_json of healthcare_medtech_service"   
 }
 
 tfstate_inputs = {
-   workspace_id = "path/to/log_analytics_workspace_component:id" 
-   eventhub_name = "path/to/eventhub_component:name" 
-   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name" 
+   workspace_id = "path/to/log_analytics_workspace_component:id"   
+   eventhub_name = "path/to/eventhub_component:name"   
+   eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

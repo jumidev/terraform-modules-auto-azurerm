@@ -16,6 +16,7 @@ variable "kustomizations" {
 }
 #
 # kustomizations block structure   :
+#   name (string)                    : (REQUIRED) Specifies the name of the kustomization.
 #   path (string)                    : Specifies the path in the source reference to reconcile on the cluster.
 #   timeout_in_seconds (int)         : The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to '600'.
 #   sync_interval_in_seconds (int)   : The interval at which to re-reconcile the kustomization on the cluster. Defaults to '600'.

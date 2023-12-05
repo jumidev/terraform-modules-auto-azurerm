@@ -31,6 +31,7 @@ variable "rule" {
 }
 #
 # rule block structure        :
+#   name (string)               : (REQUIRED) Specifies the name of the rule.
 #   description (string)        : Specifies a description for the rule.
 #   destination_addresses (list): (REQUIRED) A list of destination IP addresses and/or IP ranges.
 #   destination_ports (list)    : (REQUIRED) A list of destination ports.

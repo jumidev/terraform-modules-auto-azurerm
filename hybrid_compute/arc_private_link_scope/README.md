@@ -6,20 +6,20 @@ Manages an Azure Arc Private Link Scope.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "hybrid_compute/arc_private_link_scope" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "hybrid_compute/arc_private_link_scope"   
 }
 
 inputs = {
-   location = "${location}" 
-   name = "name of arc_private_link_scope" 
-   resource_group_name = "${resource_group}" 
+   location = "${location}"   
+   name = "name of arc_private_link_scope"   
+   resource_group_name = "${resource_group}"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

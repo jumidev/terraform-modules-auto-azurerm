@@ -6,27 +6,27 @@ Manages a Storage Object Replication.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_object_replication" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_object_replication"   
 }
 
 inputs = {
-   source_storage_account_id = "source_storage_account_id of storage_object_replication" 
-   destination_storage_account_id = "destination_storage_account_id of storage_object_replication" 
+   source_storage_account_id = "source_storage_account_id of storage_object_replication"   
+   destination_storage_account_id = "destination_storage_account_id of storage_object_replication"   
    rules = {
-      example_rules = {
-         source_container_name = "..."   
-         destination_container_name = "..."   
+      this_rules = {
+         source_container_name = "..."         
+         destination_container_name = "..."         
       }
-  
+      
    }
- 
+   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

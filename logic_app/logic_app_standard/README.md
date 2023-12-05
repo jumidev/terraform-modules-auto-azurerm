@@ -6,28 +6,28 @@ Manages a Logic App (Standard / Single Tenant)
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "logic_app/logic_app_standard" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "logic_app/logic_app_standard"   
 }
 
 inputs = {
-   name = "name of logic_app_standard" 
-   resource_group_name = "${resource_group}" 
-   location = "${location}" 
+   name = "name of logic_app_standard"   
+   resource_group_name = "${resource_group}"   
+   location = "${location}"   
    # app_service_plan_id → set in tfstate_inputs
    # storage_account_name → set in tfstate_inputs
-   storage_account_access_key = "storage_account_access_key of logic_app_standard" 
+   storage_account_access_key = "storage_account_access_key of logic_app_standard"   
 }
 
 tfstate_inputs = {
-   app_service_plan_id = "path/to/app_service_plan_component:id" 
-   storage_account_name = "path/to/storage_account_component:name" 
+   app_service_plan_id = "path/to/app_service_plan_component:id"   
+   storage_account_name = "path/to/storage_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -62,47 +62,6 @@ tfstate_store = {
 | **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
-
-### `headers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `x_azure_fdid` | list | No | - | A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8. |
-| `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
-| `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
-| `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `scm_ip_restriction` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
-
 ### `site_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -135,9 +94,53 @@ tfstate_store = {
 | `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
 | `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
 | `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `name` | string | No | - | The name for this IP Restriction. |
 | `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | [block](#ip_restriction-block-structure) | No | - | The 'headers' block for this specific as a 'ip_restriction' block. |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Connection String. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
+
+### `scm_ip_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `name` | string | No | - | The name for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
+
+### `headers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `x_azure_fdid` | list | No | - | A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8. |
+| `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
+| `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
+| `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
 
 
 

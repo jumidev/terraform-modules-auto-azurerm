@@ -37,6 +37,7 @@ variable "client_root_certificate" {
 }
 #
 # client_root_certificate block structure:
+#   name (string)                          : (REQUIRED) A name used to uniquely identify this certificate.
 #   thumbprint (string)                    : (REQUIRED) The Thumbprint of the Certificate.
 
 
@@ -77,6 +78,7 @@ variable "client_revoked_certificate" {
 }
 #
 # client_revoked_certificate block structure:
+#   name (string)                             : (REQUIRED) A name used to uniquely identify this certificate.
 #   thumbprint (string)                       : (REQUIRED) The Thumbprint of the Certificate.
 
 
@@ -87,6 +89,7 @@ variable "radius" {
 }
 #
 # radius block structure:
+#   name (string)         : (REQUIRED) A name used to uniquely identify this certificate.
 #   thumbprint (string)   : (REQUIRED) The Thumbprint of the Certificate.
 
 

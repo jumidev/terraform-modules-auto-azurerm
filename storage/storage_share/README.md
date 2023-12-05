@@ -6,24 +6,24 @@ Manages a File Share within Azure Storage.~> **Note:** The storage share support
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "storage/storage_share" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "storage/storage_share"   
 }
 
 inputs = {
-   name = "name of storage_share" 
+   name = "name of storage_share"   
    # storage_account_name → set in tfstate_inputs
-   quota = "quota of storage_share" 
+   quota = "quota of storage_share"   
 }
 
 tfstate_inputs = {
-   storage_account_name = "path/to/storage_account_component:name" 
+   storage_account_name = "path/to/storage_account_component:name"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```

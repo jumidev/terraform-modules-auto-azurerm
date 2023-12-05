@@ -6,36 +6,36 @@ Manages an Azure Cost Management View for a Subscription.
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "cost_management/subscription_cost_management_view" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "cost_management/subscription_cost_management_view"   
 }
 
 inputs = {
-   accumulated = "accumulated of subscription_cost_management_view" 
-   chart_type = "chart_type of subscription_cost_management_view" 
+   accumulated = "accumulated of subscription_cost_management_view"   
+   chart_type = "chart_type of subscription_cost_management_view"   
    dataset = {
-      example_dataset = {
-         aggregation = "..."   
-         granularity = "..."   
+      this_dataset = {
+         aggregation = "..."         
+         granularity = "..."         
       }
-  
+      
    }
- 
-   display_name = "display_name of subscription_cost_management_view" 
-   name = "name of subscription_cost_management_view" 
-   report_type = "report_type of subscription_cost_management_view" 
+   
+   display_name = "display_name of subscription_cost_management_view"   
+   name = "name of subscription_cost_management_view"   
+   report_type = "report_type of subscription_cost_management_view"   
    # subscription_id → set in tfstate_inputs
-   timeframe = "timeframe of subscription_cost_management_view" 
+   timeframe = "timeframe of subscription_cost_management_view"   
 }
 
 tfstate_inputs = {
-   subscription_id = "path/to/subscription_component:subscription_id" 
+   subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
@@ -60,23 +60,32 @@ tfstate_store = {
 | **kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
 | **pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
-### `pivot` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
-
-### `grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
-
 ### `sorting` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
+| `name` | string | Yes | - | The name of the column to sort. |
+
+### `grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column to group. |
+| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
+
+### `pivot` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column which should be used for this sub-view in the Cost Analysis UI. |
+| `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
+
+### `kpi` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
 
 ### `dataset` block structure
 
@@ -86,12 +95,6 @@ tfstate_store = {
 | `granularity` | string | Yes | - | The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'. |
 | `grouping` | [block](#dataset-block-structure) | No | - | One or more 'grouping' blocks. |
 | `sorting` | [block](#dataset-block-structure) | No | - | One or more 'sorting' blocks, containing the order by expression to be used in the report |
-
-### `kpi` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
 
 
 

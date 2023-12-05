@@ -6,19 +6,19 @@ Manages the Data Access Settings for Azure Security Center.~> **NOTE:** This res
 
 ```hcl
 source = {
-   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git" 
-   path = "security_center/security_center_setting" 
+   repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
+   path = "security_center/security_center_setting"   
 }
 
 inputs = {
-   setting_name = "setting_name of security_center_setting" 
-   enabled = "enabled of security_center_setting" 
+   setting_name = "setting_name of security_center_setting"   
+   enabled = "enabled of security_center_setting"   
 }
 
 tfstate_store = {
-   storage_account = "${storage_account}" 
-   container = "${container}" 
-   container_path = "${COMPONENT_PATH}" 
+   storage_account = "${storage_account}"   
+   container = "${container}"   
+   container_path = "${COMPONENT_PATH}"   
 }
 
 ```
