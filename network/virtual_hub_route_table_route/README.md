@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    # route_table_id → set in tfstate_inputs
-   name = "name of virtual_hub_route_table_route"   
-   destinations = "destinations of virtual_hub_route_table_route"   
-   destinations_type = "destinations_type of virtual_hub_route_table_route"   
-   next_hop = "next_hop of virtual_hub_route_table_route"   
+   name = "The name which should be used for this route"   
+   destinations = "A list of destination addresses for this route"   
+   destinations_type = "The type of destinations"   
+   next_hop = "The next hop's resource ID"   
 }
 
 tfstate_inputs = {

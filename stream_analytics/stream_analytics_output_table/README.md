@@ -11,15 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_output_table"   
+   name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
    # storage_account_name → set in tfstate_inputs
-   storage_account_key = "storage_account_key of stream_analytics_output_table"   
-   table = "table of stream_analytics_output_table"   
-   partition_key = "partition_key of stream_analytics_output_table"   
-   row_key = "row_key of stream_analytics_output_table"   
-   batch_size = "batch_size of stream_analytics_output_table"   
+   storage_account_key = "The Access Key which should be used to connect to this Storage Account..."   
+   table = "The name of the table where the stream should be output to..."   
+   partition_key = "The name of the output column that contains the partition key..."   
+   row_key = "The name of the output column that contains the row key..."   
+   batch_size = "The number of records for a batch operation"   
 }
 
 tfstate_inputs = {

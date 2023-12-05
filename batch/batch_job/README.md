@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # batch_pool_id → set in tfstate_inputs
-   name = "name of batch_job"   
+   name = "The name which should be used for this Batch Job"   
 }
 
 tfstate_inputs = {

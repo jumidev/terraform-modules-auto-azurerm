@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spatial_anchors_account"   
+   name = "Specifies the name of the Spatial Anchors Account"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_share"   
-   account_id = "account_id of data_share"   
-   kind = "kind of data_share"   
+   name = "The name which should be used for this Data Share"   
+   account_id = "The ID of the Data Share account in which the Data Share is created..."   
+   kind = "The kind of the Data Share"   
 }
 
 tfstate_store = {

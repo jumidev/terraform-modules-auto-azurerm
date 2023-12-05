@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # storage_account_id → set in tfstate_inputs
-   key_name = "key_name of storage_account_customer_managed_key"   
+   key_name = "The name of Key Vault Key"   
 }
 
 tfstate_inputs = {

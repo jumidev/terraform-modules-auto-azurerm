@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_backup_policy_blob_storage"   
-   vault_id = "vault_id of data_protection_backup_policy_blob_storage"   
-   retention_duration = "retention_duration of data_protection_backup_policy_blob_storage"   
+   name = "The name which should be used for this Backup Policy Blob Storage..."   
+   vault_id = "The ID of the Backup Vault within which the Backup Policy Blob Storage should ex..."   
+   retention_duration = "Duration of deletion after given timespan"   
 }
 
 tfstate_store = {

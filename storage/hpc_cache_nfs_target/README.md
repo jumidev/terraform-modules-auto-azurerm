@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of hpc_cache_nfs_target"   
+   name = "The name of the HPC Cache NFS Target"   
    resource_group_name = "${resource_group}"   
-   cache_name = "cache_name of hpc_cache_nfs_target"   
-   target_host_name = "target_host_name of hpc_cache_nfs_target"   
-   usage_model = "usage_model of hpc_cache_nfs_target"   
+   cache_name = "The name HPC Cache, which the HPC Cache NFS Target will be added to..."   
+   target_host_name = "The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target..."   
+   usage_model = "The type of usage of the HPC Cache NFS Target"   
 }
 
 tfstate_store = {

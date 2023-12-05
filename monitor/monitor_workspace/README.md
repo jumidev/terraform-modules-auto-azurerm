@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_workspace"   
+   name = "Specifies the name which should be used for this Azure Monitor Workspace..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

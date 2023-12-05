@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of dev_test_policy"   
-   policy_set_name = "policy_set_name of dev_test_policy"   
-   lab_name = "lab_name of dev_test_policy"   
+   name = "Specifies the name of the Dev Test Policy"   
+   policy_set_name = "Specifies the name of the Policy Set within the Dev Test Lab where this policy s..."   
+   lab_name = "Specifies the name of the Dev Test Lab in which the Policy should be created..."   
    resource_group_name = "${resource_group}"   
-   evaluator_type = "evaluator_type of dev_test_policy"   
-   threshold = "threshold of dev_test_policy"   
+   evaluator_type = "The Evaluation Type used for this Policy"   
+   threshold = "The Threshold for this Policy"   
 }
 
 tfstate_store = {

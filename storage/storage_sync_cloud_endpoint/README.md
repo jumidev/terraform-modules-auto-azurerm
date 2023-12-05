@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_sync_cloud_endpoint"   
+   name = "The name which should be used for this Storage Sync Cloud Endpoint..."   
    # storage_sync_group_id → set in tfstate_inputs
-   file_share_name = "file_share_name of storage_sync_cloud_endpoint"   
+   file_share_name = "The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint..."   
    # storage_account_id → set in tfstate_inputs
 }
 

@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of redis_enterprise_cluster"   
+   name = "The name which should be used for this Redis Enterprise Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of redis_enterprise_cluster"   
+   sku_name = "The `sku_name` is comprised of two segments separated by a hyphen (e..."   
 }
 
 tfstate_store = {

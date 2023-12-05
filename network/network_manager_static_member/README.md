@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_static_member"   
-   network_group_id = "network_group_id of network_manager_static_member"   
-   target_virtual_network_id = "target_virtual_network_id of network_manager_static_member"   
+   name = "Specifies the name which should be used for this Network Manager Static Member..."   
+   network_group_id = "Specifies the ID of the Network Manager Group"   
+   target_virtual_network_id = "Specifies the Resource ID of the Virtual Network using as the Static Member..."   
 }
 
 tfstate_store = {

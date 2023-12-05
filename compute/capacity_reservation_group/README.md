@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of capacity_reservation_group"   
+   name = "Specifies the name of this Capacity Reservation Group..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

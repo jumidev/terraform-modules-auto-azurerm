@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_container"   
+   name = "The name of the Container which should be created within the Storage Account..."   
    # storage_account_name → set in tfstate_inputs
 }
 

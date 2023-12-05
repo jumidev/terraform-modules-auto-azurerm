@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of video_analyzer_edge_module"   
+   name = "Specifies the name of the Video Analyzer Edge Module..."   
    resource_group_name = "${resource_group}"   
    # video_analyzer_name → set in tfstate_inputs
 }

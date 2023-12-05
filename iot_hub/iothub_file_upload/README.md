@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # iothub_id → set in tfstate_inputs
-   connection_string = "connection_string of iothub_file_upload"   
-   container_name = "container_name of iothub_file_upload"   
+   connection_string = "The connection string for the Azure Storage account to which files are uploaded..."   
+   container_name = "The name of the root container where the files should be uploaded to..."   
 }
 
 tfstate_inputs = {

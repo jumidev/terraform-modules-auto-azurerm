@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_cosmosdb_mongoapi"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
 }
 

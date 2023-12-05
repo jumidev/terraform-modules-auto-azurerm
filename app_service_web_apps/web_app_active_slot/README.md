@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   slot_id = "slot_id of web_app_active_slot"   
+   slot_id = "The ID of the Slot to swap with `Production`"   
 }
 
 tfstate_store = {

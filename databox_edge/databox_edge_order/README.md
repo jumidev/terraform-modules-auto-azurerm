@@ -12,26 +12,20 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   device_name = "device_name of databox_edge_order"   
+   device_name = "The name of the Databox Edge Device this order is for..."   
    contact = {
-      this_contact = {
-         company_name = "..."         
-         name = "..."         
-         emails = "..."         
-         phone_number = "..."         
-      }
-      
+      company_name = "..."      
+      name = "..."      
+      emails = "..."      
+      phone_number = "..."      
    }
    
    shipment_address = {
-      this_shipment_address = {
-         address = "..."         
-         city = "..."         
-         country = "..."         
-         postal_code = "..."         
-         state = "..."         
-      }
-      
+      address = "..."      
+      city = "..."      
+      country = "..."      
+      postal_code = "..."      
+      state = "..."      
    }
    
 }

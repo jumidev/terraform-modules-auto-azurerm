@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_workbook_template"   
+   name = "Specifies the name which should be used for this Application Insights Workbook T..."   
    resource_group_name = "${resource_group}"   
    galleries = {
-      this_galleries = {
-         name = "..."         
-         category = "..."         
-      }
-      
+      name = "..."      
+      category = "..."      
    }
    
    location = "${location}"   
-   template_data = "template_data of application_insights_workbook_template"   
+   template_data = "Valid JSON object containing workbook template payload..."   
 }
 
 tfstate_store = {

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of tenant_template_deployment"   
+   name = "The name which should be used for this Template"   
 }
 
 tfstate_store = {

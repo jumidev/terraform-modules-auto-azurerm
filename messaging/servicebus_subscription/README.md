@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of servicebus_subscription"   
-   topic_id = "topic_id of servicebus_subscription"   
-   max_delivery_count = "max_delivery_count of servicebus_subscription"   
+   name = "Specifies the name of the ServiceBus Subscription resource..."   
+   topic_id = "The ID of the ServiceBus Topic to create this Subscription in..."   
+   max_delivery_count = "The maximum number of deliveries"   
 }
 
 tfstate_store = {

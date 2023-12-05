@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_resolver_virtual_network_link"   
-   dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_virtual_network_link"   
+   name = "Specifies the name which should be used for this Private DNS Resolver Virtual Ne..."   
+   dns_forwarding_ruleset_id = "Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset..."   
    # virtual_network_id → set in tfstate_inputs
 }
 

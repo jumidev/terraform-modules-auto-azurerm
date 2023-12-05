@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of lb"   
+   name = "Specifies the name of the Load Balancer"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

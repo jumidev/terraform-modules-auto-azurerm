@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_function_azure_traffic_collector"   
+   name = "Specifies the name which should be used for this Network Function Azure Traffic ..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

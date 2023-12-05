@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of machine_learning_datastore_fileshare"   
+   name = "The name of the Machine Learning DataStore"   
    # workspace_id → set in tfstate_inputs
-   storage_fileshare_id = "storage_fileshare_id of machine_learning_datastore_fileshare"   
+   storage_fileshare_id = "The ID of the Storage Account File Share"   
 }
 
 tfstate_inputs = {

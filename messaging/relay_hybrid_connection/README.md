@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of relay_hybrid_connection"   
+   name = "Specifies the name of the Azure Relay Hybrid Connection..."   
    resource_group_name = "${resource_group}"   
-   relay_namespace_name = "relay_namespace_name of relay_hybrid_connection"   
+   relay_namespace_name = "The name of the Azure Relay in which to create the Azure Relay Hybrid Connection..."   
 }
 
 tfstate_store = {

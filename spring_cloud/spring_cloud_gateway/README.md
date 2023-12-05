@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_gateway"   
+   name = "The name which should be used for this Spring Cloud Gateway..."   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 
@@ -59,12 +59,17 @@ tfstate_store = {
 | `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
 | `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
 
-### `quota` block structure
+### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
-| `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
+| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
+| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
+| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
+| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
+| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
+| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
+| `max_age_seconds` | int | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
 
 ### `client_authorization` block structure
 
@@ -83,17 +88,12 @@ tfstate_store = {
 | `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
 | `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
 
-### `cors` block structure
+### `quota` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
-| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
-| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
-| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
-| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
-| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
-| `max_age_seconds` | int | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
+| `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
+| `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
 
 
 

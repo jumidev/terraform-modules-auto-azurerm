@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_network_peering"   
+   name = "The name of the virtual network peering"   
    # virtual_network_name → set in tfstate_inputs
    # remote_virtual_network_id → set in tfstate_inputs
    resource_group_name = "${resource_group}"   

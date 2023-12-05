@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_sync_group"   
+   name = "The name which should be used for this Storage Sync Group..."   
    # storage_sync_id → set in tfstate_inputs
 }
 

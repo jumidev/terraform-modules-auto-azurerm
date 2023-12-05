@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_mover"   
+   name = "Specifies the name which should be used for this Storage Mover..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
 }

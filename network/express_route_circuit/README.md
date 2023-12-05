@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of express_route_circuit"   
+   name = "The name of the ExpressRoute circuit"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku = {
-      this_sku = {
-         tier = "..."         
-         family = "..."         
-      }
-      
+      tier = "..."      
+      family = "..."      
    }
    
 }

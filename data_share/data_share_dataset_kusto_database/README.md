@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of data_share_dataset_kusto_database"   
-   share_id = "share_id of data_share_dataset_kusto_database"   
+   name = "The name which should be used for this Data Share Kusto Database Dataset..."   
+   share_id = "The resource ID of the Data Share where this Data Share Kusto Database Dataset s..."   
    # kusto_database_id → set in tfstate_inputs
 }
 

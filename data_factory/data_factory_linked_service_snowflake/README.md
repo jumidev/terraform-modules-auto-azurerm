@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_snowflake"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   connection_string = "connection_string of data_factory_linked_service_snowflake"   
+   connection_string = "The connection string in which to authenticate with Snowflake..."   
 }
 
 tfstate_inputs = {

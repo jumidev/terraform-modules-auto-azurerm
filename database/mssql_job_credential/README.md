@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_job_credential"   
+   name = "The name which should be used for this Elastic Job Credential..."   
    # job_agent_id → set in tfstate_inputs
-   username = "username of mssql_job_credential"   
-   password = "password of mssql_job_credential"   
+   username = "The username part of the credential"   
+   password = "The password part of the credential"   
 }
 
 tfstate_inputs = {

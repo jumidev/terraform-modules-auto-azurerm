@@ -11,17 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_custom_dataset"   
+   name = "Specifies the name of the Data Factory Dataset"   
    # data_factory_id → set in tfstate_inputs
    linked_service = {
-      this_linked_service = {
-         name = "..."         
-      }
-      
+      name = "..."      
    }
    
-   type = "type of data_factory_custom_dataset"   
-   type_properties_json = "type_properties_json of data_factory_custom_dataset"   
+   type = "The type of dataset that will be associated with Data Factory..."   
+   type_properties_json = "A JSON object that contains the properties of the Data Factory Dataset..."   
 }
 
 tfstate_inputs = {

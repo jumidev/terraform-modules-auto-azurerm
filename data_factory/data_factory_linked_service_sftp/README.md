@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_sftp"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   authentication_type = "authentication_type of data_factory_linked_service_sftp"   
-   host = "host of data_factory_linked_service_sftp"   
-   port = "port of data_factory_linked_service_sftp"   
-   username = "username of data_factory_linked_service_sftp"   
-   password = "password of data_factory_linked_service_sftp"   
+   authentication_type = "The type of authentication used to connect to the web table source..."   
+   host = "The SFTP server hostname"   
+   port = "The TCP port number that the SFTP server uses to listen for client connection..."   
+   username = "The username used to log on to the SFTP server"   
+   password = "Password to logon to the SFTP Server for Basic Authentication..."   
 }
 
 tfstate_inputs = {

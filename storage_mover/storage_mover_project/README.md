@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_mover_project"   
+   name = "Specifies the name which should be used for this Storage Mover Project..."   
    # storage_mover_id → set in tfstate_inputs
 }
 

@@ -11,16 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of logz_sub_account"   
+   name = "The name which should be used for this logz Sub Account..."   
    # logz_monitor_id → set in tfstate_inputs
    user = {
-      this_user = {
-         email = "..."         
-         first_name = "..."         
-         last_name = "..."         
-         phone_number = "..."         
-      }
-      
+      email = "..."      
+      first_name = "..."      
+      last_name = "..."      
+      phone_number = "..."      
    }
    
 }

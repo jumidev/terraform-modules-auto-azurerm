@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_application_live_view"   
+   name = "The name which should be used for this Spring Cloud Application Live View..."   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 

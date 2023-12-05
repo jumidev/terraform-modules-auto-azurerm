@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of mobile_network_packet_core_data_plane"   
+   name = "Specifies the name which should be used for this Mobile Network Packet Core Data..."   
    # mobile_network_packet_core_control_plane_id → set in tfstate_inputs
    location = "${location}"   
 }

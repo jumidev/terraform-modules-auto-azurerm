@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_api_version_set"   
+   name = "The name of the API Version Set"   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   display_name = "display_name of api_management_api_version_set"   
-   versioning_scheme = "versioning_scheme of api_management_api_version_set"   
+   display_name = "The display name of this API Version Set"   
+   versioning_scheme = "Specifies where in an Inbound HTTP Request that the API Version should be read f..."   
 }
 
 tfstate_inputs = {

@@ -11,24 +11,21 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_virtual_machine_group"   
+   name = "The name which should be used for the Microsoft SQL Virtual Machine Group..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sql_image_offer = "sql_image_offer of mssql_virtual_machine_group"   
-   sql_image_sku = "sql_image_sku of mssql_virtual_machine_group"   
+   sql_image_offer = "The offer type of the marketplace image cluster to be used by the SQL Virtual Ma..."   
+   sql_image_sku = "The sku type of the marketplace image cluster to be used by the SQL Virtual Mach..."   
    wsfc_domain_profile = {
-      this_wsfc_domain_profile = {
-         cluster_subnet_type = "..."         
-         fqdn = "..."         
-         # storage_account_url → set in tfstate_inputs
-      }
-      
+      cluster_subnet_type = "..."      
+      fqdn = "..."      
+      # storage_account_url → (optional) set in tfstate_inputs
    }
    
 }
 
 tfstate_inputs = {
-   wsfc_domain_profile.this_wsfc_domain_profile.storage_account_url = "path/to/storage_account_component:url"   
+   wsfc_domain_profile.storage_account_url = "path/to/storage_account_component:url"   
 }
 
 tfstate_store = {

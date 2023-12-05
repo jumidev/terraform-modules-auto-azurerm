@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_sql_database"   
+   name = "Specifies the name of the Cosmos DB SQL Database"   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_sql_database"   
+   account_name = "The name of the Cosmos DB SQL Database to create the table within..."   
 }
 
 tfstate_store = {

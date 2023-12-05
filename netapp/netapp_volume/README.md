@@ -11,15 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of netapp_volume"   
+   name = "The name of the NetApp Volume"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   account_name = "account_name of netapp_volume"   
-   volume_path = "volume_path of netapp_volume"   
-   pool_name = "pool_name of netapp_volume"   
-   service_level = "service_level of netapp_volume"   
+   account_name = "The name of the NetApp account in which the NetApp Pool should be created..."   
+   volume_path = "A unique file path for the volume"   
+   pool_name = "The name of the NetApp pool in which the NetApp Volume should be created..."   
+   service_level = "The target performance of the file system"   
    # subnet_id → set in tfstate_inputs
-   storage_quota_in_gb = "storage_quota_in_gb of netapp_volume"   
+   storage_quota_in_gb = "The maximum Storage Quota allowed for a file system in Gigabytes..."   
 }
 
 tfstate_inputs = {

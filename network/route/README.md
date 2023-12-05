@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of route"   
+   name = "The name of the route"   
    resource_group_name = "${resource_group}"   
    # route_table_name → set in tfstate_inputs
-   address_prefix = "address_prefix of route"   
-   next_hop_type = "next_hop_type of route"   
+   address_prefix = "The destination to which the route applies"   
+   next_hop_type = "The type of Azure hop the packet should be sent to"   
 }
 
 tfstate_inputs = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_ms_security_incident"   
+   name = "The name which should be used for this Sentinel MS Security Incident Alert Rule..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_alert_rule_ms_security_incident"   
-   product_filter = "product_filter of sentinel_alert_rule_ms_security_incident"   
-   severity_filter = "severity_filter of sentinel_alert_rule_ms_security_incident"   
+   display_name = "The friendly name of this Sentinel MS Security Incident Alert Rule..."   
+   product_filter = "The Microsoft Security Service from where the alert will be generated..."   
+   severity_filter = "Only create incidents from alerts when alert severity level is contained in this..."   
 }
 
 tfstate_inputs = {

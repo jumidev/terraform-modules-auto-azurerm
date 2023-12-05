@@ -11,19 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_gen2_environment"   
+   name = "Specifies the name of the Azure IoT Time Series Insights Gen2 Environment..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of iot_time_series_insights_gen2_environment"   
+   sku_name = "Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment..."   
    storage = {
-      this_storage = {
-         name = "..."         
-         key = "..."         
-      }
-      
+      name = "..."      
+      key = "..."      
    }
    
-   id_properties = "id_properties of iot_time_series_insights_gen2_environment"   
+   id_properties = "A list of property ids for the Azure IoT Time Series Insights Gen2 Environment..."   
 }
 
 tfstate_store = {

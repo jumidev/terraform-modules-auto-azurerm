@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_consumer_group"   
+   name = "The name of this Consumer Group"   
    # iothub_name → set in tfstate_inputs
-   eventhub_endpoint_name = "eventhub_endpoint_name of iothub_consumer_group"   
+   eventhub_endpoint_name = "The name of the Event Hub-compatible endpoint in the IoT hub..."   
    resource_group_name = "${resource_group}"   
 }
 

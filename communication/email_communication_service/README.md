@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of email_communication_service"   
+   name = "The name of the Email Communication Service resource..."   
    resource_group_name = "${resource_group}"   
-   data_location = "data_location of email_communication_service"   
+   data_location = "The location where the Email Communication service stores its data at rest..."   
 }
 
 tfstate_store = {

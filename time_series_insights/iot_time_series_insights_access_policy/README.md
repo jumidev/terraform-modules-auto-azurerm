@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_access_policy"   
-   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_access_policy"   
-   principal_object_id = "principal_object_id of iot_time_series_insights_access_policy"   
-   roles = "roles of iot_time_series_insights_access_policy"   
+   name = "Specifies the name of the Azure IoT Time Series Insights Access Policy..."   
+   time_series_insights_environment_id = "The resource ID of the Azure IoT Time Series Insights Environment in which to cr..."   
+   principal_object_id = "The id of the principal in Azure Active Directory"   
+   roles = "A list of roles to apply to the Access Policy"   
 }
 
 tfstate_store = {

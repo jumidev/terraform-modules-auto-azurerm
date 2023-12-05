@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of batch_application"   
+   name = "The name of the application"   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of batch_application"   
+   account_name = "The name of the Batch account"   
 }
 
 tfstate_store = {

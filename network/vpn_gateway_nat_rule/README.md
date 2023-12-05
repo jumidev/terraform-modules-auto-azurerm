@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of vpn_gateway_nat_rule"   
+   name = "The name which should be used for this VPN Gateway NAT Rule..."   
    resource_group_name = "${resource_group}"   
    # vpn_gateway_id → set in tfstate_inputs
 }

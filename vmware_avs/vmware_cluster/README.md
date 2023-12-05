@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of vmware_cluster"   
-   vmware_cloud_id = "vmware_cloud_id of vmware_cluster"   
-   cluster_node_count = "cluster_node_count of vmware_cluster"   
-   sku_name = "sku_name of vmware_cluster"   
+   name = "The name which should be used for this VMware Cluster..."   
+   vmware_cloud_id = "The ID of the VMware Private Cloud in which to create this VMware Cluster..."   
+   cluster_node_count = "The count of the VMware Cluster nodes"   
+   sku_name = "The cluster SKU to use"   
 }
 
 tfstate_store = {

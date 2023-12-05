@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_trigger_blob_event"   
+   name = "Specifies the name of the Data Factory Blob Event Trigger..."   
    # data_factory_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   events = "events of data_factory_trigger_blob_event"   
+   events = "List of events that will fire this trigger"   
    pipeline = {
       this_pipeline = {
          name = "..."         

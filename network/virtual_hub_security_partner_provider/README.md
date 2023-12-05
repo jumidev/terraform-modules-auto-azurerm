@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_hub_security_partner_provider"   
+   name = "The name which should be used for this Security Partner Provider..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   security_provider_name = "security_provider_name of virtual_hub_security_partner_provider"   
+   security_provider_name = "The security provider name"   
 }
 
 tfstate_store = {

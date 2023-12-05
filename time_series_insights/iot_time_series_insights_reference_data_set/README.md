@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_reference_data_set"   
-   time_series_insights_environment_id = "time_series_insights_environment_id of iot_time_series_insights_reference_data_set"   
+   name = "Specifies the name of the Azure IoT Time Series Insights Reference Data Set..."   
+   time_series_insights_environment_id = "The resource ID of the Azure IoT Time Series Insights Environment in which to cr..."   
    location = "${location}"   
    key_property = {
-      this_key_property = {
-         name = "..."         
-         type = "..."         
-      }
-      
+      name = "..."      
+      type = "..."      
    }
    
 }

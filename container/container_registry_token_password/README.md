@@ -13,9 +13,6 @@ source = {
 inputs = {
    # container_registry_token_id → set in tfstate_inputs
    password1 = {
-      this_password = {
-      }
-      
    }
    
 }

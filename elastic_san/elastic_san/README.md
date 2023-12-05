@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of elastic_san"   
+   name = "Specifies the name of this Elastic SAN resource"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   base_size_in_tib = "base_size_in_tib of elastic_san"   
+   base_size_in_tib = "Specifies the base size of the Elastic SAN resource in TiB..."   
    sku = {
-      this_sku = {
-         name = "..."         
-      }
-      
+      name = "..."      
    }
    
 }

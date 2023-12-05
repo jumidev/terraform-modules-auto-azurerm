@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of eventgrid_system_topic"   
+   name = "The name which should be used for this Event Grid System Topic..."   
    resource_group_name = "${resource_group}"   
-   source_arm_resource_id = "source_arm_resource_id of eventgrid_system_topic"   
-   topic_type = "topic_type of eventgrid_system_topic"   
+   source_arm_resource_id = "The ID of the Event Grid System Topic ARM Source"   
+   topic_type = "The Topic Type of the Event Grid System Topic"   
 }
 
 tfstate_store = {

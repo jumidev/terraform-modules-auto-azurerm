@@ -11,29 +11,23 @@ source = {
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_agreement"   
+   name = "The name which should be used for this Logic App Integration Account Agreement..."   
    resource_group_name = "${resource_group}"   
-   integration_account_name = "integration_account_name of logic_app_integration_account_agreement"   
-   agreement_type = "agreement_type of logic_app_integration_account_agreement"   
-   content = "content of logic_app_integration_account_agreement"   
+   integration_account_name = "The name of the Logic App Integration Account"   
+   agreement_type = "The type of the Logic App Integration Account Agreement..."   
+   content = "The content of the Logic App Integration Account Agreement..."   
    guest_identity = {
-      this_guest_identity = {
-         qualifier = "..."         
-         value = "..."         
-      }
-      
+      qualifier = "..."      
+      value = "..."      
    }
    
-   guest_partner_name = "guest_partner_name of logic_app_integration_account_agreement"   
+   guest_partner_name = "The name of the guest Logic App Integration Account Partner..."   
    host_identity = {
-      this_host_identity = {
-         qualifier = "..."         
-         value = "..."         
-      }
-      
+      qualifier = "..."      
+      value = "..."      
    }
    
-   host_partner_name = "host_partner_name of logic_app_integration_account_agreement"   
+   host_partner_name = "The name of the host Logic App Integration Account Partner..."   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of palo_alto_network_virtual_appliance"   
+   name = "The name which should be used for this Palo Alto Local Network Virtual Appliance..."   
    # virtual_hub_id → set in tfstate_inputs
 }
 

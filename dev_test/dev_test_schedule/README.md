@@ -11,16 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of dev_test_schedule"   
+   name = "The name of the dev test lab schedule"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   lab_name = "lab_name of dev_test_schedule"   
-   task_type = "task_type of dev_test_schedule"   
-   time_zone_id = "time_zone_id of dev_test_schedule"   
+   lab_name = "The name of the dev test lab"   
+   task_type = "The task type of the schedule"   
+   time_zone_id = "The time zone ID (e"   
    notification_settings = {
-      this_notification_settings = {
-      }
-      
    }
    
 }
@@ -68,12 +65,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
-### `daily_recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `time` | string | Yes | - | The time each day when the schedule takes effect. |
-
 ### `notification_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,6 +72,12 @@ tfstate_store = {
 | `status` | string | No | Disabled | The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled' |
 | `time_in_minutes` | int | No | - | Time in minutes before event at which notification will be sent. |
 | `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
+
+### `daily_recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time` | string | Yes | - | The time each day when the schedule takes effect. |
 
 
 

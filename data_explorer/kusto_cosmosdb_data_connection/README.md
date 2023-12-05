@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   cosmosdb_container_id = "cosmosdb_container_id of kusto_cosmosdb_data_connection"   
+   cosmosdb_container_id = "The name of an existing container in the Cosmos DB database..."   
    # kusto_database_id → set in tfstate_inputs
    location = "${location}"   
-   managed_identity_id = "managed_identity_id of kusto_cosmosdb_data_connection"   
-   name = "name of kusto_cosmosdb_data_connection"   
-   table_name = "table_name of kusto_cosmosdb_data_connection"   
+   managed_identity_id = "The resource ID of a managed system or user-assigned identity..."   
+   name = "The name of the data connection"   
+   table_name = "The case-sensitive name of the existing target table in your cluster..."   
 }
 
 tfstate_inputs = {

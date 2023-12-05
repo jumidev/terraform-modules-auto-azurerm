@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of lb_backend_address_pool"   
+   name = "Specifies the name of the Backend Address Pool"   
    # loadbalancer_id → set in tfstate_inputs
 }
 

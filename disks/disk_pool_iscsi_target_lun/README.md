@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   iscsi_target_id = "iscsi_target_id of disk_pool_iscsi_target_lun"   
+   iscsi_target_id = "The ID of the iSCSI Target"   
    # disk_pool_managed_disk_attachment_id → set in tfstate_inputs
-   name = "name of disk_pool_iscsi_target_lun"   
+   name = "User defined name for iSCSI LUN"   
 }
 
 tfstate_inputs = {

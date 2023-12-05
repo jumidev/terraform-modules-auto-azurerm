@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of netapp_volume_quota_rule"   
-   volume_id = "volume_id of netapp_volume_quota_rule"   
-   quota_size_in_kib = "quota_size_in_kib of netapp_volume_quota_rule"   
-   quota_type = "quota_type of netapp_volume_quota_rule"   
+   name = "The name which should be used for this Volume Quota Rule..."   
+   volume_id = "The NetApp volume ID where the Volume Quota Rule is assigned to..."   
+   quota_size_in_kib = "Quota size in kibibytes"   
+   quota_type = "Quota type"   
 }
 
 tfstate_store = {

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_scope_connection"   
+   name = "Specifies the name which should be used for this Network Manager Scope Connectio..."   
    # network_manager_id → set in tfstate_inputs
-   target_scope_id = "target_scope_id of network_manager_scope_connection"   
+   target_scope_id = "Specifies the Resource ID of the target scope which the Network Manager is conne..."   
    # tenant_id → set in tfstate_inputs
 }
 

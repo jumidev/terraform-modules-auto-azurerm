@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_dataset_cosmosdb_sqlapi"   
+   name = "Specifies the name of the Data Factory Dataset"   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_cosmosdb_sqlapi"   
+   linked_service_name = "The Data Factory Linked Service name in which to associate the Dataset with..."   
 }
 
 tfstate_inputs = {

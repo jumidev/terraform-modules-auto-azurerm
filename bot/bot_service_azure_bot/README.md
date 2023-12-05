@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of bot_service_azure_bot"   
+   name = "The name which should be used for this Azure Bot Service..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   microsoft_app_id = "microsoft_app_id of bot_service_azure_bot"   
-   sku = "sku of bot_service_azure_bot"   
+   microsoft_app_id = "The Microsoft Application ID for the Azure Bot Service..."   
+   sku = "The SKU of the Azure Bot Service"   
 }
 
 tfstate_store = {

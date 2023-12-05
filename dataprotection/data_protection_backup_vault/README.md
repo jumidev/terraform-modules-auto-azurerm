@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_backup_vault"   
+   name = "Specifies the name of the Backup Vault"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   datastore_type = "datastore_type of data_protection_backup_vault"   
-   redundancy = "redundancy of data_protection_backup_vault"   
+   datastore_type = "Specifies the type of the data store"   
+   redundancy = "Specifies the backup storage redundancy"   
 }
 
 tfstate_store = {

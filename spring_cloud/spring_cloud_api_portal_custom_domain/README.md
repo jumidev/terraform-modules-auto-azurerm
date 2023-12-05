@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_api_portal_custom_domain"   
+   name = "The name which should be used for this Spring Cloud API Portal Domain..."   
    # spring_cloud_api_portal_id → set in tfstate_inputs
 }
 

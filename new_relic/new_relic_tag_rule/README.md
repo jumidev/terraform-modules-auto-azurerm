@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   monitor_id = "monitor_id of new_relic_tag_rule"   
+   monitor_id = "Specifies the ID of the New Relic Monitor this Tag Rule should be created within..."   
 }
 
 tfstate_store = {
@@ -39,7 +39,7 @@ tfstate_store = {
 | **metric_tag_filter** | [block](#metric_tag_filter-block-structure) |  -  |  A `metric_tag_filter` block. | 
 | **subscription_log_enabled** | bool |  `False`  |  Whether subscription logs should be sent for the Monitor resource. Defaults to `false`. | 
 
-### `metric_tag_filter` block structure
+### `log_tag_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -47,7 +47,7 @@ tfstate_store = {
 | `action` | string | Yes | - | Valid actions for a filtering tag. Possible values are 'Exclude' and 'Include'. Exclusion takes priority over inclusion. |
 | `value` | string | Yes | - | Specifies the value of the tag. |
 
-### `log_tag_filter` block structure
+### `metric_tag_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

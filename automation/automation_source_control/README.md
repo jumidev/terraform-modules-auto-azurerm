@@ -11,19 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_source_control"   
+   name = "The name which should be used for this Automation Source Control..."   
    # automation_account_id → set in tfstate_inputs
-   folder_path = "folder_path of automation_source_control"   
-   repository_url = "repository_url of automation_source_control"   
+   folder_path = "The folder path of the source control"   
+   repository_url = "The Repository URL of the source control"   
    security = {
-      this_security = {
-         token = "..."         
-         token_type = "..."         
-      }
-      
+      token = "..."      
+      token_type = "..."      
    }
    
-   source_control_type = "source_control_type of automation_source_control"   
+   source_control_type = "The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `..."   
 }
 
 tfstate_inputs = {

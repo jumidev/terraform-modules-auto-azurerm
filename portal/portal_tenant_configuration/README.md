@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   private_markdown_storage_enforced = "private_markdown_storage_enforced of portal_tenant_configuration"   
+   private_markdown_storage_enforced = "Is the private tile markdown storage which used to display custom dynamic and st..."   
 }
 
 tfstate_store = {

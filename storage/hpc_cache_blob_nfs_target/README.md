@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   cache_name = "cache_name of hpc_cache_blob_nfs_target"   
-   name = "name of hpc_cache_blob_nfs_target"   
-   namespace_path = "namespace_path of hpc_cache_blob_nfs_target"   
+   cache_name = "The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to..."   
+   name = "The name which should be used for this HPC Cache Blob NFS Target..."   
+   namespace_path = "The client-facing file path of the HPC Cache Blob NFS Target..."   
    resource_group_name = "${resource_group}"   
    # storage_container_id → set in tfstate_inputs
-   usage_model = "usage_model of hpc_cache_blob_nfs_target"   
+   usage_model = "The type of usage of the HPC Cache Blob NFS Target"   
 }
 
 tfstate_inputs = {

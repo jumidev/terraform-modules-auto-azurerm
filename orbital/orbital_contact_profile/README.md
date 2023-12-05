@@ -11,20 +11,17 @@ source = {
 }
 
 inputs = {
-   name = "name of orbital_contact_profile"   
+   name = "The name of the contact profile"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   minimum_variable_contact_duration = "minimum_variable_contact_duration of orbital_contact_profile"   
-   auto_tracking = "auto_tracking of orbital_contact_profile"   
-   network_configuration_subnet_id = "network_configuration_subnet_id of orbital_contact_profile"   
+   minimum_variable_contact_duration = "Minimum viable contact duration in ISO 8601 format"   
+   auto_tracking = "Auto-tracking configurations for a spacecraft"   
+   network_configuration_subnet_id = "ARM resource identifier of the subnet delegated to the Microsoft..."   
    links = {
-      this_links = {
-         channels = "..."         
-         direction = "..."         
-         name = "..."         
-         polarization = "..."         
-      }
-      
+      channels = "..."      
+      direction = "..."      
+      name = "..."      
+      polarization = "..."      
    }
    
 }
@@ -61,7 +58,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `channels` | [block](#links-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
+| `channels` | [block](#channels-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
 | `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
 | `name` | string | Yes | - | Name of the link. |
 | `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
@@ -82,7 +79,7 @@ tfstate_store = {
 | `name` | string | Yes | - | Name of the channel. |
 | `center_frequency_mhz` | string | Yes | - | Center frequency in MHz. |
 | `bandwidth_mhz` | string | Yes | - | Bandwidth in MHz. |
-| `end_point` | [block](#channels-block-structure) | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
+| `end_point` | [block](#end_point-block-structure) | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
 | `modulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
 | `demodulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
 

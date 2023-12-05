@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of machine_learning_synapse_spark"   
+   name = "The name which should be used for this Machine Learning Synapse Spark..."   
    # machine_learning_workspace_id → set in tfstate_inputs
    location = "${location}"   
    # synapse_spark_pool_id → set in tfstate_inputs

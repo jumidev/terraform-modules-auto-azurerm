@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # data_factory_id → set in tfstate_inputs
-   name = "name of data_factory_integration_runtime_self_hosted"   
+   name = "The name which should be used for this Data Factory..."   
 }
 
 tfstate_inputs = {

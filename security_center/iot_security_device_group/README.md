@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of iot_security_device_group"   
+   name = "Specifies the name of the Device Security Group"   
    # iothub_id → set in tfstate_inputs
 }
 

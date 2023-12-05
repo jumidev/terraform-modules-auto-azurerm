@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of databricks_access_connector"   
+   name = "Specifies the name of the Databricks Access Connector resource..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

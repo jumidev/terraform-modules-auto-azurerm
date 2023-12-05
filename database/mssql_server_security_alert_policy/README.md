@@ -13,7 +13,7 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    # server_name → set in tfstate_inputs
-   state = "state of mssql_server_security_alert_policy"   
+   state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
 }
 
 tfstate_inputs = {

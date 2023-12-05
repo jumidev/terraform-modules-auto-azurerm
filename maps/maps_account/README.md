@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of maps_account"   
+   name = "The name of the Azure Maps Account"   
    resource_group_name = "${resource_group}"   
-   sku_name = "sku_name of maps_account"   
+   sku_name = "The SKU of the Azure Maps Account"   
 }
 
 tfstate_store = {

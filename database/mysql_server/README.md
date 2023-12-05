@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of mysql_server"   
+   name = "Specifies the name of the MySQL Server"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of mysql_server"   
-   version = "version of mysql_server"   
-   ssl_enforcement_enabled = "ssl_enforcement_enabled of mysql_server"   
+   sku_name = "Specifies the SKU Name for this MySQL Server"   
+   version = "Specifies the version of MySQL to use"   
+   ssl_enforcement_enabled = "Specifies if SSL should be enforced on connections"   
 }
 
 tfstate_store = {

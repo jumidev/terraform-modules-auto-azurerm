@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_postgresql_cluster"   
+   name = "The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   node_count = "node_count of cosmosdb_postgresql_cluster"   
+   node_count = "The worker node count of the Azure Cosmos DB for PostgreSQL Cluster..."   
 }
 
 tfstate_store = {

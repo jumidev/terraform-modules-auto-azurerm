@@ -13,7 +13,7 @@ source = {
 inputs = {
    # dev_center_id → set in tfstate_inputs
    location = "${location}"   
-   name = "name of dev_center_project"   
+   name = "Specifies the name of this Dev Center Project"   
    resource_group_name = "${resource_group}"   
 }
 

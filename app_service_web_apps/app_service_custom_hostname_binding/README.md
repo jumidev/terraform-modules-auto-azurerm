@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   hostname = "hostname of app_service_custom_hostname_binding"   
+   hostname = "Specifies the Custom Hostname to use for the App Service, example `www..."   
    # app_service_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
 }

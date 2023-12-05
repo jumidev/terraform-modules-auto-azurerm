@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of machine_learning_compute_cluster"   
+   name = "The name which should be used for this Machine Learning Compute Cluster..."   
    # machine_learning_workspace_id → set in tfstate_inputs
    location = "${location}"   
-   vm_priority = "vm_priority of machine_learning_compute_cluster"   
-   vm_size = "vm_size of machine_learning_compute_cluster"   
+   vm_priority = "The priority of the VM"   
+   vm_size = "The size of the VM"   
    scale_settings = {
-      this_scale_settings = {
-         max_node_count = "..."         
-         min_node_count = "..."         
-         scale_down_nodes_after_idle_duration = "..."         
-      }
-      
+      max_node_count = "..."      
+      min_node_count = "..."      
+      scale_down_nodes_after_idle_duration = "..."      
    }
    
 }
@@ -63,14 +60,6 @@ tfstate_store = {
 | **subnet_resource_id** | string |  -  |  The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
-### `ssh` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created. |
-| `admin_password` | string | No | - | Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
-| `key_value` | string | No | - | SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
-
 ### `scale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +67,14 @@ tfstate_store = {
 | `max_node_count` | int | Yes | - | Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
 | `min_node_count` | int | Yes | - | Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
 | `scale_down_nodes_after_idle_duration` | string | Yes | - | Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created. |
+
+### `ssh` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created. |
+| `admin_password` | string | No | - | Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
+| `key_value` | string | No | - | SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created. |
 
 ### `identity` block structure
 

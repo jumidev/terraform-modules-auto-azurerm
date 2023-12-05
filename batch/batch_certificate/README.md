@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   account_name = "account_name of batch_certificate"   
+   account_name = "Specifies the name of the Batch account"   
    resource_group_name = "${resource_group}"   
-   certificate = "certificate of batch_certificate"   
-   format = "format of batch_certificate"   
-   thumbprint = "thumbprint of batch_certificate"   
-   thumbprint_algorithm = "thumbprint_algorithm of batch_certificate"   
+   certificate = "The base64-encoded contents of the certificate"   
+   format = "The format of the certificate"   
+   thumbprint = "The thumbprint of the certificate"   
+   thumbprint_algorithm = "The algorithm of the certificate thumbprint"   
 }
 
 tfstate_store = {

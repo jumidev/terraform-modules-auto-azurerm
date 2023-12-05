@@ -14,7 +14,7 @@ inputs = {
    # api_management_name → set in tfstate_inputs
    # api_management_product_id → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   name = "name of api_management_product_tag"   
+   name = "The name which should be used for this API Management Tag..."   
 }
 
 tfstate_inputs = {

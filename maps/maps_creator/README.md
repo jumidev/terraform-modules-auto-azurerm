@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of maps_creator"   
+   name = "The name of the Azure Maps Creator"   
    # maps_account_id → set in tfstate_inputs
    location = "${location}"   
-   storage_units = "storage_units of maps_creator"   
+   storage_units = "The storage units to be allocated"   
 }
 
 tfstate_inputs = {

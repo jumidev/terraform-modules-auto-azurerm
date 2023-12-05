@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_automation_rule"   
+   name = "The UUID which should be used for this Sentinel Automation Rule..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_automation_rule"   
-   order = "order of sentinel_automation_rule"   
+   display_name = "The display name which should be used for this Sentinel Automation Rule..."   
+   order = "The order of this Sentinel Automation Rule"   
 }
 
 tfstate_inputs = {
@@ -51,14 +51,6 @@ tfstate_store = {
 | **triggers_on** | string |  `Incidents`  |  `Alerts`, `Incidents`  |  Specifies what triggers this automation rule. Possible values are `Alerts` and `Incidents`. Defaults to `Incidents`. | 
 | **triggers_when** | string |  `Created`  |  `Created`, `Updated`  |  Specifies when will this automation rule be triggered. Possible values are `Created` and `Updated`. Defaults to `Created`. | 
 
-### `action_playbook` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `logic_app_id` | string | Yes | - | The ID of the Logic App that defines the playbook's logic. |
-| `order` | string | Yes | - | The execution order of this action. |
-| `tenant_id` | string | No | - | The ID of the Tenant that owns the playbook. |
-
 ### `condition` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +70,14 @@ tfstate_store = {
 | `labels` | string | No | - | Specifies a list of labels to add to the incident. |
 | `owner_id` | string | No | - | The object ID of the entity this incident is assigned to. |
 | `severity` | string | No | - | The severity to add to the incident. Possible values are 'High', 'Informational', 'Low' and 'Medium'. |
+
+### `action_playbook` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `logic_app_id` | string | Yes | - | The ID of the Logic App that defines the playbook's logic. |
+| `order` | string | Yes | - | The execution order of this action. |
+| `tenant_id` | string | No | - | The ID of the Tenant that owns the playbook. |
 
 
 

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of eventhub_namespace_authorization_rule"   
+   name = "Specifies the name of the Authorization Rule"   
    # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
 }

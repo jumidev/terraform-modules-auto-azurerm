@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_hyperv_replication_policy"   
-   recovery_vault_id = "recovery_vault_id of site_recovery_hyperv_replication_policy"   
-   recovery_point_retention_in_hours = "recovery_point_retention_in_hours of site_recovery_hyperv_replication_policy"   
-   application_consistent_snapshot_frequency_in_hours = "application_consistent_snapshot_frequency_in_hours of site_recovery_hyperv_replication_policy"   
-   replication_interval_in_seconds = "replication_interval_in_seconds of site_recovery_hyperv_replication_policy"   
+   name = "The name of the replication policy"   
+   recovery_vault_id = "The id of the vault that should be updated"   
+   recovery_point_retention_in_hours = "The duration in hours for which the recovery points need to be stored..."   
+   application_consistent_snapshot_frequency_in_hours = "Specifies the frequency at which to create application consistent recovery point..."   
+   replication_interval_in_seconds = "Specifies how frequently data should be synchronized between source and target l..."   
 }
 
 tfstate_store = {

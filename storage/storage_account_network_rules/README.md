@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # storage_account_id → set in tfstate_inputs
-   default_action = "default_action of storage_account_network_rules"   
+   default_action = "Specifies the default action of allow or deny when no other rules match..."   
 }
 
 tfstate_inputs = {

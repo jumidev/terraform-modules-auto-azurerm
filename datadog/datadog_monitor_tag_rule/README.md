@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   datadog_monitor_id = "datadog_monitor_id of datadog_monitor_tag_rule"   
+   datadog_monitor_id = "The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule..."   
 }
 
 tfstate_store = {
@@ -44,12 +44,6 @@ tfstate_store = {
 | `value` | string | Yes | - | Value of the Tag. |
 | `action` | string | Yes | - | Allowed values Include or Exclude. |
 
-### `metric` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `filter` | [block](#metric-block-structure) | No | - | A 'filter' block. |
-
 ### `log` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -57,7 +51,13 @@ tfstate_store = {
 | `aad_log_enabled` | bool | No | - | Whether AAD logs should be sent for the Monitor resource? |
 | `subscription_log_enabled` | bool | No | - | Whether Azure subscription logs should be sent for the Monitor resource? |
 | `resource_log_enabled` | bool | No | - | Whether Azure resource logs should be sent for the Monitor resource? |
-| `filter` | [block](#log-block-structure) | No | - | A 'filter' block. |
+| `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
+
+### `metric` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
 
 
 

@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_backup_instance_disk"   
+   name = "The name which should be used for this Backup Instance Disk..."   
    location = "${location}"   
-   vault_id = "vault_id of data_protection_backup_instance_disk"   
-   disk_id = "disk_id of data_protection_backup_instance_disk"   
-   snapshot_resource_group_name = "snapshot_resource_group_name of data_protection_backup_instance_disk"   
-   backup_policy_id = "backup_policy_id of data_protection_backup_instance_disk"   
+   vault_id = "The ID of the Backup Vault within which the Backup Instance Disk should exist..."   
+   disk_id = "The ID of the source Disk"   
+   snapshot_resource_group_name = "The name of the Resource Group where snapshots are stored..."   
+   backup_policy_id = "The ID of the Backup Policy"   
 }
 
 tfstate_store = {

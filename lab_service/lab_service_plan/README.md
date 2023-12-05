@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of lab_service_plan"   
+   name = "The name of the Lab Service Plan"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   allowed_regions = "allowed_regions of lab_service_plan"   
+   allowed_regions = "The allowed regions for the lab creator to use when creating labs using this Lab..."   
 }
 
 tfstate_store = {
@@ -45,15 +45,6 @@ tfstate_store = {
 | **support** | [block](#support-block-structure) |  A `support` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Plan. | 
 
-### `default_connection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
-| `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
-| `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
-
 ### `support` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,6 +62,15 @@ tfstate_store = {
 | `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
 | `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
 | `shutdown_on_idle` | string | No | - | Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'. |
+
+### `default_connection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible values are 'Private' and 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
+| `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
+| `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
 
 
 

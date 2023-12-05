@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of shared_image_version"   
+   name = "The version number for this Image Version, such as `1..."   
    # gallery_name → set in tfstate_inputs
    # image_name → set in tfstate_inputs
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   target_region = "target_region of shared_image_version"   
+   target_region = "One or more `target_region` blocks"   
 }
 
 tfstate_inputs = {

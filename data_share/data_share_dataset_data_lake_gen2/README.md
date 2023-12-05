@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_share_dataset_data_lake_gen2"   
-   share_id = "share_id of data_share_dataset_data_lake_gen2"   
-   file_system_name = "file_system_name of data_share_dataset_data_lake_gen2"   
+   name = "The name which should be used for this Data Share Data Lake Gen2 Dataset..."   
+   share_id = "The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset s..."   
+   file_system_name = "The name of the data lake file system to be shared with the receiver..."   
    # storage_account_id → set in tfstate_inputs
 }
 

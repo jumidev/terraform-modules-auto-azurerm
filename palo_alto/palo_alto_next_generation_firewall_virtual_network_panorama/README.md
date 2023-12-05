@@ -12,21 +12,18 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of palo_alto_next_generation_firewall_virtual_network_panorama"   
+   name = "The name which should be used for this Palo Alto Next Generation Firewall Virtua..."   
    network_profile = {
-      this_network_profile = {
-         # public_ip_address_ids → set in tfstate_inputs
-         vnet_configuration = "..."         
-      }
-      
+      # public_ip_address_ids → set in tfstate_inputs
+      vnet_configuration = "..."      
    }
    
-   panorama_base64_config = "panorama_base64_config of palo_alto_next_generation_firewall_virtual_network_panorama"   
+   panorama_base64_config = "The base64 encoded configuration registration string as defined by your Panorama..."   
    resource_group_name = "${resource_group}"   
 }
 
 tfstate_inputs = {
-   network_profile.this_network_profile.public_ip_address_ids = "path/to/public_ip_component:id"   
+   network_profile.public_ip_address_ids = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {
@@ -55,12 +52,14 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama. | 
 
-### `frontend_config` block structure
+### `destination_nat` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which to receive traffic. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+| `name` | string | Yes | - | The name which should be used for this Destination NAT. |
+| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
 
 ### `dns_settings` block structure
 
@@ -68,6 +67,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
 | `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+
+### `network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `public_ip_address_ids` | string | Yes | - | Specifies a list of Azure Public IP Address IDs. |
+| `vnet_configuration` | [block](#vnet_configuration-block-structure) | Yes | - | A 'vnet_configuration' block. |
+| `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation. |
 
 ### `vnet_configuration` block structure
 
@@ -77,29 +84,19 @@ tfstate_store = {
 | `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
 | `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
 
+### `frontend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port on which to receive traffic. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+
 ### `backend_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | Yes | - | The port number to send traffic to. |
 | `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
-
-### `network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `public_ip_address_ids` | string | Yes | - | Specifies a list of Azure Public IP Address IDs. |
-| `vnet_configuration` | [block](#network_profile-block-structure) | Yes | - | A 'vnet_configuration' block. |
-| `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation. |
-
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Destination NAT. |
-| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#destination_nat-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#destination_nat-block-structure) | No | - | A 'frontend_config' block. |
 
 
 

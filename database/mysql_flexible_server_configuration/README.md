@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of mysql_flexible_server_configuration"   
+   name = "Specifies the name of the MySQL Flexible Server Configuration, which needs [to b..."   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   value = "value of mysql_flexible_server_configuration"   
+   value = "Specifies the value of the MySQL Flexible Server Configuration..."   
 }
 
 tfstate_inputs = {

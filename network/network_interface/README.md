@@ -14,15 +14,15 @@ inputs = {
    ip_configuration = {
       primary = {
          name = "..."         
-         # subnet_id → set in tfstate_inputs
+         # subnet_id → (optional) set in tfstate_inputs
          private_ip_address_allocation = "Dynamic"         
-         # public_ip_address_id → set in tfstate_inputs
+         # public_ip_address_id → (optional) set in tfstate_inputs
       }
       
    }
    
    location = "${location}"   
-   name = "name of network_interface"   
+   name = "The name of the Network Interface"   
    resource_group_name = "${resource_group}"   
 }
 

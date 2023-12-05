@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of policy_definition"   
-   policy_type = "policy_type of policy_definition"   
-   mode = "mode of policy_definition"   
-   display_name = "display_name of policy_definition"   
+   name = "The name of the policy definition"   
+   policy_type = "The policy type"   
+   mode = "The policy resource manager mode that allows you to specify which resource types..."   
+   display_name = "The display name of the policy definition"   
 }
 
 tfstate_store = {

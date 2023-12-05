@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_outbound_firewall_rule"   
+   name = "The name of the outbound firewall rule"   
    # server_id → set in tfstate_inputs
 }
 

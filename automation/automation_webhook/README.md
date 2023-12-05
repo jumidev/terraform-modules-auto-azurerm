@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_webhook"   
+   name = "Specifies the name of the Webhook"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   expiry_time = "expiry_time of automation_webhook"   
-   runbook_name = "runbook_name of automation_webhook"   
+   expiry_time = "Timestamp when the webhook expires"   
+   runbook_name = "Name of the Automation Runbook to execute by Webhook..."   
 }
 
 tfstate_inputs = {

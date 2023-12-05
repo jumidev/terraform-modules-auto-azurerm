@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   data_source_type = "data_source_type of log_analytics_linked_storage_account"   
+   data_source_type = "The data source type which should be used for this Log Analytics Linked Storage ..."   
    resource_group_name = "${resource_group}"   
-   workspace_resource_id = "workspace_resource_id of log_analytics_linked_storage_account"   
+   workspace_resource_id = "The resource ID of the Log Analytics Workspace"   
    # storage_account_ids → set in tfstate_inputs
 }
 

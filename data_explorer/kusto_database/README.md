@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_database"   
+   name = "The name of the Kusto Database to create"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "cluster_name of kusto_database"   
+   cluster_name = "Specifies the name of the Kusto Cluster this database will be added to..."   
 }
 
 tfstate_store = {

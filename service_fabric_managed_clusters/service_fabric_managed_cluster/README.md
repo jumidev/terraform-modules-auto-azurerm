@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   client_connection_port = "client_connection_port of service_fabric_managed_cluster"   
-   http_gateway_port = "http_gateway_port of service_fabric_managed_cluster"   
+   client_connection_port = "Port to use when connecting to the cluster"   
+   http_gateway_port = "Port that should be used by the Service Fabric Explorer to visualize application..."   
    lb_rule = {
       this_lb_rule = {
          backend_port = "..."         
@@ -24,7 +24,7 @@ inputs = {
    }
    
    location = "${location}"   
-   name = "name of service_fabric_managed_cluster"   
+   name = "The name which should be used for this Resource Group..."   
    resource_group_name = "${resource_group}"   
 }
 
@@ -78,24 +78,6 @@ tfstate_store = {
 | `section` | string | Yes | - | Section name. |
 | `value` | string | Yes | - | Parameter value. |
 
-### `certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
-| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
-| `common_name` | string | No | - | The certificate's CN. |
-
-### `lb_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_port` | string | Yes | - | LB Backend port. |
-| `frontend_port` | string | Yes | - | LB Frontend port. |
-| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
-| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
-| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
-
 ### `active_directory` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -103,13 +85,6 @@ tfstate_store = {
 | `client_application_id` | string | Yes | - | The ID of the Client Application. |
 | `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
 | `tenant_id` | string | Yes | - | The ID of the Tenant. |
-
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `active_directory` | [block](#authentication-block-structure) | No | - | A 'active_directory' block. |
-| `certificate` | [block](#authentication-block-structure) | No | - | One or more 'certificate' blocks. |
 
 ### `node_type` block structure
 
@@ -131,7 +106,32 @@ tfstate_store = {
 | `placement_properties` | string | No | - | Specifies a list of placement tags that can be used to indicate where services should run.. |
 | `primary` | string | No | - | If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created. |
 | `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
-| `vm_secrets` | [block](#node_type-block-structure) | No | - | One or more 'vm_secrets' blocks. |
+| `vm_secrets` | [block](#vm_secrets-block-structure) | No | - | One or more 'vm_secrets' blocks. |
+
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. |
+| `certificate` | [block](#certificate-block-structure) | No | - | One or more 'certificate' blocks. |
+
+### `certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
+| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
+| `common_name` | string | No | - | The certificate's CN. |
+
+### `lb_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_port` | string | Yes | - | LB Backend port. |
+| `frontend_port` | string | Yes | - | LB Frontend port. |
+| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
+| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
+| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
 
 
 

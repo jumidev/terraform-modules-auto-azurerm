@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_gateway_host_name_configuration"   
+   name = "The name of the API Management Gateway Host Name Configuration..."   
    # api_management_id → set in tfstate_inputs
-   gateway_name = "gateway_name of api_management_gateway_host_name_configuration"   
-   certificate_id = "certificate_id of api_management_gateway_host_name_configuration"   
-   host_name = "host_name of api_management_gateway_host_name_configuration"   
+   gateway_name = "The name of the API Management Gateway"   
+   certificate_id = "The certificate ID to be used for TLS connection establishment..."   
+   host_name = "The host name to use for the API Management Gateway Host Name Configuration..."   
 }
 
 tfstate_inputs = {

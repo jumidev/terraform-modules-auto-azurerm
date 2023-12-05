@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of lb_nat_pool"   
+   name = "Specifies the name of the NAT pool"   
    resource_group_name = "${resource_group}"   
    # loadbalancer_id → set in tfstate_inputs
    # frontend_ip_configuration_name → set in tfstate_inputs
-   protocol = "protocol of lb_nat_pool"   
-   frontend_port_start = "frontend_port_start of lb_nat_pool"   
-   frontend_port_end = "frontend_port_end of lb_nat_pool"   
-   backend_port = "backend_port of lb_nat_pool"   
+   protocol = "The transport protocol for the external endpoint"   
+   frontend_port_start = "The first port number in the range of external ports that will be used to provid..."   
+   frontend_port_end = "The last port number in the range of external ports that will be used to provide..."   
+   backend_port = "The port used for the internal endpoint"   
 }
 
 tfstate_inputs = {

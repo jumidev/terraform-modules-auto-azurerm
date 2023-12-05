@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of bot_web_app"   
+   name = "Specifies the name of the Web App Bot"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku = "sku of bot_web_app"   
-   microsoft_app_id = "microsoft_app_id of bot_web_app"   
+   sku = "The SKU of the Web App Bot"   
+   microsoft_app_id = "The Microsoft Application ID for the Web App Bot"   
 }
 
 tfstate_store = {

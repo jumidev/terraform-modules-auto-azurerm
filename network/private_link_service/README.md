@@ -11,24 +11,21 @@ source = {
 }
 
 inputs = {
-   name = "name of private_link_service"   
+   name = "Specifies the name of this Private Link Service"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    nat_ip_configuration = {
-      this_nat_ip_configuration = {
-         name = "..."         
-         # subnet_id → set in tfstate_inputs
-         primary =          
-      }
-      
+      name = "..."      
+      # subnet_id → set in tfstate_inputs
+      primary =       
    }
    
    # load_balancer_frontend_ip_configuration_ids → set in tfstate_inputs
 }
 
 tfstate_inputs = {
-   nat_ip_configuration.this_nat_ip_configuration.subnet_id = "path/to/subnet_component:id"   
-   load_balancer_frontend_ip_configuration_ids = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
+   nat_ip_configuration.subnet_id = "path/to/subnet_component:id"   
+   load_balancer_frontend_ip_configuration_ids = ["path/to/lb_outbound_rule_component:frontend_ip_configuration", "..."]   
 }
 
 tfstate_store = {

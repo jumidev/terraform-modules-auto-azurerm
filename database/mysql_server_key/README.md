@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   server_id = "server_id of mysql_server_key"   
+   server_id = "The ID of the MySQL Server"   
    # key_vault_key_id → set in tfstate_inputs
 }
 

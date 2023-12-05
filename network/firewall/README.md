@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of firewall"   
+   name = "Specifies the name of the Firewall"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of firewall"   
-   sku_tier = "sku_tier of firewall"   
+   sku_name = "SKU name of the Firewall"   
+   sku_tier = "SKU tier of the Firewall"   
 }
 
 tfstate_store = {
@@ -50,14 +50,6 @@ tfstate_store = {
 | **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `ip_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
-| `subnet_id` | string | No | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
-| `public_ip_address_id` | string | No | - | The ID of the Public IP Address associated with the firewall. |
-
 ### `management_ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +57,14 @@ tfstate_store = {
 | `name` | string | Yes | - | Specifies the name of the IP Configuration. |
 | `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. |
+
+### `ip_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
+| `subnet_id` | string | No | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
+| `public_ip_address_id` | string | No | - | The ID of the Public IP Address associated with the firewall. |
 
 ### `virtual_hub` block structure
 

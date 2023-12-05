@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_endpoint_cosmosdb_account"   
+   name = "The name of the endpoint"   
    resource_group_name = "${resource_group}"   
    # iothub_id → set in tfstate_inputs
-   container_name = "container_name of iothub_endpoint_cosmosdb_account"   
-   database_name = "database_name of iothub_endpoint_cosmosdb_account"   
-   endpoint_uri = "endpoint_uri of iothub_endpoint_cosmosdb_account"   
+   container_name = "The name of the Cosmos DB Container in the Cosmos DB Database..."   
+   database_name = "The name of the Cosmos DB Database in the Cosmos DB Account..."   
+   endpoint_uri = "The URI of the Cosmos DB Account"   
 }
 
 tfstate_inputs = {

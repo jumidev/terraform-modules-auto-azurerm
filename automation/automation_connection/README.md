@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_connection"   
+   name = "Specifies the name of the Connection"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   type = "type of automation_connection"   
-   values = "values of automation_connection"   
+   type = "The type of the Connection - can be either builtin type such as `Azure`, `AzureC..."   
+   values = "A mapping of key value pairs passed to the connection..."   
 }
 
 tfstate_inputs = {

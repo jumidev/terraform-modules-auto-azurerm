@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # log_analytics_workspace_id → set in tfstate_inputs
-   name = "name of sentinel_data_connector_azure_advanced_threat_protection"   
+   name = "The name which should be used for this Azure Advanced Threat Protection Data Con..."   
 }
 
 tfstate_inputs = {

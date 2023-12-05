@@ -11,22 +11,19 @@ source = {
 }
 
 inputs = {
-   name = "name of dedicated_hardware_security_module"   
+   name = "The name which should be used for this Dedicated Hardware Security Module..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    network_profile = {
-      this_network_profile = {
-         network_interface_private_ip_addresses = "..."         
-         # subnet_id → set in tfstate_inputs
-      }
-      
+      network_interface_private_ip_addresses = "..."      
+      # subnet_id → set in tfstate_inputs
    }
    
-   sku_name = "sku_name of dedicated_hardware_security_module"   
+   sku_name = "The SKU name of the dedicated hardware security module..."   
 }
 
 tfstate_inputs = {
-   network_profile.this_network_profile.subnet_id = "path/to/subnet_component:id"   
+   network_profile.subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {

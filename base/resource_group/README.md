@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of resource_group"   
+   name = "The Name which should be used for this Resource Group..."   
 }
 
 tfstate_store = {

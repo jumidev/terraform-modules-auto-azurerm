@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_route"   
+   name = "The name of the route"   
    resource_group_name = "${resource_group}"   
    # iothub_name → set in tfstate_inputs
-   source = "source of iothub_route"   
-   endpoint_names = "endpoint_names of iothub_route"   
-   enabled = "enabled of iothub_route"   
+   source = "The source that the routing rule is to be applied to..."   
+   endpoint_names = "The list of endpoints to which messages that satisfy the condition are routed..."   
+   enabled = "Specifies whether a route is enabled"   
 }
 
 tfstate_inputs = {

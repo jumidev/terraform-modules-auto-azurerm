@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of databox_edge_device"   
+   name = "The name which should be used for this Databox Edge Device..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of databox_edge_device"   
+   sku_name = "The `sku_name` is comprised of two segments separated by a hyphen (e..."   
 }
 
 tfstate_store = {

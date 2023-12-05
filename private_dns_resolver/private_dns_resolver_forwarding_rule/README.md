@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_resolver_forwarding_rule"   
-   dns_forwarding_ruleset_id = "dns_forwarding_ruleset_id of private_dns_resolver_forwarding_rule"   
-   domain_name = "domain_name of private_dns_resolver_forwarding_rule"   
+   name = "Specifies the name which should be used for this Private DNS Resolver Forwarding..."   
+   dns_forwarding_ruleset_id = "Specifies the ID of the Private DNS Resolver Forwarding Ruleset..."   
+   domain_name = "Specifies the domain name for the Private DNS Resolver Forwarding Rule..."   
    target_dns_servers = {
-      this_target_dns_servers = {
-         ip_address = "..."         
-      }
-      
+      ip_address = "..."      
    }
    
 }

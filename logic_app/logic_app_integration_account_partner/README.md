@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_partner"   
+   name = "The name which should be used for this Logic App Integration Account Partner..."   
    resource_group_name = "${resource_group}"   
-   integration_account_name = "integration_account_name of logic_app_integration_account_partner"   
+   integration_account_name = "The name of the Logic App Integration Account"   
    business_identity = {
-      this_business_identity = {
-         qualifier = "..."         
-         value = "..."         
-      }
-      
+      qualifier = "..."      
+      value = "..."      
    }
    
 }

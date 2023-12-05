@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of app_service"   
+   name = "Specifies the name of the App Service"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # app_service_plan_id → set in tfstate_inputs
@@ -59,24 +59,14 @@ tfstate_store = {
 | **source_control** | [block](#source_control-block-structure) |  -  |  -  |  A `source_control` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `storage_account` block structure
+### `logs` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the storage account identifier. |
-| `type` | string | Yes | - | The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'. |
-| `account_name` | string | Yes | - | The name of the storage account. |
-| `share_name` | string | Yes | - | The name of the file share (container name, for Blob storage). |
-| `access_key` | string | Yes | - | The access key for the storage account. |
-| `mount_path` | string | No | - | The path to mount the storage within the site's runtime environment. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory. |
-| `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
-| `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
+| `application_logs` | [block](#application_logs-block-structure) | No | - | An 'application_logs' block. |
+| `http_logs` | [block](#http_logs-block-structure) | No | - | An 'http_logs' block. |
+| `detailed_error_messages_enabled` | bool | No | False | Should 'Detailed error messages' be enabled on this App Service? Defaults to 'false'. |
+| `failed_request_tracing_enabled` | bool | No | False | Should 'Failed request tracing' be enabled on this App Service? Defaults to 'false'. |
 
 ### `google` block structure
 
@@ -86,43 +76,49 @@ tfstate_store = {
 | `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
 | `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
 
-### `logs` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `application_logs` | [block](#logs-block-structure) | No | - | An 'application_logs' block. |
-| `http_logs` | [block](#logs-block-structure) | No | - | An 'http_logs' block. |
-| `detailed_error_messages_enabled` | bool | No | False | Should 'Detailed error messages' be enabled on this App Service? Defaults to 'false'. |
-| `failed_request_tracing_enabled` | bool | No | False | Should 'Failed request tracing' be enabled on this App Service? Defaults to 'false'. |
-
 ### `auth_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | Yes | - | Is Authentication enabled? |
-| `active_directory` | [block](#auth_settings-block-structure) | No | - | A 'active_directory' block. |
+| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. |
 | `additional_login_params` | string | No | - | Login parameters to send to the OpenID Connect authorization endpoint when a user logs in. Each parameter must be in the form 'key=value'. |
 | `allowed_external_redirect_urls` | string | No | - | External URLs that can be redirected to as part of logging in or logging out of the app. |
 | `default_provider` | string | No | - | The default provider to use when multiple providers have been set up. Possible values are 'AzureActiveDirectory', 'Facebook', 'Google', 'MicrosoftAccount' and 'Twitter'. |
-| `facebook` | [block](#auth_settings-block-structure) | No | - | A 'facebook' block. |
-| `google` | [block](#auth_settings-block-structure) | No | - | A 'google' block. |
+| `facebook` | [block](#facebook-block-structure) | No | - | A 'facebook' block. |
+| `google` | [block](#google-block-structure) | No | - | A 'google' block. |
 | `issuer` | string | No | - | Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>. |
-| `microsoft` | [block](#auth_settings-block-structure) | No | - | A 'microsoft' block. |
+| `microsoft` | [block](#microsoft-block-structure) | No | - | A 'microsoft' block. |
 | `runtime_version` | string | No | - | The runtime version of the Authentication/Authorization module. |
 | `token_refresh_extension_hours` | int | No | 72 | The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to '72'. |
 | `token_store_enabled` | bool | No | False | If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to 'false'. |
-| `twitter` | [block](#auth_settings-block-structure) | No | - | A 'twitter' block. |
+| `twitter` | [block](#twitter-block-structure) | No | - | A 'twitter' block. |
 | `unauthenticated_client_action` | string | No | - | The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'. |
 
-### `schedule` block structure
+### `application_logs` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `frequency_interval` | string | Yes | - | Sets how often the backup should be executed. |
-| `frequency_unit` | string | Yes | - | Sets the unit of time for how often the backup should be executed. Possible values are 'Day' or 'Hour'. |
-| `keep_at_least_one_backup` | string | No | - | Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is? |
-| `retention_period_in_days` | int | No | 30 | Specifies the number of days after which Backups should be deleted. Defaults to '30'. |
-| `start_time` | string | No | - | Sets when the schedule should start working. |
+| `azure_blob_storage` | [block](#azure_blob_storage-block-structure) | No | - | An 'azure_blob_storage' block. |
+| `file_system_level` | string | No | Off | Log level for filesystem based logging. Supported values are 'Error', 'Information', 'Verbose', 'Warning' and 'Off'. Defaults to 'Off'. |
+
+### `source_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `repo_url` | string | No | - | The URL of the source code repository. |
+| `branch` | string | No | - | The branch of the remote repository to use. Defaults to 'master'. |
+| `manual_integration` | bool | No | False | Limits to manual integration. Defaults to 'false' if not specified. |
+| `rollback_enabled` | bool | No | False | Enable roll-back for the repository. Defaults to 'false' if not specified. |
+| `use_mercurial` | bool | No | - | Use Mercurial if 'true', otherwise uses Git. |
+
+### `microsoft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
 
 ### `scm_ip_restriction` block structure
 
@@ -136,45 +132,45 @@ tfstate_store = {
 | `action` | string | No | Allow | Allow or Deny access for this IP range. Defaults to 'Allow'. |
 | `headers` | string | No | - | The 'headers' block for this specific 'scm_ip_restriction' as defined below. |
 
-### `twitter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The consumer key of the Twitter app used for login |
-| `consumer_secret` | string | Yes | - | The consumer secret of the Twitter app used for login. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the identity type of the App Service. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. |
-| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
-
 ### `http_logs` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `file_system` | [block](#http_logs-block-structure) | No | - | A 'file_system' block. |
-| `azure_blob_storage` | [block](#http_logs-block-structure) | No | - | An 'azure_blob_storage' block. |
+| `file_system` | [block](#file_system-block-structure) | No | - | A 'file_system' block. |
+| `azure_blob_storage` | [block](#azure_blob_storage-block-structure) | No | - | An 'azure_blob_storage' block. |
 
-### `backup` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name for this Backup. |
-| `enabled` | bool | No | True | Is this Backup enabled? Defaults to 'true'. |
-| `storage_account_url` | string | Yes | - | The SAS URL to a Storage Container where Backups should be saved. |
-| `schedule` | [block](#backup-block-structure) | Yes | - | A 'schedule' block. |
-
-### `source_control` block structure
+### `active_directory` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `repo_url` | string | No | - | The URL of the source code repository. |
-| `branch` | string | No | - | The branch of the remote repository to use. Defaults to 'master'. |
-| `manual_integration` | bool | No | False | Limits to manual integration. Defaults to 'false' if not specified. |
-| `rollback_enabled` | bool | No | False | Enable roll-back for the repository. Defaults to 'false' if not specified. |
-| `use_mercurial` | bool | No | - | Use Mercurial if 'true', otherwise uses Git. |
+| `client_id` | string | Yes | - | The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory. |
+| `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
+| `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency_interval` | string | Yes | - | Sets how often the backup should be executed. |
+| `frequency_unit` | string | Yes | - | Sets the unit of time for how often the backup should be executed. Possible values are 'Day' or 'Hour'. |
+| `keep_at_least_one_backup` | string | No | - | Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is? |
+| `retention_period_in_days` | int | No | 30 | Specifies the number of days after which Backups should be deleted. Defaults to '30'. |
+| `start_time` | string | No | - | Sets when the schedule should start working. |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Connection String. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
 
 ### `file_system` block structure
 
@@ -183,12 +179,49 @@ tfstate_store = {
 | `retention_in_days` | int | Yes | - | The number of days to retain logs for. |
 | `retention_in_mb` | int | Yes | - | The maximum size in megabytes that HTTP log files can use before being removed. |
 
-### `application_logs` block structure
+### `ip_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `azure_blob_storage` | [block](#application_logs-block-structure) | No | - | An 'azure_blob_storage' block. |
-| `file_system_level` | string | No | Off | Log level for filesystem based logging. Supported values are 'Error', 'Information', 'Verbose', 'Warning' and 'Off'. Defaults to 'Off'. |
+| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
+| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
+| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
+| `name` | string | No | - | The name for this IP Restriction. |
+| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
+| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
+| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+
+### `facebook` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
+| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the identity type of the App Service. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. |
+| `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
+
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name for this Backup. |
+| `enabled` | bool | No | True | Is this Backup enabled? Defaults to 'true'. |
+| `storage_account_url` | string | Yes | - | The SAS URL to a Storage Container where Backups should be saved. |
+| `schedule` | [block](#schedule-block-structure) | Yes | - | A 'schedule' block. |
+
+### `azure_blob_storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `level` | string | Yes | - | The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs' |
+| `sas_url` | string | Yes | - | The URL to the storage container with a shared access signature token appended. |
+| `retention_in_days` | int | Yes | - | The number of days to retain logs for. |
 
 ### `site_config` block structure
 
@@ -199,16 +232,16 @@ tfstate_store = {
 | `always_on` | bool | No | False | Should the app be loaded at all times? Defaults to 'false'. |
 | `app_command_line` | string | No | - | App command line to launch, e.g. '/sbin/myserver -b 0.0.0.0'. |
 | `auto_swap_slot_name` | string | No | - | The name of the slot to automatically swap to during deployment |
-| `cors` | [block](#site_config-block-structure) | No | - | A 'cors' block. |
+| `cors` | [block](#cors-block-structure) | No | - | A 'cors' block. |
 | `default_documents` | string | No | - | The ordering of default documents to load, if an address isn't specified. |
 | `dotnet_framework_version` | string | No | v4.0 | The version of the .NET framework's CLR used in this App Service. Possible values are 'v2.0' (which will use the latest version of the .NET framework for the .NET CLR v2 - currently '.net 3.5'), 'v4.0' (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is '.net 4.7.1'), 'v5.0' and 'v6.0'. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to 'v4.0'. |
 | `ftps_state` | string | No | - | State of FTP / FTPS service for this App Service. Possible values include: 'AllAllowed', 'FtpsOnly' and 'Disabled'. |
 | `health_check_path` | string | No | - | The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html). |
 | `number_of_workers` | int | No | - | The scaled number of workers (for per site scaling) of this App Service. Requires that 'per_site_scaling' is enabled on the 'azurerm_app_service_plan'. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app). |
 | `http2_enabled` | bool | No | False | Is HTTP2 Enabled on this App Service? Defaults to 'false'. |
-| `ip_restriction` | [block](#site_config-block-structure) | No | - | A list of 'ip_restriction' objects representing IP restrictions as defined below. |
+| `ip_restriction` | [block](#ip_restriction-block-structure) | No | - | A list of 'ip_restriction' objects representing IP restrictions as defined below. |
 | `scm_use_main_ip_restriction` | bool | No | False | IP security restrictions for scm to use main. Defaults to 'false'. |
-| `scm_ip_restriction` | [block](#site_config-block-structure) | No | - | A list of 'scm_ip_restriction' objects representing IP restrictions as defined below. |
+| `scm_ip_restriction` | [block](#scm_ip_restriction-block-structure) | No | - | A list of 'scm_ip_restriction' objects representing IP restrictions as defined below. |
 | `java_version` | string | No | - | The version of Java to use. If specified 'java_container' and 'java_container_version' must also be specified. Possible values are '1.7', '1.8' and '11' and their specific versions - except for Java 11 (e.g. '1.7.0_80', '1.8.0_181', '11') |
 | `java_container` | string | No | - | The Java Container to use. If specified 'java_version' and 'java_container_version' must also be specified. Possible values are 'JAVA', 'JETTY', and 'TOMCAT'. |
 | `java_container_version` | string | No | - | The version of the Java Container to use. If specified 'java_version' and 'java_container' must also be specified. |
@@ -226,56 +259,23 @@ tfstate_store = {
 | `vnet_route_all_enabled` | bool | No | False | Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to 'false'. |
 | `websockets_enabled` | bool | No | - | Should WebSockets be enabled? |
 
-### `ip_restriction` block structure
+### `storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | The IP Address used for this IP Restriction in CIDR notation. |
-| `service_tag` | string | No | - | The Service Tag used for this IP Restriction. |
-| `virtual_network_subnet_id` | string | No | - | The Virtual Network Subnet ID used for this IP Restriction. |
-| `name` | string | No | - | The name for this IP Restriction. |
-| `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified. |
-| `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
-| `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+| `name` | string | Yes | - | The name of the storage account identifier. |
+| `type` | string | Yes | - | The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'. |
+| `account_name` | string | Yes | - | The name of the storage account. |
+| `share_name` | string | Yes | - | The name of the file share (container name, for Blob storage). |
+| `access_key` | string | Yes | - | The access key for the storage account. |
+| `mount_path` | string | No | - | The path to mount the storage within the site's runtime environment. |
 
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `cors` block structure
+### `twitter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | list | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
-
-### `microsoft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
-
-### `azure_blob_storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `level` | string | Yes | - | The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs' |
-| `sas_url` | string | Yes | - | The URL to the storage container with a shared access signature token appended. |
-| `retention_in_days` | int | Yes | - | The number of days to retain logs for. |
-
-### `facebook` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
-| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
+| `consumer_key` | string | Yes | - | The consumer key of the Twitter app used for login |
+| `consumer_secret` | string | Yes | - | The consumer secret of the Twitter app used for login. |
 
 
 

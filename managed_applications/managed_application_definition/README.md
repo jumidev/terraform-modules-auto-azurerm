@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of managed_application_definition"   
+   name = "Specifies the name of the Managed Application Definition..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   lock_level = "lock_level of managed_application_definition"   
-   display_name = "display_name of managed_application_definition"   
+   lock_level = "Specifies the managed application lock level"   
+   display_name = "Specifies the managed application definition display name..."   
 }
 
 tfstate_store = {

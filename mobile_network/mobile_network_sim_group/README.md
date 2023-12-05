@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of mobile_network_sim_group"   
+   name = "Specifies the name which should be used for this Mobile Network Sim Groups..."   
    location = "${location}"   
    # mobile_network_id → set in tfstate_inputs
 }

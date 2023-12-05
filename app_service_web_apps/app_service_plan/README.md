@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of app_service_plan"   
+   name = "Specifies the name of the App Service Plan component..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku = {
-      this_sku = {
-         tier = "..."         
-         size = "..."         
-      }
-      
+      tier = "..."      
+      size = "..."      
    }
    
 }

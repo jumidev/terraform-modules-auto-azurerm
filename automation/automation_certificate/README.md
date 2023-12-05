@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_certificate"   
+   name = "Specifies the name of the Certificate"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   base64 = "base64 of automation_certificate"   
+   base64 = "Base64 encoded value of the certificate"   
 }
 
 tfstate_inputs = {

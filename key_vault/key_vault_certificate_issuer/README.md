@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # key_vault_id → set in tfstate_inputs
-   name = "name of key_vault_certificate_issuer"   
-   provider_name = "provider_name of key_vault_certificate_issuer"   
+   name = "The name which should be used for this Key Vault Certificate Issuer..."   
+   provider_name = "The name of the third-party Certificate Issuer"   
 }
 
 tfstate_inputs = {

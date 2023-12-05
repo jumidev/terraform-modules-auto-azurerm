@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of availability_set"   
+   name = "Specifies the name of the availability set"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

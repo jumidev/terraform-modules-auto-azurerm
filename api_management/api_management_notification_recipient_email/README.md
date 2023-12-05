@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # api_management_id → set in tfstate_inputs
-   email = "email of api_management_notification_recipient_email"   
-   notification_type = "notification_type of api_management_notification_recipient_email"   
+   email = "The recipient email address"   
+   notification_type = "The Notification Name to be received"   
 }
 
 tfstate_inputs = {

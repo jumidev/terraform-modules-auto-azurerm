@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_security_admin_configuration"   
+   name = "Specifies the name which should be used for this Network Manager Security Admin ..."   
    # network_manager_id → set in tfstate_inputs
 }
 

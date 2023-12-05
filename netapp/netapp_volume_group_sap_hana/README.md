@@ -11,18 +11,18 @@ source = {
 }
 
 inputs = {
-   account_name = "account_name of netapp_volume_group_sap_hana"   
-   application_identifier = "application_identifier of netapp_volume_group_sap_hana"   
-   group_description = "group_description of netapp_volume_group_sap_hana"   
+   account_name = "Name of the account where the application volume group belong to..."   
+   application_identifier = "The SAP System ID, maximum 3 characters, e"   
+   group_description = "Volume group description"   
    location = "${location}"   
-   name = "name of netapp_volume_group_sap_hana"   
+   name = "The name which should be used for this Application Volume Group..."   
    resource_group_name = "${resource_group}"   
    volume = {
       this_volume = {
          capacity_pool_id = "..."         
          name = "..."         
          protocols = "..."         
-         # proximity_placement_group_id → set in tfstate_inputs
+         # proximity_placement_group_id → (optional) set in tfstate_inputs
          security_style = "..."         
          service_level = "..."         
          snapshot_directory_visible = "..."         
@@ -89,9 +89,9 @@ tfstate_store = {
 | `volume_path` | string | Yes | - | A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `volume_spec_name` | string | Yes | - | Volume specification name. Possible values are 'data', 'log', 'shared', 'data-backup' and 'log-backup'. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `tags` | map | No | - | A mapping of tags which should be assigned to the Application Volume Group. |
-| `export_policy_rule` | [block](#volume-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
-| `data_protection_replication` | [block](#volume-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `data_protection_snapshot_policy` | [block](#volume-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
+| `export_policy_rule` | [block](#export_policy_rule-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
+| `data_protection_replication` | [block](#data_protection_replication-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `data_protection_snapshot_policy` | [block](#data_protection_snapshot_policy-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
 
 ### `export_policy_rule` block structure
 

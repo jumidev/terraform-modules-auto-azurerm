@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of point_to_site_vpn_gateway"   
+   name = "Specifies the name of the Point-to-Site VPN Gateway..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    connection_configuration = {
-      this_connection_configuration = {
-         name = "..."         
-         vpn_client_address_pool = "..."         
-      }
-      
+      name = "..."      
+      vpn_client_address_pool = "..."      
    }
    
-   scale_unit = "scale_unit of point_to_site_vpn_gateway"   
+   scale_unit = "The [Scale Unit](https://docs"   
    # virtual_hub_id → set in tfstate_inputs
    # vpn_server_configuration_id → set in tfstate_inputs
 }
@@ -60,27 +57,12 @@ tfstate_store = {
 | **routing_preference_internet_enabled** | bool |  `False`  |  Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Point-to-Site VPN Gateway. | 
 
-### `connection_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name which should be used for this Connection Configuration. |
-| `vpn_client_address_pool` | [block](#connection_configuration-block-structure) | Yes | - | A 'vpn_client_address_pool' block. |
-| `route` | [block](#connection_configuration-block-structure) | No | - | A 'route' block. |
-| `internet_security_enabled` | bool | No | False | Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'. |
-
 ### `propagated_route_table` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
 | `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
-
-### `vpn_client_address_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
 ### `route` block structure
 
@@ -89,7 +71,22 @@ tfstate_store = {
 | `associated_route_table_id` | string | Yes | - | The Virtual Hub Route Table resource id associated with this Routing Configuration. |
 | `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
 | `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
-| `propagated_route_table` | [block](#route-block-structure) | No | - | A 'propagated_route_table' block. |
+| `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
+
+### `connection_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Name which should be used for this Connection Configuration. |
+| `vpn_client_address_pool` | [block](#vpn_client_address_pool-block-structure) | Yes | - | A 'vpn_client_address_pool' block. |
+| `route` | [block](#route-block-structure) | No | - | A 'route' block. |
+| `internet_security_enabled` | bool | No | False | Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'. |
+
+### `vpn_client_address_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
 
 

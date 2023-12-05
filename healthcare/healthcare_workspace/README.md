@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of healthcare_workspace"   
+   name = "Specifies the name of the Healthcare Workspace"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

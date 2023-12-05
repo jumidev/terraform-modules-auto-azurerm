@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of digital_twins_instance"   
+   name = "The name which should be used for this Digital Twins instance..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

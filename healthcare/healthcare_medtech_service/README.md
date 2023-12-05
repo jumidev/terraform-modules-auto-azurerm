@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of healthcare_medtech_service"   
+   name = "Specifies the name of the Healthcare Med Tech Service..."   
    # workspace_id → set in tfstate_inputs
    location = "${location}"   
-   eventhub_namespace_name = "eventhub_namespace_name of healthcare_medtech_service"   
+   eventhub_namespace_name = "Specifies the namespace name of the Event Hub to connect to..."   
    # eventhub_name → set in tfstate_inputs
    # eventhub_consumer_group_name → set in tfstate_inputs
-   device_mapping_json = "device_mapping_json of healthcare_medtech_service"   
+   device_mapping_json = "Specifies the Device Mappings of the Med Tech Service..."   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of log_analytics_query_pack"   
+   name = "The name which should be used for this Log Analytics Query Pack..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
 }

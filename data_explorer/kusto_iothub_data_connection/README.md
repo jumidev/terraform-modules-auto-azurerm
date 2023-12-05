@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_iothub_data_connection"   
+   name = "The name of the Kusto IotHub Data Connection to create..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "cluster_name of kusto_iothub_data_connection"   
-   database_name = "database_name of kusto_iothub_data_connection"   
+   cluster_name = "Specifies the name of the Kusto Cluster this data connection will be added to..."   
+   database_name = "Specifies the name of the Kusto Database this data connection will be added to..."   
    # iothub_id → set in tfstate_inputs
-   consumer_group = "consumer_group of kusto_iothub_data_connection"   
-   shared_access_policy_name = "shared_access_policy_name of kusto_iothub_data_connection"   
+   consumer_group = "Specifies the IotHub consumer group this data connection will use for ingestion..."   
+   shared_access_policy_name = "Specifies the IotHub Shared Access Policy this data connection will use for inge..."   
 }
 
 tfstate_inputs = {

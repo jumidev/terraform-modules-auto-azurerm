@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_desktop_application"   
+   name = "The name of the Virtual Desktop Application"   
    # application_group_id → set in tfstate_inputs
-   path = "path of virtual_desktop_application"   
-   command_line_argument_policy = "command_line_argument_policy of virtual_desktop_application"   
+   path = "The file path location of the app on the Virtual Desktop OS..."   
+   command_line_argument_policy = "Specifies whether this published application can be launched with command line a..."   
 }
 
 tfstate_inputs = {

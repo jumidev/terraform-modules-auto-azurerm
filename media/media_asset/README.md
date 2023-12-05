@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_asset"   
+   name = "The name which should be used for this Media Asset"   
    resource_group_name = "${resource_group}"   
 }
 

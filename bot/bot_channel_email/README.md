@@ -13,9 +13,9 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "bot_name of bot_channel_email"   
-   email_address = "email_address of bot_channel_email"   
-   email_password = "email_password of bot_channel_email"   
+   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   email_address = "The email address that the Bot will authenticate with..."   
+   email_password = "The email password that the Bot will authenticate with..."   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_custom_domain"   
+   name = "Specifies the name of the Spring Cloud Custom Domain..."   
    # spring_cloud_app_id → set in tfstate_inputs
 }
 

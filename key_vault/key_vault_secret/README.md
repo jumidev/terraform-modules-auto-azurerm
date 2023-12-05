@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of key_vault_secret"   
-   value = "value of key_vault_secret"   
+   name = "Specifies the name of the Key Vault Secret"   
+   value = "Specifies the value of the Key Vault Secret"   
    # key_vault_id → set in tfstate_inputs
 }
 

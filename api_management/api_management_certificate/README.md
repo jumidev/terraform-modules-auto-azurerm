@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_certificate"   
+   name = "The name of the API Management Certificate"   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
 }

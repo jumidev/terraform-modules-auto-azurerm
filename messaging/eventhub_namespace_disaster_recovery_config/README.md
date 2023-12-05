@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of eventhub_namespace_disaster_recovery_config"   
+   name = "Specifies the name of the Disaster Recovery Config"   
    # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   partner_namespace_id = "partner_namespace_id of eventhub_namespace_disaster_recovery_config"   
+   partner_namespace_id = "The ID of the EventHub Namespace to replicate to"   
 }
 
 tfstate_inputs = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of mysql_database"   
+   name = "Specifies the name of the MySQL Database, which needs [to be a valid MySQL ident..."   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   charset = "charset of mysql_database"   
-   collation = "collation of mysql_database"   
+   charset = "Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL C..."   
+   collation = "Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL..."   
 }
 
 tfstate_inputs = {

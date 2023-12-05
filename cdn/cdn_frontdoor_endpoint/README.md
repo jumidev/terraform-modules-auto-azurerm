@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_endpoint"   
+   name = "The name which should be used for this Front Door Endpoint..."   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
 }
 

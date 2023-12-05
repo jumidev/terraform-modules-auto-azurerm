@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of management_lock"   
-   scope = "scope of management_lock"   
-   lock_level = "lock_level of management_lock"   
+   name = "Specifies the name of the Management Lock"   
+   scope = "Specifies the scope at which the Management Lock should be created..."   
+   lock_level = "Specifies the Level to be used for this Lock"   
 }
 
 tfstate_store = {

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # stream_analytics_job_id → set in tfstate_inputs
-   start_mode = "start_mode of stream_analytics_job_schedule"   
+   start_mode = "The starting mode of the Stream Analytics Job"   
 }
 
 tfstate_inputs = {

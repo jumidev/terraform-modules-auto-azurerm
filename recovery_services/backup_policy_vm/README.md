@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of backup_policy_vm"   
+   name = "Specifies the name of the Backup Policy"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of backup_policy_vm"   
+   recovery_vault_name = "Specifies the name of the Recovery Services Vault to use..."   
 }
 
 tfstate_store = {

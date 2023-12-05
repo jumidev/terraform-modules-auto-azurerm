@@ -13,10 +13,10 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "bot_name of bot_channel_slack"   
-   client_id = "client_id of bot_channel_slack"   
-   client_secret = "client_secret of bot_channel_slack"   
-   verification_token = "verification_token of bot_channel_slack"   
+   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   client_id = "The Client ID that will be used to authenticate with Slack..."   
+   client_secret = "The Client Secret that will be used to authenticate with Slack..."   
+   verification_token = "The Verification Token that will be used to authenticate with Slack..."   
 }
 
 tfstate_store = {

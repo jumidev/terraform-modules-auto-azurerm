@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_network"   
+   name = "The name of the virtual network"   
    resource_group_name = "${resource_group}"   
-   address_space = "address_space of virtual_network"   
+   address_space = "The address space that is used the virtual network"   
    location = "${location}"   
 }
 
@@ -45,17 +45,17 @@ tfstate_store = {
 | **edge_zone** | string |  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
 | **flow_timeout_in_minutes** | string |  `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 
 
-### `ddos_protection_plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
-
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enforcement` | string | Yes | - | Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. |
+
+### `ddos_protection_plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
 
 
 

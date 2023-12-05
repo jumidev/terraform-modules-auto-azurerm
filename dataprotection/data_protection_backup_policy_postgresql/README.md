@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_backup_policy_postgresql"   
+   name = "The name which should be used for this Backup Policy PostgreSQL..."   
    resource_group_name = "${resource_group}"   
-   vault_name = "vault_name of data_protection_backup_policy_postgresql"   
-   backup_repeating_time_intervals = "backup_repeating_time_intervals of data_protection_backup_policy_postgresql"   
-   default_retention_duration = "default_retention_duration of data_protection_backup_policy_postgresql"   
+   vault_name = "The name of the Backup Vault where the Backup Policy PostgreSQL should exist..."   
+   backup_repeating_time_intervals = "Specifies a list of repeating time interval"   
+   default_retention_duration = "The duration of default retention rule"   
 }
 
 tfstate_store = {
@@ -42,6 +42,15 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **retention_rule** | [block](#retention_rule-block-structure) |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy PostgreSQL to be created. | 
 
+### `retention_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `duration` | string | Yes | - | Duration after which the backup is deleted. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `criteria` | [block](#criteria-block-structure) | Yes | - | A 'criteria' block. Changing this forces a new Backup Policy PostgreSQL to be created. |
+| `priority` | string | Yes | - | Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created. |
+
 ### `criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,15 +60,6 @@ tfstate_store = {
 | `months_of_year` | string | No | - | Possible values are 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November' and 'December'. Changing this forces a new Backup Policy PostgreSQL to be created. |
 | `scheduled_backup_times` | string | No | - | Specifies a list of backup times for backup in the 'RFC3339' format. Changing this forces a new Backup Policy PostgreSQL to be created. |
 | `weeks_of_month` | string | No | - | Possible values are 'First', 'Second', 'Third', 'Fourth' and 'Last'. Changing this forces a new Backup Policy PostgreSQL to be created. |
-
-### `retention_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created. |
-| `duration` | string | Yes | - | Duration after which the backup is deleted. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy PostgreSQL to be created. |
-| `criteria` | [block](#retention_rule-block-structure) | Yes | - | A 'criteria' block. Changing this forces a new Backup Policy PostgreSQL to be created. |
-| `priority` | string | Yes | - | Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created. |
 
 
 

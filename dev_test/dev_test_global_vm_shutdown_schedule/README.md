@@ -13,13 +13,10 @@ source = {
 inputs = {
    location = "${location}"   
    # virtual_machine_id → set in tfstate_inputs
-   timezone = "timezone of dev_test_global_vm_shutdown_schedule"   
-   daily_recurrence_time = "daily_recurrence_time of dev_test_global_vm_shutdown_schedule"   
+   timezone = "The time zone ID (e"   
+   daily_recurrence_time = "The time each day when the schedule takes effect"   
    notification_settings = {
-      this_notification_settings = {
-         enabled = "..."         
-      }
-      
+      enabled = "..."      
    }
    
 }

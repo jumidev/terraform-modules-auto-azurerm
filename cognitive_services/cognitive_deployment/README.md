@@ -11,22 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of cognitive_deployment"   
+   name = "The name of the Cognitive Services Account Deployment..."   
    # cognitive_account_id → set in tfstate_inputs
    model = {
-      this_model = {
-         format = "..."         
-         name = "..."         
-         version = "..."         
-      }
-      
+      format = "..."      
+      name = "..."      
+      version = "..."      
    }
    
    scale = {
-      this_scale = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_trigger_schedule"   
+   name = "Specifies the name of the Data Factory Schedule Trigger..."   
    # data_factory_id → set in tfstate_inputs
 }
 
@@ -59,7 +59,7 @@ tfstate_store = {
 | `days_of_week` | int | No | - | Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency. |
 | `hours` | string | No | - | Hours of the day on which the trigger is scheduled. |
 | `minutes` | int | No | - | Minutes of the hour on which the trigger is scheduled. |
-| `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
+| `monthly` | [block](#monthly-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
 
 ### `monthly` block structure
 

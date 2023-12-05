@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of eventhub_namespace_schema_group"   
-   namespace_id = "namespace_id of eventhub_namespace_schema_group"   
-   schema_compatibility = "schema_compatibility of eventhub_namespace_schema_group"   
-   schema_type = "schema_type of eventhub_namespace_schema_group"   
+   name = "Specifies the name of this schema group"   
+   namespace_id = "Specifies the ID of the EventHub Namespace"   
+   schema_compatibility = "Specifies the compatibility of this schema group"   
+   schema_type = "Specifies the Type of this schema group"   
 }
 
 tfstate_store = {

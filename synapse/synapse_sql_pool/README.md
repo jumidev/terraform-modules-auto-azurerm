@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_sql_pool"   
+   name = "The name which should be used for this Synapse SQL Pool..."   
    # synapse_workspace_id → set in tfstate_inputs
-   sku_name = "sku_name of synapse_sql_pool"   
+   sku_name = "Specifies the SKU Name for this Synapse SQL Pool"   
 }
 
 tfstate_inputs = {

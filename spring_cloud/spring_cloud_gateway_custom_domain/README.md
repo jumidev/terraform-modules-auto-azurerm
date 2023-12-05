@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_gateway_custom_domain"   
+   name = "The name which should be used for this Spring Cloud Gateway Custom Domain..."   
    # spring_cloud_gateway_id → set in tfstate_inputs
 }
 

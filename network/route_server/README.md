@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of route_server"   
+   name = "The name of the Route Server"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # subnet_id → set in tfstate_inputs
-   sku = "sku of route_server"   
+   sku = "The SKU of the Route Server"   
    # public_ip_address_id → set in tfstate_inputs
 }
 

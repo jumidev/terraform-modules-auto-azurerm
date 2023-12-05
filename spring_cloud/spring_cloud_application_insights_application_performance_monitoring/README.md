@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_application_insights_application_performance_monitoring"   
+   name = "The name which should be used for this Spring Cloud Application Performance Moni..."   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 

@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_cluster"   
+   name = "The name which should be used for this Stream Analytics Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   streaming_capacity = "streaming_capacity of stream_analytics_cluster"   
+   streaming_capacity = "The number of streaming units supported by the Cluster..."   
 }
 
 tfstate_store = {

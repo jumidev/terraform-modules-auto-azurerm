@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of analysis_services_server"   
+   name = "The name of the Analysis Services Server"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   sku = "sku of analysis_services_server"   
+   sku = "SKU for the Analysis Services Server"   
 }
 
 tfstate_store = {

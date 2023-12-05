@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_azure_table_storage"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   connection_string = "connection_string of data_factory_linked_service_azure_table_storage"   
+   connection_string = "The connection string to an Azure Storage Account"   
 }
 
 tfstate_inputs = {

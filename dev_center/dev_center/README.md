@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of dev_center"   
+   name = "Specifies the name of this Dev Center"   
    resource_group_name = "${resource_group}"   
 }
 

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of dedicated_host"   
+   name = "Specifies the name of this Dedicated Host"   
    # dedicated_host_group_id → set in tfstate_inputs
    location = "${location}"   
-   sku_name = "sku_name of dedicated_host"   
-   platform_fault_domain = "platform_fault_domain of dedicated_host"   
+   sku_name = "Specify the SKU name of the Dedicated Host"   
+   platform_fault_domain = "Specify the fault domain of the Dedicated Host Group in which to create the Dedi..."   
 }
 
 tfstate_inputs = {

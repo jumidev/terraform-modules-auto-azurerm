@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of web_pubsub"   
+   name = "The name of the Web PubSub service"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku = "sku of web_pubsub"   
+   sku = "Specifies which SKU to use"   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_network_group"   
+   name = "Specifies the name which should be used for this Network Manager Network Group..."   
    # network_manager_id → set in tfstate_inputs
 }
 

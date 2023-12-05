@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_zone"   
+   name = "The name of the Private DNS Zone"   
    resource_group_name = "${resource_group}"   
 }
 

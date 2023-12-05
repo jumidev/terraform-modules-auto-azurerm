@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of bot_connection"   
+   name = "Specifies the name of the Bot Connection"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "bot_name of bot_connection"   
-   service_provider_name = "service_provider_name of bot_connection"   
-   client_id = "client_id of bot_connection"   
-   client_secret = "client_secret of bot_connection"   
+   bot_name = "The name of the Bot Resource this connection will be associated with..."   
+   service_provider_name = "The name of the service provider that will be associated with this connection..."   
+   client_id = "The Client ID that will be used to authenticate with the service provider..."   
+   client_secret = "The Client Secret that will be used to authenticate with the service provider..."   
 }
 
 tfstate_store = {

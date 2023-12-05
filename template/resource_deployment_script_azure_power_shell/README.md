@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of resource_deployment_script_azure_power_shell"   
+   name = "Specifies the name which should be used for this Resource Deployment Script..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   version = "version of resource_deployment_script_azure_power_shell"   
-   retention_interval = "retention_interval of resource_deployment_script_azure_power_shell"   
+   version = "Specifies the version of the Azure PowerShell that should be used in the format ..."   
+   retention_interval = "Interval for which the service retains the script resource after it reaches a te..."   
 }
 
 tfstate_store = {
@@ -53,11 +53,12 @@ tfstate_store = {
 | **timeout** | string |  `P1D`  |  -  |  Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Deployment Script. | 
 
-### `container` block structure
+### `storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `container_group_name` | string | No | - | Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. |
+| `key` | string | Yes | - | Specifies the storage account access key. |
+| `name` | string | Yes | - | Specifies the storage account name. |
 
 ### `environment_variable` block structure
 
@@ -67,12 +68,11 @@ tfstate_store = {
 | `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
 | `value` | string | No | - | Specifies the value of the environment variable. |
 
-### `storage_account` block structure
+### `container` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | Specifies the storage account access key. |
-| `name` | string | Yes | - | Specifies the storage account name. |
+| `container_group_name` | string | No | - | Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. |
 
 ### `identity` block structure
 

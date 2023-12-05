@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_build_deployment"   
+   name = "The name which should be used for this Spring Cloud Build Deployment..."   
    # spring_cloud_app_id → set in tfstate_inputs
-   build_result_id = "build_result_id of spring_cloud_build_deployment"   
+   build_result_id = "The ID of the Spring Cloud Build Result"   
 }
 
 tfstate_inputs = {

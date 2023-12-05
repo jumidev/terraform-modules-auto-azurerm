@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of dev_test_lab"   
+   name = "Specifies the name of the Dev Test Lab"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

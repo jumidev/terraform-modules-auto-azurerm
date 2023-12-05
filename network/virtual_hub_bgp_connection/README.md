@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_hub_bgp_connection"   
+   name = "The name which should be used for this Virtual Hub Bgp Connection..."   
    # virtual_hub_id → set in tfstate_inputs
-   peer_asn = "peer_asn of virtual_hub_bgp_connection"   
-   peer_ip = "peer_ip of virtual_hub_bgp_connection"   
+   peer_asn = "The peer autonomous system number for the Virtual Hub Bgp Connection..."   
+   peer_ip = "The peer IP address for the Virtual Hub Bgp Connection..."   
 }
 
 tfstate_inputs = {

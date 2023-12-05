@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_connection_certificate"   
+   name = "Specifies the name of the Connection"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
    # automation_certificate_name → set in tfstate_inputs

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_virtual_network_rule"   
+   name = "The name of the SQL virtual network rule"   
    # server_id → set in tfstate_inputs
    # subnet_id → set in tfstate_inputs
 }

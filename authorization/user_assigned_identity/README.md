@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of user_assigned_identity"   
+   name = "Specifies the name of this User Assigned Identity"   
    resource_group_name = "${resource_group}"   
 }
 

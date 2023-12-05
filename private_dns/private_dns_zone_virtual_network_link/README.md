@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_zone_virtual_network_link"   
+   name = "The name of the Private DNS Zone Virtual Network Link..."   
    # private_dns_zone_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
    # virtual_network_id → set in tfstate_inputs

@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_sql_stored_procedure"   
+   name = "Specifies the name of the Cosmos DB SQL Stored Procedure..."   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_sql_stored_procedure"   
-   database_name = "database_name of cosmosdb_sql_stored_procedure"   
-   container_name = "container_name of cosmosdb_sql_stored_procedure"   
-   body = "body of cosmosdb_sql_stored_procedure"   
+   account_name = "The name of the Cosmos DB Account to create the stored procedure within..."   
+   database_name = "The name of the Cosmos DB SQL Database to create the stored procedure within..."   
+   container_name = "The name of the Cosmos DB SQL Container to create the stored procedure within..."   
+   body = "The body of the stored procedure"   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_smart_detection_rule"   
+   name = "Specifies the name of the Application Insights Smart Detection Rule..."   
    # application_insights_id → set in tfstate_inputs
 }
 

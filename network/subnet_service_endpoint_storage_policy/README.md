@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of subnet_service_endpoint_storage_policy"   
+   name = "The name which should be used for this Subnet Service Endpoint Storage Policy..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

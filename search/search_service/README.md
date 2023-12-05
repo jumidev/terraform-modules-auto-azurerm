@@ -12,9 +12,9 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of search_service"   
+   name = "The Name which should be used for this Search Service..."   
    resource_group_name = "${resource_group}"   
-   sku = "sku of search_service"   
+   sku = "The SKU which should be used for this Search Service..."   
 }
 
 tfstate_store = {

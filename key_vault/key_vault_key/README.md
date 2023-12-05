@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of key_vault_key"   
+   name = "Specifies the name of the Key Vault Key"   
    # key_vault_id → set in tfstate_inputs
-   key_type = "key_type of key_vault_key"   
-   key_opts = "key_opts of key_vault_key"   
+   key_type = "Specifies the Key Type to use for this Key Vault Key..."   
+   key_opts = "A list of JSON web key operations"   
 }
 
 tfstate_inputs = {
@@ -61,7 +61,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `expire_after` | string | No | - | Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| `automatic` | [block](#rotation_policy-block-structure) | No | - | An 'automatic' block. |
+| `automatic` | [block](#automatic-block-structure) | No | - | An 'automatic' block. |
 | `notify_before_expiry` | string | No | - | Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 
 

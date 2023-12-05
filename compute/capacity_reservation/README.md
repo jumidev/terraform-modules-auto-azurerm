@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of capacity_reservation"   
+   name = "Specifies the name of this Capacity Reservation"   
    # capacity_reservation_group_id → set in tfstate_inputs
    sku = {
-      this_sku = {
-         name = "..."         
-         capacity = "..."         
-      }
-      
+      name = "..."      
+      capacity = "..."      
    }
    
 }

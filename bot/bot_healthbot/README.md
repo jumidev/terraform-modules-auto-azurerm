@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of bot_healthbot"   
+   name = "Specifies The name of the Healthbot Service resource..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of bot_healthbot"   
+   sku_name = "The name which should be used for the SKU of the service..."   
 }
 
 tfstate_store = {

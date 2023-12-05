@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of vpn_gateway"   
+   name = "The Name which should be used for this VPN Gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # virtual_hub_id → set in tfstate_inputs
@@ -60,8 +60,8 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `asn` | string | Yes | - | The ASN of the BGP Speaker. Changing this forces a new resource to be created. |
 | `peer_weight` | string | Yes | - | The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created. |
-| `instance_0_bgp_peering_address` | [block](#bgp_settings-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
-| `instance_1_bgp_peering_address` | [block](#bgp_settings-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
+| `instance_0_bgp_peering_address` | [block](#instance_bgp_peering_address-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
+| `instance_1_bgp_peering_address` | [block](#instance_bgp_peering_address-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
 
 
 

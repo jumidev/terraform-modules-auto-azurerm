@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_dsc_configuration"   
+   name = "Specifies the name of the DSC Configuration"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   content_embedded = "content_embedded of automation_dsc_configuration"   
+   content_embedded = "The PowerShell DSC Configuration script"   
    location = "${location}"   
 }
 

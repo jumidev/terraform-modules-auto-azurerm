@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_backup_instance_blob_storage"   
+   name = "The name which should be used for this Backup Instance Blob Storage..."   
    location = "${location}"   
-   vault_id = "vault_id of data_protection_backup_instance_blob_storage"   
+   vault_id = "The ID of the Backup Vault within which the Backup Instance Blob Storage should ..."   
    # storage_account_id → set in tfstate_inputs
-   backup_policy_id = "backup_policy_id of data_protection_backup_instance_blob_storage"   
+   backup_policy_id = "The ID of the Backup Policy"   
 }
 
 tfstate_inputs = {

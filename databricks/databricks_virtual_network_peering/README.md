@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of databricks_virtual_network_peering"   
+   name = "Specifies the name of the Databricks Virtual Network Peering resource..."   
    resource_group_name = "${resource_group}"   
    # workspace_id → set in tfstate_inputs
-   address_space_prefixes = "address_space_prefixes of databricks_virtual_network_peering"   
-   remote_address_space_prefixes = "remote_address_space_prefixes of databricks_virtual_network_peering"   
-   remote_virtual_network_id = "remote_virtual_network_id of databricks_virtual_network_peering"   
+   address_space_prefixes = "A list of address blocks reserved for this virtual network in CIDR notation..."   
+   remote_address_space_prefixes = "A list of address blocks reserved for the remote virtual network in CIDR notatio..."   
+   remote_virtual_network_id = "The ID of the remote virtual network"   
 }
 
 tfstate_inputs = {

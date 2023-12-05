@@ -11,40 +11,31 @@ source = {
 }
 
 inputs = {
-   name = "name of network_connection_monitor"   
+   name = "The name which should be used for this Network Connection Monitor..."   
    location = "${location}"   
    # network_watcher_id → set in tfstate_inputs
    endpoint = {
-      this_endpoint = {
-         name = "..."         
-         # target_resource_id → set in tfstate_inputs
-      }
-      
+      name = "..."      
+      # target_resource_id → (optional) set in tfstate_inputs
    }
    
    test_configuration = {
-      this_test_configuration = {
-         name = "..."         
-         protocol = "..."         
-      }
-      
+      name = "..."      
+      protocol = "..."      
    }
    
    test_group = {
-      this_test_group = {
-         name = "..."         
-         destination_endpoints = "..."         
-         source_endpoints = "..."         
-         test_configuration_names = "..."         
-      }
-      
+      name = "..."      
+      destination_endpoints = "..."      
+      source_endpoints = "..."      
+      test_configuration_names = "..."      
    }
    
 }
 
 tfstate_inputs = {
    network_watcher_id = "path/to/network_watcher_component:id"   
-   endpoint.this_endpoint.target_resource_id = "path/to/any_resource_component:id"   
+   endpoint.target_resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
@@ -91,11 +82,25 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the HTTP header. |
 | `value` | string | Yes | - | The value of the HTTP header. |
 
-### `icmp_configuration` block structure
+### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+| `type` | string | No | Include | The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'. |
+| `item` | [block](#item-block-structure) | No | - | A 'item' block. |
+
+### `test_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of test configuration for the Network Connection Monitor. |
+| `protocol` | string | Yes | - | The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'. |
+| `test_frequency_in_seconds` | int | No | 60 | The time interval in seconds at which the test evaluation will happen. Defaults to '60'. |
+| `http_configuration` | [block](#http_configuration-block-structure) | No | - | A 'http_configuration' block. |
+| `icmp_configuration` | [block](#icmp_configuration-block-structure) | No | - | A 'icmp_configuration' block. |
+| `preferred_ip_version` | string | No | - | The preferred IP version which is used in the test evaluation. Possible values are 'IPv4' and 'IPv6'. |
+| `success_threshold` | [block](#success_threshold-block-structure) | No | - | A 'success_threshold' block. |
+| `tcp_configuration` | [block](#tcp_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
 
 ### `http_configuration` block structure
 
@@ -105,28 +110,8 @@ tfstate_store = {
 | `port` | string | No | - | The port for the HTTP connection. |
 | `path` | string | No | - | The path component of the URI. It only accepts the absolute path. |
 | `prefer_https` | bool | No | False | Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'. |
-| `request_header` | [block](#http_configuration-block-structure) | No | - | A 'request_header' block. |
+| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
 | `valid_status_code_ranges` | string | No | - | The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'. |
-
-### `test_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of test configuration for the Network Connection Monitor. |
-| `protocol` | string | Yes | - | The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'. |
-| `test_frequency_in_seconds` | int | No | 60 | The time interval in seconds at which the test evaluation will happen. Defaults to '60'. |
-| `http_configuration` | [block](#test_configuration-block-structure) | No | - | A 'http_configuration' block. |
-| `icmp_configuration` | [block](#test_configuration-block-structure) | No | - | A 'icmp_configuration' block. |
-| `preferred_ip_version` | string | No | - | The preferred IP version which is used in the test evaluation. Possible values are 'IPv4' and 'IPv6'. |
-| `success_threshold` | [block](#test_configuration-block-structure) | No | - | A 'success_threshold' block. |
-| `tcp_configuration` | [block](#test_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
-
-### `success_threshold` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
-| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
 
 ### `item` block structure
 
@@ -135,20 +120,12 @@ tfstate_store = {
 | `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
 | `address` | string | No | - | The address of the filter item. |
 
-### `tcp_configuration` block structure
+### `success_threshold` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port for the TCP connection. |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
-| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
-
-### `filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | Include | The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'. |
-| `item` | [block](#filter-block-structure) | No | - | A 'item' block. |
+| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
+| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
 
 ### `endpoint` block structure
 
@@ -160,8 +137,22 @@ tfstate_store = {
 | `excluded_ip_addresses` | list | No | - | A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint. |
 | `included_ip_addresses` | list | No | - | A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be included to the Network Connection Monitor endpoint. |
 | `target_resource_id` | string | No | - | The resource ID which is used as the endpoint by the Network Connection Monitor. |
-| `filter` | [block](#endpoint-block-structure) | No | - | A 'filter' block. |
+| `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
 | `target_resource_type` | string | No | - | The endpoint type of the Network Connection Monitor. Possible values are 'AzureSubnet', 'AzureVM', 'AzureVNet', 'ExternalAddress', 'MMAWorkspaceMachine' and 'MMAWorkspaceNetwork'. |
+
+### `icmp_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+
+### `tcp_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port for the TCP connection. |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
 
 
 

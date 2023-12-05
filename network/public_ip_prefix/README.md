@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of public_ip_prefix"   
+   name = "Specifies the name of the Public IP Prefix resource ..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

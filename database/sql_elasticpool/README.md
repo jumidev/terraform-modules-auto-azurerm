@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_elasticpool"   
+   name = "The name of the elastic pool"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # server_name → set in tfstate_inputs
-   edition = "edition of sql_elasticpool"   
-   dtu = "dtu of sql_elasticpool"   
+   edition = "The edition of the elastic pool to be created"   
+   dtu = "The total shared DTU for the elastic pool"   
 }
 
 tfstate_inputs = {

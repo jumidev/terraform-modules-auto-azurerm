@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_credential"   
+   name = "Specifies the name of the Credential"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   username = "username of automation_credential"   
-   password = "password of automation_credential"   
+   username = "The username associated with this Automation Credential..."   
+   password = "The password associated with this Automation Credential..."   
 }
 
 tfstate_inputs = {

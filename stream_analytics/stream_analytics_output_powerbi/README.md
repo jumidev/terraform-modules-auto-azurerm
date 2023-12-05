@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_output_powerbi"   
+   name = "The name of the Stream Output"   
    # stream_analytics_job_id → set in tfstate_inputs
-   dataset = "dataset of stream_analytics_output_powerbi"   
-   table = "table of stream_analytics_output_powerbi"   
-   group_id = "group_id of stream_analytics_output_powerbi"   
-   group_name = "group_name of stream_analytics_output_powerbi"   
+   dataset = "The name of the Power BI dataset"   
+   table = "The name of the Power BI table under the specified dataset..."   
+   group_id = "The ID of the Power BI group, this must be a valid UUID..."   
+   group_name = "The name of the Power BI group"   
 }
 
 tfstate_inputs = {

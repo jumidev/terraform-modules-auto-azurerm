@@ -11,24 +11,21 @@ source = {
 }
 
 inputs = {
-   name = "name of data_share_dataset_blob_storage"   
+   name = "The name which should be used for this Data Share Blob Storage Dataset..."   
    # data_share_id → set in tfstate_inputs
-   container_name = "container_name of data_share_dataset_blob_storage"   
+   container_name = "The name of the storage account container to be shared with the receiver..."   
    storage_account = {
-      this_storage_account = {
-         name = "..."         
-         # resource_group_name → set in tfstate_inputs
-         # subscription_id → set in tfstate_inputs
-      }
-      
+      name = "..."      
+      # resource_group_name → set in tfstate_inputs
+      # subscription_id → set in tfstate_inputs
    }
    
 }
 
 tfstate_inputs = {
    data_share_id = "path/to/data_share_component:id"   
-   storage_account.this_storage_account.resource_group_name = "path/to/resource_group_component:name"   
-   storage_account.this_storage_account.subscription_id = "path/to/subscription_component:subscription_id"   
+   storage_account.resource_group_name = "path/to/resource_group_component:name"   
+   storage_account.subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {

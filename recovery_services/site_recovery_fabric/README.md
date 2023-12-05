@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_fabric"   
+   name = "The name of the network mapping"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of site_recovery_fabric"   
+   recovery_vault_name = "The name of the vault that should be updated"   
    location = "${location}"   
 }
 

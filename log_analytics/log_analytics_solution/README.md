@@ -11,17 +11,14 @@ source = {
 }
 
 inputs = {
-   solution_name = "solution_name of log_analytics_solution"   
+   solution_name = "Specifies the name of the solution to be deployed"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   workspace_resource_id = "workspace_resource_id of log_analytics_solution"   
+   workspace_resource_id = "The full resource ID of the Log Analytics workspace with which the solution will..."   
    # workspace_name → set in tfstate_inputs
    plan = {
-      this_plan = {
-         publisher = "..."         
-         product = "..."         
-      }
-      
+      publisher = "..."      
+      product = "..."      
    }
    
 }

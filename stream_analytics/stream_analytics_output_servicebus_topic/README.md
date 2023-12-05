@@ -11,16 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_output_servicebus_topic"   
+   name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   topic_name = "topic_name of stream_analytics_output_servicebus_topic"   
-   servicebus_namespace = "servicebus_namespace of stream_analytics_output_servicebus_topic"   
+   topic_name = "The name of the Service Bus Topic"   
+   servicebus_namespace = "The namespace that is associated with the desired Event Hub, Service Bus Topic, ..."   
    serialization = {
-      this_serialization = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

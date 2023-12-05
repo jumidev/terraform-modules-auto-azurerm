@@ -13,9 +13,9 @@ source = {
 inputs = {
    # iothub_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   key = "key of iothub_enrichment"   
-   value = "value of iothub_enrichment"   
-   endpoint_names = "endpoint_names of iothub_enrichment"   
+   key = "The key of the enrichment"   
+   value = "The value of the enrichment"   
+   endpoint_names = "The list of endpoints which will be enriched"   
 }
 
 tfstate_inputs = {

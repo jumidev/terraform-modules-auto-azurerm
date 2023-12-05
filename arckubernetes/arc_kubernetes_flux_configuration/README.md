@@ -11,16 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of arc_kubernetes_flux_configuration"   
-   cluster_id = "cluster_id of arc_kubernetes_flux_configuration"   
+   name = "Specifies the name which should be used for this Arc Kubernetes Flux Configurati..."   
+   cluster_id = "Specifies the Cluster ID"   
    kustomizations = {
-      this_kustomizations = {
-         name = "..."         
-      }
-      
+      name = "..."      
    }
    
-   namespace = "namespace of arc_kubernetes_flux_configuration"   
+   namespace = "Specifies the namespace to which this configuration is installed to..."   
 }
 
 tfstate_store = {
@@ -63,29 +60,6 @@ tfstate_store = {
 | `garbage_collection_enabled` | bool | No | False | Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to 'false'. |
 | `depends_on` | string | No | - | Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation. |
 
-### `blob_storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_id` | string | Yes | - | Specifies the Azure Blob container ID. |
-| `account_key` | string | No | - | Specifies the account key (shared key) to access the storage account. |
-| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
-| `sas_token` | string | No | - | Specifies the shared access token to access the storage container. |
-| `service_principal` | [block](#blob_storage-block-structure) | No | - | A 'service_principal' block. |
-| `sync_interval_in_seconds` | int | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
-| `timeout_in_seconds` | int | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
-
-### `service_principal` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | Specifies the client ID for authenticating a Service Principal. |
-| `tenant_id` | string | Yes | - | Specifies the tenant ID for authenticating a Service Principal. |
-| `client_certificate_base64` | string | No | - | Base64-encoded certificate used to authenticate a Service Principal . |
-| `client_certificate_password` | string | No | - | Specifies the password for the certificate used to authenticate a Service Principal . |
-| `client_certificate_send_chain` | string | No | - | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate. |
-| `client_secret` | string | No | - | Specifies the client secret for authenticating a Service Principal. |
-
 ### `bucket` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -98,6 +72,29 @@ tfstate_store = {
 | `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
 | `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
 | `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
+
+### `service_principal` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | Specifies the client ID for authenticating a Service Principal. |
+| `tenant_id` | string | Yes | - | Specifies the tenant ID for authenticating a Service Principal. |
+| `client_certificate_base64` | string | No | - | Base64-encoded certificate used to authenticate a Service Principal . |
+| `client_certificate_password` | string | No | - | Specifies the password for the certificate used to authenticate a Service Principal . |
+| `client_certificate_send_chain` | string | No | - | Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate. |
+| `client_secret` | string | No | - | Specifies the client secret for authenticating a Service Principal. |
+
+### `blob_storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container_id` | string | Yes | - | Specifies the Azure Blob container ID. |
+| `account_key` | string | No | - | Specifies the account key (shared key) to access the storage account. |
+| `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
+| `sas_token` | string | No | - | Specifies the shared access token to access the storage container. |
+| `service_principal` | [block](#service_principal-block-structure) | No | - | A 'service_principal' block. |
+| `sync_interval_in_seconds` | int | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
+| `timeout_in_seconds` | int | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
 
 ### `git_repository` block structure
 

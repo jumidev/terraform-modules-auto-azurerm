@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_security_group"   
+   name = "Specifies the name of the network security group"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

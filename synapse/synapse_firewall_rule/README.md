@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_firewall_rule"   
+   name = "The Name of the firewall rule"   
    # synapse_workspace_id → set in tfstate_inputs
-   start_ip_address = "start_ip_address of synapse_firewall_rule"   
-   end_ip_address = "end_ip_address of synapse_firewall_rule"   
+   start_ip_address = "The starting IP address to allow through the firewall for this rule..."   
+   end_ip_address = "The ending IP address to allow through the firewall for this rule..."   
 }
 
 tfstate_inputs = {

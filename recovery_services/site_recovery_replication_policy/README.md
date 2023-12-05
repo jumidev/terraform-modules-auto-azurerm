@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_replication_policy"   
+   name = "The name of the replication policy"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of site_recovery_replication_policy"   
-   recovery_point_retention_in_minutes = "recovery_point_retention_in_minutes of site_recovery_replication_policy"   
-   application_consistent_snapshot_frequency_in_minutes = "application_consistent_snapshot_frequency_in_minutes of site_recovery_replication_policy"   
+   recovery_vault_name = "The name of the vault that should be updated"   
+   recovery_point_retention_in_minutes = "The duration in minutes for which the recovery points need to be stored..."   
+   application_consistent_snapshot_frequency_in_minutes = "Specifies the frequency(in minutes) at which to create application consistent re..."   
 }
 
 tfstate_store = {

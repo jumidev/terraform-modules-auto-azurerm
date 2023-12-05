@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of subscription_template_deployment"   
+   name = "The name which should be used for this Subscription Template Deployment..."   
 }
 
 tfstate_store = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of powerbi_embedded"   
+   name = "The name of the PowerBI Embedded"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of powerbi_embedded"   
-   administrators = "administrators of powerbi_embedded"   
+   sku_name = "Sets the PowerBI Embedded's pricing level's SKU"   
+   administrators = "A set of administrator user identities, which manages the Power BI Embedded and ..."   
 }
 
 tfstate_store = {

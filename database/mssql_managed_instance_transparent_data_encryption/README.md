@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   managed_instance_id = "managed_instance_id of mssql_managed_instance_transparent_data_encryption"   
+   managed_instance_id = "Specifies the name of the MS SQL Managed Instance"   
 }
 
 tfstate_store = {

@@ -11,13 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of policy_virtual_machine_configuration_assignment"   
+   name = "The name of the Guest Configuration that will be assigned in this Guest Configur..."   
    location = "${location}"   
    # virtual_machine_id → set in tfstate_inputs
    configuration = {
-      this_configuration = {
-      }
-      
    }
    
 }
@@ -57,7 +54,7 @@ tfstate_store = {
 | `assignment_type` | string | No | - | The assignment type for the Guest Configuration Assignment. Possible values are 'Audit', 'ApplyAndAutoCorrect', 'ApplyAndMonitor' and 'DeployAndAutoCorrect'. |
 | `content_hash` | string | No | - | The content hash for the Guest Configuration package. |
 | `content_uri` | string | No | - | The content URI where the Guest Configuration package is stored. |
-| `parameter` | [block](#configuration-block-structure) | No | - | One or more 'parameter' blocks which define what configuration parameters and values against. |
+| `parameter` | [block](#parameter-block-structure) | No | - | One or more 'parameter' blocks which define what configuration parameters and values against. |
 | `version` | string | No | - | The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment. |
 
 

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of voice_services_communications_gateway_test_line"   
+   name = "Specifies the name which should be used for this Voice Services Communications G..."   
    location = "${location}"   
    # voice_services_communications_gateway_id → set in tfstate_inputs
-   phone_number = "phone_number of voice_services_communications_gateway_test_line"   
-   purpose = "purpose of voice_services_communications_gateway_test_line"   
+   phone_number = "Specifies the phone number"   
+   purpose = "The purpose of the Voice Services Communications Gateway Test Line..."   
 }
 
 tfstate_inputs = {

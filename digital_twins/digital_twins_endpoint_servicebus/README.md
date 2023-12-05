@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of digital_twins_endpoint_servicebus"   
-   digital_twins_id = "digital_twins_id of digital_twins_endpoint_servicebus"   
-   servicebus_primary_connection_string = "servicebus_primary_connection_string of digital_twins_endpoint_servicebus"   
-   servicebus_secondary_connection_string = "servicebus_secondary_connection_string of digital_twins_endpoint_servicebus"   
+   name = "The name which should be used for this Digital Twins Service Bus Endpoint..."   
+   digital_twins_id = "The ID of the Digital Twins Instance"   
+   servicebus_primary_connection_string = "The primary connection string of the Service Bus Topic Authorization Rule with a..."   
+   servicebus_secondary_connection_string = "The secondary connection string of the Service Bus Topic Authorization Rule with..."   
 }
 
 tfstate_store = {

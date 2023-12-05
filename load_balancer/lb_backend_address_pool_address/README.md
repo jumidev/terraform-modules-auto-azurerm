@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # backend_address_pool_id → set in tfstate_inputs
-   name = "name of lb_backend_address_pool_address"   
+   name = "The name which should be used for this Backend Address Pool Address..."   
 }
 
 tfstate_inputs = {

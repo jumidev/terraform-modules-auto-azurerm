@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of disk_pool"   
+   name = "The name of the Disk Pool"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   zones = "zones of disk_pool"   
-   sku_name = "sku_name of disk_pool"   
+   zones = "Specifies a list of Availability Zones in which this Disk Pool should be located..."   
+   sku_name = "The SKU of the Disk Pool"   
    # subnet_id → set in tfstate_inputs
 }
 

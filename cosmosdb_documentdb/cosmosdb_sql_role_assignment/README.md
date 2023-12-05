@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_sql_role_assignment"   
-   principal_id = "principal_id of cosmosdb_sql_role_assignment"   
+   account_name = "The name of the Cosmos DB Account"   
+   principal_id = "The ID of the Principal (Client) in Azure Active Directory..."   
    # role_definition_id → set in tfstate_inputs
-   scope = "scope of cosmosdb_sql_role_assignment"   
+   scope = "The data plane resource path for which access is being granted through this Cosm..."   
 }
 
 tfstate_inputs = {

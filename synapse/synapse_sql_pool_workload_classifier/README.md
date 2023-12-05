@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_sql_pool_workload_classifier"   
-   workload_group_id = "workload_group_id of synapse_sql_pool_workload_classifier"   
-   member_name = "member_name of synapse_sql_pool_workload_classifier"   
+   name = "The name which should be used for this Synapse SQL Pool Workload Classifier..."   
+   workload_group_id = "The ID of the Synapse SQL Pool Workload Group"   
+   member_name = "The workload classifier member name used to classified against..."   
 }
 
 tfstate_store = {

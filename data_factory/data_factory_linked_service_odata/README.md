@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_odata"   
+   name = "Specifies the name of the Data Factory Linked Service OData..."   
    # data_factory_id → set in tfstate_inputs
-   url = "url of data_factory_linked_service_odata"   
+   url = "The URL of the OData service endpoint"   
 }
 
 tfstate_inputs = {

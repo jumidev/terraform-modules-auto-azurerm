@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_desktop_workspace"   
+   name = "The name of the Virtual Desktop Workspace"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

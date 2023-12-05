@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of mariadb_database"   
+   name = "Specifies the name of the MariaDB Database, which needs [to be a valid MariaDB i..."   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   charset = "charset of mariadb_database"   
-   collation = "collation of mariadb_database"   
+   charset = "Specifies the Charset for the MariaDB Database, which needs [to be a valid Maria..."   
+   collation = "Specifies the Collation for the MariaDB Database, which needs [to be a valid Mar..."   
 }
 
 tfstate_inputs = {

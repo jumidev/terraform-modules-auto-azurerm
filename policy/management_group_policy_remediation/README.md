@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of management_group_policy_remediation"   
+   name = "The name of the Policy Remediation"   
    # management_group_id → set in tfstate_inputs
-   policy_assignment_id = "policy_assignment_id of management_group_policy_remediation"   
+   policy_assignment_id = "The ID of the Policy Assignment that should be remediated..."   
 }
 
 tfstate_inputs = {

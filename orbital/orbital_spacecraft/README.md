@@ -11,23 +11,20 @@ source = {
 }
 
 inputs = {
-   name = "name of orbital_spacecraft"   
+   name = "The name of the Spacecraft"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   norad_id = "norad_id of orbital_spacecraft"   
+   norad_id = "NORAD ID of the Spacecraft"   
    links = {
-      this_links = {
-         bandwidth_mhz = "..."         
-         center_frequency_mhz = "..."         
-         direction = "..."         
-         polarization = "..."         
-         name = "..."         
-      }
-      
+      bandwidth_mhz = "..."      
+      center_frequency_mhz = "..."      
+      direction = "..."      
+      polarization = "..."      
+      name = "..."      
    }
    
-   two_line_elements = "two_line_elements of orbital_spacecraft"   
-   title_line = "title_line of orbital_spacecraft"   
+   two_line_elements = "A list of the two line elements (TLE), the first string being the first of the T..."   
+   title_line = "Title of the two line elements (TLE)"   
 }
 
 tfstate_store = {

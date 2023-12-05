@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of fluid_relay_servers"   
+   name = "The name which should be used for this Fluid Relay Server..."   
    resource_group_name = "${resource_group}"   
 }
 

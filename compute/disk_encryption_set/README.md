@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of disk_encryption_set"   
+   name = "The name of the Disk Encryption Set"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # key_vault_key_id → set in tfstate_inputs
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

@@ -12,14 +12,11 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_sql_role_definition"   
-   assignable_scopes = "assignable_scopes of cosmosdb_sql_role_definition"   
-   name = "name of cosmosdb_sql_role_definition"   
+   account_name = "The name of the Cosmos DB Account"   
+   assignable_scopes = "A list of fully qualified scopes at or below which Role Assignments may be creat..."   
+   name = "An user-friendly name for the Cosmos DB SQL Role Definition which must be unique..."   
    permissions = {
-      this_permissions = {
-         data_actions = "..."         
-      }
-      
+      data_actions = "..."      
    }
    
 }

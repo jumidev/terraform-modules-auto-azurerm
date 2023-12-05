@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of management_group_policy_exemption"   
+   name = "The name of the Policy Exemption"   
    # management_group_id → set in tfstate_inputs
-   exemption_category = "exemption_category of management_group_policy_exemption"   
-   policy_assignment_id = "policy_assignment_id of management_group_policy_exemption"   
+   exemption_category = "The category of this policy exemption"   
+   policy_assignment_id = "The ID of the Policy Assignment to be exempted at the specified Scope..."   
 }
 
 tfstate_inputs = {

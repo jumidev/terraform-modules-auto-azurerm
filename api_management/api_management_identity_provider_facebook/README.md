@@ -13,8 +13,8 @@ source = {
 inputs = {
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   app_id = "app_id of api_management_identity_provider_facebook"   
-   app_secret = "app_secret of api_management_identity_provider_facebook"   
+   app_id = "App ID for Facebook"   
+   app_secret = "App Secret for Facebook"   
 }
 
 tfstate_inputs = {

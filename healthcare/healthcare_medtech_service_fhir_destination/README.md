@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of healthcare_medtech_service_fhir_destination"   
-   medtech_service_id = "medtech_service_id of healthcare_medtech_service_fhir_destination"   
+   name = "Specifies the name of the Healthcare Med Tech Service Fhir Destination..."   
+   medtech_service_id = "Specifies the name of the Healthcare Med Tech Service where the Healthcare Med T..."   
    location = "${location}"   
-   destination_fhir_service_id = "destination_fhir_service_id of healthcare_medtech_service_fhir_destination"   
-   destination_identity_resolution_type = "destination_identity_resolution_type of healthcare_medtech_service_fhir_destination"   
-   destination_fhir_mapping_json = "destination_fhir_mapping_json of healthcare_medtech_service_fhir_destination"   
+   destination_fhir_service_id = "Specifies the destination fhir service id of the Med Tech Service Fhir Destinati..."   
+   destination_identity_resolution_type = "Specifies the destination identity resolution type where the Healthcare Med Tech..."   
+   destination_fhir_mapping_json = "Specifies the destination Fhir mappings of the Med Tech Service Fhir Destination..."   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of app_service_certificate"   
+   name = "Specifies the name of the certificate"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

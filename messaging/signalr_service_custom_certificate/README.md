@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of signalr_service_custom_certificate"   
+   name = "The name of the SignalR Custom Certificate"   
    # signalr_service_id → set in tfstate_inputs
-   custom_certificate_id = "custom_certificate_id of signalr_service_custom_certificate"   
+   custom_certificate_id = "The certificate id of the SignalR Custom Certificate service..."   
 }
 
 tfstate_inputs = {

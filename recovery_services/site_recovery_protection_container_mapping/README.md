@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_protection_container_mapping"   
+   name = "The name of the protection container mapping"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of site_recovery_protection_container_mapping"   
-   recovery_fabric_name = "recovery_fabric_name of site_recovery_protection_container_mapping"   
-   recovery_source_protection_container_name = "recovery_source_protection_container_name of site_recovery_protection_container_mapping"   
-   recovery_target_protection_container_id = "recovery_target_protection_container_id of site_recovery_protection_container_mapping"   
-   recovery_replication_policy_id = "recovery_replication_policy_id of site_recovery_protection_container_mapping"   
+   recovery_vault_name = "The name of the vault that should be updated"   
+   recovery_fabric_name = "Name of fabric that should contains the protection container to map..."   
+   recovery_source_protection_container_name = "Name of the source protection container to map"   
+   recovery_target_protection_container_id = "Id of target protection container to map to"   
+   recovery_replication_policy_id = "Id of the policy to use for this mapping"   
 }
 
 tfstate_store = {

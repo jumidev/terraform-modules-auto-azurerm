@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_output_mssql"   
+   name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   server = "server of stream_analytics_output_mssql"   
-   database = "database of stream_analytics_output_mssql"   
-   table = "table of stream_analytics_output_mssql"   
+   server = "The SQL server url"   
+   database = "The MS SQL database name where the reference table exists..."   
+   table = "Table in the database that the output points to"   
 }
 
 tfstate_inputs = {

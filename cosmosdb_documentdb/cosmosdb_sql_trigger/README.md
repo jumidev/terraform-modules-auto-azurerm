@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_sql_trigger"   
-   container_id = "container_id of cosmosdb_sql_trigger"   
-   body = "body of cosmosdb_sql_trigger"   
-   operation = "operation of cosmosdb_sql_trigger"   
-   type = "type of cosmosdb_sql_trigger"   
+   name = "The name which should be used for this SQL Trigger"   
+   container_id = "The id of the Cosmos DB SQL Container to create the SQL Trigger within..."   
+   body = "Body of the Trigger"   
+   operation = "The operation the trigger is associated with"   
+   type = "Type of the Trigger"   
 }
 
 tfstate_store = {

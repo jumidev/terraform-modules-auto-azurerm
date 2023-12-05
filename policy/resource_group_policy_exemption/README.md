@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of resource_group_policy_exemption"   
-   resource_group_id = "resource_group_id of resource_group_policy_exemption"   
-   exemption_category = "exemption_category of resource_group_policy_exemption"   
-   policy_assignment_id = "policy_assignment_id of resource_group_policy_exemption"   
+   name = "The name of the Policy Exemption"   
+   resource_group_id = "The Resource Group ID where the Policy Exemption should be applied..."   
+   exemption_category = "The category of this policy exemption"   
+   policy_assignment_id = "The ID of the Policy Assignment to be exempted at the specified Scope..."   
 }
 
 tfstate_store = {

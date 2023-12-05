@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   namespace_id = "namespace_id of servicebus_namespace_network_rule_set"   
+   namespace_id = "Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespac..."   
 }
 
 tfstate_store = {

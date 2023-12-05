@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of search_shared_private_link_service"   
+   name = "Specify the name of the Azure Search Shared Private Link Resource..."   
    # search_service_id → set in tfstate_inputs
-   subresource_name = "subresource_name of search_shared_private_link_service"   
+   subresource_name = "Specify the sub resource name which the Azure Search Private Endpoint is able to..."   
    # target_resource_id → set in tfstate_inputs
 }
 

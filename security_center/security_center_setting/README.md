@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   setting_name = "setting_name of security_center_setting"   
-   enabled = "enabled of security_center_setting"   
+   setting_name = "The setting to manage"   
+   enabled = "Boolean flag to enable/disable data access"   
 }
 
 tfstate_store = {

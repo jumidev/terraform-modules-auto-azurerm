@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of vmware_express_route_authorization"   
-   private_cloud_id = "private_cloud_id of vmware_express_route_authorization"   
+   name = "The name which should be used for this Express Route VMware Authorization..."   
+   private_cloud_id = "The ID of the VMware Private Cloud in which to create this Express Route VMware ..."   
 }
 
 tfstate_store = {

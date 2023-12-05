@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of servicebus_subscription_rule"   
+   name = "Specifies the name of the ServiceBus Subscription Rule..."   
    # subscription_id → set in tfstate_inputs
-   filter_type = "filter_type of servicebus_subscription_rule"   
+   filter_type = "Type of filter to be applied to a BrokeredMessage"   
 }
 
 tfstate_inputs = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of mariadb_firewall_rule"   
+   name = "Specifies the name of the MariaDB Firewall Rule"   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   start_ip_address = "start_ip_address of mariadb_firewall_rule"   
-   end_ip_address = "end_ip_address of mariadb_firewall_rule"   
+   start_ip_address = "Specifies the Start IP Address associated with this Firewall Rule..."   
+   end_ip_address = "Specifies the End IP Address associated with this Firewall Rule..."   
 }
 
 tfstate_inputs = {

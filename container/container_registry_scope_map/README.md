@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of container_registry_scope_map"   
+   name = "Specifies the name of the scope map"   
    resource_group_name = "${resource_group}"   
    # container_registry_name → set in tfstate_inputs
-   actions = "actions of container_registry_scope_map"   
+   actions = "A list of actions to attach to the scope map (e"   
 }
 
 tfstate_inputs = {

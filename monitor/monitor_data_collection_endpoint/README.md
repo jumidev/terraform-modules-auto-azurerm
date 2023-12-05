@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of monitor_data_collection_endpoint"   
+   name = "The name which should be used for this Data Collection Endpoint..."   
    resource_group_name = "${resource_group}"   
 }
 

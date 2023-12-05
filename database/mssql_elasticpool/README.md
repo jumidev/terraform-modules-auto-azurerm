@@ -11,25 +11,19 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_elasticpool"   
+   name = "The name of the elastic pool"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # server_name → set in tfstate_inputs
    sku = {
-      this_sku = {
-         name = "..."         
-         capacity = "..."         
-         tier = "..."         
-      }
-      
+      name = "..."      
+      capacity = "..."      
+      tier = "..."      
    }
    
    per_database_settings = {
-      this_per_database_settings = {
-         min_capacity = "..."         
-         max_capacity = "..."         
-      }
-      
+      min_capacity = "..."      
+      max_capacity = "..."      
    }
    
 }

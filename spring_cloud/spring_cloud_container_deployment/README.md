@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_container_deployment"   
+   name = "The name which should be used for this Spring Cloud Container Deployment..."   
    # spring_cloud_app_id → set in tfstate_inputs
-   image = "image of spring_cloud_container_deployment"   
-   server = "server of spring_cloud_container_deployment"   
+   image = "Container image of the custom container"   
+   server = "The name of the registry that contains the container image..."   
 }
 
 tfstate_inputs = {

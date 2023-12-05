@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_pipeline"   
+   name = "Specifies the name of the Data Factory Pipeline"   
    # data_factory_id → set in tfstate_inputs
 }
 

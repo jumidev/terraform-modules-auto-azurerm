@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   display_name = "display_name of sentinel_alert_rule_anomaly_duplicate"   
-   built_in_rule_id = "built_in_rule_id of sentinel_alert_rule_anomaly_duplicate"   
+   display_name = "The Display Name of the built-in Anomaly Alert Rule..."   
+   built_in_rule_id = "The ID of the built-in Anomaly Alert Rule"   
    # log_analytics_workspace_id → set in tfstate_inputs
-   enabled = "enabled of sentinel_alert_rule_anomaly_duplicate"   
-   mode = "mode of sentinel_alert_rule_anomaly_duplicate"   
+   enabled = "Should the Duplicated Anomaly Alert Rule be enabled?..."   
+   mode = "mode of the Duplicated Anomaly Alert Rule"   
 }
 
 tfstate_inputs = {
@@ -49,6 +49,16 @@ tfstate_store = {
 | **prioritized_exclude_observation** | [block](#prioritized_exclude_observation-block-structure) |  A list of `prioritized_exclude_observation` blocks. | 
 | **threshold_observation** | [block](#threshold_observation-block-structure) |  A list of `threshold_observation` blocks. | 
 
+### `threshold_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the threshold observation. |
+| `description` | string | No | - | The description of the threshold observation. |
+| `max` | string | No | - | The max value of the threshold observation. |
+| `min` | string | No | - | The min value of the threshold observation. |
+| `value` | string | Yes | - | The value of the threshold observation. |
+
 ### `multi_select_observation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,16 +85,6 @@ tfstate_store = {
 | `description` | string | No | - | The description of the single select observation. |
 | `supported_values` | list | No | - | A list of supported values of the single select observation. |
 | `value` | string | Yes | - | The value of the multi select observation. |
-
-### `threshold_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the threshold observation. |
-| `description` | string | No | - | The description of the threshold observation. |
-| `max` | string | No | - | The max value of the threshold observation. |
-| `min` | string | No | - | The min value of the threshold observation. |
-| `value` | string | Yes | - | The value of the threshold observation. |
 
 
 

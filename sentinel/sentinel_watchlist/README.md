@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_watchlist"   
+   name = "The name which should be used for this Sentinel Watchlist..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of sentinel_watchlist"   
-   item_search_key = "item_search_key of sentinel_watchlist"   
+   display_name = "The display name of this Sentinel Watchlist"   
+   item_search_key = "The key used to optimize query performance when using Watchlist for joins with o..."   
 }
 
 tfstate_inputs = {

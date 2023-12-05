@@ -11,13 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_gateway"   
+   name = "The name which should be used for the API Management Gateway..."   
    # api_management_id → set in tfstate_inputs
    location_data = {
-      this_location_data = {
-         name = "..."         
-      }
-      
+      name = "..."      
    }
    
 }

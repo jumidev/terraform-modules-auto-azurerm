@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_web"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   authentication_type = "authentication_type of data_factory_linked_service_web"   
-   url = "url of data_factory_linked_service_web"   
+   authentication_type = "The type of authentication used to connect to the web table source..."   
+   url = "The URL of the web service endpoint (e"   
 }
 
 tfstate_inputs = {

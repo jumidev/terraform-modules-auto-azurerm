@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of subscription_policy_assignment"   
+   name = "The name which should be used for this Policy Assignment..."   
    # policy_definition_id → set in tfstate_inputs
    # subscription_id → set in tfstate_inputs
 }
@@ -53,19 +53,18 @@ tfstate_store = {
 | **overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
 | **resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
 
-### `resource_selector` block structure
+### `override_selector` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
-| `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
+| `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
 
-### `non_compliance_message` block structure
+### `resource_selectors` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
-| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+| `name` | string | No | - | Specifies a name for the resource selector. |
+| `selectors` | [block](#resource_selector-block-structure) | Yes | - | One or more 'resource_selector' block. |
 
 ### `identity` block structure
 
@@ -79,20 +78,21 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
-| `selectors` | [block](#overrides-block-structure) | No | - | One or more 'override_selector' block. |
+| `selectors` | [block](#override_selector-block-structure) | No | - | One or more 'override_selector' block. |
 
-### `override_selector` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
-
-### `resource_selectors` block structure
+### `non_compliance_message` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | Specifies a name for the resource selector. |
-| `selectors` | [block](#resource_selectors-block-structure) | Yes | - | One or more 'resource_selector' block. |
+| `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
+| `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+
+### `resource_selector` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
+| `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
 
 
 

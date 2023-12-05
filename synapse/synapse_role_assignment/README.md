@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   role_name = "role_name of synapse_role_assignment"   
-   principal_id = "principal_id of synapse_role_assignment"   
+   role_name = "The Role Name of the Synapse Built-In Role"   
+   principal_id = "The ID of the Principal (User, Group or Service Principal) to assign the Synapse..."   
 }
 
 tfstate_store = {

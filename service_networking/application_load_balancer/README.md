@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of application_load_balancer"   
+   name = "The name which should be used for this Application Gateway for Containers (ALB)..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

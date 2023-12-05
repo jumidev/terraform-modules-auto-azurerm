@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of ssh_public_key"   
-   public_key = "public_key of ssh_public_key"   
+   name = "The name which should be used for this SSH Public Key..."   
+   public_key = "SSH public key used to authenticate to a virtual machine through ssh..."   
    resource_group_name = "${resource_group}"   
 }
 

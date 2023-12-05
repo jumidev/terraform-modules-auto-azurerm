@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of mobile_network_site"   
+   name = "The name which should be used for this Mobile Network Site..."   
    # mobile_network_id → set in tfstate_inputs
    location = "${location}"   
 }

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   cluster_id = "cluster_id of redis_enterprise_database"   
+   cluster_id = "The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise ..."   
 }
 
 tfstate_store = {

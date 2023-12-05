@@ -326,14 +326,14 @@ variable "waf_configuration" {
 #   max_request_body_size_kb (string): The Maximum Request Body Size in KB. Accepted values are in the range '1'KB to '128'KB. Defaults to '128'KB.
 #   exclusion (block)                : One or more 'exclusion' blocks.
 #
+# disabled_rule_group block structure:
+#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'.
+#   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
+#
 # exclusion block structure       :
 #   match_variable (string)         : (REQUIRED) Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are 'RequestArgKeys', 'RequestArgNames', 'RequestArgValues', 'RequestCookieKeys', 'RequestCookieNames', 'RequestCookieValues', 'RequestHeaderKeys', 'RequestHeaderNames' and 'RequestHeaderValues'
 #   selector_match_operator (string): Operator which will be used to search in the variable content. Possible values are 'Contains', 'EndsWith', 'Equals', 'EqualsAny' and 'StartsWith'. If empty will exclude all traffic on this 'match_variable'
 #   selector (string)               : String value which will be used for the filter operation. If empty will exclude all traffic on this 'match_variable'
-#
-# disabled_rule_group block structure:
-#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'.
-#   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
 
 
 variable "custom_error_configuration" {

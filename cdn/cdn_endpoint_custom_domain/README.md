@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_endpoint_custom_domain"   
+   name = "The name which should be used for this CDN Endpoint Custom Domain..."   
    # cdn_endpoint_id → set in tfstate_inputs
-   host_name = "host_name of cdn_endpoint_custom_domain"   
+   host_name = "The host name of the custom domain"   
 }
 
 tfstate_inputs = {

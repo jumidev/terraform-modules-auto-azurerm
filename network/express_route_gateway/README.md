@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of express_route_gateway"   
+   name = "The name of the ExpressRoute gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # virtual_hub_id → set in tfstate_inputs
-   scale_units = "scale_units of express_route_gateway"   
+   scale_units = "The number of scale units with which to provision the ExpressRoute gateway..."   
 }
 
 tfstate_inputs = {

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   managed_instance_name = "managed_instance_name of mssql_managed_instance_security_alert_policy"   
+   managed_instance_name = "Specifies the name of the MS SQL Managed Instance"   
 }
 
 tfstate_store = {

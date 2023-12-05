@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of lab_service_user"   
-   lab_id = "lab_id of lab_service_user"   
-   email = "email of lab_service_user"   
+   name = "The name which should be used for this Lab Service User..."   
+   lab_id = "The resource ID of the Lab Service Lab"   
+   email = "The email address of the Lab Service User"   
 }
 
 tfstate_store = {

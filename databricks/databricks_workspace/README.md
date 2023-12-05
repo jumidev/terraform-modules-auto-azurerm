@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of databricks_workspace"   
+   name = "Specifies the name of the Databricks Workspace resource..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku = "sku of databricks_workspace"   
+   sku = "The `sku` to use for the Databricks Workspace"   
 }
 
 tfstate_store = {

@@ -13,8 +13,8 @@ source = {
 inputs = {
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   client_id = "client_id of api_management_identity_provider_google"   
-   client_secret = "client_secret of api_management_identity_provider_google"   
+   client_id = "Client Id for Google Sign-in"   
+   client_secret = "Client secret for Google Sign-in"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_accelerator"   
+   name = "The name which should be used for this Spring Cloud Accelerator..."   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_content_key_policy"   
+   name = "The name which should be used for this Content Key Policy..."   
    policy_option = {
       this_policy_option = {
          name = "..."         
@@ -65,12 +65,16 @@ tfstate_store = {
 | `required_claim` | list | No | - | One or more 'required_claim' blocks. |
 | `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
 
-### `offline_rental_configuration` block structure
+### `fairplay_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `playback_duration_seconds` | int | No | - | Playback duration. |
-| `storage_duration_seconds` | int | No | - | Storage duration. |
+| `ask` | string | No | - | The key that must be used as FairPlay Application Secret key. |
+| `offline_rental_configuration` | [block](#offline_rental_configuration-block-structure) | No | - | A 'offline_rental_configuration' block. |
+| `pfx` | string | No | - | The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key). |
+| `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
+| `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
+| `rental_duration_seconds` | int | No | - | The rental duration. Must be greater than 0. |
 
 ### `policy_option` block structure
 
@@ -78,23 +82,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name which should be used for this Policy Option. |
 | `clear_key_configuration_enabled` | bool | No | - | Enable a configuration for non-DRM keys. |
-| `fairplay_configuration` | [block](#policy_option-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
+| `fairplay_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
 | `open_restriction_enabled` | bool | No | - | Enable an open restriction. License or key will be delivered on every request. |
 | `playready_configuration_license` | list | No | - | One or more 'playready_configuration_license' blocks. |
 | `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
-| `token_restriction` | [block](#policy_option-block-structure) | No | - | A 'token_restriction' block. |
+| `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
 | `widevine_configuration_template` | string | No | - | The Widevine template. |
 
-### `fairplay_configuration` block structure
+### `offline_rental_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ask` | string | No | - | The key that must be used as FairPlay Application Secret key. |
-| `offline_rental_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'offline_rental_configuration' block. |
-| `pfx` | string | No | - | The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key). |
-| `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
-| `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
-| `rental_duration_seconds` | int | No | - | The rental duration. Must be greater than 0. |
+| `playback_duration_seconds` | int | No | - | Playback duration. |
+| `storage_duration_seconds` | int | No | - | Storage duration. |
 
 
 

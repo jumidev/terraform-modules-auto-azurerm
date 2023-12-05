@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   sql_pool_id = "sql_pool_id of synapse_sql_pool_extended_auditing_policy"   
+   sql_pool_id = "The ID of the Synapse SQL pool to set the extended auditing policy..."   
 }
 
 tfstate_store = {

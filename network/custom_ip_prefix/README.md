@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of custom_ip_prefix"   
+   name = "The name of the Custom IP Prefix"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cidr = "cidr of custom_ip_prefix"   
+   cidr = "The `cidr` of the Custom IP Prefix, either IPv4 or IPv6..."   
 }
 
 tfstate_store = {

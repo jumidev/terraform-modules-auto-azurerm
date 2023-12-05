@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_private_link_scope"   
+   name = "The name of the Azure Monitor Private Link Scope"   
    resource_group_name = "${resource_group}"   
 }
 

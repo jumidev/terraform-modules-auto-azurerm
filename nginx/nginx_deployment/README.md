@@ -12,9 +12,9 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   name = "name of nginx_deployment"   
+   name = "The name which should be used for this Nginx Deployment..."   
    location = "${location}"   
-   sku = "sku of nginx_deployment"   
+   sku = "Specify the Name of Nginx deployment SKU"   
 }
 
 tfstate_store = {
@@ -49,18 +49,6 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Nginx Deployment. | 
 
-### `network_interface` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
-
-### `frontend_public` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
-
 ### `frontend_private` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,6 +56,12 @@ tfstate_store = {
 | `allocation_method` | string | Yes | - | Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. |
 | `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
 | `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
+
+### `network_interface` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
 
 ### `identity` block structure
 
@@ -82,6 +76,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_name` | string | No | - | Specify the container name of Stoage Account for logging. |
 | `name` | string | No | - | The account name of the StorageAccount for Nginx Logging. |
+
+### `frontend_public` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
 
 
 

@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of network_profile"   
+   name = "Specifies the name of the Network Profile"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
    container_network_interface = {
-      this_container_network_interface = {
-         name = "..."         
-         ip_configuration = "..."         
-      }
-      
+      name = "..."      
+      ip_configuration = "..."      
    }
    
 }

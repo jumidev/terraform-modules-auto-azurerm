@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of dedicated_host_group"   
+   name = "Specifies the name of the Dedicated Host Group"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   platform_fault_domain_count = "platform_fault_domain_count of dedicated_host_group"   
+   platform_fault_domain_count = "The number of fault domains that the Dedicated Host Group spans..."   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   product_id = "product_id of api_management_product_policy"   
+   product_id = "The ID of the API Management Product within the API Management Service..."   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
 }

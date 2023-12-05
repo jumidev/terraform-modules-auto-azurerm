@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   cache_name = "cache_name of hpc_cache_blob_target"   
-   name = "name of hpc_cache_blob_target"   
+   cache_name = "The name HPC Cache, which the HPC Cache Blob Target will be added to..."   
+   name = "The name of the HPC Cache Blob Target"   
    resource_group_name = "${resource_group}"   
-   namespace_path = "namespace_path of hpc_cache_blob_target"   
+   namespace_path = "The client-facing file path of the HPC Cache Blob Target..."   
    # storage_container_id → set in tfstate_inputs
 }
 

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of load_test"   
+   name = "Specifies the name of this Load Test"   
    resource_group_name = "${resource_group}"   
 }
 

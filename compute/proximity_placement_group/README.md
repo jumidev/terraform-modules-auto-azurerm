@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of proximity_placement_group"   
+   name = "Specifies the name of the proximity placement group..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

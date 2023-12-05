@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_mover_source_endpoint"   
+   name = "Specifies the name which should be used for this Storage Mover Source Endpoint..."   
    # storage_mover_id → set in tfstate_inputs
-   host = "host of storage_mover_source_endpoint"   
+   host = "Specifies the host name or IP address of the server exporting the file system..."   
 }
 
 tfstate_inputs = {

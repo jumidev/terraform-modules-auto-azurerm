@@ -13,7 +13,7 @@ source = {
 inputs = {
    # key_vault_id → set in tfstate_inputs
    # tenant_id → set in tfstate_inputs
-   object_id = "object_id of key_vault_access_policy"   
+   object_id = "The object ID of a user, service principal or security group in the Azure Active..."   
 }
 
 tfstate_inputs = {

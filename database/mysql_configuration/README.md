@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of mysql_configuration"   
+   name = "Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL ..."   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   value = "value of mysql_configuration"   
+   value = "Specifies the value of the MySQL Configuration"   
 }
 
 tfstate_inputs = {

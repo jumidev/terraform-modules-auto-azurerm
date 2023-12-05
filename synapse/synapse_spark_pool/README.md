@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_spark_pool"   
+   name = "The name which should be used for this Synapse Spark Pool..."   
    # synapse_workspace_id → set in tfstate_inputs
-   node_size_family = "node_size_family of synapse_spark_pool"   
-   node_size = "node_size of synapse_spark_pool"   
+   node_size_family = "The kind of nodes that the Spark Pool provides"   
+   node_size = "The level of node in the Spark Pool"   
 }
 
 tfstate_inputs = {

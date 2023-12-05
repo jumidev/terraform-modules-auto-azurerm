@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of arc_kubernetes_cluster"   
+   name = "Specifies the name which should be used for this Arc Kubernetes Cluster..."   
    resource_group_name = "${resource_group}"   
-   agent_public_key_certificate = "agent_public_key_certificate of arc_kubernetes_cluster"   
+   agent_public_key_certificate = "Specifies the base64-encoded public certificate used by the agent to do the init..."   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
    location = "${location}"   

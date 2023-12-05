@@ -11,21 +11,18 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_custom_domain"   
+   name = "The name which should be used for this Front Door Custom Domain..."   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
-   host_name = "host_name of cdn_frontdoor_custom_domain"   
+   host_name = "The host name of the domain"   
    tls = {
-      this_tls = {
-         # cdn_frontdoor_secret_id → set in tfstate_inputs
-      }
-      
+      # cdn_frontdoor_secret_id → (optional) set in tfstate_inputs
    }
    
 }
 
 tfstate_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
-   tls.this_tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id"   
+   tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id"   
 }
 
 tfstate_store = {

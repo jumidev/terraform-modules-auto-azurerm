@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of orbital_contact"   
-   spacecraft_id = "spacecraft_id of orbital_contact"   
-   reservation_start_time = "reservation_start_time of orbital_contact"   
-   reservation_end_time = "reservation_end_time of orbital_contact"   
-   ground_station_name = "ground_station_name of orbital_contact"   
-   contact_profile_id = "contact_profile_id of orbital_contact"   
+   name = "The name of the Contact"   
+   spacecraft_id = "The ID of the spacecraft which the contact will be made to..."   
+   reservation_start_time = "Reservation start time of the Contact"   
+   reservation_end_time = "Reservation end time of the Contact"   
+   ground_station_name = "Name of the Azure ground station"   
+   contact_profile_id = "ID of the orbital contact profile"   
 }
 
 tfstate_store = {

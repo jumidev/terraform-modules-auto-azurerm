@@ -11,21 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of network_function_collector_policy"   
-   traffic_collector_id = "traffic_collector_id of network_function_collector_policy"   
+   name = "Specifies the name which should be used for this Network Function Collector Poli..."   
+   traffic_collector_id = "Specifies the Azure Traffic Collector ID of the Network Function Collector Polic..."   
    location = "${location}"   
    ipfx_emission = {
-      this_ipfx_emission = {
-         destination_types = "..."         
-      }
-      
+      destination_types = "..."      
    }
    
    ipfx_ingestion = {
-      this_ipfx_ingestion = {
-         source_resource_ids = "..."         
-      }
-      
+      source_resource_ids = "..."      
    }
    
 }
@@ -54,17 +48,17 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **tags** | map |  A mapping of tags which should be assigned to the Network Function Collector Policy. | 
 
-### `ipfx_ingestion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `source_resource_ids` | list | Yes | - | A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created. |
-
 ### `ipfx_emission` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `destination_types` | list | Yes | - | A list of emission destination types. The only possible value is 'AzureMonitor'. Changing this forces a new Network Function Collector Policy to be created. |
+
+### `ipfx_ingestion` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_resource_ids` | list | Yes | - | A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created. |
 
 
 

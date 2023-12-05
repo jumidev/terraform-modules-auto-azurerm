@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of web_pubsub_custom_domain"   
-   domain_name = "domain_name of web_pubsub_custom_domain"   
+   name = "Specifies the name of the Web PubSub Custom Domain"   
+   domain_name = "Specifies the custom domain name of the Web PubSub Custom Domain..."   
    # web_pubsub_id → set in tfstate_inputs
    # web_pubsub_custom_certificate_id → set in tfstate_inputs
 }

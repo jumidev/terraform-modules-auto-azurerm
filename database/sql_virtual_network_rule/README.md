@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_virtual_network_rule"   
+   name = "The name of the SQL virtual network rule"   
    resource_group_name = "${resource_group}"   
-   server_name = "server_name of sql_virtual_network_rule"   
+   server_name = "The name of the SQL Server to which this SQL virtual network rule will be applie..."   
    # subnet_id → set in tfstate_inputs
 }
 

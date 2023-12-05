@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of logic_app_integration_account"   
+   name = "The name which should be used for this Logic App Integration Account..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of logic_app_integration_account"   
+   sku_name = "The SKU name of the Logic App Integration Account"   
 }
 
 tfstate_store = {

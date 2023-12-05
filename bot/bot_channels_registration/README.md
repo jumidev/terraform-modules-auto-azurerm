@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of bot_channels_registration"   
+   name = "Specifies the name of the Bot Channels Registration..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku = "sku of bot_channels_registration"   
-   microsoft_app_id = "microsoft_app_id of bot_channels_registration"   
+   sku = "The SKU of the Bot Channels Registration"   
+   microsoft_app_id = "The Microsoft Application ID for the Bot Channels Registration..."   
 }
 
 tfstate_store = {

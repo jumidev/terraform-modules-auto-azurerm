@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of mobile_network_slice"   
+   name = "Specifies the name which should be used for this Mobile Network Slice..."   
    # mobile_network_id → set in tfstate_inputs
    location = "${location}"   
    single_network_slice_selection_assistance_information = {
-      this_single_network_slice_selection_assistance_information = {
-         slice_service_type = "..."         
-      }
-      
+      slice_service_type = "..."      
    }
    
 }

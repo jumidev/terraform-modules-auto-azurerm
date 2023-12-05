@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_dataset_binary"   
+   name = "Specifies the name of the Data Factory Binary Dataset..."   
    # data_factory_id → set in tfstate_inputs
-   linked_service_name = "linked_service_name of data_factory_dataset_binary"   
+   linked_service_name = "The Data Factory Linked Service name in which to associate the Binary Dataset wi..."   
 }
 
 tfstate_inputs = {
@@ -50,12 +50,13 @@ tfstate_store = {
 | **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
 
-### `sftp_server_location` block structure
+### `http_server_location` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | The folder path to the file on the SFTP server. |
-| `filename` | string | Yes | - | The filename of the file on the SFTP server. |
+| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
+| `path` | string | Yes | - | The folder path to the file on the web server. |
+| `filename` | string | Yes | - | The filename of the file on the web server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
@@ -70,22 +71,21 @@ tfstate_store = {
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
+### `sftp_server_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | The folder path to the file on the SFTP server. |
+| `filename` | string | Yes | - | The filename of the file on the SFTP server. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
 ### `compression` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'. |
 | `level` | string | No | - | The level of compression. Possible values are 'Fastest' and 'Optimal'. |
-
-### `http_server_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
-| `path` | string | Yes | - | The folder path to the file on the web server. |
-| `filename` | string | Yes | - | The filename of the file on the web server. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
 
 

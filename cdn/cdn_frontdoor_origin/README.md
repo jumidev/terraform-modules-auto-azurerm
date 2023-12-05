@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_origin"   
+   name = "The name which should be used for this Front Door Origin..."   
    # cdn_frontdoor_origin_group_id → set in tfstate_inputs
-   host_name = "host_name of cdn_frontdoor_origin"   
-   certificate_name_check_enabled = "certificate_name_check_enabled of cdn_frontdoor_origin"   
+   host_name = "The IPv4 address, IPv6 address or Domain name of the Origin..."   
+   certificate_name_check_enabled = "Specifies whether certificate name checks are enabled for this origin..."   
 }
 
 tfstate_inputs = {

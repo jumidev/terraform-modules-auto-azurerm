@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   template_name = "template_name of api_management_email_template"   
+   template_name = "The name of the Email Template"   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   subject = "subject of api_management_email_template"   
-   body = "body of api_management_email_template"   
+   subject = "The subject of the Email"   
+   body = "The body of the Email"   
 }
 
 tfstate_inputs = {

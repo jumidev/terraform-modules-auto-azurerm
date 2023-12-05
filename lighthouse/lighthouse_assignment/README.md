@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   scope = "scope of lighthouse_assignment"   
+   scope = "The scope at which the Lighthouse Assignment applies too, such as `/subscription..."   
    # lighthouse_definition_id → set in tfstate_inputs
 }
 

@@ -13,9 +13,9 @@ source = {
 inputs = {
    # app_service_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   certificate_name = "certificate_name of app_service_public_certificate"   
-   certificate_location = "certificate_location of app_service_public_certificate"   
-   blob = "blob of app_service_public_certificate"   
+   certificate_name = "The name of the public certificate"   
+   certificate_location = "The location of the certificate"   
+   blob = "The base64-encoded contents of the certificate"   
 }
 
 tfstate_inputs = {

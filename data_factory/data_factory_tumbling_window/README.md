@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_tumbling_window"   
+   name = "Specifies the name of the Data Factory Tumbling Window Trigger..."   
    # data_factory_id → set in tfstate_inputs
-   frequency = "frequency of data_factory_tumbling_window"   
-   interval = "interval of data_factory_tumbling_window"   
+   frequency = "Specifies the frequency of Tumbling Window"   
+   interval = "Specifies the interval of Tumbling Window"   
    pipeline = {
-      this_pipeline = {
-         name = "..."         
-      }
-      
+      name = "..."      
    }
    
-   start_time = "start_time of data_factory_tumbling_window"   
+   start_time = "Specifies the start time of Tumbling Window, formatted as an RFC3339 string..."   
 }
 
 tfstate_inputs = {
@@ -62,13 +59,6 @@ tfstate_store = {
 | **retry** | [block](#retry-block-structure) |  -  |  -  |  A `retry` block. | 
 | **trigger_dependency** | [block](#trigger_dependency-block-structure) |  -  |  -  |  One or more `trigger_dependency` block. | 
 
-### `pipeline` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
-| `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
-
 ### `retry` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,6 +73,13 @@ tfstate_store = {
 | `offset` | string | No | - | The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency. |
 | `size` | string | No | - | The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss). |
 | `trigger_name` | string | No | - | The dependency trigger name. If not specified, it will use self dependency. |
+
+### `pipeline` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
+| `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
 
 

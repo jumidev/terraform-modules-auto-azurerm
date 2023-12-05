@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of federated_identity_credential"   
+   name = "Specifies the name of this Federated Identity Credential..."   
    resource_group_name = "${resource_group}"   
-   audience = "audience of federated_identity_credential"   
-   issuer = "issuer of federated_identity_credential"   
-   parent_id = "parent_id of federated_identity_credential"   
-   subject = "subject of federated_identity_credential"   
+   audience = "Specifies the audience for this Federated Identity Credential..."   
+   issuer = "Specifies the issuer of this Federated Identity Credential..."   
+   parent_id = "Specifies parent ID of User Assigned Identity for this Federated Identity Creden..."   
+   subject = "Specifies the subject for this Federated Identity Credential..."   
 }
 
 tfstate_store = {

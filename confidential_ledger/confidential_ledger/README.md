@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of confidential_ledger"   
+   name = "Specifies the name of the Confidential Ledger"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    azuread_based_service_principal = {
@@ -23,7 +23,7 @@ inputs = {
       
    }
    
-   ledger_type = "ledger_type of confidential_ledger"   
+   ledger_type = "Specifies the type of Confidential Ledger"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_database"   
+   name = "The name of the database"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # server_name → set in tfstate_inputs

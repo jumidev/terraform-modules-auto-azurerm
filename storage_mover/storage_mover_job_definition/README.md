@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_mover_job_definition"   
+   name = "Specifies the name which should be used for this Storage Mover Job Definition..."   
    # storage_mover_project_id → set in tfstate_inputs
-   source_name = "source_name of storage_mover_job_definition"   
-   target_name = "target_name of storage_mover_job_definition"   
-   copy_mode = "copy_mode of storage_mover_job_definition"   
+   source_name = "Specifies the name of the Storage Mover Source Endpoint..."   
+   target_name = "Specifies the name of the Storage Mover target Endpoint..."   
+   copy_mode = "Specifies the strategy to use for copy"   
 }
 
 tfstate_inputs = {

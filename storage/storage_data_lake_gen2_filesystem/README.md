@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_data_lake_gen2_filesystem"   
+   name = "The name of the Data Lake Gen2 File System which should be created within the St..."   
    # storage_account_id → set in tfstate_inputs
 }
 

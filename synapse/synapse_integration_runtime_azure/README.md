@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_integration_runtime_azure"   
+   name = "The name which should be used for this Synapse Azure Integration Runtime..."   
    # synapse_workspace_id → set in tfstate_inputs
    location = "${location}"   
 }

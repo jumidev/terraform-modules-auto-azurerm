@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of eventhub_cluster"   
+   name = "Specifies the name of the EventHub Cluster resource..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of eventhub_cluster"   
+   sku_name = "The SKU name of the EventHub Cluster"   
 }
 
 tfstate_store = {

@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of logic_app_integration_account_batch_configuration"   
+   name = "The name which should be used for this Logic App Integration Account Batch Confi..."   
    resource_group_name = "${resource_group}"   
-   integration_account_name = "integration_account_name of logic_app_integration_account_batch_configuration"   
-   batch_group_name = "batch_group_name of logic_app_integration_account_batch_configuration"   
+   integration_account_name = "The name of the Logic App Integration Account"   
+   batch_group_name = "The batch group name of the Logic App Integration Batch Configuration..."   
    release_criteria = {
-      this_release_criteria = {
-      }
-      
    }
    
 }
@@ -47,6 +44,23 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **metadata** | string |  A JSON mapping of any Metadata for this Logic App Integration Account Batch Configuration. | 
 
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `hours` | string | No | - | A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered. |
+| `minutes` | int | No | - | A list containing a single item which specifies the Minute interval at which this recurrence should be triggered. |
+| `month_days` | int | No | - | A list of days of the month that the job should execute on. |
+| `monthly` | [block](#monthly-block-structure) | No | - | A 'monthly' block. |
+| `week_days` | string | No | - | A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+
+### `monthly` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekday` | string | Yes | - | The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `week` | string | Yes | - | The occurrence of the week within the month. |
+
 ### `recurrence` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,7 +68,7 @@ tfstate_store = {
 | `frequency` | string | Yes | - | The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'. |
 | `interval` | int | Yes | - | The number of 'frequency's between runs. |
 | `end_time` | string | No | - | The end time of the schedule, formatted as an RFC3339 string. |
-| `schedule` | [block](#recurrence-block-structure) | No | - | A 'schedule' block. |
+| `schedule` | [block](#schedule-block-structure) | No | - | A 'schedule' block. |
 | `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
 | `time_zone` | string | No | - | The timezone of the start/end time. |
 
@@ -64,24 +78,7 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
 | `message_count` | int | No | - | The message count for the Logic App Integration Batch Configuration. |
-| `recurrence` | [block](#release_criteria-block-structure) | No | - | A 'recurrence' block. |
-
-### `monthly` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekday` | string | Yes | - | The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `week` | string | Yes | - | The occurrence of the week within the month. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `hours` | string | No | - | A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered. |
-| `minutes` | int | No | - | A list containing a single item which specifies the Minute interval at which this recurrence should be triggered. |
-| `month_days` | int | No | - | A list of days of the month that the job should execute on. |
-| `monthly` | [block](#schedule-block-structure) | No | - | A 'monthly' block. |
-| `week_days` | string | No | - | A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `recurrence` | [block](#recurrence-block-structure) | No | - | A 'recurrence' block. |
 
 
 

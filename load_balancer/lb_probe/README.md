@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of lb_probe"   
+   name = "Specifies the name of the Probe"   
    # loadbalancer_id → set in tfstate_inputs
-   port = "port of lb_probe"   
+   port = "Port on which the Probe queries the backend endpoint..."   
 }
 
 tfstate_inputs = {

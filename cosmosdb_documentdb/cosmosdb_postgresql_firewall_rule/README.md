@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_postgresql_firewall_rule"   
-   cluster_id = "cluster_id of cosmosdb_postgresql_firewall_rule"   
-   end_ip_address = "end_ip_address of cosmosdb_postgresql_firewall_rule"   
-   start_ip_address = "start_ip_address of cosmosdb_postgresql_firewall_rule"   
+   name = "The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Ru..."   
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster..."   
+   end_ip_address = "The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule..."   
+   start_ip_address = "The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule..."   
 }
 
 tfstate_store = {

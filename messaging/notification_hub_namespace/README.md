@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of notification_hub_namespace"   
+   name = "The name to use for this Notification Hub Namespace..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   namespace_type = "namespace_type of notification_hub_namespace"   
-   sku_name = "sku_name of notification_hub_namespace"   
+   namespace_type = "The Type of Namespace - possible values are `Messaging` or `NotificationHub`..."   
+   sku_name = "The name of the SKU to use for this Notification Hub Namespace..."   
 }
 
 tfstate_store = {

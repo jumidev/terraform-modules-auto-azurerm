@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of communication_service"   
+   name = "The name of the Communication Service resource"   
    resource_group_name = "${resource_group}"   
 }
 

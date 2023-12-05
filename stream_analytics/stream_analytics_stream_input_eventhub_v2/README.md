@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_stream_input_eventhub_v2"   
+   name = "The name of the Stream Input EventHub V2"   
    # stream_analytics_job_id → set in tfstate_inputs
    # eventhub_name → set in tfstate_inputs
-   servicebus_namespace = "servicebus_namespace of stream_analytics_stream_input_eventhub_v2"   
+   servicebus_namespace = "The namespace that is associated with the desired Event Hub, Service Bus Queue, ..."   
    serialization = {
-      this_serialization = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

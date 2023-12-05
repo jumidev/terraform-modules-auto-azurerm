@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_cassandra_keyspace"   
+   name = "Specifies the name of the Cosmos DB Cassandra KeySpace..."   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_cassandra_keyspace"   
+   account_name = "The name of the Cosmos DB Cassandra KeySpace to create the table within..."   
 }
 
 tfstate_store = {

@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of backup_protected_file_share"   
-   source_storage_account_id = "source_storage_account_id of backup_protected_file_share"   
-   source_file_share_name = "source_file_share_name of backup_protected_file_share"   
-   backup_policy_id = "backup_policy_id of backup_protected_file_share"   
+   recovery_vault_name = "Specifies the name of the Recovery Services Vault to use..."   
+   source_storage_account_id = "Specifies the ID of the storage account of the file share to backup..."   
+   source_file_share_name = "Specifies the name of the file share to backup"   
+   backup_policy_id = "Specifies the ID of the backup policy to use"   
 }
 
 tfstate_store = {

@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # api_management_id → set in tfstate_inputs
-   certificate_name = "certificate_name of api_management_gateway_certificate_authority"   
-   gateway_name = "gateway_name of api_management_gateway_certificate_authority"   
+   certificate_name = "The name of the API Management Certificate"   
+   gateway_name = "The name of the API Management Gateway"   
 }
 
 tfstate_inputs = {

@@ -11,16 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of private_endpoint"   
+   name = "Specifies the Name of the Private Endpoint"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # subnet_id → set in tfstate_inputs
    private_service_connection = {
-      this_private_service_connection = {
-         name = "..."         
-         is_manual_connection = "..."         
-      }
-      
+      name = "..."      
+      is_manual_connection = "..."      
    }
    
 }

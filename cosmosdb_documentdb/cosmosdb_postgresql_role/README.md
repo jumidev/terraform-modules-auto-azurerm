@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_postgresql_role"   
-   cluster_id = "cluster_id of cosmosdb_postgresql_role"   
-   password = "password of cosmosdb_postgresql_role"   
+   name = "The name which should be used for this Azure Cosmos DB for PostgreSQL Role..."   
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster..."   
+   password = "The password of the Azure Cosmos DB for PostgreSQL Role..."   
 }
 
 tfstate_store = {

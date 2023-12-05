@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_analytics_item"   
+   name = "Specifies the name of the Application Insights Analytics Item..."   
    # application_insights_id → set in tfstate_inputs
-   type = "type of application_insights_analytics_item"   
-   scope = "scope of application_insights_analytics_item"   
-   content = "content of application_insights_analytics_item"   
+   type = "The type of Analytics Item to create"   
+   scope = "The scope for the Analytics Item"   
+   content = "The content for the Analytics Item, for example the query text if `type` is `que..."   
 }
 
 tfstate_inputs = {

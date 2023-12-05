@@ -13,8 +13,8 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   runbook_name = "runbook_name of automation_job_schedule"   
-   schedule_name = "schedule_name of automation_job_schedule"   
+   runbook_name = "The name of a Runbook to link to a Schedule"   
+   schedule_name = "The name of the Schedule"   
 }
 
 tfstate_inputs = {

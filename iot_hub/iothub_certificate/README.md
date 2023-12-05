@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_certificate"   
+   name = "Specifies the name of the IotHub Certificate resource..."   
    resource_group_name = "${resource_group}"   
    # iothub_name → set in tfstate_inputs
-   certificate_content = "certificate_content of iothub_certificate"   
+   certificate_content = "The Base-64 representation of the X509 leaf certificate ..."   
 }
 
 tfstate_inputs = {

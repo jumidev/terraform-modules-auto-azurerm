@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   offer = "offer of marketplace_agreement"   
-   plan = "plan of marketplace_agreement"   
-   publisher = "publisher of marketplace_agreement"   
+   offer = "The Offer of the Marketplace Image"   
+   plan = "The Plan of the Marketplace Image"   
+   publisher = "The Publisher of the Marketplace Image"   
 }
 
 tfstate_store = {

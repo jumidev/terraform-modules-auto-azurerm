@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # app_service_slot_id → set in tfstate_inputs
-   hostname = "hostname of app_service_slot_custom_hostname_binding"   
+   hostname = "Specifies the Custom Hostname to use for the App Service, example `www..."   
 }
 
 tfstate_inputs = {

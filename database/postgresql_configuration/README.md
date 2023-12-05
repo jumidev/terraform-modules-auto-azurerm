@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of postgresql_configuration"   
+   name = "Specifies the name of the PostgreSQL Configuration, which needs [to be a valid P..."   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   value = "value of postgresql_configuration"   
+   value = "Specifies the value of the PostgreSQL Configuration..."   
 }
 
 tfstate_inputs = {

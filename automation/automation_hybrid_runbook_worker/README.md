@@ -13,9 +13,9 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   worker_group_name = "worker_group_name of automation_hybrid_runbook_worker"   
-   worker_id = "worker_id of automation_hybrid_runbook_worker"   
-   vm_resource_id = "vm_resource_id of automation_hybrid_runbook_worker"   
+   worker_group_name = "The name of the HybridWorker Group"   
+   worker_id = "Specify the ID of this HybridWorker in UUID notation..."   
+   vm_resource_id = "The ID of the virtual machine used for this HybridWorker..."   
 }
 
 tfstate_inputs = {

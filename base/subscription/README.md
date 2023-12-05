@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   subscription_name = "subscription_name of subscription"   
+   subscription_name = "The Name of the Subscription"   
 }
 
 tfstate_store = {

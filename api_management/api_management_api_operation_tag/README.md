@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # api_operation_id → set in tfstate_inputs
-   name = "name of api_management_api_operation_tag"   
-   display_name = "display_name of api_management_api_operation_tag"   
+   name = "The name which should be used for this API Management API Operation Tag..."   
+   display_name = "The display name of the API Management API Operation Tag..."   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_rule_set"   
+   name = "The name which should be used for this Front Door Rule Set..."   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
 }
 

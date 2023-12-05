@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of role_definition"   
-   scope = "scope of role_definition"   
+   name = "The name of the Role Definition"   
+   scope = "The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6..."   
 }
 
 tfstate_store = {

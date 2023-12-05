@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of arc_resource_bridge_appliance"   
+   name = "The Name which should be used for this Arc Resource Bridge Appliance..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   distro = "distro of arc_resource_bridge_appliance"   
+   distro = "Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Applian..."   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
-   infrastructure_provider = "infrastructure_provider of arc_resource_bridge_appliance"   
+   infrastructure_provider = "The infrastructure provider about the connected Arc Resource Bridge Appliance..."   
 }
 
 tfstate_store = {

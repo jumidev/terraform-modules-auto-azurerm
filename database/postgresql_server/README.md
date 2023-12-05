@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of postgresql_server"   
+   name = "Specifies the name of the PostgreSQL Server"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of postgresql_server"   
-   version = "version of postgresql_server"   
-   ssl_enforcement_enabled = "ssl_enforcement_enabled of postgresql_server"   
+   sku_name = "Specifies the SKU Name for this PostgreSQL Server"   
+   version = "Specifies the version of PostgreSQL to use"   
+   ssl_enforcement_enabled = "Specifies if SSL should be enforced on connections"   
 }
 
 tfstate_store = {

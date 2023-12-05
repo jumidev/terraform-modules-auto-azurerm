@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_connection_service_principal"   
+   name = "Specifies the name of the Connection"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   application_id = "application_id of automation_connection_service_principal"   
-   certificate_thumbprint = "certificate_thumbprint of automation_connection_service_principal"   
+   application_id = "The (Client) ID of the Service Principal"   
+   certificate_thumbprint = "The thumbprint of the Service Principal Certificate..."   
    # subscription_id → set in tfstate_inputs
    # tenant_id → set in tfstate_inputs
 }

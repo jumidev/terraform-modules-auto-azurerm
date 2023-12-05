@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_scheduled_query_rules_log"   
+   name = "The name of the scheduled query rule"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    criteria = {
-      this_criteria = {
-         dimension = "..."         
-         metric_name = "..."         
-      }
-      
+      dimension = "..."      
+      metric_name = "..."      
    }
    
-   data_source_id = "data_source_id of monitor_scheduled_query_rules_log"   
+   data_source_id = "The resource URI over which log search query is to be run..."   
 }
 
 tfstate_store = {
@@ -56,7 +53,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dimension` | [block](#criteria-block-structure) | Yes | - | A 'dimension' block. |
+| `dimension` | [block](#dimension-block-structure) | Yes | - | A 'dimension' block. |
 | `metric_name` | string | Yes | - | Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace. |
 
 ### `dimension` block structure

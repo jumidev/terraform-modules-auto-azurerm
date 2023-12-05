@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of database_migration_project"   
-   service_name = "service_name of database_migration_project"   
+   name = "Specify the name of the database migration project"   
+   service_name = "Name of the database migration service where resource belongs to..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   source_platform = "source_platform of database_migration_project"   
-   target_platform = "target_platform of database_migration_project"   
+   source_platform = "The platform type of the migration source"   
+   target_platform = "The platform type of the migration target"   
 }
 
 tfstate_store = {

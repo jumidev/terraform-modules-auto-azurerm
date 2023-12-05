@@ -11,22 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of video_analyzer"   
+   name = "Specifies the name of the Video Analyzer"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    storage_account = {
-      this_storage_account = {
-         user_assigned_identity_id = "..."         
-      }
-      
+      user_assigned_identity_id = "..."      
    }
    
    identity = {
-      this_identity = {
-         type = "..."         
-         identity_ids = "..."         
-      }
-      
+      type = "..."      
+      identity_ids = "..."      
    }
    
 }

@@ -13,7 +13,7 @@ source = {
 inputs = {
    # container_registry_name → set in tfstate_inputs
    location = "${location}"   
-   name = "name of container_registry_agent_pool"   
+   name = "The name which should be used for this Azure Container Registry Agent Pool..."   
    resource_group_name = "${resource_group}"   
 }
 

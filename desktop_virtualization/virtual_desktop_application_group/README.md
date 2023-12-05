@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_desktop_application_group"   
+   name = "The name of the Virtual Desktop Application Group"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   type = "type of virtual_desktop_application_group"   
-   host_pool_id = "host_pool_id of virtual_desktop_application_group"   
+   type = "Type of Virtual Desktop Application Group"   
+   host_pool_id = "Resource ID for a Virtual Desktop Host Pool to associate with the Virtual Deskto..."   
 }
 
 tfstate_store = {

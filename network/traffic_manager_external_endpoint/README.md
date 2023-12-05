@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of traffic_manager_external_endpoint"   
-   profile_id = "profile_id of traffic_manager_external_endpoint"   
-   target = "target of traffic_manager_external_endpoint"   
+   name = "The name of the External Endpoint"   
+   profile_id = "The ID of the Traffic Manager Profile that this External Endpoint should be crea..."   
+   target = "The FQDN DNS name of the target"   
 }
 
 tfstate_store = {

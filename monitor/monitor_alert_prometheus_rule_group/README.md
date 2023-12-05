@@ -11,17 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_alert_prometheus_rule_group"   
+   name = "Specifies the name which should be used for this Alert Management Prometheus Rul..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
    rule = {
-      this_rule = {
-         expression = "..."         
-      }
-      
+      expression = "..."      
    }
    
-   scopes = "scopes of monitor_alert_prometheus_rule_group"   
+   scopes = "Specifies the resource ID of the Azure Monitor Workspace..."   
 }
 
 tfstate_store = {
@@ -70,7 +67,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action` | [block](#rule-block-structure) | No | - | An 'action' block. |
+| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
 | `alert` | string | No | - | Specifies the Alert rule name. |
 | `annotations` | string | No | - | Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. |
 | `enabled` | string | No | - | Is this rule enabled? Possible values are 'true' and 'false'. |
@@ -78,7 +75,7 @@ tfstate_store = {
 | `for` | string | No | - | Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format. |
 | `labels` | string | No | - | Specifies the labels to add or overwrite before storing the result. |
 | `record` | string | No | - | Specifies the recorded metrics name. |
-| `alert_resolution` | [block](#rule-block-structure) | No | - | An 'alert_resolution' block. |
+| `alert_resolution` | [block](#alert_resolution-block-structure) | No | - | An 'alert_resolution' block. |
 | `severity` | string | No | - | Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4. |
 
 

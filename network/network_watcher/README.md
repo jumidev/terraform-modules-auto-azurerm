@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_watcher"   
+   name = "The name of the Network Watcher"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

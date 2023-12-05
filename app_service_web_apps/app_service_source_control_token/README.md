@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   type = "type of app_service_source_control_token"   
-   token = "token of app_service_source_control_token"   
+   type = "The source control type"   
+   token = "The OAuth access token"   
 }
 
 tfstate_store = {

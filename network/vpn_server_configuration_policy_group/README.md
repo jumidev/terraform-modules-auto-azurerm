@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of vpn_server_configuration_policy_group"   
+   name = "The Name which should be used for this VPN Server Configuration Policy Group..."   
    # vpn_server_configuration_id → set in tfstate_inputs
-   policy = "policy of vpn_server_configuration_policy_group"   
+   policy = "One or more `policy` blocks"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of log_analytics_workspace"   
+   name = "Specifies the name of the Log Analytics Workspace"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

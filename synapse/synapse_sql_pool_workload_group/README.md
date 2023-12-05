@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_sql_pool_workload_group"   
-   sql_pool_id = "sql_pool_id of synapse_sql_pool_workload_group"   
-   max_resource_percent = "max_resource_percent of synapse_sql_pool_workload_group"   
-   min_resource_percent = "min_resource_percent of synapse_sql_pool_workload_group"   
+   name = "The name which should be used for this Synapse SQL Pool Workload Group..."   
+   sql_pool_id = "The ID of the Synapse SQL Pool"   
+   max_resource_percent = "The workload group cap percentage resource"   
+   min_resource_percent = "The workload group minimum percentage resource"   
 }
 
 tfstate_store = {

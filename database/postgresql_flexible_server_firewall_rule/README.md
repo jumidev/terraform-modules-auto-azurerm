@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of postgresql_flexible_server_firewall_rule"   
+   name = "The name which should be used for this PostgreSQL Flexible Server Firewall Rule..."   
    # server_id → set in tfstate_inputs
-   start_ip_address = "start_ip_address of postgresql_flexible_server_firewall_rule"   
-   end_ip_address = "end_ip_address of postgresql_flexible_server_firewall_rule"   
+   start_ip_address = "The Start IP Address associated with this PostgreSQL Flexible Server Firewall Ru..."   
+   end_ip_address = "The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule..."   
 }
 
 tfstate_inputs = {

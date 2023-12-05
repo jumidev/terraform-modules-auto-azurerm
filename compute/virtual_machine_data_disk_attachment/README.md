@@ -13,8 +13,8 @@ source = {
 inputs = {
    # virtual_machine_id → set in tfstate_inputs
    # managed_disk_id → set in tfstate_inputs
-   lun = "lun of virtual_machine_data_disk_attachment"   
-   caching = "caching of virtual_machine_data_disk_attachment"   
+   lun = "The Logical Unit Number of the Data Disk, which needs to be unique within the Vi..."   
+   caching = "Specifies the caching requirements for this Data Disk..."   
 }
 
 tfstate_inputs = {

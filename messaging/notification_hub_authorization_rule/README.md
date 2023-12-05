@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of notification_hub_authorization_rule"   
+   name = "The name to use for this Authorization Rule"   
    # notification_hub_name → set in tfstate_inputs
    # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   custom_hostname_binding_id = "custom_hostname_binding_id of app_service_managed_certificate"   
+   custom_hostname_binding_id = "The ID of the App Service Custom Hostname Binding for the Certificate..."   
 }
 
 tfstate_store = {

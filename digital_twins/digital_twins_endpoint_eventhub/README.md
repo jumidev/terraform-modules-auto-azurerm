@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of digital_twins_endpoint_eventhub"   
-   digital_twins_id = "digital_twins_id of digital_twins_endpoint_eventhub"   
-   eventhub_primary_connection_string = "eventhub_primary_connection_string of digital_twins_endpoint_eventhub"   
-   eventhub_secondary_connection_string = "eventhub_secondary_connection_string of digital_twins_endpoint_eventhub"   
+   name = "The name which should be used for this Digital Twins Event Hub Endpoint..."   
+   digital_twins_id = "The resource ID of the Digital Twins Instance"   
+   eventhub_primary_connection_string = "The primary connection string of the Event Hub Authorization Rule with a minimum..."   
+   eventhub_secondary_connection_string = "The secondary connection string of the Event Hub Authorization Rule with a minim..."   
 }
 
 tfstate_store = {

@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   deployment_mode = "deployment_mode of resource_group_template_deployment"   
-   name = "name of resource_group_template_deployment"   
+   deployment_mode = "The Deployment Mode for this Resource Group Template Deployment..."   
+   name = "The name which should be used for this Resource Group Template Deployment..."   
    resource_group_name = "${resource_group}"   
 }
 

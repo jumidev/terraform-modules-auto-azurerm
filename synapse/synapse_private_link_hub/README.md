@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_private_link_hub"   
+   name = "The name which should be used for this Synapse Private Link Hub..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   principal_id = "principal_id of role_assignment_marketplace"   
+   principal_id = "The ID of the Principal (User, Group or Service Principal) to assign the Role De..."   
 }
 
 tfstate_store = {

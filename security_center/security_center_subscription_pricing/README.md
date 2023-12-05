@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   tier = "tier of security_center_subscription_pricing"   
+   tier = "The pricing tier to use"   
 }
 
 tfstate_store = {

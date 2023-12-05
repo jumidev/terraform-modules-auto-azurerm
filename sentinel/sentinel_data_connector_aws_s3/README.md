@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_data_connector_aws_s3"   
+   name = "The name which should be used for this AWS S3 Data Connector..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   aws_role_arn = "aws_role_arn of sentinel_data_connector_aws_s3"   
-   destination_table = "destination_table of sentinel_data_connector_aws_s3"   
-   sqs_urls = "sqs_urls of sentinel_data_connector_aws_s3"   
+   aws_role_arn = "The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connecto..."   
+   destination_table = "The name of the Log Analytics table that will store the ingested data..."   
+   sqs_urls = "Specifies a list of AWS SQS urls for the AWS S3 Data Connector..."   
 }
 
 tfstate_inputs = {

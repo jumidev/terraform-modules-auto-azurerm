@@ -11,20 +11,17 @@ source = {
 }
 
 inputs = {
-   name = "name of shared_image"   
+   name = "Specifies the name of the Shared Image"   
    # gallery_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    identifier = {
-      this_identifier = {
-         offer = "..."         
-         publisher = "..."         
-         sku = "..."         
-      }
-      
+      offer = "..."      
+      publisher = "..."      
+      sku = "..."      
    }
    
-   os_type = "os_type of shared_image"   
+   os_type = "The type of Operating System present in this Shared Image..."   
 }
 
 tfstate_inputs = {

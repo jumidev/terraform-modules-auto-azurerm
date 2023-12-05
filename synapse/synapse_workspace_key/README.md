@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   customer_managed_key_name = "customer_managed_key_name of synapse_workspace_key"   
+   customer_managed_key_name = "Specifies the name of the workspace key"   
    # synapse_workspace_id → set in tfstate_inputs
-   active = "active of synapse_workspace_key"   
+   active = "Specifies if the workspace should be encrypted with this key..."   
 }
 
 tfstate_inputs = {

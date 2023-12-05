@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    # log_analytics_workspace_id → set in tfstate_inputs
-   name = "name of sentinel_data_connector_threat_intelligence_taxii"   
-   display_name = "display_name of sentinel_data_connector_threat_intelligence_taxii"   
-   api_root_url = "api_root_url of sentinel_data_connector_threat_intelligence_taxii"   
-   collection_id = "collection_id of sentinel_data_connector_threat_intelligence_taxii"   
+   name = "The name which should be used for this Threat Intelligence TAXII Data Connector..."   
+   display_name = "The friendly name which should be used for this Threat Intelligence TAXII Data C..."   
+   api_root_url = "The API root URI of the TAXII server"   
+   collection_id = "The collection ID of the TAXII server"   
 }
 
 tfstate_inputs = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of netapp_snapshot"   
+   name = "The name of the NetApp Snapshot"   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of netapp_snapshot"   
-   pool_name = "pool_name of netapp_snapshot"   
-   volume_name = "volume_name of netapp_snapshot"   
+   account_name = "The name of the NetApp account in which the NetApp Pool should be created..."   
+   pool_name = "The name of the NetApp pool in which the NetApp Volume should be created..."   
+   volume_name = "The name of the NetApp volume in which the NetApp Snapshot should be created..."   
    location = "${location}"   
 }
 

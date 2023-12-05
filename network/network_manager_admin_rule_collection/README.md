@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_admin_rule_collection"   
-   security_admin_configuration_id = "security_admin_configuration_id of network_manager_admin_rule_collection"   
-   network_group_ids = "network_group_ids of network_manager_admin_rule_collection"   
+   name = "Specifies the name which should be used for this Network Manager Admin Rule Coll..."   
+   security_admin_configuration_id = "Specifies the ID of the Network Manager Security Admin Configuration..."   
+   network_group_ids = "A list of Network Group ID which this Network Manager Admin Rule Collection appl..."   
 }
 
 tfstate_store = {

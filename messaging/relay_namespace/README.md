@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of relay_namespace"   
+   name = "Specifies the name of the Azure Relay Namespace"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of relay_namespace"   
+   sku_name = "The name of the SKU to use"   
 }
 
 tfstate_store = {

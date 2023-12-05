@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # api_management_id → set in tfstate_inputs
-   name = "name of api_management_tag"   
+   name = "The name which should be used for this API Management Tag..."   
 }
 
 tfstate_inputs = {

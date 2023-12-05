@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_dps_certificate"   
+   name = "Specifies the name of the Iot Device Provisioning Service Certificate resource..."   
    resource_group_name = "${resource_group}"   
-   iot_dps_name = "iot_dps_name of iothub_dps_certificate"   
-   certificate_content = "certificate_content of iothub_dps_certificate"   
+   iot_dps_name = "The name of the IoT Device Provisioning Service that this certificate will be at..."   
+   certificate_content = "The Base-64 representation of the X509 leaf certificate ..."   
 }
 
 tfstate_store = {

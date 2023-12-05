@@ -13,9 +13,6 @@ source = {
 inputs = {
    # web_pubsub_id → set in tfstate_inputs
    public_network = {
-      this_public_network = {
-      }
-      
    }
    
 }
@@ -46,19 +43,19 @@ tfstate_store = {
 | **default_action** | string |  `Deny`  |  `Allow`, `Deny`  |  The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`. Defaults to `Deny`. | 
 | **private_endpoint** | [block](#private_endpoint-block-structure) |  -  |  -  |  A `private_endpoint` block. | 
 
-### `public_network` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_request_types` | string | No | - | The allowed request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
-| `denied_request_types` | string | No | - | The denied request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
-
 ### `private_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_request_types` | string | No | - | The allowed request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
 | `denied_request_types` | string | No | - | The denied request types for the Private Endpoint Connection. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
+
+### `public_network` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_request_types` | string | No | - | The allowed request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
+| `denied_request_types` | string | No | - | The denied request types for the public network. Possible values are 'ClientConnection', 'ServerConnection', 'RESTAPI' and 'Trace'. |
 
 
 

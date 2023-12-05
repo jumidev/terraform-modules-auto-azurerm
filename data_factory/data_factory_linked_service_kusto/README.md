@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_kusto"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   kusto_endpoint = "kusto_endpoint of data_factory_linked_service_kusto"   
+   kusto_endpoint = "The URI of the Kusto Cluster endpoint"   
    # kusto_database_name → set in tfstate_inputs
 }
 

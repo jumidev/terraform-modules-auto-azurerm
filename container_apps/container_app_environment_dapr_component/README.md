@@ -12,9 +12,9 @@ source = {
 
 inputs = {
    # container_app_environment_id → set in tfstate_inputs
-   name = "name of container_app_environment_dapr_component"   
-   component_type = "component_type of container_app_environment_dapr_component"   
-   version = "version of container_app_environment_dapr_component"   
+   name = "The name for this Dapr component"   
+   component_type = "The Dapr Component Type"   
+   version = "The version of the component"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of static_site"   
+   name = "The name which should be used for this Static Web App..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
 }

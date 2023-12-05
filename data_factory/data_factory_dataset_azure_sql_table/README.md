@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_dataset_azure_sql_table"   
+   name = "Specifies the name of the Data Factory Dataset Azure SQL Table..."   
    # data_factory_id → set in tfstate_inputs
-   linked_service_id = "linked_service_id of data_factory_dataset_azure_sql_table"   
+   linked_service_id = "The Data Factory Linked Service ID in which to associate the Dataset with..."   
 }
 
 tfstate_inputs = {

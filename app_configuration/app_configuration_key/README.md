@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   configuration_store_id = "configuration_store_id of app_configuration_key"   
-   key = "key of app_configuration_key"   
+   configuration_store_id = "Specifies the id of the App Configuration"   
+   key = "The name of the App Configuration Key to create"   
 }
 
 tfstate_store = {

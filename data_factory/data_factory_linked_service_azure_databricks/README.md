@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   adb_domain = "adb_domain of data_factory_linked_service_azure_databricks"   
+   adb_domain = "The domain URL of the databricks instance"   
    # data_factory_id → set in tfstate_inputs
-   name = "name of data_factory_linked_service_azure_databricks"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
 }
 
 tfstate_inputs = {

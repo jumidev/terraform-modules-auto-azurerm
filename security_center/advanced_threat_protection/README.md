@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # target_resource_id → set in tfstate_inputs
-   enabled = "enabled of advanced_threat_protection"   
+   enabled = "Should Advanced Threat Protection be enabled on this resource?..."   
 }
 
 tfstate_inputs = {

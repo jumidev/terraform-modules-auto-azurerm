@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of express_route_port"   
+   name = "The name which should be used for this Express Route Port..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bandwidth_in_gbps = "bandwidth_in_gbps of express_route_port"   
-   encapsulation = "encapsulation of express_route_port"   
-   peering_location = "peering_location of express_route_port"   
+   bandwidth_in_gbps = "Bandwidth of the Express Route Port in Gbps"   
+   encapsulation = "The encapsulation method used for the Express Route Port..."   
+   peering_location = "The name of the peering location that this Express Route Port is physically mapp..."   
 }
 
 tfstate_store = {

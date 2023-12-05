@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # mssql_server_id → set in tfstate_inputs
-   name = "name of mssql_server_dns_alias"   
+   name = "The name which should be used for this MSSQL Server DNS Alias..."   
 }
 
 tfstate_inputs = {

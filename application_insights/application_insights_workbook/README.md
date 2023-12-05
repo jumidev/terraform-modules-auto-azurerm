@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_workbook"   
+   name = "Specifies the name of this Workbook as a UUID/GUID"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   display_name = "display_name of application_insights_workbook"   
-   data_json = "data_json of application_insights_workbook"   
+   display_name = "Specifies the user-defined name (display name) of the workbook..."   
+   data_json = "Configuration of this particular workbook"   
 }
 
 tfstate_store = {

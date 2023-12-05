@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of route_table"   
+   name = "The name of the route table"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

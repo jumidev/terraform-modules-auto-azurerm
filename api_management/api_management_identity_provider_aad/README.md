@@ -13,9 +13,9 @@ source = {
 inputs = {
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   client_id = "client_id of api_management_identity_provider_aad"   
-   client_secret = "client_secret of api_management_identity_provider_aad"   
-   allowed_tenants = "allowed_tenants of api_management_identity_provider_aad"   
+   client_id = "Client Id of the Application in the AAD Identity Provider..."   
+   client_secret = "Client secret of the Application in the AAD Identity Provider..."   
+   allowed_tenants = "List of allowed AAD Tenants"   
 }
 
 tfstate_inputs = {

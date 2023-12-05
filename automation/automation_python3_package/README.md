@@ -13,8 +13,8 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   name = "name of automation_python3_package"   
-   content_uri = "content_uri of automation_python3_package"   
+   name = "The name which should be used for this Automation Python3 Package..."   
+   content_uri = "The URL of the python package"   
 }
 
 tfstate_inputs = {

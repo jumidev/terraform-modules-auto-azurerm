@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_connection_type"   
+   name = "The name which should be used for this Automation Connection Type..."   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
    field = {

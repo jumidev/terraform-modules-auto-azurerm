@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_managed_private_endpoint"   
+   name = "The name which should be used for this Stream Analytics Managed Private Endpoint..."   
    resource_group_name = "${resource_group}"   
    # stream_analytics_cluster_name → set in tfstate_inputs
    # target_resource_id → set in tfstate_inputs
-   subresource_name = "subresource_name of stream_analytics_managed_private_endpoint"   
+   subresource_name = "Specifies the sub resource name which the Stream Analytics Private Endpoint is a..."   
 }
 
 tfstate_inputs = {

@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_web_test"   
+   name = "Specifies the name of the Application Insights WebTest..."   
    resource_group_name = "${resource_group}"   
    # application_insights_id → set in tfstate_inputs
    location = "${location}"   
-   kind = "kind of application_insights_web_test"   
-   geo_locations = "geo_locations of application_insights_web_test"   
-   configuration = "configuration of application_insights_web_test"   
+   kind = "The kind of web test that this web test watches"   
+   geo_locations = "A list of where to physically run the tests from to give global coverage for acc..."   
+   configuration = "An XML configuration specification for a WebTest ([see here for more information..."   
 }
 
 tfstate_inputs = {

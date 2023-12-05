@@ -13,7 +13,7 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "bot_name of bot_channel_ms_teams"   
+   bot_name = "The name of the Bot Resource this channel will be associated with..."   
 }
 
 tfstate_store = {

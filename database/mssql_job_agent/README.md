@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_job_agent"   
+   name = "The name which should be used for this Elastic Job Agent..."   
    location = "${location}"   
    # database_id → set in tfstate_inputs
 }

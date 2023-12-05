@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # automation_account_name → set in tfstate_inputs
-   name = "name of automation_hybrid_runbook_worker_group"   
+   name = "The name which should be used for this Automation Account Runbook Worker Group..."   
    resource_group_name = "${resource_group}"   
 }
 

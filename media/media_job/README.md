@@ -12,14 +12,11 @@ source = {
 
 inputs = {
    input_asset = {
-      this_input_asset = {
-         name = "..."         
-      }
-      
+      name = "..."      
    }
    
    # media_services_account_name → set in tfstate_inputs
-   name = "name of media_job"   
+   name = "The name which should be used for this Media Job"   
    output_asset = {
       this_output_asset = {
          name = "..."         
@@ -28,7 +25,7 @@ inputs = {
    }
    
    resource_group_name = "${resource_group}"   
-   transform_name = "transform_name of media_job"   
+   transform_name = "The Transform name"   
 }
 
 tfstate_inputs = {

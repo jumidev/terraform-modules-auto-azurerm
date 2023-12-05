@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   api_tag_id = "api_tag_id of api_management_api_tag_description"   
+   api_tag_id = "The The ID of the API Management API Tag"   
 }
 
 tfstate_store = {

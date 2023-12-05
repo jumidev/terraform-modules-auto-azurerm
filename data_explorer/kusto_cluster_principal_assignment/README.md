@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_cluster_principal_assignment"   
+   name = "The name of the Kusto cluster principal assignment"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "cluster_name of kusto_cluster_principal_assignment"   
-   principal_id = "principal_id of kusto_cluster_principal_assignment"   
-   principal_type = "principal_type of kusto_cluster_principal_assignment"   
-   role = "role of kusto_cluster_principal_assignment"   
+   cluster_name = "The name of the cluster in which to create the resource..."   
+   principal_id = "The object id of the principal"   
+   principal_type = "The type of the principal"   
+   role = "The cluster role assigned to the principal"   
    # tenant_id → set in tfstate_inputs
 }
 

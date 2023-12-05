@@ -11,23 +11,20 @@ source = {
 }
 
 inputs = {
-   name = "name of bastion_host"   
+   name = "Specifies the name of the Bastion Host"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    ip_configuration = {
-      primary = {
-         name = "..."         
-         # subnet_id → set in tfstate_inputs
-         # public_ip_address_id → set in tfstate_inputs
-      }
-      
+      name = "..."      
+      # subnet_id → set in tfstate_inputs
+      # public_ip_address_id → set in tfstate_inputs
    }
    
 }
 
 tfstate_inputs = {
-   ip_configuration.primary.subnet_id = "path/to/subnet_component:id"   
-   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id"   
+   ip_configuration.subnet_id = "path/to/subnet_component:id"   
+   ip_configuration.public_ip_address_id = "path/to/public_ip_component:id"   
 }
 
 tfstate_store = {

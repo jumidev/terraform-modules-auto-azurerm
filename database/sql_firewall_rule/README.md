@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_firewall_rule"   
+   name = "The name of the firewall rule"   
    resource_group_name = "${resource_group}"   
    # server_name → set in tfstate_inputs
-   start_ip_address = "start_ip_address of sql_firewall_rule"   
-   end_ip_address = "end_ip_address of sql_firewall_rule"   
+   start_ip_address = "The starting IP address to allow through the firewall for this rule..."   
+   end_ip_address = "The ending IP address to allow through the firewall for this rule..."   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_resolver"   
+   name = "Specifies the name which should be used for this Private DNS Resolver..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # virtual_network_id → set in tfstate_inputs

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_azure_function"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   url = "url of data_factory_linked_service_azure_function"   
+   url = "The url of the Azure Function"   
 }
 
 tfstate_inputs = {

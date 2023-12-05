@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of gallery_application"   
+   name = "The name of the Gallery Application"   
    # gallery_id → set in tfstate_inputs
    location = "${location}"   
-   supported_os_type = "supported_os_type of gallery_application"   
+   supported_os_type = "The type of the Operating System supported for the Gallery Application..."   
 }
 
 tfstate_inputs = {

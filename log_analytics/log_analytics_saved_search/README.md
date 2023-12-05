@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of log_analytics_saved_search"   
+   name = "Specifies the name of the Log Analytics Saved Search..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   display_name = "display_name of log_analytics_saved_search"   
-   category = "category of log_analytics_saved_search"   
-   query = "query of log_analytics_saved_search"   
+   display_name = "The name that Saved Search will be displayed as"   
+   category = "The category that the Saved Search will be listed under..."   
+   query = "The query expression for the saved search"   
 }
 
 tfstate_inputs = {

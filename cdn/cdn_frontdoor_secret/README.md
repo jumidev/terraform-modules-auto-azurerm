@@ -11,13 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_secret"   
+   name = "The name which should be used for this Front Door Secret..."   
    # cdn_frontdoor_profile_id → set in tfstate_inputs
    secret = {
-      this_secret = {
-         customer_certificate = "..."         
-      }
-      
+      customer_certificate = "..."      
    }
    
 }
@@ -46,7 +43,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `customer_certificate` | [block](#secret-block-structure) | Yes | - | A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created. |
+| `customer_certificate` | [block](#customer_certificate-block-structure) | Yes | - | A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created. |
 
 ### `customer_certificate` block structure
 

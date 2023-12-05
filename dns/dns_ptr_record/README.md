@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of dns_ptr_record"   
+   name = "The name of the DNS PTR Record"   
    resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
-   ttl = "ttl of dns_ptr_record"   
-   records = "records of dns_ptr_record"   
+   ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
+   records = "List of Fully Qualified Domain Names"   
 }
 
 tfstate_inputs = {

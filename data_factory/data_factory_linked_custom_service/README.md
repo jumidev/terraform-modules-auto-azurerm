@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_custom_service"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   type = "type of data_factory_linked_custom_service"   
-   type_properties_json = "type_properties_json of data_factory_linked_custom_service"   
+   type = "The type of data stores that will be connected to Data Factory..."   
+   type_properties_json = "A JSON object that contains the properties of the Data Factory Linked Service..."   
 }
 
 tfstate_inputs = {

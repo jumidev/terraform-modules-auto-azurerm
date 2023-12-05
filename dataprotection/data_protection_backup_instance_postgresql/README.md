@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_backup_instance_postgresql"   
+   name = "The name which should be used for this Backup Instance PostgreSQL..."   
    location = "${location}"   
-   vault_id = "vault_id of data_protection_backup_instance_postgresql"   
-   database_id = "database_id of data_protection_backup_instance_postgresql"   
-   backup_policy_id = "backup_policy_id of data_protection_backup_instance_postgresql"   
+   vault_id = "The ID of the Backup Vault within which the PostgreSQL Backup Instance should ex..."   
+   database_id = "The ID of the source database"   
+   backup_policy_id = "The ID of the Backup Policy"   
 }
 
 tfstate_store = {

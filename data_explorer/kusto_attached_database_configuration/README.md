@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_attached_database_configuration"   
+   name = "The name of the Kusto Attached Database Configuration to create..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "cluster_name of kusto_attached_database_configuration"   
-   cluster_resource_id = "cluster_resource_id of kusto_attached_database_configuration"   
-   database_name = "database_name of kusto_attached_database_configuration"   
+   cluster_name = "Specifies the name of the Kusto Cluster for which the configuration will be crea..."   
+   cluster_resource_id = "The resource id of the cluster where the databases you would like to attach resi..."   
+   database_name = "The name of the database which you would like to attach, use * if you want to fo..."   
 }
 
 tfstate_store = {

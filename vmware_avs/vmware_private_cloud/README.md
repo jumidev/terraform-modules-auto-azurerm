@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of vmware_private_cloud"   
+   name = "The name which should be used for this VMware Private Cloud..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    management_cluster = {
-      this_management_cluster = {
-         size = "..."         
-      }
-      
+      size = "..."      
    }
    
-   network_subnet_cidr = "network_subnet_cidr of vmware_private_cloud"   
-   sku_name = "sku_name of vmware_private_cloud"   
+   network_subnet_cidr = "The subnet which should be unique across virtual network in your subscription as..."   
+   sku_name = "The Name of the SKU used for this Private Cloud"   
 }
 
 tfstate_store = {

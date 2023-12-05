@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_named_value"   
+   name = "The name of the API Management Named Value"   
    resource_group_name = "${resource_group}"   
    # api_management_name → set in tfstate_inputs
-   display_name = "display_name of api_management_named_value"   
+   display_name = "The display name of this API Management Named Value..."   
 }
 
 tfstate_inputs = {

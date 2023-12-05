@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_encryption_scope"   
-   source = "source of storage_encryption_scope"   
+   name = "The name which should be used for this Storage Encryption Scope..."   
+   source = "The source of the Storage Encryption Scope"   
    # storage_account_id → set in tfstate_inputs
 }
 

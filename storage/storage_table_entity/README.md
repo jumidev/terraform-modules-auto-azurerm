@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    # storage_account_name → set in tfstate_inputs
-   table_name = "table_name of storage_table_entity"   
-   partition_key = "partition_key of storage_table_entity"   
-   row_key = "row_key of storage_table_entity"   
-   entity = "entity of storage_table_entity"   
+   table_name = "The name of the storage table in which to create the storage table entity..."   
+   partition_key = "The key for the partition where the entity will be inserted/merged..."   
+   row_key = "The key for the row where the entity will be inserted/merged..."   
+   entity = "A map of key/value pairs that describe the entity to be inserted/merged in to th..."   
 }
 
 tfstate_inputs = {

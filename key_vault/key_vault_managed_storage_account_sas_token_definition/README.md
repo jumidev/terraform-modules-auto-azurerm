@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of key_vault_managed_storage_account_sas_token_definition"   
+   name = "The name which should be used for this SAS Definition..."   
    # managed_storage_account_id → set in tfstate_inputs
-   sas_template_uri = "sas_template_uri of key_vault_managed_storage_account_sas_token_definition"   
-   sas_type = "sas_type of key_vault_managed_storage_account_sas_token_definition"   
-   validity_period = "validity_period of key_vault_managed_storage_account_sas_token_definition"   
+   sas_template_uri = "The SAS definition token template signed with an arbitrary key..."   
+   sas_type = "The type of SAS token the SAS definition will create..."   
+   validity_period = "Validity period of SAS token"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   scope = "scope of security_center_workspace"   
+   scope = "The scope of VMs to send their security data to the desired workspace, unless ov..."   
    # workspace_id → set in tfstate_inputs
 }
 

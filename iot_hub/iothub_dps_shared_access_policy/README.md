@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_dps_shared_access_policy"   
+   name = "Specifies the name of the IotHub Shared Access Policy resource..."   
    resource_group_name = "${resource_group}"   
    # iothub_dps_name → set in tfstate_inputs
 }

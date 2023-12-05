@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of attestation_provider"   
+   name = "The name which should be used for this Attestation Provider..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

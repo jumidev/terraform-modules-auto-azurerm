@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of logic_app_action_custom"   
-   logic_app_id = "logic_app_id of logic_app_action_custom"   
-   body = "body of logic_app_action_custom"   
+   name = "Specifies the name of the HTTP Action to be created within the Logic App Workflo..."   
+   logic_app_id = "Specifies the ID of the Logic App Workflow"   
+   body = "Specifies the JSON Blob defining the Body of this Custom Action..."   
 }
 
 tfstate_store = {

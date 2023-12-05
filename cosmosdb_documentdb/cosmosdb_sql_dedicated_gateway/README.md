@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # cosmosdb_account_id → set in tfstate_inputs
-   instance_size = "instance_size of cosmosdb_sql_dedicated_gateway"   
-   instance_count = "instance_count of cosmosdb_sql_dedicated_gateway"   
+   instance_size = "The instance size for the CosmosDB SQL Dedicated Gateway..."   
+   instance_count = "The instance count for the CosmosDB SQL Dedicated Gateway..."   
 }
 
 tfstate_inputs = {

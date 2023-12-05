@@ -13,8 +13,8 @@ source = {
 inputs = {
    # network_manager_id → set in tfstate_inputs
    location = "${location}"   
-   scope_access = "scope_access of network_manager_deployment"   
-   configuration_ids = "configuration_ids of network_manager_deployment"   
+   scope_access = "Specifies the configuration deployment type"   
+   configuration_ids = "A list of Network Manager Configuration IDs which should be aligned with `scope_..."   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_variable_bool"   
+   name = "The name of the Automation Variable"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
 }

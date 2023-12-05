@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of machine_learning_compute_instance"   
+   name = "The name which should be used for this Machine Learning Compute Instance..."   
    location = "${location}"   
    # machine_learning_workspace_id → set in tfstate_inputs
-   virtual_machine_size = "virtual_machine_size of machine_learning_compute_instance"   
+   virtual_machine_size = "The Virtual Machine Size"   
 }
 
 tfstate_inputs = {
@@ -58,19 +58,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
 
-### `assign_to_user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `object_id` | string | No | - | User’s AAD Object Id. |
-| `tenant_id` | string | No | - | User’s AAD Tenant Id. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created. |
+
+### `assign_to_user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `object_id` | string | No | - | User’s AAD Object Id. |
+| `tenant_id` | string | No | - | User’s AAD Tenant Id. |
 
 
 

@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_managed_instance_failover_group"   
+   name = "The name which should be used for this SQL Instance Failover Group..."   
    # managed_instance_name → set in tfstate_inputs
    location = "${location}"   
-   partner_managed_instance_id = "partner_managed_instance_id of sql_managed_instance_failover_group"   
+   partner_managed_instance_id = "ID of the SQL Managed Instance which will be replicated to..."   
    read_write_endpoint_failover_policy = {
-      this_read_write_endpoint_failover_policy = {
-         mode = "..."         
-      }
-      
+      mode = "..."      
    }
    
    resource_group_name = "${resource_group}"   

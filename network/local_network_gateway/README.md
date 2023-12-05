@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of local_network_gateway"   
+   name = "The name of the local network gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

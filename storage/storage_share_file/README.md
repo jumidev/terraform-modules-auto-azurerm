@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_share_file"   
+   name = "The name (or path) of the File that should be created within this File Share..."   
    # storage_share_id → set in tfstate_inputs
 }
 

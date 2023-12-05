@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of managed_application"   
+   name = "Specifies the name of the Managed Application"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   kind = "kind of managed_application"   
-   managed_resource_group_name = "managed_resource_group_name of managed_application"   
+   kind = "The kind of the managed application to deploy"   
+   managed_resource_group_name = "The name of the target resource group where all the resources deployed by the ma..."   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of container_app_environment"   
+   name = "The name of the Container Apps Managed Environment"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

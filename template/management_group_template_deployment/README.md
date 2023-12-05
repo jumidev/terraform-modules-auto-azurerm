@@ -13,7 +13,7 @@ source = {
 inputs = {
    location = "${location}"   
    # management_group_id → set in tfstate_inputs
-   name = "name of management_group_template_deployment"   
+   name = "The name which should be used for this Template Deployment..."   
 }
 
 tfstate_inputs = {

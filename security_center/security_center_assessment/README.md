@@ -11,13 +11,10 @@ source = {
 }
 
 inputs = {
-   assessment_policy_id = "assessment_policy_id of security_center_assessment"   
+   assessment_policy_id = "The ID of the security Assessment policy to apply to this resource..."   
    # target_resource_id → set in tfstate_inputs
    status = {
-      this_status = {
-         code = "..."         
-      }
-      
+      code = "..."      
    }
    
 }

@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_script"   
-   database_id = "database_id of kusto_script"   
+   name = "The name which should be used for this Kusto Script..."   
+   database_id = "The ID of the Kusto Database"   
 }
 
 tfstate_store = {

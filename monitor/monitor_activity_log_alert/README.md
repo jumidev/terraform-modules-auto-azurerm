@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_activity_log_alert"   
+   name = "The name of the activity log alert"   
    resource_group_name = "${resource_group}"   
-   scopes = "scopes of monitor_activity_log_alert"   
+   scopes = "The Scope at which the Activity Log should be applied..."   
    criteria = {
-      this_criteria = {
-         category = "..."         
-      }
-      
+      category = "..."      
    }
    
 }

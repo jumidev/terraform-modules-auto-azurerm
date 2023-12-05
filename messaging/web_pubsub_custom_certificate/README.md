@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of web_pubsub_custom_certificate"   
+   name = "The name of the Web PubSub Custom Certificate"   
    # web_pubsub_id → set in tfstate_inputs
-   custom_certificate_id = "custom_certificate_id of web_pubsub_custom_certificate"   
+   custom_certificate_id = "The certificate ID of the Web PubSub Custom Certificate..."   
 }
 
 tfstate_inputs = {

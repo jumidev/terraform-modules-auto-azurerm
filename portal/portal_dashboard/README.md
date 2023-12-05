@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of portal_dashboard"   
+   name = "Specifies the name of the Shared Dashboard"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   dashboard_properties = "dashboard_properties of portal_dashboard"   
+   dashboard_properties = "JSON data representing dashboard body"   
 }
 
 tfstate_store = {

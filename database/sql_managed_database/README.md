@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_managed_database"   
+   name = "The name of the SQL Managed Instance"   
    # sql_managed_instance_id → set in tfstate_inputs
    location = "${location}"   
 }

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of backup_container_storage_account"   
+   recovery_vault_name = "The name of the vault where the storage account will be registered..."   
    # storage_account_id → set in tfstate_inputs
 }
 

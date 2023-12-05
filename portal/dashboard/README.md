@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of dashboard"   
+   name = "Specifies the name of the Shared Dashboard"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

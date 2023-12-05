@@ -12,9 +12,9 @@ source = {
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   display_name = "display_name of api_management_product"   
-   product_id = "product_id of api_management_product"   
-   published = "published of api_management_product"   
+   display_name = "The Display Name for this API Management Product"   
+   product_id = "The Identifier for this Product, which must be unique within the API Management ..."   
+   published = "Is this Product Published?"   
    resource_group_name = "${resource_group}"   
 }
 

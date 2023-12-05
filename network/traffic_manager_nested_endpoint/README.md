@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   minimum_child_endpoints = "minimum_child_endpoints of traffic_manager_nested_endpoint"   
-   name = "name of traffic_manager_nested_endpoint"   
-   profile_id = "profile_id of traffic_manager_nested_endpoint"   
+   minimum_child_endpoints = "This argument specifies the minimum number of endpoints that must be ‘online’ in..."   
+   name = "The name of the External Endpoint"   
+   profile_id = "The ID of the Traffic Manager Profile that this External Endpoint should be crea..."   
    # target_resource_id → set in tfstate_inputs
 }
 

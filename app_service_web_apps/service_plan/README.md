@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of service_plan"   
+   name = "The name which should be used for this Service Plan..."   
    location = "${location}"   
-   os_type = "os_type of service_plan"   
+   os_type = "The O/S type for the App Services to be hosted in this plan..."   
    resource_group_name = "${resource_group}"   
-   sku_name = "sku_name of service_plan"   
+   sku_name = "The SKU for the plan"   
 }
 
 tfstate_store = {

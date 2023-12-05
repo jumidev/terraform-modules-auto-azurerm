@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_endpoint_storage_container"   
+   name = "The name of the endpoint"   
    resource_group_name = "${resource_group}"   
-   container_name = "container_name of iothub_endpoint_storage_container"   
+   container_name = "The name of storage container in the storage account..."   
    # iothub_id → set in tfstate_inputs
 }
 

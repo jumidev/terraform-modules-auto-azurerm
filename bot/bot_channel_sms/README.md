@@ -13,10 +13,10 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "bot_name of bot_channel_sms"   
-   phone_number = "phone_number of bot_channel_sms"   
-   sms_channel_account_security_id = "sms_channel_account_security_id of bot_channel_sms"   
-   sms_channel_auth_token = "sms_channel_auth_token of bot_channel_sms"   
+   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   phone_number = "The phone number for the SMS Channel"   
+   sms_channel_account_security_id = "The account security identifier (SID) for the SMS Channel..."   
+   sms_channel_auth_token = "The authorization token for the SMS Channel"   
 }
 
 tfstate_store = {

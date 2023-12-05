@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of network_packet_capture"   
+   name = "The name to use for this Network Packet Capture"   
    # network_watcher_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
    # target_resource_id → set in tfstate_inputs
    storage_location = {
-      this_storage_location = {
-         # storage_account_id → set in tfstate_inputs
-      }
-      
+      # storage_account_id → (optional) set in tfstate_inputs
    }
    
 }
@@ -27,7 +24,7 @@ inputs = {
 tfstate_inputs = {
    network_watcher_name = "path/to/network_watcher_component:name"   
    target_resource_id = "path/to/any_resource_component:id"   
-   storage_location.this_storage_location.storage_account_id = "path/to/storage_account_component:id"   
+   storage_location.storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {

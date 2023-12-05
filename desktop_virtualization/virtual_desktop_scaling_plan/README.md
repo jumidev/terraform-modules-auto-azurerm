@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of virtual_desktop_scaling_plan"   
+   name = "The name which should be used for this Virtual Desktop Scaling Plan ..."   
    resource_group_name = "${resource_group}"   
    schedule = {
       this_schedule = {
@@ -36,7 +36,7 @@ inputs = {
       
    }
    
-   time_zone = "time_zone of virtual_desktop_scaling_plan"   
+   time_zone = "Specifies the Time Zone which should be used by the Scaling Plan for time based ..."   
 }
 
 tfstate_store = {

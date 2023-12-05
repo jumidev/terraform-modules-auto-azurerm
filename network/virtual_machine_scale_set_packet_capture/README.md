@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_machine_scale_set_packet_capture"   
+   name = "The name to use for this Network Packet Capture"   
    # network_watcher_id → set in tfstate_inputs
    # virtual_machine_scale_set_id → set in tfstate_inputs
    storage_location = {
-      this_storage_location = {
-         # storage_account_id → set in tfstate_inputs
-      }
-      
+      # storage_account_id → (optional) set in tfstate_inputs
    }
    
 }
@@ -26,7 +23,7 @@ inputs = {
 tfstate_inputs = {
    network_watcher_id = "path/to/network_watcher_component:id"   
    virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id"   
-   storage_location.this_storage_location.storage_account_id = "path/to/storage_account_component:id"   
+   storage_location.storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
@@ -56,6 +53,13 @@ tfstate_store = {
 | **filter** | [block](#filter-block-structure) |  -  |  One or more `filter` blocks. Changing this forces a new resource to be created. | 
 | **machine_scope** | [block](#machine_scope-block-structure) |  -  |  A `machine_scope` block. Changing this forces a new resource to be created. | 
 
+### `machine_scope` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `exclude_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. '['0', '2']'. Changing this forces a new resource to be created. |
+| `include_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. '['1', '3']'. Changing this forces a new resource to be created. |
+
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,13 +76,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `file_path` | string | No | - | A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'. |
 | `storage_account_id` | string | No | - | The ID of the storage account to save the packet capture session |
-
-### `machine_scope` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `exclude_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be excluded from running Packet Capture, e.g. '['0', '2']'. Changing this forces a new resource to be created. |
-| `include_instance_ids` | list | No | - | A list of Virtual Machine Scale Set instance IDs which should be included for Packet Capture, e.g. '['1', '3']'. Changing this forces a new resource to be created. |
 
 
 

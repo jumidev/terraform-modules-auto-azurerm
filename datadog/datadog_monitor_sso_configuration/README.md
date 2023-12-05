@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   datadog_monitor_id = "datadog_monitor_id of datadog_monitor_sso_configuration"   
-   single_sign_on_enabled = "single_sign_on_enabled of datadog_monitor_sso_configuration"   
-   enterprise_application_id = "enterprise_application_id of datadog_monitor_sso_configuration"   
+   datadog_monitor_id = "The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configu..."   
+   single_sign_on_enabled = "The state of SingleSignOn configuration"   
+   enterprise_application_id = "The application Id to perform SSO operation"   
 }
 
 tfstate_store = {

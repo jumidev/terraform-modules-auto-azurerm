@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights"   
+   name = "Specifies the name of the Application Insights component..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   application_type = "application_type of application_insights"   
+   application_type = "Specifies the type of Application Insights to create..."   
 }
 
 tfstate_store = {

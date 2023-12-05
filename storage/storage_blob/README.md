@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_blob"   
+   name = "The name of the storage blob"   
    # storage_account_name → set in tfstate_inputs
    # storage_container_name → set in tfstate_inputs
-   type = "type of storage_blob"   
+   type = "The type of the storage blob to be created"   
 }
 
 tfstate_inputs = {

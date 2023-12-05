@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of lab_service_schedule"   
-   lab_id = "lab_id of lab_service_schedule"   
-   stop_time = "stop_time of lab_service_schedule"   
-   time_zone = "time_zone of lab_service_schedule"   
+   name = "The name which should be used for this Lab Service Schedule..."   
+   lab_id = "The resource ID of the Lab Service Schedule"   
+   stop_time = "When Lab User Virtual Machines will be stopped in RFC-3339 format..."   
+   time_zone = "The IANA Time Zone ID for the Schedule"   
 }
 
 tfstate_store = {

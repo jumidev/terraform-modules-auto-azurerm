@@ -11,19 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_smart_detector_alert_rule"   
+   name = "Specifies the name of the Monitor Smart Detector Alert Rule..."   
    resource_group_name = "${resource_group}"   
-   detector_type = "detector_type of monitor_smart_detector_alert_rule"   
-   scope_resource_ids = "scope_resource_ids of monitor_smart_detector_alert_rule"   
+   detector_type = "Specifies the Built-In Smart Detector type that this alert rule will use..."   
+   scope_resource_ids = "Specifies the scopes of this Smart Detector Alert Rule..."   
    action_group = {
-      this_action_group = {
-         ids = "..."         
-      }
-      
+      ids = "..."      
    }
    
-   severity = "severity of monitor_smart_detector_alert_rule"   
-   frequency = "frequency of monitor_smart_detector_alert_rule"   
+   severity = "Specifies the severity of this Smart Detector Alert Rule..."   
+   frequency = "Specifies the frequency of this Smart Detector Alert Rule in ISO8601 format..."   
 }
 
 tfstate_store = {

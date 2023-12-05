@@ -11,15 +11,15 @@ source = {
 }
 
 inputs = {
-   display_name = "display_name of cost_management_scheduled_action"   
-   email_address_sender = "email_address_sender of cost_management_scheduled_action"   
-   email_addresses = "email_addresses of cost_management_scheduled_action"   
-   email_subject = "email_subject of cost_management_scheduled_action"   
-   end_date = "end_date of cost_management_scheduled_action"   
-   frequency = "frequency of cost_management_scheduled_action"   
-   name = "name of cost_management_scheduled_action"   
-   start_date = "start_date of cost_management_scheduled_action"   
-   view_id = "view_id of cost_management_scheduled_action"   
+   display_name = "User visible input name of the Cost Management Scheduled Action..."   
+   email_address_sender = "Email address of the point of contact that should get the unsubscribe requests o..."   
+   email_addresses = "Specifies a list of email addresses that will receive the Scheduled Action..."   
+   email_subject = "Subject of the email"   
+   end_date = "The end date and time of the Scheduled Action (UTC)..."   
+   frequency = "Frequency of the schedule"   
+   name = "The name which should be used for this Azure Cost Management Scheduled Action..."   
+   start_date = "The start date and time of the Scheduled Action (UTC)..."   
+   view_id = "The ID of the Cost Management View that is used by the Scheduled Action..."   
 }
 
 tfstate_store = {

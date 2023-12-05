@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_standard_environment"   
+   name = "Specifies the name of the Azure IoT Time Series Insights Standard Environment..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of iot_time_series_insights_standard_environment"   
-   data_retention_time = "data_retention_time of iot_time_series_insights_standard_environment"   
+   sku_name = "Specifies the SKU Name for this IoT Time Series Insights Standard Environment..."   
+   data_retention_time = "Specifies the ISO8601 timespan specifying the minimum number of days the environ..."   
 }
 
 tfstate_store = {

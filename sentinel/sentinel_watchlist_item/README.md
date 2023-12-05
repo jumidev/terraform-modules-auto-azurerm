@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   watchlist_id = "watchlist_id of sentinel_watchlist_item"   
-   properties = "properties of sentinel_watchlist_item"   
+   watchlist_id = "The ID of the Sentinel Watchlist that this Item resides in..."   
+   properties = "The key value pairs of the Sentinel Watchlist Item"   
 }
 
 tfstate_store = {

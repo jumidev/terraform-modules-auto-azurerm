@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of synapse_linked_service"   
+   name = "The name which should be used for this Synapse Linked Service..."   
    # synapse_workspace_id → set in tfstate_inputs
-   type = "type of synapse_linked_service"   
-   type_properties_json = "type_properties_json of synapse_linked_service"   
+   type = "The type of data stores that will be connected to Synapse..."   
+   type_properties_json = "A JSON object that contains the properties of the Synapse Linked Service..."   
 }
 
 tfstate_inputs = {

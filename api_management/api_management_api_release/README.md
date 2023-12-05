@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_api_release"   
+   name = "The name which should be used for this API Management API Release..."   
    # api_id → set in tfstate_inputs
 }
 

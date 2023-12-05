@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    # automation_account_id → set in tfstate_inputs
-   name = "name of automation_watcher"   
-   execution_frequency_in_seconds = "execution_frequency_in_seconds of automation_watcher"   
+   name = "The name which should be used for this Automation Watcher..."   
+   execution_frequency_in_seconds = "Specify the frequency at which the watcher is invoked..."   
    location = "${location}"   
-   script_name = "script_name of automation_watcher"   
-   script_run_on = "script_run_on of automation_watcher"   
+   script_name = "Specify the name of an existing runbook this watcher is attached to..."   
+   script_run_on = "Specify the name of the Hybrid work group the watcher will run on..."   
 }
 
 tfstate_inputs = {

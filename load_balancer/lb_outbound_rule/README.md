@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of lb_outbound_rule"   
+   name = "Specifies the name of the Outbound Rule"   
    # loadbalancer_id → set in tfstate_inputs
    # backend_address_pool_id → set in tfstate_inputs
-   protocol = "protocol of lb_outbound_rule"   
+   protocol = "The transport protocol for the external endpoint"   
 }
 
 tfstate_inputs = {

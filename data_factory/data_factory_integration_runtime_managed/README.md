@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_integration_runtime_managed"   
+   name = "Specifies the name of the Managed Integration Runtime..."   
    # data_factory_id → set in tfstate_inputs
    location = "${location}"   
-   node_size = "node_size of data_factory_integration_runtime_managed"   
+   node_size = "The size of the nodes on which the Managed Integration Runtime runs..."   
 }
 
 tfstate_inputs = {

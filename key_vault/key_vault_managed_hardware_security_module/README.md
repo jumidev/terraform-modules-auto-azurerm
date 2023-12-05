@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of key_vault_managed_hardware_security_module"   
+   name = "Specifies the name of the Key Vault Managed Hardware Security Module..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   admin_object_ids = "admin_object_ids of key_vault_managed_hardware_security_module"   
-   sku_name = "sku_name of key_vault_managed_hardware_security_module"   
+   admin_object_ids = "Specifies a list of administrators object IDs for the key vault Managed Hardware..."   
+   sku_name = "The Name of the SKU used for this Key Vault Managed Hardware Security Module..."   
    # tenant_id → set in tfstate_inputs
 }
 

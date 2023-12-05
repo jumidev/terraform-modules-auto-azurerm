@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # synapse_workspace_id → set in tfstate_inputs
-   policy_state = "policy_state of synapse_workspace_security_alert_policy"   
+   policy_state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
 }
 
 tfstate_inputs = {

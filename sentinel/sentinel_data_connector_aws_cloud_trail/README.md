@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   aws_role_arn = "aws_role_arn of sentinel_data_connector_aws_cloud_trail"   
+   aws_role_arn = "The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Da..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   name = "name of sentinel_data_connector_aws_cloud_trail"   
+   name = "The name which should be used for this AWS CloudTrail Data Connector..."   
 }
 
 tfstate_inputs = {

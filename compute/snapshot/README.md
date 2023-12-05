@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of snapshot"   
+   name = "Specifies the name of the Snapshot resource"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   create_option = "create_option of snapshot"   
+   create_option = "Indicates how the snapshot is to be created"   
 }
 
 tfstate_store = {
@@ -46,12 +46,12 @@ tfstate_store = {
 | **incremental_enabled** | bool |  Specifies if the Snapshot is incremental. Changing this forces a new resource to be created. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `encryption_settings` block structure
+### `disk_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | [block](#encryption_settings-block-structure) | No | - | A 'key_encryption_key' block. |
+| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
 ### `key_encryption_key` block structure
 
@@ -60,12 +60,12 @@ tfstate_store = {
 | `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
 | `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
-### `disk_encryption_key` block structure
+### `encryption_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
+| `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | No | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
 
 
 

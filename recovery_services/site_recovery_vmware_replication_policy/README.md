@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_vmware_replication_policy"   
-   recovery_vault_id = "recovery_vault_id of site_recovery_vmware_replication_policy"   
-   recovery_point_retention_in_minutes = "recovery_point_retention_in_minutes of site_recovery_vmware_replication_policy"   
-   application_consistent_snapshot_frequency_in_minutes = "application_consistent_snapshot_frequency_in_minutes of site_recovery_vmware_replication_policy"   
+   name = "The name which should be used for this Classic Replication Policy..."   
+   recovery_vault_id = "ID of the Recovery Services Vault"   
+   recovery_point_retention_in_minutes = "Specifies the period up to which the recovery points will be retained..."   
+   application_consistent_snapshot_frequency_in_minutes = "Specifies the frequency at which to create application consistent recovery point..."   
 }
 
 tfstate_store = {

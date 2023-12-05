@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_endpoint"   
+   name = "Specifies the name of the CDN Endpoint"   
    resource_group_name = "${resource_group}"   
-   profile_name = "profile_name of cdn_endpoint"   
+   profile_name = "The CDN Profile to which to attach the CDN Endpoint..."   
    location = "${location}"   
 }
 

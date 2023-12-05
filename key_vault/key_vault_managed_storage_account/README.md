@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of key_vault_managed_storage_account"   
+   name = "The name which should be used for this Key Vault Managed Storage Account..."   
    # key_vault_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   storage_account_key = "storage_account_key of key_vault_managed_storage_account"   
+   storage_account_key = "Which Storage Account access key that is managed by Key Vault..."   
 }
 
 tfstate_inputs = {

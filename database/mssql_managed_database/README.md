@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_managed_database"   
-   managed_instance_id = "managed_instance_id of mssql_managed_database"   
+   name = "The name of the Managed Database to create"   
+   managed_instance_id = "The ID of the Azure SQL Managed Instance on which to create this Managed Databas..."   
 }
 
 tfstate_store = {

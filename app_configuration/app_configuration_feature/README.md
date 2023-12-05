@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   configuration_store_id = "configuration_store_id of app_configuration_feature"   
-   name = "name of app_configuration_feature"   
+   configuration_store_id = "Specifies the id of the App Configuration"   
+   name = "The name of the App Configuration Feature"   
 }
 
 tfstate_store = {

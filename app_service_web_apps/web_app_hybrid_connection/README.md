@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   web_app_id = "web_app_id of web_app_hybrid_connection"   
-   relay_id = "relay_id of web_app_hybrid_connection"   
-   hostname = "hostname of web_app_hybrid_connection"   
-   port = "port of web_app_hybrid_connection"   
+   web_app_id = "The ID of the Web App for this Hybrid Connection"   
+   relay_id = "The ID of the Relay Hybrid Connection to use"   
+   hostname = "The hostname of the endpoint"   
+   port = "The port to use for the endpoint"   
 }
 
 tfstate_store = {

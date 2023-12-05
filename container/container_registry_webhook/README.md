@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of container_registry_webhook"   
+   name = "Specifies the name of the Container Registry Webhook..."   
    resource_group_name = "${resource_group}"   
-   registry_name = "registry_name of container_registry_webhook"   
+   registry_name = "The Name of Container registry this Webhook belongs to..."   
    location = "${location}"   
-   service_uri = "service_uri of container_registry_webhook"   
-   actions = "actions of container_registry_webhook"   
+   service_uri = "Specifies the service URI for the Webhook to post notifications..."   
+   actions = "A list of actions that trigger the Webhook to post notifications..."   
 }
 
 tfstate_store = {

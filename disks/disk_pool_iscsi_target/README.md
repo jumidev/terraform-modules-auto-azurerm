@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   acl_mode = "acl_mode of disk_pool_iscsi_target"   
-   disks_pool_id = "disks_pool_id of disk_pool_iscsi_target"   
-   name = "name of disk_pool_iscsi_target"   
+   acl_mode = "Mode for Target connectivity"   
+   disks_pool_id = "The ID of the Disk Pool"   
+   name = "The name of the iSCSI Target"   
 }
 
 tfstate_store = {

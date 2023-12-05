@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_endpoint_servicebus_topic"   
+   name = "The name of the endpoint"   
    resource_group_name = "${resource_group}"   
    # iothub_id → set in tfstate_inputs
 }

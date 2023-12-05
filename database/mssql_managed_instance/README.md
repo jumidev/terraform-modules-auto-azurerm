@@ -11,16 +11,16 @@ source = {
 }
 
 inputs = {
-   administrator_login = "administrator_login of mssql_managed_instance"   
-   administrator_login_password = "administrator_login_password of mssql_managed_instance"   
-   license_type = "license_type of mssql_managed_instance"   
+   administrator_login = "The administrator login name for the new SQL Managed Instance..."   
+   administrator_login_password = "The password associated with the `administrator_login` user..."   
+   license_type = "What type of license the Managed Instance will use"   
    location = "${location}"   
-   name = "name of mssql_managed_instance"   
+   name = "The name of the SQL Managed Instance"   
    resource_group_name = "${resource_group}"   
-   sku_name = "sku_name of mssql_managed_instance"   
-   storage_size_in_gb = "storage_size_in_gb of mssql_managed_instance"   
+   sku_name = "Specifies the SKU Name for the SQL Managed Instance..."   
+   storage_size_in_gb = "Maximum storage space for the SQL Managed instance"   
    # subnet_id → set in tfstate_inputs
-   vcores = "vcores of mssql_managed_instance"   
+   vcores = "Number of cores that should be assigned to the SQL Managed Instance..."   
 }
 
 tfstate_inputs = {

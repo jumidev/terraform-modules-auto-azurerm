@@ -11,19 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_reference_input_blob"   
+   name = "The name of the Reference Input Blob"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   date_format = "date_format of stream_analytics_reference_input_blob"   
-   path_pattern = "path_pattern of stream_analytics_reference_input_blob"   
+   date_format = "The date format"   
+   path_pattern = "The blob path pattern"   
    # storage_account_name → set in tfstate_inputs
    # storage_container_name → set in tfstate_inputs
-   time_format = "time_format of stream_analytics_reference_input_blob"   
+   time_format = "The time format"   
    serialization = {
-      this_serialization = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

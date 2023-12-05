@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_mover_agent"   
-   arc_virtual_machine_id = "arc_virtual_machine_id of storage_mover_agent"   
-   arc_virtual_machine_uuid = "arc_virtual_machine_uuid of storage_mover_agent"   
+   name = "Specifies the name which should be used for this Storage Mover Agent..."   
+   arc_virtual_machine_id = "Specifies the fully qualified ID of the Hybrid Compute resource for the Storage ..."   
+   arc_virtual_machine_uuid = "Specifies the Hybrid Compute resource's unique SMBIOS ID..."   
    # storage_mover_id → set in tfstate_inputs
 }
 

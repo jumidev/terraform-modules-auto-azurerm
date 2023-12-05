@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   type = "type of source_control_token"   
-   token = "token of source_control_token"   
+   type = "The Token type"   
+   token = "The Access Token"   
 }
 
 tfstate_store = {

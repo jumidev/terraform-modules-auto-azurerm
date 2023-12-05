@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory"   
+   name = "Specifies the name of the Data Factory"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }
@@ -55,6 +55,13 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
 | `value` | string | Yes | - | Specifies the global parameter value. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
+
 ### `vsts_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,13 +84,6 @@ tfstate_store = {
 | `repository_name` | string | Yes | - | Specifies the name of the git repository. |
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
 
 
 

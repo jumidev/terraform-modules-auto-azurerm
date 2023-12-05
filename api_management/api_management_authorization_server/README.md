@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   authorization_methods = "authorization_methods of api_management_authorization_server"   
-   authorization_endpoint = "authorization_endpoint of api_management_authorization_server"   
-   client_id = "client_id of api_management_authorization_server"   
-   client_registration_endpoint = "client_registration_endpoint of api_management_authorization_server"   
-   display_name = "display_name of api_management_authorization_server"   
-   grant_types = "grant_types of api_management_authorization_server"   
-   name = "name of api_management_authorization_server"   
+   authorization_methods = "The HTTP Verbs supported by the Authorization Endpoint..."   
+   authorization_endpoint = "The OAUTH Authorization Endpoint"   
+   client_id = "The Client/App ID registered with this Authorization Server..."   
+   client_registration_endpoint = "The URI of page where Client/App Registration is performed for this Authorizatio..."   
+   display_name = "The user-friendly name of this Authorization Server..."   
+   grant_types = "Form of Authorization Grants required when requesting an Access Token..."   
+   name = "The name of this Authorization Server"   
    resource_group_name = "${resource_group}"   
 }
 

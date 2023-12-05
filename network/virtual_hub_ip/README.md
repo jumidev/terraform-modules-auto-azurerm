@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_hub_ip"   
+   name = "The name which should be used for this Virtual Hub IP..."   
    # virtual_hub_id → set in tfstate_inputs
    # subnet_id → set in tfstate_inputs
    # public_ip_address_id → set in tfstate_inputs

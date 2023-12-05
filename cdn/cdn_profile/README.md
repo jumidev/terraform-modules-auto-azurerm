@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_profile"   
+   name = "Specifies the name of the CDN Profile"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku = "sku of cdn_profile"   
+   sku = "The pricing related information of current CDN profile..."   
 }
 
 tfstate_store = {

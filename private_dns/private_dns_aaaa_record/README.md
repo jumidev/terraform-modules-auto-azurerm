@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_aaaa_record"   
+   name = "The name of the DNS A Record"   
    resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
-   ttl = "ttl of private_dns_aaaa_record"   
-   records = "records of private_dns_aaaa_record"   
+   ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
+   records = "A list of IPv6 Addresses"   
 }
 
 tfstate_inputs = {

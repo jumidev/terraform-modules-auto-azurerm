@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_protection_resource_guard"   
+   name = "The name of the Resource Guard"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

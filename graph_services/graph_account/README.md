@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of graph_account"   
+   name = "Specifies the name of this Account"   
    resource_group_name = "${resource_group}"   
-   application_id = "application_id of graph_account"   
+   application_id = "Customer owned application ID"   
 }
 
 tfstate_store = {

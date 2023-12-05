@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_services_vault_hyperv_site"   
-   recovery_vault_id = "recovery_vault_id of site_recovery_services_vault_hyperv_site"   
+   name = "The name which should be used for this Recovery Service..."   
+   recovery_vault_id = "The ID of the Recovery Services Vault where the Site created..."   
 }
 
 tfstate_store = {

@@ -11,25 +11,22 @@ source = {
 }
 
 inputs = {
-   name = "name of dev_test_linux_virtual_machine"   
-   lab_name = "lab_name of dev_test_linux_virtual_machine"   
+   name = "Specifies the name of the Dev Test Machine"   
+   lab_name = "Specifies the name of the Dev Test Lab in which the Virtual Machine should be cr..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    gallery_image_reference = {
-      this_gallery_image_reference = {
-         offer = "..."         
-         publisher = "..."         
-         sku = "..."         
-         version = "..."         
-      }
-      
+      offer = "..."      
+      publisher = "..."      
+      sku = "..."      
+      version = "..."      
    }
    
-   lab_subnet_name = "lab_subnet_name of dev_test_linux_virtual_machine"   
-   lab_virtual_network_id = "lab_virtual_network_id of dev_test_linux_virtual_machine"   
-   size = "size of dev_test_linux_virtual_machine"   
-   storage_type = "storage_type of dev_test_linux_virtual_machine"   
-   username = "username of dev_test_linux_virtual_machine"   
+   lab_subnet_name = "The name of a Subnet within the Dev Test Virtual Network where this machine shou..."   
+   lab_virtual_network_id = "The ID of the Dev Test Virtual Network where this Virtual Machine should be crea..."   
+   size = "The Machine Size to use for this Virtual Machine, such as `Standard_F2`..."   
+   storage_type = "The type of Storage to use on this Virtual Machine"   
+   username = "The Username associated with the local administrator on this Virtual Machine..."   
 }
 
 tfstate_store = {

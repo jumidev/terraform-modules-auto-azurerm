@@ -12,9 +12,9 @@ source = {
 
 inputs = {
    # function_app_id → set in tfstate_inputs
-   relay_id = "relay_id of function_app_hybrid_connection"   
-   hostname = "hostname of function_app_hybrid_connection"   
-   port = "port of function_app_hybrid_connection"   
+   relay_id = "The ID of the Relay Hybrid Connection to use"   
+   hostname = "The hostname of the endpoint"   
+   port = "The port to use for the endpoint"   
 }
 
 tfstate_inputs = {

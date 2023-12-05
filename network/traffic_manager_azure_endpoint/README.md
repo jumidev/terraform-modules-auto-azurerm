@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of traffic_manager_azure_endpoint"   
-   profile_id = "profile_id of traffic_manager_azure_endpoint"   
+   name = "The name of the Azure Endpoint"   
+   profile_id = "The ID of the Traffic Manager Profile that this Azure Endpoint should be created..."   
    # target_resource_id → set in tfstate_inputs
 }
 

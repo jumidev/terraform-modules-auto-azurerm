@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_redis_cache"   
+   name = "The name which should be used for this API Management Redis Cache..."   
    # api_management_id → set in tfstate_inputs
-   connection_string = "connection_string of api_management_redis_cache"   
+   connection_string = "The connection string to the Cache for Redis"   
 }
 
 tfstate_inputs = {

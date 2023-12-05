@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of log_analytics_cluster"   
+   name = "The name which should be used for this Log Analytics Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

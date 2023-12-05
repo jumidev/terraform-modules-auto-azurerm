@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of express_route_port_authorization"   
+   name = "The name of the ExpressRoute Port"   
    resource_group_name = "${resource_group}"   
    # express_route_port_name → set in tfstate_inputs
 }

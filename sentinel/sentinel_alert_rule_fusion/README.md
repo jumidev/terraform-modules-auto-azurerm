@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_fusion"   
+   name = "The name which should be used for this Sentinel Fusion Alert Rule..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_fusion"   
+   alert_rule_template_guid = "The GUID of the alert rule template which is used for this Sentinel Fusion Alert..."   
 }
 
 tfstate_inputs = {
@@ -49,7 +49,7 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name of the Fusion source signal. Refer to Fusion alert rule template for supported values. |
 | `enabled` | bool | No | True | Whether this source signal is enabled or disabled in Fusion detection? Defaults to 'true'. |
-| `sub_type` | [block](#source-block-structure) | No | - | One or more 'sub_type' blocks. |
+| `sub_type` | [block](#sub_type-block-structure) | No | - | One or more 'sub_type' blocks. |
 
 ### `sub_type` block structure
 

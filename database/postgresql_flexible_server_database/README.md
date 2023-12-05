@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of postgresql_flexible_server_database"   
+   name = "The name which should be used for this Azure PostgreSQL Flexible Server Database..."   
    # server_id → set in tfstate_inputs
 }
 

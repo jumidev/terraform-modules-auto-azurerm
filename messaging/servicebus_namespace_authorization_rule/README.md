@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of servicebus_namespace_authorization_rule"   
-   namespace_id = "namespace_id of servicebus_namespace_authorization_rule"   
+   name = "Specifies the name of the ServiceBus Namespace Authorization Rule resource..."   
+   namespace_id = "Specifies the ID of the ServiceBus Namespace"   
 }
 
 tfstate_store = {

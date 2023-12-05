@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_gateway_route_config"   
+   name = "The name which should be used for this Spring Cloud Gateway Route Config..."   
    # spring_cloud_gateway_id → set in tfstate_inputs
 }
 

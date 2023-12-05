@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of arc_kubernetes_cluster_extension"   
-   cluster_id = "cluster_id of arc_kubernetes_cluster_extension"   
-   extension_type = "extension_type of arc_kubernetes_cluster_extension"   
+   name = "Specifies the name which should be used for this Arc Kubernetes Cluster Extensio..."   
+   cluster_id = "Specifies the Cluster ID"   
+   extension_type = "Specifies the type of extension"   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }

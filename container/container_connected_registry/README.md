@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # container_registry_id → set in tfstate_inputs
-   name = "name of container_connected_registry"   
-   sync_token_id = "sync_token_id of container_connected_registry"   
+   name = "The name which should be used for this Container Connected Registry..."   
+   sync_token_id = "The ID of the Container Registry Token which is used for synchronizing the Conne..."   
 }
 
 tfstate_inputs = {

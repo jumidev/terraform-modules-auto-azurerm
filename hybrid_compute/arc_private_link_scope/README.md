@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of arc_private_link_scope"   
+   name = "The name which should be used for the Azure Arc Private Link Scope..."   
    resource_group_name = "${resource_group}"   
 }
 

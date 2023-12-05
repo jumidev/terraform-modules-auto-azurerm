@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of mssql_managed_instance_failover_group"   
+   name = "The name which should be used for this Managed Instance Failover Group..."   
    location = "${location}"   
-   managed_instance_id = "managed_instance_id of mssql_managed_instance_failover_group"   
-   partner_managed_instance_id = "partner_managed_instance_id of mssql_managed_instance_failover_group"   
+   managed_instance_id = "The ID of the Azure SQL Managed Instance which will be replicated using a Manage..."   
+   partner_managed_instance_id = "The ID of the Azure SQL Managed Instance which will be replicated to..."   
    read_write_endpoint_failover_policy = {
-      this_read_write_endpoint_failover_policy = {
-         mode = "..."         
-      }
-      
+      mode = "..."      
    }
    
 }

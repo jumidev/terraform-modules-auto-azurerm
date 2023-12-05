@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_integration_runtime_azure"   
+   name = "Specifies the name of the Managed Integration Runtime..."   
    # data_factory_id → set in tfstate_inputs
    location = "${location}"   
 }

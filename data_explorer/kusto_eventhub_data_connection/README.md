@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_eventhub_data_connection"   
+   name = "The name of the Kusto EventHub Data Connection to create..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "cluster_name of kusto_eventhub_data_connection"   
-   database_name = "database_name of kusto_eventhub_data_connection"   
+   cluster_name = "Specifies the name of the Kusto Cluster this data connection will be added to..."   
+   database_name = "Specifies the name of the Kusto Database this data connection will be added to..."   
    # eventhub_id → set in tfstate_inputs
-   consumer_group = "consumer_group of kusto_eventhub_data_connection"   
+   consumer_group = "Specifies the EventHub consumer group this data connection will use for ingestio..."   
 }
 
 tfstate_inputs = {

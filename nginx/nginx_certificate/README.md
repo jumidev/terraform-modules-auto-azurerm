@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of nginx_certificate"   
+   name = "The name which should be used for this Nginx Certificate..."   
    # nginx_deployment_id → set in tfstate_inputs
-   certificate_virtual_path = "certificate_virtual_path of nginx_certificate"   
-   key_virtual_path = "key_virtual_path of nginx_certificate"   
+   certificate_virtual_path = "Specify the path to the cert file of this certificate..."   
+   key_virtual_path = "Specify the path to the key file of this certificate..."   
    # key_vault_secret_id → set in tfstate_inputs
 }
 

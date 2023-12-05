@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of disk_access"   
+   name = "The name which should be used for this Disk Access"   
    resource_group_name = "${resource_group}"   
 }
 

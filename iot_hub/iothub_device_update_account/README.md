@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_device_update_account"   
+   name = "Specifies the name which should be used for this IoT Hub Device Update Account..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

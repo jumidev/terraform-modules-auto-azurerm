@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_hub_route_table"   
+   name = "The name which should be used for Virtual Hub Route Table..."   
    # virtual_hub_id → set in tfstate_inputs
 }
 

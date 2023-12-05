@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_postgresql_coordinator_configuration"   
-   cluster_id = "cluster_id of cosmosdb_postgresql_coordinator_configuration"   
-   value = "value of cosmosdb_postgresql_coordinator_configuration"   
+   name = "The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Clus..."   
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to c..."   
+   value = "The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Clu..."   
 }
 
 tfstate_store = {

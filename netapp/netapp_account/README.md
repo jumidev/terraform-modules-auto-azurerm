@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of netapp_account"   
+   name = "The name of the NetApp Account"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

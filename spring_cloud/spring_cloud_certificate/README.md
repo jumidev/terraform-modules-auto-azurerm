@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_certificate"   
+   name = "Specifies the name of the Spring Cloud Certificate"   
    resource_group_name = "${resource_group}"   
-   service_name = "service_name of spring_cloud_certificate"   
+   service_name = "Specifies the name of the Spring Cloud Service resource..."   
 }
 
 tfstate_store = {

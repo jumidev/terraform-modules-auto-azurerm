@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   add_action_group_ids = "add_action_group_ids of monitor_alert_processing_rule_action_group"   
-   name = "name of monitor_alert_processing_rule_action_group"   
+   add_action_group_ids = "Specifies a list of Action Group IDs"   
+   name = "The name which should be used for this Alert Processing Rule..."   
    resource_group_name = "${resource_group}"   
-   scopes = "scopes of monitor_alert_processing_rule_action_group"   
+   scopes = "A list of resource IDs which will be the target of alert processing rule..."   
 }
 
 tfstate_store = {
@@ -44,6 +44,50 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  -  |  A `schedule` block. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Alert Processing Rule. | 
 
+### `monitor_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
+| `values` | string | Yes | - | Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
+
+### `condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alert_context` | [block](#alert_context-block-structure) | No | - | A 'alert_context' block. |
+| `alert_rule_id` | [block](#alert_rule_id-block-structure) | No | - | A 'alert_rule_id' block. |
+| `alert_rule_name` | [block](#alert_rule_name-block-structure) | No | - | A 'alert_rule_name' block. |
+| `description` | [block](#description-block-structure) | No | - | A 'description' block. |
+| `monitor_condition` | [block](#monitor_condition-block-structure) | No | - | A 'monitor_condition' block. |
+| `monitor_service` | [block](#monitor_service-block-structure) | No | - | A 'monitor_service' block. |
+| `severity` | [block](#severity-block-structure) | No | - | A 'severity' block. |
+| `signal_type` | [block](#signal_type-block-structure) | No | - | A 'signal_type' block. |
+| `target_resource` | [block](#target_resource-block-structure) | No | - | A 'target_resource' block. |
+| `target_resource_group` | [block](#target_resource_group-block-structure) | No | - | A 'target_resource_group' block. |
+| `target_resource_type` | [block](#target_resource_type-block-structure) | No | - | A 'target_resource_type' block. |
+
+### `target_resource_type` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines) |
+
+### `description` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
+
+### `alert_rule_name` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
+
 ### `signal_type` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,12 +95,19 @@ tfstate_store = {
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
 | `values` | string | Yes | - | Specifies a list of values to match for a given condition. Possible values are 'Metric', 'Log', 'Unknown', and 'Health'. |
 
+### `target_resource_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource group IDs. |
+
 ### `recurrence` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `daily` | list | No | - | One or more 'daily' blocks. |
-| `weekly` | [block](#recurrence-block-structure) | No | - | One or more 'weekly' blocks. |
+| `weekly` | [block](#weekly-block-structure) | No | - | One or more 'weekly' blocks. |
 | `monthly` | list | No | - | One or more 'monthly' blocks. |
 
 ### `weekly` block structure
@@ -67,70 +118,12 @@ tfstate_store = {
 | `start_time` | string | No | - | Specifies the recurrence start time (H:M:S). |
 | `end_time` | string | No | - | Specifies the recurrence end time (H:M:S). |
 
-### `alert_context` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
-
-### `description` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
-
-### `target_resource_type` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines) |
-
 ### `monitor_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
 | `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Prometheus', 'Resource Health', 'Smart Detector', and 'VM Insights - Health'. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `effective_from` | string | No | - | Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S). |
-| `effective_until` | string | No | - | Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S). |
-| `recurrence` | [block](#schedule-block-structure) | No | - | A 'recurrence' block. |
-| `time_zone` | string | No | UTC | The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to 'UTC'. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)). |
-
-### `monitor_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
-
-### `alert_rule_name` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
-
-### `alert_rule_id` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
-
-### `target_resource_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. The values should be valid resource group IDs. |
 
 ### `severity` block structure
 
@@ -139,21 +132,28 @@ tfstate_store = {
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
 | `values` | string | Yes | - | Specifies list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'. |
 
-### `condition` block structure
+### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `alert_context` | [block](#condition-block-structure) | No | - | A 'alert_context' block. |
-| `alert_rule_id` | [block](#condition-block-structure) | No | - | A 'alert_rule_id' block. |
-| `alert_rule_name` | [block](#condition-block-structure) | No | - | A 'alert_rule_name' block. |
-| `description` | [block](#condition-block-structure) | No | - | A 'description' block. |
-| `monitor_condition` | [block](#condition-block-structure) | No | - | A 'monitor_condition' block. |
-| `monitor_service` | [block](#condition-block-structure) | No | - | A 'monitor_service' block. |
-| `severity` | [block](#condition-block-structure) | No | - | A 'severity' block. |
-| `signal_type` | [block](#condition-block-structure) | No | - | A 'signal_type' block. |
-| `target_resource` | [block](#condition-block-structure) | No | - | A 'target_resource' block. |
-| `target_resource_group` | [block](#condition-block-structure) | No | - | A 'target_resource_group' block. |
-| `target_resource_type` | [block](#condition-block-structure) | No | - | A 'target_resource_type' block. |
+| `effective_from` | string | No | - | Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S). |
+| `effective_until` | string | No | - | Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S). |
+| `recurrence` | [block](#recurrence-block-structure) | No | - | A 'recurrence' block. |
+| `time_zone` | string | No | UTC | The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to 'UTC'. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)). |
+
+### `alert_rule_id` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
+
+### `alert_context` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | string | Yes | - | Specifies a list of values to match for a given condition. |
 
 ### `target_resource` block structure
 

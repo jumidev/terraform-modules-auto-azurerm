@@ -13,10 +13,10 @@ source = {
 inputs = {
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   email = "email of api_management_user"   
-   first_name = "first_name of api_management_user"   
-   last_name = "last_name of api_management_user"   
-   user_id = "user_id of api_management_user"   
+   email = "The email address associated with this user"   
+   first_name = "The first name for this user"   
+   last_name = "The last name for this user"   
+   user_id = "The Identifier for this User, which must be unique within the API Management Ser..."   
 }
 
 tfstate_inputs = {

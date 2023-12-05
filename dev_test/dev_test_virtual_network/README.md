@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of dev_test_virtual_network"   
-   lab_name = "lab_name of dev_test_virtual_network"   
+   name = "Specifies the name of the Dev Test Virtual Network"   
+   lab_name = "Specifies the name of the Dev Test Lab in which the Virtual Network should be cr..."   
    resource_group_name = "${resource_group}"   
 }
 

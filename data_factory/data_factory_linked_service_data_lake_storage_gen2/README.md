@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_linked_service_data_lake_storage_gen2"   
+   name = "Specifies the name of the Data Factory Linked Service..."   
    # data_factory_id → set in tfstate_inputs
-   url = "url of data_factory_linked_service_data_lake_storage_gen2"   
+   url = "The endpoint for the Azure Data Lake Storage Gen2 service..."   
 }
 
 tfstate_inputs = {

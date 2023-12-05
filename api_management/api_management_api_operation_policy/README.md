@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   api_name = "api_name of api_management_api_operation_policy"   
+   api_name = "The name of the API within the API Management Service where the Operation exists..."   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   operation_id = "operation_id of api_management_api_operation_policy"   
+   operation_id = "The operation identifier within an API"   
 }
 
 tfstate_inputs = {

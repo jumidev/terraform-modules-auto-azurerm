@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   cosmos_mongo_database_id = "cosmos_mongo_database_id of cosmosdb_mongo_role_definition"   
-   role_name = "role_name of cosmosdb_mongo_role_definition"   
+   cosmos_mongo_database_id = "The resource ID of the Mongo DB"   
+   role_name = "The user-friendly name for the Mongo Role Definition..."   
 }
 
 tfstate_store = {
@@ -49,7 +49,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `actions` | list | Yes | - | A list of actions that are allowed. |
-| `resource` | [block](#privilege-block-structure) | Yes | - | A 'resource' block. |
+| `resource` | [block](#resource-block-structure) | Yes | - | A 'resource' block. |
 
 
 

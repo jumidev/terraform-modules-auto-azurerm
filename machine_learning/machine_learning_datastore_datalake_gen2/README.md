@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of machine_learning_datastore_datalake_gen2"   
+   name = "The name of the Machine Learning DataStore"   
    # workspace_id → set in tfstate_inputs
    # storage_container_id → set in tfstate_inputs
 }

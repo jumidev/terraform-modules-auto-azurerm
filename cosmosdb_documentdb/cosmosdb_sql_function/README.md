@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_sql_function"   
-   container_id = "container_id of cosmosdb_sql_function"   
-   body = "body of cosmosdb_sql_function"   
+   name = "The name which should be used for this SQL User Defined Function..."   
+   container_id = "The id of the Cosmos DB SQL Container to create the SQL User Defined Function wi..."   
+   body = "Body of the User Defined Function"   
 }
 
 tfstate_store = {

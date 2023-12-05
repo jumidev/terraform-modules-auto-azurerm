@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of app_service_environment"   
+   name = "The name of the App Service Environment"   
    # subnet_id → set in tfstate_inputs
    resource_group_name = "subnet_id"   
 }

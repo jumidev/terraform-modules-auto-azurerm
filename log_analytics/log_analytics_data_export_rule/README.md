@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of log_analytics_data_export_rule"   
+   name = "The name of the Log Analytics Data Export Rule"   
    resource_group_name = "${resource_group}"   
-   workspace_resource_id = "workspace_resource_id of log_analytics_data_export_rule"   
-   destination_resource_id = "destination_resource_id of log_analytics_data_export_rule"   
-   table_names = "table_names of log_analytics_data_export_rule"   
+   workspace_resource_id = "The resource ID of the workspace"   
+   destination_resource_id = "The destination resource ID"   
+   table_names = "A list of table names to export to the destination resource, for example: `["Hea..."   
 }
 
 tfstate_store = {

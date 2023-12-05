@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_cassandra_cluster"   
+   name = "The name which should be used for this Cassandra Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   delegated_management_subnet_id = "delegated_management_subnet_id of cosmosdb_cassandra_cluster"   
-   default_admin_password = "default_admin_password of cosmosdb_cassandra_cluster"   
+   delegated_management_subnet_id = "The ID of the delegated management subnet for this Cassandra Cluster..."   
+   default_admin_password = "The initial admin password for this Cassandra Cluster..."   
 }
 
 tfstate_store = {

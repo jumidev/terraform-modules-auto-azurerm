@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_ddos_protection_plan"   
+   name = "Specifies the name of the Network DDoS Protection Plan..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
 }

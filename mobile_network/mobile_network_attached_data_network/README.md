@@ -14,7 +14,7 @@ inputs = {
    # mobile_network_data_network_name → set in tfstate_inputs
    # mobile_network_packet_core_data_plane_id → set in tfstate_inputs
    location = "${location}"   
-   dns_addresses = "dns_addresses of mobile_network_attached_data_network"   
+   dns_addresses = "Specifies the DNS servers to signal to UEs to use for this attached data network..."   
 }
 
 tfstate_inputs = {
@@ -60,7 +60,7 @@ tfstate_store = {
 | `icmp_pinhole_timeout_in_seconds` | int | No | 180 | Pinhole timeout for ICMP pinholes in seconds. Must between '1' to '180', Default to '180'. |
 | `tcp_pinhole_timeout_in_seconds` | int | No | 180 | Pinhole timeout for TCP pinholes in seconds. Must between '1' to '180', Default to '180'. |
 | `udp_pinhole_timeout_in_seconds` | int | No | 180 | Pinhole timeout for UDP pinholes in seconds. Must between '1' to '180', Default to '180'. |
-| `port_range` | [block](#network_address_port_translation-block-structure) | No | - | A 'port_range' block. |
+| `port_range` | [block](#port_range-block-structure) | No | - | A 'port_range' block. |
 | `tcp_port_reuse_minimum_hold_time_in_seconds` | int | No | 120 | Minimum time in seconds that will pass before a TCP port that was used by a closed pinhole can be reused. Defaults to '120'. |
 | `udp_port_reuse_minimum_hold_time_in_seconds` | int | No | 60 | Minimum time in seconds that will pass before a UDP port that was used by a closed pinhole can be reused. Defaults to '60'. |
 

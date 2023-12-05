@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_schedule"   
+   name = "Specifies the name of the Schedule"   
    resource_group_name = "${resource_group}"   
    # automation_account_name → set in tfstate_inputs
-   frequency = "frequency of automation_schedule"   
+   frequency = "The frequency of the schedule"   
 }
 
 tfstate_inputs = {

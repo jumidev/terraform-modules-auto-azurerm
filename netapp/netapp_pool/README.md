@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of netapp_pool"   
+   name = "The name of the NetApp Pool"   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of netapp_pool"   
+   account_name = "The name of the NetApp account in which the NetApp Pool should be created..."   
    location = "${location}"   
-   service_level = "service_level of netapp_pool"   
-   size_in_tb = "size_in_tb of netapp_pool"   
+   service_level = "The service level of the file system"   
+   size_in_tb = "Provisioned size of the pool in TB"   
 }
 
 tfstate_store = {

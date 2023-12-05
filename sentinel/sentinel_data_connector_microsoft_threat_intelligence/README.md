@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_data_connector_microsoft_threat_intelligence"   
+   name = "The name which should be used for this Microsoft Threat Intelligence Data Connec..."   
    # log_analytics_workspace_id → set in tfstate_inputs
 }
 

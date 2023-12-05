@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cost_anomaly_alert"   
-   display_name = "display_name of cost_anomaly_alert"   
-   email_addresses = "email_addresses of cost_anomaly_alert"   
-   email_subject = "email_subject of cost_anomaly_alert"   
+   name = "The name which should be used for this Cost Anomaly Alert..."   
+   display_name = "The display name which should be used for this Cost Anomaly Alert..."   
+   email_addresses = "Specifies a list of email addresses which the Anomaly Alerts are send to..."   
+   email_subject = "The email subject of the Cost Anomaly Alerts"   
 }
 
 tfstate_store = {

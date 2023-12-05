@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_cassandra_datacenter"   
+   name = "The name which should be used for this Cassandra Datacenter..."   
    location = "${location}"   
-   cassandra_cluster_id = "cassandra_cluster_id of cosmosdb_cassandra_datacenter"   
-   delegated_management_subnet_id = "delegated_management_subnet_id of cosmosdb_cassandra_datacenter"   
+   cassandra_cluster_id = "The ID of the Cassandra Cluster"   
+   delegated_management_subnet_id = "The ID of the delegated management subnet for this Cassandra Datacenter..."   
 }
 
 tfstate_store = {

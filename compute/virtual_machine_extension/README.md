@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_machine_extension"   
+   name = "The name of the virtual machine extension peering"   
    # virtual_machine_id → set in tfstate_inputs
-   publisher = "publisher of virtual_machine_extension"   
-   type = "type of virtual_machine_extension"   
-   type_handler_version = "type_handler_version of virtual_machine_extension"   
+   publisher = "The publisher of the extension, available publishers can be found by using the A..."   
+   type = "The type of extension, available types for a publisher can be found using the Az..."   
+   type_handler_version = "Specifies the version of the extension to use, available versions can be found u..."   
 }
 
 tfstate_inputs = {

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of palo_alto_local_rulestack_prefix_list"   
-   rulestack_id = "rulestack_id of palo_alto_local_rulestack_prefix_list"   
-   prefix_list = "prefix_list of palo_alto_local_rulestack_prefix_list"   
+   name = "The name which should be used for this Palo Alto Local Rulestack Prefix List..."   
+   rulestack_id = "The ID of the Local Rulestack on which to create this Prefix List..."   
+   prefix_list = "Specifies a list of Prefixes"   
 }
 
 tfstate_store = {

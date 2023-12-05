@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of servicebus_namespace_disaster_recovery_config"   
-   primary_namespace_id = "primary_namespace_id of servicebus_namespace_disaster_recovery_config"   
-   partner_namespace_id = "partner_namespace_id of servicebus_namespace_disaster_recovery_config"   
+   name = "Specifies the name of the Disaster Recovery Config"   
+   primary_namespace_id = "The ID of the primary Service Bus Namespace to replicate..."   
+   partner_namespace_id = "The ID of the Service Bus Namespace to replicate to..."   
 }
 
 tfstate_store = {

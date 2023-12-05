@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_api"   
+   name = "The name of the API Management API"   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   revision = "revision of api_management_api"   
+   revision = "The Revision which used for this API"   
 }
 
 tfstate_inputs = {
@@ -70,19 +70,21 @@ tfstate_store = {
 | `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
 | `scope` | string | No | - | Operations scope. |
 
-### `wsdl_selector` block structure
+### `contact` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `service_name` | string | Yes | - | The name of service to import from WSDL. |
-| `endpoint_name` | string | Yes | - | The name of endpoint (port) to import from WSDL. |
+| `email` | string | No | - | The email address of the contact person/organization. |
+| `name` | string | No | - | The name of the contact person/organization. |
+| `url` | string | No | - | Absolute URL of the contact information. |
 
-### `openid_authentication` block structure
+### `import` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `openid_provider_name` | string | Yes | - | OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html). |
-| `bearer_token_sending_methods` | string | No | - | How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'. |
+| `content_format` | string | Yes | - | The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'. |
+| `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
+| `wsdl_selector` | [block](#wsdl_selector-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
 
 ### `license` block structure
 
@@ -91,6 +93,13 @@ tfstate_store = {
 | `name` | string | No | - | The name of the license . |
 | `url` | string | No | - | Absolute URL of the license. |
 
+### `openid_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `openid_provider_name` | string | Yes | - | OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html). |
+| `bearer_token_sending_methods` | string | No | - | How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'. |
+
 ### `subscription_key_parameter_names` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -98,21 +107,12 @@ tfstate_store = {
 | `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
 | `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
 
-### `import` block structure
+### `wsdl_selector` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content_format` | string | Yes | - | The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'. |
-| `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
-| `wsdl_selector` | [block](#import-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
-
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address of the contact person/organization. |
-| `name` | string | No | - | The name of the contact person/organization. |
-| `url` | string | No | - | Absolute URL of the contact information. |
+| `service_name` | string | Yes | - | The name of service to import from WSDL. |
+| `endpoint_name` | string | Yes | - | The name of endpoint (port) to import from WSDL. |
 
 
 

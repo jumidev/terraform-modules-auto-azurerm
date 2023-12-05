@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of mariadb_configuration"   
+   name = "Specifies the name of the MariaDB Configuration, which needs [to be a valid Mari..."   
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   value = "value of mariadb_configuration"   
+   value = "Specifies the value of the MariaDB Configuration"   
 }
 
 tfstate_inputs = {

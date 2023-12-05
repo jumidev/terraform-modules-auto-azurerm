@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_cname_record"   
+   name = "The name of the DNS CNAME Record"   
    resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
-   ttl = "ttl of private_dns_cname_record"   
-   record = "record of private_dns_cname_record"   
+   ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
+   record = "The target of the CNAME"   
 }
 
 tfstate_inputs = {

@@ -13,8 +13,8 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    # iothub_name → set in tfstate_inputs
-   enabled = "enabled of iothub_fallback_route"   
-   endpoint_names = "endpoint_names of iothub_fallback_route"   
+   enabled = "Used to specify whether the fallback route is enabled..."   
+   endpoint_names = "The endpoints to which messages that satisfy the condition are routed..."   
 }
 
 tfstate_inputs = {

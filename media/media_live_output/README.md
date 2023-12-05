@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   archive_window_duration = "archive_window_duration of media_live_output"   
-   asset_name = "asset_name of media_live_output"   
-   live_event_id = "live_event_id of media_live_output"   
-   name = "name of media_live_output"   
+   archive_window_duration = "`ISO 8601` time between 1 minute to 25 hours to indicate the maximum content len..."   
+   asset_name = "The asset that the live output will write to"   
+   live_event_id = "The id of the live event"   
+   name = "The name which should be used for this Live Event Output..."   
 }
 
 tfstate_store = {

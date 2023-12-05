@@ -13,10 +13,10 @@ source = {
 inputs = {
    # server_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   object_id = "object_id of postgresql_flexible_server_active_directory_administrator"   
+   object_id = "The object ID of a user, service principal or security group in the Azure Active..."   
    # tenant_id → set in tfstate_inputs
-   principal_name = "principal_name of postgresql_flexible_server_active_directory_administrator"   
-   principal_type = "principal_type of postgresql_flexible_server_active_directory_administrator"   
+   principal_name = "The name of Azure Active Directory principal"   
+   principal_type = "The type of Azure Active Directory principal"   
 }
 
 tfstate_inputs = {

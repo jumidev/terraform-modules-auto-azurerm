@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   elastic_cloud_email_address = "elastic_cloud_email_address of elastic_cloud_elasticsearch"   
+   elastic_cloud_email_address = "Specifies the Email Address which should be associated with this Elasticsearch a..."   
    location = "${location}"   
-   name = "name of elastic_cloud_elasticsearch"   
+   name = "The name which should be used for this Elasticsearch resource..."   
    resource_group_name = "${resource_group}"   
-   sku_name = "sku_name of elastic_cloud_elasticsearch"   
+   sku_name = "Specifies the name of the SKU for this Elasticsearch..."   
 }
 
 tfstate_store = {
@@ -44,6 +44,15 @@ tfstate_store = {
 | **monitoring_enabled** | bool |  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
 
+### `logs` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `filtering_tag` | [block](#filtering_tag-block-structure) | No | - | A list of 'filtering_tag' blocks. |
+| `send_activity_logs` | bool | No | False | Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
+| `send_azuread_logs` | bool | No | False | Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
+| `send_subscription_logs` | bool | No | False | Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
+
 ### `filtering_tag` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,15 +60,6 @@ tfstate_store = {
 | `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
 | `name` | string | Yes | - | Specifies the name (key) of the Tag which should be filtered. |
 | `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
-
-### `logs` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `filtering_tag` | [block](#logs-block-structure) | No | - | A list of 'filtering_tag' blocks. |
-| `send_activity_logs` | bool | No | False | Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
-| `send_azuread_logs` | bool | No | False | Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
-| `send_subscription_logs` | bool | No | False | Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
 
 
 

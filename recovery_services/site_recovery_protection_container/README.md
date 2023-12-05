@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_protection_container"   
+   name = "The name of the protection container"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of site_recovery_protection_container"   
-   recovery_fabric_name = "recovery_fabric_name of site_recovery_protection_container"   
+   recovery_vault_name = "The name of the vault that should be updated"   
+   recovery_fabric_name = "Name of fabric that should contain this protection container..."   
 }
 
 tfstate_store = {

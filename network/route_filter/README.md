@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   name = "name of route_filter"   
+   name = "The Name which should be used for this Route Filter..."   
    resource_group_name = "${resource_group}"   
 }
 

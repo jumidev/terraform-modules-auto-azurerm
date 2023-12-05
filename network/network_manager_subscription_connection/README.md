@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_subscription_connection"   
+   name = "Specifies the name which should be used for this Network Subscription Network Ma..."   
    # subscription_id → set in tfstate_inputs
    # network_manager_id → set in tfstate_inputs
 }

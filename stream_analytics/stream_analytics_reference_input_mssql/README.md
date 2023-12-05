@@ -11,15 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_reference_input_mssql"   
+   name = "The name of the Reference Input MS SQL data"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   server = "server of stream_analytics_reference_input_mssql"   
-   database = "database of stream_analytics_reference_input_mssql"   
-   username = "username of stream_analytics_reference_input_mssql"   
-   password = "password of stream_analytics_reference_input_mssql"   
-   refresh_type = "refresh_type of stream_analytics_reference_input_mssql"   
-   full_snapshot_query = "full_snapshot_query of stream_analytics_reference_input_mssql"   
+   server = "The fully qualified domain name of the MS SQL server..."   
+   database = "The MS SQL database name where the reference data exists..."   
+   username = "The username to connect to the MS SQL database"   
+   password = "The password to connect to the MS SQL database"   
+   refresh_type = "Defines whether and how the reference data should be refreshed..."   
+   full_snapshot_query = "The query used to retrieve the reference data from the MS SQL database..."   
 }
 
 tfstate_inputs = {

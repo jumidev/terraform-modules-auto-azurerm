@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # ip_group_id → set in tfstate_inputs
-   cidr = "cidr of ip_group_cidr"   
+   cidr = "The `CIDR` that should be added to the IP Group"   
 }
 
 tfstate_inputs = {

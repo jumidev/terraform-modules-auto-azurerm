@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_log_profile"   
-   categories = "categories of monitor_log_profile"   
-   locations = "locations of monitor_log_profile"   
+   name = "The name of the Log Profile"   
+   categories = "List of categories of the logs"   
+   locations = "List of regions for which Activity Log events are stored or streamed..."   
    retention_policy = {
-      this_retention_policy = {
-         enabled = "..."         
-      }
-      
+      enabled = "..."      
    }
    
 }

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_api_key"   
+   name = "Specifies the name of the Application Insights API key..."   
    # application_insights_id → set in tfstate_inputs
 }
 

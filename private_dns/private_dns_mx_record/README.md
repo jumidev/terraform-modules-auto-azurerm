@@ -21,7 +21,7 @@ inputs = {
       
    }
    
-   ttl = "ttl of private_dns_mx_record"   
+   ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
 }
 
 tfstate_inputs = {

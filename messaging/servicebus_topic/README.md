@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of servicebus_topic"   
-   namespace_id = "namespace_id of servicebus_topic"   
+   name = "Specifies the name of the ServiceBus Topic resource..."   
+   namespace_id = "The ID of the ServiceBus Namespace to create Changing this forces a new resource..."   
 }
 
 tfstate_store = {

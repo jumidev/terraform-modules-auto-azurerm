@@ -11,15 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of function_app_connection"   
+   name = "The name of the service connection"   
    # function_app_id → set in tfstate_inputs
    # target_resource_id → set in tfstate_inputs
    authentication = {
-      this_authentication = {
-         type = "..."         
-         # subscription_id → set in tfstate_inputs
-      }
-      
+      type = "..."      
+      # subscription_id → (optional) set in tfstate_inputs
    }
    
 }
@@ -27,7 +24,7 @@ inputs = {
 tfstate_inputs = {
    function_app_id = "path/to/function_app_component:id"   
    target_resource_id = "path/to/any_resource_component:id"   
-   authentication.this_authentication.subscription_id = "path/to/subscription_component:subscription_id"   
+   authentication.subscription_id = "path/to/subscription_component:subscription_id"   
 }
 
 tfstate_store = {
@@ -66,7 +63,7 @@ tfstate_store = {
 | `certificate` | string | No | - | Service principal certificate for 'servicePrincipal' auth. Should be specified when 'type' is set to 'servicePrincipalCertificate'. |
 | `client_type` | string | No | none | The application client type. Possible values are 'none', 'dotnet', 'java', 'python', 'go', 'php', 'ruby', 'django', 'nodejs' and 'springBoot'. Defaults to 'none'. |
 | `vnet_solution` | string | No | - | The type of the VNet solution. Possible values are 'serviceEndpoint', 'privateLink'. |
-| `secret_store` | [block](#authentication-block-structure) | No | - | An option to store secret value in secure place. An 'secret_store' block. |
+| `secret_store` | [block](#secret_store-block-structure) | No | - | An option to store secret value in secure place. An 'secret_store' block. |
 
 
 

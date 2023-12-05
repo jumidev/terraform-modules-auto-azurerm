@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of application_load_balancer_frontend"   
+   name = "The name which should be used for this Application Gateway for Containers Fronte..."   
    # application_load_balancer_id → set in tfstate_inputs
 }
 

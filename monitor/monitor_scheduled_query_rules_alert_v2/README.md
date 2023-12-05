@@ -11,22 +11,19 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_scheduled_query_rules_alert_v2"   
+   name = "Specifies the name which should be used for this Monitor Scheduled Query Rule..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    criteria = {
-      this_criteria = {
-         operator = "..."         
-         query = "..."         
-         threshold = "..."         
-         time_aggregation_method = "..."         
-      }
-      
+      operator = "..."      
+      query = "..."      
+      threshold = "..."      
+      time_aggregation_method = "..."      
    }
    
-   scopes = "scopes of monitor_scheduled_query_rules_alert_v2"   
-   severity = "severity of monitor_scheduled_query_rules_alert_v2"   
-   window_duration = "window_duration of monitor_scheduled_query_rules_alert_v2"   
+   scopes = "Specifies the list of resource IDs that this scheduled query rule is scoped to..."   
+   severity = "Severity of the alert"   
+   window_duration = "Specifies the period of time in ISO 8601 duration format on which the Scheduled ..."   
 }
 
 tfstate_store = {
@@ -81,8 +78,8 @@ tfstate_store = {
 | `query` | string | Yes | - | The query to run on logs. The results returned by this query are used to populate the alert. |
 | `threshold` | string | Yes | - | Specifies the criteria threshold value that activates the alert. |
 | `time_aggregation_method` | string | Yes | - | The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'. |
-| `dimension` | [block](#criteria-block-structure) | No | - | A 'dimension' block. |
-| `failing_periods` | [block](#criteria-block-structure) | No | - | A 'failing_periods' block. |
+| `dimension` | [block](#dimension-block-structure) | No | - | A 'dimension' block. |
+| `failing_periods` | [block](#failing_periods-block-structure) | No | - | A 'failing_periods' block. |
 | `metric_measure_column` | string | No | - | Specifies the column containing the metric measure number. |
 | `resource_id_column` | string | No | - | Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID. |
 

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # spring_cloud_app_id → set in tfstate_inputs
-   deployment_name = "deployment_name of spring_cloud_active_deployment"   
+   deployment_name = "Specifies the name of Spring Cloud Deployment which is going to be active..."   
 }
 
 tfstate_inputs = {

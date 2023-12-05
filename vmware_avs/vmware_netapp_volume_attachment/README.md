@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of vmware_netapp_volume_attachment"   
+   name = "The name which should be used for this VMware Private Cloud Netapp File Volume A..."   
    # netapp_volume_id → set in tfstate_inputs
    # vmware_cluster_id → set in tfstate_inputs
 }

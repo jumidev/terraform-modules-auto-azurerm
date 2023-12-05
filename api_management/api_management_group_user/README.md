@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   user_id = "user_id of api_management_group_user"   
-   group_name = "group_name of api_management_group_user"   
+   user_id = "The ID of the API Management User which should be assigned to this API Managemen..."   
+   group_name = "The Name of the API Management Group within the API Management Service..."   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
 }

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   managed_instance_id = "managed_instance_id of mssql_managed_instance_active_directory_administrator"   
-   login_username = "login_username of mssql_managed_instance_active_directory_administrator"   
-   object_id = "object_id of mssql_managed_instance_active_directory_administrator"   
+   managed_instance_id = "The ID of the Azure SQL Managed Instance for which to set the administrator..."   
+   login_username = "The login name of the principal to set as the Managed Instance Administrator..."   
+   object_id = "The Object ID of the principal to set as the Managed Instance Administrator..."   
    # tenant_id → set in tfstate_inputs
 }
 

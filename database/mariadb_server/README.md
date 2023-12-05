@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of mariadb_server"   
+   name = "Specifies the name of the MariaDB Server"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of mariadb_server"   
-   version = "version of mariadb_server"   
-   ssl_enforcement_enabled = "ssl_enforcement_enabled of mariadb_server"   
+   sku_name = "Specifies the SKU Name for this MariaDB Server"   
+   version = "Specifies the version of MariaDB to use"   
+   ssl_enforcement_enabled = "Specifies if SSL should be enforced on connections"   
 }
 
 tfstate_store = {

@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # managed_disk_id → set in tfstate_inputs
-   duration_in_seconds = "duration_in_seconds of disk_sas_token"   
-   access_level = "access_level of disk_sas_token"   
+   duration_in_seconds = "The duration for which the export should be allowed..."   
+   access_level = "The level of access required on the disk"   
 }
 
 tfstate_inputs = {

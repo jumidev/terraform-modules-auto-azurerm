@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   managed_api_id = "managed_api_id of api_connection"   
-   name = "name of api_connection"   
+   managed_api_id = "The ID of the Managed API which this API Connection is linked to..."   
+   name = "The Name which should be used for this API Connection..."   
    resource_group_name = "${resource_group}"   
 }
 

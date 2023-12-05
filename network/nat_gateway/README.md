@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of nat_gateway"   
+   name = "Specifies the name of the NAT Gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   cosmos_mongo_database_id = "cosmos_mongo_database_id of cosmosdb_mongo_user_definition"   
-   username = "username of cosmosdb_mongo_user_definition"   
-   password = "password of cosmosdb_mongo_user_definition"   
+   cosmos_mongo_database_id = "The resource ID of the Mongo DB"   
+   username = "The username for the Mongo User Definition"   
+   password = "The password for the Mongo User Definition"   
 }
 
 tfstate_store = {

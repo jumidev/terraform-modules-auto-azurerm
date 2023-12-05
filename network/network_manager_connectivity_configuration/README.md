@@ -11,17 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager_connectivity_configuration"   
+   name = "Specifies the name which should be used for this Network Manager Connectivity Co..."   
    # network_manager_id → set in tfstate_inputs
    applies_to_group = {
-      this_applies_to_group = {
-         group_connectivity = "..."         
-         network_group_id = "..."         
-      }
-      
+      group_connectivity = "..."      
+      network_group_id = "..."      
    }
    
-   connectivity_topology = "connectivity_topology of network_manager_connectivity_configuration"   
+   connectivity_topology = "Specifies the connectivity topology type"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of private_dns_resolver_outbound_endpoint"   
+   name = "Specifies the name which should be used for this Private DNS Resolver Outbound E..."   
    # private_dns_resolver_id → set in tfstate_inputs
    location = "${location}"   
    # subnet_id → set in tfstate_inputs

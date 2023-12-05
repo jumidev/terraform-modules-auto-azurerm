@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # synapse_workspace_id → set in tfstate_inputs
-   login = "login of synapse_workspace_sql_aad_admin"   
-   object_id = "object_id of synapse_workspace_sql_aad_admin"   
+   login = "The login name of the Azure AD Administrator of this Synapse Workspace..."   
+   object_id = "The object id of the Azure AD Administrator of this Synapse Workspace..."   
    # tenant_id → set in tfstate_inputs
 }
 

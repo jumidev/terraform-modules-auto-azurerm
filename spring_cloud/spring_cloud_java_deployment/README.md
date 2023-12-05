@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_java_deployment"   
+   name = "Specifies the name of the Spring Cloud Deployment"   
    # spring_cloud_app_id → set in tfstate_inputs
 }
 

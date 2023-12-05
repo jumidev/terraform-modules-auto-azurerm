@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of servicebus_topic_authorization_rule"   
-   topic_id = "topic_id of servicebus_topic_authorization_rule"   
+   name = "Specifies the name of the ServiceBus Topic Authorization Rule resource..."   
+   topic_id = "Specifies the ID of the ServiceBus Topic"   
 }
 
 tfstate_store = {

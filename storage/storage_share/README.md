@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_share"   
+   name = "The name of the share"   
    # storage_account_name → set in tfstate_inputs
-   quota = "quota of storage_share"   
+   quota = "The maximum size of the share, in gigabytes"   
 }
 
 tfstate_inputs = {
@@ -57,7 +57,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
+| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
 
 
 

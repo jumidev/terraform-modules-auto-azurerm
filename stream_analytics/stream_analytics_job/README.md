@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_job"   
+   name = "The name of the Stream Analytics Job"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

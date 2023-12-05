@@ -13,8 +13,8 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "bot_name of bot_channel_alexa"   
-   skill_id = "skill_id of bot_channel_alexa"   
+   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   skill_id = "The Alexa skill ID for the Alexa Channel"   
 }
 
 tfstate_store = {

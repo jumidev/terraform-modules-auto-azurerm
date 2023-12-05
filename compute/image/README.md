@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of image"   
+   name = "Specifies the name of the image"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

@@ -11,17 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of blueprint_assignment"   
-   target_subscription_id = "target_subscription_id of blueprint_assignment"   
+   name = "The name of the Blueprint Assignment"   
+   target_subscription_id = "The Subscription ID the Blueprint Published Version is to be applied to..."   
    location = "${location}"   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
-   version_id = "version_id of blueprint_assignment"   
+   version_id = "The ID of the Published Version of the blueprint to be assigned..."   
 }
 
 tfstate_store = {

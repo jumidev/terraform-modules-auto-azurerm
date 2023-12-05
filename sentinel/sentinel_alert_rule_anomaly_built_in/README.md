@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    # log_analytics_workspace_id → set in tfstate_inputs
-   enabled = "enabled of sentinel_alert_rule_anomaly_built_in"   
-   mode = "mode of sentinel_alert_rule_anomaly_built_in"   
+   enabled = "Should the Built-in Anomaly Alert Rule be enabled?"   
+   mode = "mode of the Built-in Anomaly Alert Rule"   
 }
 
 tfstate_inputs = {

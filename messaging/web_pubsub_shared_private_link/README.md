@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of web_pubsub_shared_private_link"   
+   name = "Specify the name of the Web Pubsub Shared Private Link Resource..."   
    # web_pubsub_id → set in tfstate_inputs
-   subresource_name = "subresource_name of web_pubsub_shared_private_link"   
+   subresource_name = "Specify the sub resource name which the Web Pubsub Private Endpoint is able to c..."   
    # target_resource_id → set in tfstate_inputs
 }
 

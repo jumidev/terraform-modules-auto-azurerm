@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of network_security_rule"   
+   name = "The name of the security rule"   
    resource_group_name = "${resource_group}"   
    # network_security_group_name → set in tfstate_inputs
-   protocol = "protocol of network_security_rule"   
-   access = "access of network_security_rule"   
-   priority = "priority of network_security_rule"   
-   direction = "direction of network_security_rule"   
+   protocol = "Network protocol this rule applies to"   
+   access = "Specifies whether network traffic is allowed or denied..."   
+   priority = "Specifies the priority of the rule"   
+   direction = "The direction specifies if rule will be evaluated on incoming or outgoing traffi..."   
 }
 
 tfstate_inputs = {

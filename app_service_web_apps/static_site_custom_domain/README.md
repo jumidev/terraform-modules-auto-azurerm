@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   domain_name = "domain_name of static_site_custom_domain"   
+   domain_name = "The Domain Name which should be associated with this Static Site..."   
    # static_site_id → set in tfstate_inputs
 }
 

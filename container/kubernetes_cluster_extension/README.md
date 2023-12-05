@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of kubernetes_cluster_extension"   
+   name = "Specifies the name which should be used for this Kubernetes Cluster Extension..."   
    # cluster_id → set in tfstate_inputs
-   extension_type = "extension_type of kubernetes_cluster_extension"   
+   extension_type = "Specifies the type of extension"   
 }
 
 tfstate_inputs = {

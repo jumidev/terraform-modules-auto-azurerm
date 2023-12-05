@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_hyperv_network_mapping"   
-   recovery_vault_id = "recovery_vault_id of site_recovery_hyperv_network_mapping"   
-   source_system_center_virtual_machine_manager_name = "source_system_center_virtual_machine_manager_name of site_recovery_hyperv_network_mapping"   
-   source_network_name = "source_network_name of site_recovery_hyperv_network_mapping"   
-   target_network_id = "target_network_id of site_recovery_hyperv_network_mapping"   
+   name = "The name of the HyperV network mapping"   
+   recovery_vault_id = "The ID of the Recovery Services Vault where the HyperV network mapping should be..."   
+   source_system_center_virtual_machine_manager_name = "Specifies the name of source System Center Virtual Machine Manager where the sou..."   
+   source_network_name = "The Name of the primary network"   
+   target_network_id = "The id of the recovery network"   
 }
 
 tfstate_store = {

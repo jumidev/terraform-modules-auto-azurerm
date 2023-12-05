@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # log_analytics_workspace_id → set in tfstate_inputs
-   name = "name of sentinel_data_connector_office_power_bi"   
+   name = "The name which should be used for this Office Power BI Data Connector..."   
 }
 
 tfstate_inputs = {

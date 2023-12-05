@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of eventgrid_domain_topic"   
-   domain_name = "domain_name of eventgrid_domain_topic"   
+   name = "Specifies the name of the EventGrid Domain Topic resource..."   
+   domain_name = "Specifies the name of the EventGrid Domain"   
    resource_group_name = "${resource_group}"   
 }
 

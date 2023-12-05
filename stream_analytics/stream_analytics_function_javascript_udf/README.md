@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_function_javascript_udf"   
+   name = "The name of the JavaScript UDF Function"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
    input = {
@@ -28,7 +28,7 @@ inputs = {
       
    }
    
-   script = "script of stream_analytics_function_javascript_udf"   
+   script = "The JavaScript of this UDF Function"   
 }
 
 tfstate_inputs = {
@@ -54,18 +54,18 @@ tfstate_store = {
 | **output** | [block](#output-block-structure) |  An `output` blocks. | 
 | **script** | string |  The JavaScript of this UDF Function. | 
 
-### `output` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
-
 ### `input` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The Data Type for the Input Argument of this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
 | `configuration_parameter` | bool | No | False | Is this input parameter a configuration parameter? Defaults to 'false'. |
+
+### `output` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
 
 
 

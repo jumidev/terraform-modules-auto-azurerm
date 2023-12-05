@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_machine_packet_capture"   
+   name = "The name to use for this Network Packet Capture"   
    # network_watcher_id → set in tfstate_inputs
    # virtual_machine_id → set in tfstate_inputs
    storage_location = {
-      this_storage_location = {
-         # storage_account_id → set in tfstate_inputs
-      }
-      
+      # storage_account_id → (optional) set in tfstate_inputs
    }
    
 }
@@ -26,7 +23,7 @@ inputs = {
 tfstate_inputs = {
    network_watcher_id = "path/to/network_watcher_component:id"   
    virtual_machine_id = "path/to/virtual_machine_component:id"   
-   storage_location.this_storage_location.storage_account_id = "path/to/storage_account_component:id"   
+   storage_location.storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {

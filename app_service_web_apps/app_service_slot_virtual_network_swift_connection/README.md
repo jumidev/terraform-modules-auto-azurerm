@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # app_service_id → set in tfstate_inputs
-   slot_name = "slot_name of app_service_slot_virtual_network_swift_connection"   
+   slot_name = "The name of the App Service Slot or Function App Slot..."   
    # subnet_id → set in tfstate_inputs
 }
 

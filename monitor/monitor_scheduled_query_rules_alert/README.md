@@ -11,26 +11,20 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_scheduled_query_rules_alert"   
+   name = "The name of the scheduled query rule"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   data_source_id = "data_source_id of monitor_scheduled_query_rules_alert"   
-   frequency = "frequency of monitor_scheduled_query_rules_alert"   
-   query = "query of monitor_scheduled_query_rules_alert"   
-   time_window = "time_window of monitor_scheduled_query_rules_alert"   
+   data_source_id = "The resource URI over which log search query is to be run..."   
+   frequency = "Frequency (in minutes) at which rule condition should be evaluated..."   
+   query = "Log search query"   
+   time_window = "Time window for which data needs to be fetched for query (must be greater than o..."   
    trigger = {
-      this_trigger = {
-         operator = "..."         
-         threshold = "..."         
-      }
-      
+      operator = "..."      
+      threshold = "..."      
    }
    
    action = {
-      this_action = {
-         action_group = "..."         
-      }
-      
+      action_group = "..."      
    }
    
 }
@@ -70,11 +64,19 @@ tfstate_store = {
 | **throttling** | string |  -  |  -  |  Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group` | string | Yes | - | List of action group reference resource IDs. |
+| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
+| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
+
 ### `trigger` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `metric_trigger` | [block](#trigger-block-structure) | No | - | A 'metric_trigger' block. Trigger condition for metric query rule. |
+| `metric_trigger` | [block](#metric_trigger-block-structure) | No | - | A 'metric_trigger' block. Trigger condition for metric query rule. |
 | `operator` | string | Yes | - | Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
 | `threshold` | string | Yes | - | Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. |
 
@@ -86,14 +88,6 @@ tfstate_store = {
 | `operator` | string | Yes | - | Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
 | `threshold` | string | Yes | - | The threshold of the metric trigger. Values must be between 0 and 10000 inclusive. |
 | `metric_column` | string | No | - | Evaluation of metric on a particular column. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group` | string | Yes | - | List of action group reference resource IDs. |
-| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
-| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
 
 
 

@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of sentinel_alert_rule_threat_intelligence"   
+   name = "The name which should be used for this Sentinel Threat Intelligence Alert Rule..."   
    # log_analytics_workspace_id → set in tfstate_inputs
-   alert_rule_template_guid = "alert_rule_template_guid of sentinel_alert_rule_threat_intelligence"   
+   alert_rule_template_guid = "The GUID of the alert rule template which is used for this Sentinel Threat Intel..."   
 }
 
 tfstate_inputs = {

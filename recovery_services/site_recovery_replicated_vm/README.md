@@ -11,16 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_replicated_vm"   
+   name = "The name of the replication for the replicated VM"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of site_recovery_replicated_vm"   
-   recovery_replication_policy_id = "recovery_replication_policy_id of site_recovery_replicated_vm"   
-   source_recovery_fabric_name = "source_recovery_fabric_name of site_recovery_replicated_vm"   
-   source_vm_id = "source_vm_id of site_recovery_replicated_vm"   
-   source_recovery_protection_container_name = "source_recovery_protection_container_name of site_recovery_replicated_vm"   
-   target_resource_group_id = "target_resource_group_id of site_recovery_replicated_vm"   
-   target_recovery_fabric_id = "target_recovery_fabric_id of site_recovery_replicated_vm"   
-   target_recovery_protection_container_id = "target_recovery_protection_container_id of site_recovery_replicated_vm"   
+   recovery_vault_name = "The name of the vault that should be updated"   
+   recovery_replication_policy_id = "Id of the policy to use for this replicated vm"   
+   source_recovery_fabric_name = "Name of fabric that should contain this replication..."   
+   source_vm_id = "Id of the VM to replicate Changing this forces a new resource to be created..."   
+   source_recovery_protection_container_name = "Name of the protection container to use"   
+   target_resource_group_id = "Id of resource group where the VM should be created when a failover is done..."   
+   target_recovery_fabric_id = "Id of fabric where the VM replication should be handled when a failover is done..."   
+   target_recovery_protection_container_id = "Id of protection container where the VM replication should be created when a fai..."   
 }
 
 tfstate_store = {
@@ -76,33 +76,6 @@ tfstate_store = {
 | `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
 | `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
 
-### `target_disk_encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | [block](#target_disk_encryption-block-structure) | Yes | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | [block](#target_disk_encryption-block-structure) | No | - | A 'key_encryption_key' block. |
-
-### `unmanaged_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
-| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
-| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
-
-### `managed_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_id` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
-| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
-| `target_resource_group_id` | string | Yes | - | Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created. |
-| `target_disk_type` | string | Yes | - | What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
-| `target_replica_disk_type` | string | Yes | - | What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
-| `target_disk_encryption_set_id` | string | No | - | The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. |
-| `target_disk_encryption` | [block](#managed_disk-block-structure) | No | - | A 'target_disk_encryption' block. |
-
 ### `key_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -116,6 +89,33 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. Changing this forces a new resource to be created. |
 | `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
+
+### `unmanaged_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+
+### `target_disk_encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | Yes | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
+
+### `managed_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_id` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_resource_group_id` | string | Yes | - | Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+| `target_disk_type` | string | Yes | - | What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
+| `target_replica_disk_type` | string | Yes | - | What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
+| `target_disk_encryption_set_id` | string | No | - | The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. |
+| `target_disk_encryption` | [block](#target_disk_encryption-block-structure) | No | - | A 'target_disk_encryption' block. |
 
 
 

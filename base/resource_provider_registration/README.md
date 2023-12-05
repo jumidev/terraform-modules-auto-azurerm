@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of resource_provider_registration"   
+   name = "The namespace of the Resource Provider which should be registered..."   
 }
 
 tfstate_store = {

@@ -13,9 +13,9 @@ source = {
 inputs = {
    # app_service_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   relay_id = "relay_id of app_service_hybrid_connection"   
-   hostname = "hostname of app_service_hybrid_connection"   
-   port = "port of app_service_hybrid_connection"   
+   relay_id = "The ID of the Service Bus Relay"   
+   hostname = "The hostname of the endpoint"   
+   port = "The port of the endpoint"   
 }
 
 tfstate_inputs = {

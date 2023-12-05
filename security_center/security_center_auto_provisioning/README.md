@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   auto_provision = "auto_provision of security_center_auto_provisioning"   
+   auto_provision = "Should the security agent be automatically provisioned on Virtual Machines in th..."   
 }
 
 tfstate_store = {

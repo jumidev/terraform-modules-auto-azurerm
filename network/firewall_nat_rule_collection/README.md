@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of firewall_nat_rule_collection"   
+   name = "Specifies the name of the NAT Rule Collection which must be unique within the Fi..."   
    # azure_firewall_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   priority = "priority of firewall_nat_rule_collection"   
-   action = "action of firewall_nat_rule_collection"   
+   priority = "Specifies the priority of the rule collection"   
+   action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
       this_rule = {
          name = "..."         

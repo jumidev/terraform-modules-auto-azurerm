@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_share_directory"   
-   share_name = "share_name of storage_share_directory"   
+   name = "The name (or path) of the Directory that should be created within this File Shar..."   
+   share_name = "The name of the File Share where this Directory should be created..."   
    # storage_account_name → set in tfstate_inputs
 }
 

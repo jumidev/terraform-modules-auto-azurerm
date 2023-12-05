@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of container_registry"   
+   name = "Specifies the name of the Container Registry"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku = "sku of container_registry"   
+   sku = "The SKU name of the container registry"   
 }
 
 tfstate_store = {
@@ -54,22 +54,12 @@ tfstate_store = {
 | **data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 
 
-### `georeplications` block structure
+### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | A location where the container registry should be geo-replicated. |
-| `regional_endpoint_enabled` | bool | No | - | Whether regional endpoint is enabled for this Container Registry? |
-| `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. |
-| `tags` | map | No | - | A mapping of tags to assign to this replication location. |
-
-### `network_rule_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
-| `ip_rule` | [block](#network_rule_set-block-structure) | No | - | One or more 'ip_rule' blocks. |
-| `virtual_network` | [block](#network_rule_set-block-structure) | No | - | One or more 'virtual_network' blocks. |
+| `days` | int | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
 ### `encryption` block structure
 
@@ -85,6 +75,23 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
 | `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
+
+### `network_rule_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
+| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
+| `virtual_network` | [block](#virtual_network-block-structure) | No | - | One or more 'virtual_network' blocks. |
+
+### `georeplications` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | A location where the container registry should be geo-replicated. |
+| `regional_endpoint_enabled` | bool | No | - | Whether regional endpoint is enabled for this Container Registry? |
+| `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. |
+| `tags` | map | No | - | A mapping of tags to assign to this replication location. |
 
 ### `identity` block structure
 
@@ -105,13 +112,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
 | `subnet_id` | string | Yes | - | The subnet id from which requests will match the rule. |
-
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | int | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
 
 

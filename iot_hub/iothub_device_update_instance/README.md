@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of iothub_device_update_instance"   
-   device_update_account_id = "device_update_account_id of iothub_device_update_instance"   
+   name = "Specifies the name which should be used for this IoT Hub Device Update Instance..."   
+   device_update_account_id = "Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device U..."   
    # iothub_id → set in tfstate_inputs
 }
 

@@ -11,19 +11,16 @@ source = {
 }
 
 inputs = {
-   name = "name of voice_services_communications_gateway"   
+   name = "Specifies the name which should be used for this Voice Services Communications G..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   connectivity = "connectivity of voice_services_communications_gateway"   
-   codecs = "codecs of voice_services_communications_gateway"   
-   e911_type = "e911_type of voice_services_communications_gateway"   
-   platforms = "platforms of voice_services_communications_gateway"   
+   connectivity = "How to connect back to the operator network, e"   
+   codecs = "The voice codecs expected for communication with Teams..."   
+   e911_type = "How to handle 911 calls"   
+   platforms = "The Voice Services Communications GatewaysAvailable supports platform types..."   
    service_location = {
-      this_service_location = {
-         location = "..."         
-         operator_addresses = "..."         
-      }
-      
+      location = "..."      
+      operator_addresses = "..."      
    }
    
 }

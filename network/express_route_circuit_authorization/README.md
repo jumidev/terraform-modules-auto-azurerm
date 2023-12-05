@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of express_route_circuit_authorization"   
+   name = "The name of the ExpressRoute circuit"   
    resource_group_name = "${resource_group}"   
    # express_route_circuit_name → set in tfstate_inputs
 }

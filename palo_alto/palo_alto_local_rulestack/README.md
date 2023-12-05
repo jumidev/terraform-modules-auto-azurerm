@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of palo_alto_local_rulestack"   
+   name = "The name which should be used for this Palo Alto Networks Rulestack..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

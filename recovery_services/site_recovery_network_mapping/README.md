@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of site_recovery_network_mapping"   
+   name = "The name of the network mapping"   
    resource_group_name = "${resource_group}"   
-   recovery_vault_name = "recovery_vault_name of site_recovery_network_mapping"   
-   source_recovery_fabric_name = "source_recovery_fabric_name of site_recovery_network_mapping"   
-   target_recovery_fabric_name = "target_recovery_fabric_name of site_recovery_network_mapping"   
-   source_network_id = "source_network_id of site_recovery_network_mapping"   
-   target_network_id = "target_network_id of site_recovery_network_mapping"   
+   recovery_vault_name = "The name of the vault that should be updated"   
+   source_recovery_fabric_name = "Specifies the ASR fabric where mapping should be created..."   
+   target_recovery_fabric_name = "The Azure Site Recovery fabric object corresponding to the recovery Azure region..."   
+   source_network_id = "The id of the primary network"   
+   target_network_id = "The id of the recovery network"   
 }
 
 tfstate_store = {

@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of public_ip"   
+   name = "Specifies the name of the Public IP"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   allocation_method = "allocation_method of public_ip"   
+   allocation_method = "Defines the allocation method for this IP address"   
 }
 
 tfstate_store = {

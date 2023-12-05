@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_output_cosmosdb"   
+   name = "The name of the Stream Analytics Output"   
    # stream_analytics_job_id → set in tfstate_inputs
-   cosmosdb_account_key = "cosmosdb_account_key of stream_analytics_output_cosmosdb"   
+   cosmosdb_account_key = "The account key for the CosmosDB database"   
    # cosmosdb_sql_database_id → set in tfstate_inputs
-   container_name = "container_name of stream_analytics_output_cosmosdb"   
+   container_name = "The name of the CosmosDB container"   
 }
 
 tfstate_inputs = {

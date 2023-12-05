@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_notebook_workspace"   
+   name = "The name which should be used for this SQL Notebook Workspace..."   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_notebook_workspace"   
+   account_name = "The name of the Cosmos DB Account to create the SQL Notebook Workspace within..."   
 }
 
 tfstate_store = {

@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of dns_txt_record"   
+   name = "The name of the DNS TXT Record"   
    resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
-   ttl = "ttl of dns_txt_record"   
+   ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
 }
 
 tfstate_inputs = {

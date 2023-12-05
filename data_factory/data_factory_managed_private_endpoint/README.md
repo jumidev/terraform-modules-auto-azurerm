@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of data_factory_managed_private_endpoint"   
+   name = "Specifies the name which should be used for this Managed Private Endpoint..."   
    # data_factory_id → set in tfstate_inputs
    # target_resource_id → set in tfstate_inputs
 }

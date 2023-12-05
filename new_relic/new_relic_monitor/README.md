@@ -11,24 +11,18 @@ source = {
 }
 
 inputs = {
-   name = "name of new_relic_monitor"   
+   name = "Specifies the name which should be used for this Azure Native New Relic Monitor..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    plan = {
-      this_plan = {
-         effective_date = "..."         
-      }
-      
+      effective_date = "..."      
    }
    
    user = {
-      this_user = {
-         email = "..."         
-         first_name = "..."         
-         last_name = "..."         
-         phone_number = "..."         
-      }
-      
+      email = "..."      
+      first_name = "..."      
+      last_name = "..."      
+      phone_number = "..."      
    }
    
 }
@@ -62,15 +56,6 @@ tfstate_store = {
 | **org_creation_source** | string |  `LIFTR`  |  `LIFTR`, `NEWRELIC`  |  Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 | **user_id** | string |  -  |  -  |  Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created. | 
 
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `effective_date` | datetime | Yes | - | Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created. |
-| `billing_cycle` | string | No | MONTHLY | Specifies the billing cycles. Possible values are 'MONTHLY', 'WEEKLY' and 'YEARLY'. Defaults to 'MONTHLY'. Changing this forces a new Azure Native New Relic Monitor to be created. |
-| `plan_id` | string | No | newrelic-pay-as-you-go-free-live | Specifies the plan id published by NewRelic. The only possible value is 'newrelic-pay-as-you-go-free-live'. Defaults to 'newrelic-pay-as-you-go-free-live'. Changing this forces a new Azure Native New Relic Monitor to be created. |
-| `usage_type` | string | No | PAYG | Specifies the usage type. Possible values are 'COMMITTED' and 'PAYG'. Defaults to 'PAYG'. Changing this forces a new Azure Native New Relic Monitor to be created. |
-
 ### `user` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +64,15 @@ tfstate_store = {
 | `first_name` | string | Yes | - | Specifies the first name. Changing this forces a new Azure Native New Relic Monitor to be created. |
 | `last_name` | string | Yes | - | Specifies the last name. Changing this forces a new Azure Native New Relic Monitor to be created. |
 | `phone_number` | string | Yes | - | Specifies the contact phone number. Changing this forces a new Azure Native New Relic Monitor to be created. |
+
+### `plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `effective_date` | datetime | Yes | - | Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created. |
+| `billing_cycle` | string | No | MONTHLY | Specifies the billing cycles. Possible values are 'MONTHLY', 'WEEKLY' and 'YEARLY'. Defaults to 'MONTHLY'. Changing this forces a new Azure Native New Relic Monitor to be created. |
+| `plan_id` | string | No | newrelic-pay-as-you-go-free-live | Specifies the plan id published by NewRelic. The only possible value is 'newrelic-pay-as-you-go-free-live'. Defaults to 'newrelic-pay-as-you-go-free-live'. Changing this forces a new Azure Native New Relic Monitor to be created. |
+| `usage_type` | string | No | PAYG | Specifies the usage type. Possible values are 'COMMITTED' and 'PAYG'. Defaults to 'PAYG'. Changing this forces a new Azure Native New Relic Monitor to be created. |
 
 
 

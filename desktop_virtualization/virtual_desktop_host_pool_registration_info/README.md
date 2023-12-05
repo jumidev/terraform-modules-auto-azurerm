@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   expiration_date = "expiration_date of virtual_desktop_host_pool_registration_info"   
-   hostpool_id = "hostpool_id of virtual_desktop_host_pool_registration_info"   
+   expiration_date = "A valid `RFC3339Time` for the expiration of the token..."   
+   hostpool_id = "The ID of the Virtual Desktop Host Pool to link the Registration Info to..."   
 }
 
 tfstate_store = {

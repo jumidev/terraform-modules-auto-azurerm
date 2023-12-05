@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of stack_hci_cluster"   
+   name = "The name which should be used for this Azure Stack HCI Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   client_id = "client_id of stack_hci_cluster"   
+   client_id = "The Client ID of the Azure Active Directory which is used by the Azure Stack HCI..."   
 }
 
 tfstate_store = {

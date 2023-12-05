@@ -13,13 +13,13 @@ source = {
 inputs = {
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   client_id = "client_id of api_management_identity_provider_aadb2c"   
-   client_secret = "client_secret of api_management_identity_provider_aadb2c"   
-   allowed_tenant = "allowed_tenant of api_management_identity_provider_aadb2c"   
-   signin_tenant = "signin_tenant of api_management_identity_provider_aadb2c"   
-   authority = "authority of api_management_identity_provider_aadb2c"   
-   signin_policy = "signin_policy of api_management_identity_provider_aadb2c"   
-   signup_policy = "signup_policy of api_management_identity_provider_aadb2c"   
+   client_id = "Client ID of the Application in your B2C tenant"   
+   client_secret = "Client secret of the Application in your B2C tenant..."   
+   allowed_tenant = "The allowed AAD tenant, usually your B2C tenant domain..."   
+   signin_tenant = "The tenant to use instead of Common when logging into Active Directory, usually ..."   
+   authority = "OpenID Connect discovery endpoint hostname, usually your b2clogin..."   
+   signin_policy = "Signin Policy Name"   
+   signup_policy = "Signup Policy Name"   
 }
 
 tfstate_inputs = {

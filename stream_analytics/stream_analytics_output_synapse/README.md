@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   name = "name of stream_analytics_output_synapse"   
+   name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
    # stream_analytics_job_name → set in tfstate_inputs
-   server = "server of stream_analytics_output_synapse"   
-   database = "database of stream_analytics_output_synapse"   
-   user = "user of stream_analytics_output_synapse"   
-   password = "password of stream_analytics_output_synapse"   
-   table = "table of stream_analytics_output_synapse"   
+   server = "The name of the SQL server containing the Azure SQL database..."   
+   database = "The name of the Azure SQL database"   
+   user = "The user name that will be used to connect to the Azure SQL database..."   
+   password = "The password that will be used to connect to the Azure SQL database..."   
+   table = "The name of the table in the Azure SQL database"   
 }
 
 tfstate_inputs = {

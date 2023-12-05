@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of kusto_cluster_managed_private_endpoint"   
-   cluster_name = "cluster_name of kusto_cluster_managed_private_endpoint"   
+   name = "The name of the Managed Private Endpoints to create..."   
+   cluster_name = "The name of the Kusto Cluster"   
    resource_group_name = "${resource_group}"   
-   private_link_resource_id = "private_link_resource_id of kusto_cluster_managed_private_endpoint"   
-   group_id = "group_id of kusto_cluster_managed_private_endpoint"   
+   private_link_resource_id = "The ARM resource ID of the resource for which the managed private endpoint is cr..."   
+   group_id = "The group id in which the managed private endpoint is created..."   
 }
 
 tfstate_store = {

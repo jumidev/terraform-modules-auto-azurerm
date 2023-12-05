@@ -11,23 +11,20 @@ source = {
 }
 
 inputs = {
-   name = "name of network_manager"   
+   name = "Specifies the name which should be used for this Network Managers..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    scope = {
-      this_scope = {
-         # management_group_ids → set in tfstate_inputs
-         # subscription_ids → set in tfstate_inputs
-      }
-      
+      # management_group_ids → (optional) set in tfstate_inputs
+      # subscription_ids → (optional) set in tfstate_inputs
    }
    
-   scope_accesses = "scope_accesses of network_manager"   
+   scope_accesses = "A list of configuration deployment type"   
 }
 
 tfstate_inputs = {
-   scope.this_scope.management_group_ids = "path/to/management_group_component:id"   
-   scope.this_scope.subscription_ids = "path/to/subscription_component:id"   
+   scope.management_group_ids = "path/to/management_group_component:id"   
+   scope.subscription_ids = "path/to/subscription_component:id"   
 }
 
 tfstate_store = {

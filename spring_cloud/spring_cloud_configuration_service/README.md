@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_configuration_service"   
+   name = "The name which should be used for this Spring Cloud Configuration Service..."   
    # spring_cloud_service_id → set in tfstate_inputs
 }
 

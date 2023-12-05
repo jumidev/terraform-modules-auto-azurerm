@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   description = "description of security_center_assessment_policy"   
-   display_name = "display_name of security_center_assessment_policy"   
+   description = "The description of the Security Center Assessment"   
+   display_name = "The user-friendly display name of the Security Center Assessment..."   
 }
 
 tfstate_store = {

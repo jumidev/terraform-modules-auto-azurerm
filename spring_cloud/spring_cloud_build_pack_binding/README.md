@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of spring_cloud_build_pack_binding"   
+   name = "The name which should be used for this Spring Cloud Build Pack Binding..."   
    # spring_cloud_builder_id → set in tfstate_inputs
 }
 

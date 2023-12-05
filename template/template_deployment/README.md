@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of template_deployment"   
+   name = "Specifies the name of the template deployment"   
    resource_group_name = "${resource_group}"   
-   deployment_mode = "deployment_mode of template_deployment"   
+   deployment_mode = "Specifies the mode that is used to deploy resources..."   
 }
 
 tfstate_store = {

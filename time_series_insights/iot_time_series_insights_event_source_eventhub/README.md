@@ -11,15 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of iot_time_series_insights_event_source_eventhub"   
-   environment_id = "environment_id of iot_time_series_insights_event_source_eventhub"   
+   name = "Specifies the name of the Azure IoT Time Series Insights EventHub Event Source..."   
+   environment_id = "Specifies the id of the IoT Time Series Insights Environment that the Event Sour..."   
    location = "${location}"   
    # eventhub_name → set in tfstate_inputs
-   consumer_group_name = "consumer_group_name of iot_time_series_insights_event_source_eventhub"   
-   event_source_resource_id = "event_source_resource_id of iot_time_series_insights_event_source_eventhub"   
+   consumer_group_name = "Specifies the name of the EventHub Consumer Group that holds the partitions from..."   
+   event_source_resource_id = "Specifies the resource id where events will be coming from..."   
    # namespace_name → set in tfstate_inputs
-   shared_access_key_name = "shared_access_key_name of iot_time_series_insights_event_source_eventhub"   
-   shared_access_key = "shared_access_key of iot_time_series_insights_event_source_eventhub"   
+   shared_access_key_name = "Specifies the name of the Shared Access key that grants the Event Source access ..."   
+   shared_access_key = "Specifies the value of the Shared Access Policy key that grants the Time Series ..."   
 }
 
 tfstate_inputs = {

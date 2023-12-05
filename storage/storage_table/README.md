@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_table"   
+   name = "The name of the storage table"   
    # storage_account_name → set in tfstate_inputs
 }
 
@@ -52,7 +52,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#acl-block-structure) | No | - | An 'access_policy' block. |
+| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
 
 
 

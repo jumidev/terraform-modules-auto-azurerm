@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of mobile_network_sim"   
+   name = "The name which should be used for this Mobile Network Sim..."   
    # mobile_network_sim_group_id → set in tfstate_inputs
-   authentication_key = "authentication_key of mobile_network_sim"   
-   international_mobile_subscriber_identity = "international_mobile_subscriber_identity of mobile_network_sim"   
-   integrated_circuit_card_identifier = "integrated_circuit_card_identifier of mobile_network_sim"   
-   operator_key_code = "operator_key_code of mobile_network_sim"   
+   authentication_key = "The Ki value for the SIM"   
+   international_mobile_subscriber_identity = "The international mobile subscriber identity (IMSI) for the SIM..."   
+   integrated_circuit_card_identifier = "The integrated circuit card ID (ICCID) for the SIM"   
+   operator_key_code = "The Opc value for the SIM"   
 }
 
 tfstate_inputs = {

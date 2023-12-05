@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_sync"   
+   name = "The name which should be used for this Storage Sync..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

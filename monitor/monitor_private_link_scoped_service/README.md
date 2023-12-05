@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_private_link_scoped_service"   
+   name = "The name of the Azure Monitor Private Link Scoped Service..."   
    resource_group_name = "${resource_group}"   
-   scope_name = "scope_name of monitor_private_link_scoped_service"   
-   linked_resource_id = "linked_resource_id of monitor_private_link_scoped_service"   
+   scope_name = "The name of the Azure Monitor Private Link Scope"   
+   linked_resource_id = "The ID of the linked resource"   
 }
 
 tfstate_store = {

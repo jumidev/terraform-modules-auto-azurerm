@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of resource_group_policy_remediation"   
-   resource_group_id = "resource_group_id of resource_group_policy_remediation"   
-   policy_assignment_id = "policy_assignment_id of resource_group_policy_remediation"   
+   name = "The name of the Policy Remediation"   
+   resource_group_id = "The Resource Group ID at which the Policy Remediation should be applied..."   
+   policy_assignment_id = "The ID of the Policy Assignment that should be remediated..."   
 }
 
 tfstate_store = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of digital_twins_endpoint_eventgrid"   
-   digital_twins_id = "digital_twins_id of digital_twins_endpoint_eventgrid"   
-   eventgrid_topic_endpoint = "eventgrid_topic_endpoint of digital_twins_endpoint_eventgrid"   
-   eventgrid_topic_primary_access_key = "eventgrid_topic_primary_access_key of digital_twins_endpoint_eventgrid"   
-   eventgrid_topic_secondary_access_key = "eventgrid_topic_secondary_access_key of digital_twins_endpoint_eventgrid"   
+   name = "The name which should be used for this Digital Twins Eventgrid Endpoint..."   
+   digital_twins_id = "The resource ID of the Digital Twins Instance"   
+   eventgrid_topic_endpoint = "The endpoint of the Event Grid Topic"   
+   eventgrid_topic_primary_access_key = "The primary access key of the Event Grid Topic"   
+   eventgrid_topic_secondary_access_key = "The secondary access key of the Event Grid Topic"   
 }
 
 tfstate_store = {

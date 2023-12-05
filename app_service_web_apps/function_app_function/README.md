@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of function_app_function"   
+   name = "The name of the function"   
    # function_app_id → set in tfstate_inputs
-   config_json = "config_json of function_app_function"   
+   config_json = "The config for this Function in JSON format"   
 }
 
 tfstate_inputs = {

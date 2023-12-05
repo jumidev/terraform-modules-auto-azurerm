@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   name = "name of sql_server"   
+   name = "The name of the Microsoft SQL Server"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   version = "version of sql_server"   
-   administrator_login = "administrator_login of sql_server"   
-   administrator_login_password = "administrator_login_password of sql_server"   
+   version = "The version for the new server"   
+   administrator_login = "The administrator login name for the new server"   
+   administrator_login_password = "The password associated with the `administrator_login` user..."   
 }
 
 tfstate_store = {

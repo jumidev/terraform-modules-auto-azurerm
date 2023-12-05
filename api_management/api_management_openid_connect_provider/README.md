@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of api_management_openid_connect_provider"   
+   name = "the Name of the OpenID Connect Provider which should be created within the API M..."   
    # api_management_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
-   client_id = "client_id of api_management_openid_connect_provider"   
-   client_secret = "client_secret of api_management_openid_connect_provider"   
-   display_name = "display_name of api_management_openid_connect_provider"   
-   metadata_endpoint = "metadata_endpoint of api_management_openid_connect_provider"   
+   client_id = "The Client ID used for the Client Application"   
+   client_secret = "The Client Secret used for the Client Application"   
+   display_name = "A user-friendly name for this OpenID Connect Provider..."   
+   metadata_endpoint = "The URI of the Metadata endpoint"   
 }
 
 tfstate_inputs = {

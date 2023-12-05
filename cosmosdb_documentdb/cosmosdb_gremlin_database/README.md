@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cosmosdb_gremlin_database"   
+   name = "Specifies the name of the Cosmos DB Gremlin Database..."   
    resource_group_name = "${resource_group}"   
-   account_name = "account_name of cosmosdb_gremlin_database"   
+   account_name = "The name of the CosmosDB Account to create the Gremlin Database within..."   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of resource_management_private_link"   
+   name = "Specifies the name of this Resource Management Private Link..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

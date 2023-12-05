@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of container_app_environment_certificate"   
+   name = "The name of the Container Apps Environment Certificate..."   
    # container_app_environment_id → set in tfstate_inputs
-   certificate_blob_base64 = "certificate_blob_base64 of container_app_environment_certificate"   
-   certificate_password = "certificate_password of container_app_environment_certificate"   
+   certificate_blob_base64 = "The Certificate Private Key as a base64 encoded PFX or PEM..."   
+   certificate_password = "The password for the Certificate"   
 }
 
 tfstate_inputs = {

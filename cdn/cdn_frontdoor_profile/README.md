@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_profile"   
+   name = "Specifies the name of the Front Door Profile"   
    resource_group_name = "${resource_group}"   
-   sku_name = "sku_name of cdn_frontdoor_profile"   
+   sku_name = "Specifies the SKU for this Front Door Profile"   
 }
 
 tfstate_store = {

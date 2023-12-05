@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    # domain_service_id → set in tfstate_inputs
-   name = "name of active_directory_domain_service_trust"   
-   password = "password of active_directory_domain_service_trust"   
-   trusted_domain_dns_ips = "trusted_domain_dns_ips of active_directory_domain_service_trust"   
-   trusted_domain_fqdn = "trusted_domain_fqdn of active_directory_domain_service_trust"   
+   name = "The name which should be used for this Active Directory Domain Service Trust..."   
+   password = "The password of the inbound trust set in the on-premise Active Directory Domain ..."   
+   trusted_domain_dns_ips = "Specifies a list of DNS IPs that are used to resolve the on-premise Active Direc..."   
+   trusted_domain_fqdn = "The FQDN of the on-premise Active Directory Domain Service..."   
 }
 
 tfstate_inputs = {

@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of mobile_network"   
+   name = "Specifies the name which should be used for this Mobile Network..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   mobile_country_code = "mobile_country_code of mobile_network"   
-   mobile_network_code = "mobile_network_code of mobile_network"   
+   mobile_country_code = "Mobile country code (MCC), defined in https://www"   
+   mobile_network_code = "Mobile network code (MNC), defined in https://www"   
 }
 
 tfstate_store = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of storage_mover_target_endpoint"   
+   name = "Specifies the name which should be used for this Storage Mover Target Endpoint..."   
    # storage_mover_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
    # storage_container_name → set in tfstate_inputs

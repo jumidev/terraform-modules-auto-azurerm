@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   display_name = "display_name of sentinel_threat_intelligence_indicator"   
-   pattern_type = "pattern_type of sentinel_threat_intelligence_indicator"   
-   pattern = "pattern of sentinel_threat_intelligence_indicator"   
-   source = "source of sentinel_threat_intelligence_indicator"   
-   validate_from_utc = "validate_from_utc of sentinel_threat_intelligence_indicator"   
+   display_name = "The display name of the Threat Intelligence Indicator..."   
+   pattern_type = "The type of pattern used by the Threat Intelligence Indicator..."   
+   pattern = "The pattern used by the Threat Intelligence Indicator..."   
+   source = "Source of the Threat Intelligence Indicator"   
+   validate_from_utc = "The start of validate date in RFC3339"   
    # workspace_id → set in tfstate_inputs
 }
 

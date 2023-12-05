@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_desktop_host_pool"   
+   name = "The name of the Virtual Desktop Host Pool"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   type = "type of virtual_desktop_host_pool"   
-   load_balancer_type = "load_balancer_type of virtual_desktop_host_pool"   
+   type = "The type of the Virtual Desktop Host Pool"   
+   load_balancer_type = "`BreadthFirst` load balancing distributes new user sessions across all available..."   
 }
 
 tfstate_store = {
@@ -65,7 +65,7 @@ tfstate_store = {
 | `enabled` | bool | No | False | Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two 'schedule' blocks must be defined. Default is 'false'. |
 | `timezone` | string | No | UTC | Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If 'use_session_host_timezone' is enabled then it will override this setting. Default is 'UTC' |
 | `use_session_host_timezone` | bool | No | False | Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides 'timezone'. Default is 'false'. |
-| `schedule` | [block](#scheduled_agent_updates-block-structure) | No | - | A 'schedule' block. A maximum of two blocks can be added. |
+| `schedule` | [block](#schedule-block-structure) | No | - | A 'schedule' block. A maximum of two blocks can be added. |
 
 
 

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    # api_management_name → set in tfstate_inputs
-   display_name = "display_name of api_management_subscription"   
+   display_name = "The display name of this Subscription"   
    resource_group_name = "${resource_group}"   
 }
 

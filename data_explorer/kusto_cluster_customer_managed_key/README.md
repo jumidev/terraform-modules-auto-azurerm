@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   cluster_id = "cluster_id of kusto_cluster_customer_managed_key"   
+   cluster_id = "The ID of the Kusto Cluster"   
    # key_vault_id → set in tfstate_inputs
-   key_name = "key_name of kusto_cluster_customer_managed_key"   
+   key_name = "The name of Key Vault Key"   
 }
 
 tfstate_inputs = {

@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of healthcare_dicom"   
+   name = "Specifies the name of the Healthcare DICOM Service"   
    # workspace_id → set in tfstate_inputs
    location = "${location}"   
 }

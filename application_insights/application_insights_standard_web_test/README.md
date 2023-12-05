@@ -11,16 +11,13 @@ source = {
 }
 
 inputs = {
-   name = "name of application_insights_standard_web_test"   
+   name = "The name which should be used for this Application Insights Standard WebTest..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # application_insights_id → set in tfstate_inputs
-   geo_locations = "geo_locations of application_insights_standard_web_test"   
+   geo_locations = "Specifies a list of where to physically run the tests from to give global covera..."   
    request = {
-      this_request = {
-         url = "..."         
-      }
-      
+      url = "..."      
    }
    
 }
@@ -60,14 +57,6 @@ tfstate_store = {
 | **timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
 | **validation_rules** | [block](#validation_rules-block-structure) |  -  |  -  |  A `validation_rules` block. | 
 
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_match` | string | Yes | - | A string value containing the content to match on. |
-| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
-| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
-
 ### `request` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,10 +72,18 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content` | [block](#validation_rules-block-structure) | No | - | A 'content' block. |
+| `content` | [block](#content-block-structure) | No | - | A 'content' block. |
 | `expected_status_code` | string | No | - | The expected status code of the response. Default is '200', '0' means 'response code < 400' |
 | `ssl_cert_remaining_lifetime` | int | No | - | The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365. |
 | `ssl_check_enabled` | bool | No | - | Should the SSL check be enabled? |
+
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_match` | string | Yes | - | A string value containing the content to match on. |
+| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
+| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
 
 
 

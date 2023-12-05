@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_wan"   
+   name = "Specifies the name of the Virtual WAN"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }

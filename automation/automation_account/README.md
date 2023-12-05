@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of automation_account"   
+   name = "Specifies the name of the Automation Account"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sku_name = "sku_name of automation_account"   
+   sku_name = "The SKU of the account"   
 }
 
 tfstate_store = {

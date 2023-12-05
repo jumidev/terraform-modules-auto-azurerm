@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   arc_machine_id = "arc_machine_id of arc_machine_extension"   
+   arc_machine_id = "The ID of the Hybrid Compute Machine Extension"   
    location = "${location}"   
-   name = "name of arc_machine_extension"   
-   publisher = "publisher of arc_machine_extension"   
-   type = "type of arc_machine_extension"   
+   name = "The name which should be used for this Hybrid Compute Machine Extension..."   
+   publisher = "The name of the extension handler publisher, such as `Microsoft..."   
+   type = "Specifies the type of the extension"   
 }
 
 tfstate_store = {

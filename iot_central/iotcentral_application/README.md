@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   name = "name of iotcentral_application"   
+   name = "Specifies the name of the IotHub resource"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   sub_domain = "sub_domain of iotcentral_application"   
+   sub_domain = "A `sub_domain` name"   
 }
 
 tfstate_store = {

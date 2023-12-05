@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   data_residency_location = "data_residency_location of aadb2c_directory"   
-   domain_name = "domain_name of aadb2c_directory"   
+   data_residency_location = "Location in which the B2C tenant is hosted and data resides..."   
+   domain_name = "Domain name of the B2C tenant, including the `"   
    resource_group_name = "${resource_group}"   
-   sku_name = "sku_name of aadb2c_directory"   
+   sku_name = "Billing SKU for the B2C tenant"   
 }
 
 tfstate_store = {

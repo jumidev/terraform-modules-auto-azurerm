@@ -13,13 +13,10 @@ source = {
 inputs = {
    location = "${location}"   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
-   name = "name of purview_account"   
+   name = "The name which should be used for this Purview Account..."   
    resource_group_name = "${resource_group}"   
 }
 

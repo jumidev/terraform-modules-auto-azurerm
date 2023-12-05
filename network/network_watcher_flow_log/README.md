@@ -11,18 +11,15 @@ source = {
 }
 
 inputs = {
-   name = "name of network_watcher_flow_log"   
+   name = "The name of the Network Watcher Flow Log"   
    # network_watcher_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
    # network_security_group_id → set in tfstate_inputs
    # storage_account_id → set in tfstate_inputs
-   enabled = "enabled of network_watcher_flow_log"   
+   enabled = "Should Network Flow Logging be Enabled?"   
    retention_policy = {
-      this_retention_policy = {
-         enabled = "..."         
-         days = "..."         
-      }
-      
+      enabled = "..."      
+      days = "..."      
    }
    
 }

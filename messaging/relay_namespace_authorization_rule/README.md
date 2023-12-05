@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of relay_namespace_authorization_rule"   
+   name = "The name which should be used for this Azure Relay Namespace Authorization Rule..."   
    # namespace_name → set in tfstate_inputs
    resource_group_name = "${resource_group}"   
 }

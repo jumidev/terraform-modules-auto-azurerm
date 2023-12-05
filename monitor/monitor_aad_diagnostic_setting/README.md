@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of monitor_aad_diagnostic_setting"   
+   name = "The name which should be used for this Monitor Azure Active Directory Diagnostic..."   
 }
 
 tfstate_store = {
@@ -39,13 +39,6 @@ tfstate_store = {
 | **log_analytics_workspace_id** | string |  Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent. | 
 | **storage_account_id** | string |  The ID of the Storage Account where logs should be sent. Changing this forces a new resource to be created. | 
 
-### `enabled_log` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
-| `retention_policy` | [block](#enabled_log-block-structure) | Yes | - | A 'retention_policy' block. |
-
 ### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,8 +51,15 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
-| `retention_policy` | [block](#log-block-structure) | Yes | - | A 'retention_policy' block. |
+| `retention_policy` | [block](#retention_policy-block-structure) | Yes | - | A 'retention_policy' block. |
 | `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
+
+### `enabled_log` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `category` | string | Yes | - | The log category for the Azure Active Directory Diagnostic. |
+| `retention_policy` | [block](#retention_policy-block-structure) | Yes | - | A 'retention_policy' block. |
 
 
 

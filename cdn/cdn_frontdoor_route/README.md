@@ -11,18 +11,18 @@ source = {
 }
 
 inputs = {
-   name = "name of cdn_frontdoor_route"   
+   name = "The name which should be used for this Front Door Route..."   
    # cdn_frontdoor_endpoint_id → set in tfstate_inputs
    # cdn_frontdoor_origin_group_id → set in tfstate_inputs
    # cdn_frontdoor_origin_ids → set in tfstate_inputs
-   patterns_to_match = "patterns_to_match of cdn_frontdoor_route"   
-   supported_protocols = "supported_protocols of cdn_frontdoor_route"   
+   patterns_to_match = "The route patterns of the rule"   
+   supported_protocols = "One or more Protocols supported by this Front Door Route..."   
 }
 
 tfstate_inputs = {
    cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id"   
    cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
-   cdn_frontdoor_origin_ids = "path/to/cdn_frontdoor_origin_component:id"   
+   cdn_frontdoor_origin_ids = ["path/to/cdn_frontdoor_origin_component:id", "..."]   
 }
 
 tfstate_store = {

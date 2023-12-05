@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   name = "name of palo_alto_local_rulestack_fqdn_list"   
-   rulestack_id = "rulestack_id of palo_alto_local_rulestack_fqdn_list"   
-   fully_qualified_domain_names = "fully_qualified_domain_names of palo_alto_local_rulestack_fqdn_list"   
+   name = "The name which should be used for this Palo Alto Local Rulestack FQDN List..."   
+   rulestack_id = "The ID of the TODO"   
+   fully_qualified_domain_names = "Specifies a list of Fully Qualified Domain Names"   
 }
 
 tfstate_store = {

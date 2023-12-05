@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   name = "name of palo_alto_local_rulestack_certificate"   
-   rulestack_id = "rulestack_id of palo_alto_local_rulestack_certificate"   
+   name = "The name which should be used for this Palo Alto Networks Rulestack Certificate..."   
+   rulestack_id = "The ID of the TODO"   
 }
 
 tfstate_store = {

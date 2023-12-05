@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_hub_routing_intent"   
+   name = "The name which should be used for this Virtual Hub Routing Intent..."   
    # virtual_hub_id → set in tfstate_inputs
    routing_policy = {
       this_routing_policy = {

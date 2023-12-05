@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   name = "name of machine_learning_inference_cluster"   
+   name = "The name which should be used for this Machine Learning Inference Cluster..."   
    # kubernetes_cluster_id → set in tfstate_inputs
    location = "${location}"   
    # machine_learning_workspace_id → set in tfstate_inputs

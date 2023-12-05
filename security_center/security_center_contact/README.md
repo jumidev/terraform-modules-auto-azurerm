@@ -11,9 +11,9 @@ source = {
 }
 
 inputs = {
-   alert_notifications = "alert_notifications of security_center_contact"   
-   alerts_to_admins = "alerts_to_admins of security_center_contact"   
-   email = "email of security_center_contact"   
+   alert_notifications = "Whether to send security alerts notifications to the security contact..."   
+   alerts_to_admins = "Whether to send security alerts notifications to subscription admins..."   
+   email = "The email of the Security Center Contact"   
 }
 
 tfstate_store = {

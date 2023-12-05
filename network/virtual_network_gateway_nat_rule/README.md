@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of virtual_network_gateway_nat_rule"   
+   name = "The name which should be used for this Virtual Network Gateway Nat Rule..."   
    resource_group_name = "${resource_group}"   
    # virtual_network_gateway_id → set in tfstate_inputs
-   external_mapping = "external_mapping of virtual_network_gateway_nat_rule"   
-   internal_mapping = "internal_mapping of virtual_network_gateway_nat_rule"   
+   external_mapping = "One or more `external_mapping` blocks"   
+   internal_mapping = "One or more `internal_mapping` blocks"   
 }
 
 tfstate_inputs = {

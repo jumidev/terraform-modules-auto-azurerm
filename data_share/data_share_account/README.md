@@ -11,14 +11,11 @@ source = {
 }
 
 inputs = {
-   name = "name of data_share_account"   
+   name = "The name which should be used for this Data Share Account..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    identity = {
-      this_identity = {
-         type = "..."         
-      }
-      
+      type = "..."      
    }
    
 }
