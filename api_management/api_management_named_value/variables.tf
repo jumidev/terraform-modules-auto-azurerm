@@ -41,8 +41,8 @@ variable "value_from_key_vault" {
 
 variable "secret" {
   description = "Specifies whether the API Management Named Value is secret. Valid values are 'true' or 'false'. The default value is 'false'."
-  type        = string
-  default     = null
+  type        = bool
+  default     = false
 }
 variable "tags" {
   description = "A list of tags to be applied to the API Management Named Value."

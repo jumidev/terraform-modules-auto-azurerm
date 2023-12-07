@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **auto_delete_on_idle** | string |  -  |  -  |  The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`. | 
 | **default_message_ttl** | string |  -  |  -  |  The Default message timespan to live as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself. | 
-| **lock_duration** | string |  -  |  -  |  The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . | 
+| **lock_duration** | string |  `1`  |  -  |  The lock duration for the subscription as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The default value is `1` minute or `P0DT0H1M0S` . The maximum value is `5` minutes or `P0DT0H5M0S` . | 
 | **dead_lettering_on_message_expiration** | bool |  -  |  -  |  Boolean flag which controls whether the Subscription has dead letter support when a message expires. | 
 | **dead_lettering_on_filter_evaluation_error** | bool |  `True`  |  -  |  Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`. | 
 | **enable_batched_operations** | bool |  -  |  -  |  Boolean flag which controls whether the Subscription supports batched operations. | 

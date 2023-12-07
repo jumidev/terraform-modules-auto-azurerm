@@ -42,16 +42,6 @@ tfstate_store = {
 | **certificate_policy** | [block](#certificate_policy-block-structure) |  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `x509_certificate_properties` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `extended_key_usage` | list | No | - | A list of Extended/Enhanced Key Usages. |
-| `key_usage` | string | Yes | - | A list of uses associated with this Key. Possible values include 'cRLSign', 'dataEncipherment', 'decipherOnly', 'digitalSignature', 'encipherOnly', 'keyAgreement', 'keyCertSign', 'keyEncipherment' and 'nonRepudiation' and are case-sensitive. |
-| `subject` | string | Yes | - | The Certificate's Subject. |
-| `subject_alternative_names` | [block](#subject_alternative_names-block-structure) | No | - | A 'subject_alternative_names' block. |
-| `validity_in_months` | string | Yes | - | The Certificates Validity Period in Months. |
-
 ### `subject_alternative_names` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -60,11 +50,18 @@ tfstate_store = {
 | `emails` | list | No | - | A list of email addresses identified by this Certificate. |
 | `upns` | list | No | - | A list of User Principal Names identified by the Certificate. |
 
-### `issuer_parameters` block structure
+### `trigger` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Certificate Issuer. Possible values include 'Self' (for self-signed certificate), or 'Unknown' (for a certificate issuing authority like 'Let's Encrypt' and Azure direct supported ones). |
+| `days_before_expiry` | int | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
+| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
+
+### `secret_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
 
 ### `certificate` block structure
 
@@ -83,17 +80,27 @@ tfstate_store = {
 | `secret_properties` | [block](#secret_properties-block-structure) | Yes | - | A 'secret_properties' block. |
 | `x509_certificate_properties` | [block](#x509_certificate_properties-block-structure) | No | - | A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. |
 
-### `secret_properties` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
+
+### `issuer_parameters` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Certificate Issuer. Possible values include 'Self' (for self-signed certificate), or 'Unknown' (for a certificate issuing authority like 'Let's Encrypt' and Azure direct supported ones). |
+
+### `x509_certificate_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `extended_key_usage` | list | No | - | A list of Extended/Enhanced Key Usages. |
+| `key_usage` | string | Yes | - | A list of uses associated with this Key. Possible values include 'cRLSign', 'dataEncipherment', 'decipherOnly', 'digitalSignature', 'encipherOnly', 'keyAgreement', 'keyCertSign', 'keyEncipherment' and 'nonRepudiation' and are case-sensitive. |
+| `subject` | string | Yes | - | The Certificate's Subject. |
+| `subject_alternative_names` | [block](#subject_alternative_names-block-structure) | No | - | A 'subject_alternative_names' block. |
+| `validity_in_months` | string | Yes | - | The Certificates Validity Period in Months. |
 
 ### `key_properties` block structure
 
@@ -111,13 +118,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `action` | [block](#action-block-structure) | Yes | - | A 'action' block. |
 | `trigger` | [block](#trigger-block-structure) | Yes | - | A 'trigger' block. |
-
-### `trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days_before_expiry` | int | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
-| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
 
 
 

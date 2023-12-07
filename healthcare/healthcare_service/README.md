@@ -42,7 +42,7 @@ tfstate_store = {
 | **cosmosdb_key_vault_key_versionless_id** | string |  -  |  A versionless Key Vault Key ID for CMK encryption of the backing database. Changing this forces a new resource to be created. | 
 | **cors_configuration** | [block](#cors_configuration-block-structure) |  -  |  A `cors_configuration` block. | 
 | **public_network_access_enabled** | bool |  `True`  |  Whether public network access is enabled or disabled for this service instance. Defaults to `true`. | 
-| **kind** | string |  -  |  The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`. | 
+| **kind** | string |  `fhir`  |  The type of the service. Values at time of publication are: `fhir`, `fhir-Stu3` and `fhir-R4`. Default value is `fhir`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `authentication_configuration` block structure

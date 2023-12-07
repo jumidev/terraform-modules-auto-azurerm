@@ -32,7 +32,7 @@ resource "azurerm_mssql_managed_instance" "this" {
   ########################################
   # optional vars
   ########################################
-  collation           = var.collation
+  collation           = var.collation # Default: SQL_Latin1_General_CP1_CI_AS
   dns_zone_partner_id = var.dns_zone_partner_id
 
   dynamic "identity" { # var.identity
@@ -44,10 +44,10 @@ resource "azurerm_mssql_managed_instance" "this" {
   }
 
   maintenance_configuration_name = data.azurerm_maintenance_configuration.this.name
-  minimum_tls_version            = var.minimum_tls_version
-  proxy_override                 = var.proxy_override
-  public_data_endpoint_enabled   = var.public_data_endpoint_enabled
-  storage_account_type           = var.storage_account_type # Default: GRS
+  minimum_tls_version            = var.minimum_tls_version          # Default: 1.2
+  proxy_override                 = var.proxy_override               # Default: Default
+  public_data_endpoint_enabled   = var.public_data_endpoint_enabled # Default: False
+  storage_account_type           = var.storage_account_type         # Default: GRS
   tags                           = var.tags
-  timezone_id                    = var.timezone_id
+  timezone_id                    = var.timezone_id # Default: UTC
 }

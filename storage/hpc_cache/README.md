@@ -69,6 +69,30 @@ tfstate_store = {
 | `download_certificate_automatically` | string | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
 | `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
 
+### `default_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_rule` | list | Yes | - | One or more 'access_rule' blocks (up to three). |
+
+### `directory_active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
+| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
+| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
+| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
+| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
+| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+
+### `bind` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,36 +107,12 @@ tfstate_store = {
 | `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
 | `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
 
-### `directory_active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
-| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
-| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
-| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
-| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
-| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
-| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
-
-### `default_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_rule` | list | Yes | - | One or more 'access_rule' blocks (up to three). |
-
 ### `dns` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
 | `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
-
-### `bind` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
 
 
 

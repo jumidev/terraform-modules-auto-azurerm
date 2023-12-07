@@ -49,6 +49,15 @@ tfstate_store = {
 | **ip_filter_rule** | [block](#ip_filter_rule-block-structure) |  -  |  An `ip_filter_rule` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `ip_filter_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the filter. |
+| `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the rule. |
+| `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
+| `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
+
 ### `sku` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,15 +74,6 @@ tfstate_store = {
 | `apply_allocation_policy` | bool | No | True | Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. |
 | `allocation_weight` | string | No | 1 | The weight applied to the IoT Hub. Defaults to '1'. |
 | `hostname` | string | No | - | (Computed) The IoT Hub hostname. |
-
-### `ip_filter_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the filter. |
-| `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the rule. |
-| `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
-| `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
 
 
 

@@ -70,6 +70,13 @@ tfstate_store = {
 | `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
 | `values` | string | Yes | - | The list of dimension values. |
 
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
+| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
+
 ### `dynamic_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,13 +91,6 @@ tfstate_store = {
 | `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
 | `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
 | `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
-| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
 ### `application_insights_web_test_location_availability_criteria` block structure
 

@@ -61,6 +61,12 @@ tfstate_store = {
 | **threat_types** | string |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
 | **validate_until_utc** | string |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
 
+### `kill_chain_phase` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
+
 ### `granular_marking` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,12 +74,6 @@ tfstate_store = {
 | `language` | string | No | - | The language of granular marking of the Threat Intelligence Indicator. |
 | `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
 | `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
-
-### `kill_chain_phase` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
 
 ### `external_reference` block structure
 

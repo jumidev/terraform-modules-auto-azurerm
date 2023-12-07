@@ -22,6 +22,6 @@ resource "azurerm_iothub_endpoint_storage_container" "this" {
   connection_string          = var.connection_string
   batch_frequency_in_seconds = var.batch_frequency_in_seconds
   max_chunk_size_in_bytes    = var.max_chunk_size_in_bytes
-  encoding                   = var.encoding
+  encoding                   = var.encoding         # Default: Avro
   file_name_format           = var.file_name_format # Default: {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 }

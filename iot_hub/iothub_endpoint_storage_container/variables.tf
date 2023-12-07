@@ -56,7 +56,7 @@ variable "max_chunk_size_in_bytes" {
 variable "encoding" {
   description = "Encoding that is used to serialize messages to blobs. Supported values are 'Avro', 'AvroDeflate' and 'JSON'. Default value is 'Avro'. Changing this forces a new resource to be created."
   type        = string
-  default     = null
+  default     = "Avro"
 }
 variable "file_name_format" {
   description = "File name format for the blob. All parameters are mandatory but can be reordered. Defaults to '{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}'."

@@ -35,10 +35,10 @@ resource "azurerm_iothub" "this" {
       endpoint_uri               = lookup(endpoint.value, "endpoint_uri", null)
       entity_path                = lookup(endpoint.value, "entity_path", null)
       connection_string          = lookup(endpoint.value, "connection_string", null)
-      batch_frequency_in_seconds = lookup(endpoint.value, "batch_frequency_in_seconds", null)
-      max_chunk_size_in_bytes    = lookup(endpoint.value, "max_chunk_size_in_bytes", null)
+      batch_frequency_in_seconds = lookup(endpoint.value, "batch_frequency_in_seconds", azureiothub.storagecontainer)
+      max_chunk_size_in_bytes    = lookup(endpoint.value, "max_chunk_size_in_bytes", azureiothub.storagecontainer)
       container_name             = lookup(endpoint.value, "container_name", null)
-      encoding                   = lookup(endpoint.value, "encoding", null)
+      encoding                   = lookup(endpoint.value, "encoding", "Avro")
       file_name_format           = lookup(endpoint.value, "file_name_format", "{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}")
       resource_group_name        = lookup(endpoint.value, "resource_group_name", null)
     }

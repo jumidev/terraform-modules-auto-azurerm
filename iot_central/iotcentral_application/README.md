@@ -41,7 +41,7 @@ tfstate_store = {
 | **display_name** | string |  -  |  -  |  A `display_name` name. Custom display name for the IoT Central application. Default is resource name. | 
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for the IoT Central Application. Defaults to `true`. | 
-| **sku** | string |  -  |  `ST0`, `ST1`, `ST2`  |  A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1` | 
+| **sku** | string |  `ST1`  |  `ST0`, `ST1`, `ST2`  |  A `sku` name. Possible values is `ST0`, `ST1`, `ST2`, Default value is `ST1` | 
 | **template** | string |  -  |  -  |  A `template` name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 

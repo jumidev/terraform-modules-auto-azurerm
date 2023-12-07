@@ -64,6 +64,14 @@ tfstate_store = {
 | **throttling** | string |  -  |  -  |  Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group` | string | Yes | - | List of action group reference resource IDs. |
+| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
+| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
+
 ### `metric_trigger` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,14 +88,6 @@ tfstate_store = {
 | `metric_trigger` | [block](#metric_trigger-block-structure) | No | - | A 'metric_trigger' block. Trigger condition for metric query rule. |
 | `operator` | string | Yes | - | Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
 | `threshold` | string | Yes | - | Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group` | string | Yes | - | List of action group reference resource IDs. |
-| `custom_webhook_payload` | string | No | - | Custom payload to be sent for all webhook payloads in alerting action. |
-| `email_subject` | string | No | - | Custom subject override for all email ids in Azure action group. |
 
 
 

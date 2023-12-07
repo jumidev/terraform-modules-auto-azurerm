@@ -40,12 +40,12 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  possible values |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **value** | string |  -  |  The value of this API Management Named Value. | 
-| **value_from_key_vault** | [block](#value_from_key_vault-block-structure) |  -  |  A `value_from_key_vault` block. | 
-| **secret** | string |  `true`, `false`  |  Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`. | 
-| **tags** | map |  -  |  A list of tags to be applied to the API Management Named Value. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **value** | string |  -  |  -  |  The value of this API Management Named Value. | 
+| **value_from_key_vault** | [block](#value_from_key_vault-block-structure) |  -  |  -  |  A `value_from_key_vault` block. | 
+| **secret** | bool |  `False`  |  `true`, `false`  |  Specifies whether the API Management Named Value is secret. Valid values are `true` or `false`. The default value is `false`. | 
+| **tags** | map |  -  |  -  |  A list of tags to be applied to the API Management Named Value. | 
 
 ### `value_from_key_vault` block structure
 

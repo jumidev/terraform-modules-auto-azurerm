@@ -36,6 +36,12 @@ tfstate_store = {
 | **log** | [block](#log-block-structure) |  -  |  A `log` block. | 
 | **metric** | [block](#metric-block-structure) |  -  |  A `metric` block. | 
 
+### `metric` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
+
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,12 +57,6 @@ tfstate_store = {
 | `aad_log_enabled` | bool | No | - | Whether AAD logs should be sent for the Monitor resource? |
 | `subscription_log_enabled` | bool | No | - | Whether Azure subscription logs should be sent for the Monitor resource? |
 | `resource_log_enabled` | bool | No | - | Whether Azure resource logs should be sent for the Monitor resource? |
-| `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
-
-### `metric` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
 | `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
 
 

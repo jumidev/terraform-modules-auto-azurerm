@@ -41,6 +41,6 @@ resource "azurerm_healthcare_service" "this" {
   }
 
   public_network_access_enabled = var.public_network_access_enabled # Default: True
-  kind                          = var.kind
+  kind                          = var.kind                          # Default: fhir
   tags                          = var.tags
 }

@@ -26,7 +26,7 @@ resource "azurerm_iotcentral_application" "this" {
   }
 
   public_network_access_enabled = var.public_network_access_enabled # Default: True
-  sku                           = var.sku
+  sku                           = var.sku                           # Default: ST1
   template                      = var.template
   tags                          = var.tags
 }

@@ -55,15 +55,12 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
 
-### `network_rule_set` block structure
+### `network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Allow | Specifies the default action for the Network Rule Set. Possible values are 'Allow' and 'Deny'. Defaults to 'Allow'. |
-| `public_network_access_enabled` | bool | No | True | Whether to allow traffic over public network. Possible values are 'true' and 'false'. Defaults to 'true'. |
-| `trusted_services_allowed` | bool | No | - | Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) |
-| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. |
-| `network_rules` | [block](#network_rules-block-structure) | No | - | One or more 'network_rules' blocks. |
+| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
+| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
 
 ### `customer_managed_key` block structure
 
@@ -73,12 +70,15 @@ tfstate_store = {
 | `identity_id` | string | Yes | - | The ID of the User Assigned Identity that has access to the key. |
 | `infrastructure_encryption_enabled` | bool | No | - | Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. |
 
-### `network_rules` block structure
+### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
-| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
+| `default_action` | string | No | Allow | Specifies the default action for the Network Rule Set. Possible values are 'Allow' and 'Deny'. Defaults to 'Allow'. |
+| `public_network_access_enabled` | bool | No | True | Whether to allow traffic over public network. Possible values are 'true' and 'false'. Defaults to 'true'. |
+| `trusted_services_allowed` | bool | No | - | Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) |
+| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. |
+| `network_rules` | [block](#network_rules-block-structure) | No | - | One or more 'network_rules' blocks. |
 
 
 

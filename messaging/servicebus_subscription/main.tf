@@ -14,7 +14,7 @@ resource "azurerm_servicebus_subscription" "this" {
   ########################################
   auto_delete_on_idle                       = var.auto_delete_on_idle
   default_message_ttl                       = var.default_message_ttl
-  lock_duration                             = var.lock_duration
+  lock_duration                             = var.lock_duration # Default: 1
   dead_lettering_on_message_expiration      = var.dead_lettering_on_message_expiration
   dead_lettering_on_filter_evaluation_error = var.dead_lettering_on_filter_evaluation_error # Default: True
   enable_batched_operations                 = var.enable_batched_operations

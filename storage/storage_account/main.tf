@@ -257,8 +257,8 @@ resource "azurerm_storage_account" "this" {
     }
   }
 
-  queue_encryption_key_type         = var.queue_encryption_key_type
-  table_encryption_key_type         = var.table_encryption_key_type
+  queue_encryption_key_type         = var.queue_encryption_key_type         # Default: Service
+  table_encryption_key_type         = var.table_encryption_key_type         # Default: Service
   infrastructure_encryption_enabled = var.infrastructure_encryption_enabled # Default: False
 
   dynamic "immutability_policy" { # var.immutability_policy

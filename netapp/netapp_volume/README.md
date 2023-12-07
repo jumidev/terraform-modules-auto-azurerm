@@ -89,7 +89,7 @@ tfstate_inputs = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `endpoint_type` | string | No | - | The endpoint type, default value is 'dst' for destination. |
+| `endpoint_type` | string | No | dst | The endpoint type, default value is 'dst' for destination. |
 | `remote_volume_location` | string | Yes | - | Location of the primary volume. Changing this forces a new resource to be created. |
 | `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
 | `replication_frequency` | string | Yes | - | Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive. |

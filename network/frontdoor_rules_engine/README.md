@@ -43,14 +43,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
-
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -60,18 +52,15 @@ tfstate_store = {
 | `action` | [block](#action-block-structure) | No | - | An 'action' block. |
 | `match_condition` | [block](#match_condition-block-structure) | No | - | One or more 'match_condition' block. |
 
-### `match_condition` block structure
+### `response_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `variable` | string | No | - | can be set to 'IsMobile', 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestURI', 'RequestPath', 'RequestFilename', 'RequestFilenameExtension','RequestHeader','RequestBody' or 'RequestScheme'. |
-| `selector` | string | No | - | match against a specific key when 'variable' is set to 'PostArgs' or 'RequestHeader'. It cannot be used with 'QueryString' and 'RequestMethod'. |
-| `operator` | string | Yes | - | can be set to 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith' or 'EndsWith' |
-| `transform` | string | No | - | can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode' |
-| `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
-| `value` | list | No | - | (array) can contain one or more strings. |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
 
-### `response_header` block structure
+### `request_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -85,6 +74,17 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
 | `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
+
+### `match_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `variable` | string | No | - | can be set to 'IsMobile', 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestURI', 'RequestPath', 'RequestFilename', 'RequestFilenameExtension','RequestHeader','RequestBody' or 'RequestScheme'. |
+| `selector` | string | No | - | match against a specific key when 'variable' is set to 'PostArgs' or 'RequestHeader'. It cannot be used with 'QueryString' and 'RequestMethod'. |
+| `operator` | string | Yes | - | can be set to 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith' or 'EndsWith' |
+| `transform` | string | No | - | can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode' |
+| `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
+| `value` | list | No | - | (array) can contain one or more strings. |
 
 
 

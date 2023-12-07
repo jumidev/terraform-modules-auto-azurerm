@@ -27,11 +27,11 @@ resource "azurerm_sql_managed_instance" "this" {
   ########################################
   # optional vars
   ########################################
-  collation                    = var.collation
-  public_data_endpoint_enabled = var.public_data_endpoint_enabled
-  minimum_tls_version          = var.minimum_tls_version
-  proxy_override               = var.proxy_override
-  timezone_id                  = var.timezone_id
+  collation                    = var.collation                    # Default: SQL_Latin1_General_CP1_CI_AS
+  public_data_endpoint_enabled = var.public_data_endpoint_enabled # Default: False
+  minimum_tls_version          = var.minimum_tls_version          # Default: 1.2
+  proxy_override               = var.proxy_override               # Default: Default
+  timezone_id                  = var.timezone_id                  # Default: UTC
   dns_zone_partner_id          = var.dns_zone_partner_id
 
   dynamic "identity" { # var.identity

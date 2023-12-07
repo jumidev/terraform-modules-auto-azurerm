@@ -19,7 +19,7 @@ resource "azurerm_storage_data_lake_gen2_path" "this" {
   dynamic "ace" { # var.ace
     for_each = var.ace != null ? var.ace : []
     content {
-      scope       = lookup(ace.value, "scope", null)
+      scope       = lookup(ace.value, "scope", false)
       type        = lookup(ace.value, "type")        # (Required) possible values: user | group | mask | other
       permissions = lookup(ace.value, "permissions") # (Required) possible values: rwx | r--
     }

@@ -46,7 +46,7 @@ variable "public_network_access_enabled" {
 variable "sku" {
   description = "A 'sku' name. Possible values is 'ST0', 'ST1', 'ST2', Default value is 'ST1'"
   type        = string
-  default     = null
+  default     = "ST1"
 }
 variable "template" {
   description = "A 'template' name. IoT Central application template name. Default is a custom application. Changing this forces a new resource to be created."

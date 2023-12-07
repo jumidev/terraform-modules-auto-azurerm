@@ -53,6 +53,18 @@ tfstate_store = {
 | **time_grain** | string |  `Monthly`  |  `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly`, `Quarterly`  |  The time covered by a budget. Tracking of the amount will be reset based on the time grain. Must be one of `BillingAnnual`, `BillingMonth`, `BillingQuarter`, `Annually`, `Monthly` and `Quarterly`. Defaults to `Monthly`. Changing this forces a new resource to be created. | 
 | **filter** | [block](#filter-block-structure) |  -  |  -  |  A `filter` block. | 
 
+### `notification` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
+| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
+| `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
+| `contact_emails` | string | No | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
+| `contact_groups` | string | No | - | Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded. |
+| `contact_roles` | string | No | - | Specifies a list of contact roles to send the budget notification to when the threshold is exceeded. |
+| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
+
 ### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,18 +94,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `dimension` | [block](#dimension-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
 | `tag` | [block](#tag-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
-
-### `notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
-| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
-| `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
-| `contact_emails` | string | No | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
-| `contact_groups` | string | No | - | Specifies a list of Action Group IDs to send the budget notification to when the threshold is exceeded. |
-| `contact_roles` | string | No | - | Specifies a list of contact roles to send the budget notification to when the threshold is exceeded. |
-| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
 
 

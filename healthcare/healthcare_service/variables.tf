@@ -67,7 +67,7 @@ variable "public_network_access_enabled" {
 variable "kind" {
   description = "The type of the service. Values at time of publication are: 'fhir', 'fhir-Stu3' and 'fhir-R4'. Default value is 'fhir'."
   type        = string
-  default     = null
+  default     = "fhir"
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

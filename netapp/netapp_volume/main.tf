@@ -32,7 +32,7 @@ resource "azurerm_netapp_volume" "this" {
   dynamic "data_protection_replication" { # var.data_protection_replication
     for_each = var.data_protection_replication != null ? var.data_protection_replication : []
     content {
-      endpoint_type             = lookup(data_protection_replication.value, "endpoint_type", null)
+      endpoint_type             = lookup(data_protection_replication.value, "endpoint_type", "dst")
       remote_volume_location    = lookup(data_protection_replication.value, "remote_volume_location")    # (Required) 
       remote_volume_resource_id = lookup(data_protection_replication.value, "remote_volume_resource_id") # (Required) 
       replication_frequency     = lookup(data_protection_replication.value, "replication_frequency")     # (Required) 

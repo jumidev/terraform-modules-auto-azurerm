@@ -30,6 +30,6 @@ resource "azurerm_api_management_named_value" "this" {
     }
   }
 
-  secret = var.secret
+  secret = var.secret # Default: False
   tags   = var.tags
 }
