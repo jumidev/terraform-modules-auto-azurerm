@@ -42,19 +42,19 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **access_policy** | [block](#access_policy-block-structure) |  -  |  [A list](/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below. | 
-| **enabled_for_deployment** | bool |  -  |  Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. | 
-| **enabled_for_disk_encryption** | bool |  -  |  Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | 
-| **enabled_for_template_deployment** | bool |  -  |  Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | 
-| **enable_rbac_authorization** | bool |  -  |  Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. | 
-| **network_acls** | [block](#network_acls-block-structure) |  -  |  A `network_acls` block. | 
-| **purge_protection_enabled** | bool |  -  |  Is Purge Protection enabled for this Key Vault? | 
-| **public_network_access_enabled** | bool |  `True`  |  Whether public network access is allowed for this Key Vault. Defaults to `true`. | 
-| **soft_delete_retention_days** | int |  -  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. | 
-| **contact** | [block](#contact-block-structure) |  -  |  One or more `contact` block. | 
-| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **access_policy** | [block](#access_policy-block-structure) |  -  |  -  |  [A list](/docs/configuration/attr-as-blocks.html) of `access_policy` objects (up to 1024) describing access policies, as described below. | 
+| **enabled_for_deployment** | bool |  -  |  -  |  Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault. | 
+| **enabled_for_disk_encryption** | bool |  -  |  -  |  Boolean flag to specify whether Azure Disk Encryption is permitted to retrieve secrets from the vault and unwrap keys. | 
+| **enabled_for_template_deployment** | bool |  -  |  -  |  Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault. | 
+| **enable_rbac_authorization** | bool |  -  |  -  |  Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions. | 
+| **network_acls** | [block](#network_acls-block-structure) |  -  |  -  |  A `network_acls` block. | 
+| **purge_protection_enabled** | bool |  -  |  -  |  Is Purge Protection enabled for this Key Vault? | 
+| **public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this Key Vault. Defaults to `true`. | 
+| **soft_delete_retention_days** | string |  -  |  `7`, `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. | 
+| **contact** | [block](#contact-block-structure) |  -  |  -  |  One or more `contact` block. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `contact` block structure
 

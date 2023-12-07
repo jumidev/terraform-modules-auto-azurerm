@@ -46,7 +46,7 @@ resource "azurerm_firewall" "this" {
     for_each = var.virtual_hub != null ? var.virtual_hub : []
     content {
       virtual_hub_id  = lookup(virtual_hub.value, "virtual_hub_id") # (Required) 
-      public_ip_count = lookup(virtual_hub.value, "public_ip_count", 1)
+      public_ip_count = lookup(virtual_hub.value, "public_ip_count", "1")
     }
   }
 

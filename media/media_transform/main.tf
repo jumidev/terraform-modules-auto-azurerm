@@ -136,7 +136,7 @@ resource "azurerm_media_transform" "this" {
                 for_each = filter.value.fade_in != null ? filter.value.fade_in : []
                 content {
                   duration   = lookup(fade_in.value, "duration")   # (Required) 
-                  fade_color = lookup(fade_in.value, "fade_color") # (Required) 
+                  fade_color = lookup(fade_in.value, "fade_color") # (Required) possible values: rgb(255,0,0) | 0xFF0000 | #FF0000
                   start      = lookup(fade_in.value, "start", "0")
                 }
               }
@@ -146,7 +146,7 @@ resource "azurerm_media_transform" "this" {
                 for_each = filter.value.fade_out != null ? filter.value.fade_out : []
                 content {
                   duration   = lookup(fade_out.value, "duration")   # (Required) 
-                  fade_color = lookup(fade_out.value, "fade_color") # (Required) 
+                  fade_color = lookup(fade_out.value, "fade_color") # (Required) possible values: rgb(255,0,0) | 0xFF0000 | #FF0000
                   start      = lookup(fade_out.value, "start", "0")
                 }
               }

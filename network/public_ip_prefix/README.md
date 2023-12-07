@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **sku** | string |  `Standard`  |  The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. | 
 | **ip_version** | string |  `IPv4`  |  The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`. | 
-| **prefix_length** | int |  `28`  |  Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created. | 
+| **prefix_length** | string |  `28`  |  Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 | **zones** | string |  -  |  Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. | 
 

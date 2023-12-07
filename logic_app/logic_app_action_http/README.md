@@ -36,12 +36,12 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **body** | string |  Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered. | 
-| **headers** | string |  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
-| **queries** | string |  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
-| **run_after** | string |  Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **body** | string |  `uri`  |  Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered. | 
+| **headers** | string |  -  |  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
+| **queries** | string |  -  |  Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered. | 
+| **run_after** | string |  `run_after`  |  Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below. | 
 
 
 

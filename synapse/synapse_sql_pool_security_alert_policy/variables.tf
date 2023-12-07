@@ -30,8 +30,8 @@ variable "email_addresses" {
 }
 variable "retention_days" {
   description = "Specifies the number of days to keep in the Threat Detection audit logs. Defaults to '0'."
-  type        = int
-  default     = 0
+  type        = string
+  default     = "0"
 }
 variable "storage_account_access_key" {
   description = "Specifies the identifier key of the Threat Detection audit storage account."

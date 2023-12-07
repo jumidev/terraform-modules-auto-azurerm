@@ -31,11 +31,11 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **key_vault_id** | string |  Specifies the id of the Key Vault resource. Changing this forces a new resource to be created. | 
-| **tenant_id** | string |  The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created. | 
-| **object_id** | string |  The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **key_vault_id** | string |  -  |  Specifies the id of the Key Vault resource. Changing this forces a new resource to be created. | 
+| **tenant_id** | string |  -  |  The Azure Active Directory tenant ID that should be used for authenticating requests to the key vault. Changing this forces a new resource to be created. | 
+| **object_id** | string |  `azuread_service_principal.object_id`  |  The object ID of a user, service principal or security group in the Azure Active Directory tenant for the vault. The object ID of a service principal can be fetched from `azuread_service_principal.object_id`. The object ID must be unique for the list of access policies. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

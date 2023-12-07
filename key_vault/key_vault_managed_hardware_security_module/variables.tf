@@ -40,8 +40,8 @@ variable "purge_protection_enabled" {
 }
 variable "soft_delete_retention_days" {
   description = "The number of days that items should be retained for once soft-deleted. This value can be between '7' and '90' days. Defaults to '90'. Changing this forces a new resource to be created."
-  type        = int
-  default     = 90
+  type        = string
+  default     = "90"
 }
 variable "public_network_access_enabled" {
   description = "Whether traffic from public networks is permitted. Defaults to 'true'. Changing this forces a new resource to be created."

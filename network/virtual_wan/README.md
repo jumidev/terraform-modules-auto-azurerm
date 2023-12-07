@@ -39,7 +39,7 @@ tfstate_store = {
 | **disable_vpn_encryption** | bool |  `False`  |  -  |  Boolean flag to specify whether VPN encryption is disabled. Defaults to `false`. | 
 | **allow_branch_to_branch_traffic** | bool |  `True`  |  -  |  Boolean flag to specify whether branch to branch traffic is allowed. Defaults to `true`. | 
 | **office365_local_breakout_category** | string |  `None`  |  `Optimize`, `OptimizeAndAllow`, `All`, `None`  |  Specifies the Office365 local breakout category. Possible values include: `Optimize`, `OptimizeAndAllow`, `All`, `None`. Defaults to `None`. | 
-| **type** | string |  `Standard`  |  -  |  Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`. | 
+| **type** | string |  `Standard`  |  `Basic`, `Standard`  |  Specifies the Virtual WAN type. Possible Values include: `Basic` and `Standard`. Defaults to `Standard`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Virtual WAN. | 
 
 

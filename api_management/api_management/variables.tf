@@ -45,7 +45,7 @@ variable "additional_location" {
 #   zones (list)                         : A list of availability zones. Changing this forces a new resource to be created.
 #   public_ip_address_id (string)        : ID of a standard SKU IPv4 Public IP.
 #   virtual_network_configuration (block): A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'.
-#   gateway_disabled (bool)              : Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+#   gateway_disabled (string)            : Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
 #
 # virtual_network_configuration block structure:
 #   subnet_id (string)                           : (REQUIRED) The id of the subnet that will be used for the API Management.

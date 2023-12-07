@@ -56,7 +56,7 @@ variable "cors" {
 #   allowed_origins (string)        : Allowed origins to make cross-site requests. The special value '*' allows all domains.
 #   allowed_origin_patterns (string): Allowed origin patterns to make cross-site requests.
 #   exposed_headers (string)        : HTTP response headers to expose for cross-site requests.
-#   max_age_seconds (int)           : How long, in seconds, the response from a pre-flight request can be cached by clients.
+#   max_age_seconds (string)        : How long, in seconds, the response from a pre-flight request can be cached by clients.
 
 
 variable "environment_variables" {
@@ -71,8 +71,8 @@ variable "https_only" {
 }
 variable "instance_count" {
   description = "Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between '1' and '500'. Defaults to '1' if not specified."
-  type        = int
-  default     = 1
+  type        = string
+  default     = "1"
 }
 variable "public_network_access_enabled" {
   description = "Indicates whether the Spring Cloud Gateway exposes endpoint."

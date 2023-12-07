@@ -55,7 +55,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `virtual_hub_id` | string | Yes | - | Specifies the ID of the Virtual Hub where the Firewall resides in. |
-| `public_ip_count` | int | No | 1 | Specifies the number of public IPs to assign to the Firewall. Defaults to '1'. |
+| `public_ip_count` | string | No | 1 | Specifies the number of public IPs to assign to the Firewall. Defaults to '1'. |
 
 ### `management_ip_configuration` block structure
 

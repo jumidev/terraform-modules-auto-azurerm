@@ -66,8 +66,8 @@ variable "ingress_settings" {
 #
 # ingress_settings block structure:
 #   backend_protocol (string)       : Specifies how ingress should communicate with this app backend service. Allowed values are 'GRPC' and 'Default'. Defaults to 'Default'.
-#   read_timeout_in_seconds (int)   : Specifies the ingress read time out in seconds. Defaults to '300'.
-#   send_timeout_in_seconds (int)   : Specifies the ingress send time out in seconds. Defaults to '60'.
+#   read_timeout_in_seconds (string): Specifies the ingress read time out in seconds. Defaults to '300'.
+#   send_timeout_in_seconds (string): Specifies the ingress send time out in seconds. Defaults to '60'.
 #   session_affinity (string)       : Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'.
 #   session_cookie_max_age (string) : Specifies the time in seconds until the cookie expires.
 

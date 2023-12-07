@@ -52,7 +52,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created. |
-| `capacity` | int | Yes | - | Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. |
+| `capacity` | string | Yes | - | Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. |
 
 
 

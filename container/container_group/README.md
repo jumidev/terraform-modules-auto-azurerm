@@ -48,7 +48,7 @@ tfstate_store = {
 | **dns_name_label** | string |  -  |  -  |  The DNS label/name for the container group's IP. Changing this forces a new resource to be created. | 
 | **dns_name_label_reuse_policy** | string |  `Unsecure`  |  -  |  The value representing the security enum. `Noreuse`, `ResourceGroupReuse`, `SubscriptionReuse`, `TenantReuse` or `Unsecure`. Defaults to `Unsecure`. | 
 | **exposed_port** | [block](#exposed_port-block-structure) |  -  |  -  |  Zero or more `exposed_port` blocks. Changing this forces a new resource to be created. | 
-| **ip_address_type** | string |  `Public`  |  -  |  Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`. | 
+| **ip_address_type** | string |  `Public`  |  `Public`, `Private`, `None`  |  Specifies the IP address type of the container. `Public`, `Private` or `None`. Changing this forces a new resource to be created. If set to `Private`, `subnet_ids` also needs to be set. Defaults to `Public`. | 
 | **key_vault_key_id** | string |  -  |  -  |  The Key Vault key URI for CMK encryption. Changing this forces a new resource to be created. | 
 | **key_vault_user_assigned_identity_id** | string |  -  |  -  |  The user assigned identity that has access to the Key Vault Key. If not specified, the RP principal named "Azure Container Instance Service" will be used instead. Make sure the identity has the proper `key_permissions` set, at least with `Get`, `UnwrapKey`, `WrapKey` and `GetRotationPolicy`. | 
 | **subnet_ids** | string |  -  |  -  |  The subnet resource IDs for a container group. Changing this forces a new resource to be created. | 
@@ -57,11 +57,21 @@ tfstate_store = {
 | **zones** | list |  -  |  -  |  A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `diagnostics` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. |
+
+### `log_analytics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_type` | string | No | - | The log type which should be used. Possible values are 'ContainerInsights' and 'ContainerInstanceLogs'. Changing this forces a new resource to be created. |
+| `workspace_id` | string | Yes | - | The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created. |
+| `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
+| `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
 
 ### `dns_config` block structure
 
@@ -80,28 +90,18 @@ tfstate_store = {
 | `password` | string | No | - | The password with which to connect to the registry. Changing this forces a new resource to be created. |
 | `server` | string | Yes | - | The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created. |
 
-### `log_analytics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_type` | string | No | - | The log type which should be used. Possible values are 'ContainerInsights' and 'ContainerInstanceLogs'. Changing this forces a new resource to be created. |
-| `workspace_id` | string | Yes | - | The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created. |
-| `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
-| `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. |
-
 ### `exposed_port` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | No | - | The port number the container will expose. Changing this forces a new resource to be created. |
 | `protocol` | string | No | TCP | The network protocol associated with port. Possible values are 'TCP' & 'UDP'. Changing this forces a new resource to be created. Defaults to 'TCP'. |
+
+### `diagnostics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
 
 
 

@@ -40,13 +40,13 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **description** | string |  A description of the Network Manager Admin Rule. | 
-| **destination_port_ranges** | list |  A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
-| **destination** | [block](#destination-block-structure) |  One or more `destination` blocks. | 
-| **source_port_ranges** | list |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
-| **source** | [block](#source-block-structure) |  One or more `source` blocks. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **description** | string |  -  |  A description of the Network Manager Admin Rule. | 
+| **destination_port_ranges** | string |  `1024-65535`  |  A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
+| **destination** | [block](#destination-block-structure) |  -  |  One or more `destination` blocks. | 
+| **source_port_ranges** | string |  `1024-65535`  |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
+| **source** | [block](#source-block-structure) |  -  |  One or more `source` blocks. | 
 
 ### `destination` block structure
 

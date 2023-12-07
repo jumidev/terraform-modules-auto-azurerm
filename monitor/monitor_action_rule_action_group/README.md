@@ -42,12 +42,12 @@ tfstate_store = {
 | **condition** | [block](#condition-block-structure) |  -  |  A `condition` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `monitor` block structure
+### `alert_context` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
-| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
+| `values` | list | Yes | - | A list of values to match for a given condition. |
 
 ### `monitor_service` block structure
 
@@ -63,18 +63,6 @@ tfstate_store = {
 | `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
 | `values` | list | Yes | - | A list of values to match for a given condition. |
 
-### `condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alert_context` | [block](#alert_context-block-structure) | No | - | A 'alert_context' block. |
-| `alert_rule_id` | [block](#alert_rule_id-block-structure) | No | - | A 'alert_rule_id' block. |
-| `description` | [block](#description-block-structure) | No | - | A 'description' block. |
-| `monitor` | [block](#monitor-block-structure) | No | - | A 'monitor' block. |
-| `monitor_service` | [block](#monitor_service-block-structure) | No | - | A 'monitor_service' block. |
-| `severity` | [block](#severity-block-structure) | No | - | A 'severity' block. |
-| `target_resource_type` | [block](#target_resource_type-block-structure) | No | - | A 'target_resource_type' block. |
-
 ### `target_resource_type` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,12 +77,24 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of target scope. Possible values are 'ResourceGroup' and 'Resource'. |
 | `resource_ids` | list | Yes | - | A list of resource IDs of the given scope type which will be the target of action rule. |
 
-### `alert_context` block structure
+### `condition` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'. |
-| `values` | list | Yes | - | A list of values to match for a given condition. |
+| `alert_context` | [block](#alert_context-block-structure) | No | - | A 'alert_context' block. |
+| `alert_rule_id` | [block](#alert_rule_id-block-structure) | No | - | A 'alert_rule_id' block. |
+| `description` | [block](#description-block-structure) | No | - | A 'description' block. |
+| `monitor` | [block](#monitor-block-structure) | No | - | A 'monitor' block. |
+| `monitor_service` | [block](#monitor_service-block-structure) | No | - | A 'monitor_service' block. |
+| `severity` | [block](#severity-block-structure) | No | - | A 'severity' block. |
+| `target_resource_type` | [block](#target_resource_type-block-structure) | No | - | A 'target_resource_type' block. |
+
+### `monitor` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The operator for a given condition. Possible values are 'Equals' and 'NotEquals'. |
+| `values` | string | Yes | - | A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'. |
 
 ### `description` block structure
 

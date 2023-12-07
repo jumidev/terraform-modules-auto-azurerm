@@ -20,22 +20,9 @@ variable "description" {
 }
 variable "schedule" {
   description = "A 'schedule' block, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the 'frequency' and 'interval' properties."
-  type        = map(any)
+  type        = string
   default     = null
 }
-#
-# schedule block structure:
-#   days_of_month (int)     : Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
-#   days_of_week (int)      : Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
-#   hours (string)          : Hours of the day on which the trigger is scheduled.
-#   minutes (int)           : Minutes of the hour on which the trigger is scheduled.
-#   monthly (block)         : A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
-#
-# monthly block structure:
-#   weekday (string)       : (REQUIRED) The day of the week on which the trigger runs. For example, a 'monthly' property with a 'weekday' value of 'Sunday' means every Sunday of the month.
-#   week (string)          : The occurrence of the specified day during the month. For example, a 'monthly' property with 'weekday' and 'week' values of 'Sunday, -1' means the last Sunday of the month.
-
-
 variable "start_time" {
   description = "The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC."
   type        = string

@@ -36,10 +36,10 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **certificate_name** | string |  Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified | 
-| **thumbprint** | string |  Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **certificate_name** | string |  `thumbprint`  |  Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified | 
+| **thumbprint** | string |  `certificate_name`  |  Specifies the thumbprint of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `certificate_name` is specified. Changing this forces a new resource to be created. | 
 
 
 

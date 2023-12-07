@@ -36,15 +36,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **identity** | [block](#identity-block-structure) |  An `identity` block. Specifies the Managed Identity which should be assigned to this Dev Center. | 
+| **identity** | string |  An `identity` block. Specifies the Managed Identity which should be assigned to this Dev Center. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Dev Center. | 
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | No | - | The Principal ID for the System-Assigned Managed Identity assigned to this Dev Center. |
-| `tenant_id` | string | No | - | The Tenant ID for the System-Assigned Managed Identity assigned to this Dev Center. |
 
 
 

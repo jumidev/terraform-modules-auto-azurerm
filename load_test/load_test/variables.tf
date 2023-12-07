@@ -25,15 +25,9 @@ variable "description" {
 }
 variable "identity" {
   description = "An 'identity' block. Specifies the Managed Identity which should be assigned to this Load Test."
-  type        = map(any)
+  type        = string
   default     = null
 }
-#
-# identity block structure:
-#   principal_id (string)   : The Principal ID for the System-Assigned Managed Identity assigned to this Load Test.
-#   tenant_id (string)      : The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test.
-
-
 variable "tags" {
   description = "A mapping of tags which should be assigned to the Load Test."
   type        = map(any)

@@ -33,20 +33,20 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique. | 
-| **resource_group_name** | string |  The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
-| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **sku_name** | string |  Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created. | 
-| **storage** | [block](#storage-block-structure) |  A `storage` block. | 
-| **id_properties** | list |  A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. Must be globally unique. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which to create the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **sku_name** | string |  `L1`  |  Specifies the SKU Name for this IoT Time Series Insights Gen2 Environment. Currently it supports only `L1`. For gen2, capacity cannot be specified. Changing this forces a new resource to be created. | 
+| **storage** | [block](#storage-block-structure) |  -  |  A `storage` block. | 
+| **id_properties** | list |  -  |  A list of property ids for the Azure IoT Time Series Insights Gen2 Environment. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **warm_store_data_retention_time** | int |  Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. | 
+| **warm_store_data_retention_time** | string |  Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `storage` block structure

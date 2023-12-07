@@ -151,7 +151,7 @@ variable "data_disk" {
 #   storage_account_type (string)          : (REQUIRED) The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'.
 #   disk_encryption_set_id (string)        : The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 #   ultra_ssd_disk_iops_read_write (string): Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.
-#   ultra_ssd_disk_mbps_read_write (int)   : Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.
+#   ultra_ssd_disk_mbps_read_write (string): Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.
 #   write_accelerator_enabled (bool)       : Should Write Accelerator be enabled for this Data Disk? Defaults to 'false'.
 
 
@@ -272,7 +272,7 @@ variable "plan" {
 
 variable "platform_fault_domain_count" {
   description = "Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created."
-  type        = int
+  type        = string
   default     = null
 }
 variable "priority" {

@@ -32,15 +32,7 @@ resource "azurerm_virtual_desktop_host_pool" "this" {
       enabled                   = lookup(scheduled_agent_updates.value, "enabled", false)
       timezone                  = lookup(scheduled_agent_updates.value, "timezone", "UTC")
       use_session_host_timezone = lookup(scheduled_agent_updates.value, "use_session_host_timezone", false)
-
-      dynamic "schedule" { # scheduled_agent_updates.value.schedule
-        for_each = scheduled_agent_updates.value.schedule != null ? scheduled_agent_updates.value.schedule : []
-        content {
-          day_of_week = lookup(schedule.value, "day_of_week") # (Required) possible values: Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
-          hour_of_day = lookup(schedule.value, "hour_of_day") # (Required) 
-        }
-      }
-
+      schedule                  = lookup(scheduled_agent_updates.value, "schedule", null)
     }
   }
 

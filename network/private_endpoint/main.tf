@@ -32,7 +32,7 @@ resource "azurerm_private_endpoint" "this" {
     for_each = var.private_dns_zone_group != null ? var.private_dns_zone_group : []
     content {
       name                 = private_dns_zone_group.key
-      private_dns_zone_ids = lookup(private_dns_zone_group.value, "private_dns_zone_ids") # (Required) 
+      private_dns_zone_ids = lookup(private_dns_zone_group.value, "private_dns_zone_ids") # (Required) possible values: private_dns_zone_group
     }
   }
 

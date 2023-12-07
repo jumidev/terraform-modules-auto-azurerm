@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **capacity** | string |  -  |  -  |  Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only. | 
+| **capacity** | string |  -  |  `1`, `2`, `4`, `8`, `16`  |  Specifies the capacity. When `sku` is `Premium`, capacity can be `1`, `2`, `4`, `8` or `16`. When `sku` is `Basic` or `Standard`, capacity can be `0` only. | 
 | **customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  -  |  An `customer_managed_key` block. | 
 | **local_auth_enabled** | bool |  `True`  |  -  |  Whether or not SAS authentication is enabled for the Service Bus namespace. Defaults to `true`. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the Service Bus Namespace? Defaults to `true`. | 
@@ -48,12 +48,12 @@ tfstate_store = {
 | **network_rule_set** | [block](#network_rule_set-block-structure) |  -  |  -  |  An `network_rule_set` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `network_rules` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
-| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
 
 ### `network_rule_set` block structure
 
@@ -73,12 +73,12 @@ tfstate_store = {
 | `identity_id` | string | Yes | - | The ID of the User Assigned Identity that has access to the key. |
 | `infrastructure_encryption_enabled` | bool | No | - | Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. |
 
-### `identity` block structure
+### `network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
+| `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
+| `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
 
 
 

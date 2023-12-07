@@ -32,13 +32,13 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created. | 
-| **application_insights_id** | string |  The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created. | 
-| **type** | string |  The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created. | 
-| **scope** | string |  The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions. | 
-| **content** | string |  The content for the Analytics Item, for example the query text if `type` is `query`. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the Application Insights Analytics Item. Changing this forces a new resource to be created. | 
+| **application_insights_id** | string |  -  |  The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created. | 
+| **type** | string |  `query`, `function`, `folder`, `recent`  |  The type of Analytics Item to create. Can be one of `query`, `function`, `folder`, `recent`. Changing this forces a new resource to be created. | 
+| **scope** | string |  `shared`, `user`  |  The scope for the Analytics Item. Can be `shared` or `user`. Changing this forces a new resource to be created. Must be `shared` for functions. | 
+| **content** | string |  -  |  The content for the Analytics Item, for example the query text if `type` is `query`. | 
 
 ## Optional Variables
 

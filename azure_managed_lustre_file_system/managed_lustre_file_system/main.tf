@@ -48,8 +48,8 @@ resource "azurerm_managed_lustre_file_system" "this" {
   dynamic "encryption_key" { # var.encryption_key
     for_each = var.encryption_key != null ? var.encryption_key : []
     content {
-      key_url         = lookup(encryption_key.value, "key_url")         # (Required) 
-      source_vault_id = lookup(encryption_key.value, "source_vault_id") # (Required) 
+      key_url         = lookup(encryption_key.value, "key_url")         # (Required) possible values: id | azurerm_key_vault_key
+      source_vault_id = lookup(encryption_key.value, "source_vault_id") # (Required) possible values: id | azurerm_key_vault
     }
   }
 

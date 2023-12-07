@@ -97,13 +97,13 @@ variable "directory_ldap" {
   default     = null
 }
 #
-# directory_ldap block structure           :
-#   server (string)                          : (REQUIRED) The FQDN or IP address of the LDAP server.
-#   base_dn (string)                         : (REQUIRED) The base distinguished name (DN) for the LDAP domain.
-#   encrypted (bool)                         : Whether the LDAP connection should be encrypted?
-#   certificate_validation_uri (string)      : The URI of the CA certificate to validate the LDAP secure connection.
-#   download_certificate_automatically (bool): Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided.
-#   bind (block)                             : A 'bind' block.
+# directory_ldap block structure             :
+#   server (string)                            : (REQUIRED) The FQDN or IP address of the LDAP server.
+#   base_dn (string)                           : (REQUIRED) The base distinguished name (DN) for the LDAP domain.
+#   encrypted (bool)                           : Whether the LDAP connection should be encrypted?
+#   certificate_validation_uri (string)        : The URI of the CA certificate to validate the LDAP secure connection.
+#   download_certificate_automatically (string): Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided.
+#   bind (block)                               : A 'bind' block.
 #
 # bind block structure:
 #   password (string)   : (REQUIRED) The Bind password to be used in the secure LDAP connection.

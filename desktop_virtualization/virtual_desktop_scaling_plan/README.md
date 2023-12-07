@@ -16,21 +16,20 @@ inputs = {
    resource_group_name = "${resource_group}"   
    schedule = {
       this_schedule = {
-         days_of_week = "..."         
-         name = "..."         
-         off_peak_load_balancing_algorithm = "..."         
+         days_of_week = "Possible values: Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday"         
+         off_peak_load_balancing_algorithm = "Possible values: DepthFirst | BreadthFirst"         
          off_peak_start_time = "..."         
-         peak_load_balancing_algorithm = "..."         
+         peak_load_balancing_algorithm = "Possible values: DepthFirst | BreadthFirst"         
          peak_start_time = "..."         
          ramp_down_capacity_threshold_percent = "..."         
          ramp_down_force_logoff_users = "..."         
-         ramp_down_load_balancing_algorithm = "..."         
+         ramp_down_load_balancing_algorithm = "Possible values: DepthFirst | BreadthFirst"         
          ramp_down_minimum_hosts_percent = "..."         
          ramp_down_notification_message = "..."         
          ramp_down_start_time = "..."         
-         ramp_down_stop_hosts_when = "..."         
+         ramp_down_stop_hosts_when = "Possible values: ZeroSessions | ZeroActiveSessions"         
          ramp_down_wait_time_minutes = "..."         
-         ramp_up_load_balancing_algorithm = "..."         
+         ramp_up_load_balancing_algorithm = "Possible values: DepthFirst | BreadthFirst"         
          ramp_up_start_time = "..."         
       }
       
@@ -88,7 +87,7 @@ tfstate_store = {
 | `ramp_up_load_balancing_algorithm` | string | Yes | - | The load Balancing Algorithm to use during the Ramp-Up period. Possible values are 'DepthFirst' and 'BreadthFirst'. |
 | `ramp_up_start_time` | string | Yes | - | The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in 'HH:MM' format. |
 | `ramp_up_capacity_threshold_percent` | string | No | - | This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as '60%' and your total host pool capacity is '100' sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of '60' sessions. |
-| `ramp_up_minimum_hosts_percent` | int | No | - | Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as '10%' and total number of session hosts in your host pool is '10', autoscale will ensure a minimum of '1' session host is available to take user connections. |
+| `ramp_up_minimum_hosts_percent` | string | No | - | Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as '10%' and total number of session hosts in your host pool is '10', autoscale will ensure a minimum of '1' session host is available to take user connections. |
 
 ### `host_pool` block structure
 

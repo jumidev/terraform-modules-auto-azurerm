@@ -45,7 +45,7 @@ resource "azurerm_monitor_activity_log_alert" "this" {
   dynamic "action" { # var.action
     for_each = var.action != null ? var.action : []
     content {
-      action_group_id    = lookup(action.value, "action_group_id") # (Required) 
+      action_group_id    = lookup(action.value, "action_group_id") # (Required) possible values: azurerm_monitor_action_group
       webhook_properties = lookup(action.value, "webhook_properties", null)
     }
   }

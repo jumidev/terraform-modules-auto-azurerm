@@ -18,9 +18,8 @@ inputs = {
    action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
       this_rule = {
-         name = "..."         
          destination_ports = "..."         
-         protocols = "..."         
+         protocols = "Possible values: Any | ICMP | TCP | UDP"         
       }
       
    }

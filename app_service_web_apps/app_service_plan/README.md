@@ -57,7 +57,7 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `tier` | string | Yes | - | Specifies the plan's pricing tier. |
 | `size` | string | Yes | - | Specifies the plan's instance size. |
-| `capacity` | int | No | - | Specifies the number of workers associated with this App Service Plan. |
+| `capacity` | string | No | - | Specifies the number of workers associated with this App Service Plan. |
 
 
 

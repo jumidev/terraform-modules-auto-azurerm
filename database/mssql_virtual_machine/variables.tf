@@ -15,27 +15,9 @@ variable "sql_license_type" {
 }
 variable "auto_backup" {
   description = "An 'auto_backup' block. This block can be added to an existing resource, but removing this block forces a new resource to be created."
-  type        = map(any)
+  type        = string
   default     = null
 }
-#
-# auto_backup block structure           :
-#   encryption_enabled (bool)             : Enable or disable encryption for backups. Defaults to 'false'.
-#   encryption_password (string)          : Encryption password to use. Must be specified when encryption is enabled.
-#   manual_schedule (block)               : A 'manual_schedule' block. When this block is present, the schedule type is set to 'Manual'. Without this block, the schedule type is set to 'Automated'.
-#   retention_period_in_days (string)     : (REQUIRED) Retention period of backups, in days. Valid values are from '1' to '30'.
-#   storage_blob_endpoint (string)        : (REQUIRED) Blob endpoint for the storage account where backups will be kept.
-#   storage_account_access_key (string)   : (REQUIRED) Access key for the storage account where backups will be kept.
-#   system_databases_backup_enabled (bool): Include or exclude system databases from auto backup.
-#
-# manual_schedule block structure         :
-#   full_backup_frequency (string)          : (REQUIRED) Frequency of full backups. Valid values include 'Daily' or 'Weekly'.
-#   full_backup_start_hour (string)         : (REQUIRED) Start hour of a given day during which full backups can take place. Valid values are from '0' to '23'.
-#   full_backup_window_in_hours (string)    : (REQUIRED) Duration of the time window of a given day during which full backups can take place, in hours. Valid values are between '1' and '23'.
-#   log_backup_frequency_in_minutes (string): (REQUIRED) Frequency of log backups, in minutes. Valid values are from '5' to '60'.
-#   days_of_week (string)                   : A list of days on which backup can take place. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'
-
-
 variable "auto_patching" {
   description = "An 'auto_patching' block."
   type        = map(any)

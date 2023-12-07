@@ -40,6 +40,13 @@ tfstate_store = {
 | **virtual_machine_id** | string |  The resource ID of the Policy Virtual Machine which this Guest Configuration Assignment should apply to. Changing this forces a new resource to be created. | 
 | **configuration** | [block](#configuration-block-structure) |  A `configuration` block. | 
 
+### `parameter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the configuration parameter to check. |
+| `value` | string | Yes | - | The value to check the configuration parameter with. |
+
 ### `configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -49,13 +56,6 @@ tfstate_store = {
 | `content_uri` | string | No | - | The content URI where the Guest Configuration package is stored. |
 | `parameter` | [block](#parameter-block-structure) | No | - | One or more 'parameter' blocks which define what configuration parameters and values against. |
 | `version` | string | No | - | The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment. |
-
-### `parameter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the configuration parameter to check. |
-| `value` | string | Yes | - | The value to check the configuration parameter with. |
 
 
 

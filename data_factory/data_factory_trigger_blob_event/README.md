@@ -17,7 +17,6 @@ inputs = {
    events = "List of events that will fire this trigger"   
    pipeline = {
       this_pipeline = {
-         name = "..."         
       }
       
    }

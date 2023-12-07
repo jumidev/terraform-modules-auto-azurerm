@@ -34,8 +34,8 @@ variable "cors" {
   default     = null
 }
 #
-# cors block structure  :
-#   allowed_origins (list): (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+# cors block structure    :
+#   allowed_origins (string): (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
 
 
 variable "connectivity_logs_enabled" {
@@ -91,8 +91,8 @@ variable "tls_client_cert_enabled" {
 }
 variable "serverless_connection_timeout_in_seconds" {
   description = "Specifies the client connection timeout. Defaults to '30'."
-  type        = int
-  default     = 30
+  type        = string
+  default     = "30"
 }
 variable "service_mode" {
   description = "Specifies the service mode. Possible values are 'Classic', 'Default' and 'Serverless'. Defaults to 'Default'."

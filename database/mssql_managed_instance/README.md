@@ -48,7 +48,7 @@ tfstate_store = {
 | **sku_name** | string |  -  |  `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM`, `BC_Gen8IH`  |  Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`. | 
 | **storage_size_in_gb** | int |  -  |  -  |  Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB). | 
 | **subnet_id** | string |  -  |  -  |  The subnet resource id that the SQL Managed Instance will be associated with. Changing this forces a new resource to be created. | 
-| **vcores** | int |  -  |  -  |  Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs. | 
+| **vcores** | string |  -  |  `8`, `16`, `24`, `4`, `6`, `10`, `12`, `20`, `32`, `40`, `48`, `56`, `64`, `80`, `96`, `128`  |  Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs. | 
 
 ## Optional Variables
 

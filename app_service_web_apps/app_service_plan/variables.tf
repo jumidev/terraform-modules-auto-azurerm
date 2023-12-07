@@ -23,7 +23,7 @@ variable "sku" {
 # sku block structure:
 #   tier (string)      : (REQUIRED) Specifies the plan's pricing tier.
 #   size (string)      : (REQUIRED) Specifies the plan's instance size.
-#   capacity (int)     : Specifies the number of workers associated with this App Service Plan.
+#   capacity (string)  : Specifies the number of workers associated with this App Service Plan.
 
 
 

@@ -44,11 +44,11 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **device_type** | string |  An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value. | 
-| **sim_policy_id** | string |  The ID of SIM policy used by this SIM. | 
-| **static_ip_configuration** | [block](#static_ip_configuration-block-structure) |  A `static_ip_configuration` block. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **device_type** | string |  `Video camera`  |  An optional free-form text field that can be used to record the device type this SIM is associated with, for example `Video camera`. The Azure portal allows SIMs to be grouped and filtered based on this value. | 
+| **sim_policy_id** | string |  -  |  The ID of SIM policy used by this SIM. | 
+| **static_ip_configuration** | [block](#static_ip_configuration-block-structure) |  -  |  A `static_ip_configuration` block. | 
 
 ### `static_ip_configuration` block structure
 

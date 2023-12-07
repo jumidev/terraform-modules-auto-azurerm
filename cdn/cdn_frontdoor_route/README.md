@@ -51,7 +51,7 @@ tfstate_store = {
 | **forwarding_protocol** | string |  `MatchRequest`  |  `HttpOnly`, `HttpsOnly`, `MatchRequest`  |  The Protocol that will be use when forwarding traffic to backends. Possible values are `HttpOnly`, `HttpsOnly` or `MatchRequest`. Defaults to `MatchRequest`. | 
 | **cache** | [block](#cache-block-structure) |  -  |  -  |  A `cache` block. | 
 | **cdn_frontdoor_custom_domain_ids** | string |  -  |  -  |  The IDs of the Front Door Custom Domains which are associated with this Front Door Route. | 
-| **cdn_frontdoor_origin_path** | string |  -  |  -  |  A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`). | 
+| **cdn_frontdoor_origin_path** | string |  -  |  `contoso.cloudapp.net/originpath`  |  A directory path on the Front Door Origin that can be used to retrieve content (e.g. `contoso.cloudapp.net/originpath`). | 
 | **cdn_frontdoor_rule_set_ids** | list |  -  |  -  |  A list of the Front Door Rule Set IDs which should be assigned to this Front Door Route. | 
 | **enabled** | bool |  `True`  |  `true`, `false`  |  Is this Front Door Route enabled? Possible values are `true` or `false`. Defaults to `true`. | 
 | **https_redirect_enabled** | bool |  `True`  |  `true`, `false`  |  Automatically redirect HTTP traffic to HTTPS traffic? Possible values are `true` or `false`. Defaults to `true`. | 

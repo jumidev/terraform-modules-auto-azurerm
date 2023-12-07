@@ -8,20 +8,12 @@ resource "azurerm_mobile_network_packet_core_control_plane" "this" {
   ########################################
   # required vars
   ########################################
-  name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
-  location            = var.location
-  site_ids            = var.site_ids
-  sku                 = var.sku
-
-  dynamic "local_diagnostics_access" { # var.local_diagnostics_access
-    for_each = var.local_diagnostics_access != null ? var.local_diagnostics_access : []
-    content {
-      authentication_type          = lookup(local_diagnostics_access.value, "authentication_type") # (Required) possible values: AAD | Password
-      https_server_certificate_url = lookup(local_diagnostics_access.value, "https_server_certificate_url", null)
-    }
-  }
-
+  name                     = var.name
+  resource_group_name      = data.azurerm_resource_group.this.name
+  location                 = var.location
+  site_ids                 = var.site_ids
+  sku                      = var.sku
+  local_diagnostics_access = var.local_diagnostics_access
 
   ########################################
   # optional vars

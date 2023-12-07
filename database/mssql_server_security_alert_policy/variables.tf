@@ -35,8 +35,8 @@ variable "email_addresses" {
 }
 variable "retention_days" {
   description = "Specifies the number of days to keep in the Threat Detection audit logs. Defaults to '0'."
-  type        = int
-  default     = 0
+  type        = string
+  default     = "0"
 }
 variable "storage_endpoint" {
   description = "Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs."

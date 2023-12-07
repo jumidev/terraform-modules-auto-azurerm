@@ -16,14 +16,6 @@ resource "azurerm_load_test" "this" {
   # optional vars
   ########################################
   description = var.description
-
-  dynamic "identity" { # var.identity
-    for_each = var.identity != null ? var.identity : []
-    content {
-      principal_id = lookup(identity.value, "principal_id", null)
-      tenant_id    = lookup(identity.value, "tenant_id", null)
-    }
-  }
-
-  tags = var.tags
+  identity    = var.identity
+  tags        = var.tags
 }

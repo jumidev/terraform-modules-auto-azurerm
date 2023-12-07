@@ -18,7 +18,6 @@ inputs = {
    action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
       this_rule = {
-         name = "..."         
       }
       
    }

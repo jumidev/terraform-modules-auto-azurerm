@@ -20,11 +20,11 @@ variable "plan" {
   type        = map(any)
 }
 #
-# plan block structure     :
-#   effective_date (datetime): (REQUIRED) Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
-#   billing_cycle (string)   : Specifies the billing cycles. Possible values are 'MONTHLY', 'WEEKLY' and 'YEARLY'. Defaults to 'MONTHLY'. Changing this forces a new Azure Native New Relic Monitor to be created.
-#   plan_id (string)         : Specifies the plan id published by NewRelic. The only possible value is 'newrelic-pay-as-you-go-free-live'. Defaults to 'newrelic-pay-as-you-go-free-live'. Changing this forces a new Azure Native New Relic Monitor to be created.
-#   usage_type (string)      : Specifies the usage type. Possible values are 'COMMITTED' and 'PAYG'. Defaults to 'PAYG'. Changing this forces a new Azure Native New Relic Monitor to be created.
+# plan block structure   :
+#   effective_date (string): (REQUIRED) Specifies the date when plan was applied. Changing this forces a new Azure Native New Relic Monitor to be created.
+#   billing_cycle (string) : Specifies the billing cycles. Possible values are 'MONTHLY', 'WEEKLY' and 'YEARLY'. Defaults to 'MONTHLY'. Changing this forces a new Azure Native New Relic Monitor to be created.
+#   plan_id (string)       : Specifies the plan id published by NewRelic. The only possible value is 'newrelic-pay-as-you-go-free-live'. Defaults to 'newrelic-pay-as-you-go-free-live'. Changing this forces a new Azure Native New Relic Monitor to be created.
+#   usage_type (string)    : Specifies the usage type. Possible values are 'COMMITTED' and 'PAYG'. Defaults to 'PAYG'. Changing this forces a new Azure Native New Relic Monitor to be created.
 
 
 variable "user" {

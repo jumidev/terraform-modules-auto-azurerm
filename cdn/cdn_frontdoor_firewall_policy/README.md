@@ -46,6 +46,14 @@ tfstate_store = {
 | **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
+
 ### `managed_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,13 +72,14 @@ tfstate_store = {
 | `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
 | `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
 
-### `override` block structure
+### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `rule_id` | string | Yes | - | Identifier for the managed rule. |
+| `action` | string | Yes | - | The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'. |
+| `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `custom_rule` block structure
 
@@ -84,15 +93,6 @@ tfstate_store = {
 | `match_condition` | list | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
 | `rate_limit_duration_in_minutes` | int | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
 | `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
-
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_id` | string | Yes | - | Identifier for the managed rule. |
-| `action` | string | Yes | - | The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'. |
-| `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
 
 
 

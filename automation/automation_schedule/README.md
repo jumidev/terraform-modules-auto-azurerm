@@ -31,12 +31,12 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the Schedule. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created. | 
-| **automation_account_name** | string |  The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created. | 
-| **frequency** | string |  The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the Schedule. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which the Schedule is created. Changing this forces a new resource to be created. | 
+| **automation_account_name** | string |  -  |  The name of the automation account in which the Schedule is created. Changing this forces a new resource to be created. | 
+| **frequency** | string |  `OneTime`, `Day`, `Hour`, `Week`, `Month`  |  The frequency of the schedule. - can be either `OneTime`, `Day`, `Hour`, `Week`, or `Month`. | 
 
 ## Optional Variables
 

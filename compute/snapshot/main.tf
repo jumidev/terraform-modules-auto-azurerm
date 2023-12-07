@@ -28,8 +28,8 @@ resource "azurerm_snapshot" "this" {
       dynamic "disk_encryption_key" { # encryption_settings.value.disk_encryption_key
         for_each = encryption_settings.value.disk_encryption_key != null ? encryption_settings.value.disk_encryption_key : []
         content {
-          secret_url      = lookup(disk_encryption_key.value, "secret_url")      # (Required) 
-          source_vault_id = lookup(disk_encryption_key.value, "source_vault_id") # (Required) 
+          secret_url      = lookup(disk_encryption_key.value, "secret_url")      # (Required) possible values: id | azurerm_key_vault_secret
+          source_vault_id = lookup(disk_encryption_key.value, "source_vault_id") # (Required) possible values: id | azurerm_key_vault
         }
       }
 
@@ -37,8 +37,8 @@ resource "azurerm_snapshot" "this" {
       dynamic "key_encryption_key" { # encryption_settings.value.key_encryption_key
         for_each = encryption_settings.value.key_encryption_key != null ? encryption_settings.value.key_encryption_key : []
         content {
-          key_url         = lookup(key_encryption_key.value, "key_url")         # (Required) 
-          source_vault_id = lookup(key_encryption_key.value, "source_vault_id") # (Required) 
+          key_url         = lookup(key_encryption_key.value, "key_url")         # (Required) possible values: id | azurerm_key_vault_key
+          source_vault_id = lookup(key_encryption_key.value, "source_vault_id") # (Required) possible values: id | azurerm_key_vault
         }
       }
 

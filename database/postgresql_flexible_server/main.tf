@@ -61,7 +61,7 @@ resource "azurerm_postgresql_flexible_server" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type = lookup(identity.value, "type") # (Required) 
+      type = lookup(identity.value, "type") # (Required) possible values: UserAssigned
 
       dynamic "identity_ids" { # identity.value.identity_ids
         for_each = identity.value.identity_ids != null ? identity.value.identity_ids : []

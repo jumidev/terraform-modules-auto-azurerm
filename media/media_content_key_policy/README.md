@@ -15,7 +15,6 @@ inputs = {
    name = "The name which should be used for this Content Key Policy..."   
    policy_option = {
       this_policy_option = {
-         name = "..."         
       }
       
    }
@@ -50,21 +49,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **description** | string |  A description for the Policy. | 
 
-### `token_restriction` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alternate_key` | list | No | - | One or more 'alternate_key' block. |
-| `audience` | string | No | - | The audience for the token. |
-| `issuer` | string | No | - | The token issuer. |
-| `open_id_connect_discovery_document` | string | No | - | The OpenID connect discovery document. |
-| `primary_rsa_token_key_exponent` | string | No | - | The RSA parameter exponent. |
-| `primary_rsa_token_key_modulus` | string | No | - | The RSA parameter modulus. |
-| `primary_symmetric_token_key` | string | No | - | The key value of the key. Specifies a symmetric key for token validation. |
-| `primary_x509_token_key_raw` | string | No | - | The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation. |
-| `required_claim` | list | No | - | One or more 'required_claim' blocks. |
-| `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
-
 ### `offline_rental_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +66,21 @@ tfstate_store = {
 | `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
 | `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
 | `rental_duration_seconds` | int | No | - | The rental duration. Must be greater than 0. |
+
+### `token_restriction` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alternate_key` | list | No | - | One or more 'alternate_key' block. |
+| `audience` | string | No | - | The audience for the token. |
+| `issuer` | string | No | - | The token issuer. |
+| `open_id_connect_discovery_document` | string | No | - | The OpenID connect discovery document. |
+| `primary_rsa_token_key_exponent` | string | No | - | The RSA parameter exponent. |
+| `primary_rsa_token_key_modulus` | string | No | - | The RSA parameter modulus. |
+| `primary_symmetric_token_key` | string | No | - | The key value of the key. Specifies a symmetric key for token validation. |
+| `primary_x509_token_key_raw` | string | No | - | The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation. |
+| `required_claim` | list | No | - | One or more 'required_claim' blocks. |
+| `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
 
 ### `policy_option` block structure
 

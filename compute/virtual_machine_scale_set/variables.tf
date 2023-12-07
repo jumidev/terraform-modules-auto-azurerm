@@ -63,7 +63,7 @@ variable "sku" {
 # sku block structure:
 #   name (string)      : (REQUIRED) Specifies the size of virtual machines in a scale set.
 #   tier (string)      : Specifies the tier of virtual machines in a scale set. Possible values, 'standard' or 'basic'.
-#   capacity (int)     : (REQUIRED) Specifies the number of virtual machines in the scale set.
+#   capacity (string)  : (REQUIRED) Specifies the number of virtual machines in the scale set.
 
 
 variable "storage_profile_os_disk" {

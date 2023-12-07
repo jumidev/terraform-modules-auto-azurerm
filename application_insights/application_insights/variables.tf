@@ -25,7 +25,7 @@ variable "application_type" {
 
 variable "daily_data_cap_in_gb" {
   description = "Specifies the Application Insights component daily data volume cap in GB."
-  type        = int
+  type        = string
   default     = null
 }
 variable "daily_data_cap_notifications_disabled" {

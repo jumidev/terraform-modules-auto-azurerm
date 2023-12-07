@@ -97,7 +97,7 @@ resource "azurerm_kubernetes_cluster" "this" {
       scale_down_unneeded              = lookup(auto_scaler_profile.value, "scale_down_unneeded", "10m")
       scale_down_unready               = lookup(auto_scaler_profile.value, "scale_down_unready", "20m")
       scale_down_utilization_threshold = lookup(auto_scaler_profile.value, "scale_down_utilization_threshold", "0.5")
-      empty_bulk_delete_max            = lookup(auto_scaler_profile.value, "empty_bulk_delete_max", 10)
+      empty_bulk_delete_max            = lookup(auto_scaler_profile.value, "empty_bulk_delete_max", "10")
       skip_nodes_with_local_storage    = lookup(auto_scaler_profile.value, "skip_nodes_with_local_storage", true)
       skip_nodes_with_system_pods      = lookup(auto_scaler_profile.value, "skip_nodes_with_system_pods", true)
     }
@@ -197,14 +197,7 @@ resource "azurerm_kubernetes_cluster" "this" {
     for_each = var.linux_profile != null ? var.linux_profile : []
     content {
       admin_username = lookup(linux_profile.value, "admin_username") # (Required) 
-
-      dynamic "ssh_key" { # linux_profile.value.ssh_key
-        for_each = linux_profile.value.ssh_key != null ? linux_profile.value.ssh_key : []
-        content {
-          key_data = lookup(ssh_key.value, "key_data") # (Required) 
-        }
-      }
-
+      ssh_key        = lookup(linux_profile.value, "ssh_key")        # (Required) 
     }
   }
 
@@ -411,7 +404,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   dynamic "web_app_routing" { # var.web_app_routing
     for_each = var.web_app_routing != null ? var.web_app_routing : []
     content {
-      dns_zone_id = lookup(web_app_routing.value, "dns_zone_id") # (Required) 
+      dns_zone_id = lookup(web_app_routing.value, "dns_zone_id") # (Required) possible values: ""
     }
   }
 

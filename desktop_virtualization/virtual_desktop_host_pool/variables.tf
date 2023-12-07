@@ -78,11 +78,7 @@ variable "scheduled_agent_updates" {
 #   enabled (bool)                         : Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two 'schedule' blocks must be defined. Default is 'false'.
 #   timezone (string)                      : Specifies the time zone in which the agent update schedule will apply, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). If 'use_session_host_timezone' is enabled then it will override this setting. Default is 'UTC'
 #   use_session_host_timezone (bool)       : Specifies whether scheduled agent updates should be applied based on the timezone of the affected session host. If configured then this setting overrides 'timezone'. Default is 'false'.
-#   schedule (block)                       : A 'schedule' block. A maximum of two blocks can be added.
-#
-# schedule block structure:
-#   day_of_week (string)    : (REQUIRED) The day of the week on which agent updates should be performed. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'
-#   hour_of_day (string)    : (REQUIRED) The hour of day the update window should start. The update is a 2 hour period following the hour provided. The value should be provided as a number between 0 and 23, with 0 being midnight and 23 being 11pm. A leading zero should not be used.
+#   schedule (string)                      : A 'schedule' block. A maximum of two blocks can be added.
 
 
 variable "tags" {

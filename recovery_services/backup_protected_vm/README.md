@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **source_vm_id** | string |  -  |  Specifies the ID of the VM to backup. Changing this forces a new resource to be created. | 
-| **backup_policy_id** | string |  -  |  Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified. | 
+| **backup_policy_id** | string |  `protection_stopped`  |  Specifies the id of the backup policy to use. Required in creation or when `protection_stopped` is not specified. | 
 | **exclude_disk_luns** | list |  -  |  A list of Disks' Logical Unit Numbers(LUN) to be excluded for VM Protection. | 
 | **include_disk_luns** | list |  -  |  A list of Disks' Logical Unit Numbers(LUN) to be included for VM Protection. | 
 | **protection_state** | string |  `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError`, `ProtectionPaused`  |  Specifies Protection state of the backup. Possible values are `Invalid`, `IRPending`, `Protected`, `ProtectionStopped`, `ProtectionError` and `ProtectionPaused`. | 

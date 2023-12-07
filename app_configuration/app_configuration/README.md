@@ -43,7 +43,7 @@ tfstate_store = {
 | **purge_protection_enabled** | bool |  `False`  |  -  |  Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
 | **replica** | [block](#replica-block-structure) |  -  |  -  |  One or more `replica` blocks. | 
 | **sku** | string |  `free`  |  `free`, `standard`  |  The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
-| **soft_delete_retention_days** | int |  `7`  |  -  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
+| **soft_delete_retention_days** | string |  `7`  |  `1`, `7`  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `replica` block structure

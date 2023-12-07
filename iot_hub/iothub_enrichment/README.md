@@ -32,13 +32,13 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **iothub_name** | string |  The IoTHub name of the enrichment. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created. | 
-| **key** | string |  The key of the enrichment. Changing this forces a new resource to be created. | 
-| **value** | string |  The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`) | 
-| **endpoint_names** | string |  The list of endpoints which will be enriched. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **iothub_name** | string |  -  |  The IoTHub name of the enrichment. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group under which the IoTHub resource is created. Changing this forces a new resource to be created. | 
+| **key** | string |  -  |  The key of the enrichment. Changing this forces a new resource to be created. | 
+| **value** | string |  `$iothubname`, `$twin.tags.latitude`  |  The value of the enrichment. Value can be any static string, the name of the IoT hub sending the message (use `$iothubname`) or information from the device twin (ex: `$twin.tags.latitude`) | 
+| **endpoint_names** | string |  -  |  The list of endpoints which will be enriched. | 
 
 
 

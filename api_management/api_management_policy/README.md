@@ -34,10 +34,10 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **xml_content** | string |  The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. | 
-| **xml_link** | string |  A link to a Policy XML Document, which must be publicly available. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **xml_content** | string |  `PolicyFilePath`  |  The XML Content for this Policy as a string. An XML file can be used here with Terraform's [file function](https://www.terraform.io/docs/configuration/functions/file.html) that is similar to Microsoft's `PolicyFilePath` option. | 
+| **xml_link** | string |  -  |  A link to a Policy XML Document, which must be publicly available. | 
 
 
 

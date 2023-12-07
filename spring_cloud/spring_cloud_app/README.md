@@ -62,16 +62,6 @@ tfstate_inputs = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
-### `ingress_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_protocol` | string | No | Default | Specifies how ingress should communicate with this app backend service. Allowed values are 'GRPC' and 'Default'. Defaults to 'Default'. |
-| `read_timeout_in_seconds` | int | No | 300 | Specifies the ingress read time out in seconds. Defaults to '300'. |
-| `send_timeout_in_seconds` | int | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
-| `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
-| `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
-
 ### `persistent_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -95,6 +85,16 @@ tfstate_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
+
+### `ingress_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_protocol` | string | No | Default | Specifies how ingress should communicate with this app backend service. Allowed values are 'GRPC' and 'Default'. Defaults to 'Default'. |
+| `read_timeout_in_seconds` | string | No | 300 | Specifies the ingress read time out in seconds. Defaults to '300'. |
+| `send_timeout_in_seconds` | string | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
+| `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
+| `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
 
 
 

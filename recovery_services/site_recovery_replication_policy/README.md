@@ -34,7 +34,7 @@ tfstate_store = {
 | **resource_group_name** | string |  Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created. | 
 | **recovery_vault_name** | string |  The name of the vault that should be updated. Changing this forces a new resource to be created. | 
 | **recovery_point_retention_in_minutes** | int |  The duration in minutes for which the recovery points need to be stored. | 
-| **application_consistent_snapshot_frequency_in_minutes** | int |  Specifies the frequency(in minutes) at which to create application consistent recovery points. | 
+| **application_consistent_snapshot_frequency_in_minutes** | string |  Specifies the frequency(in minutes) at which to create application consistent recovery points. | 
 
 
 

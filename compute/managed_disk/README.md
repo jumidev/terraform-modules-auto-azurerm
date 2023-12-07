@@ -45,8 +45,8 @@ tfstate_store = {
 | **disk_mbps_read_write** | int |  -  |  -  |  The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second. | 
 | **disk_iops_read_only** | int |  -  |  -  |  The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes. | 
 | **disk_mbps_read_only** | int |  -  |  -  |  The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second. | 
-| **upload_size_bytes** | string |  -  |  -  |  Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created. | 
-| **disk_size_gb** | int |  -  |  -  |  (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased. | 
+| **upload_size_bytes** | string |  -  |  `create_option`, `Upload`  |  Specifies the size of the managed disk to create in bytes. Required when `create_option` is `Upload`. The value must be equal to the source disk to be copied in bytes. Source disk size could be calculated with `ls -l` or `wc -c`. More information can be found at [Copy a managed disk](https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli#copy-a-managed-disk). Changing this forces a new resource to be created. | 
+| **disk_size_gb** | string |  -  |  `create_option`, `Copy`, `FromImage`  |  (Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If `create_option` is `Copy` or `FromImage`, then the value must be equal to or greater than the source's size. The size can only be increased. | 
 | **edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Managed Disk should exist. Changing this forces a new Managed Disk to be created. | 
 | **encryption_settings** | [block](#encryption_settings-block-structure) |  -  |  -  |  A `encryption_settings` block. | 
 | **hyper_v_generation** | string |  -  |  `V1`, `V2`  |  The HyperV Generation of the Disk when the source of an `Import` or `Copy` operation targets a source that contains an operating system. Possible values are `V1` and `V2`. For `ImportSecure` it must be set to `V2`. Changing this forces a new resource to be created. | 
@@ -60,7 +60,7 @@ tfstate_store = {
 | **source_uri** | string |  -  |  -  |  URI to a valid VHD file to be used when `create_option` is `Import` or `ImportSecure`. Changing this forces a new resource to be created. | 
 | **storage_account_id** | string |  -  |  -  |  The ID of the Storage Account where the `source_uri` is located. Required when `create_option` is set to `Import` or `ImportSecure`. Changing this forces a new resource to be created. | 
 | **tier** | string |  -  |  -  |  The disk performance tier to use. Possible values are documented [here](https://docs.microsoft.com/azure/virtual-machines/disks-change-performance). This feature is currently supported only for premium SSDs. | 
-| **max_shares** | int |  -  |  -  |  The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time. | 
+| **max_shares** | string |  -  |  -  |  The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time. | 
 | **trusted_launch_enabled** | bool |  -  |  -  |  Specifies if Trusted Launch is enabled for the Managed Disk. Changing this forces a new resource to be created. | 
 | **security_type** | string |  -  |  `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithCustomerKey`  |  Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created. | 
 | **secure_vm_disk_encryption_set_id** | string |  -  |  -  |  The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created. | 
@@ -71,12 +71,12 @@ tfstate_store = {
 | **disk_access_id** | string |  -  |  -  |  The ID of the disk access resource for using private endpoints on disks. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether it is allowed to access the disk via public network. Defaults to `true`. | 
 
-### `key_encryption_key` block structure
+### `encryption_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
+| `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | No | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
 
 ### `disk_encryption_key` block structure
 
@@ -85,12 +85,12 @@ tfstate_store = {
 | `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
 | `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
-### `encryption_settings` block structure
+### `key_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | No | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
+| `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
 
 
 

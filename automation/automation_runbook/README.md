@@ -34,15 +34,15 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the Runbook. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created. | 
-| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **automation_account_name** | string |  The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created. | 
-| **runbook_type** | string |  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
-| **log_progress** | string |  Progress log option. | 
-| **log_verbose** | string |  Verbose log option. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the Runbook. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which the Runbook is created. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **automation_account_name** | string |  -  |  The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created. | 
+| **runbook_type** | string |  `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2`, `Script`  |  The type of the runbook - can be either `Graph`, `GraphPowerShell`, `GraphPowerShellWorkflow`, `PowerShellWorkflow`, `PowerShell`, `Python3`, `Python2` or `Script`. Changing this forces a new resource to be created. | 
+| **log_progress** | string |  -  |  Progress log option. | 
+| **log_verbose** | string |  -  |  Verbose log option. | 
 
 ## Optional Variables
 
@@ -74,13 +74,6 @@ tfstate_store = {
 | `output_types` | string | No | - | Specifies the output types of the runbook. |
 | `parameters` | [block](#parameters-block-structure) | No | - | A list of 'parameters' block. |
 
-### `hash` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
-| `value` | string | Yes | - | Specifies the expected hash value of the content. |
-
 ### `publish_content_link` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +81,13 @@ tfstate_store = {
 | `uri` | string | Yes | - | The URI of the runbook content. |
 | `version` | string | No | - | Specifies the version of the content |
 | `hash` | [block](#hash-block-structure) | No | - | A 'hash' block. |
+
+### `hash` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `algorithm` | string | Yes | - | Specifies the hash algorithm used to hash the content. |
+| `value` | string | Yes | - | Specifies the expected hash value of the content. |
 
 
 

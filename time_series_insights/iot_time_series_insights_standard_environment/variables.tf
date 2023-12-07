@@ -22,7 +22,7 @@ variable "sku_name" {
 }
 variable "data_retention_time" {
   description = "(REQUIRED) Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query. Changing this forces a new resource to be created."
-  type        = int
+  type        = string
 
 }
 

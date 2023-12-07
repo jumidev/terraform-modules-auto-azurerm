@@ -47,7 +47,7 @@ tfstate_store = {
 | **minimum_tls_version** | string |  `1.2`  |  `1.0`, `1.1`, `1.2`, `Disabled`  |  The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this server. Defaults to `true`. | 
 | **outbound_network_restriction_enabled** | bool |  `False`  |  -  |  Whether outbound network traffic is restricted for this server. Defaults to `false`. | 
-| **primary_user_assigned_identity_id** | string |  -  |  -  |  Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`. | 
+| **primary_user_assigned_identity_id** | string |  -  |  `type`, `UserAssigned`, `identity_ids`  |  Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `azuread_administrator` block structure

@@ -16,7 +16,6 @@ inputs = {
    # automation_account_name → set in tfstate_inputs
    field = {
       this_field = {
-         name = "..."         
          type = "..."         
       }
       

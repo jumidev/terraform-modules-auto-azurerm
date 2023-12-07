@@ -43,7 +43,7 @@ tfstate_store = {
 | **ddos_protection_plan_id** | string |  -  |  -  |  The ID of DDoS protection plan associated with the public IP. | 
 | **domain_name_label** | string |  -  |  -  |  Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system. | 
 | **edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created. | 
-| **idle_timeout_in_minutes** | int |  -  |  -  |  Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. | 
+| **idle_timeout_in_minutes** | string |  -  |  -  |  Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. | 
 | **ip_tags** | map |  -  |  -  |  A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created. | 
 | **ip_version** | string |  `IPv4`  |  -  |  The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to `IPv4`. | 
 | **public_ip_prefix_id** | string |  -  |  -  |  If specified then public IP address allocated will be provided from the public IP prefix resource. Changing this forces a new resource to be created. | 

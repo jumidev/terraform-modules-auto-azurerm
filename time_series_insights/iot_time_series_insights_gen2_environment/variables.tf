@@ -40,7 +40,7 @@ variable "id_properties" {
 
 variable "warm_store_data_retention_time" {
   description = "Specifies the ISO8601 timespan specifying the minimum number of days the environment's events will be available for query."
-  type        = int
+  type        = string
   default     = null
 }
 variable "tags" {

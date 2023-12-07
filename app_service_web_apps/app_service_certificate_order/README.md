@@ -26,11 +26,11 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the certificate. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group in which to create the certificate. Changing this forces a new resource to be created. | 
-| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the certificate. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which to create the certificate. Changing this forces a new resource to be created. | 
+| **location** | string |  `global`  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. Currently the only valid value is `global`. | 
 
 ## Optional Variables
 

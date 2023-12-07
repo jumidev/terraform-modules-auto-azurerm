@@ -60,6 +60,13 @@ tfstate_store = {
 | `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
 | `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
 
+### `approver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
+| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
+
 ### `eligible_authorization` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,13 +84,6 @@ tfstate_store = {
 | `publisher` | string | Yes | - | The publisher ID of the plan. |
 | `product` | string | Yes | - | The product code of the plan. |
 | `version` | string | Yes | - | The version of the plan. |
-
-### `approver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
-| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
 
 ### `just_in_time_access_policy` block structure
 

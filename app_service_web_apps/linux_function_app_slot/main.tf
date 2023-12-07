@@ -122,7 +122,7 @@ resource "azurerm_linux_function_app_slot" "this" {
       }
 
       runtime_version               = lookup(auth_settings.value, "runtime_version", null)
-      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", 72)
+      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", "72")
       token_store_enabled           = lookup(auth_settings.value, "token_store_enabled", false)
 
       dynamic "twitter" { # auth_settings.value.twitter
@@ -267,7 +267,7 @@ resource "azurerm_linux_function_app_slot" "this" {
         content {
           logout_endpoint                   = lookup(login.value, "logout_endpoint", null)
           token_store_enabled               = lookup(login.value, "token_store_enabled", false)
-          token_refresh_extension_time      = lookup(login.value, "token_refresh_extension_time", 72)
+          token_refresh_extension_time      = lookup(login.value, "token_refresh_extension_time", "72")
           token_store_path                  = lookup(login.value, "token_store_path", null)
           token_store_sas_setting_name      = lookup(login.value, "token_store_sas_setting_name", null)
           preserve_url_fragments_for_logins = lookup(login.value, "preserve_url_fragments_for_logins", false)

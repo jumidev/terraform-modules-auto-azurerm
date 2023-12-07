@@ -20,7 +20,7 @@ resource "azurerm_route_table" "this" {
     for_each = var.route != null ? var.route : []
     content {
       name                   = route.key
-      address_prefix         = lookup(route.value, "address_prefix") # (Required) 
+      address_prefix         = lookup(route.value, "address_prefix") # (Required) possible values: 10.1.0.0/16 | ApiManagement | AzureBackup | AzureMonitor
       next_hop_type          = lookup(route.value, "next_hop_type")  # (Required) possible values: VirtualNetworkGateway | VnetLocal | Internet | VirtualAppliance | None
       next_hop_in_ip_address = lookup(route.value, "next_hop_in_ip_address", null)
     }

@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **status** | string |  `enabled`  |  `enabled`, `disabled`  |  Specifies if this Webhook triggers notifications or not. Valid values: `enabled` and `disabled`. Default is `enabled`. | 
-| **scope** | string |  ``  |  -  |  Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`. | 
+| **scope** | string |  ``  |  `foo:*`, `foo`  |  Specifies the scope of repositories that can trigger an event. For example, `foo:*` means events for all tags under repository `foo`. `foo:bar` means events for 'foo:bar' only. `foo` is equivalent to `foo:latest`. Empty means all events. Defaults to `""`. | 
 | **custom_headers** | string |  -  |  -  |  Custom headers that will be added to the webhook notifications request. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 

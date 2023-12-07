@@ -32,13 +32,13 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the Connection. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
-| **automation_account_name** | string |  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
-| **type** | string |  The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created. | 
-| **values** | string |  A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below: | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the Connection. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which the Connection is created. Changing this forces a new resource to be created. | 
+| **automation_account_name** | string |  -  |  The name of the automation account in which the Connection is created. Changing this forces a new resource to be created. | 
+| **type** | string |  `Azure`, `AzureClassicCertificate`, `AzureServicePrincipal`  |  The type of the Connection - can be either builtin type such as `Azure`, `AzureClassicCertificate`, and `AzureServicePrincipal`, or a user defined types. Changing this forces a new resource to be created. | 
+| **values** | string |  -  |  A mapping of key value pairs passed to the connection. Different `type` needs different parameters in the `values`. Builtin types have required field values as below: | 
 
 ## Optional Variables
 

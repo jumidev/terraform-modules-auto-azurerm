@@ -16,9 +16,9 @@ resource "azurerm_service_fabric_managed_cluster" "this" {
     content {
       backend_port       = lookup(lb_rule.value, "backend_port")   # (Required) 
       frontend_port      = lookup(lb_rule.value, "frontend_port")  # (Required) 
-      probe_protocol     = lookup(lb_rule.value, "probe_protocol") # (Required) 
+      probe_protocol     = lookup(lb_rule.value, "probe_protocol") # (Required) possible values: tcp | udp | http | https
       probe_request_path = lookup(lb_rule.value, "probe_request_path", null)
-      protocol           = lookup(lb_rule.value, "protocol") # (Required) 
+      protocol           = lookup(lb_rule.value, "protocol") # (Required) possible values: tcp | udp
     }
   }
 
@@ -48,7 +48,7 @@ resource "azurerm_service_fabric_managed_cluster" "this" {
         for_each = authentication.value.certificate != null ? authentication.value.certificate : []
         content {
           thumbprint  = lookup(certificate.value, "thumbprint") # (Required) 
-          type        = lookup(certificate.value, "type")       # (Required) 
+          type        = lookup(certificate.value, "type")       # (Required) possible values: AdminClient | ReadOnlyClient
           common_name = lookup(certificate.value, "common_name", null)
         }
       }

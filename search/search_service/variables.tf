@@ -70,7 +70,7 @@ variable "public_network_access_enabled" {
 }
 variable "replica_count" {
   description = "Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a 'free' sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier))."
-  type        = int
+  type        = string
   default     = null
 }
 variable "semantic_search_sku" {

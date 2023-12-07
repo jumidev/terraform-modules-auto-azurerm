@@ -53,7 +53,7 @@ resource "azurerm_synapse_workspace" "this" {
       last_commit_id  = lookup(azure_devops_repo.value, "last_commit_id", null)
       project_name    = lookup(azure_devops_repo.value, "project_name")    # (Required) 
       repository_name = lookup(azure_devops_repo.value, "repository_name") # (Required) 
-      root_folder     = lookup(azure_devops_repo.value, "root_folder")     # (Required) 
+      root_folder     = lookup(azure_devops_repo.value, "root_folder")     # (Required) possible values: /
       tenant_id       = lookup(azure_devops_repo.value, "tenant_id", null)
     }
   }
@@ -76,7 +76,7 @@ resource "azurerm_synapse_workspace" "this" {
       branch_name     = lookup(github_repo.value, "branch_name")  # (Required) 
       last_commit_id  = lookup(github_repo.value, "last_commit_id", null)
       repository_name = lookup(github_repo.value, "repository_name") # (Required) 
-      root_folder     = lookup(github_repo.value, "root_folder")     # (Required) 
+      root_folder     = lookup(github_repo.value, "root_folder")     # (Required) possible values: /
       git_url         = lookup(github_repo.value, "git_url", null)
     }
   }

@@ -141,7 +141,7 @@ resource "azurerm_orchestrated_virtual_machine_scale_set" "this" {
       dynamic "diff_disk_settings" { # os_disk.value.diff_disk_settings
         for_each = os_disk.value.diff_disk_settings != null ? os_disk.value.diff_disk_settings : []
         content {
-          option    = lookup(diff_disk_settings.value, "option") # (Required) 
+          option    = lookup(diff_disk_settings.value, "option") # (Required) possible values: Local
           placement = lookup(diff_disk_settings.value, "placement", "CacheDisk")
         }
       }

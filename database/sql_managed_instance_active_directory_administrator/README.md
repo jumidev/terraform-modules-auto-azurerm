@@ -43,9 +43,9 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **azuread_authentication_only** | bool |  `False`  |  Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **azuread_authentication_only** | bool |  `False`  |  `true`, `false`  |  Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). Defaults to `false`. | 
 
 
 

@@ -15,8 +15,7 @@ inputs = {
    # virtual_hub_id → set in tfstate_inputs
    routing_policy = {
       this_routing_policy = {
-         name = "..."         
-         destinations = "..."         
+         destinations = "Possible values: Internet | PrivateTraffic"         
          next_hop = "..."         
       }
       

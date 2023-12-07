@@ -76,7 +76,7 @@ resource "azurerm_storage_account" "this" {
       dynamic "delete_retention_policy" { # blob_properties.value.delete_retention_policy
         for_each = blob_properties.value.delete_retention_policy != null ? blob_properties.value.delete_retention_policy : []
         content {
-          days = lookup(delete_retention_policy.value, "days", 7)
+          days = lookup(delete_retention_policy.value, "days", "7")
         }
       }
 
@@ -84,7 +84,7 @@ resource "azurerm_storage_account" "this" {
       dynamic "restore_policy" { # blob_properties.value.restore_policy
         for_each = blob_properties.value.restore_policy != null ? blob_properties.value.restore_policy : []
         content {
-          days = lookup(restore_policy.value, "days") # (Required) 
+          days = lookup(restore_policy.value, "days") # (Required) possible values: 1 | 365 | days | delete_retention_policy
         }
       }
 
@@ -97,7 +97,7 @@ resource "azurerm_storage_account" "this" {
       dynamic "container_delete_retention_policy" { # blob_properties.value.container_delete_retention_policy
         for_each = blob_properties.value.container_delete_retention_policy != null ? blob_properties.value.container_delete_retention_policy : []
         content {
-          days = lookup(container_delete_retention_policy.value, "days", 7)
+          days = lookup(container_delete_retention_policy.value, "days", "7")
         }
       }
 
@@ -186,7 +186,7 @@ resource "azurerm_storage_account" "this" {
       dynamic "retention_policy" { # share_properties.value.retention_policy
         for_each = share_properties.value.retention_policy != null ? share_properties.value.retention_policy : []
         content {
-          days = lookup(retention_policy.value, "days", 7)
+          days = lookup(retention_policy.value, "days", "7")
         }
       }
 

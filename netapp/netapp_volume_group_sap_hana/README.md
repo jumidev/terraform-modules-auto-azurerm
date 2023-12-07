@@ -20,17 +20,16 @@ inputs = {
    volume = {
       this_volume = {
          capacity_pool_id = "..."         
-         name = "..."         
          protocols = "..."         
          # proximity_placement_group_id → (optional) set in tfstate_inputs
-         security_style = "..."         
-         service_level = "..."         
+         security_style = "Possible values: ntfs | unix"         
+         service_level = "Possible values: Premium | Standard | Ultra"         
          snapshot_directory_visible = "..."         
          storage_quota_in_gb = "..."         
          # subnet_id → set in tfstate_inputs
          throughput_in_mibps = "..."         
          volume_path = "..."         
-         volume_spec_name = "..."         
+         volume_spec_name = "Possible values: data | log | shared | data-backup | log-backup"         
          export_policy_rule = "..."         
       }
       
@@ -63,18 +62,6 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
-### `export_policy_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_clients` | string | Yes | - | A comma-sperated list of allowed client IPv4 addresses. |
-| `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
-| `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
-| `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
-| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
-| `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
-| `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
-
 ### `volume` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -95,6 +82,18 @@ tfstate_store = {
 | `export_policy_rule` | [block](#export_policy_rule-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
 | `data_protection_replication` | [block](#data_protection_replication-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `data_protection_snapshot_policy` | [block](#data_protection_snapshot_policy-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
+
+### `export_policy_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_clients` | string | Yes | - | A comma-sperated list of allowed client IPv4 addresses. |
+| `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
+| `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
+| `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
+| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
+| `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
+| `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
 
 ### `data_protection_snapshot_policy` block structure
 

@@ -2,7 +2,7 @@
 
 variable "minimum_child_endpoints" {
   description = "(REQUIRED) This argument specifies the minimum number of endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This value must be larger than '0'."
-  type        = int
+  type        = string
 
 }
 variable "name" {
@@ -51,12 +51,12 @@ variable "endpoint_location" {
 }
 variable "minimum_required_child_endpoints_ipv4" {
   description = "This argument specifies the minimum number of IPv4 (DNS record type A) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type 'nestedEndpoints' and"
-  type        = int
+  type        = string
   default     = null
 }
 variable "minimum_required_child_endpoints_ipv6" {
   description = "This argument specifies the minimum number of IPv6 (DNS record type AAAA) endpoints that must be ‘online’ in the child profile in order for the parent profile to direct traffic to any of the endpoints in that child profile. This argument only applies to Endpoints of type 'nestedEndpoints' and"
-  type        = int
+  type        = string
   default     = null
 }
 variable "priority" {

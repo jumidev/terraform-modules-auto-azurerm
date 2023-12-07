@@ -73,8 +73,8 @@ variable "sku" {
 }
 variable "soft_delete_retention_days" {
   description = "The number of days that items should be retained for once soft-deleted. This field only works for 'standard' sku. This value can be between '1' and '7' days. Defaults to '7'. Changing this forces a new resource to be created."
-  type        = int
-  default     = 7
+  type        = string
+  default     = "7"
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

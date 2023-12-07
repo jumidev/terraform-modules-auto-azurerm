@@ -42,8 +42,8 @@ resource "azurerm_site_recovery_replicated_vm" "this" {
           dynamic "disk_encryption_key" { # target_disk_encryption.value.disk_encryption_key
             for_each = target_disk_encryption.value.disk_encryption_key != null ? target_disk_encryption.value.disk_encryption_key : []
             content {
-              secret_url = lookup(disk_encryption_key.value, "secret_url") # (Required) 
-              vault_id   = lookup(disk_encryption_key.value, "vault_id")   # (Required) 
+              secret_url = lookup(disk_encryption_key.value, "secret_url") # (Required) possible values: id | azurerm_key_vault_secret
+              vault_id   = lookup(disk_encryption_key.value, "vault_id")   # (Required) possible values: id | azurerm_key_vault
             }
           }
 
@@ -51,8 +51,8 @@ resource "azurerm_site_recovery_replicated_vm" "this" {
           dynamic "key_encryption_key" { # target_disk_encryption.value.key_encryption_key
             for_each = target_disk_encryption.value.key_encryption_key != null ? target_disk_encryption.value.key_encryption_key : []
             content {
-              key_url  = lookup(key_encryption_key.value, "key_url")  # (Required) 
-              vault_id = lookup(key_encryption_key.value, "vault_id") # (Required) 
+              key_url  = lookup(key_encryption_key.value, "key_url")  # (Required) possible values: id | azurerm_key_vault_key
+              vault_id = lookup(key_encryption_key.value, "vault_id") # (Required) possible values: id | azurerm_key_vault
             }
           }
 

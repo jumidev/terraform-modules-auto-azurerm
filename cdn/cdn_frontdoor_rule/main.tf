@@ -50,7 +50,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "query_string_condition" { # conditions.value.query_string_condition
         for_each = conditions.value.query_string_condition != null ? conditions.value.query_string_condition : []
         content {
-          operator         = lookup(query_string_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(query_string_condition.value, "operator") # (Required) possible values: Condition Operator List
           negate_condition = lookup(query_string_condition.value, "negate_condition", false)
           match_values     = lookup(query_string_condition.value, "match_values", null)
           transforms       = lookup(query_string_condition.value, "transforms", null)
@@ -62,7 +62,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
         for_each = conditions.value.post_args_condition != null ? conditions.value.post_args_condition : []
         content {
           post_args_name   = lookup(post_args_condition.value, "post_args_name") # (Required) 
-          operator         = lookup(post_args_condition.value, "operator")       # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(post_args_condition.value, "operator")       # (Required) possible values: Condition Operator List
           negate_condition = lookup(post_args_condition.value, "negate_condition", false)
           match_values     = lookup(post_args_condition.value, "match_values", null)
           transforms       = lookup(post_args_condition.value, "transforms", null)
@@ -73,7 +73,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "request_uri_condition" { # conditions.value.request_uri_condition
         for_each = conditions.value.request_uri_condition != null ? conditions.value.request_uri_condition : []
         content {
-          operator         = lookup(request_uri_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(request_uri_condition.value, "operator") # (Required) possible values: Condition Operator List
           negate_condition = lookup(request_uri_condition.value, "negate_condition", false)
           match_values     = lookup(request_uri_condition.value, "match_values", null)
           transforms       = lookup(request_uri_condition.value, "transforms", null)
@@ -85,7 +85,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
         for_each = conditions.value.request_header_condition != null ? conditions.value.request_header_condition : []
         content {
           header_name      = lookup(request_header_condition.value, "header_name") # (Required) 
-          operator         = lookup(request_header_condition.value, "operator")    # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(request_header_condition.value, "operator")    # (Required) possible values: Condition Operator List
           negate_condition = lookup(request_header_condition.value, "negate_condition", false)
           match_values     = lookup(request_header_condition.value, "match_values", null)
           transforms       = lookup(request_header_condition.value, "transforms", null)
@@ -96,7 +96,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "request_body_condition" { # conditions.value.request_body_condition
         for_each = conditions.value.request_body_condition != null ? conditions.value.request_body_condition : []
         content {
-          operator         = lookup(request_body_condition.value, "operator")     # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(request_body_condition.value, "operator")     # (Required) possible values: Condition Operator List
           match_values     = lookup(request_body_condition.value, "match_values") # (Required) 
           negate_condition = lookup(request_body_condition.value, "negate_condition", false)
           transforms       = lookup(request_body_condition.value, "transforms", null)
@@ -117,7 +117,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "url_path_condition" { # conditions.value.url_path_condition
         for_each = conditions.value.url_path_condition != null ? conditions.value.url_path_condition : []
         content {
-          operator         = lookup(url_path_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(url_path_condition.value, "operator") # (Required) possible values: Condition Operator List
           negate_condition = lookup(url_path_condition.value, "negate_condition", false)
           match_values     = lookup(url_path_condition.value, "match_values", null)
           transforms       = lookup(url_path_condition.value, "transforms", null)
@@ -128,7 +128,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "url_file_extension_condition" { # conditions.value.url_file_extension_condition
         for_each = conditions.value.url_file_extension_condition != null ? conditions.value.url_file_extension_condition : []
         content {
-          operator         = lookup(url_file_extension_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(url_file_extension_condition.value, "operator") # (Required) possible values: Condition Operator List
           negate_condition = lookup(url_file_extension_condition.value, "negate_condition", false)
           match_values     = lookup(url_file_extension_condition.value, "match_values") # (Required) 
           transforms       = lookup(url_file_extension_condition.value, "transforms", null)
@@ -139,7 +139,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "url_filename_condition" { # conditions.value.url_filename_condition
         for_each = conditions.value.url_filename_condition != null ? conditions.value.url_filename_condition : []
         content {
-          operator         = lookup(url_filename_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(url_filename_condition.value, "operator") # (Required) possible values: Condition Operator List
           match_values     = lookup(url_filename_condition.value, "match_values", null)
           negate_condition = lookup(url_filename_condition.value, "negate_condition", false)
           transforms       = lookup(url_filename_condition.value, "transforms", null)
@@ -161,7 +161,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
         for_each = conditions.value.cookies_condition != null ? conditions.value.cookies_condition : []
         content {
           cookie_name      = lookup(cookies_condition.value, "cookie_name") # (Required) 
-          operator         = lookup(cookies_condition.value, "operator")    # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(cookies_condition.value, "operator")    # (Required) possible values: Condition Operator List
           negate_condition = lookup(cookies_condition.value, "negate_condition", false)
           match_values     = lookup(cookies_condition.value, "match_values", null)
           transforms       = lookup(cookies_condition.value, "transforms", null)
@@ -199,7 +199,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "client_port_condition" { # conditions.value.client_port_condition
         for_each = conditions.value.client_port_condition != null ? conditions.value.client_port_condition : []
         content {
-          operator         = lookup(client_port_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(client_port_condition.value, "operator") # (Required) possible values: Condition Operator List
           negate_condition = lookup(client_port_condition.value, "negate_condition", false)
           match_values     = lookup(client_port_condition.value, "match_values", null)
         }
@@ -209,7 +209,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "server_port_condition" { # conditions.value.server_port_condition
         for_each = conditions.value.server_port_condition != null ? conditions.value.server_port_condition : []
         content {
-          operator         = lookup(server_port_condition.value, "operator")     # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(server_port_condition.value, "operator")     # (Required) possible values: Condition Operator List
           match_values     = lookup(server_port_condition.value, "match_values") # (Required) possible values: 80 | 443
           negate_condition = lookup(server_port_condition.value, "negate_condition", false)
         }
@@ -219,7 +219,7 @@ resource "azurerm_cdn_frontdoor_rule" "this" {
       dynamic "host_name_condition" { # conditions.value.host_name_condition
         for_each = conditions.value.host_name_condition != null ? conditions.value.host_name_condition : []
         content {
-          operator         = lookup(host_name_condition.value, "operator") # (Required) possible values: Any | Equal | Contains | BeginsWith | EndsWith | LessThan | LessThanOrEqual | GreaterThan | GreaterThanOrEqual | RegEx
+          operator         = lookup(host_name_condition.value, "operator") # (Required) possible values: Condition Operator List
           match_values     = lookup(host_name_condition.value, "match_values", null)
           transforms       = lookup(host_name_condition.value, "transforms", null)
           negate_condition = lookup(host_name_condition.value, "negate_condition", false)

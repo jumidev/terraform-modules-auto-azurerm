@@ -67,7 +67,7 @@ resource "azurerm_app_service" "this" {
       }
 
       runtime_version               = lookup(auth_settings.value, "runtime_version", null)
-      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", 72)
+      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", "72")
       token_store_enabled           = lookup(auth_settings.value, "token_store_enabled", false)
 
       dynamic "twitter" { # auth_settings.value.twitter
@@ -96,7 +96,7 @@ resource "azurerm_app_service" "this" {
           frequency_interval       = lookup(schedule.value, "frequency_interval") # (Required) 
           frequency_unit           = lookup(schedule.value, "frequency_unit")     # (Required) possible values: Day | Hour
           keep_at_least_one_backup = lookup(schedule.value, "keep_at_least_one_backup", null)
-          retention_period_in_days = lookup(schedule.value, "retention_period_in_days", 30)
+          retention_period_in_days = lookup(schedule.value, "retention_period_in_days", "30")
           start_time               = lookup(schedule.value, "start_time", null)
         }
       }

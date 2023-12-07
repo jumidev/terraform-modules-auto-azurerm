@@ -60,7 +60,7 @@ variable "upload_size_bytes" {
 }
 variable "disk_size_gb" {
   description = "(Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If 'create_option' is 'Copy' or 'FromImage', then the value must be equal to or greater than the source's size. The size can only be increased."
-  type        = int
+  type        = string
   default     = null
 }
 variable "edge_zone" {
@@ -144,7 +144,7 @@ variable "tier" {
 }
 variable "max_shares" {
   description = "The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time."
-  type        = int
+  type        = string
   default     = null
 }
 variable "trusted_launch_enabled" {

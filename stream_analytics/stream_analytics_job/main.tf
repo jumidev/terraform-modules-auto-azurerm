@@ -26,7 +26,7 @@ resource "azurerm_stream_analytics_job" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type = lookup(identity.value, "type") # (Required) 
+      type = lookup(identity.value, "type") # (Required) possible values: SystemAssigned
     }
   }
 

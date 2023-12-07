@@ -116,7 +116,7 @@ resource "azurerm_iothub" "this" {
     for_each = var.enrichment != null ? var.enrichment : []
     content {
       key            = lookup(enrichment.value, "key")            # (Required) 
-      value          = lookup(enrichment.value, "value")          # (Required) 
+      value          = lookup(enrichment.value, "value")          # (Required) possible values: $iothubname | $twin.tags.latitude
       endpoint_names = lookup(enrichment.value, "endpoint_names") # (Required) 
     }
   }

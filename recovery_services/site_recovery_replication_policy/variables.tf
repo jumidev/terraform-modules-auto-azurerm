@@ -22,6 +22,6 @@ variable "recovery_point_retention_in_minutes" {
 }
 variable "application_consistent_snapshot_frequency_in_minutes" {
   description = "(REQUIRED) Specifies the frequency(in minutes) at which to create application consistent recovery points."
-  type        = int
+  type        = string
 
 }

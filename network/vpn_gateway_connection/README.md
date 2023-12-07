@@ -16,7 +16,6 @@ inputs = {
    # vpn_gateway_id → set in tfstate_inputs
    vpn_link = {
       this_vpn_link = {
-         name = "..."         
          # egress_nat_rule_ids → (optional) set in tfstate_inputs
          # ingress_nat_rule_ids → (optional) set in tfstate_inputs
          vpn_site_link_id = "..."         
@@ -65,13 +64,6 @@ tfstate_store = {
 | `route_table_ids` | list | Yes | - | A list of Route Table IDs to associated with this VPN Gateway Connection. |
 | `labels` | list | No | - | A list of labels to assign to this route table. |
 
-### `custom_bgp_address` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
-| `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
-
 ### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -100,6 +92,13 @@ tfstate_store = {
 | `local_azure_ip_address_enabled` | bool | No | False | Whether to use local Azure IP to initiate connection? Defaults to 'false'. |
 | `policy_based_traffic_selector_enabled` | bool | No | False | Whether to enable policy-based traffic selectors? Defaults to 'false'. |
 | `custom_bgp_address` | [block](#custom_bgp_address-block-structure) | No | - | One or more 'custom_bgp_address' blocks. |
+
+### `custom_bgp_address` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
+| `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
 
 ### `traffic_selector_policy` block structure
 

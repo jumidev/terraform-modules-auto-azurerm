@@ -40,8 +40,8 @@ variable "description" {
 }
 variable "destination_port_ranges" {
   description = "A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as '1024-65535'. Use '*' to specify any port."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "destination" {
   description = "One or more 'destination' blocks."
@@ -56,8 +56,8 @@ variable "destination" {
 
 variable "source_port_ranges" {
   description = "A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as '1024-65535'. Use '*' to specify any port."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "source" {
   description = "One or more 'source' blocks."

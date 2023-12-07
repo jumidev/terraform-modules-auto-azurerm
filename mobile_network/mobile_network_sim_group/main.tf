@@ -17,7 +17,7 @@ resource "azurerm_mobile_network_sim_group" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type         = lookup(identity.value, "type")         # (Required) 
+      type         = lookup(identity.value, "type")         # (Required) possible values: UserAssigned
       identity_ids = lookup(identity.value, "identity_ids") # (Required) 
     }
   }

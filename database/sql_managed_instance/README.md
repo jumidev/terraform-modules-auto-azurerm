@@ -43,7 +43,7 @@ tfstate_store = {
 | **resource_group_name** | string |  -  |  -  |  The name of the resource group in which to create the SQL Server. Changing this forces a new resource to be created. | 
 | **location** | string |  -  |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **sku_name** | string |  -  |  `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`  |  Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `BC_Gen4`, `BC_Gen5`. | 
-| **vcores** | int |  -  |  -  |  Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`. | 
+| **vcores** | string |  -  |  `8`, `16`, `24`, `sku_name`, `GP_Gen4`, `32`, `40`, `GP_Gen5`  |  Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`. | 
 | **storage_size_in_gb** | int |  -  |  -  |  Maximum storage space for your instance. It should be a multiple of 32GB. | 
 | **license_type** | string |  -  |  `LicenseIncluded`, `BasePrice`  |  What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`. | 
 | **administrator_login** | string |  -  |  -  |  The administrator login name for the new server. Changing this forces a new resource to be created. | 

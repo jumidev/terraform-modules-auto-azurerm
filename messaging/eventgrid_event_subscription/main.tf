@@ -94,7 +94,7 @@ resource "azurerm_eventgrid_event_subscription" "this" {
   dynamic "delivery_identity" { # var.delivery_identity
     for_each = var.delivery_identity != null ? var.delivery_identity : []
     content {
-      type                   = lookup(delivery_identity.value, "type") # (Required) 
+      type                   = lookup(delivery_identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned
       user_assigned_identity = lookup(delivery_identity.value, "user_assigned_identity", null)
     }
   }
@@ -115,7 +115,7 @@ resource "azurerm_eventgrid_event_subscription" "this" {
   dynamic "dead_letter_identity" { # var.dead_letter_identity
     for_each = var.dead_letter_identity != null ? var.dead_letter_identity : []
     content {
-      type                   = lookup(dead_letter_identity.value, "type") # (Required) 
+      type                   = lookup(dead_letter_identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned
       user_assigned_identity = lookup(dead_letter_identity.value, "user_assigned_identity", null)
     }
   }
@@ -134,7 +134,7 @@ resource "azurerm_eventgrid_event_subscription" "this" {
     for_each = var.retry_policy != null ? var.retry_policy : []
     content {
       max_delivery_attempts = lookup(retry_policy.value, "max_delivery_attempts") # (Required) 
-      event_time_to_live    = lookup(retry_policy.value, "event_time_to_live")    # (Required) 
+      event_time_to_live    = lookup(retry_policy.value, "event_time_to_live")    # (Required) possible values: 1 | 1440
     }
   }
 

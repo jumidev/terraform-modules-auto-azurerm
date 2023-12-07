@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **description** | string |  -  |  -  |  The Schedule Trigger's description. | 
-| **schedule** | [block](#schedule-block-structure) |  -  |  -  |  A `schedule` block, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties. | 
+| **schedule** | string |  -  |  `frequency`, `interval`  |  A `schedule` block, which further specifies the recurrence schedule for the trigger. A schedule is capable of limiting or increasing the number of trigger executions specified by the `frequency` and `interval` properties. | 
 | **start_time** | string |  -  |  -  |  The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC. | 
 | **time_zone** | string |  -  |  -  |  The timezone of the start/end time. | 
 | **end_time** | string |  -  |  -  |  The time the Schedule Trigger should end. The time will be represented in UTC. | 
@@ -50,23 +50,6 @@ tfstate_store = {
 | **pipeline_name** | string |  -  |  -  |  The Data Factory Pipeline name that the trigger will act on. | 
 | **pipeline_parameters** | string |  -  |  -  |  The pipeline parameters that the trigger will act upon. | 
 | **annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Schedule Trigger. | 
-
-### `monthly` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekday` | string | Yes | - | The day of the week on which the trigger runs. For example, a 'monthly' property with a 'weekday' value of 'Sunday' means every Sunday of the month. |
-| `week` | string | No | - | The occurrence of the specified day during the month. For example, a 'monthly' property with 'weekday' and 'week' values of 'Sunday, -1' means the last Sunday of the month. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days_of_month` | int | No | - | Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only. |
-| `days_of_week` | int | No | - | Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency. |
-| `hours` | string | No | - | Hours of the day on which the trigger is scheduled. |
-| `minutes` | int | No | - | Minutes of the hour on which the trigger is scheduled. |
-| `monthly` | [block](#monthly-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
 
 ### `pipeline` block structure
 

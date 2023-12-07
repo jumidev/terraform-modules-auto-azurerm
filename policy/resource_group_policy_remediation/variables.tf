@@ -50,6 +50,6 @@ variable "parallel_deployments" {
 }
 variable "resource_count" {
   description = "Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used."
-  type        = int
+  type        = string
   default     = null
 }

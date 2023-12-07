@@ -16,31 +16,7 @@ resource "azurerm_mssql_virtual_machine" "this" {
   # optional vars
   ########################################
   sql_license_type = var.sql_license_type
-
-  dynamic "auto_backup" { # var.auto_backup
-    for_each = var.auto_backup != null ? var.auto_backup : []
-    content {
-      encryption_enabled  = lookup(auto_backup.value, "encryption_enabled", false)
-      encryption_password = lookup(auto_backup.value, "encryption_password", null)
-
-      dynamic "manual_schedule" { # auto_backup.value.manual_schedule
-        for_each = auto_backup.value.manual_schedule != null ? auto_backup.value.manual_schedule : []
-        content {
-          full_backup_frequency           = lookup(manual_schedule.value, "full_backup_frequency")           # (Required) possible values: Daily | Weekly
-          full_backup_start_hour          = lookup(manual_schedule.value, "full_backup_start_hour")          # (Required) possible values: 0 | 23
-          full_backup_window_in_hours     = lookup(manual_schedule.value, "full_backup_window_in_hours")     # (Required) possible values: 1 | 23
-          log_backup_frequency_in_minutes = lookup(manual_schedule.value, "log_backup_frequency_in_minutes") # (Required) possible values: 5 | 60
-          days_of_week                    = lookup(manual_schedule.value, "days_of_week", null)
-        }
-      }
-
-      retention_period_in_days        = lookup(auto_backup.value, "retention_period_in_days")   # (Required) possible values: 1 | 30
-      storage_blob_endpoint           = lookup(auto_backup.value, "storage_blob_endpoint")      # (Required) 
-      storage_account_access_key      = lookup(auto_backup.value, "storage_account_access_key") # (Required) 
-      system_databases_backup_enabled = lookup(auto_backup.value, "system_databases_backup_enabled", null)
-    }
-  }
-
+  auto_backup      = var.auto_backup
 
   dynamic "auto_patching" { # var.auto_patching
     for_each = var.auto_patching != null ? var.auto_patching : []

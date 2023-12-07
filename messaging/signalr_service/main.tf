@@ -52,7 +52,7 @@ resource "azurerm_signalr_service" "this" {
   dynamic "upstream_endpoint" { # var.upstream_endpoint
     for_each = var.upstream_endpoint != null ? var.upstream_endpoint : []
     content {
-      url_template              = lookup(upstream_endpoint.value, "url_template")     # (Required) 
+      url_template              = lookup(upstream_endpoint.value, "url_template")     # (Required) possible values: http://host.com/{hub}/api/{category}/{event}
       category_pattern          = lookup(upstream_endpoint.value, "category_pattern") # (Required) 
       event_pattern             = lookup(upstream_endpoint.value, "event_pattern")    # (Required) 
       hub_pattern               = lookup(upstream_endpoint.value, "hub_pattern")      # (Required) 

@@ -37,15 +37,8 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **description** | string |  Description of the resource. Changing this forces a new Load Test to be created. | 
-| **identity** | [block](#identity-block-structure) |  An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
+| **identity** | string |  An `identity` block. Specifies the Managed Identity which should be assigned to this Load Test. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Load Test. | 
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | No | - | The Principal ID for the System-Assigned Managed Identity assigned to this Load Test. |
-| `tenant_id` | string | No | - | The Tenant ID for the System-Assigned Managed Identity assigned to this Load Test. |
 
 
 

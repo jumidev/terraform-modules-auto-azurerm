@@ -71,8 +71,8 @@ tfstate_store = {
 | `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number. |
 | `ssh_private_key_base64` | string | No | - | Specifies the Base64-encoded SSH private key in PEM format. |
 | `ssh_known_hosts_base64` | string | No | - | Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH. |
-| `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
-| `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
+| `sync_interval_in_seconds` | string | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
+| `timeout_in_seconds` | string | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
 
 ### `blob_storage` block structure
 
@@ -83,8 +83,8 @@ tfstate_store = {
 | `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
 | `sas_token` | string | No | - | Specifies the shared access token to access the storage container. |
 | `service_principal` | [block](#service_principal-block-structure) | No | - | A 'service_principal' block. |
-| `sync_interval_in_seconds` | int | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
-| `timeout_in_seconds` | int | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
+| `sync_interval_in_seconds` | string | No | - | Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote. |
+| `timeout_in_seconds` | string | No | - | Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote. |
 
 ### `kustomizations` block structure
 
@@ -109,8 +109,8 @@ tfstate_store = {
 | `secret_key_base64` | string | No | - | Specifies the Base64-encoded secret key used to authenticate with the bucket source. |
 | `tls_enabled` | bool | No | True | Specify whether to communicate with a bucket using TLS is enabled. Defaults to 'true'. |
 | `local_auth_reference` | string | No | - | Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. |
-| `sync_interval_in_seconds` | int | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
-| `timeout_in_seconds` | int | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
+| `sync_interval_in_seconds` | string | No | 600 | Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'. |
+| `timeout_in_seconds` | string | No | 600 | Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. |
 
 
 

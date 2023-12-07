@@ -38,7 +38,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **daily_data_cap_in_gb** | int |  -  |  -  |  Specifies the Application Insights component daily data volume cap in GB. | 
+| **daily_data_cap_in_gb** | string |  -  |  -  |  Specifies the Application Insights component daily data volume cap in GB. | 
 | **daily_data_cap_notifications_disabled** | bool |  -  |  -  |  Specifies if a notification email will be send when the daily data volume cap is met. | 
 | **retention_in_days** | string |  `90`  |  `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550`, `730`  |  Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`. | 
 | **sampling_percentage** | string |  `100`  |  -  |  Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to `100`. | 

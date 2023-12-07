@@ -15,7 +15,7 @@ inputs = {
    # stream_analytics_job_id → set in tfstate_inputs
    input = {
       this_input = {
-         type = "..."         
+         type = "Possible values: any | array | bigint | datetime | float | nvarchar(max) | record"         
       }
       
    }

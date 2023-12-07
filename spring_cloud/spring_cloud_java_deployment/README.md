@@ -36,13 +36,13 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **environment_variables** | string |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
-| **instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
-| **jvm_options** | string |  -  |  Specifies the jvm option of the Spring Cloud Deployment. | 
-| **quota** | [block](#quota-block-structure) |  -  |  A `quota` block. | 
-| **runtime_version** | string |  `Java_8`  |  Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **environment_variables** | string |  -  |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
+| **instance_count** | string |  `1`  |  `1`, `500`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
+| **jvm_options** | string |  -  |  -  |  Specifies the jvm option of the Spring Cloud Deployment. | 
+| **quota** | [block](#quota-block-structure) |  -  |  -  |  A `quota` block. | 
+| **runtime_version** | string |  `Java_8`  |  `Java_8`, `Java_11`, `Java_17`  |  Specifies the runtime version of the Spring Cloud Deployment. Possible Values are `Java_8`, `Java_11` and `Java_17`. Defaults to `Java_8`. | 
 
 ### `quota` block structure
 

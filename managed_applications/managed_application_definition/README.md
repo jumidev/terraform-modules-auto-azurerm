@@ -38,15 +38,15 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **authorization** | list |  -  |  One or more `authorization` block defined below. | 
-| **create_ui_definition** | string |  -  |  Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource. | 
-| **description** | string |  -  |  Specifies the managed application definition description. | 
-| **package_enabled** | bool |  `True`  |  Is the package enabled? Defaults to `true`. | 
-| **main_template** | string |  -  |  Specifies the inline main template JSON which has resources to be provisioned. | 
-| **package_file_uri** | string |  -  |  Specifies the managed application definition package file Uri. | 
-| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **authorization** | list |  -  |  -  |  One or more `authorization` block defined below. | 
+| **create_ui_definition** | string |  -  |  `createUiDefinition`, `Microsoft.Solutions/applications`  |  Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource. | 
+| **description** | string |  -  |  -  |  Specifies the managed application definition description. | 
+| **package_enabled** | bool |  `True`  |  -  |  Is the package enabled? Defaults to `true`. | 
+| **main_template** | string |  -  |  -  |  Specifies the inline main template JSON which has resources to be provisioned. | 
+| **package_file_uri** | string |  -  |  -  |  Specifies the managed application definition package file Uri. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 
 

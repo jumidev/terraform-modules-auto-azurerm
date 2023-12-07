@@ -27,7 +27,7 @@ resource "azurerm_eventhub" "this" {
     content {
       enabled             = lookup(capture_description.value, "enabled")  # (Required) 
       encoding            = lookup(capture_description.value, "encoding") # (Required) possible values: Avro | AvroDeflate
-      interval_in_seconds = lookup(capture_description.value, "interval_in_seconds", 300)
+      interval_in_seconds = lookup(capture_description.value, "interval_in_seconds", "300")
       size_limit_in_bytes = lookup(capture_description.value, "size_limit_in_bytes", "314572800")
       skip_empty_archives = lookup(capture_description.value, "skip_empty_archives", false)
 

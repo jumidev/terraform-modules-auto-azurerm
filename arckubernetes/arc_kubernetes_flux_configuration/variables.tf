@@ -40,14 +40,14 @@ variable "blob_storage" {
   default     = null
 }
 #
-# blob_storage block structure  :
-#   container_id (string)         : (REQUIRED) Specifies the Azure Blob container ID.
-#   account_key (string)          : Specifies the account key (shared key) to access the storage account.
-#   local_auth_reference (string) : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-#   sas_token (string)            : Specifies the shared access token to access the storage container.
-#   service_principal (block)     : A 'service_principal' block.
-#   sync_interval_in_seconds (int): Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
-#   timeout_in_seconds (int)      : Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+# blob_storage block structure     :
+#   container_id (string)            : (REQUIRED) Specifies the Azure Blob container ID.
+#   account_key (string)             : Specifies the account key (shared key) to access the storage account.
+#   local_auth_reference (string)    : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+#   sas_token (string)               : Specifies the shared access token to access the storage container.
+#   service_principal (block)        : A 'service_principal' block.
+#   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+#   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
 #
 # service_principal block structure     :
 #   client_id (string)                    : (REQUIRED) Specifies the client ID for authenticating a Service Principal.
@@ -64,15 +64,15 @@ variable "bucket" {
   default     = null
 }
 #
-# bucket block structure        :
-#   bucket_name (string)          : (REQUIRED) Specifies the bucket name to sync from the url endpoint for the flux configuration.
-#   url (string)                  : (REQUIRED) Specifies the URL to sync for the flux configuration S3 bucket. It must start with 'http://' or 'https://'.
-#   access_key (string)           : Specifies the plaintext access key used to securely access the S3 bucket.
-#   secret_key_base64 (string)    : Specifies the Base64-encoded secret key used to authenticate with the bucket source.
-#   tls_enabled (bool)            : Specify whether to communicate with a bucket using TLS is enabled. Defaults to 'true'.
-#   local_auth_reference (string) : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-#   sync_interval_in_seconds (int): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
-#   timeout_in_seconds (int)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
+# bucket block structure           :
+#   bucket_name (string)             : (REQUIRED) Specifies the bucket name to sync from the url endpoint for the flux configuration.
+#   url (string)                     : (REQUIRED) Specifies the URL to sync for the flux configuration S3 bucket. It must start with 'http://' or 'https://'.
+#   access_key (string)              : Specifies the plaintext access key used to securely access the S3 bucket.
+#   secret_key_base64 (string)       : Specifies the Base64-encoded secret key used to authenticate with the bucket source.
+#   tls_enabled (bool)               : Specify whether to communicate with a bucket using TLS is enabled. Defaults to 'true'.
+#   local_auth_reference (string)    : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
+#   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
+#   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
 
 
 variable "git_repository" {
@@ -81,18 +81,18 @@ variable "git_repository" {
   default     = null
 }
 #
-# git_repository block structure :
-#   url (string)                   : (REQUIRED) Specifies the URL to sync for the flux configuration git repository. It must start with 'http://', 'https://', 'git@' or 'ssh://'.
-#   reference_type (string)        : (REQUIRED) Specifies the source reference type for the GitRepository object. Possible values are 'branch', 'commit', 'semver' and 'tag'.
-#   reference_value (string)       : (REQUIRED) Specifies the source reference value for the GitRepository object.
-#   https_ca_cert_base64 (string)  : Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
-#   https_user (string)            : Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
-#   https_key_base64 (string)      : Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
-#   local_auth_reference (string)  : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
-#   ssh_private_key_base64 (string): Specifies the Base64-encoded SSH private key in PEM format.
-#   ssh_known_hosts_base64 (string): Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
-#   sync_interval_in_seconds (int) : Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
-#   timeout_in_seconds (int)       : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
+# git_repository block structure   :
+#   url (string)                     : (REQUIRED) Specifies the URL to sync for the flux configuration git repository. It must start with 'http://', 'https://', 'git@' or 'ssh://'.
+#   reference_type (string)          : (REQUIRED) Specifies the source reference type for the GitRepository object. Possible values are 'branch', 'commit', 'semver' and 'tag'.
+#   reference_value (string)         : (REQUIRED) Specifies the source reference value for the GitRepository object.
+#   https_ca_cert_base64 (string)    : Specifies the Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS.
+#   https_user (string)              : Specifies the plaintext HTTPS username used to access private git repositories over HTTPS.
+#   https_key_base64 (string)        : Specifies the Base64-encoded HTTPS personal access token or password that will be used to access the repository.
+#   local_auth_reference (string)    : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
+#   ssh_private_key_base64 (string)  : Specifies the Base64-encoded SSH private key in PEM format.
+#   ssh_known_hosts_base64 (string)  : Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
+#   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
+#   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
 
 
 variable "scope" {

@@ -50,16 +50,16 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **blob_storage_event_type** | string |  `Microsoft.Storage.BlobCreated`  |  Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`. | 
-| **data_format** | string |  -  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. | 
-| **database_routing_type** | string |  `Single`  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
-| **eventgrid_resource_id** | string |  -  |  The resource ID of the event grid that is subscribed to the storage account events. | 
-| **managed_identity_resource_id** | string |  -  |  Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id. | 
-| **mapping_rule_name** | string |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
-| **table_name** | string |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
-| **skip_first_record** | bool |  `False`  |  is the first record of every file ignored? Defaults to `false`. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **blob_storage_event_type** | string |  `Microsoft.Storage.BlobCreated`  |  `Microsoft.Storage.BlobCreated`, `Microsoft.Storage.BlobRenamed`  |  Specifies the blob storage event type that needs to be processed. Possible Values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobRenamed`. Defaults to `Microsoft.Storage.BlobCreated`. | 
+| **data_format** | string |  -  |  `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT`, `W3CLOGFILE`  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSV`, `TSVE`, `TXT` and `W3CLOGFILE`. | 
+| **database_routing_type** | string |  `Single`  |  -  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
+| **eventgrid_resource_id** | string |  -  |  -  |  The resource ID of the event grid that is subscribed to the storage account events. | 
+| **managed_identity_resource_id** | string |  -  |  -  |  Empty for non-managed identity based data connection. For system assigned identity, provide cluster resource Id. For user assigned identity (UAI) provide the UAI resource Id. | 
+| **mapping_rule_name** | string |  -  |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
+| **table_name** | string |  -  |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
+| **skip_first_record** | bool |  `False`  |  -  |  is the first record of every file ignored? Defaults to `false`. | 
 
 
 

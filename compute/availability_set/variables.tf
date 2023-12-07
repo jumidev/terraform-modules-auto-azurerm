@@ -20,13 +20,13 @@ variable "location" {
 
 variable "platform_update_domain_count" {
   description = "Specifies the number of update domains that are used. Defaults to '5'. Changing this forces a new resource to be created."
-  type        = int
-  default     = 5
+  type        = string
+  default     = "5"
 }
 variable "platform_fault_domain_count" {
   description = "Specifies the number of fault domains that are used. Defaults to '3'. Changing this forces a new resource to be created."
-  type        = int
-  default     = 3
+  type        = string
+  default     = "3"
 }
 variable "proximity_placement_group_id" {
   description = "The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created."

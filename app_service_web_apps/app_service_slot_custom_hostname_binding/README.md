@@ -29,10 +29,10 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **app_service_slot_id** | string |  The ID of the App Service Slot. Changing this forces a new resource to be created. | 
-| **hostname** | string |  Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **app_service_slot_id** | string |  -  |  The ID of the App Service Slot. Changing this forces a new resource to be created. | 
+| **hostname** | string |  `www.example.com`  |  Specifies the Custom Hostname to use for the App Service, example `www.example.com`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

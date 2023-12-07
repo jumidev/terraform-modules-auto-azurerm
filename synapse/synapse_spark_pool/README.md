@@ -65,12 +65,6 @@ tfstate_store = {
 | `content` | string | Yes | - | The content of library requirements. |
 | `filename` | string | Yes | - | The name of the library requirements file. |
 
-### `auto_pause` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
-
 ### `auto_scale` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,6 +78,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | string | Yes | - | The contents of a spark configuration. |
 | `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
+
+### `auto_pause` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
 
 
 

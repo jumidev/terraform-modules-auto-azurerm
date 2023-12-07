@@ -16,7 +16,6 @@ inputs = {
    bot_name = "The name of the Bot Resource this channel will be associated with..."   
    site = {
       this_site = {
-         name = "..."         
       }
       
    }

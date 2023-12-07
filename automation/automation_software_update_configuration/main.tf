@@ -11,7 +11,7 @@ resource "azurerm_automation_software_update_configuration" "this" {
   dynamic "schedule" { # var.schedule
     for_each = var.schedule != null ? var.schedule : []
     content {
-      frequency           = lookup(schedule.value, "frequency") # (Required) 
+      frequency           = lookup(schedule.value, "frequency") # (Required) possible values: OneTime | Day | Hour | Week | Month
       is_enabled          = lookup(schedule.value, "is_enabled", true)
       description         = lookup(schedule.value, "description", null)
       interval            = lookup(schedule.value, "interval", null)

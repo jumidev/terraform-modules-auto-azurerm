@@ -115,7 +115,7 @@ resource "azurerm_linux_web_app" "this" {
       }
 
       runtime_version               = lookup(auth_settings.value, "runtime_version", null)
-      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", 72)
+      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", "72")
       token_store_enabled           = lookup(auth_settings.value, "token_store_enabled", false)
 
       dynamic "twitter" { # auth_settings.value.twitter
@@ -190,7 +190,7 @@ resource "azurerm_linux_web_app" "this" {
         content {
           name                          = custom_oidc_v2.key
           client_id                     = lookup(custom_oidc_v2.value, "client_id")                     # (Required) 
-          openid_configuration_endpoint = lookup(custom_oidc_v2.value, "openid_configuration_endpoint") # (Required) 
+          openid_configuration_endpoint = lookup(custom_oidc_v2.value, "openid_configuration_endpoint") # (Required) possible values: https://example.com/.well-known/openid-configuration
           name_claim_type               = lookup(custom_oidc_v2.value, "name_claim_type", null)
           scopes                        = lookup(custom_oidc_v2.value, "scopes", null)
           client_credential_method      = lookup(custom_oidc_v2.value, "client_credential_method", null)
@@ -260,7 +260,7 @@ resource "azurerm_linux_web_app" "this" {
         content {
           logout_endpoint                   = lookup(login.value, "logout_endpoint", null)
           token_store_enabled               = lookup(login.value, "token_store_enabled", false)
-          token_refresh_extension_time      = lookup(login.value, "token_refresh_extension_time", 72)
+          token_refresh_extension_time      = lookup(login.value, "token_refresh_extension_time", "72")
           token_store_path                  = lookup(login.value, "token_store_path", null)
           token_store_sas_setting_name      = lookup(login.value, "token_store_sas_setting_name", null)
           preserve_url_fragments_for_logins = lookup(login.value, "preserve_url_fragments_for_logins", false)

@@ -31,12 +31,12 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **path** | string |  The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created. | 
-| **filesystem_name** | string |  The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
-| **storage_account_id** | string |  Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created. | 
-| **resource** | string |  Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **path** | string |  -  |  The path which should be created within the Data Lake Gen2 File System in the Storage Account. Changing this forces a new resource to be created. | 
+| **filesystem_name** | string |  -  |  The name of the Data Lake Gen2 File System which should be created within the Storage Account. Must be unique within the storage account the queue is located. Changing this forces a new resource to be created. | 
+| **storage_account_id** | string |  -  |  Specifies the ID of the Storage Account in which the Data Lake Gen2 File System should exist. Changing this forces a new resource to be created. | 
+| **resource** | string |  `directory`  |  Specifies the type for path to create. Currently only `directory` is supported. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

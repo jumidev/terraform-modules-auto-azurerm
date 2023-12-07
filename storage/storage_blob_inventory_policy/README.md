@@ -14,11 +14,10 @@ inputs = {
    # storage_account_id → set in tfstate_inputs
    rules = {
       this_rules = {
-         name = "..."         
          # storage_container_name → set in tfstate_inputs
-         format = "..."         
-         schedule = "..."         
-         scope = "..."         
+         format = "Possible values: Csv | Parquet"         
+         schedule = "Possible values: Daily | Weekly"         
+         scope = "Possible values: Blob | Container"         
          schema_fields = "..."         
       }
       

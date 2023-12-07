@@ -25,7 +25,7 @@ resource "azurerm_elastic_cloud_elasticsearch" "this" {
       dynamic "filtering_tag" { # logs.value.filtering_tag
         for_each = logs.value.filtering_tag != null ? logs.value.filtering_tag : []
         content {
-          action = lookup(filtering_tag.value, "action") # (Required) possible values: Exclude | Include
+          action = lookup(filtering_tag.value, "action") # (Required) possible values: name | value
           name   = filtering_tag.key
           value  = lookup(filtering_tag.value, "value") # (Required) 
         }

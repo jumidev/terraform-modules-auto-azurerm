@@ -20,8 +20,8 @@ variable "environment_variables" {
 }
 variable "instance_count" {
   description = "Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between '1' and '500'. Defaults to '1' if not specified."
-  type        = int
-  default     = 1
+  type        = string
+  default     = "1"
 }
 variable "jvm_options" {
   description = "Specifies the jvm option of the Spring Cloud Deployment."

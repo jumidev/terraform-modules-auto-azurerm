@@ -39,13 +39,13 @@ tfstate_store = {
 | **stream_analytics_cluster_id** | string |  -  |  -  |  The ID of an existing Stream Analytics Cluster where the Stream Analytics Job should run. | 
 | **compatibility_level** | string |  -  |  `1.0`, `1.1`, `1.2`  |  Specifies the compatibility level for this job - which controls certain runtime behaviours of the streaming job. Possible values are `1.0`, `1.1` and `1.2`. | 
 | **data_locale** | string |  -  |  -  |  Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). | 
-| **events_late_arrival_max_delay_in_seconds** | int |  `5`  |  -  |  Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`. | 
-| **events_out_of_order_max_delay_in_seconds** | int |  `0`  |  -  |  Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`. | 
+| **events_late_arrival_max_delay_in_seconds** | string |  `5`  |  `-1`, `1814399`, `5`  |  Specifies the maximum tolerable delay in seconds where events arriving late could be included. Supported range is `-1` (indefinite) to `1814399` (20d 23h 59m 59s). Default is `5`. | 
+| **events_out_of_order_max_delay_in_seconds** | string |  `0`  |  `0`, `599`  |  Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`. | 
 | **events_out_of_order_policy** | string |  `Adjust`  |  `Adjust`, `Drop`  |  Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`. | 
 | **type** | string |  `Cloud`  |  `Cloud`, `Edge`  |  The type of the Stream Analytics Job. Possible values are `Cloud` and `Edge`. Defaults to `Cloud`. Changing this forces a new resource to be created. | 
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **output_error_policy** | string |  `Drop`  |  `Drop`, `Stop`  |  Specifies the policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size). Possible values are `Drop` and `Stop`. Default is `Drop`. | 
-| **streaming_units** | int |  -  |  -  |  Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. | 
+| **streaming_units** | string |  -  |  `1`, `3`, `6`, `120`  |  Specifies the number of streaming units that the streaming job uses. Supported values are `1`, `3`, `6` and multiples of `6` up to `120`. | 
 | **content_storage_policy** | string |  `SystemAccount`  |  `JobStorageAccount`, `SystemAccount`  |  The policy for storing stream analytics content. Possible values are `JobStorageAccount`, `SystemAccount`. Defaults to `SystemAccount`. | 
 | **job_storage_account** | [block](#job_storage_account-block-structure) |  -  |  -  |  The details of the job storage account. A `job_storage_account` block. | 
 

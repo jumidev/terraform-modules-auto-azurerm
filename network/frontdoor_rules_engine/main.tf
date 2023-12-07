@@ -55,7 +55,7 @@ resource "azurerm_frontdoor_rules_engine" "this" {
         content {
           variable         = lookup(match_condition.value, "variable", null)
           selector         = lookup(match_condition.value, "selector", null)
-          operator         = lookup(match_condition.value, "operator") # (Required) 
+          operator         = lookup(match_condition.value, "operator") # (Required) possible values: Any | IPMatch | GeoMatch | Equal | Contains | LessThan | GreaterThan | LessThanOrEqual | GreaterThanOrEqual | BeginsWith | EndsWith
           transform        = lookup(match_condition.value, "transform", null)
           negate_condition = lookup(match_condition.value, "negate_condition", false)
           value            = lookup(match_condition.value, "value", null)

@@ -36,8 +36,8 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **platform_update_domain_count** | int |  `5`  |  -  |  Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created. | 
-| **platform_fault_domain_count** | int |  `3`  |  -  |  Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created. | 
+| **platform_update_domain_count** | string |  `5`  |  -  |  Specifies the number of update domains that are used. Defaults to `5`. Changing this forces a new resource to be created. | 
+| **platform_fault_domain_count** | string |  `3`  |  -  |  Specifies the number of fault domains that are used. Defaults to `3`. Changing this forces a new resource to be created. | 
 | **proximity_placement_group_id** | string |  -  |  -  |  The ID of the Proximity Placement Group to which this Virtual Machine should be assigned. Changing this forces a new resource to be created. | 
 | **managed** | bool |  `True`  |  `true`, `false`  |  Specifies whether the availability set is managed or not. Possible values are `true` (to specify aligned) or `false` (to specify classic). Default is `true`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

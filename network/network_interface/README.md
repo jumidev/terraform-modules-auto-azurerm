@@ -13,7 +13,6 @@ source = {
 inputs = {
    ip_configuration = {
       primary = {
-         name = "..."         
          # subnet_id → (optional) set in tfstate_inputs
          private_ip_address_allocation = "Dynamic"         
          # public_ip_address_id → (optional) set in tfstate_inputs

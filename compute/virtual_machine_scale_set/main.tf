@@ -96,8 +96,8 @@ resource "azurerm_virtual_machine_scale_set" "this" {
       dynamic "additional_unattend_config" { # os_profile_windows_config.value.additional_unattend_config
         for_each = os_profile_windows_config.value.additional_unattend_config != null ? os_profile_windows_config.value.additional_unattend_config : []
         content {
-          pass         = lookup(additional_unattend_config.value, "pass")         # (Required) 
-          component    = lookup(additional_unattend_config.value, "component")    # (Required) 
+          pass         = lookup(additional_unattend_config.value, "pass")         # (Required) possible values: oobeSystem
+          component    = lookup(additional_unattend_config.value, "component")    # (Required) possible values: Microsoft-Windows-Shell-Setup
           setting_name = lookup(additional_unattend_config.value, "setting_name") # (Required) possible values: FirstLogonCommands | AutoLogon
           content      = lookup(additional_unattend_config.value, "content")      # (Required) 
         }

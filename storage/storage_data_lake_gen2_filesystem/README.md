@@ -40,8 +40,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **properties** | string |  -  |  A mapping of Key to Base64-Encoded Values which should be assigned to this Data Lake Gen2 File System. | 
 | **ace** | [block](#ace-block-structure) |  -  |  One or more `ace` blocks to specify the entries for the ACL for the path. | 
-| **owner** | string |  `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`. | 
-| **group** | string |  `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`. | 
+| **owner** | string |  `/`, `$superuser`  |  Specifies the Object ID of the Azure Active Directory User to make the owning user of the root path (i.e. `/`). Possible values also include `$superuser`. | 
+| **group** | string |  `/`, `$superuser`  |  Specifies the Object ID of the Azure Active Directory Group to make the owning group of the root path (i.e. `/`). Possible values also include `$superuser`. | 
 
 ### `ace` block structure
 

@@ -40,16 +40,16 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **addon_json** | string |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Container Deployment. | 
-| **application_performance_monitoring_ids** | string |  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
-| **arguments** | string |  -  |  Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified. | 
-| **commands** | string |  -  |  Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified. | 
-| **environment_variables** | string |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
-| **instance_count** | int |  `1`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
-| **language_framework** | string |  -  |  Specifies the language framework of the container image. The only possible value is `springboot`. | 
-| **quota** | [block](#quota-block-structure) |  -  |  A `quota` block. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **addon_json** | string |  -  |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Container Deployment. | 
+| **application_performance_monitoring_ids** | string |  -  |  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
+| **arguments** | string |  -  |  `CMD`  |  Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified. | 
+| **commands** | string |  -  |  `ENTRYPOINT`  |  Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified. | 
+| **environment_variables** | string |  -  |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
+| **instance_count** | string |  `1`  |  `1`, `500`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
+| **language_framework** | string |  -  |  `springboot`  |  Specifies the language framework of the container image. The only possible value is `springboot`. | 
+| **quota** | [block](#quota-block-structure) |  -  |  -  |  A `quota` block. | 
 
 ### `quota` block structure
 

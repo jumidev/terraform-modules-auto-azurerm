@@ -46,15 +46,15 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **compression** | string |  `None`  |  Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created. | 
-| **event_system_properties** | string |  -  |  Specifies a list of system properties for the Event Hub. | 
-| **table_name** | string |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
-| **identity_id** | string |  -  |  The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub. | 
-| **mapping_rule_name** | string |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
-| **data_format** | string |  -  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`. | 
-| **database_routing_type** | string |  `Single`  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **compression** | string |  `None`  |  -  |  Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created. | 
+| **event_system_properties** | string |  -  |  -  |  Specifies a list of system properties for the Event Hub. | 
+| **table_name** | string |  -  |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
+| **identity_id** | string |  -  |  -  |  The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub. | 
+| **mapping_rule_name** | string |  -  |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 
+| **data_format** | string |  -  |  `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, `W3CLOGFILE`  |  Specifies the data format of the EventHub messages. Allowed values: `APACHEAVRO`, `AVRO`, `CSV`, `JSON`, `MULTIJSON`, `ORC`, `PARQUET`, `PSV`, `RAW`, `SCSV`, `SINGLEJSON`, `SOHSV`, `TSVE`, `TSV`, `TXT`, and `W3CLOGFILE`. | 
+| **database_routing_type** | string |  `Single`  |  -  |  Indication for database routing information from the data connection, by default only database routing information is allowed. Allowed values: `Single`, `Multi`. Changing this forces a new resource to be created. Defaults to `Single`. | 
 
 
 

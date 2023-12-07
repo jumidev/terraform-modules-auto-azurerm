@@ -23,7 +23,7 @@ resource "azurerm_data_factory" "this" {
       branch_name        = lookup(github_configuration.value, "branch_name")     # (Required) 
       git_url            = lookup(github_configuration.value, "git_url")         # (Required) 
       repository_name    = lookup(github_configuration.value, "repository_name") # (Required) 
-      root_folder        = lookup(github_configuration.value, "root_folder")     # (Required) 
+      root_folder        = lookup(github_configuration.value, "root_folder")     # (Required) possible values: /
       publishing_enabled = lookup(github_configuration.value, "publishing_enabled", true)
     }
   }
@@ -33,7 +33,7 @@ resource "azurerm_data_factory" "this" {
     for_each = var.global_parameter != null ? var.global_parameter : []
     content {
       name  = global_parameter.key
-      type  = lookup(global_parameter.value, "type")  # (Required) 
+      type  = lookup(global_parameter.value, "type")  # (Required) possible values: Array | Bool | Float | Int | Object | String
       value = lookup(global_parameter.value, "value") # (Required) 
     }
   }
@@ -55,7 +55,7 @@ resource "azurerm_data_factory" "this" {
       branch_name        = lookup(vsts_configuration.value, "branch_name")     # (Required) 
       project_name       = lookup(vsts_configuration.value, "project_name")    # (Required) 
       repository_name    = lookup(vsts_configuration.value, "repository_name") # (Required) 
-      root_folder        = lookup(vsts_configuration.value, "root_folder")     # (Required) 
+      root_folder        = lookup(vsts_configuration.value, "root_folder")     # (Required) possible values: /
       tenant_id          = lookup(vsts_configuration.value, "tenant_id")       # (Required) 
       publishing_enabled = lookup(vsts_configuration.value, "publishing_enabled", true)
     }

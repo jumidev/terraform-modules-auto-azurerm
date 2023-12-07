@@ -21,7 +21,7 @@ resource "azurerm_data_protection_backup_vault" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type = lookup(identity.value, "type") # (Required) 
+      type = lookup(identity.value, "type") # (Required) possible values: SystemAssigned
     }
   }
 

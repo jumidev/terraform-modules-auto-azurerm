@@ -79,7 +79,7 @@ resource "azurerm_function_app_slot" "this" {
       }
 
       runtime_version               = lookup(auth_settings.value, "runtime_version", null)
-      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", 72)
+      token_refresh_extension_hours = lookup(auth_settings.value, "token_refresh_extension_hours", "72")
       token_store_enabled           = lookup(auth_settings.value, "token_store_enabled", false)
 
       dynamic "twitter" { # auth_settings.value.twitter
