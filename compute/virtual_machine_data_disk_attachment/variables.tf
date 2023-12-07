@@ -1,28 +1,21 @@
-# REQUIRED VARIABLES
-
-variable "virtual_machine_id" {
-  description = "(REQUIRED) The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created."
-  type        = string
-
-}
-variable "managed_disk_id" {
-  description = "(REQUIRED) The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created."
-  type        = string
-
-}
-variable "lun" {
-  description = "(REQUIRED) The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created."
-  type        = int
-  default     = 3
-}
-variable "caching" {
-  description = "(REQUIRED) Specifies the caching requirements for this Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'."
-  type        = string
-  default     = "ReadOnly"
-}
 
 # OPTIONAL VARIABLES
 
+variable "managed_disk_id" {
+  description = "The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "lun" {
+  description = "The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created."
+  type        = number
+  default     = "3"
+}
+variable "caching" {
+  description = "Specifies the caching requirements for this Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'."
+  type        = string
+  default     = "ReadOnly"
+}
 variable "create_option" {
   description = "The Create Option of the Data Disk, such as 'Empty' or 'Attach'. Defaults to 'Attach'. Changing this forces a new resource to be created."
   type        = string

@@ -31,8 +31,8 @@ variable "scale_settings" {
 }
 #
 # scale_settings block structure               :
-#   max_node_count (int)                         : (REQUIRED) Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
-#   min_node_count (int)                         : (REQUIRED) Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+#   max_node_count (number)                      : (REQUIRED) Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created.
+#   min_node_count (number)                      : (REQUIRED) Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created.
 #   scale_down_nodes_after_idle_duration (string): (REQUIRED) Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created.
 
 

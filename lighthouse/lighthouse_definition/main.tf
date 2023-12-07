@@ -33,7 +33,7 @@ resource "azurerm_lighthouse_definition" "this" {
         for_each = eligible_authorization.value.just_in_time_access_policy != null ? eligible_authorization.value.just_in_time_access_policy : []
         content {
           multi_factor_auth_provider  = lookup(just_in_time_access_policy.value, "multi_factor_auth_provider", null)
-          maximum_activation_duration = lookup(just_in_time_access_policy.value, "maximum_activation_duration", pt8h)
+          maximum_activation_duration = lookup(just_in_time_access_policy.value, "maximum_activation_duration", "PT8H")
 
           dynamic "approver" { # just_in_time_access_policy.value.approver
             for_each = just_in_time_access_policy.value.approver != null ? just_in_time_access_policy.value.approver : []

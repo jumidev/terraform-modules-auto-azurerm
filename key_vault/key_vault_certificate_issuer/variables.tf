@@ -38,7 +38,7 @@ variable "admin" {
 #   email_address (string): (REQUIRED) E-mail address of the admin.
 #   first_name (string)   : First name of the admin.
 #   last_name (string)    : Last name of the admin.
-#   phone (int)           : Phone number of the admin.
+#   phone (number)        : Phone number of the admin.
 
 
 variable "password" {

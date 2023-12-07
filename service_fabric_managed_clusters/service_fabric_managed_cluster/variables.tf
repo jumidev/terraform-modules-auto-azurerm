@@ -51,15 +51,15 @@ variable "authentication" {
 #   active_directory (block)      : A 'active_directory' block.
 #   certificate (block)           : One or more 'certificate' blocks.
 #
-# certificate block structure:
-#   thumbprint (string)        : (REQUIRED) The thumbprint of the certificate.
-#   type (string)              : (REQUIRED) The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'.
-#   common_name (string)       : The certificate's CN.
-#
 # active_directory block structure:
 #   client_application_id (string)  : (REQUIRED) The ID of the Client Application.
 #   cluster_application_id (string) : (REQUIRED) The ID of the Cluster Application.
 #   tenant_id (string)              : (REQUIRED) The ID of the Tenant.
+#
+# certificate block structure:
+#   thumbprint (string)        : (REQUIRED) The thumbprint of the certificate.
+#   type (string)              : (REQUIRED) The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'.
+#   common_name (string)       : The certificate's CN.
 
 
 variable "backup_service_enabled" {
@@ -97,14 +97,14 @@ variable "node_type" {
 #
 # node_type block structure                 :
 #   application_port_range (string)           : (REQUIRED) Sets the port range available for applications. Format is '<from_port>-<to_port>', for example '10000-20000'.
-#   data_disk_size_gb (int)                   : (REQUIRED) The size of the data disk in gigabytes..
+#   data_disk_size_gb (number)                : (REQUIRED) The size of the data disk in gigabytes..
 #   ephemeral_port_range (string)             : (REQUIRED) Sets the port range available for the OS. Format is '<from_port>-<to_port>', for example '10000-20000'. There has to be at least 255 ports available and cannot overlap with 'application_port_range'..
 #   name (string)                             : (REQUIRED) The name which should be used for this node type.
 #   vm_image_offer (string)                   : (REQUIRED) The offer type of the marketplace image cluster VMs will use.
 #   vm_image_publisher (string)               : (REQUIRED) The publisher of the marketplace image cluster VMs will use.
 #   vm_image_sku (string)                     : (REQUIRED) The SKU of the marketplace image cluster VMs will use.
 #   vm_image_version (string)                 : (REQUIRED) The version of the marketplace image cluster VMs will use.
-#   vm_instance_count (int)                   : (REQUIRED) The number of instances this node type will launch.
+#   vm_instance_count (number)                : (REQUIRED) The number of instances this node type will launch.
 #   vm_size (string)                          : (REQUIRED) The size of the instances in this node type.
 #   capacities (string)                       : Specifies a list of key/value pairs used to set capacity tags for this node type.
 #   data_disk_type (string)                   : The type of the disk to use for storing data. It can be one of 'Premium_LRS', 'Standard_LRS', or 'StandardSSD_LRS'. Defaults to 'Standard_LRS'.

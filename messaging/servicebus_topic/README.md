@@ -41,8 +41,8 @@ tfstate_store = {
 | **enable_batched_operations** | bool |  -  |  Boolean flag which controls if server-side batched operations are enabled. | 
 | **enable_express** | bool |  -  |  Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage. | 
 | **enable_partitioning** | bool |  -  |  Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers. Changing this forces a new resource to be created. | 
-| **max_message_size_in_kilobytes** | int |  -  |  Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). | 
-| **max_size_in_megabytes** | int |  -  |  Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). | 
+| **max_message_size_in_kilobytes** | number |  -  |  Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the "Large messages support" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview). | 
+| **max_size_in_megabytes** | number |  -  |  Integer value which controls the size of memory allocated for the topic. For supported values see the "Queue/topic size" section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). | 
 | **requires_duplicate_detection** | string |  -  |  Boolean flag which controls whether Changing this forces a new resource to be created. the Topic requires duplicate detection. Defaults to false. Changing this forces a new resource to be created. | 
 | **support_ordering** | bool |  -  |  Boolean flag which controls whether the Topic supports ordering. | 
 

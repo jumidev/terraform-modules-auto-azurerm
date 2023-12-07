@@ -37,7 +37,7 @@ variable "log" {
 #
 # retention_policy block structure:
 #   enabled (bool)                  : (REQUIRED) Is this Retention Policy enabled?
-#   days (int)                      : The number of days for which this Retention Policy should apply.
+#   days (number)                   : The number of days for which this Retention Policy should apply.
 
 
 variable "enabled_log" {
@@ -53,7 +53,7 @@ variable "enabled_log" {
 #
 # retention_policy block structure:
 #   enabled (bool)                  : (REQUIRED) Is this Retention Policy enabled?
-#   days (int)                      : The number of days for which this Retention Policy should apply.
+#   days (number)                   : The number of days for which this Retention Policy should apply.
 
 
 variable "log_analytics_workspace_id" {
@@ -74,7 +74,7 @@ variable "metric" {
 #
 # retention_policy block structure:
 #   enabled (bool)                  : (REQUIRED) Is this Retention Policy enabled?
-#   days (int)                      : The number of days for which this Retention Policy should apply.
+#   days (number)                   : The number of days for which this Retention Policy should apply.
 
 
 variable "storage_account_id" {

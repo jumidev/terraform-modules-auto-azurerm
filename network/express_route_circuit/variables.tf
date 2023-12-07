@@ -40,7 +40,7 @@ variable "peering_location" {
 }
 variable "bandwidth_in_mbps" {
   description = "The bandwidth in Mbps of the circuit being created on the Service Provider."
-  type        = int
+  type        = number
   default     = null
 }
 variable "allow_classic_operations" {
@@ -55,7 +55,7 @@ variable "express_route_port_id" {
 }
 variable "bandwidth_in_gbps" {
   description = "The bandwidth in Gbps of the circuit being created on the Express Route Port."
-  type        = int
+  type        = number
   default     = null
 }
 variable "authorization_key" {

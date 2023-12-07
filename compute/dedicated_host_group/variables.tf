@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "platform_fault_domain_count" {
   description = "(REQUIRED) The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created."
-  type        = int
+  type        = number
 
 }
 

@@ -25,7 +25,7 @@ variable "node_size" {
 
 variable "node_count" {
   description = "The number of nodes in the Spark Pool. Exactly one of 'node_count' or 'auto_scale' must be specified."
-  type        = int
+  type        = number
   default     = null
 }
 variable "auto_scale" {
@@ -35,8 +35,8 @@ variable "auto_scale" {
 }
 #
 # auto_scale block structure:
-#   max_node_count (int)      : (REQUIRED) The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'.
-#   min_node_count (int)      : (REQUIRED) The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'.
+#   max_node_count (number)   : (REQUIRED) The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'.
+#   min_node_count (number)   : (REQUIRED) The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'.
 
 
 variable "auto_pause" {
@@ -46,7 +46,7 @@ variable "auto_pause" {
 }
 #
 # auto_pause block structure:
-#   delay_in_minutes (int)    : (REQUIRED) Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'.
+#   delay_in_minutes (number) : (REQUIRED) Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'.
 
 
 variable "cache_size" {
@@ -66,12 +66,12 @@ variable "dynamic_executor_allocation_enabled" {
 }
 variable "min_executors" {
   description = "The minimum number of executors allocated only when 'dynamic_executor_allocation_enabled' set to 'true'."
-  type        = int
+  type        = number
   default     = null
 }
 variable "max_executors" {
   description = "The maximum number of executors allocated only when 'dynamic_executor_allocation_enabled' set to 'true'."
-  type        = int
+  type        = number
   default     = null
 }
 variable "library_requirement" {

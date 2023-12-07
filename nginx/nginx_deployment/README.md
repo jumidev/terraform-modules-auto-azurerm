@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **managed_resource_group** | string |  -  |  Specify the managed resource group to deploy VNet injection related network resources. Changing this forces a new Nginx Deployment to be created. | 
-| **capacity** | int |  `20`  |  Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`. | 
+| **capacity** | number |  `20`  |  Specify the number of NGINX capacity units for this NGINX deployment. Defaults to `20`. | 
 | **diagnose_support_enabled** | bool |  -  |  Should the diagnosis support be enabled? | 
 | **email** | string |  -  |  Specify the preferred support contact email address of the user used for sending alerts and notification. | 
 | **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
@@ -49,12 +49,11 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  -  |  One or more `network_interface` blocks. Changing this forces a new Nginx Deployment to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Nginx Deployment. | 
 
-### `logging_storage_account` block structure
+### `network_interface` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `container_name` | string | No | - | Specify the container name of Stoage Account for logging. |
-| `name` | string | No | - | The account name of the StorageAccount for Nginx Logging. |
+| `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
 
 ### `frontend_public` block structure
 
@@ -62,13 +61,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
 
-### `frontend_private` block structure
+### `logging_storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allocation_method` | string | Yes | - | Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. |
-| `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
-| `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
+| `container_name` | string | No | - | Specify the container name of Stoage Account for logging. |
+| `name` | string | No | - | The account name of the StorageAccount for Nginx Logging. |
 
 ### `identity` block structure
 
@@ -77,11 +75,13 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. |
 | `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
 
-### `network_interface` block structure
+### `frontend_private` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
+| `allocation_method` | string | Yes | - | Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. |
+| `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
+| `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
 
 
 

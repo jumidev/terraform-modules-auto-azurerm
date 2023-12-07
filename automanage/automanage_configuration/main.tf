@@ -51,7 +51,7 @@ resource "azurerm_automanage_configuration" "this" {
     content {
       policy_name                        = lookup(backup.value, "policy_name", null)
       time_zone                          = lookup(backup.value, "time_zone", "UTC")
-      instant_rp_retention_range_in_days = lookup(backup.value, "instant_rp_retention_range_in_days", 5)
+      instant_rp_retention_range_in_days = lookup(backup.value, "instant_rp_retention_range_in_days", "5")
 
       dynamic "schedule_policy" { # backup.value.schedule_policy
         for_each = backup.value.schedule_policy != null ? backup.value.schedule_policy : []

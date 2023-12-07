@@ -16,7 +16,7 @@ resource "azurerm_vpn_gateway_connection" "this" {
       egress_nat_rule_ids                   = lookup(vpn_link.value, "egress_nat_rule_ids", null)
       ingress_nat_rule_ids                  = lookup(vpn_link.value, "ingress_nat_rule_ids", null)
       vpn_site_link_id                      = lookup(vpn_link.value, "vpn_site_link_id") # (Required) 
-      bandwidth_mbps                        = lookup(vpn_link.value, "bandwidth_mbps", 10)
+      bandwidth_mbps                        = lookup(vpn_link.value, "bandwidth_mbps", "10")
       bgp_enabled                           = lookup(vpn_link.value, "bgp_enabled", false)
       connection_mode                       = lookup(vpn_link.value, "connection_mode", "Default")
       ipsec_policy                          = lookup(vpn_link.value, "ipsec_policy", null)

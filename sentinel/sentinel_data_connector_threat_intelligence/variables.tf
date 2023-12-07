@@ -15,7 +15,7 @@ variable "name" {
 
 variable "lookback_date" {
   description = "The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to '1970-01-01T00:00:00Z'. Changing this forces a new resource to be created."
-  type        = datetime
+  type        = string
   default     = "1970-01-01T00:00:00Z"
 }
 variable "tenant_id" {

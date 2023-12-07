@@ -39,9 +39,9 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **description** | string |  The description of the live output. Changing this forces a new Live Output to be created. | 
-| **hls_fragments_per_ts_segment** | int |  The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created. | 
+| **hls_fragments_per_ts_segment** | number |  The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created. | 
 | **manifest_name** | string |  The manifest file name. If not provided, the service will generate one automatically. Changing this forces a new Live Output to be created. | 
-| **output_snap_time_in_seconds** | int |  The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created. | 
+| **output_snap_time_in_seconds** | number |  The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created. | 
 | **rewind_window_duration** | string |  `ISO 8601` time between 1 minute to the duration of `archive_window_duration` to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL. Changing this forces a new Live Output to be created. | 
 
 

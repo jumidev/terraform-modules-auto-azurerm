@@ -17,7 +17,7 @@ variable "recovery_vault_name" {
 }
 variable "recovery_point_retention_in_minutes" {
   description = "(REQUIRED) The duration in minutes for which the recovery points need to be stored."
-  type        = int
+  type        = number
 
 }
 variable "application_consistent_snapshot_frequency_in_minutes" {

@@ -31,7 +31,7 @@ variable "azure_function_endpoint" {
 #
 # azure_function_endpoint block structure   :
 #   function_id (string)                      : (REQUIRED) Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}.
-#   max_events_per_batch (int)                : Maximum number of events per batch.
+#   max_events_per_batch (number)             : Maximum number of events per batch.
 #   preferred_batch_size_in_kilobytes (string): Preferred batch size in Kilobytes.
 
 
@@ -61,10 +61,10 @@ variable "storage_queue_endpoint" {
   default     = null
 }
 #
-# storage_queue_endpoint block structure     :
-#   storage_account_id (string)                : (REQUIRED) Specifies the id of the storage account id where the storage queue is located.
-#   queue_name (string)                        : (REQUIRED) Specifies the name of the storage queue where the Event Subscription will receive events.
-#   queue_message_time_to_live_in_seconds (int): Storage queue message time to live in seconds.
+# storage_queue_endpoint block structure        :
+#   storage_account_id (string)                   : (REQUIRED) Specifies the id of the storage account id where the storage queue is located.
+#   queue_name (string)                           : (REQUIRED) Specifies the name of the storage queue where the Event Subscription will receive events.
+#   queue_message_time_to_live_in_seconds (number): Storage queue message time to live in seconds.
 
 
 variable "webhook_endpoint" {
@@ -76,7 +76,7 @@ variable "webhook_endpoint" {
 # webhook_endpoint block structure          :
 #   url (string)                              : (REQUIRED) Specifies the url of the webhook where the Event Subscription will receive events.
 #   base_url (string)                         : (Computed) The base url of the webhook where the Event Subscription will receive events.
-#   max_events_per_batch (int)                : Maximum number of events per batch.
+#   max_events_per_batch (number)             : Maximum number of events per batch.
 #   preferred_batch_size_in_kilobytes (string): Preferred batch size in Kilobytes.
 #   active_directory_tenant_id (string)       : The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.
 #   active_directory_app_id_or_uri (string)   : The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.

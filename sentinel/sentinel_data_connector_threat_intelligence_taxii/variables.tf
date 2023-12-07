@@ -45,7 +45,7 @@ variable "polling_frequency" {
 }
 variable "lookback_date" {
   description = "The lookback date for the TAXII server in RFC3339. Defaults to '1970-01-01T00:00:00Z'."
-  type        = datetime
+  type        = string
   default     = "1970-01-01T00:00:00Z"
 }
 variable "tenant_id" {

@@ -17,8 +17,8 @@ variable "zone_name" {
 }
 variable "ttl" {
   description = "(REQUIRED) The Time To Live (TTL) of the DNS record in seconds."
-  type        = int
-  default     = 300
+  type        = number
+  default     = "300"
 }
 variable "records" {
   description = "(REQUIRED) List of IPv4 Addresses."

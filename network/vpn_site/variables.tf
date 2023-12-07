@@ -35,7 +35,7 @@ variable "link" {
 #   fqdn (string)         : The FQDN of this VPN Site Link.
 #   ip_address (string)   : The IP address of this VPN Site Link.
 #   provider_name (string): The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'.
-#   speed_in_mbps (int)   : The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'.
+#   speed_in_mbps (number): The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'.
 #
 # bgp block structure     :
 #   asn (string)            : (REQUIRED) The BGP speaker's ASN.

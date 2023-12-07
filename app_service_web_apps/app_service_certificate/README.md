@@ -53,8 +53,8 @@ tfstate_store = {
 | **subject_name** | string | No  | The subject name of the certificate. | 
 | **host_names** | string | No  | List of host names the certificate applies to. | 
 | **issuer** | string | No  | The name of the certificate issuer. | 
-| **issue_date** | datetime | No  | The issue date for the certificate. | 
-| **expiration_date** | datetime | No  | The expiration date for the certificate. | 
+| **issue_date** | string | No  | The issue date for the certificate. | 
+| **expiration_date** | string | No  | The expiration date for the certificate. | 
 | **thumbprint** | string | No  | The thumbprint for the certificate. | 
 | **hosting_environment_profile_id** | string | No  | The ID of the App Service Environment where the certificate is in use. | 
 

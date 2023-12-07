@@ -56,7 +56,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | The failover policy of the read-write endpoint for the failover group. Possible values are 'Automatic' or 'Manual'. |
-| `grace_minutes` | int | No | - | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. |
+| `grace_minutes` | number | No | - | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. |
 
 ### `partner_server` block structure
 
@@ -74,7 +74,7 @@ tfstate_store = {
 | **location** | string | No  | The location of the partner server. | 
 | **role** | string | No  | The replication role of the partner server. Possible values include `Primary` or `Secondary`. | 
 | **create** | string | No  | (Defaults to 30 minutes) Used when creating the Failover Group. | 
-| **update** | datetime | No  | (Defaults to 30 minutes) Used when updating the Failover Group. | 
+| **update** | string | No  | (Defaults to 30 minutes) Used when updating the Failover Group. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Failover Group. | 
 | **delete** | string | No  | (Defaults to 30 minutes) Used when deleting the Failover Group. | 
 

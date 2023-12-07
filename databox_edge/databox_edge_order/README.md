@@ -78,13 +78,13 @@ tfstate_store = {
 | **status** | block | No  | The current status of the order. A `status` block. | 
 | **shipment_history** | block | No  | List of status changes in the order. A `shipment_history` block. | 
 | **return_tracking** | block | No  | Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block. | 
-| **serial_number** | int | No  | Serial number of the device being tracked. | 
+| **serial_number** | number | No  | Serial number of the device being tracked. | 
 | **carrier_name** | string | No  | Name of the carrier used in the delivery. | 
 | **tracking_id** | string | No  | The ID of the tracking. | 
 | **tracking_url** | string | No  | Tracking URL of the shipment. | 
 | **info** | string | No  | The current status of the order. Possible values include `Untracked`, `AwaitingFulfilment`, `AwaitingPreparation`, `AwaitingShipment`, `Shipped`, `Arriving`, `Delivered`, `ReplacementRequested`, `LostDevice`, `Declined`, `ReturnInitiated`, `AwaitingReturnShipment`, `ShippedBack` or `CollectedAtMicrosoft`. | 
 | **additional_details** | string | No  | Dictionary to hold generic information which is not stored by the already existing properties. | 
 | **comments** | string | No  | Comments related to this status change. | 
-| **last_update** | datetime | No  | Time of status update. | 
+| **last_update** | string | No  | Time of status update. | 
 
 Additionally, all variables are provided as outputs.

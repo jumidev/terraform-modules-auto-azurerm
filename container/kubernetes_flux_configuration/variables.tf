@@ -15,15 +15,15 @@ variable "kustomizations" {
   type        = map(any)
 }
 #
-# kustomizations block structure   :
-#   name (string)                    : (REQUIRED) Specifies the name of the kustomization.
-#   path (string)                    : Specifies the path in the source reference to reconcile on the cluster.
-#   timeout_in_seconds (int)         : The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to '600'.
-#   sync_interval_in_seconds (int)   : The interval at which to re-reconcile the kustomization on the cluster. Defaults to '600'.
-#   retry_interval_in_seconds (int)  : The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to '600'.
-#   recreating_enabled (bool)        : Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to 'false'.
-#   garbage_collection_enabled (bool): Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to 'false'.
-#   depends_on (string)              : Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
+# kustomizations block structure    :
+#   name (string)                     : (REQUIRED) Specifies the name of the kustomization.
+#   path (string)                     : Specifies the path in the source reference to reconcile on the cluster.
+#   timeout_in_seconds (number)       : The maximum time to attempt to reconcile the kustomization on the cluster. Defaults to '600'.
+#   sync_interval_in_seconds (number) : The interval at which to re-reconcile the kustomization on the cluster. Defaults to '600'.
+#   retry_interval_in_seconds (number): The interval at which to re-reconcile the kustomization on the cluster in the event of failure on reconciliation. Defaults to '600'.
+#   recreating_enabled (bool)         : Whether re-creating Kubernetes resources on the cluster is enabled when patching fails due to an immutable field change. Defaults to 'false'.
+#   garbage_collection_enabled (bool) : Whether garbage collections of Kubernetes objects created by this kustomization is enabled. Defaults to 'false'.
+#   depends_on (string)               : Specifies other kustomizations that this kustomization depends on. This kustomization will not reconcile until all dependencies have completed their reconciliation.
 
 
 variable "namespace" {

@@ -51,7 +51,7 @@ tfstate_store = {
 | **source** | string |  -  |  -  |  An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created. | 
 | **source_content** | string |  -  |  -  |  The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created. | 
 | **source_uri** | string |  -  |  -  |  The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified. | 
-| **parallelism** | int |  `8`  |  -  |  The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created. | 
+| **parallelism** | number |  `8`  |  -  |  The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created. | 
 | **metadata** | string |  -  |  -  |  A map of custom blob metadata. | 
 
 

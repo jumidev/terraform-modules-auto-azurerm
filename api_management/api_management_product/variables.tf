@@ -45,7 +45,7 @@ variable "description" {
 }
 variable "subscriptions_limit" {
   description = "The number of subscriptions a user can have to this Product at the same time."
-  type        = int
+  type        = number
   default     = null
 }
 variable "terms" {

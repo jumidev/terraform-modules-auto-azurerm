@@ -50,7 +50,7 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the AAD B2C Directory. | 
 | **billing_type** | string | No  | The type of billing for the AAD B2C tenant. Possible values include: `MAU` or `Auths`. | 
-| **effective_start_date** | datetime | No  | The date from which the billing type took effect. May not be populated until after the first billing cycle. | 
+| **effective_start_date** | string | No  | The date from which the billing type took effect. May not be populated until after the first billing cycle. | 
 | **tenant_id** | string | No  | The Tenant ID for the AAD B2C tenant. | 
 
 Additionally, all variables are provided as outputs.

@@ -34,7 +34,7 @@ tfstate_store = {
 ```
 ## Optional associated resource
 
-| `tfstate_input` variable | Information |
+| `tfstate_inputs` variable | Information |
 | -------- | ----------- |
 | **cdn_frontdoor_route_ids** | If set to a list containing one or more valid `azurerm_cdn_frontdoor_route` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.|
 
@@ -77,7 +77,7 @@ tfstate_inputs = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Front Door Custom Domain. | 
-| **expiration_date** | datetime | No  | The date time that the token expires. | 
+| **expiration_date** | string | No  | The date time that the token expires. | 
 | **validation_token** | string | No  | Challenge used for DNS TXT record or file based validation. | 
 
 Additionally, all variables are provided as outputs.

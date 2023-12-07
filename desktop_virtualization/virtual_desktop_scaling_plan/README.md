@@ -66,6 +66,13 @@ tfstate_store = {
 | **friendly_name** | string |  Friendly name of the Scaling Plan. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan . | 
 
+### `host_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `hostpool_id` | string | Yes | - | The ID of the HostPool to assign the Scaling Plan to. |
+| `scaling_plan_enabled` | bool | Yes | - | Specifies if the scaling plan is enabled or disabled for the HostPool. |
+
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,22 +86,15 @@ tfstate_store = {
 | `ramp_down_capacity_threshold_percent` | string | Yes | - | This is the value in percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-down and off-peak hours. For example, if capacity threshold is specified as 60% and your total host pool capacity is 100 sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of 60 sessions. |
 | `ramp_down_force_logoff_users` | string | Yes | - | Whether users will be forced to log-off session hosts once the 'ramp_down_wait_time_minutes' value has been exceeded during the Ramp-Down period. Possible |
 | `ramp_down_load_balancing_algorithm` | string | Yes | - | The load Balancing Algorithm to use during the Ramp-Down period. Possible values are 'DepthFirst' and 'BreadthFirst'. |
-| `ramp_down_minimum_hosts_percent` | int | Yes | - | The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections. |
+| `ramp_down_minimum_hosts_percent` | number | Yes | - | The minimum percentage of session host virtual machines that you would like to get to for ramp-down and off-peak hours. For example, if Minimum percentage of hosts is specified as 10% and total number of session hosts in your host pool is 10, autoscale will ensure a minimum of 1 session host is available to take user connections. |
 | `ramp_down_notification_message` | string | Yes | - | The notification message to send to users during Ramp-Down period when they are required to log-off. |
 | `ramp_down_start_time` | string | Yes | - | The time at which Ramp-Down scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in 'HH:MM' format. |
 | `ramp_down_stop_hosts_when` | string | Yes | - | Controls Session Host shutdown behaviour during Ramp-Down period. Session Hosts can either be shutdown when all sessions on the Session Host have ended, or when there are no Active sessions left on the Session Host. Possible values are 'ZeroSessions' and 'ZeroActiveSessions'. |
-| `ramp_down_wait_time_minutes` | int | Yes | - | The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM. |
+| `ramp_down_wait_time_minutes` | number | Yes | - | The number of minutes during Ramp-Down period that autoscale will wait after setting the session host VMs to drain mode, notifying any currently signed in users to save their work before forcing the users to logoff. Once all user sessions on the session host VM have been logged off, Autoscale will shut down the VM. |
 | `ramp_up_load_balancing_algorithm` | string | Yes | - | The load Balancing Algorithm to use during the Ramp-Up period. Possible values are 'DepthFirst' and 'BreadthFirst'. |
 | `ramp_up_start_time` | string | Yes | - | The time at which Ramp-Up scaling will begin. This is also the end-time for the Ramp-Up period. The time must be specified in 'HH:MM' format. |
 | `ramp_up_capacity_threshold_percent` | string | No | - | This is the value of percentage of used host pool capacity that will be considered to evaluate whether to turn on/off virtual machines during the ramp-up and peak hours. For example, if capacity threshold is specified as '60%' and your total host pool capacity is '100' sessions, autoscale will turn on additional session hosts once the host pool exceeds a load of '60' sessions. |
 | `ramp_up_minimum_hosts_percent` | string | No | - | Specifies the minimum percentage of session host virtual machines to start during ramp-up for peak hours. For example, if Minimum percentage of hosts is specified as '10%' and total number of session hosts in your host pool is '10', autoscale will ensure a minimum of '1' session host is available to take user connections. |
-
-### `host_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `hostpool_id` | string | Yes | - | The ID of the HostPool to assign the Scaling Plan to. |
-| `scaling_plan_enabled` | bool | Yes | - | Specifies if the scaling plan is enabled or disabled for the HostPool. |
 
 
 

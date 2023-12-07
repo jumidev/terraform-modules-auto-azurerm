@@ -25,7 +25,7 @@ tfstate_store = {
 ```
 ## Optional associated resource
 
-| `tfstate_input` variable | Information |
+| `tfstate_inputs` variable | Information |
 | -------- | ----------- |
 | **private_endpoint_id** | If set to a valid `azurerm_private_endpoint` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - Manages an association between Private Endpoint and Application Security Group.|
 

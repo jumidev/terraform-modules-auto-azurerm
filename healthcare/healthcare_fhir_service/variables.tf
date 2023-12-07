@@ -61,12 +61,12 @@ variable "cors" {
   default     = null
 }
 #
-# cors block structure      :
-#   allowed_origins (string)  : (REQUIRED) A set of origins to be allowed via CORS.
-#   allowed_headers (string)  : (REQUIRED) A set of headers to be allowed via CORS.
-#   allowed_methods (string)  : (REQUIRED) The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'.
-#   max_age_in_seconds (int)  : The max age to be allowed via CORS.
-#   credentials_allowed (bool): If credentials are allowed via CORS.
+# cors block structure       :
+#   allowed_origins (string)   : (REQUIRED) A set of origins to be allowed via CORS.
+#   allowed_headers (string)   : (REQUIRED) A set of headers to be allowed via CORS.
+#   allowed_methods (string)   : (REQUIRED) The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'.
+#   max_age_in_seconds (number): The max age to be allowed via CORS.
+#   credentials_allowed (bool) : If credentials are allowed via CORS.
 
 
 variable "container_registry_login_server_url" {

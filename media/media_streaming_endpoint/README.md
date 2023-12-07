@@ -52,7 +52,7 @@ tfstate_store = {
 | **cross_site_access_policy** | [block](#cross_site_access_policy-block-structure) |  A `cross_site_access_policy` block. | 
 | **custom_host_names** | string |  The custom host names of the streaming endpoint. | 
 | **description** | string |  The streaming endpoint description. | 
-| **max_cache_age_seconds** | int |  Max cache age in seconds. | 
+| **max_cache_age_seconds** | number |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
 ### `akamai_signature_header_authentication_key` block structure
@@ -62,6 +62,13 @@ tfstate_store = {
 | `base64_key` | string | No | - | Authentication key. |
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
+
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
 
 ### `ip_allow` block structure
 
@@ -77,13 +84,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
-
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
 
 
 

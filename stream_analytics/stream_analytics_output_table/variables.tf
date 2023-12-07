@@ -42,7 +42,7 @@ variable "row_key" {
 }
 variable "batch_size" {
   description = "(REQUIRED) The number of records for a batch operation. Must be between '1' and '100'."
-  type        = int
+  type        = number
 
 }
 

@@ -45,7 +45,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **authorization_key** | string |  -  |  -  |  The authorization key associated with the Express Route Circuit. This field is required only if the type is an ExpressRoute connection. | 
-| **dpd_timeout_seconds** | int |  -  |  -  |  The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created. | 
+| **dpd_timeout_seconds** | number |  -  |  -  |  The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created. | 
 | **express_route_circuit_id** | string |  -  |  -  |  The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created. | 
 | **peer_virtual_network_gateway_id** | string |  -  |  -  |  The ID of the peer virtual network gateway when creating a VNet-to-VNet connection (i.e. when `type` is `Vnet2Vnet`). The peer Virtual Network Gateway can be in the same or in a different subscription. Changing this forces a new resource to be created. | 
 | **local_azure_ip_address_enabled** | bool |  -  |  -  |  Use private local Azure IP for the connection. Changing this forces a new resource to be created. | 

@@ -65,8 +65,8 @@ variable "source_uri" {
 }
 variable "parallelism" {
   description = "The number of workers per CPU core to run for concurrent uploads. Defaults to '8'. Changing this forces a new resource to be created."
-  type        = int
-  default     = 8
+  type        = number
+  default     = "8"
 }
 variable "metadata" {
   description = "A map of custom blob metadata."

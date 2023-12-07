@@ -46,7 +46,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **batch_max_count** | int |  `100`  |  The maximum number of events in each batch that's sent to the function. Defaults to `100`. | 
+| **batch_max_count** | number |  `100`  |  The maximum number of events in each batch that's sent to the function. Defaults to `100`. | 
 | **batch_max_in_bytes** | string |  `262144`  |  The maximum batch size in bytes that's sent to the function. Defaults to `262144` (256 kB). | 
 
 

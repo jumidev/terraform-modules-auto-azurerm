@@ -47,22 +47,11 @@ tfstate_store = {
 | **status_change_alert_enabled** | bool |  `False`  |  Whether the status change alert is enabled. Defaults to `false`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `backup` block structure
+### `azure_security_baseline` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `policy_name` | string | No | - | The name of the backup policy. |
-| `time_zone` | string | No | UTC | The timezone of the backup policy. Defaults to 'UTC'. |
-| `instant_rp_retention_range_in_days` | int | No | 5 | The retention range in days of the backup policy. Defaults to '5'. |
-| `schedule_policy` | [block](#schedule_policy-block-structure) | No | - | A 'schedule_policy' block. |
-| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
-
-### `retention_duration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `count` | int | No | - | The count of the retention duration of the backup policy. Valid value inside 'daily_schedule' is '7' to '9999' and inside 'weekly_schedule' is '1' to '5163'. |
-| `duration_type` | string | No | Days | The duration type of the retention duration of the backup policy. Valid value inside 'daily_schedule' is 'Days' and inside 'weekly_schedule' is 'Weeks'. Defaults to 'Days'. |
+| `assignment_type` | string | No | ApplyAndAutoCorrect | The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'. |
 
 ### `antimalware` block structure
 
@@ -74,12 +63,6 @@ tfstate_store = {
 | `scheduled_scan_type` | string | No | Quick | The type of the scheduled scan. Possible values are 'Quick' and 'Full'. Defaults to 'Quick'. |
 | `scheduled_scan_day` | string | No | 8 | The day of the scheduled scan. Possible values are '0' to '8' where '0' is daily, '1' to '7' are the days of the week and '8' is Disabled. Defaults to '8'. |
 | `scheduled_scan_time_in_minutes` | string | No | - | The time of the scheduled scan in minutes. Possible values are '0' to '1439' where '0' is 12:00 AM and '1439' is 11:59 PM. |
-
-### `azure_security_baseline` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `assignment_type` | string | No | ApplyAndAutoCorrect | The assignment type of the azure security baseline. Possible values are 'ApplyAndAutoCorrect', 'ApplyAndMonitor', 'Audit' and 'DeployAndAutoCorrect'. Defaults to 'ApplyAndAutoCorrect'. |
 
 ### `exclusions` block structure
 
@@ -96,15 +79,6 @@ tfstate_store = {
 | `retention_times` | string | No | - | The retention times of the backup policy. |
 | `retention_duration` | [block](#retention_duration-block-structure) | No | - | A 'retention_duration' block. |
 
-### `schedule_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `schedule_run_frequency` | string | No | Daily | The schedule run frequency of the backup policy. Possible values are 'Daily' and 'Weekly'. Defaults to 'Daily'. |
-| `schedule_run_times` | string | No | - | The schedule run times of the backup policy. |
-| `schedule_run_days` | string | No | - | The schedule run days of the backup policy. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `schedule_policy_type` | string | No | SimpleSchedulePolicy | The schedule policy type of the backup policy. Possible value is 'SimpleSchedulePolicy'. Defaults to 'SimpleSchedulePolicy'. |
-
 ### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -119,6 +93,32 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `retention_times` | string | No | - | The retention times of the backup policy. |
 | `retention_duration` | [block](#retention_duration-block-structure) | No | - | A 'retention_duration' block. |
+
+### `schedule_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `schedule_run_frequency` | string | No | Daily | The schedule run frequency of the backup policy. Possible values are 'Daily' and 'Weekly'. Defaults to 'Daily'. |
+| `schedule_run_times` | string | No | - | The schedule run times of the backup policy. |
+| `schedule_run_days` | string | No | - | The schedule run days of the backup policy. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `schedule_policy_type` | string | No | SimpleSchedulePolicy | The schedule policy type of the backup policy. Possible value is 'SimpleSchedulePolicy'. Defaults to 'SimpleSchedulePolicy'. |
+
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `policy_name` | string | No | - | The name of the backup policy. |
+| `time_zone` | string | No | UTC | The timezone of the backup policy. Defaults to 'UTC'. |
+| `instant_rp_retention_range_in_days` | number | No | 5 | The retention range in days of the backup policy. Defaults to '5'. |
+| `schedule_policy` | [block](#schedule_policy-block-structure) | No | - | A 'schedule_policy' block. |
+| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
+
+### `retention_duration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `count` | number | No | - | The count of the retention duration of the backup policy. Valid value inside 'daily_schedule' is '7' to '9999' and inside 'weekly_schedule' is '1' to '5163'. |
+| `duration_type` | string | No | Days | The duration type of the retention duration of the backup policy. Valid value inside 'daily_schedule' is 'Days' and inside 'weekly_schedule' is 'Weeks'. Defaults to 'Days'. |
 
 
 

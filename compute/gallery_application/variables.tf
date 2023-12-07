@@ -30,7 +30,7 @@ variable "description" {
 }
 variable "end_of_life_date" {
   description = "The end of life date in RFC3339 format of the Gallery Application."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "eula" {

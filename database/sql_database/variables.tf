@@ -66,7 +66,7 @@ variable "collation" {
 }
 variable "max_size_bytes" {
   description = "The maximum size that the database can grow to. Applies only if 'create_mode' is 'Default'. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql)."
-  type        = int
+  type        = number
   default     = null
 }
 variable "requested_service_objective_id" {
@@ -81,7 +81,7 @@ variable "requested_service_objective_name" {
 }
 variable "source_database_deletion_date" {
   description = "The deletion date time of the source database. Only applies to deleted databases where 'create_mode' is 'PointInTimeRestore'."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "elastic_pool_name" {

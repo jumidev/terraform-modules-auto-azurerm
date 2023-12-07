@@ -42,14 +42,14 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **node_count** | int |  -  |  -  |  The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified. | 
+| **node_count** | number |  -  |  -  |  The number of nodes in the Spark Pool. Exactly one of `node_count` or `auto_scale` must be specified. | 
 | **auto_scale** | [block](#auto_scale-block-structure) |  -  |  -  |  An `auto_scale` block. Exactly one of `node_count` or `auto_scale` must be specified. | 
 | **auto_pause** | [block](#auto_pause-block-structure) |  -  |  -  |  An `auto_pause` block. | 
 | **cache_size** | string |  -  |  -  |  The cache size in the Spark Pool. | 
 | **compute_isolation_enabled** | bool |  `False`  |  -  |  Indicates whether compute isolation is enabled or not. Defaults to `false`. | 
 | **dynamic_executor_allocation_enabled** | bool |  `False`  |  -  |  Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`. | 
-| **min_executors** | int |  -  |  -  |  The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
-| **max_executors** | int |  -  |  -  |  The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
+| **min_executors** | number |  -  |  -  |  The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
+| **max_executors** | number |  -  |  -  |  The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
 | **library_requirement** | [block](#library_requirement-block-structure) |  -  |  -  |  A `library_requirement` block. | 
 | **session_level_packages_enabled** | bool |  `False`  |  -  |  Indicates whether session level packages are enabled or not. Defaults to `false`. | 
 | **spark_config** | [block](#spark_config-block-structure) |  -  |  -  |  A `spark_config` block. | 
@@ -65,13 +65,6 @@ tfstate_store = {
 | `content` | string | Yes | - | The contents of a spark configuration. |
 | `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
 
-### `auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-
 ### `library_requirement` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,7 +76,14 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
+| `delay_in_minutes` | number | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
+
+### `auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_node_count` | number | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `min_node_count` | number | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
 
 

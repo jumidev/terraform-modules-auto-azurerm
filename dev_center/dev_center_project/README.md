@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **description** | string |  Description of the project. Changing this forces a new Dev Center Project to be created. | 
-| **maximum_dev_boxes_per_user** | int |  When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. | 
+| **maximum_dev_boxes_per_user** | number |  When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Dev Center Project. | 
 
 

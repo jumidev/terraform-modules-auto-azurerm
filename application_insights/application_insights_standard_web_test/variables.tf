@@ -78,11 +78,11 @@ variable "validation_rules" {
   default     = null
 }
 #
-# validation_rules block structure :
-#   content (block)                  : A 'content' block.
-#   expected_status_code (string)    : The expected status code of the response. Default is '200', '0' means 'response code < 400'
-#   ssl_cert_remaining_lifetime (int): The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
-#   ssl_check_enabled (bool)         : Should the SSL check be enabled?
+# validation_rules block structure    :
+#   content (block)                     : A 'content' block.
+#   expected_status_code (string)       : The expected status code of the response. Default is '200', '0' means 'response code < 400'
+#   ssl_cert_remaining_lifetime (number): The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365.
+#   ssl_check_enabled (bool)            : Should the SSL check be enabled?
 #
 # content block structure    :
 #   content_match (string)     : (REQUIRED) A string value containing the content to match on.

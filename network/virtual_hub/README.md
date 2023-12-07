@@ -58,7 +58,7 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Virtual Hub. | 
 | **default_route_table_id** | string | No  | The ID of the default Route Table in the Virtual Hub. | 
-| **virtual_router_asn** | int | No  | The Autonomous System Number of the Virtual Hub BGP router. | 
+| **virtual_router_asn** | number | No  | The Autonomous System Number of the Virtual Hub BGP router. | 
 | **virtual_router_ips** | string | No  | The IP addresses of the Virtual Hub BGP router. | 
 | **virtual_router_auto_scale_min_capacity** | string | No  | Minimum instance capacity for the scaling configuration of the Virtual Hub Router. | 
 

@@ -27,8 +27,8 @@ variable "consistency_policy" {
 #
 # consistency_policy block structure:
 #   consistency_level (string)        : (REQUIRED) The Consistency Level to use for this CosmosDB Account - can be either 'BoundedStaleness', 'Eventual', 'Session', 'Strong' or 'ConsistentPrefix'.
-#   max_interval_in_seconds (int)     : When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'.
-#   max_staleness_prefix (int)        : When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' – '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'.
+#   max_interval_in_seconds (number)  : When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'.
+#   max_staleness_prefix (number)     : When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' – '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'.
 
 
 variable "geo_location" {
@@ -38,7 +38,7 @@ variable "geo_location" {
 #
 # geo_location block structure:
 #   location (string)           : (REQUIRED) The name of the Azure region to host replicated data.
-#   failover_priority (int)     : (REQUIRED) The failover priority of the region. A failover priority of '0' indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority '0'.
+#   failover_priority (number)  : (REQUIRED) The failover priority of the region. A failover priority of '0' indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority '0'.
 #   zone_redundant (bool)       : Should zone redundancy be enabled for this region? Defaults to 'false'.
 
 

@@ -39,15 +39,15 @@ variable "custom_rule" {
   default     = null
 }
 #
-# custom_rule block structure         :
-#   name (string)                       : (REQUIRED) Gets name of the resource that is unique within a policy. This name can be used to access the resource.
-#   action (string)                     : (REQUIRED) The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
-#   enabled (bool)                      : Is the rule is enabled or disabled? Defaults to 'true'.
-#   priority (string)                   : The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'.
-#   type (string)                       : (REQUIRED) The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'.
-#   match_condition (list)              : One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks.
-#   rate_limit_duration_in_minutes (int): The rate limit duration in minutes. Defaults to '1'.
-#   rate_limit_threshold (string)       : The rate limit threshold. Defaults to '10'.
+# custom_rule block structure            :
+#   name (string)                          : (REQUIRED) Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+#   action (string)                        : (REQUIRED) The action to perform when the rule is matched. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
+#   enabled (bool)                         : Is the rule is enabled or disabled? Defaults to 'true'.
+#   priority (string)                      : The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'.
+#   type (string)                          : (REQUIRED) The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'.
+#   match_condition (list)                 : One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks.
+#   rate_limit_duration_in_minutes (number): The rate limit duration in minutes. Defaults to '1'.
+#   rate_limit_threshold (string)          : The rate limit threshold. Defaults to '10'.
 
 
 variable "custom_block_response_status_code" {
@@ -73,16 +73,16 @@ variable "managed_rule" {
 #   exclusion (block)           : One or more 'exclusion' blocks.
 #   override (block)            : One or more 'override' blocks.
 #
+# override block structure:
+#   rule_group_name (string): (REQUIRED) The managed rule group to override.
+#   exclusion (block)       : One or more 'exclusion' blocks.
+#   rule (block)            : One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled.
+#
 # rule block structure:
 #   rule_id (string)    : (REQUIRED) Identifier for the managed rule.
 #   action (string)     : (REQUIRED) The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'.
 #   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
 #   exclusion (block)   : One or more 'exclusion' blocks.
-#
-# override block structure:
-#   rule_group_name (string): (REQUIRED) The managed rule group to override.
-#   exclusion (block)       : One or more 'exclusion' blocks.
-#   rule (block)            : One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled.
 #
 # exclusion block structure:
 #   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames'

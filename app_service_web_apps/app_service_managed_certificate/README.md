@@ -42,10 +42,10 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the App Service Managed Certificate. | 
 | **canonical_name** | string | No  | The Canonical Name of the Certificate. | 
-| **expiration_date** | datetime | No  | The expiration date of the Certificate. | 
+| **expiration_date** | string | No  | The expiration date of the Certificate. | 
 | **friendly_name** | string | No  | The friendly name of the Certificate. | 
 | **host_names** | string | No  | The list of Host Names for the Certificate. | 
-| **issue_date** | datetime | No  | The Start date for the Certificate. | 
+| **issue_date** | string | No  | The Start date for the Certificate. | 
 | **issuer** | string | No  | The issuer of the Certificate. | 
 | **subject_name** | string | No  | The Subject Name for the Certificate. | 
 | **thumbprint** | string | No  | The Certificate Thumbprint. | 

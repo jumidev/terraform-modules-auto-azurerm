@@ -34,7 +34,7 @@ variable "default_node_pool" {
 #   linux_os_config (block)               : A 'linux_os_config' block. 'temporary_name_for_rotation' must be specified when changing this block.
 #   fips_enabled (bool)                   : Should the nodes in this Node Pool have Federal Information Processing Standard enabled? 'temporary_name_for_rotation' must be specified when changing this block.
 #   kubelet_disk_type (string)            : The type of disk used by kubelet. Possible values are 'OS' and 'Temporary'.
-#   max_pods (int)                        : The maximum number of pods that can run on each agent. 'temporary_name_for_rotation' must be specified when changing this property.
+#   max_pods (number)                     : The maximum number of pods that can run on each agent. 'temporary_name_for_rotation' must be specified when changing this property.
 #   message_of_the_day (string)           : A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 #   node_network_profile (block)          : A 'node_network_profile' block.
 #   node_public_ip_prefix_id (string)     : Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. 'enable_node_public_ip' should be 'true'. Changing this forces a new resource to be created.
@@ -42,7 +42,7 @@ variable "default_node_pool" {
 #   node_taints (list)                    : A list of the taints added to new nodes during node pool create and scale. 'temporary_name_for_rotation' must be specified when changing this property.
 #   only_critical_addons_enabled (bool)   : Enabling this option will taint default node pool with 'CriticalAddonsOnly=true:NoSchedule' taint. 'temporary_name_for_rotation' must be specified when changing this property.
 #   orchestrator_version (string)         : Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by 'kubernetes_version'. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
-#   os_disk_size_gb (int)                 : The size of the OS Disk which should be used for each agent in the Node Pool. 'temporary_name_for_rotation' must be specified when attempting a change.
+#   os_disk_size_gb (number)              : The size of the OS Disk which should be used for each agent in the Node Pool. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   os_disk_type (string)                 : The type of disk which should be used for the Operating System. Possible values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   os_sku (string)                       : Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'CBLMariner', 'Mariner', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   pod_subnet_id (string)                : The ID of the Subnet where the pods in the default Node Pool should exist.
@@ -57,21 +57,15 @@ variable "default_node_pool" {
 #   vnet_subnet_id (string)               : The ID of a Subnet where the Kubernetes Node Pool should exist.
 #   workload_runtime (string)             : Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'.
 #   zones (string)                        : Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property.
-#   max_count (int)                       : The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
-#   min_count (int)                       : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
-#   node_count (int)                      : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
-#
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+#   max_count (number)                    : The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
+#   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
+#   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
 #
 # linux_os_config block structure       :
 #   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
 #   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
 #   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
 #   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
-#
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 #
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created.
@@ -100,9 +94,15 @@ variable "default_node_pool" {
 #   net_ipv4_tcp_tw_reuse (string)             : The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
 #   net_netfilter_nf_conntrack_buckets (string): The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between '65536' and '524288'. Changing this forces a new resource to be created.
 #   net_netfilter_nf_conntrack_max (string)    : The sysctl setting net.netfilter.nf_conntrack_max. Must be between '131072' and '2097152'. Changing this forces a new resource to be created.
-#   vm_max_map_count (int)                     : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
+#   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
+#
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+#
+# upgrade_settings block structure:
+#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 #
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
@@ -166,9 +166,9 @@ variable "auto_scaler_profile" {
 # auto_scaler_profile block structure      :
 #   balance_similar_node_groups (bool)       : Detect similar node groups and balance the number of nodes between them. Defaults to 'false'.
 #   expander (string)                        : Expander to use. Possible values are 'least-waste', 'priority', 'most-pods' and 'random'. Defaults to 'random'.
-#   max_graceful_termination_sec (int)       : Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to '600'.
+#   max_graceful_termination_sec (number)    : Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to '600'.
 #   max_node_provisioning_time (string)      : Maximum time the autoscaler waits for a node to be provisioned. Defaults to '15m'.
-#   max_unready_nodes (int)                  : Maximum Number of allowed unready nodes. Defaults to '3'.
+#   max_unready_nodes (number)               : Maximum Number of allowed unready nodes. Defaults to '3'.
 #   max_unready_percentage (string)          : Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to '45'.
 #   new_pod_scale_up_delay (string)          : For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to '10s'.
 #   scale_down_delay_after_add (string)      : How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to '10m'.
@@ -370,7 +370,7 @@ variable "maintenance_window_auto_upgrade" {
 #   week_index (string)                            : Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency.
 #   start_time (string)                            : The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'.
 #   utc_offset (string)                            : Used to determine the timezone for cluster maintenance.
-#   start_date (datetime)                          : The date on which the maintenance window begins to take effect.
+#   start_date (string)                            : The date on which the maintenance window begins to take effect.
 #   not_allowed (block)                            : One or more 'not_allowed' block.
 #
 # not_allowed block structure:
@@ -393,7 +393,7 @@ variable "maintenance_window_node_os" {
 #   week_index (string)                       : The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'.
 #   start_time (string)                       : The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'.
 #   utc_offset (string)                       : Used to determine the timezone for cluster maintenance.
-#   start_date (datetime)                     : The date on which the maintenance window begins to take effect.
+#   start_date (string)                       : The date on which the maintenance window begins to take effect.
 #   not_allowed (block)                       : One or more 'not_allowed' block.
 #
 # not_allowed block structure:
@@ -446,17 +446,17 @@ variable "network_profile" {
 #   load_balancer_profile (block)  : A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created.
 #   nat_gateway_profile (block)    : A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created.
 #
-# nat_gateway_profile block structure:
-#   idle_timeout_in_minutes (int)      : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
-#   managed_outbound_ip_count (int)    : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
-#
 # load_balancer_profile block structure:
-#   idle_timeout_in_minutes (int)        : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
-#   managed_outbound_ip_count (int)      : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
-#   managed_outbound_ipv6_count (int)    : The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
+#   idle_timeout_in_minutes (number)     : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
+#   managed_outbound_ip_count (number)   : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
+#   managed_outbound_ipv6_count (number) : The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
 #   outbound_ip_address_ids (string)     : The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 #   outbound_ip_prefix_ids (string)      : The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-#   outbound_ports_allocated (int)       : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
+#   outbound_ports_allocated (number)    : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
+#
+# nat_gateway_profile block structure:
+#   idle_timeout_in_minutes (number)   : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
+#   managed_outbound_ip_count (number) : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
 
 
 variable "node_os_channel_upgrade" {

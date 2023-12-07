@@ -142,7 +142,7 @@ variable "terms_of_service_url" {
 }
 variable "version" {
   description = "The Version number of this API, if this API is versioned."
-  type        = int
+  type        = number
   default     = null
 }
 variable "version_set_id" {

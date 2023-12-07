@@ -25,6 +25,6 @@ variable "eventhub_secondary_connection_string" {
 
 variable "dead_letter_storage_secret" {
   description = "The storage secret of the dead-lettering, whose format is 'https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>'. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account."
-  type        = int
+  type        = number
   default     = null
 }

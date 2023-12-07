@@ -7,7 +7,7 @@ variable "managed_disk_id" {
 }
 variable "duration_in_seconds" {
   description = "(REQUIRED) The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created."
-  type        = int
+  type        = number
 
 }
 variable "access_level" {

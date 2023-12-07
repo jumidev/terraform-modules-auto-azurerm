@@ -23,7 +23,7 @@ variable "manage_action" {
 # manage_action block structure:
 #   install (string)             : (REQUIRED) The command to install the Gallery Application. Changing this forces a new resource to be created.
 #   remove (string)              : (REQUIRED) The command to remove the Gallery Application. Changing this forces a new resource to be created.
-#   update (datetime)            : The command to update the Gallery Application. Changing this forces a new resource to be created.
+#   update (string)              : The command to update the Gallery Application. Changing this forces a new resource to be created.
 
 
 variable "source" {
@@ -63,7 +63,7 @@ variable "enable_health_check" {
 }
 variable "end_of_life_date" {
   description = "The end of life date in RFC3339 format of the Gallery Application Version."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "exclude_from_latest" {

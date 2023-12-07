@@ -50,14 +50,14 @@ tfstate_store = {
 | **device_properties** | block | No  | A `device_properties` block. | 
 | **configured_role_types** | string | No  | Type of compute roles configured. | 
 | **culture** | string | No  | The Data Box Edge/Gateway device culture. | 
-| **hcs_version** | int | No  | The device software version number of the device (e.g. 1.2.18105.6). | 
+| **hcs_version** | number | No  | The device software version number of the device (e.g. 1.2.18105.6). | 
 | **capacity** | string | No  | The Data Box Edge/Gateway device local capacity in MB. | 
 | **model** | string | No  | The Data Box Edge/Gateway device model. | 
 | **software_version** | string | No  | The Data Box Edge/Gateway device software version. | 
 | **status** | string | No  | The status of the Data Box Edge/Gateway device. | 
 | **type** | string | No  | The type of the Data Box Edge/Gateway device. | 
-| **node_count** | int | No  | The number of nodes in the cluster. | 
-| **serial_number** | int | No  | The Serial Number of Data Box Edge/Gateway device. | 
+| **node_count** | number | No  | The number of nodes in the cluster. | 
+| **serial_number** | number | No  | The Serial Number of Data Box Edge/Gateway device. | 
 | **time_zone** | string | No  | The Data Box Edge/Gateway device timezone. | 
 
 Additionally, all variables are provided as outputs.

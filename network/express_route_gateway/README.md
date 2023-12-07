@@ -38,7 +38,7 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the resource group in which to create the ExpressRoute gateway. Changing this forces a new resource to be created. | 
 | **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **virtual_hub_id** | string |  The ID of a Virtual HUB within which the ExpressRoute gateway should be created. Changing this forces a new resource to be created. | 
-| **scale_units** | int |  The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps). | 
+| **scale_units** | number |  The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps). | 
 
 ## Optional Variables
 
@@ -55,7 +55,7 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the ExpressRoute gateway. | 
 | **create** | string | No  | (Defaults to 90 minutes) Used when creating the ExpressRoute Gateway. | 
-| **update** | datetime | No  | (Defaults to 90 minutes) Used when updating the ExpressRoute Gateway. | 
+| **update** | string | No  | (Defaults to 90 minutes) Used when updating the ExpressRoute Gateway. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the ExpressRoute Gateway. | 
 | **delete** | string | No  | (Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. | 
 

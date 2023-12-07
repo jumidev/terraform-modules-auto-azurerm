@@ -35,8 +35,8 @@ variable "function_name" {
 
 variable "batch_max_count" {
   description = "The maximum number of events in each batch that's sent to the function. Defaults to '100'."
-  type        = int
-  default     = 100
+  type        = number
+  default     = "100"
 }
 variable "batch_max_in_bytes" {
   description = "The maximum batch size in bytes that's sent to the function. Defaults to '262144' (256 kB)."

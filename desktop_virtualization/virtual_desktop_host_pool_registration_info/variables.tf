@@ -2,7 +2,7 @@
 
 variable "expiration_date" {
   description = "(REQUIRED) A valid 'RFC3339Time' for the expiration of the token.."
-  type        = datetime
+  type        = string
 
 }
 variable "hostpool_id" {

@@ -38,10 +38,10 @@ tfstate_store = {
 | **email_address_sender** | string |  -  |  Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails. | 
 | **email_addresses** | string |  -  |  Specifies a list of email addresses that will receive the Scheduled Action. | 
 | **email_subject** | string |  -  |  Subject of the email. Length is limited to 70 characters. | 
-| **end_date** | datetime |  -  |  The end date and time of the Scheduled Action (UTC). | 
+| **end_date** | string |  -  |  The end date and time of the Scheduled Action (UTC). | 
 | **frequency** | string |  `Daily`, `Monthly`, `Weekly`  |  Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified. | 
 | **name** | string |  -  |  The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created. | 
-| **start_date** | datetime |  -  |  The start date and time of the Scheduled Action (UTC). | 
+| **start_date** | string |  -  |  The start date and time of the Scheduled Action (UTC). | 
 | **view_id** | string |  -  |  The ID of the Cost Management View that is used by the Scheduled Action. Changing this forces a new resource to be created. | 
 
 ## Optional Variables

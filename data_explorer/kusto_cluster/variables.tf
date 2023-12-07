@@ -113,8 +113,8 @@ variable "optimized_auto_scale" {
 }
 #
 # optimized_auto_scale block structure:
-#   minimum_instances (int)             : (REQUIRED) The minimum number of allowed instances. Must between '0' and '1000'.
-#   maximum_instances (int)             : (REQUIRED) The maximum number of allowed instances. Must between '0' and '1000'.
+#   minimum_instances (number)          : (REQUIRED) The minimum number of allowed instances. Must between '0' and '1000'.
+#   maximum_instances (number)          : (REQUIRED) The maximum number of allowed instances. Must between '0' and '1000'.
 
 
 variable "tags" {

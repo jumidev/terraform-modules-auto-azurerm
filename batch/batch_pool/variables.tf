@@ -54,7 +54,7 @@ variable "data_disks" {
 # data_disks block structure   :
 #   lun (string)                 : (REQUIRED) The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.
 #   caching (string)             : Values are: 'none' - The caching mode for the disk is not enabled. 'readOnly' - The caching mode for the disk is read only. 'readWrite' - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. Defaults to 'ReadOnly'.
-#   disk_size_gb (int)           : (REQUIRED) The initial disk size in GB when creating new data disk.
+#   disk_size_gb (number)        : (REQUIRED) The initial disk size in GB when creating new data disk.
 #   storage_account_type (string): The storage account type to be used for the data disk. Values are: Possible values are 'Standard_LRS' - The data disk should use standard locally redundant storage. 'Premium_LRS' - The data disk should use premium locally redundant storage. Defaults to 'Standard_LRS'.
 
 
@@ -123,11 +123,11 @@ variable "fixed_scale" {
   default     = null
 }
 #
-# fixed_scale block structure      :
-#   node_deallocation_method (string): It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are 'Requeue', 'RetainedData', 'TaskCompletion' and 'Terminate'.
-#   target_dedicated_nodes (int)     : The number of nodes in the Batch pool. Defaults to '1'.
-#   target_low_priority_nodes (int)  : The number of low priority nodes in the Batch pool. Defaults to '0'.
-#   resize_timeout (string)          : The timeout for resize operations. Defaults to 'PT15M'.
+# fixed_scale block structure       :
+#   node_deallocation_method (string) : It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are 'Requeue', 'RetainedData', 'TaskCompletion' and 'Terminate'.
+#   target_dedicated_nodes (number)   : The number of nodes in the Batch pool. Defaults to '1'.
+#   target_low_priority_nodes (number): The number of low priority nodes in the Batch pool. Defaults to '0'.
+#   resize_timeout (string)           : The timeout for resize operations. Defaults to 'PT15M'.
 
 
 variable "auto_scale" {
@@ -150,7 +150,7 @@ variable "start_task" {
 # start_task block structure            :
 #   command_line (string)                 : (REQUIRED) The command line executed by the start task.
 #   container (block)                     : A 'container' block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the 'AZ_BATCH_NODE_ROOT_DIR' (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
-#   task_retry_maximum (int)              : The number of retry count.
+#   task_retry_maximum (number)           : The number of retry count.
 #   wait_for_success (bool)               : A flag that indicates if the Batch pool should wait for the start task to be completed. Default to 'false'.
 #   common_environment_properties (string): A map of strings (key,value) that represents the environment variables to set in the start task.
 #   user_identity (block)                 : (REQUIRED) A 'user_identity' block that describes the user identity under which the start task runs as defined below.
@@ -162,13 +162,13 @@ variable "start_task" {
 #   registry (string)         : The 'container_registries' block defined as below.
 #   working_directory (string): A flag to indicate where the container task working directory is. Possible values are 'TaskWorkingDirectory' and 'ContainerImageDefault'.
 #
-# user_identity block structure:
-#   user_name (string)           : The username to be used by the Batch pool start task.
-#   auto_user (block)            : A 'auto_user' block that describes the user identity under which the start task runs as defined below.
-#
 # auto_user block structure:
 #   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
 #   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
+#
+# user_identity block structure:
+#   user_name (string)           : The username to be used by the Batch pool start task.
+#   auto_user (block)            : A 'auto_user' block that describes the user identity under which the start task runs as defined below.
 
 
 variable "certificate" {
@@ -205,11 +205,6 @@ variable "mount" {
 #   cifs_mount (block)            : A 'cifs_mount' block defined as below.
 #   nfs_mount (block)             : A 'nfs_mount' block defined as below.
 #
-# nfs_mount block structure   :
-#   source (string)             : (REQUIRED) The URI of the file system to mount.
-#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
-#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
-#
 # cifs_mount block structure  :
 #   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
 #   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
@@ -225,6 +220,11 @@ variable "mount" {
 #   sas_key (string)                      : The Azure Storage SAS token. This property is mutually exclusive with both 'account_key' and 'identity_id'; exactly one must be specified.
 #   identity_id (string)                  : The ARM resource id of the user assigned identity. This property is mutually exclusive with both 'account_key' and 'sas_key'; exactly one must be specified.
 #   blobfuse_options (string)             : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+#
+# nfs_mount block structure   :
+#   source (string)             : (REQUIRED) The URI of the file system to mount.
+#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
+#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 #
 # azure_file_share block structure:
 #   account_name (string)           : (REQUIRED) The Azure Storage Account name.

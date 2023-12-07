@@ -37,7 +37,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **automation_account_id** | string |  The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created. | 
 | **name** | string |  The name which should be used for this Automation Watcher. Changing this forces a new Automation Watcher to be created. | 
-| **execution_frequency_in_seconds** | int |  Specify the frequency at which the watcher is invoked. | 
+| **execution_frequency_in_seconds** | number |  Specify the frequency at which the watcher is invoked. | 
 | **location** | string |  The Azure Region where the Automation Watcher should exist. Changing this forces a new Automation Watcher to be created. | 
 | **script_name** | string |  Specify the name of an existing runbook this watcher is attached to. Changing this forces a new Automation to be created. | 
 | **script_run_on** | string |  Specify the name of the Hybrid work group the watcher will run on. | 

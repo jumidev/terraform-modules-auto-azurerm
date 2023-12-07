@@ -32,7 +32,7 @@ variable "counter_name" {
 }
 variable "interval_seconds" {
   description = "(REQUIRED) The time of sample interval in seconds. Supports values between 10 and 2147483647."
-  type        = int
+  type        = number
 
 }
 

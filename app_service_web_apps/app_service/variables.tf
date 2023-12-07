@@ -50,16 +50,6 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'.
 #
-# microsoft block structure:
-#   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
-#   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
-#   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
-#
-# google block structure:
-#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
-#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
-#
 # active_directory block structure:
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
@@ -73,6 +63,16 @@ variable "auth_settings" {
 # twitter block structure :
 #   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
 #   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
+#
+# microsoft block structure:
+#   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
+#   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
+#   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
+#
+# google block structure:
+#   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
+#   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
 
 
 variable "backup" {
@@ -163,19 +163,19 @@ variable "logs" {
 # azure_blob_storage block structure:
 #   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
 #   sas_url (string)                  : (REQUIRED) The URL to the storage container with a shared access signature token appended.
-#   retention_in_days (int)           : (REQUIRED) The number of days to retain logs for.
+#   retention_in_days (number)        : (REQUIRED) The number of days to retain logs for.
 #
-# file_system block structure:
-#   retention_in_days (int)    : (REQUIRED) The number of days to retain logs for.
-#   retention_in_mb (int)      : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
+# http_logs block structure :
+#   file_system (block)       : A 'file_system' block.
+#   azure_blob_storage (block): An 'azure_blob_storage' block.
 #
 # application_logs block structure:
 #   azure_blob_storage (block)      : An 'azure_blob_storage' block.
 #   file_system_level (string)      : Log level for filesystem based logging. Supported values are 'Error', 'Information', 'Verbose', 'Warning' and 'Off'. Defaults to 'Off'.
 #
-# http_logs block structure :
-#   file_system (block)       : A 'file_system' block.
-#   azure_blob_storage (block): An 'azure_blob_storage' block.
+# file_system block structure:
+#   retention_in_days (number) : (REQUIRED) The number of days to retain logs for.
+#   retention_in_mb (number)   : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
 
 
 variable "storage_account" {
@@ -210,7 +210,7 @@ variable "site_config" {
 #   dotnet_framework_version (string)            : The version of the .NET framework's CLR used in this App Service. Possible values are 'v2.0' (which will use the latest version of the .NET framework for the .NET CLR v2 - currently '.net 3.5'), 'v4.0' (which corresponds to the latest version of the .NET CLR v4 - which at the time of writing is '.net 4.7.1'), 'v5.0' and 'v6.0'. [For more information on which .NET CLR version to use based on the .NET framework you're targeting - please see this table](https://en.wikipedia.org/wiki/.NET_Framework_version_history#Overview). Defaults to 'v4.0'.
 #   ftps_state (string)                          : State of FTP / FTPS service for this App Service. Possible values include: 'AllAllowed', 'FtpsOnly' and 'Disabled'.
 #   health_check_path (string)                   : The health check path to be pinged by App Service. [For more information - please see App Service health check announcement](https://azure.github.io/AppService/2020/08/24/healthcheck-on-app-service.html).
-#   number_of_workers (int)                      : The scaled number of workers (for per site scaling) of this App Service. Requires that 'per_site_scaling' is enabled on the 'azurerm_app_service_plan'. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
+#   number_of_workers (number)                   : The scaled number of workers (for per site scaling) of this App Service. Requires that 'per_site_scaling' is enabled on the 'azurerm_app_service_plan'. [For more information - please see Microsoft documentation on high-density hosting](https://docs.microsoft.com/azure/app-service/manage-scale-per-app).
 #   http2_enabled (bool)                         : Is HTTP2 Enabled on this App Service? Defaults to 'false'.
 #   ip_restriction (block)                       : A list of 'ip_restriction' objects representing IP restrictions as defined below.
 #   scm_use_main_ip_restriction (bool)           : IP security restrictions for scm to use main. Defaults to 'false'.
@@ -236,15 +236,6 @@ variable "site_config" {
 #   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
 #   support_credentials (string): Are credentials supported?
 #
-# ip_restriction block structure    :
-#   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
-#   service_tag (string)              : The Service Tag used for this IP Restriction.
-#   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
-#   name (string)                     : The name for this IP Restriction.
-#   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-#   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
-#   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
-#
 # scm_ip_restriction block structure:
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -253,6 +244,15 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
+#
+# ip_restriction block structure    :
+#   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
+#   service_tag (string)              : The Service Tag used for this IP Restriction.
+#   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
+#   name (string)                     : The name for this IP Restriction.
+#   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+#   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
+#   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
 
 
 variable "source_control" {

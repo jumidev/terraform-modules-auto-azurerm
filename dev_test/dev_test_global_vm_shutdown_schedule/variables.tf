@@ -28,7 +28,7 @@ variable "notification_settings" {
 # notification_settings block structure:
 #   enabled (string)                     : (REQUIRED) Whether to enable pre-shutdown notifications. Possible values are 'true' and 'false'.
 #   email (string)                       : E-mail address to which the notification will be sent.
-#   time_in_minutes (int)                : Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to '30'.
+#   time_in_minutes (number)             : Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to '30'.
 #   webhook_url (string)                 : The webhook URL to which the notification will be sent.
 
 

@@ -50,12 +50,12 @@ variable "enable_partitioning" {
 }
 variable "max_message_size_in_kilobytes" {
   description = "Integer value which controls the maximum size of a message allowed on the topic for Premium SKU. For supported values see the 'Large messages support' section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview)."
-  type        = int
+  type        = number
   default     = null
 }
 variable "max_size_in_megabytes" {
   description = "Integer value which controls the size of memory allocated for the topic. For supported values see the 'Queue/topic size' section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas)."
-  type        = int
+  type        = number
   default     = null
 }
 variable "requires_duplicate_detection" {

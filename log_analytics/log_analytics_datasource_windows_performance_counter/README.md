@@ -42,7 +42,7 @@ tfstate_store = {
 | **object_name** | string |  The object name of the Log Analytics Windows Performance Counter DataSource. | 
 | **instance_name** | string |  The name of the virtual machine instance to which the Windows Performance Counter DataSource be applied. Specify a `*` will apply to all instances. | 
 | **counter_name** | string |  The friendly name of the performance counter. | 
-| **interval_seconds** | int |  The time of sample interval in seconds. Supports values between 10 and 2147483647. | 
+| **interval_seconds** | number |  The time of sample interval in seconds. Supports values between 10 and 2147483647. | 
 
 
 

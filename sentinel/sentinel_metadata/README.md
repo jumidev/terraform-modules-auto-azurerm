@@ -49,9 +49,9 @@ tfstate_store = {
 | **content_schema_version** | string |  -  |  Schema version of the content. Can be used to distinguish between flow based on the schema version. | 
 | **custom_version** | string |  -  |  The Custom version of the content. | 
 | **dependency** | [block](#dependency-block-structure) |  -  |  A JSON formatted `dependency` block. Dependency for the content item, what other content items it requires to work. | 
-| **first_publish_date** | datetime |  -  |  The first publish date of solution content item. | 
+| **first_publish_date** | string |  -  |  The first publish date of solution content item. | 
 | **icon_id** | string |  -  |  The ID of the icon, this id can be fetched from the solution template. | 
-| **last_publish_date** | datetime |  -  |  The last publish date of solution content item. | 
+| **last_publish_date** | string |  -  |  The last publish date of solution content item. | 
 | **preview_images** | string |  -  |  Specifies a list of preview image file names. These will be taken from solution artifacts. | 
 | **preview_images_dark** | string |  -  |  Specifies a list of preview image file names used for dark theme. These will be taken from solution artifacts. | 
 | **providers** | string |  -  |  Specifies a list of providers for the solution content item. | 
@@ -77,6 +77,16 @@ tfstate_store = {
 | `link` | string | No | - | The link for support help. |
 | `name` | string | No | - | The name of the support contact. |
 
+### `dependency` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `contentId` | string | No | - | ID of the content item that is depended on. |
+| `kind` | string | No | - | Type of the content item that is depended on. |
+| `version` | string | No | - | Version of the content item that is depended on. |
+| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
+| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
+
 ### `author` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -91,16 +101,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
 | `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
-
-### `dependency` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `contentId` | string | No | - | ID of the content item that is depended on. |
-| `kind` | string | No | - | Type of the content item that is depended on. |
-| `version` | string | No | - | Version of the content item that is depended on. |
-| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
-| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
 
 
 

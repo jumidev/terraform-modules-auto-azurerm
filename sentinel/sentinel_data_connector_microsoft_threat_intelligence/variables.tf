@@ -15,12 +15,12 @@ variable "log_analytics_workspace_id" {
 
 variable "bing_safety_phishing_url_lookback_date" {
   description = "The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "microsoft_emerging_threat_feed_lookback_date" {
   description = "The lookback date for the Microsoft Emerging Threat Feed in RFC3339. Changing this forces a new Data Connector to be created."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "tenant_id" {

@@ -22,14 +22,14 @@ variable "record" {
 #
 # record block structure:
 #   priority (string)     : (REQUIRED) The priority of the SRV record.
-#   weight (int)          : (REQUIRED) The Weight of the SRV record.
+#   weight (number)       : (REQUIRED) The Weight of the SRV record.
 #   port (string)         : (REQUIRED) The Port the service is listening on.
 #   target (string)       : (REQUIRED) The FQDN of the service.
 
 
 variable "ttl" {
   description = "(REQUIRED) The Time To Live (TTL) of the DNS record in seconds."
-  type        = int
+  type        = number
 
 }
 

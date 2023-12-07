@@ -55,7 +55,7 @@ variable "cors_configuration" {
 #   allowed_origins (string)          : A set of origins to be allowed via CORS.
 #   allowed_headers (string)          : A set of headers to be allowed via CORS.
 #   allowed_methods (string)          : The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'.
-#   max_age_in_seconds (int)          : The max age to be allowed via CORS.
+#   max_age_in_seconds (number)       : The max age to be allowed via CORS.
 #   allow_credentials (bool)          : (Boolean) If credentials are allowed via CORS.
 
 

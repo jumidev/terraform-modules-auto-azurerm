@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **long_term_retention_policy** | [block](#long_term_retention_policy-block-structure) |  A `long_term_retention_policy` block. | 
-| **short_term_retention_days** | int |  The backup retention period in days. This is how many days Point-in-Time Restore will be supported. | 
+| **short_term_retention_days** | number |  The backup retention period in days. This is how many days Point-in-Time Restore will be supported. | 
 
 ### `long_term_retention_policy` block structure
 

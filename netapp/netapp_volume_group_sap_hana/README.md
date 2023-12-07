@@ -62,6 +62,27 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
+### `volume` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `capacity_pool_id` | string | Yes | - | The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `name` | string | Yes | - | The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `protocols` | string | Yes | - | The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include 'NFSv3' or 'NFSv4.1', multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details. |
+| `proximity_placement_group_id` | string | No | - | The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements. |
+| `security_style` | string | Yes | - | Volume security style. Possible values are 'ntfs' and 'unix'. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `service_level` | string | Yes | - | Volume security style. Possible values are 'Premium', 'Standard' and 'Ultra'. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `snapshot_directory_visible` | bool | Yes | - | Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `storage_quota_in_gb` | number | Yes | - | The maximum Storage Quota allowed for a file system in Gigabytes. |
+| `subnet_id` | string | Yes | - | The ID of the Subnet the NetApp Volume resides in, which must have the 'Microsoft.NetApp/volumes' delegation. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `throughput_in_mibps` | string | Yes | - | Throughput of this volume in Mibps. |
+| `volume_path` | string | Yes | - | A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `volume_spec_name` | string | Yes | - | Volume specification name. Possible values are 'data', 'log', 'shared', 'data-backup' and 'log-backup'. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `tags` | map | No | - | A mapping of tags which should be assigned to the Application Volume Group. |
+| `export_policy_rule` | [block](#export_policy_rule-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
+| `data_protection_replication` | [block](#data_protection_replication-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
+| `data_protection_snapshot_policy` | [block](#data_protection_snapshot_policy-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
+
 ### `data_protection_snapshot_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,30 +106,9 @@ tfstate_store = {
 | `nfsv3_enabled` | bool | Yes | - | Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol. |
 | `nfsv41_enabled` | bool | Yes | - | Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol. |
 | `root_access_enabled` | bool | No | True | Is root access permitted to this volume? Defaults to 'true'. |
-| `rule_index` | int | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
+| `rule_index` | number | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
-
-### `volume` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `capacity_pool_id` | string | Yes | - | The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `name` | string | Yes | - | The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `protocols` | string | Yes | - | The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include 'NFSv3' or 'NFSv4.1', multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details. |
-| `proximity_placement_group_id` | string | No | - | The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements. |
-| `security_style` | string | Yes | - | Volume security style. Possible values are 'ntfs' and 'unix'. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `service_level` | string | Yes | - | Volume security style. Possible values are 'Premium', 'Standard' and 'Ultra'. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `snapshot_directory_visible` | bool | Yes | - | Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `storage_quota_in_gb` | int | Yes | - | The maximum Storage Quota allowed for a file system in Gigabytes. |
-| `subnet_id` | string | Yes | - | The ID of the Subnet the NetApp Volume resides in, which must have the 'Microsoft.NetApp/volumes' delegation. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `throughput_in_mibps` | string | Yes | - | Throughput of this volume in Mibps. |
-| `volume_path` | string | Yes | - | A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `volume_spec_name` | string | Yes | - | Volume specification name. Possible values are 'data', 'log', 'shared', 'data-backup' and 'log-backup'. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `tags` | map | No | - | A mapping of tags which should be assigned to the Application Volume Group. |
-| `export_policy_rule` | [block](#export_policy_rule-block-structure) | Yes | - | One or more 'export_policy_rule' blocks. |
-| `data_protection_replication` | [block](#data_protection_replication-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
-| `data_protection_snapshot_policy` | [block](#data_protection_snapshot_policy-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
 
 
 

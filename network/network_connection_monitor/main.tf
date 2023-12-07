@@ -24,7 +24,7 @@ resource "azurerm_network_connection_monitor" "this" {
   test_configuration {
     name                      = lookup(test_configuration.value, "name")     # (Required) 
     protocol                  = lookup(test_configuration.value, "protocol") # (Required) 
-    test_frequency_in_seconds = lookup(test_configuration.value, "test_frequency_in_seconds", 60)
+    test_frequency_in_seconds = lookup(test_configuration.value, "test_frequency_in_seconds", "60")
     http_configuration        = lookup(test_configuration.value, "http_configuration", null)
     icmp_configuration        = lookup(test_configuration.value, "icmp_configuration", null)
     preferred_ip_version      = lookup(test_configuration.value, "preferred_ip_version", null)

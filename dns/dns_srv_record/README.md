@@ -36,7 +36,7 @@ tfstate_store = {
 | **name** | string |  The name of the DNS SRV Record. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
 | **zone_name** | string |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
+| **ttl** | number |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 
 

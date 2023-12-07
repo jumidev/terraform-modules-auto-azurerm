@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **description** | string |  A description of the Gallery Application. | 
-| **end_of_life_date** | datetime |  The end of life date in RFC3339 format of the Gallery Application. | 
+| **end_of_life_date** | string |  The end of life date in RFC3339 format of the Gallery Application. | 
 | **eula** | string |  The End User Licence Agreement of the Gallery Application. | 
 | **privacy_statement_uri** | string |  The URI containing the Privacy Statement associated with the Gallery Application. | 
 | **release_note_uri** | string |  The URI containing the Release Notes associated with the Gallery Application. | 

@@ -64,8 +64,8 @@ tfstate_store = {
 | **infrastructure** | string | No  | The infrastructure on which the Arc Kubernetes Cluster is running on. | 
 | **kubernetes_version** | string | No  | The Kubernetes version of the cluster resource. | 
 | **offering** | string | No  | The cluster offering. | 
-| **total_core_count** | int | No  | Number of CPU cores present in the cluster resource. | 
-| **total_node_count** | int | No  | Number of nodes present in the cluster resource. | 
+| **total_core_count** | number | No  | Number of CPU cores present in the cluster resource. | 
+| **total_node_count** | number | No  | Number of nodes present in the cluster resource. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 

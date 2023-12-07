@@ -46,7 +46,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `expiration_date` | datetime | Yes | - | When the recurrence will expire in RFC-3339 format. |
+| `expiration_date` | string | Yes | - | When the recurrence will expire in RFC-3339 format. |
 | `frequency` | string | Yes | - | The frequency of the recurrence. Possible values are 'Daily' and 'Weekly'. |
 | `interval` | string | No | - | The interval to invoke the schedule on. Possible values are between '1' and '365'. |
 | `week_days` | string | No | - | The interval to invoke the schedule on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |

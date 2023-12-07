@@ -70,12 +70,13 @@ tfstate_store = {
 | `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
 | `values` | string | Yes | - | The list of dimension values. |
 
-### `action` block structure
+### `application_insights_web_test_location_availability_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
-| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
+| `web_test_id` | string | Yes | - | The ID of the Application Insights Web Test. |
+| `component_id` | string | Yes | - | The ID of the Application Insights Resource. |
+| `failed_location_count` | number | Yes | - | The number of failed locations. |
 
 ### `dynamic_criteria` block structure
 
@@ -87,18 +88,17 @@ tfstate_store = {
 | `operator` | string | Yes | - | The criteria operator. Possible values are 'LessThan', 'GreaterThan' and 'GreaterOrLessThan'. |
 | `alert_sensitivity` | string | Yes | - | The extent of deviation required to trigger an alert. Possible values are 'Low', 'Medium' and 'High'. |
 | `dimension` | [block](#dimension-block-structure) | No | - | One or more 'dimension' blocks. |
-| `evaluation_total_count` | int | No | 4 | The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'. |
-| `evaluation_failure_count` | int | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
+| `evaluation_total_count` | number | No | 4 | The number of aggregated lookback points. The lookback time window is calculated based on the aggregation granularity ('window_size') and the selected number of aggregated points. Defaults to '4'. |
+| `evaluation_failure_count` | number | No | 4 | The number of violations to trigger an alert. Should be smaller or equal to 'evaluation_total_count'. Defaults to '4'. |
 | `ignore_data_before` | string | No | - | The [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date from which to start learning the metric historical data and calculate the dynamic thresholds. |
 | `skip_metric_validation` | string | No | - | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? |
 
-### `application_insights_web_test_location_availability_criteria` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `web_test_id` | string | Yes | - | The ID of the Application Insights Web Test. |
-| `component_id` | string | Yes | - | The ID of the Application Insights Resource. |
-| `failed_location_count` | int | Yes | - | The number of failed locations. |
+| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
+| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
 
 

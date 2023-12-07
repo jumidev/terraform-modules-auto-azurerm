@@ -25,8 +25,8 @@ variable "delegated_management_subnet_id" {
 
 variable "node_count" {
   description = "The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than '3'. Defaults to '3'."
-  type        = int
-  default     = 3
+  type        = number
+  default     = "3"
 }
 variable "backup_storage_customer_key_uri" {
   description = "The key URI of the customer key to use for the encryption of the backup Storage Account."
@@ -55,7 +55,7 @@ variable "sku_name" {
 }
 variable "disk_count" {
   description = "Determines the number of p30 disks that are attached to each node."
-  type        = int
+  type        = number
   default     = null
 }
 variable "availability_zones_enabled" {

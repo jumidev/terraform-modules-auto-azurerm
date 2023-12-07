@@ -47,7 +47,7 @@ tfstate_store = {
 | **user_name** | string |  -  |  -  |  The user name for the TAXII server. | 
 | **password** | string |  -  |  -  |  The password for the TAXII server. | 
 | **polling_frequency** | string |  `OnceAnHour`  |  `OnceAMinute`, `OnceAnHour`, `OnceADay`  |  The polling frequency for the TAXII server. Possible values are `OnceAMinute`, `OnceAnHour` and `OnceADay`. Defaults to `OnceAnHour`. | 
-| **lookback_date** | datetime |  `1970-01-01T00:00:00Z`  |  -  |  The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`. | 
+| **lookback_date** | string |  `1970-01-01T00:00:00Z`  |  -  |  The lookback date for the TAXII server in RFC3339. Defaults to `1970-01-01T00:00:00Z`. | 
 | **tenant_id** | string |  -  |  -  |  The ID of the tenant that this Threat Intelligence TAXII Data Connector connects to. Changing this forces a new Threat Intelligence TAXII Data Connector to be created. | 
 
 

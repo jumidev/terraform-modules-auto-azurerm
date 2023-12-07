@@ -25,7 +25,7 @@ tfstate_store = {
 ```
 ## Optional associated resource
 
-| `tfstate_input` variable | Information |
+| `tfstate_inputs` variable | Information |
 | -------- | ----------- |
 | **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_application_load_balancer_subnet_association** - Manages an association between an Application Gateway for Containers and a Subnet.|
 

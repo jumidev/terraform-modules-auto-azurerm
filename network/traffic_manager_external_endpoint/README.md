@@ -50,7 +50,7 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `first` | string | Yes | - | The first IP Address in this subnet. |
 | `last` | string | No | - | The last IP Address in this subnet. |
-| `scope` | int | No | - | The block size (number of leading bits in the subnet mask). |
+| `scope` | number | No | - | The block size (number of leading bits in the subnet mask). |
 
 ### `custom_header` block structure
 

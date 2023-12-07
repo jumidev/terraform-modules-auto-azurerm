@@ -40,7 +40,7 @@ variable "parent_custom_ip_prefix_id" {
 }
 variable "roa_validity_end_date" {
   description = "The expiration date of the Route Origin Authorization (ROA) document which has been filed with the Routing Internet Registry (RIR) for this prefix. The expected format is 'YYYY-MM-DD'. Required when provisioning an IPv4 prefix or IPv6 global prefix. Changing this forces a new resource to be created."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "tags" {

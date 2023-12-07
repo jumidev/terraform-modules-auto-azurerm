@@ -35,12 +35,12 @@ variable "app_service_environment_id" {
 }
 variable "maximum_elastic_worker_count" {
   description = "The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU."
-  type        = int
+  type        = number
   default     = null
 }
 variable "worker_count" {
   description = "The number of Workers (instances) to be allocated."
-  type        = int
+  type        = number
   default     = null
 }
 variable "per_site_scaling_enabled" {

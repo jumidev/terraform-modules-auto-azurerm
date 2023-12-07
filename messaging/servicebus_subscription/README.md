@@ -30,7 +30,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  Specifies the name of the ServiceBus Subscription resource. Changing this forces a new resource to be created. | 
 | **topic_id** | string |  The ID of the ServiceBus Topic to create this Subscription in. Changing this forces a new resource to be created. | 
-| **max_delivery_count** | int |  The maximum number of deliveries. | 
+| **max_delivery_count** | number |  The maximum number of deliveries. | 
 
 ## Optional Variables
 

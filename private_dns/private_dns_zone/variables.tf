@@ -25,7 +25,7 @@ variable "soa_record" {
 #   minimum_ttl (string)      : The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '10'.
 #   refresh_time (string)     : The refresh time for the SOA record. Defaults to '3600'.
 #   retry_time (string)       : The retry time for the SOA record. Defaults to '300'.
-#   ttl (int)                 : The Time To Live of the SOA Record in seconds. Defaults to '3600'.
+#   ttl (number)              : The Time To Live of the SOA Record in seconds. Defaults to '3600'.
 #   tags (map)                : A mapping of tags to assign to the Record Set.
 
 

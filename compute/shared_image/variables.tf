@@ -63,7 +63,7 @@ variable "disk_types_not_allowed" {
 }
 variable "end_of_life_date" {
   description = "The end of life date in RFC3339 format of the Image."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "eula" {
@@ -88,22 +88,22 @@ variable "hyper_v_generation" {
 }
 variable "max_recommended_vcpu_count" {
   description = "Maximum count of vCPUs recommended for the Image."
-  type        = int
+  type        = number
   default     = null
 }
 variable "min_recommended_vcpu_count" {
   description = "Minimum count of vCPUs recommended for the Image."
-  type        = int
+  type        = number
   default     = null
 }
 variable "max_recommended_memory_in_gb" {
   description = "Maximum memory in GB recommended for the Image."
-  type        = int
+  type        = number
   default     = null
 }
 variable "min_recommended_memory_in_gb" {
   description = "Minimum memory in GB recommended for the Image."
-  type        = int
+  type        = number
   default     = null
 }
 variable "privacy_statement_uri" {

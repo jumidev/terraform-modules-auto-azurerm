@@ -45,12 +45,12 @@ variable "connection_string" {
 }
 variable "batch_frequency_in_seconds" {
   description = "Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds."
-  type        = int
+  type        = number
   default     = null
 }
 variable "max_chunk_size_in_bytes" {
   description = "Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB)."
-  type        = int
+  type        = number
   default     = null
 }
 variable "encoding" {

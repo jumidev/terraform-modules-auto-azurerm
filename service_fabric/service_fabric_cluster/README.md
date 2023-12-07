@@ -71,12 +71,50 @@ tfstate_store = {
 | **vmss_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `azure_active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tenant_id` | string | Yes | - | The Azure Active Directory Tenant ID. |
+| `cluster_application_id` | string | Yes | - | The Azure Active Directory Cluster Application ID. |
+| `client_application_id` | string | Yes | - | The Azure Active Directory Client ID which should be used for the Client Application. |
+
+### `certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
 ### `certificate_common_names` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `common_names` | [block](#common_names-block-structure) | Yes | - | A 'common_names' block. |
 | `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
+### `delta_health_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_delta_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `max_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `max_upgrade_domain_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+
+### `common_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `certificate_issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+
+### `fabric_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Fabric Setting, such as 'Security' or 'Federation'. |
+| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
 
 ### `node_type` block structure
 
@@ -85,7 +123,7 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the Node Type. |
 | `placement_properties` | string | No | - | The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run. |
 | `capacities` | string | No | - | The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has. |
-| `instance_count` | int | Yes | - | The number of nodes for this Node Type. |
+| `instance_count` | number | Yes | - | The number of nodes for this Node Type. |
 | `is_primary` | bool | Yes | - | Is this the Primary Node Type? |
 | `is_stateless` | string | No | - | Should this node type run only stateless services? |
 | `multiple_availability_zones` | string | No | - | Does this node type span availability zones? |
@@ -96,20 +134,27 @@ tfstate_store = {
 | `ephemeral_ports` | [block](#ephemeral_ports-block-structure) | No | - | A 'ephemeral_ports' block. |
 | `reverse_proxy_endpoint_port` | string | No | - | The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster. |
 
-### `application_ports` block structure
+### `health_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `start_port` | string | Yes | - | The start of the Application Port Range on this Node Type. |
-| `end_port` | string | Yes | - | The end of the Application Port Range on this Node Type. |
+| `max_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
+| `max_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
 
-### `certificate` block structure
+### `client_certificate_common_name` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+| `common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
+
+### `ephemeral_ports` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_port` | string | Yes | - | The start of the Ephemeral Port Range on this Node Type. |
+| `end_port` | string | Yes | - | The end of the Ephemeral Port Range on this Node Type. |
 
 ### `client_certificate_thumbprint` block structure
 
@@ -128,50 +173,12 @@ tfstate_store = {
 | `queue_endpoint` | string | Yes | - | The Queue Endpoint of the Storage Account. |
 | `table_endpoint` | string | Yes | - | The Table Endpoint of the Storage Account. |
 
-### `common_names` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_common_name` | string | Yes | - | The common or subject name of the certificate. |
-| `certificate_issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
-
-### `azure_active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tenant_id` | string | Yes | - | The Azure Active Directory Tenant ID. |
-| `cluster_application_id` | string | Yes | - | The Azure Active Directory Cluster Application ID. |
-| `client_application_id` | string | Yes | - | The Azure Active Directory Client ID which should be used for the Client Application. |
-
 ### `reverse_proxy_certificate_common_names` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `common_names` | [block](#common_names-block-structure) | Yes | - | A 'common_names' block. |
 | `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `fabric_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Fabric Setting, such as 'Security' or 'Federation'. |
-| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
-
-### `reverse_proxy_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `client_certificate_common_name` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `common_name` | string | Yes | - | The common or subject name of the certificate. |
-| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
-| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
 
 ### `upgrade_policy` block structure
 
@@ -187,27 +194,20 @@ tfstate_store = {
 | `health_policy` | [block](#health_policy-block-structure) | No | - | A 'health_policy' block |
 | `delta_health_policy` | [block](#delta_health_policy-block-structure) | No | - | A 'delta_health_policy' block |
 
-### `ephemeral_ports` block structure
+### `application_ports` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `start_port` | string | Yes | - | The start of the Ephemeral Port Range on this Node Type. |
-| `end_port` | string | Yes | - | The end of the Ephemeral Port Range on this Node Type. |
+| `start_port` | string | Yes | - | The start of the Application Port Range on this Node Type. |
+| `end_port` | string | Yes | - | The end of the Application Port Range on this Node Type. |
 
-### `health_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
-| `max_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
-
-### `delta_health_policy` block structure
+### `reverse_proxy_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_delta_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-| `max_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-| `max_upgrade_domain_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
 
 
 

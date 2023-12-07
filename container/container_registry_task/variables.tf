@@ -25,7 +25,7 @@ variable "agent_setting" {
 }
 #
 # agent_setting block structure:
-#   cpu (int)                    : (REQUIRED) The number of cores required for the Container Registry Task.
+#   cpu (number)                 : (REQUIRED) The number of cores required for the Container Registry Task.
 
 
 variable "enabled" {
@@ -135,7 +135,7 @@ variable "source_trigger" {
 # authentication block structure:
 #   token (string)                : (REQUIRED) The access token used to access the source control provider.
 #   token_type (string)           : (REQUIRED) The type of the token. Possible values are 'PAT' (personal access token) and 'OAuth'.
-#   expire_in_seconds (int)       : Time in seconds that the token remains valid.
+#   expire_in_seconds (number)    : Time in seconds that the token remains valid.
 #   refresh_token (string)        : The refresh token used to refresh the access token.
 #   scope (string)                : The scope of the access token.
 
@@ -183,6 +183,6 @@ variable "tags" {
 }
 variable "timeout_in_seconds" {
   description = "The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to '3600'."
-  type        = int
-  default     = 3600
+  type        = number
+  default     = "3600"
 }

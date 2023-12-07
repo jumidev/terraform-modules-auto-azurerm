@@ -30,7 +30,7 @@ variable "description" {
 }
 variable "maximum_dev_boxes_per_user" {
   description = "When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project."
-  type        = int
+  type        = number
   default     = null
 }
 variable "tags" {

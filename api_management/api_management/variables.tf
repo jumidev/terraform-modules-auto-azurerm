@@ -41,7 +41,7 @@ variable "additional_location" {
 #
 # additional_location block structure  :
 #   location (string)                    : (REQUIRED) The name of the Azure Region in which the API Management Service should be expanded to.
-#   capacity (int)                       : The number of compute units in this region. Defaults to the capacity of the main region.
+#   capacity (number)                    : The number of compute units in this region. Defaults to the capacity of the main region.
 #   zones (list)                         : A list of availability zones. Changing this forces a new resource to be created.
 #   public_ip_address_id (string)        : ID of a standard SKU IPv4 Public IP.
 #   virtual_network_configuration (block): A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'.

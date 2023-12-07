@@ -41,18 +41,18 @@ tfstate_store = {
 | **validation** | [block](#validation-block-structure) |  Any number of `validation` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
+### `validation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `specification` | string | Yes | - | The endpoint where the validation specification is located. |
+
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Specifies the name of the action. |
 | `endpoint` | string | Yes | - | Specifies the endpoint of the action. |
-
-### `validation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `specification` | string | Yes | - | The endpoint where the validation specification is located. |
 
 ### `resource_type` block structure
 

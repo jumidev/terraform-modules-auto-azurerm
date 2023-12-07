@@ -22,7 +22,7 @@ variable "admin_username" {
 }
 variable "instances" {
   description = "(REQUIRED) The number of Virtual Machines in the Scale Set."
-  type        = int
+  type        = number
 
 }
 variable "sku" {
@@ -55,7 +55,7 @@ variable "os_disk" {
 #   storage_account_type (string)            : (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.
 #   diff_disk_settings (block)               : A 'diff_disk_settings' block. Changing this forces a new resource to be created.
 #   disk_encryption_set_id (string)          : The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'. Changing this forces a new resource to be created.
-#   disk_size_gb (int)                       : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+#   disk_size_gb (number)                    : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 #   secure_vm_disk_encryption_set_id (string): The ID of the Disk Encryption Set which should be used to Encrypt the OS Disk when the Virtual Machine Scale Set is Confidential VMSS. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created.
 #   security_encryption_type (string)        : Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created.
 #   write_accelerator_enabled (bool)         : Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'.
@@ -108,7 +108,7 @@ variable "automatic_instance_repair" {
 #
 # automatic_instance_repair block structure:
 #   enabled (bool)                           : (REQUIRED) Should the automatic instance repair be enabled on this Virtual Machine Scale Set?
-#   grace_period (int)                       : Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to 'PT30M'.
+#   grace_period (number)                    : Amount of time (in minutes, between 30 and 90) for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. The time duration should be specified in ISO 8601 format. Defaults to 'PT30M'.
 
 
 variable "boot_diagnostics" {
@@ -146,8 +146,8 @@ variable "data_disk" {
 #   name (string)                          : The name of the Data Disk.
 #   caching (string)                       : (REQUIRED) The type of Caching which should be used for this Data Disk. Possible values are 'None', 'ReadOnly' and 'ReadWrite'.
 #   create_option (string)                 : The create option which should be used for this Data Disk. Possible values are 'Empty' and 'FromImage'. Defaults to 'Empty'. ('FromImage' should only be used if the source image includes data disks).
-#   disk_size_gb (int)                     : (REQUIRED) The size of the Data Disk which should be created.
-#   lun (int)                              : (REQUIRED) The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+#   disk_size_gb (number)                  : (REQUIRED) The size of the Data Disk which should be created.
+#   lun (number)                           : (REQUIRED) The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 #   storage_account_type (string)          : (REQUIRED) The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'.
 #   disk_encryption_set_id (string)        : The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 #   ultra_ssd_disk_iops_read_write (string): Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.

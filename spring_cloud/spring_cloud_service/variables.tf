@@ -80,7 +80,7 @@ variable "network" {
 #   cidr_ranges (list)                             : (REQUIRED) A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 #   app_network_resource_group (string)            : Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
 #   outbound_type (string)                         : Specifies the egress traffic type of the Spring Cloud Service. Possible values are 'loadBalancer' and 'userDefinedRouting'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created.
-#   read_timeout_seconds (int)                     : Ingress read time out in seconds.
+#   read_timeout_seconds (number)                  : Ingress read time out in seconds.
 #   service_runtime_network_resource_group (string): Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
 
 
@@ -104,10 +104,6 @@ variable "config_server_git_setting" {
 #   host_key_algorithm (string)            : The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists.
 #   strict_host_key_checking_enabled (bool): Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'.
 #
-# http_basic_auth block structure:
-#   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
-#   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
-#
 # repository block structure:
 #   name (string)             : (REQUIRED) A name to identify on the Git repository, required only if repos exists.
 #   uri (string)              : (REQUIRED) The URI of the Git repository that's used as the Config Server back end should be started with 'http://', 'https://', 'git@', or 'ssh://'.
@@ -116,6 +112,10 @@ variable "config_server_git_setting" {
 #   search_paths (string)     : An array of strings used to search subdirectories of the Git repository.
 #   http_basic_auth (block)   : A 'http_basic_auth' block.
 #   ssh_auth (block)          : A 'ssh_auth' block.
+#
+# http_basic_auth block structure:
+#   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+#   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 
 
 variable "service_registry_enabled" {

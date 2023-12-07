@@ -40,7 +40,7 @@ variable "retention_in_days" {
 }
 variable "daily_quota_gb" {
   description = "The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted."
-  type        = int
+  type        = number
   default     = null
 }
 variable "cmk_for_query_forced" {

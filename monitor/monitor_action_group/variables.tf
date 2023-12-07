@@ -145,7 +145,7 @@ variable "sms_receiver" {
 # sms_receiver block structure:
 #   name (string)               : (REQUIRED) The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group.
 #   country_code (string)       : (REQUIRED) The country code of the SMS receiver.
-#   phone_number (int)          : (REQUIRED) The phone number of the SMS receiver.
+#   phone_number (number)       : (REQUIRED) The phone number of the SMS receiver.
 
 
 variable "voice_receiver" {
@@ -157,7 +157,7 @@ variable "voice_receiver" {
 # voice_receiver block structure:
 #   name (string)                 : (REQUIRED) The name of the voice receiver.
 #   country_code (string)         : (REQUIRED) The country code of the voice receiver.
-#   phone_number (int)            : (REQUIRED) The phone number of the voice receiver.
+#   phone_number (number)         : (REQUIRED) The phone number of the voice receiver.
 
 
 variable "webhook_receiver" {

@@ -24,10 +24,10 @@ variable "auto_patching" {
   default     = null
 }
 #
-# auto_patching block structure               :
-#   day_of_week (string)                        : (REQUIRED) The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
-#   maintenance_window_starting_hour (string)   : (REQUIRED) The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
-#   maintenance_window_duration_in_minutes (int): (REQUIRED) The size of the Maintenance Window in minutes.
+# auto_patching block structure                  :
+#   day_of_week (string)                           : (REQUIRED) The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
+#   maintenance_window_starting_hour (string)      : (REQUIRED) The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
+#   maintenance_window_duration_in_minutes (number): (REQUIRED) The size of the Maintenance Window in minutes.
 
 
 variable "key_vault_credential" {
@@ -96,11 +96,11 @@ variable "storage_configuration" {
 # temp_db_settings block structure:
 #   default_file_path (string)      : (REQUIRED) The SQL Server default path
 #   luns (list)                     : (REQUIRED) A list of Logical Unit Numbers for the disks.
-#   data_file_count (int)           : The SQL Server default file count. This value defaults to '8'
-#   data_file_size_mb (int)         : The SQL Server default file size - This value defaults to '256'
-#   data_file_growth_in_mb (int)    : The SQL Server default file size - This value defaults to '512'
-#   log_file_size_mb (int)          : The SQL Server default file size - This value defaults to '256'
-#   log_file_growth_mb (int)        : The SQL Server default file size - This value defaults to '512'
+#   data_file_count (number)        : The SQL Server default file count. This value defaults to '8'
+#   data_file_size_mb (number)      : The SQL Server default file size - This value defaults to '256'
+#   data_file_growth_in_mb (number) : The SQL Server default file size - This value defaults to '512'
+#   log_file_size_mb (number)       : The SQL Server default file size - This value defaults to '256'
+#   log_file_growth_mb (number)     : The SQL Server default file size - This value defaults to '512'
 #
 # storage_settings block structure:
 #   default_file_path (string)      : (REQUIRED) The SQL Server default path

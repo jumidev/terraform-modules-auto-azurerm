@@ -62,7 +62,7 @@ tfstate_store = {
 | **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Identity of this SQL Server. | 
 | **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. | 
 | **create** | string | No  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
-| **update** | datetime | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
+| **update** | string | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 
 | **delete** | string | No  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. | 
 

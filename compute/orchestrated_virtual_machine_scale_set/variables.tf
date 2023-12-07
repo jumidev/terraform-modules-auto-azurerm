@@ -45,7 +45,7 @@ variable "encryption_at_host_enabled" {
 }
 variable "instances" {
   description = "The number of Virtual Machines in the Orcestrated Virtual Machine Scale Set."
-  type        = int
+  type        = number
   default     = null
 }
 variable "network_interface" {
@@ -75,9 +75,13 @@ variable "os_profile" {
 #   windows_configuration (block): A 'windows_configuration' block.
 #   linux_configuration (block)  : A 'linux_configuration' block.
 #
-# admin_ssh_key block structure:
-#   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
-#   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
+# secret block structure:
+#   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
+#   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
+#
+# certificate block structure:
+#   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
+#   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
 #
 # windows_configuration block structure:
 #   admin_username (string)              : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
@@ -92,18 +96,6 @@ variable "os_profile" {
 #   timezone (string)                    : Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 #   winrm_listener (block)               : One or more 'winrm_listener' blocks. Changing this forces a new resource to be created.
 #
-# certificate block structure:
-#   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
-#   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
-#
-# winrm_listener block structure:
-#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
-#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
-#
-# secret block structure:
-#   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
-#   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
-#
 # linux_configuration block structure   :
 #   admin_username (string)               : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 #   admin_password (string)               : The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -114,6 +106,14 @@ variable "os_profile" {
 #   patch_mode (string)                   : Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'ImageDefault' or 'AutomaticByPlatform'. Defaults to 'ImageDefault'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 #   provision_vm_agent (bool)             : Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created.
 #   secret (block)                        : One or more 'secret' blocks.
+#
+# winrm_listener block structure:
+#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
+#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
+#
+# admin_ssh_key block structure:
+#   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+#   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
 
 
 variable "os_disk" {
@@ -127,7 +127,7 @@ variable "os_disk" {
 #   storage_account_type (string)   : (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.
 #   diff_disk_settings (block)      : A 'diff_disk_settings' block. Changing this forces a new resource to be created.
 #   disk_encryption_set_id (string) : The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
-#   disk_size_gb (int)              : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
+#   disk_size_gb (number)           : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 #   write_accelerator_enabled (bool): Specifies if Write Accelerator is enabled on the OS Disk. Defaults to 'false'.
 #
 # diff_disk_settings block structure:
@@ -170,8 +170,8 @@ variable "data_disk" {
 # data_disk block structure              :
 #   caching (string)                       : (REQUIRED) The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
 #   create_option (string)                 : The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to 'Empty'. (FromImage should only be used if the source image includes data disks).
-#   disk_size_gb (int)                     : (REQUIRED) The size of the Data Disk which should be created.
-#   lun (int)                              : (REQUIRED) The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
+#   disk_size_gb (number)                  : (REQUIRED) The size of the Data Disk which should be created.
+#   lun (number)                           : (REQUIRED) The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
 #   storage_account_type (string)          : (REQUIRED) The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'.
 #   disk_encryption_set_id (string)        : The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 #   ultra_ssd_disk_iops_read_write (string): Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.

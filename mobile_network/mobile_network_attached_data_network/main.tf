@@ -26,9 +26,9 @@ resource "azurerm_mobile_network_attached_data_network" "this" {
     for_each = var.network_address_port_translation != null ? var.network_address_port_translation : []
     content {
       pinhole_maximum_number          = lookup(network_address_port_translation.value, "pinhole_maximum_number", null)
-      icmp_pinhole_timeout_in_seconds = lookup(network_address_port_translation.value, "icmp_pinhole_timeout_in_seconds", 180)
-      tcp_pinhole_timeout_in_seconds  = lookup(network_address_port_translation.value, "tcp_pinhole_timeout_in_seconds", 180)
-      udp_pinhole_timeout_in_seconds  = lookup(network_address_port_translation.value, "udp_pinhole_timeout_in_seconds", 180)
+      icmp_pinhole_timeout_in_seconds = lookup(network_address_port_translation.value, "icmp_pinhole_timeout_in_seconds", "180")
+      tcp_pinhole_timeout_in_seconds  = lookup(network_address_port_translation.value, "tcp_pinhole_timeout_in_seconds", "180")
+      udp_pinhole_timeout_in_seconds  = lookup(network_address_port_translation.value, "udp_pinhole_timeout_in_seconds", "180")
 
       dynamic "port_range" { # network_address_port_translation.value.port_range
         for_each = network_address_port_translation.value.port_range != null ? network_address_port_translation.value.port_range : []

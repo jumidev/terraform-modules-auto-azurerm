@@ -85,9 +85,9 @@ resource "azurerm_kubernetes_cluster" "this" {
     content {
       balance_similar_node_groups      = lookup(auto_scaler_profile.value, "balance_similar_node_groups", false)
       expander                         = lookup(auto_scaler_profile.value, "expander", "random")
-      max_graceful_termination_sec     = lookup(auto_scaler_profile.value, "max_graceful_termination_sec", 600)
+      max_graceful_termination_sec     = lookup(auto_scaler_profile.value, "max_graceful_termination_sec", "600")
       max_node_provisioning_time       = lookup(auto_scaler_profile.value, "max_node_provisioning_time", "15m")
-      max_unready_nodes                = lookup(auto_scaler_profile.value, "max_unready_nodes", 3)
+      max_unready_nodes                = lookup(auto_scaler_profile.value, "max_unready_nodes", "3")
       max_unready_percentage           = lookup(auto_scaler_profile.value, "max_unready_percentage", "45")
       new_pod_scale_up_delay           = lookup(auto_scaler_profile.value, "new_pod_scale_up_delay", "10s")
       scale_down_delay_after_add       = lookup(auto_scaler_profile.value, "scale_down_delay_after_add", "10m")
@@ -316,12 +316,12 @@ resource "azurerm_kubernetes_cluster" "this" {
       dynamic "load_balancer_profile" { # network_profile.value.load_balancer_profile
         for_each = network_profile.value.load_balancer_profile != null ? network_profile.value.load_balancer_profile : []
         content {
-          idle_timeout_in_minutes     = lookup(load_balancer_profile.value, "idle_timeout_in_minutes", 30)
+          idle_timeout_in_minutes     = lookup(load_balancer_profile.value, "idle_timeout_in_minutes", "30")
           managed_outbound_ip_count   = lookup(load_balancer_profile.value, "managed_outbound_ip_count", null)
           managed_outbound_ipv6_count = lookup(load_balancer_profile.value, "managed_outbound_ipv6_count", null)
           outbound_ip_address_ids     = lookup(load_balancer_profile.value, "outbound_ip_address_ids", null)
           outbound_ip_prefix_ids      = lookup(load_balancer_profile.value, "outbound_ip_prefix_ids", null)
-          outbound_ports_allocated    = lookup(load_balancer_profile.value, "outbound_ports_allocated", 0)
+          outbound_ports_allocated    = lookup(load_balancer_profile.value, "outbound_ports_allocated", "0")
         }
       }
 
@@ -329,7 +329,7 @@ resource "azurerm_kubernetes_cluster" "this" {
       dynamic "nat_gateway_profile" { # network_profile.value.nat_gateway_profile
         for_each = network_profile.value.nat_gateway_profile != null ? network_profile.value.nat_gateway_profile : []
         content {
-          idle_timeout_in_minutes   = lookup(nat_gateway_profile.value, "idle_timeout_in_minutes", 4)
+          idle_timeout_in_minutes   = lookup(nat_gateway_profile.value, "idle_timeout_in_minutes", "4")
           managed_outbound_ip_count = lookup(nat_gateway_profile.value, "managed_outbound_ip_count", null)
         }
       }

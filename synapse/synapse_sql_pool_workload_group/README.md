@@ -41,7 +41,7 @@ tfstate_store = {
 | **importance** | string |  `normal`  |  The workload group importance level. Defaults to `normal`. | 
 | **max_resource_percent_per_request** | string |  `3`  |  The workload group request maximum grant percentage. Defaults to `3`. | 
 | **min_resource_percent_per_request** | string |  -  |  The workload group request minimum grant percentage. | 
-| **query_execution_timeout_in_seconds** | int |  -  |  The workload group query execution timeout. | 
+| **query_execution_timeout_in_seconds** | number |  -  |  The workload group query execution timeout. | 
 
 
 

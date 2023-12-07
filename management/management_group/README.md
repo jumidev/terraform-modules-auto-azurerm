@@ -22,7 +22,7 @@ tfstate_store = {
 ```
 ## Optional associated resources
 
-| `tfstate_input` variable | Information |
+| `tfstate_inputs` variable | Information |
 | -------- | ----------- |
 | **resource_management_private_link_id** | If set to a valid `azurerm_resource_management_private_link` `id`, makes a **azurerm_resource_management_private_link_association** - Manages a Resource Management Private Link Association.|
 | **subscription_id** | If set to a valid `azurerm_subscription` `subscription_id`, makes a **azurerm_management_group_subscription_association** - Manages a Management Group Subscription Association.!> **Note:** When using this resource, configuring `subscription_ids` on the `azurerm_management_group` resource is not supported.|

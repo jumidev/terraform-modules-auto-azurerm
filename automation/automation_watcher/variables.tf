@@ -12,7 +12,7 @@ variable "name" {
 }
 variable "execution_frequency_in_seconds" {
   description = "(REQUIRED) Specify the frequency at which the watcher is invoked."
-  type        = int
+  type        = number
 
 }
 variable "location" {

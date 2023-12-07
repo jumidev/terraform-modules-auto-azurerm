@@ -35,7 +35,7 @@ tfstate_store = {
 ```
 ## Optional associated resource
 
-| `tfstate_input` variable | Information |
+| `tfstate_inputs` variable | Information |
 | -------- | ----------- |
 | **vmware_cluster_id** | If set to a valid `azurerm_vmware_cluster` `id`, makes a **azurerm_vmware_netapp_volume_attachment** - Manages a VMware Private Cloud Netapp File Attachment.|
 
@@ -60,7 +60,7 @@ tfstate_inputs = {
 | **pool_name** | string |  -  |  The name of the NetApp pool in which the NetApp Volume should be created. Changing this forces a new resource to be created. | 
 | **service_level** | string |  `Premium`, `Standard`, `Ultra`  |  The target performance of the file system. Valid values include `Premium`, `Standard`, or `Ultra`. Changing this forces a new resource to be created. | 
 | **subnet_id** | string |  -  |  The ID of the Subnet the NetApp Volume resides in, which must have the `Microsoft.NetApp/volumes` delegation. Changing this forces a new resource to be created. | 
-| **storage_quota_in_gb** | int |  -  |  The maximum Storage Quota allowed for a file system in Gigabytes. | 
+| **storage_quota_in_gb** | number |  -  |  The maximum Storage Quota allowed for a file system in Gigabytes. | 
 
 ## Optional Variables
 

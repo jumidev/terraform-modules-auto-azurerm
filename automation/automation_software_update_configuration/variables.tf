@@ -15,16 +15,16 @@ variable "schedule" {
   type        = map(map(any))
 }
 #
-# schedule block structure   :
-#   frequency (string)         : (REQUIRED) The frequency of the schedule. - can be either 'OneTime', 'Day', 'Hour', 'Week', or 'Month'.
-#   is_enabled (bool)          : Whether the schedule is enabled. Defaults to 'true'.
-#   description (string)       : A description for this Schedule.
-#   interval (int)             : The number of 'frequency's between runs. Only valid when frequency is 'Day', 'Hour', 'Week', or 'Month'.
-#   start_time (string)        : Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
-#   expiry_time (string)       : The end time of the schedule.
-#   time_zone (string)         : The timezone of the start time. Defaults to 'Etc/UTC'. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
-#   advanced_week_days (string): List of days of the week that the job should execute on. Only valid when frequency is 'Week'. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'.
-#   advanced_month_days (int)  : List of days of the month that the job should execute on. Must be between '1' and '31'. '-1' for last day of the month. Only valid when frequency is 'Month'.
+# schedule block structure    :
+#   frequency (string)          : (REQUIRED) The frequency of the schedule. - can be either 'OneTime', 'Day', 'Hour', 'Week', or 'Month'.
+#   is_enabled (bool)           : Whether the schedule is enabled. Defaults to 'true'.
+#   description (string)        : A description for this Schedule.
+#   interval (number)           : The number of 'frequency's between runs. Only valid when frequency is 'Day', 'Hour', 'Week', or 'Month'.
+#   start_time (string)         : Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
+#   expiry_time (string)        : The end time of the schedule.
+#   time_zone (string)          : The timezone of the start time. Defaults to 'Etc/UTC'. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
+#   advanced_week_days (string) : List of days of the week that the job should execute on. Only valid when frequency is 'Week'. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'.
+#   advanced_month_days (number): List of days of the month that the job should execute on. Must be between '1' and '31'. '-1' for last day of the month. Only valid when frequency is 'Month'.
 
 
 

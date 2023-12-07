@@ -49,21 +49,22 @@ tfstate_store = {
 | **private_static_ip_address** | string |  -  |  -  |  The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of `subnet_id`. Changing this forces a new resource to be created. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether or not public network access is allowed for this Redis Cache. `true` means this resource could be accessed by both public and private endpoint. `false` means only private endpoint access is allowed. Defaults to `true`. | 
 | **redis_configuration** | [block](#redis_configuration-block-structure) |  -  |  -  |  A `redis_configuration` block - with some limitations by SKU - defaults/details are shown below. | 
-| **replicas_per_master** | int |  -  |  -  |  Amount of replicas to create per master for this Redis Cache. | 
-| **replicas_per_primary** | int |  -  |  -  |  Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal. | 
+| **replicas_per_master** | number |  -  |  -  |  Amount of replicas to create per master for this Redis Cache. | 
+| **replicas_per_primary** | number |  -  |  -  |  Amount of replicas to create per primary for this Redis Cache. If both `replicas_per_primary` and `replicas_per_master` are set, they need to be equal. | 
 | **redis_version** | string |  -  |  `4`, `6`  |  Redis version. Only major version needed. Valid values: `4`, `6`. | 
 | **tenant_settings** | string |  -  |  -  |  A mapping of tenant settings to assign to the resource. | 
-| **shard_count** | int |  -  |  -  |  *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster. | 
+| **shard_count** | number |  -  |  -  |  *Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster. | 
 | **subnet_id** | string |  -  |  -  |  *Only available when using the Premium SKU* The ID of the Subnet within which the Redis Cache should be deployed. This Subnet must only contain Azure Cache for Redis instances without any other type of resources. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created. | 
 
-### `identity` block structure
+### `patch_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
+| `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
+| `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
+| `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
 
 ### `redis_configuration` block structure
 
@@ -80,17 +81,16 @@ tfstate_store = {
 | `maxfragmentationmemory_reserved` | string | No | - | Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below. |
 | `rdb_backup_enabled` | bool | No | False | Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'. |
 | `rdb_backup_frequency` | string | No | - | The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'. |
-| `rdb_backup_max_snapshot_count` | int | No | - | The maximum number of snapshots to create as a backup. Only supported for Premium SKUs. |
+| `rdb_backup_max_snapshot_count` | number | No | - | The maximum number of snapshots to create as a backup. Only supported for Premium SKUs. |
 | `rdb_storage_connection_string` | string | No | - | The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. |
 | `notify_keyspace_events` | string | No | - | Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) |
 
-### `patch_schedule` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
-| `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
-| `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
 
 
 
@@ -107,6 +107,6 @@ tfstate_store = {
 | **primary_connection_string** | string | No  | The primary connection string of the Redis Instance. | 
 | **secondary_connection_string** | string | No  | The secondary connection string of the Redis Instance. | 
 | **redis_configuration** | block | No  | A `redis_configuration` block: | 
-| **maxclients** | int | No  | Returns the max number of connected clients at the same time. | 
+| **maxclients** | number | No  | Returns the max number of connected clients at the same time. | 
 
 Additionally, all variables are provided as outputs.

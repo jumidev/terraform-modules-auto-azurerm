@@ -53,13 +53,6 @@ tfstate_store = {
 | **kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
 | **pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
-### `pivot` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the column which should be used for this sub-view in the Cost Analysis UI. |
-| `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
-
 ### `kpi` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,6 +74,13 @@ tfstate_store = {
 | `granularity` | string | Yes | - | The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'. |
 | `grouping` | [block](#grouping-block-structure) | No | - | One or more 'grouping' blocks. |
 | `sorting` | [block](#sorting-block-structure) | No | - | One or more 'sorting' blocks, containing the order by expression to be used in the report |
+
+### `pivot` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column which should be used for this sub-view in the Cost Analysis UI. |
+| `type` | string | Yes | - | The data type to show in this sub-view. Possible values are 'Dimension' and 'TagKey'. |
 
 ### `grouping` block structure
 

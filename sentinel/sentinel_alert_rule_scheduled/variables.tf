@@ -163,6 +163,6 @@ variable "trigger_operator" {
 }
 variable "trigger_threshold" {
   description = "The baseline number of query results generated, combined with 'trigger_operator', setting alert threshold of this Sentinel Scheduled Alert Rule. Defaults to '0'."
-  type        = int
-  default     = 0
+  type        = number
+  default     = "0"
 }

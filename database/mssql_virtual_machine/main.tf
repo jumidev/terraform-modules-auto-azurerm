@@ -88,11 +88,11 @@ resource "azurerm_mssql_virtual_machine" "this" {
         content {
           default_file_path      = lookup(temp_db_settings.value, "default_file_path") # (Required) 
           luns                   = lookup(temp_db_settings.value, "luns")              # (Required) 
-          data_file_count        = lookup(temp_db_settings.value, "data_file_count", 8)
-          data_file_size_mb      = lookup(temp_db_settings.value, "data_file_size_mb", 256)
-          data_file_growth_in_mb = lookup(temp_db_settings.value, "data_file_growth_in_mb", 512)
-          log_file_size_mb       = lookup(temp_db_settings.value, "log_file_size_mb", 256)
-          log_file_growth_mb     = lookup(temp_db_settings.value, "log_file_growth_mb", 512)
+          data_file_count        = lookup(temp_db_settings.value, "data_file_count", "8")
+          data_file_size_mb      = lookup(temp_db_settings.value, "data_file_size_mb", "256")
+          data_file_growth_in_mb = lookup(temp_db_settings.value, "data_file_growth_in_mb", "512")
+          log_file_size_mb       = lookup(temp_db_settings.value, "log_file_size_mb", "256")
+          log_file_growth_mb     = lookup(temp_db_settings.value, "log_file_growth_mb", "512")
         }
       }
 

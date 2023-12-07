@@ -34,7 +34,7 @@ variable "schedule" {
 #   start_date_time (string): The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
 #
 # expiration block structure:
-#   duration_days (int)       : The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created.
+#   duration_days (number)    : The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created.
 #   duration_hours (string)   : The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created.
 #   end_date_time (string)    : The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created.
 

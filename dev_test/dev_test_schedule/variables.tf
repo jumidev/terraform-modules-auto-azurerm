@@ -37,7 +37,7 @@ variable "notification_settings" {
 #
 # notification_settings block structure:
 #   status (string)                      : The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled'
-#   time_in_minutes (int)                : Time in minutes before event at which notification will be sent.
+#   time_in_minutes (number)             : Time in minutes before event at which notification will be sent.
 #   webhook_url (string)                 : The webhook URL to which the notification will be sent.
 
 

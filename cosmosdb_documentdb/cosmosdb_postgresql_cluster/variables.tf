@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "node_count" {
   description = "(REQUIRED) The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between '0' and '20' except '1'."
-  type        = int
+  type        = number
 
 }
 

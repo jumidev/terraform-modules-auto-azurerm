@@ -30,11 +30,11 @@ variable "tags" {
 }
 variable "not_before_date" {
   description = "Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z')."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "expiration_date" {
   description = "Expiration UTC datetime (Y-m-d'T'H:M:S'Z')."
-  type        = datetime
+  type        = string
   default     = null
 }

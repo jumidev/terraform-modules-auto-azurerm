@@ -80,7 +80,7 @@ variable "retry" {
 }
 #
 # retry block structure:
-#   count (int)          : (REQUIRED) The maximum retry attempts if the pipeline run failed.
+#   count (number)       : (REQUIRED) The maximum retry attempts if the pipeline run failed.
 #   interval (string)    : The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'.
 
 

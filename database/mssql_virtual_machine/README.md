@@ -52,23 +52,6 @@ tfstate_store = {
 | **wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
-| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
-| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
-
-### `wsfc_domain_credential` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
-| `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
-| `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
-
 ### `sql_instance` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,23 +64,6 @@ tfstate_store = {
 | `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
 | `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
 
-### `auto_patching` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
-| `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
-| `maintenance_window_duration_in_minutes` | int | Yes | - | The size of the Maintenance Window in minutes. |
-
-### `key_vault_credential` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The credential name. |
-| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
-| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
-| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
-
 ### `assessment` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -105,13 +71,6 @@ tfstate_store = {
 | `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
 | `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
 | `schedule` | [block](#schedule-block-structure) | No | - | An 'schedule' block. |
-
-### `storage_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_file_path` | string | Yes | - | The SQL Server default path |
-| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
 
 ### `storage_configuration` block structure
 
@@ -124,17 +83,58 @@ tfstate_store = {
 | `system_db_on_data_disk_enabled` | bool | No | False | Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'. |
 | `temp_db_settings` | [block](#temp_db_settings-block-structure) | No | - | An 'temp_db_settings' block. |
 
+### `storage_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+
+### `auto_patching` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
+| `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
+| `maintenance_window_duration_in_minutes` | number | Yes | - | The size of the Maintenance Window in minutes. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
+| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
+| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
+
+### `key_vault_credential` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The credential name. |
+| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
+| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
+| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
+
+### `wsfc_domain_credential` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
+| `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
+| `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
+
 ### `temp_db_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `default_file_path` | string | Yes | - | The SQL Server default path |
 | `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
-| `data_file_count` | int | No | 8 | The SQL Server default file count. This value defaults to '8' |
-| `data_file_size_mb` | int | No | 256 | The SQL Server default file size - This value defaults to '256' |
-| `data_file_growth_in_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
-| `log_file_size_mb` | int | No | 256 | The SQL Server default file size - This value defaults to '256' |
-| `log_file_growth_mb` | int | No | 512 | The SQL Server default file size - This value defaults to '512' |
+| `data_file_count` | number | No | 8 | The SQL Server default file count. This value defaults to '8' |
+| `data_file_size_mb` | number | No | 256 | The SQL Server default file size - This value defaults to '256' |
+| `data_file_growth_in_mb` | number | No | 512 | The SQL Server default file size - This value defaults to '512' |
+| `log_file_size_mb` | number | No | 256 | The SQL Server default file size - This value defaults to '256' |
+| `log_file_growth_mb` | number | No | 512 | The SQL Server default file size - This value defaults to '512' |
 
 
 

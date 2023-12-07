@@ -64,6 +64,13 @@ tfstate_store = {
 | **notes** | string |  -  |  Any notes about the Virtual Machine. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `inbound_nat_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | The Protocol used for this NAT Rule. Possible values are 'Tcp' and 'Udp'. |
+| `backend_port` | string | Yes | - | The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created. |
+
 ### `gallery_image_reference` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,13 +79,6 @@ tfstate_store = {
 | `publisher` | string | Yes | - | The Publisher of the Gallery Image. Changing this forces a new resource to be created. |
 | `sku` | string | Yes | - | The SKU of the Gallery Image. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | The Version of the Gallery Image. Changing this forces a new resource to be created. |
-
-### `inbound_nat_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | The Protocol used for this NAT Rule. Possible values are 'Tcp' and 'Udp'. |
-| `backend_port` | string | Yes | - | The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created. |
 
 
 

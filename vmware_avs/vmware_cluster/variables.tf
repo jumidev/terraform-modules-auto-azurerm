@@ -12,7 +12,7 @@ variable "vmware_cloud_id" {
 }
 variable "cluster_node_count" {
   description = "(REQUIRED) The count of the VMware Cluster nodes."
-  type        = int
+  type        = number
 
 }
 variable "sku_name" {

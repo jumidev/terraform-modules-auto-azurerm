@@ -59,7 +59,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **authentication_mode** | string |  `ConnectionString`  |  `Msi`, `ConnectionString`  |  The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
 | **batch_max_wait_time** | string |  -  |  -  |  The maximum wait time per batch in `hh:mm:ss` e.g. `00:02:00` for two minutes. | 
-| **batch_min_rows** | int |  -  |  -  |  The minimum number of rows per batch (must be between `0` and `1000000`). | 
+| **batch_min_rows** | number |  -  |  -  |  The minimum number of rows per batch (must be between `0` and `1000000`). | 
 | **storage_account_key** | string |  -  |  -  |  The Access Key which should be used to connect to this Storage Account. | 
 
 ### `serialization` block structure

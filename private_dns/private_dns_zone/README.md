@@ -46,7 +46,7 @@ tfstate_store = {
 | `minimum_ttl` | string | No | 10 | The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to '10'. |
 | `refresh_time` | string | No | 3600 | The refresh time for the SOA record. Defaults to '3600'. |
 | `retry_time` | string | No | 300 | The retry time for the SOA record. Defaults to '300'. |
-| `ttl` | int | No | 3600 | The Time To Live of the SOA Record in seconds. Defaults to '3600'. |
+| `ttl` | number | No | 3600 | The Time To Live of the SOA Record in seconds. Defaults to '3600'. |
 | `tags` | map | No | - | A mapping of tags to assign to the Record Set. |
 
 
@@ -57,7 +57,7 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The Private DNS Zone ID. | 
 | **soa_record** | block | No  | A `soa_record` block. | 
-| **number_of_record_sets** | int | No  | The current number of record sets in this Private DNS zone. | 
+| **number_of_record_sets** | number | No  | The current number of record sets in this Private DNS zone. | 
 | **max_number_of_record_sets** | string | No  | The maximum number of record sets that can be created in this Private DNS zone. | 
 | **max_number_of_virtual_network_links** | string | No  | The maximum number of virtual networks that can be linked to this Private DNS zone. | 
 | **max_number_of_virtual_network_links_with_registration** | string | No  | The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. | 

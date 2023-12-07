@@ -37,7 +37,7 @@ resource "azurerm_network_watcher_flow_log" "this" {
       workspace_id          = lookup(traffic_analytics.value, "workspace_id")          # (Required) 
       workspace_region      = lookup(traffic_analytics.value, "workspace_region")      # (Required) 
       workspace_resource_id = lookup(traffic_analytics.value, "workspace_resource_id") # (Required) 
-      interval_in_minutes   = lookup(traffic_analytics.value, "interval_in_minutes", 60)
+      interval_in_minutes   = lookup(traffic_analytics.value, "interval_in_minutes", "60")
     }
   }
 

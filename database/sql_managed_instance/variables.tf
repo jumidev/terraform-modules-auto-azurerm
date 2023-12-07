@@ -27,7 +27,7 @@ variable "vcores" {
 }
 variable "storage_size_in_gb" {
   description = "(REQUIRED) Maximum storage space for your instance. It should be a multiple of 32GB."
-  type        = int
+  type        = number
 
 }
 variable "license_type" {

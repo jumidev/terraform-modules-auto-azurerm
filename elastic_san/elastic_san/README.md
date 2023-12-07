@@ -62,9 +62,9 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Elastic SAN resource. | 
 | **total_iops** | string | No  | Total Provisioned IOps of the Elastic SAN resource. | 
-| **total_mbps** | int | No  | Total Provisioned MBps Elastic SAN resource. | 
+| **total_mbps** | number | No  | Total Provisioned MBps Elastic SAN resource. | 
 | **total_size_in_tib** | string | No  | Total size of the Elastic SAN resource in TB. | 
 | **total_volume_size_in_gib** | string | No  | Total size of the provisioned Volumes in GiB. | 
-| **volume_group_count** | int | No  | Total number of volume groups in this Elastic SAN resource. | 
+| **volume_group_count** | number | No  | Total number of volume groups in this Elastic SAN resource. | 
 
 Additionally, all variables are provided as outputs.

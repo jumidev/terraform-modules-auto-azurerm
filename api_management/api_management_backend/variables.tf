@@ -73,13 +73,13 @@ variable "service_fabric_cluster" {
   default     = null
 }
 #
-# service_fabric_cluster block structure:
-#   client_certificate_thumbprint (string): The client certificate thumbprint for the management endpoint.
-#   client_certificate_id (string)        : The client certificate resource id for the management endpoint.
-#   management_endpoints (list)           : (REQUIRED) A list of cluster management endpoints.
-#   max_partition_resolution_retries (int): (REQUIRED) The maximum number of retries when attempting resolve the partition.
-#   server_certificate_thumbprints (list) : A list of thumbprints of the server certificates of the Service Fabric cluster.
-#   server_x509_name (list)               : One or more 'server_x509_name' blocks.
+# service_fabric_cluster block structure   :
+#   client_certificate_thumbprint (string)   : The client certificate thumbprint for the management endpoint.
+#   client_certificate_id (string)           : The client certificate resource id for the management endpoint.
+#   management_endpoints (list)              : (REQUIRED) A list of cluster management endpoints.
+#   max_partition_resolution_retries (number): (REQUIRED) The maximum number of retries when attempting resolve the partition.
+#   server_certificate_thumbprints (list)    : A list of thumbprints of the server certificates of the Service Fabric cluster.
+#   server_x509_name (list)                  : One or more 'server_x509_name' blocks.
 
 
 variable "title" {

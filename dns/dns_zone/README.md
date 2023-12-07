@@ -48,7 +48,7 @@ tfstate_store = {
 | `refresh_time` | string | No | 3600 | The refresh time for the SOA record. Defaults to '3600'. |
 | `retry_time` | string | No | 300 | The retry time for the SOA record. Defaults to '300'. |
 | `serial_number` | string | No | 1 | The serial number for the SOA record. Defaults to '1'. |
-| `ttl` | int | No | 3600 | The Time To Live of the SOA Record in seconds. Defaults to '3600'. |
+| `ttl` | number | No | 3600 | The Time To Live of the SOA Record in seconds. Defaults to '3600'. |
 | `tags` | map | No | - | A mapping of tags to assign to the Record Set. |
 
 
@@ -58,8 +58,8 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The DNS Zone ID. | 
-| **max_number_of_record_sets** | int | No  | Maximum number of Records in the zone. Defaults to `1000`. | 
-| **number_of_record_sets** | int | No  | The number of records already in the zone. | 
+| **max_number_of_record_sets** | number | No  | Maximum number of Records in the zone. Defaults to `1000`. | 
+| **number_of_record_sets** | number | No  | The number of records already in the zone. | 
 | **name_servers** | list | No  | A list of values that make up the NS record for the zone. | 
 
 Additionally, all variables are provided as outputs.

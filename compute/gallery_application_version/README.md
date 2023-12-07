@@ -61,18 +61,10 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **config_file** | string |  -  |  Specifies the name of the config file on the VM. Changing this forces a new resource to be created. | 
 | **enable_health_check** | bool |  `False`  |  Should the Gallery Application reports health. Defaults to `false`. | 
-| **end_of_life_date** | datetime |  -  |  The end of life date in RFC3339 format of the Gallery Application Version. | 
+| **end_of_life_date** | string |  -  |  The end of life date in RFC3339 format of the Gallery Application Version. | 
 | **exclude_from_latest** | bool |  `False`  |  Should the Gallery Application Version be excluded from the `latest` filter? If set to `true` this Gallery Application Version won't be returned for the `latest` version. Defaults to `false`. | 
 | **package_file** | string |  -  |  Specifies the name of the package file on the VM. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Gallery Application Version. | 
-
-### `manage_action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `install` | string | Yes | - | The command to install the Gallery Application. Changing this forces a new resource to be created. |
-| `remove` | string | Yes | - | The command to remove the Gallery Application. Changing this forces a new resource to be created. |
-| `update` | datetime | No | - | The command to update the Gallery Application. Changing this forces a new resource to be created. |
 
 ### `source` block structure
 
@@ -89,6 +81,14 @@ tfstate_store = {
 | `regional_replica_count` | string | Yes | - | The number of replicas of the Gallery Application Version to be created per region. Possible values are between '1' and '10'. |
 | `exclude_from_latest` | bool | No | False | Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'. |
 | `storage_account_type` | string | No | Standard_LRS | The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. |
+
+### `manage_action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `install` | string | Yes | - | The command to install the Gallery Application. Changing this forces a new resource to be created. |
+| `remove` | string | Yes | - | The command to remove the Gallery Application. Changing this forces a new resource to be created. |
+| `update` | string | No | - | The command to update the Gallery Application. Changing this forces a new resource to be created. |
 
 
 

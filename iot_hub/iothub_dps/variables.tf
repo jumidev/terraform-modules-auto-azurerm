@@ -22,7 +22,7 @@ variable "sku" {
 #
 # sku block structure:
 #   name (string)      : (REQUIRED) The name of the sku. Currently can only be set to 'S1'.
-#   capacity (int)     : (REQUIRED) The number of provisioned IoT Device Provisioning Service units.
+#   capacity (number)  : (REQUIRED) The number of provisioned IoT Device Provisioning Service units.
 
 
 

@@ -28,6 +28,6 @@ variable "long_term_retention_policy" {
 
 variable "short_term_retention_days" {
   description = "The backup retention period in days. This is how many days Point-in-Time Restore will be supported."
-  type        = int
+  type        = number
   default     = null
 }

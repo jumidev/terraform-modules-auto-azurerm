@@ -32,7 +32,7 @@ variable "sku_name" {
 }
 variable "storage_size_in_gb" {
   description = "(REQUIRED) Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB)."
-  type        = int
+  type        = number
 
 }
 variable "subnet_id" {

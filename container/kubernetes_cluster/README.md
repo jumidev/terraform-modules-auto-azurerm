@@ -111,102 +111,14 @@ tfstate_store = {
 | **web_app_routing** | [block](#web_app_routing-block-structure) |  -  |  -  |  A `web_app_routing` block. | 
 | **windows_profile** | [block](#windows_profile-block-structure) |  -  |  -  |  A `windows_profile` block. | 
 
-### `load_balancer_profile` block structure
+### `ingress_application_gateway` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `idle_timeout_in_minutes` | int | No | 30 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'. |
-| `managed_outbound_ip_count` | int | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
-| `managed_outbound_ipv6_count` | int | No | - | The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. |
-| `outbound_ip_address_ids` | string | No | - | The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer. |
-| `outbound_ip_prefix_ids` | string | No | - | The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer. |
-| `outbound_ports_allocated` | int | No | 0 | Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'. |
-
-### `default_node_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for the default Kubernetes Node Pool. |
-| `vm_size` | string | Yes | - | The size of the Virtual Machine, such as 'Standard_DS2_v2'. 'temporary_name_for_rotation' must be specified when attempting a resize. |
-| `capacity_reservation_group_id` | string | No | - | Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created. |
-| `custom_ca_trust_enabled` | bool | No | - | Specifies whether to trust a Custom CA. |
-| `enable_auto_scaling` | bool | No | - | Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? |
-| `enable_host_encryption` | bool | No | - | Should the nodes in the Default Node Pool have host encryption enabled? 'temporary_name_for_rotation' must be specified when changing this property. |
-| `enable_node_public_ip` | bool | No | - | Should nodes in this Node Pool have a Public IP Address? 'temporary_name_for_rotation' must be specified when changing this property. |
-| `gpu_instance` | string | No | - | Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are 'MIG1g', 'MIG2g', 'MIG3g', 'MIG4g' and 'MIG7g'. Changing this forces a new resource to be created. |
-| `host_group_id` | string | No | - | Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created. |
-| `kubelet_config` | [block](#kubelet_config-block-structure) | No | - | A 'kubelet_config' block. 'temporary_name_for_rotation' must be specified when changing this block. |
-| `linux_os_config` | [block](#linux_os_config-block-structure) | No | - | A 'linux_os_config' block. 'temporary_name_for_rotation' must be specified when changing this block. |
-| `fips_enabled` | bool | No | - | Should the nodes in this Node Pool have Federal Information Processing Standard enabled? 'temporary_name_for_rotation' must be specified when changing this block. |
-| `kubelet_disk_type` | string | No | - | The type of disk used by kubelet. Possible values are 'OS' and 'Temporary'. |
-| `max_pods` | int | No | - | The maximum number of pods that can run on each agent. 'temporary_name_for_rotation' must be specified when changing this property. |
-| `message_of_the_day` | string | No | - | A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created. |
-| `node_network_profile` | [block](#node_network_profile-block-structure) | No | - | A 'node_network_profile' block. |
-| `node_public_ip_prefix_id` | string | No | - | Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. 'enable_node_public_ip' should be 'true'. Changing this forces a new resource to be created. |
-| `node_labels` | string | No | - | A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. |
-| `node_taints` | list | No | - | A list of the taints added to new nodes during node pool create and scale. 'temporary_name_for_rotation' must be specified when changing this property. |
-| `only_critical_addons_enabled` | bool | No | - | Enabling this option will taint default node pool with 'CriticalAddonsOnly=true:NoSchedule' taint. 'temporary_name_for_rotation' must be specified when changing this property. |
-| `orchestrator_version` | string | No | - | Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by 'kubernetes_version'. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). |
-| `os_disk_size_gb` | int | No | - | The size of the OS Disk which should be used for each agent in the Node Pool. 'temporary_name_for_rotation' must be specified when attempting a change. |
-| `os_disk_type` | string | No | Managed | The type of disk which should be used for the Operating System. Possible values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. 'temporary_name_for_rotation' must be specified when attempting a change. |
-| `os_sku` | string | No | Ubuntu | Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'CBLMariner', 'Mariner', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. 'temporary_name_for_rotation' must be specified when attempting a change. |
-| `pod_subnet_id` | string | No | - | The ID of the Subnet where the pods in the default Node Pool should exist. |
-| `proximity_placement_group_id` | string | No | - | The ID of the Proximity Placement Group. Changing this forces a new resource to be created. |
-| `scale_down_mode` | string | No | Delete | Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are 'Delete' and 'Deallocate'. Defaults to 'Delete'. |
-| `snapshot_id` | string | No | - | The ID of the Snapshot which should be used to create this default Node Pool. 'temporary_name_for_rotation' must be specified when changing this property. |
-| `temporary_name_for_rotation` | string | No | - | Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing. |
-| `type` | string | No | VirtualMachineScaleSets | The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created. |
-| `tags` | map | No | - | A mapping of tags to assign to the Node Pool. |
-| `ultra_ssd_enabled` | bool | No | False | Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to 'false'. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. 'temporary_name_for_rotation' must be specified when attempting a change. |
-| `upgrade_settings` | [block](#upgrade_settings-block-structure) | No | - | A 'upgrade_settings' block. |
-| `vnet_subnet_id` | string | No | - | The ID of a Subnet where the Kubernetes Node Pool should exist. |
-| `workload_runtime` | string | No | - | Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'. |
-| `zones` | string | No | - | Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property. |
-| `max_count` | int | No | - | The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. |
-| `min_count` | int | No | - | The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. |
-| `node_count` | int | No | - | The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'. |
-
-### `http_proxy_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `http_proxy` | string | No | - | The proxy address to be used when communicating over HTTP. |
-| `https_proxy` | string | No | - | The proxy address to be used when communicating over HTTPS. |
-| `no_proxy` | string | No | - | The list of domains that will not use the proxy for communication. |
-| `trusted_ca` | string | No | - | The base64 encoded alternative CA certificate content in PEM format. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. |
-
-### `node_network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
-
-### `workload_autoscaler_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `keda_enabled` | string | No | - | Specifies whether KEDA Autoscaler can be used for workloads. |
-| `vertical_pod_autoscaler_enabled` | bool | No | - | Specifies whether Vertical Pod Autoscaler should be enabled. |
-
-### `gmsa` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_server` | string | Yes | - | Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
-| `root_domain` | string | Yes | - | Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
-
-### `confidential_computing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `sgx_quote_helper_enabled` | bool | Yes | - | Should the SGX quote helper be enabled? |
+| `gateway_id` | string | No | - | The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details. |
+| `gateway_name` | string | No | - | The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
+| `subnet_cidr` | string | No | - | The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
+| `subnet_id` | string | No | - | The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
 
 ### `key_management_service` block structure
 
@@ -214,21 +126,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_key_id` | string | Yes | - | Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When 'enabled' is 'false', leave the field empty. |
 | `key_vault_network_access` | string | No | Public | Network access of the key vault Network access of key vault. The possible values are 'Public' and 'Private'. 'Public' means the key vault allows public access from all networks. 'Private' means the key vault disables public access and enables private link. Defaults to 'Public'. |
-
-### `api_server_access_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorized_ip_ranges` | string | No | - | Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. |
-| `subnet_id` | string | No | - | The ID of the Subnet where the API server endpoint is delegated to. |
-| `vnet_integration_enabled` | bool | No | - | Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). |
-
-### `nat_gateway_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `idle_timeout_in_minutes` | int | No | 4 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'. |
-| `managed_outbound_ip_count` | int | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
 
 ### `storage_profile` block structure
 
@@ -240,42 +137,18 @@ tfstate_store = {
 | `file_driver_enabled` | bool | No | True | Is the File CSI driver enabled? Defaults to 'true'. |
 | `snapshot_controller_enabled` | bool | No | True | Is the Snapshot Controller enabled? Defaults to 'true'. |
 
-### `ingress_application_gateway` block structure
+### `confidential_computing` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `gateway_id` | string | No | - | The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details. |
-| `gateway_name` | string | No | - | The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
-| `subnet_cidr` | string | No | - | The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
-| `subnet_id` | string | No | - | The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
+| `sgx_quote_helper_enabled` | bool | Yes | - | Should the SGX quote helper be enabled? |
 
-### `not_allowed` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `end` | string | Yes | - | The end of a time span, formatted as an RFC3339 string. |
-| `start` | string | Yes | - | The start of a time span, formatted as an RFC3339 string. |
-
-### `network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `network_plugin` | string | Yes | - | Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. |
-| `network_mode` | string | No | - | Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. |
-| `network_policy` | string | No | - | Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. |
-| `dns_service_ip` | string | No | - | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created. |
-| `docker_bridge_cidr` | string | No | - | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created. |
-| `ebpf_data_plane` | string | No | - | Specifies the eBPF data plane used for building the Kubernetes network. Possible value is 'cilium'. Disabling this forces a new resource to be created. |
-| `network_plugin_mode` | string | No | - | Specifies the network plugin mode used for building the Kubernetes network. Possible value is 'overlay'. |
-| `outbound_type` | string | No | loadBalancer | The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are 'loadBalancer', 'userDefinedRouting', 'managedNATGateway' and 'userAssignedNATGateway'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created. |
-| `pod_cidr` | string | No | - | The CIDR to use for pod IP addresses. This field can only be set when 'network_plugin' is set to 'kubenet'. Changing this forces a new resource to be created. |
-| `pod_cidrs` | list | No | - | A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created. |
-| `service_cidr` | string | No | - | The Network Range used by the Kubernetes service. Changing this forces a new resource to be created. |
-| `service_cidrs` | list | No | - | A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created. |
-| `ip_versions` | string | No | - | Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created. |
-| `load_balancer_sku` | string | No | standard | Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are 'basic' and 'standard'. Defaults to 'standard'. Changing this forces a new resource to be created. |
-| `load_balancer_profile` | [block](#load_balancer_profile-block-structure) | No | - | A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created. |
-| `nat_gateway_profile` | [block](#nat_gateway_profile-block-structure) | No | - | A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. |
 
 ### `service_principal` block structure
 
@@ -284,13 +157,42 @@ tfstate_store = {
 | `client_id` | string | Yes | - | The Client ID for the Service Principal. |
 | `client_secret` | string | Yes | - | The Client Secret for the Service Principal. |
 
-### `service_mesh_profile` block structure
+### `linux_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The mode of the service mesh. Possible value is 'Istio'. |
-| `internal_ingress_gateway_enabled` | bool | No | - | Is Istio Internal Ingress Gateway enabled? |
-| `external_ingress_gateway_enabled` | bool | No | - | Is Istio External Ingress Gateway enabled? |
+| `admin_username` | string | Yes | - | The Admin Username for the Cluster. Changing this forces a new resource to be created. |
+| `ssh_key` | string | Yes | - | An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). |
+
+### `api_server_access_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorized_ip_ranges` | string | No | - | Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. |
+| `subnet_id` | string | No | - | The ID of the Subnet where the API server endpoint is delegated to. |
+| `vnet_integration_enabled` | bool | No | - | Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). |
+
+### `kubelet_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). |
+| `container_log_max_line` | string | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. |
+| `container_log_max_size_mb` | string | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. |
+| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? |
+| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. |
+| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',. |
+| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. |
+| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. |
+| `pod_max_pid` | string | No | - | Specifies the maximum number of processes per pod. |
+| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. |
+
+### `nat_gateway_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `idle_timeout_in_minutes` | number | No | 4 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'. |
+| `managed_outbound_ip_count` | number | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
 
 ### `web_app_routing` block structure
 
@@ -298,33 +200,22 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `dns_zone_id` | string | Yes | - | Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''. |
 
-### `monitor_metrics` block structure
+### `kubelet_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `annotations_allowed` | bool | No | - | Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. |
-| `labels_allowed` | bool | No | - | Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+| `client_id` | string | No | - | The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `object_id` | string | No | - | The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
 
-### `microsoft_defender` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. |
-
-### `maintenance_window_node_os` block structure
+### `windows_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
-| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
-| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
-| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
-| `week_index` | string | No | - | The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. |
-| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
-| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
-| `start_date` | datetime | No | - | The date on which the maintenance window begins to take effect. |
-| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+| `admin_username` | string | Yes | - | The Admin Username for Windows VMs. Changing this forces a new resource to be created. |
+| `admin_password` | string | No | - | The Admin Password for Windows VMs. Length must be between 14 and 123 characters. |
+| `license` | string | No | - | Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. |
+| `gmsa` | [block](#gmsa-block-structure) | No | - | A 'gmsa' block. |
 
 ### `azure_active_directory_role_based_access_control` block structure
 
@@ -338,15 +229,36 @@ tfstate_store = {
 | `server_app_id` | string | No | - | The Server ID of an Azure Active Directory Application. |
 | `server_app_secret` | string | No | - | The Server Secret of an Azure Active Directory Application. |
 
+### `node_network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
+
+### `maintenance_window_node_os` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
+| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
+| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
+| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
+| `week_index` | string | No | - | The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. |
+| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
+| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
+| `start_date` | string | No | - | The date on which the maintenance window begins to take effect. |
+| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+
 ### `auto_scaler_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `balance_similar_node_groups` | bool | No | False | Detect similar node groups and balance the number of nodes between them. Defaults to 'false'. |
 | `expander` | string | No | random | Expander to use. Possible values are 'least-waste', 'priority', 'most-pods' and 'random'. Defaults to 'random'. |
-| `max_graceful_termination_sec` | int | No | 600 | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to '600'. |
+| `max_graceful_termination_sec` | number | No | 600 | Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. Defaults to '600'. |
 | `max_node_provisioning_time` | string | No | 15m | Maximum time the autoscaler waits for a node to be provisioned. Defaults to '15m'. |
-| `max_unready_nodes` | int | No | 3 | Maximum Number of allowed unready nodes. Defaults to '3'. |
+| `max_unready_nodes` | number | No | 3 | Maximum Number of allowed unready nodes. Defaults to '3'. |
 | `max_unready_percentage` | string | No | 45 | Maximum percentage of unready nodes the cluster autoscaler will stop if the percentage is exceeded. Defaults to '45'. |
 | `new_pod_scale_up_delay` | string | No | 10s | For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. Defaults to '10s'. |
 | `scale_down_delay_after_add` | string | No | 10m | How long after the scale up of AKS nodes the scale down evaluation resumes. Defaults to '10m'. |
@@ -360,64 +272,14 @@ tfstate_store = {
 | `skip_nodes_with_local_storage` | bool | No | True | If 'true' cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to 'true'. |
 | `skip_nodes_with_system_pods` | bool | No | True | If 'true' cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to 'true'. |
 
-### `windows_profile` block structure
+### `http_proxy_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The Admin Username for Windows VMs. Changing this forces a new resource to be created. |
-| `admin_password` | string | No | - | The Admin Password for Windows VMs. Length must be between 14 and 123 characters. |
-| `license` | string | No | - | Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. |
-| `gmsa` | [block](#gmsa-block-structure) | No | - | A 'gmsa' block. |
-
-### `linux_os_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `swap_file_size_mb` | string | No | - | Specifies the size of the swap file on each node in MB. |
-| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
-| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. |
-| `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. |
-
-### `upgrade_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
-
-### `aci_connector_linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_name` | string | Yes | - | The subnet name for the virtual nodes to run. |
-
-### `maintenance_window_auto_upgrade` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
-| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
-| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
-| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
-| `week_index` | string | No | - | Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency. |
-| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
-| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
-| `start_date` | datetime | No | - | The date on which the maintenance window begins to take effect. |
-| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
-
-### `key_vault_secrets_provider` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_rotation_enabled` | bool | No | - | Should the secret store CSI driver on the AKS cluster be enabled? |
-| `secret_rotation_interval` | string | No | 2m | The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. |
-
-### `linux_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The Admin Username for the Cluster. Changing this forces a new resource to be created. |
-| `ssh_key` | string | Yes | - | An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). |
+| `http_proxy` | string | No | - | The proxy address to be used when communicating over HTTP. |
+| `https_proxy` | string | No | - | The proxy address to be used when communicating over HTTPS. |
+| `no_proxy` | string | No | - | The list of domains that will not use the proxy for communication. |
+| `trusted_ca` | string | No | - | The base64 encoded alternative CA certificate content in PEM format. |
 
 ### `oms_agent` block structure
 
@@ -425,20 +287,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `log_analytics_workspace_id` | string | Yes | - | The ID of the Log Analytics Workspace which the OMS Agent should send data to. |
 | `msi_auth_for_monitoring_enabled` | bool | No | - | Is managed identity authentication for monitoring enabled? |
-
-### `allowed` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day` | string | Yes | - | A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `hours` | string | Yes | - | An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'. |
-
-### `maintenance_window` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed` | [block](#allowed-block-structure) | No | - | One or more 'allowed' blocks. |
-| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
 
 ### `sysctl_config` block structure
 
@@ -470,32 +318,184 @@ tfstate_store = {
 | `net_ipv4_tcp_tw_reuse` | string | No | - | The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created. |
 | `net_netfilter_nf_conntrack_buckets` | string | No | - | The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between '65536' and '524288'. Changing this forces a new resource to be created. |
 | `net_netfilter_nf_conntrack_max` | string | No | - | The sysctl setting net.netfilter.nf_conntrack_max. Must be between '131072' and '2097152'. Changing this forces a new resource to be created. |
-| `vm_max_map_count` | int | No | - | The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created. |
+| `vm_max_map_count` | number | No | - | The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created. |
 | `vm_swappiness` | string | No | - | The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 | `vm_vfs_cache_pressure` | string | No | - | The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 
-### `kubelet_identity` block structure
+### `key_vault_secrets_provider` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | No | - | The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
-| `object_id` | string | No | - | The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
-| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `secret_rotation_enabled` | bool | No | - | Should the secret store CSI driver on the AKS cluster be enabled? |
+| `secret_rotation_interval` | string | No | 2m | The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. |
 
-### `kubelet_config` block structure
+### `load_balancer_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). |
-| `container_log_max_line` | string | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. |
-| `container_log_max_size_mb` | string | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. |
-| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? |
-| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. |
-| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',. |
-| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. |
-| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. |
-| `pod_max_pid` | string | No | - | Specifies the maximum number of processes per pod. |
-| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. |
+| `idle_timeout_in_minutes` | number | No | 30 | Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'. |
+| `managed_outbound_ip_count` | number | No | - | Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive. |
+| `managed_outbound_ipv6_count` | number | No | - | The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. |
+| `outbound_ip_address_ids` | string | No | - | The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer. |
+| `outbound_ip_prefix_ids` | string | No | - | The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer. |
+| `outbound_ports_allocated` | number | No | 0 | Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'. |
+
+### `upgrade_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
+
+### `monitor_metrics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `annotations_allowed` | bool | No | - | Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. |
+| `labels_allowed` | bool | No | - | Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+
+### `maintenance_window` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed` | [block](#allowed-block-structure) | No | - | One or more 'allowed' blocks. |
+| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+
+### `workload_autoscaler_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `keda_enabled` | string | No | - | Specifies whether KEDA Autoscaler can be used for workloads. |
+| `vertical_pod_autoscaler_enabled` | bool | No | - | Specifies whether Vertical Pod Autoscaler should be enabled. |
+
+### `network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `network_plugin` | string | Yes | - | Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. |
+| `network_mode` | string | No | - | Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. |
+| `network_policy` | string | No | - | Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. |
+| `dns_service_ip` | string | No | - | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created. |
+| `docker_bridge_cidr` | string | No | - | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created. |
+| `ebpf_data_plane` | string | No | - | Specifies the eBPF data plane used for building the Kubernetes network. Possible value is 'cilium'. Disabling this forces a new resource to be created. |
+| `network_plugin_mode` | string | No | - | Specifies the network plugin mode used for building the Kubernetes network. Possible value is 'overlay'. |
+| `outbound_type` | string | No | loadBalancer | The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are 'loadBalancer', 'userDefinedRouting', 'managedNATGateway' and 'userAssignedNATGateway'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created. |
+| `pod_cidr` | string | No | - | The CIDR to use for pod IP addresses. This field can only be set when 'network_plugin' is set to 'kubenet'. Changing this forces a new resource to be created. |
+| `pod_cidrs` | list | No | - | A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created. |
+| `service_cidr` | string | No | - | The Network Range used by the Kubernetes service. Changing this forces a new resource to be created. |
+| `service_cidrs` | list | No | - | A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created. |
+| `ip_versions` | string | No | - | Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created. |
+| `load_balancer_sku` | string | No | standard | Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are 'basic' and 'standard'. Defaults to 'standard'. Changing this forces a new resource to be created. |
+| `load_balancer_profile` | [block](#load_balancer_profile-block-structure) | No | - | A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created. |
+| `nat_gateway_profile` | [block](#nat_gateway_profile-block-structure) | No | - | A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created. |
+
+### `linux_os_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `swap_file_size_mb` | string | No | - | Specifies the size of the swap file on each node in MB. |
+| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
+| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. |
+| `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. |
+
+### `maintenance_window_auto_upgrade` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
+| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
+| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
+| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
+| `week_index` | string | No | - | Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency. |
+| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
+| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
+| `start_date` | string | No | - | The date on which the maintenance window begins to take effect. |
+| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+
+### `aci_connector_linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_name` | string | Yes | - | The subnet name for the virtual nodes to run. |
+
+### `default_node_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for the default Kubernetes Node Pool. |
+| `vm_size` | string | Yes | - | The size of the Virtual Machine, such as 'Standard_DS2_v2'. 'temporary_name_for_rotation' must be specified when attempting a resize. |
+| `capacity_reservation_group_id` | string | No | - | Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created. |
+| `custom_ca_trust_enabled` | bool | No | - | Specifies whether to trust a Custom CA. |
+| `enable_auto_scaling` | bool | No | - | Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? |
+| `enable_host_encryption` | bool | No | - | Should the nodes in the Default Node Pool have host encryption enabled? 'temporary_name_for_rotation' must be specified when changing this property. |
+| `enable_node_public_ip` | bool | No | - | Should nodes in this Node Pool have a Public IP Address? 'temporary_name_for_rotation' must be specified when changing this property. |
+| `gpu_instance` | string | No | - | Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are 'MIG1g', 'MIG2g', 'MIG3g', 'MIG4g' and 'MIG7g'. Changing this forces a new resource to be created. |
+| `host_group_id` | string | No | - | Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created. |
+| `kubelet_config` | [block](#kubelet_config-block-structure) | No | - | A 'kubelet_config' block. 'temporary_name_for_rotation' must be specified when changing this block. |
+| `linux_os_config` | [block](#linux_os_config-block-structure) | No | - | A 'linux_os_config' block. 'temporary_name_for_rotation' must be specified when changing this block. |
+| `fips_enabled` | bool | No | - | Should the nodes in this Node Pool have Federal Information Processing Standard enabled? 'temporary_name_for_rotation' must be specified when changing this block. |
+| `kubelet_disk_type` | string | No | - | The type of disk used by kubelet. Possible values are 'OS' and 'Temporary'. |
+| `max_pods` | number | No | - | The maximum number of pods that can run on each agent. 'temporary_name_for_rotation' must be specified when changing this property. |
+| `message_of_the_day` | string | No | - | A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created. |
+| `node_network_profile` | [block](#node_network_profile-block-structure) | No | - | A 'node_network_profile' block. |
+| `node_public_ip_prefix_id` | string | No | - | Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. 'enable_node_public_ip' should be 'true'. Changing this forces a new resource to be created. |
+| `node_labels` | string | No | - | A map of Kubernetes labels which should be applied to nodes in the Default Node Pool. |
+| `node_taints` | list | No | - | A list of the taints added to new nodes during node pool create and scale. 'temporary_name_for_rotation' must be specified when changing this property. |
+| `only_critical_addons_enabled` | bool | No | - | Enabling this option will taint default node pool with 'CriticalAddonsOnly=true:NoSchedule' taint. 'temporary_name_for_rotation' must be specified when changing this property. |
+| `orchestrator_version` | string | No | - | Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by 'kubernetes_version'. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). |
+| `os_disk_size_gb` | number | No | - | The size of the OS Disk which should be used for each agent in the Node Pool. 'temporary_name_for_rotation' must be specified when attempting a change. |
+| `os_disk_type` | string | No | Managed | The type of disk which should be used for the Operating System. Possible values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. 'temporary_name_for_rotation' must be specified when attempting a change. |
+| `os_sku` | string | No | Ubuntu | Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'CBLMariner', 'Mariner', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. 'temporary_name_for_rotation' must be specified when attempting a change. |
+| `pod_subnet_id` | string | No | - | The ID of the Subnet where the pods in the default Node Pool should exist. |
+| `proximity_placement_group_id` | string | No | - | The ID of the Proximity Placement Group. Changing this forces a new resource to be created. |
+| `scale_down_mode` | string | No | Delete | Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are 'Delete' and 'Deallocate'. Defaults to 'Delete'. |
+| `snapshot_id` | string | No | - | The ID of the Snapshot which should be used to create this default Node Pool. 'temporary_name_for_rotation' must be specified when changing this property. |
+| `temporary_name_for_rotation` | string | No | - | Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing. |
+| `type` | string | No | VirtualMachineScaleSets | The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created. |
+| `tags` | map | No | - | A mapping of tags to assign to the Node Pool. |
+| `ultra_ssd_enabled` | bool | No | False | Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to 'false'. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. 'temporary_name_for_rotation' must be specified when attempting a change. |
+| `upgrade_settings` | [block](#upgrade_settings-block-structure) | No | - | A 'upgrade_settings' block. |
+| `vnet_subnet_id` | string | No | - | The ID of a Subnet where the Kubernetes Node Pool should exist. |
+| `workload_runtime` | string | No | - | Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'. |
+| `zones` | string | No | - | Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property. |
+| `max_count` | number | No | - | The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. |
+| `min_count` | number | No | - | The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'. |
+| `node_count` | number | No | - | The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'. |
+
+### `allowed` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day` | string | Yes | - | A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `hours` | string | Yes | - | An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'. |
+
+### `not_allowed` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `end` | string | Yes | - | The end of a time span, formatted as an RFC3339 string. |
+| `start` | string | Yes | - | The start of a time span, formatted as an RFC3339 string. |
+
+### `service_mesh_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | The mode of the service mesh. Possible value is 'Istio'. |
+| `internal_ingress_gateway_enabled` | bool | No | - | Is Istio Internal Ingress Gateway enabled? |
+| `external_ingress_gateway_enabled` | bool | No | - | Is Istio External Ingress Gateway enabled? |
+
+### `gmsa` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_server` | string | Yes | - | Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
+| `root_domain` | string | Yes | - | Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
+
+### `microsoft_defender` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. |
 
 
 

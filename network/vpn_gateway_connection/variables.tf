@@ -25,7 +25,7 @@ variable "vpn_link" {
 #   egress_nat_rule_ids (list)                  : A list of the egress NAT Rule Ids.
 #   ingress_nat_rule_ids (list)                 : A list of the ingress NAT Rule Ids.
 #   vpn_site_link_id (string)                   : (REQUIRED) The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
-#   bandwidth_mbps (int)                        : The expected connection bandwidth in MBPS. Defaults to '10'.
+#   bandwidth_mbps (number)                     : The expected connection bandwidth in MBPS. Defaults to '10'.
 #   bgp_enabled (bool)                          : Should the BGP be enabled? Defaults to 'false'. Changing this forces a new VPN Gateway Connection to be created.
 #   connection_mode (string)                    : The connection mode of this VPN Link. Possible values are 'Default', 'InitiatorOnly' and 'ResponderOnly'. Defaults to 'Default'.
 #   ipsec_policy (list)                         : One or more 'ipsec_policy' blocks.

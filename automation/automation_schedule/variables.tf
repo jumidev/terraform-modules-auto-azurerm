@@ -30,8 +30,8 @@ variable "description" {
 }
 variable "interval" {
   description = "The number of 'frequency's between runs. Only valid when frequency is 'Day', 'Hour', 'Week', or 'Month' and defaults to '1'."
-  type        = int
-  default     = 1
+  type        = number
+  default     = "1"
 }
 variable "start_time" {
   description = "Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created."
@@ -55,7 +55,7 @@ variable "week_days" {
 }
 variable "month_days" {
   description = "List of days of the month that the job should execute on. Must be between '1' and '31'. '-1' for last day of the month. Only valid when frequency is 'Month'."
-  type        = int
+  type        = number
   default     = null
 }
 variable "automation_account_resource_group_name" {

@@ -28,7 +28,7 @@ variable "backend_pool" {
 #   http_port (string)     : (REQUIRED) The HTTP TCP port number. Possible values are between '1' - '65535'.
 #   https_port (string)    : (REQUIRED) The HTTPS TCP port number. Possible values are between '1' - '65535'.
 #   priority (string)      : Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'.
-#   weight (int)           : Weight of this endpoint for load balancing purposes. Defaults to '50'.
+#   weight (number)        : Weight of this endpoint for load balancing purposes. Defaults to '50'.
 
 
 variable "backend_pool_health_probe" {
@@ -42,7 +42,7 @@ variable "backend_pool_health_probe" {
 #   path (string)                            : The path to use for the Health Probe. Default is '/'.
 #   protocol (string)                        : Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'.
 #   probe_method (string)                    : Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'.
-#   interval_in_seconds (int)                : The number of seconds between each Health Probe. Defaults to '120'.
+#   interval_in_seconds (number)             : The number of seconds between each Health Probe. Defaults to '120'.
 
 
 variable "backend_pool_load_balancing" {
@@ -52,9 +52,9 @@ variable "backend_pool_load_balancing" {
 #
 # backend_pool_load_balancing block structure:
 #   name (string)                              : (REQUIRED) Specifies the name of the Load Balancer.
-#   sample_size (int)                          : The number of samples to consider for load balancing decisions. Defaults to '4'.
-#   successful_samples_required (int)          : The number of samples within the sample period that must succeed. Defaults to '2'.
-#   additional_latency_milliseconds (int)      : The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'.
+#   sample_size (number)                       : The number of samples to consider for load balancing decisions. Defaults to '4'.
+#   successful_samples_required (number)       : The number of samples within the sample period that must succeed. Defaults to '2'.
+#   additional_latency_milliseconds (number)   : The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'.
 
 
 variable "frontend_endpoint" {
@@ -66,7 +66,7 @@ variable "frontend_endpoint" {
 #   name (string)                                   : (REQUIRED) Specifies the name of the 'frontend_endpoint'.
 #   host_name (string)                              : (REQUIRED) Specifies the host name of the 'frontend_endpoint'. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
 #   session_affinity_enabled (bool)                 : Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'.
-#   session_affinity_ttl_seconds (int)              : The TTL to use in seconds for session affinity, if applicable. Defaults to '0'.
+#   session_affinity_ttl_seconds (number)           : The TTL to use in seconds for session affinity, if applicable. Defaults to '0'.
 #   web_application_firewall_policy_link_id (string): Defines the Web Application Firewall policy 'ID' for each host.
 
 

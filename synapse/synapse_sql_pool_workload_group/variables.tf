@@ -40,6 +40,6 @@ variable "min_resource_percent_per_request" {
 }
 variable "query_execution_timeout_in_seconds" {
   description = "The workload group query execution timeout."
-  type        = int
+  type        = number
   default     = null
 }

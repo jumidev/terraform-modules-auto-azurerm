@@ -33,7 +33,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **managed_disk_id** | string |  The ID of an existing Managed Disk which should be exported. Changing this forces a new resource to be created. | 
-| **duration_in_seconds** | int |  The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created. | 
+| **duration_in_seconds** | number |  The duration for which the export should be allowed. Should be between 30 & 4294967295 seconds. Changing this forces a new resource to be created. | 
 | **access_level** | string |  The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created. | 
 
 

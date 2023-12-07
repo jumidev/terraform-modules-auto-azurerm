@@ -39,7 +39,7 @@ tfstate_store = {
 ```
 ## Optional associated resources
 
-| `tfstate_input` variable | Information |
+| `tfstate_inputs` variable | Information |
 | -------- | ----------- |
 | **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.|
 | **backend_address_pool_id** | If set to a valid `azurerm_lb_backend_address_pool` `id`, makes a **azurerm_network_interface_backend_address_pool_association** - Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.|

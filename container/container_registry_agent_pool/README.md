@@ -42,7 +42,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **instance_count** | int |  `1`  |  -  |  VMSS instance count. Defaults to `1`. | 
+| **instance_count** | number |  `1`  |  -  |  VMSS instance count. Defaults to `1`. | 
 | **tier** | string |  `S1`  |  `S1`, `S2`, `S3`, `I6`  |  Sets the VM your agent pool will run on. Valid values are: `S1` (2 vCPUs, 3 GiB RAM), `S2` (4 vCPUs, 8 GiB RAM), `S3` (8 vCPUs, 16 GiB RAM) or `I6` (64 vCPUs, 216 GiB RAM, Isolated). Defaults to `S1`. Changing this forces a new Azure Container Registry Agent Pool to be created. | 
 | **virtual_network_subnet_id** | string |  -  |  -  |  The ID of the Virtual Network Subnet Resource where the agent machines will be running. Changing this forces a new Azure Container Registry Agent Pool to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Azure Container Registry Agent Pool. | 

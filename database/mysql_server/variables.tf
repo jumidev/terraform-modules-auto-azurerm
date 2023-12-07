@@ -45,7 +45,7 @@ variable "auto_grow_enabled" {
 }
 variable "backup_retention_days" {
   description = "Backup retention days for the server, supported values are between '7' and '35' days."
-  type        = int
+  type        = number
   default     = null
 }
 variable "create_mode" {

@@ -21,7 +21,7 @@ variable "log" {
 #
 # retention_policy block structure:
 #   enabled (bool)                  : Is this Retention Policy enabled? Defaults to 'false'.
-#   days (int)                      : The number of days for which this Retention Policy should apply. Defaults to '0'.
+#   days (number)                   : The number of days for which this Retention Policy should apply. Defaults to '0'.
 
 
 variable "enabled_log" {
@@ -36,7 +36,7 @@ variable "enabled_log" {
 #
 # retention_policy block structure:
 #   enabled (bool)                  : Is this Retention Policy enabled? Defaults to 'false'.
-#   days (int)                      : The number of days for which this Retention Policy should apply. Defaults to '0'.
+#   days (number)                   : The number of days for which this Retention Policy should apply. Defaults to '0'.
 
 
 variable "eventhub_authorization_rule_id" {

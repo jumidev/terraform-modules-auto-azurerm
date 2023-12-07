@@ -35,11 +35,11 @@ variable "request_path" {
 }
 variable "interval_in_seconds" {
   description = "The interval, in seconds between probes to the backend endpoint for health status. The default value is 15, the minimum value is 5."
-  type        = int
+  type        = number
   default     = null
 }
 variable "number_of_probes" {
   description = "The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to '2'. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful."
-  type        = int
-  default     = 2
+  type        = number
+  default     = "2"
 }

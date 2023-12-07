@@ -40,7 +40,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **description** | string |  The description for the Data Factory Pipeline. | 
 | **annotations** | string |  List of tags that can be used for describing the Data Factory Pipeline. | 
-| **concurrency** | int |  The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`. | 
+| **concurrency** | number |  The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`. | 
 | **folder** | string |  The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level. | 
 | **moniter_metrics_after_duration** | string |  The TimeSpan value after which an Azure Monitoring Metric is fired. | 
 | **parameters** | string |  A map of parameters to associate with the Data Factory Pipeline. | 

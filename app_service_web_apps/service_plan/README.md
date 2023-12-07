@@ -41,8 +41,8 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **app_service_environment_id** | string |  -  |  The ID of the App Service Environment to create this Service Plan in. | 
-| **maximum_elastic_worker_count** | int |  -  |  The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU. | 
-| **worker_count** | int |  -  |  The number of Workers (instances) to be allocated. | 
+| **maximum_elastic_worker_count** | number |  -  |  The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU. | 
+| **worker_count** | number |  -  |  The number of Workers (instances) to be allocated. | 
 | **per_site_scaling_enabled** | bool |  `False`  |  Should Per Site Scaling be enabled. Defaults to `false`. | 
 | **zone_balancing_enabled** | bool |  -  |  Should the Service Plan balance across Availability Zones in the region. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the AppService. | 

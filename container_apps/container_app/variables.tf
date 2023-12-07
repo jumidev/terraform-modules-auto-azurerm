@@ -27,25 +27,14 @@ variable "template" {
 #
 # template block structure      :
 #   container (list)              : (REQUIRED) One or more 'container' blocks as detailed below.
-#   max_replicas (int)            : The maximum number of replicas for this container.
-#   min_replicas (int)            : The minimum number of replicas for this container.
+#   max_replicas (number)         : The maximum number of replicas for this container.
+#   min_replicas (number)         : The minimum number of replicas for this container.
 #   azure_queue_scale_rule (block): One or more 'azure_queue_scale_rule' blocks.
 #   custom_scale_rule (block)     : One or more 'custom_scale_rule' blocks.
 #   http_scale_rule (block)       : One or more 'http_scale_rule' blocks.
 #   tcp_scale_rule (block)        : One or more 'tcp_scale_rule' blocks.
 #   revision_suffix (string)      : The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 #   volume (block)                : A 'volume' block as detailed below.
-#
-# tcp_scale_rule block structure:
-#   name (string)                 : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (int)     : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)        : Zero or more 'authentication' blocks.
-#
-# azure_queue_scale_rule block structure:
-#   name (string)                         : (REQUIRED) The name of the Scaling Rule
-#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
-#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
-#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 #
 # authentication block structure:
 #   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
@@ -56,16 +45,27 @@ variable "template" {
 #   storage_name (string) : The name of the 'AzureFile' storage.
 #   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
 #
+# tcp_scale_rule block structure:
+#   name (string)                 : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)        : Zero or more 'authentication' blocks.
+#
+# http_scale_rule block structure:
+#   name (string)                  : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)   : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)         : Zero or more 'authentication' blocks.
+#
 # custom_scale_rule block structure:
 #   name (string)                    : (REQUIRED) The name of the Scaling Rule
 #   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
 #   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
 #   authentication (block)           : Zero or more 'authentication' blocks.
 #
-# http_scale_rule block structure:
-#   name (string)                  : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (int)      : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)         : Zero or more 'authentication' blocks.
+# azure_queue_scale_rule block structure:
+#   name (string)                         : (REQUIRED) The name of the Scaling Rule
+#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
+#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
+#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 
 
 

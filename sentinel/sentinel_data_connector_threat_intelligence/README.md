@@ -38,7 +38,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **lookback_date** | datetime |  `1970-01-01T00:00:00Z`  |  The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created. | 
+| **lookback_date** | string |  `1970-01-01T00:00:00Z`  |  The lookback date for the this Threat Intelligence Data Connector in RFC3339. Defaults to `1970-01-01T00:00:00Z`. Changing this forces a new resource to be created. | 
 | **tenant_id** | string |  -  |  The ID of the tenant that this Threat Intelligence Data Connector connects to. Changing this forces a new Threat Intelligence Data Connector to be created. | 
 
 

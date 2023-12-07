@@ -15,7 +15,7 @@ variable "server_id" {
 
 variable "auto_pause_delay_in_minutes" {
   description = "Time in minutes after which database is automatically paused. A value of '-1' means that automatic pause is disabled. This property is only settable for Serverless databases."
-  type        = int
+  type        = number
   default     = null
 }
 variable "create_mode" {
@@ -89,7 +89,7 @@ variable "long_term_retention_policy" {
 
 variable "max_size_gb" {
   description = "The max size of the database in gigabytes."
-  type        = int
+  type        = number
   default     = null
 }
 variable "min_capacity" {
@@ -114,7 +114,7 @@ variable "restore_dropped_database_id" {
 }
 variable "read_replica_count" {
   description = "The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed. This property is only settable for Hyperscale edition databases."
-  type        = int
+  type        = number
   default     = null
 }
 variable "read_scale" {
@@ -134,7 +134,7 @@ variable "short_term_retention_policy" {
 }
 #
 # short_term_retention_policy block structure:
-#   retention_days (int)                       : (REQUIRED) Point In Time Restore configuration. Value has to be between '1' and '35'.
+#   retention_days (number)                    : (REQUIRED) Point In Time Restore configuration. Value has to be between '1' and '35'.
 #   backup_interval_in_hours (string)          : The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours.
 
 

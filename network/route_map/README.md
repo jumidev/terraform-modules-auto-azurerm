@@ -47,15 +47,6 @@ tfstate_store = {
 | `parameter` | [block](#parameter-block-structure) | Yes | - | A 'parameter' block. |
 | `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The unique name for the rule. |
-| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
-| `match_criterion` | [block](#match_criterion-block-structure) | No | - | A 'match_criterion' block. |
-| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
-
 ### `match_criterion` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,6 +55,15 @@ tfstate_store = {
 | `as_path` | list | No | - | A list of AS paths which this criterion matches. |
 | `community` | list | No | - | A list of BGP communities which this criterion matches. |
 | `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The unique name for the rule. |
+| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
+| `match_criterion` | [block](#match_criterion-block-structure) | No | - | A 'match_criterion' block. |
+| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
 
 ### `parameter` block structure
 

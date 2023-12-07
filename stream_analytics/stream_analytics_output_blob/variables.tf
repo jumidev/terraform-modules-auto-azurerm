@@ -67,7 +67,7 @@ variable "batch_max_wait_time" {
 }
 variable "batch_min_rows" {
   description = "The minimum number of rows per batch (must be between '0' and '1000000')."
-  type        = int
+  type        = number
   default     = null
 }
 variable "storage_account_key" {

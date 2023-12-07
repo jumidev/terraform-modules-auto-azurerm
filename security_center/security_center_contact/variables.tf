@@ -25,6 +25,6 @@ variable "name" {
 }
 variable "phone" {
   description = "The phone number of the Security Center Contact."
-  type        = int
+  type        = number
   default     = null
 }

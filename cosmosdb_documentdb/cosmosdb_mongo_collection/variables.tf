@@ -35,7 +35,7 @@ variable "analytical_storage_ttl" {
 }
 variable "default_ttl_seconds" {
   description = "The default Time To Live in seconds. If the value is '-1', items are not automatically expired."
-  type        = int
+  type        = number
   default     = null
 }
 variable "index" {

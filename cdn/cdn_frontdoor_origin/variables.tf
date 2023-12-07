@@ -63,6 +63,6 @@ variable "private_link" {
 
 variable "weight" {
   description = "The weight of the origin in a given origin group for load balancing. Must be between '1' and '1000'. Defaults to '500'."
-  type        = int
-  default     = 500
+  type        = number
+  default     = "500"
 }

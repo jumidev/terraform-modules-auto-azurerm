@@ -25,7 +25,7 @@ variable "annotations" {
 }
 variable "concurrency" {
   description = "The max number of concurrent runs for the Data Factory Pipeline. Must be between '1' and '50'."
-  type        = int
+  type        = number
   default     = null
 }
 variable "folder" {

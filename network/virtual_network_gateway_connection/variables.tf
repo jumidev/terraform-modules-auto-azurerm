@@ -35,7 +35,7 @@ variable "authorization_key" {
 }
 variable "dpd_timeout_seconds" {
   description = "The dead peer detection timeout of this connection in seconds. Changing this forces a new resource to be created."
-  type        = int
+  type        = number
   default     = null
 }
 variable "express_route_circuit_id" {

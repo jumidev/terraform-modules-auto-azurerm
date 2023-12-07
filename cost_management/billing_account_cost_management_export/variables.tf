@@ -17,12 +17,12 @@ variable "recurrence_type" {
 }
 variable "recurrence_period_start_date" {
   description = "(REQUIRED) The date the export will start capturing information."
-  type        = datetime
+  type        = string
 
 }
 variable "recurrence_period_end_date" {
   description = "(REQUIRED) The date the export will stop capturing information."
-  type        = datetime
+  type        = string
 
 }
 variable "export_data_storage_location" {

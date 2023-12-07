@@ -27,7 +27,7 @@ variable "read_write_endpoint_failover_policy" {
 #
 # read_write_endpoint_failover_policy block structure:
 #   mode (string)                                      : (REQUIRED) The failover mode. Possible values are 'Manual', 'Automatic'
-#   grace_minutes (int)                                : Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted.
+#   grace_minutes (number)                             : Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted.
 
 
 variable "resource_group_name" {

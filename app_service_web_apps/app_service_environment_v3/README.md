@@ -65,7 +65,7 @@ tfstate_store = {
 | **external_inbound_ip_addresses** | string | No  | The external inbound IP addresses of the App Service Environment V3. | 
 | **inbound_network_dependencies** | block | No  | An `inbound_network_dependencies` block. | 
 | **internal_inbound_ip_addresses** | string | No  | The internal inbound IP addresses of the App Service Environment V3. | 
-| **ip_ssl_address_count** | int | No  | The number of IP SSL addresses reserved for the App Service Environment V3. | 
+| **ip_ssl_address_count** | number | No  | The number of IP SSL addresses reserved for the App Service Environment V3. | 
 | **linux_outbound_ip_addresses** | string | No  | Outbound addresses of Linux based Apps in this App Service Environment V3 | 
 | **location** | string | No  | The location where the App Service Environment exists. | 
 | **pricing_tier** | string | No  | Pricing tier for the front end instances. | 

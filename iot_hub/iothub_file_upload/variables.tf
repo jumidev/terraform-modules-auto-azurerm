@@ -40,8 +40,8 @@ variable "lock_duration" {
 }
 variable "max_delivery_count" {
   description = "The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to '10'."
-  type        = int
-  default     = 10
+  type        = number
+  default     = "10"
 }
 variable "notifications_enabled" {
   description = "Used to specify whether file notifications are sent to IoT Hub on upload. Defaults to 'false'."

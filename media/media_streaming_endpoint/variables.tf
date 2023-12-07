@@ -92,7 +92,7 @@ variable "description" {
 }
 variable "max_cache_age_seconds" {
   description = "Max cache age in seconds."
-  type        = int
+  type        = number
   default     = null
 }
 variable "tags" {

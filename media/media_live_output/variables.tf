@@ -30,7 +30,7 @@ variable "description" {
 }
 variable "hls_fragments_per_ts_segment" {
   description = "The number of fragments in an HTTP Live Streaming (HLS) TS segment in the output of the live event. This value does not affect the packing ratio for HLS CMAF output. Changing this forces a new Live Output to be created."
-  type        = int
+  type        = number
   default     = null
 }
 variable "manifest_name" {
@@ -40,7 +40,7 @@ variable "manifest_name" {
 }
 variable "output_snap_time_in_seconds" {
   description = "The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created."
-  type        = int
+  type        = number
   default     = null
 }
 variable "rewind_window_duration" {

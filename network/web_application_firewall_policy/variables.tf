@@ -66,7 +66,7 @@ variable "policy_settings" {
 # policy_settings block structure          :
 #   enabled (bool)                           : Describes if the policy is in enabled state or disabled state. Defaults to 'true'.
 #   mode (string)                            : Describes if it is in detection mode or prevention mode at the policy level. Valid values are 'Detection' and 'Prevention'. Defaults to 'Prevention'.
-#   file_upload_limit_in_mb (int)            : The File Upload Limit in MB. Accepted values are in the range '1' to '4000'. Defaults to '100'.
+#   file_upload_limit_in_mb (number)         : The File Upload Limit in MB. Accepted values are in the range '1' to '4000'. Defaults to '100'.
 #   request_body_check (bool)                : Is Request Body Inspection enabled? Defaults to 'true'.
 #   max_request_body_size_in_kb (string)     : The Maximum Request Body Size in KB. Accepted values are in the range '8' to '2000'. Defaults to '128'.
 #   log_scrubbing (block)                    : One 'log_scrubbing' block.

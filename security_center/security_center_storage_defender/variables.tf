@@ -20,8 +20,8 @@ variable "malware_scanning_on_upload_enabled" {
 }
 variable "malware_scanning_on_upload_cap_gb_per_month" {
   description = "The max GB to be scanned per Month. Must be '-1' or above '0'. Omit this property or set to '-1' if no capping is needed. Defaults to '-1'."
-  type        = int
-  default     = -1
+  type        = number
+  default     = "-1"
 }
 variable "sensitive_data_discovery_enabled" {
   description = "Whether Sensitive Data Discovery should be enabled. Defaults to 'false'."

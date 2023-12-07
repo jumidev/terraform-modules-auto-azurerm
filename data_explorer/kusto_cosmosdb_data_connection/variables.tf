@@ -40,6 +40,6 @@ variable "mapping_rule_name" {
 }
 variable "retrieval_start_date" {
   description = "If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date. Changing this forces a new Kusto Cosmos DB Connection to be created."
-  type        = datetime
+  type        = string
   default     = null
 }

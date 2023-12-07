@@ -44,7 +44,7 @@ tfstate_store = {
 | **client_certificate_pems** | list |  -  |  -  |  A list of TLS certificates that is used to authorize client connecting to the Cassandra Cluster. | 
 | **external_gossip_certificate_pems** | list |  -  |  -  |  A list of TLS certificates that is used to authorize gossip from unmanaged Cassandra Data Center. | 
 | **external_seed_node_ip_addresses** | list |  -  |  -  |  A list of IP Addresses of the seed nodes in unmanaged the Cassandra Data Center which will be added to the seed node lists of all managed nodes. | 
-| **hours_between_backups** | int |  `24`  |  -  |  The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`. | 
+| **hours_between_backups** | number |  `24`  |  -  |  The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to `24`. | 
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **repair_enabled** | bool |  `True`  |  -  |  Is the automatic repair enabled on the Cassandra Cluster? Defaults to `true`. | 
 | **version** | string |  `3.11`  |  `3.11`, `4.0`  |  The version of Cassandra what the Cluster converges to run. Possible values are `3.11` and `4.0`. Defaults to `3.11`. Changing this forces a new Cassandra Cluster to be created. | 

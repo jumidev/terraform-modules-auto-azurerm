@@ -49,7 +49,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | Yes | - | A boolean value to indicate whether the retention policy is enabled. |
-| `days` | int | No | 0 | The number of days for the retention policy. Defaults to '0'. |
+| `days` | number | No | 0 | The number of days for the retention policy. Defaults to '0'. |
 
 
 

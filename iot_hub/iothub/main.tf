@@ -35,8 +35,8 @@ resource "azurerm_iothub" "this" {
       endpoint_uri               = lookup(endpoint.value, "endpoint_uri", null)
       entity_path                = lookup(endpoint.value, "entity_path", null)
       connection_string          = lookup(endpoint.value, "connection_string", null)
-      batch_frequency_in_seconds = lookup(endpoint.value, "batch_frequency_in_seconds", azureiothub.storagecontainer)
-      max_chunk_size_in_bytes    = lookup(endpoint.value, "max_chunk_size_in_bytes", azureiothub.storagecontainer)
+      batch_frequency_in_seconds = lookup(endpoint.value, "batch_frequency_in_seconds", "AzureIotHub.StorageContainer")
+      max_chunk_size_in_bytes    = lookup(endpoint.value, "max_chunk_size_in_bytes", "AzureIotHub.StorageContainer")
       container_name             = lookup(endpoint.value, "container_name", null)
       encoding                   = lookup(endpoint.value, "encoding", "Avro")
       file_name_format           = lookup(endpoint.value, "file_name_format", "{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}")
@@ -67,7 +67,7 @@ resource "azurerm_iothub" "this" {
       notifications       = lookup(file_upload.value, "notifications", false)
       lock_duration       = lookup(file_upload.value, "lock_duration", "PT1M")
       default_ttl         = lookup(file_upload.value, "default_ttl", "PT1H")
-      max_delivery_count  = lookup(file_upload.value, "max_delivery_count", 10)
+      max_delivery_count  = lookup(file_upload.value, "max_delivery_count", "10")
     }
   }
 
@@ -125,14 +125,14 @@ resource "azurerm_iothub" "this" {
   dynamic "cloud_to_device" { # var.cloud_to_device
     for_each = var.cloud_to_device != null ? var.cloud_to_device : []
     content {
-      max_delivery_count = lookup(cloud_to_device.value, "max_delivery_count", 10)
+      max_delivery_count = lookup(cloud_to_device.value, "max_delivery_count", "10")
       default_ttl        = lookup(cloud_to_device.value, "default_ttl", "PT1H")
 
       dynamic "feedback" { # cloud_to_device.value.feedback
         for_each = cloud_to_device.value.feedback != null ? cloud_to_device.value.feedback : []
         content {
           time_to_live       = lookup(feedback.value, "time_to_live", "PT1H")
-          max_delivery_count = lookup(feedback.value, "max_delivery_count", 10)
+          max_delivery_count = lookup(feedback.value, "max_delivery_count", "10")
           lock_duration      = lookup(feedback.value, "lock_duration", "PT60S")
         }
       }

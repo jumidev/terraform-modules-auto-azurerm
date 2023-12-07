@@ -25,7 +25,7 @@ variable "display_name" {
 }
 variable "task_retry_maximum" {
   description = "The number of retries to each Batch Task belongs to this Batch Job. If this is set to '0', the Batch service does not retry Tasks. If this is set to '-1', the Batch service retries Batch Tasks without limit."
-  type        = int
+  type        = number
   default     = null
 }
 variable "priority" {

@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "bandwidth_in_gbps" {
   description = "(REQUIRED) Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created."
-  type        = int
+  type        = number
 
 }
 variable "encapsulation" {

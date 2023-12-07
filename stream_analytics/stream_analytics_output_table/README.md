@@ -47,7 +47,7 @@ tfstate_store = {
 | **table** | string |  The name of the table where the stream should be output to. | 
 | **partition_key** | string |  The name of the output column that contains the partition key. | 
 | **row_key** | string |  The name of the output column that contains the row key. | 
-| **batch_size** | int |  The number of records for a batch operation. Must be between `1` and `100`. | 
+| **batch_size** | number |  The number of records for a batch operation. Must be between `1` and `100`. | 
 
 ## Optional Variables
 

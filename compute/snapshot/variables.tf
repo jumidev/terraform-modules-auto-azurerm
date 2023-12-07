@@ -40,7 +40,7 @@ variable "storage_account_id" {
 }
 variable "disk_size_gb" {
   description = "The size of the Snapshotted Disk in GB."
-  type        = int
+  type        = number
   default     = null
 }
 variable "encryption_settings" {

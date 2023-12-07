@@ -51,8 +51,8 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Container App Environment Certificate | 
-| **expiration_date** | datetime | No  | The expiration date for the Certificate. | 
-| **issue_date** | datetime | No  | The date of issue for the Certificate. | 
+| **expiration_date** | string | No  | The expiration date for the Certificate. | 
+| **issue_date** | string | No  | The date of issue for the Certificate. | 
 | **issuer** | string | No  | The Certificate Issuer. | 
 | **subject_name** | string | No  | The Subject Name for the Certificate. | 
 | **thumbprint** | string | No  | The Thumbprint of the Certificate. | 

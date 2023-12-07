@@ -52,7 +52,7 @@ tfstate_store = {
 | `email_address` | string | Yes | - | E-mail address of the admin. |
 | `first_name` | string | No | - | First name of the admin. |
 | `last_name` | string | No | - | Last name of the admin. |
-| `phone` | int | No | - | Phone number of the admin. |
+| `phone` | number | No | - | Phone number of the admin. |
 
 
 

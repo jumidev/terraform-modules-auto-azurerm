@@ -43,7 +43,7 @@ variable "volume" {
 #   security_style (string)                : (REQUIRED) Volume security style. Possible values are 'ntfs' and 'unix'. Changing this forces a new Application Volume Group to be created and data will be lost.
 #   service_level (string)                 : (REQUIRED) Volume security style. Possible values are 'Premium', 'Standard' and 'Ultra'. Changing this forces a new Application Volume Group to be created and data will be lost.
 #   snapshot_directory_visible (bool)      : (REQUIRED) Specifies whether the .snapshot (NFS clients) path of a volume is visible. Changing this forces a new Application Volume Group to be created and data will be lost.
-#   storage_quota_in_gb (int)              : (REQUIRED) The maximum Storage Quota allowed for a file system in Gigabytes.
+#   storage_quota_in_gb (number)           : (REQUIRED) The maximum Storage Quota allowed for a file system in Gigabytes.
 #   subnet_id (string)                     : (REQUIRED) The ID of the Subnet the NetApp Volume resides in, which must have the 'Microsoft.NetApp/volumes' delegation. Changing this forces a new Application Volume Group to be created and data will be lost.
 #   throughput_in_mibps (string)           : (REQUIRED) Throughput of this volume in Mibps.
 #   volume_path (string)                   : (REQUIRED) A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -67,7 +67,7 @@ variable "volume" {
 #   nfsv3_enabled (bool)              : (REQUIRED) Enables NFSv3. Please note that this cannot be enabled if volume has NFSv4.1 as its protocol.
 #   nfsv41_enabled (bool)             : (REQUIRED) Enables NFSv4.1. Please note that this cannot be enabled if volume has NFSv3 as its protocol.
 #   root_access_enabled (bool)        : Is root access permitted to this volume? Defaults to 'true'.
-#   rule_index (int)                  : (REQUIRED) The index number of the rule, must start at 1 and maximum 5.
+#   rule_index (number)               : (REQUIRED) The index number of the rule, must start at 1 and maximum 5.
 #   unix_read_only (string)           : Is the file system on unix read only? Defaults to 'false.
 #   unix_read_write (bool)            : Is the file system on unix read and write? Defaults to 'true'.
 

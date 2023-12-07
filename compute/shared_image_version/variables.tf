@@ -40,7 +40,7 @@ variable "blob_uri" {
 }
 variable "end_of_life_date" {
   description = "The end of life date in RFC3339 format of the Image Version."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "exclude_from_latest" {

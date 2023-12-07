@@ -42,7 +42,7 @@ variable "subnet_id" {
 }
 variable "storage_quota_in_gb" {
   description = "(REQUIRED) The maximum Storage Quota allowed for a file system in Gigabytes."
-  type        = int
+  type        = number
 
 }
 

@@ -47,12 +47,23 @@ variable "test_configuration" {
 # test_configuration block structure:
 #   name (string)                     : (REQUIRED) The name of test configuration for the Network Connection Monitor.
 #   protocol (string)                 : (REQUIRED) The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'.
-#   test_frequency_in_seconds (int)   : The time interval in seconds at which the test evaluation will happen. Defaults to '60'.
+#   test_frequency_in_seconds (number): The time interval in seconds at which the test evaluation will happen. Defaults to '60'.
 #   http_configuration (block)        : A 'http_configuration' block.
 #   icmp_configuration (block)        : A 'icmp_configuration' block.
 #   preferred_ip_version (string)     : The preferred IP version which is used in the test evaluation. Possible values are 'IPv4' and 'IPv6'.
 #   success_threshold (block)         : A 'success_threshold' block.
 #   tcp_configuration (block)         : A 'tcp_configuration' block.
+#
+# http_configuration block structure:
+#   method (string)                   : The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'.
+#   port (string)                     : The port for the HTTP connection.
+#   path (string)                     : The path component of the URI. It only accepts the absolute path.
+#   prefer_https (bool)               : Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'.
+#   request_header (block)            : A 'request_header' block.
+#   valid_status_code_ranges (string) : The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'.
+#
+# icmp_configuration block structure:
+#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 #
 # success_threshold block structure:
 #   checks_failed_percent (string)   : The maximum percentage of failed checks permitted for a test to be successful.
@@ -66,17 +77,6 @@ variable "test_configuration" {
 #   port (string)                     : (REQUIRED) The port for the TCP connection.
 #   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 #   destination_port_behavior (string): The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'.
-#
-# http_configuration block structure:
-#   method (string)                   : The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'.
-#   port (string)                     : The port for the HTTP connection.
-#   path (string)                     : The path component of the URI. It only accepts the absolute path.
-#   prefer_https (bool)               : Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'.
-#   request_header (block)            : A 'request_header' block.
-#   valid_status_code_ranges (string) : The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'.
-#
-# icmp_configuration block structure:
-#   trace_route_enabled (bool)        : Should path evaluation with trace route be enabled? Defaults to 'true'.
 
 
 variable "test_group" {

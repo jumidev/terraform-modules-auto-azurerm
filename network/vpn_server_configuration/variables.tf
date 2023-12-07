@@ -57,7 +57,7 @@ variable "ipsec_policy" {
 #   ipsec_encryption (string)      : (REQUIRED) The IPSec encryption algorithm, used for IKE phase 1. Possible values include 'AES128', 'AES192', 'AES256', 'DES', 'DES3', 'GCMAES128', 'GCMAES192', 'GCMAES256' and 'None'.
 #   ipsec_integrity (string)       : (REQUIRED) The IPSec integrity algorithm, used for IKE phase 1. Possible values include 'GCMAES128', 'GCMAES192', 'GCMAES256', 'MD5', 'SHA1' and 'SHA256'.
 #   pfs_group (string)             : (REQUIRED) The Pfs Group, used in IKE Phase 2. Possible values include 'ECP256', 'ECP384', 'PFS1', 'PFS2', 'PFS14', 'PFS24', 'PFS2048', 'PFSMM' and 'None'.
-#   sa_lifetime_seconds (int)      : (REQUIRED) The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
+#   sa_lifetime_seconds (number)   : (REQUIRED) The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel.
 #   sa_data_size_kilobytes (string): (REQUIRED) The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel.
 
 

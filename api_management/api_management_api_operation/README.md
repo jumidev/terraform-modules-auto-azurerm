@@ -53,15 +53,6 @@ tfstate_store = {
 | **response** | [block](#response-block-structure) |  One or more `response` blocks. | 
 | **template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
-### `request` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
-| `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
-
 ### `template_parameter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,6 +74,15 @@ tfstate_store = {
 | `status_code` | string | Yes | - | The HTTP Status Code. |
 | `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
 | `header` | list | No | - | One or more 'header' blocks. |
+| `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
+
+### `request` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | A description of the HTTP Request, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `query_parameter` | list | No | - | One or more 'query_parameter' blocks. |
 | `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
 
 ### `representation` block structure

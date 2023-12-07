@@ -32,7 +32,7 @@ tfstate_store = {
 | **name** | string |  The name which should be used for this Stream Analytics Cluster. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the Resource Group where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created. | 
 | **location** | string |  The Azure Region where the Stream Analytics Cluster should exist. Changing this forces a new resource to be created. | 
-| **streaming_capacity** | int |  The number of streaming units supported by the Cluster. Accepted values are multiples of `36` in the range of `36` to `216`. | 
+| **streaming_capacity** | number |  The number of streaming units supported by the Cluster. Accepted values are multiples of `36` in the range of `36` to `216`. | 
 
 ## Optional Variables
 

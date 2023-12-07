@@ -48,10 +48,10 @@ tfstate_store = {
 | **restore_point_in_time** | string |  -  |  -  |  The point in time for the restore. Only applies if `create_mode` is `PointInTimeRestore`, it should be provided in [RFC3339](https://www.rfc-editor.org/rfc/rfc3339) format, e.g. `2013-11-08T22:00:40Z`. | 
 | **edition** | string |  -  |  `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `PremiumRS`, `Stretch`, `System`, `System2`, `Web`  |  The edition of the database to be created. Applies only if `create_mode` is `Default`. Valid values are: `Basic`, `Standard`, `Premium`, `DataWarehouse`, `Business`, `BusinessCritical`, `Free`, `GeneralPurpose`, `Hyperscale`, `Premium`, `PremiumRS`, `Standard`, `Stretch`, `System`, `System2`, or `Web`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
 | **collation** | string |  `SQL_LATIN1_GENERAL_CP1_CI_AS`  |  -  |  The name of the collation. Applies only if `create_mode` is `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new resource to be created. | 
-| **max_size_bytes** | int |  -  |  -  |  The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
+| **max_size_bytes** | number |  -  |  -  |  The maximum size that the database can grow to. Applies only if `create_mode` is `Default`. Please see [Azure SQL database models](https://docs.microsoft.com/azure/azure-sql/database/purchasing-models?view=azuresql). | 
 | **requested_service_objective_id** | string |  -  |  -  |  A GUID/UUID corresponding to a configured Service Level Objective for the Azure SQL database which can be used to configure a performance level. . | 
 | **requested_service_objective_name** | string |  -  |  `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11`, `ElasticPool`  |  The service objective name for the database. Valid values depend on edition and location and may include `S0`, `S1`, `S2`, `S3`, `P1`, `P2`, `P4`, `P6`, `P11` and `ElasticPool`. You can list the available names with the CLI: `shell az sql db list-editions -l westus -o table`. For further information please see [Azure CLI - az sql db](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-list-editions). | 
-| **source_database_deletion_date** | datetime |  -  |  -  |  The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`. | 
+| **source_database_deletion_date** | string |  -  |  -  |  The deletion date time of the source database. Only applies to deleted databases where `create_mode` is `PointInTimeRestore`. | 
 | **elastic_pool_name** | string |  -  |  -  |  The name of the elastic database pool. | 
 
 ### `import` block structure
@@ -73,7 +73,7 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The SQL Database ID. | 
-| **creation_date** | datetime | No  | The creation date of the SQL Database. | 
+| **creation_date** | string | No  | The creation date of the SQL Database. | 
 | **default_secondary_location** | string | No  | The default secondary location of the SQL Database. | 
 
 Additionally, all variables are provided as outputs.

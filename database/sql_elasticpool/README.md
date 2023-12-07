@@ -58,6 +58,6 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The SQL Elastic Pool ID. | 
-| **creation_date** | datetime | No  | The creation date of the SQL Elastic Pool. | 
+| **creation_date** | string | No  | The creation date of the SQL Elastic Pool. | 
 
 Additionally, all variables are provided as outputs.

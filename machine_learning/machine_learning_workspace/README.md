@@ -66,13 +66,6 @@ tfstate_store = {
 | **sku_name** | string |  `Basic`  |  `Basic`  |  SKU/edition of the Machine Learning Workspace, possible values are `Basic`. Defaults to `Basic`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace. |
-
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +73,13 @@ tfstate_store = {
 | `key_vault_id` | string | Yes | - | The ID of the keyVault where the customer owned encryption key is present. |
 | `key_id` | string | Yes | - | The Key Vault URI to access the encryption key. |
 | `user_assigned_identity_id` | string | No | - | The Key Vault URI to access the encryption key. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Workspace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace. |
 
 
 
@@ -93,7 +93,7 @@ tfstate_store = {
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 | **create** | string | No  | (Defaults to 30 minutes) Used when creating the Machine Learning Workspace. | 
-| **update** | datetime | No  | (Defaults to 30 minutes) Used when updating the Machine Learning Workspace. | 
+| **update** | string | No  | (Defaults to 30 minutes) Used when updating the Machine Learning Workspace. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Machine Learning Workspace. | 
 | **delete** | string | No  | (Defaults to 30 minutes) Used when deleting the Machine Learning Workspace. | 
 

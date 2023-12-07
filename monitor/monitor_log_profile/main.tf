@@ -11,7 +11,7 @@ resource "azurerm_monitor_log_profile" "this" {
 
   retention_policy {
     enabled = lookup(retention_policy.value, "enabled") # (Required) 
-    days    = lookup(retention_policy.value, "days", 0)
+    days    = lookup(retention_policy.value, "days", "0")
   }
 
 

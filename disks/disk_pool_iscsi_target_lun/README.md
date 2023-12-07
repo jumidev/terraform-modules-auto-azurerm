@@ -43,6 +43,6 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the iSCSI Target LUN. | 
-| **lun** | int | No  | The Logical Unit Number of the iSCSI Target LUN. | 
+| **lun** | number | No  | The Logical Unit Number of the iSCSI Target LUN. | 
 
 Additionally, all variables are provided as outputs.

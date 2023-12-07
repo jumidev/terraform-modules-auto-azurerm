@@ -111,7 +111,7 @@ variable "linux_os_config" {
 #   net_ipv4_tcp_tw_reuse (string)             : Is sysctl setting net.ipv4.tcp_tw_reuse enabled? Changing this forces a new resource to be created.
 #   net_netfilter_nf_conntrack_buckets (string): The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between '65536' and '524288'. Changing this forces a new resource to be created.
 #   net_netfilter_nf_conntrack_max (string)    : The sysctl setting net.netfilter.nf_conntrack_max. Must be between '131072' and '2097152'. Changing this forces a new resource to be created.
-#   vm_max_map_count (int)                     : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
+#   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
 
@@ -133,7 +133,7 @@ variable "kubelet_disk_type" {
 }
 variable "max_pods" {
   description = "The maximum number of pods that can run on each agent. Changing this forces a new resource to be created."
-  type        = int
+  type        = number
   default     = null
 }
 variable "message_of_the_day" {
@@ -178,7 +178,7 @@ variable "orchestrator_version" {
 }
 variable "os_disk_size_gb" {
   description = "The Agent Operating System disk size in GB. Changing this forces a new resource to be created."
-  type        = int
+  type        = number
   default     = null
 }
 variable "os_disk_type" {

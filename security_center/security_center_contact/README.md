@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **name** | string |  `default1`  |  The name of the Security Center Contact. Defaults to `default1`. | 
-| **phone** | int |  -  |  The phone number of the Security Center Contact. | 
+| **phone** | number |  -  |  The phone number of the Security Center Contact. | 
 
 
 

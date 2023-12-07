@@ -36,7 +36,7 @@ variable "kind" {
 }
 variable "maximum_elastic_worker_count" {
   description = "The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan."
-  type        = int
+  type        = number
   default     = null
 }
 variable "app_service_environment_id" {

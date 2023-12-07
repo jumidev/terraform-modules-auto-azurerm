@@ -57,13 +57,6 @@ tfstate_store = {
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
 | **traffic_selector_policy** | [block](#traffic_selector_policy-block-structure) |  -  |  One or more `traffic_selector_policy` blocks. | 
 
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `route_table_ids` | list | Yes | - | A list of Route Table IDs to associated with this VPN Gateway Connection. |
-| `labels` | list | No | - | A list of labels to assign to this route table. |
-
 ### `custom_bgp_address` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,7 +72,7 @@ tfstate_store = {
 | `egress_nat_rule_ids` | list | No | - | A list of the egress NAT Rule Ids. |
 | `ingress_nat_rule_ids` | list | No | - | A list of the ingress NAT Rule Ids. |
 | `vpn_site_link_id` | string | Yes | - | The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created. |
-| `bandwidth_mbps` | int | No | 10 | The expected connection bandwidth in MBPS. Defaults to '10'. |
+| `bandwidth_mbps` | number | No | 10 | The expected connection bandwidth in MBPS. Defaults to '10'. |
 | `bgp_enabled` | bool | No | False | Should the BGP be enabled? Defaults to 'false'. Changing this forces a new VPN Gateway Connection to be created. |
 | `connection_mode` | string | No | Default | The connection mode of this VPN Link. Possible values are 'Default', 'InitiatorOnly' and 'ResponderOnly'. Defaults to 'Default'. |
 | `ipsec_policy` | list | No | - | One or more 'ipsec_policy' blocks. |
@@ -99,6 +92,13 @@ tfstate_store = {
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
 | `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
 | `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
+
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `route_table_ids` | list | Yes | - | A list of Route Table IDs to associated with this VPN Gateway Connection. |
+| `labels` | list | No | - | A list of labels to assign to this route table. |
 
 ### `traffic_selector_policy` block structure
 

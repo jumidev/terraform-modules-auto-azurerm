@@ -63,8 +63,16 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | [block](#content-block-structure) | No | - | A 'content' block. |
 | `expected_status_code` | string | No | - | The expected status code of the response. Default is '200', '0' means 'response code < 400' |
-| `ssl_cert_remaining_lifetime` | int | No | - | The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365. |
+| `ssl_cert_remaining_lifetime` | number | No | - | The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365. |
 | `ssl_check_enabled` | bool | No | - | Should the SSL check be enabled? |
+
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_match` | string | Yes | - | A string value containing the content to match on. |
+| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
+| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
 
 ### `request` block structure
 
@@ -76,14 +84,6 @@ tfstate_store = {
 | `header` | list | No | - | One or more 'header' blocks. |
 | `http_verb` | string | No | GET | Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'. |
 | `parse_dependent_requests_enabled` | bool | No | True | Should the parsing of dependend requests be enabled? Defaults to 'true'. |
-
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_match` | string | Yes | - | A string value containing the content to match on. |
-| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
-| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
 
 
 

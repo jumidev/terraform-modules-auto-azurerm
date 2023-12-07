@@ -47,7 +47,7 @@ tfstate_store = {
 | **approval_required** | string |  -  |  Do subscribers need to be approved prior to being able to use the Product? | 
 | **subscription_required** | bool |  `True`  |  Is a Subscription required to access API's included in this Product? Defaults to `true`. | 
 | **description** | string |  -  |  A description of this Product, which may include HTML formatting tags. | 
-| **subscriptions_limit** | int |  -  |  The number of subscriptions a user can have to this Product at the same time. | 
+| **subscriptions_limit** | number |  -  |  The number of subscriptions a user can have to this Product at the same time. | 
 | **terms** | string |  -  |  The Terms and Conditions for this Product, which must be accepted by Developers before they can begin the Subscription process. | 
 
 

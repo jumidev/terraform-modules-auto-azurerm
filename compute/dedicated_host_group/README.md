@@ -32,7 +32,7 @@ tfstate_store = {
 | **name** | string |  Specifies the name of the Dedicated Host Group. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  Specifies the name of the resource group the Dedicated Host Group is located in. Changing this forces a new resource to be created. | 
 | **location** | string |  The Azure location where the Dedicated Host Group exists. Changing this forces a new resource to be created. | 
-| **platform_fault_domain_count** | int |  The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created. | 
+| **platform_fault_domain_count** | number |  The number of fault domains that the Dedicated Host Group spans. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

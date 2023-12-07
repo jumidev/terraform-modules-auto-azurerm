@@ -47,7 +47,7 @@ tfstate_store = {
 | **resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 | **zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
 | **record** | [block](#record-block-structure) |  One or more `record` blocks. | 
-| **ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
+| **ttl** | number |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables
 
@@ -60,7 +60,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `priority` | string | Yes | - | The priority of the SRV record. |
-| `weight` | int | Yes | - | The Weight of the SRV record. |
+| `weight` | number | Yes | - | The Weight of the SRV record. |
 | `port` | string | Yes | - | The Port the service is listening on. |
 | `target` | string | Yes | - | The FQDN of the service. |
 

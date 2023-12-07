@@ -27,7 +27,7 @@ variable "soa_record" {
 #   refresh_time (string)     : The refresh time for the SOA record. Defaults to '3600'.
 #   retry_time (string)       : The retry time for the SOA record. Defaults to '300'.
 #   serial_number (string)    : The serial number for the SOA record. Defaults to '1'.
-#   ttl (int)                 : The Time To Live of the SOA Record in seconds. Defaults to '3600'.
+#   ttl (number)              : The Time To Live of the SOA Record in seconds. Defaults to '3600'.
 #   tags (map)                : A mapping of tags to assign to the Record Set.
 
 

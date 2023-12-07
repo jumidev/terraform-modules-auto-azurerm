@@ -35,22 +35,22 @@ variable "disk_encryption_set_id" {
 }
 variable "disk_iops_read_write" {
   description = "The number of IOPS allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. One operation can transfer between 4k and 256k bytes."
-  type        = int
+  type        = number
   default     = null
 }
 variable "disk_mbps_read_write" {
   description = "The bandwidth allowed for this disk; only settable for UltraSSD disks and PremiumV2 disks. MBps means millions of bytes per second."
-  type        = int
+  type        = number
   default     = null
 }
 variable "disk_iops_read_only" {
   description = "The number of IOPS allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. One operation can transfer between 4k and 256k bytes."
-  type        = int
+  type        = number
   default     = null
 }
 variable "disk_mbps_read_only" {
   description = "The bandwidth allowed across all VMs mounting the shared disk as read-only; only settable for UltraSSD disks and PremiumV2 disks with shared disk enabled. MBps means millions of bytes per second."
-  type        = int
+  type        = number
   default     = null
 }
 variable "upload_size_bytes" {

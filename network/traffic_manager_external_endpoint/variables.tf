@@ -63,6 +63,6 @@ variable "subnet" {
 # subnet block structure:
 #   first (string)        : (REQUIRED) The first IP Address in this subnet.
 #   last (string)         : The last IP Address in this subnet.
-#   scope (int)           : The block size (number of leading bits in the subnet mask).
+#   scope (number)        : The block size (number of leading bits in the subnet mask).
 
 

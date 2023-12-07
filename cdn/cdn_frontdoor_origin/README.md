@@ -48,7 +48,7 @@ tfstate_store = {
 | **origin_host_header** | string |  -  |  -  |  The host header value (an IPv4 address, IPv6 address or Domain name) which is sent to the origin with each request. If unspecified the hostname from the request will be used. | 
 | **priority** | string |  `1`  |  -  |  Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy. Must be between `1` and `5` (inclusive). Defaults to `1`. | 
 | **private_link** | [block](#private_link-block-structure) |  -  |  -  |  A `private_link` block. | 
-| **weight** | int |  `500`  |  -  |  The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`. | 
+| **weight** | number |  `500`  |  -  |  The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`. | 
 
 ### `private_link` block structure
 

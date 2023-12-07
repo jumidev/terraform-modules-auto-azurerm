@@ -43,8 +43,8 @@ tfstate_store = {
 | **name** | string |  -  |  Specifies the name of the Cost Management Export. Changing this forces a new resource to be created. | 
 | **resource_group_id** | string |  -  |  The id of the resource group on which to create an export. Changing this forces a new resource to be created. | 
 | **recurrence_type** | string |  `Annually`, `Daily`, `Monthly`, `Weekly`  |  How often the requested information will be exported. Valid values include `Annually`, `Daily`, `Monthly`, `Weekly`. | 
-| **recurrence_period_start_date** | datetime |  -  |  The date the export will start capturing information. | 
-| **recurrence_period_end_date** | datetime |  -  |  The date the export will stop capturing information. | 
+| **recurrence_period_start_date** | string |  -  |  The date the export will start capturing information. | 
+| **recurrence_period_end_date** | string |  -  |  The date the export will stop capturing information. | 
 | **export_data_storage_location** | [block](#export_data_storage_location-block-structure) |  -  |  A `export_data_storage_location` block. | 
 | **export_data_options** | [block](#export_data_options-block-structure) |  -  |  A `export_data_options` block. | 
 
@@ -54,19 +54,19 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **active** | bool |  `True`  |  Is the cost management export active? Default is `true`. | 
 
-### `export_data_storage_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_id` | string | Yes | - | The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created. |
-| `root_folder_path` | string | Yes | - | The path of the directory where exports will be uploaded. Changing this forces a new resource to be created. |
-
 ### `export_data_options` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The type of the query. Possible values are 'ActualCost', 'AmortizedCost' and 'Usage'. |
 | `time_frame` | string | Yes | - | The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: 'WeekToDate', 'MonthToDate', 'BillingMonthToDate', 'TheLast7Days', 'TheLastMonth', 'TheLastBillingMonth', 'Custom'. |
+
+### `export_data_storage_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container_id` | string | Yes | - | The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created. |
+| `root_folder_path` | string | Yes | - | The path of the directory where exports will be uploaded. Changing this forces a new resource to be created. |
 
 
 

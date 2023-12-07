@@ -22,7 +22,7 @@ variable "email_subject" {
 }
 variable "end_date" {
   description = "(REQUIRED) The end date and time of the Scheduled Action (UTC)."
-  type        = datetime
+  type        = string
 
 }
 variable "frequency" {
@@ -37,7 +37,7 @@ variable "name" {
 }
 variable "start_date" {
   description = "(REQUIRED) The start date and time of the Scheduled Action (UTC)."
-  type        = datetime
+  type        = string
 
 }
 variable "view_id" {

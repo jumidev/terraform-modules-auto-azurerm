@@ -25,15 +25,15 @@ resource "azurerm_frontdoor" "this" {
     path                = lookup(backend_pool_health_probe.value, "path", "/")
     protocol            = lookup(backend_pool_health_probe.value, "protocol", "Http")
     probe_method        = lookup(backend_pool_health_probe.value, "probe_method", "GET")
-    interval_in_seconds = lookup(backend_pool_health_probe.value, "interval_in_seconds", 120)
+    interval_in_seconds = lookup(backend_pool_health_probe.value, "interval_in_seconds", "120")
   }
 
 
   backend_pool_load_balancing {
     name                            = lookup(backend_pool_load_balancing.value, "name") # (Required) 
-    sample_size                     = lookup(backend_pool_load_balancing.value, "sample_size", 4)
-    successful_samples_required     = lookup(backend_pool_load_balancing.value, "successful_samples_required", 2)
-    additional_latency_milliseconds = lookup(backend_pool_load_balancing.value, "additional_latency_milliseconds", 0)
+    sample_size                     = lookup(backend_pool_load_balancing.value, "sample_size", "4")
+    successful_samples_required     = lookup(backend_pool_load_balancing.value, "successful_samples_required", "2")
+    additional_latency_milliseconds = lookup(backend_pool_load_balancing.value, "additional_latency_milliseconds", "0")
   }
 
 
@@ -41,7 +41,7 @@ resource "azurerm_frontdoor" "this" {
     name                                    = lookup(frontend_endpoint.value, "name")      # (Required) 
     host_name                               = lookup(frontend_endpoint.value, "host_name") # (Required) 
     session_affinity_enabled                = lookup(frontend_endpoint.value, "session_affinity_enabled", false)
-    session_affinity_ttl_seconds            = lookup(frontend_endpoint.value, "session_affinity_ttl_seconds", 0)
+    session_affinity_ttl_seconds            = lookup(frontend_endpoint.value, "session_affinity_ttl_seconds", "0")
     web_application_firewall_policy_link_id = lookup(frontend_endpoint.value, "web_application_firewall_policy_link_id", null)
   }
 

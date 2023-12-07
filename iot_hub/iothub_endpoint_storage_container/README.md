@@ -46,8 +46,8 @@ tfstate_store = {
 | **identity_id** | string |  -  |  -  |  ID of the User Managed Identity used to authenticate against the storage endpoint. | 
 | **endpoint_uri** | string |  -  |  -  |  URI of the Storage Container endpoint. This corresponds to the `primary_blob_endpoint` of the parent storage account. This attribute can only be specified and is mandatory when `authentication_type` is `identityBased`. | 
 | **connection_string** | string |  -  |  -  |  The connection string for the endpoint. This attribute can only be specified and is mandatory when `authentication_type` is `keyBased`. | 
-| **batch_frequency_in_seconds** | int |  -  |  -  |  Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. | 
-| **max_chunk_size_in_bytes** | int |  -  |  -  |  Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). | 
+| **batch_frequency_in_seconds** | number |  -  |  -  |  Time interval at which blobs are written to storage. Value should be between 60 and 720 seconds. Default value is 300 seconds. | 
+| **max_chunk_size_in_bytes** | number |  -  |  -  |  Maximum number of bytes for each blob written to storage. Value should be between 10485760(10MB) and 524288000(500MB). Default value is 314572800(300MB). | 
 | **encoding** | string |  `Avro`  |  -  |  Encoding that is used to serialize messages to blobs. Supported values are `Avro`, `AvroDeflate` and `JSON`. Default value is `Avro`. Changing this forces a new resource to be created. | 
 | **file_name_format** | string |  `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`  |  -  |  File name format for the blob. All parameters are mandatory but can be reordered. Defaults to `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. | 
 

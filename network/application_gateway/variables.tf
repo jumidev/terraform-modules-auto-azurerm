@@ -269,7 +269,7 @@ variable "probe" {
 #   port (string)                                   : Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from HTTP settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
 #   pick_host_name_from_backend_http_settings (bool): Whether the host header should be picked from the backend HTTP settings. Defaults to 'false'.
 #   match (block)                                   : A 'match' block.
-#   minimum_servers (int)                           : The minimum number of servers that are always marked as healthy. Defaults to '0'.
+#   minimum_servers (number)                        : The minimum number of servers that are always marked as healthy. Defaults to '0'.
 #
 # match block structure:
 #   body (string)        : A snippet from the Response Body which must be present in the Response.
@@ -321,7 +321,7 @@ variable "waf_configuration" {
 #   rule_set_type (string)           : The Type of the Rule Set used for this Web Application Firewall. Possible values are 'OWASP' and 'Microsoft_BotManagerRuleSet'. Defaults to 'OWASP'.
 #   rule_set_version (string)        : (REQUIRED) The Version of the Rule Set used for this Web Application Firewall. Possible values are '0.1', '1.0', '2.2.9', '3.0', '3.1' and '3.2'.
 #   disabled_rule_group (block)      : One or more 'disabled_rule_group' blocks.
-#   file_upload_limit_mb (int)       : The File Upload Limit in MB. Accepted values are in the range '1'MB to '750'MB for the 'WAF_v2' SKU, and '1'MB to '500'MB for all other SKUs. Defaults to '100'MB.
+#   file_upload_limit_mb (number)    : The File Upload Limit in MB. Accepted values are in the range '1'MB to '750'MB for the 'WAF_v2' SKU, and '1'MB to '500'MB for all other SKUs. Defaults to '100'MB.
 #   request_body_check (bool)        : Is Request Body Inspection enabled? Defaults to 'true'.
 #   max_request_body_size_kb (string): The Maximum Request Body Size in KB. Accepted values are in the range '1'KB to '128'KB. Defaults to '128'KB.
 #   exclusion (block)                : One or more 'exclusion' blocks.
@@ -388,12 +388,6 @@ variable "rewrite_rule_set" {
 #   name (string)                   : (REQUIRED) Unique name of the rewrite rule set block
 #   rewrite_rule (block)            : One or more 'rewrite_rule' blocks.
 #
-# url block structure  :
-#   path (string)        : The URL path to rewrite.
-#   query_string (string): The query string to rewrite.
-#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
-#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
-#
 # rewrite_rule block structure        :
 #   name (string)                       : (REQUIRED) Unique name of the rewrite rule block
 #   rule_sequence (string)              : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
@@ -401,5 +395,11 @@ variable "rewrite_rule_set" {
 #   request_header_configuration (list) : One or more 'request_header_configuration' blocks.
 #   response_header_configuration (list): One or more 'response_header_configuration' blocks.
 #   url (block)                         : One 'url' block
+#
+# url block structure  :
+#   path (string)        : The URL path to rewrite.
+#   query_string (string): The query string to rewrite.
+#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
+#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 
 

@@ -94,19 +94,19 @@ variable "redis_configuration" {
 #   maxfragmentationmemory_reserved (string)      : Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
 #   rdb_backup_enabled (bool)                     : Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'.
 #   rdb_backup_frequency (string)                 : The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'.
-#   rdb_backup_max_snapshot_count (int)           : The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
+#   rdb_backup_max_snapshot_count (number)        : The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 #   rdb_storage_connection_string (string)        : The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'.
 #   notify_keyspace_events (string)               : Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 
 
 variable "replicas_per_master" {
   description = "Amount of replicas to create per master for this Redis Cache."
-  type        = int
+  type        = number
   default     = null
 }
 variable "replicas_per_primary" {
   description = "Amount of replicas to create per primary for this Redis Cache. If both 'replicas_per_primary' and 'replicas_per_master' are set, they need to be equal."
-  type        = int
+  type        = number
   default     = null
 }
 variable "redis_version" {
@@ -121,7 +121,7 @@ variable "tenant_settings" {
 }
 variable "shard_count" {
   description = "*Only available when using the Premium SKU* The number of Shards to create on the Redis Cluster."
-  type        = int
+  type        = number
   default     = null
 }
 variable "subnet_id" {

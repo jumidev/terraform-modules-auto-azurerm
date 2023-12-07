@@ -32,7 +32,7 @@ tfstate_store = {
 | **name** | string |  The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created. | 
 | **location** | string |  The Azure Region where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created. | 
-| **node_count** | int |  The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`. | 
+| **node_count** | number |  The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`. | 
 
 ## Optional Variables
 

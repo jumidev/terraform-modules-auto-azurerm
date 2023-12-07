@@ -22,7 +22,7 @@ variable "virtual_hub_id" {
 }
 variable "scale_units" {
   description = "(REQUIRED) The number of scale units with which to provision the ExpressRoute gateway. Each scale unit is equal to 2Gbps, with support for up to 10 scale units (20Gbps)."
-  type        = int
+  type        = number
 
 }
 

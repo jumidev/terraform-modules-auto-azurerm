@@ -25,10 +25,10 @@ variable "user" {
   type        = map(any)
 }
 #
-# user block structure:
-#   name (string)       : (REQUIRED) The name which should be used for this user_info. Changing this forces a new resource to be created.
-#   email (string)      : (REQUIRED) Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
-#   phone_number (int)  : Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
+# user block structure :
+#   name (string)        : (REQUIRED) The name which should be used for this user_info. Changing this forces a new resource to be created.
+#   email (string)       : (REQUIRED) Email of the user used by Datadog for contacting them if needed. Changing this forces a new Datadog Monitor to be created.
+#   phone_number (number): Phone number of the user used by Datadog for contacting them if needed. Changing this forces a new resource to be created.
 
 
 variable "datadog_organization" {

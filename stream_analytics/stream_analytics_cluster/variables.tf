@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "streaming_capacity" {
   description = "(REQUIRED) The number of streaming units supported by the Cluster. Accepted values are multiples of '36' in the range of '36' to '216'."
-  type        = int
+  type        = number
 
 }
 

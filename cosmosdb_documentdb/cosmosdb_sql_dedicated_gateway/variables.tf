@@ -12,6 +12,6 @@ variable "instance_size" {
 }
 variable "instance_count" {
   description = "(REQUIRED) The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between '1' and '5'."
-  type        = int
+  type        = number
 
 }

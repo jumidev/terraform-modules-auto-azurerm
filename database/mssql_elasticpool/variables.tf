@@ -52,12 +52,12 @@ variable "maintenance_configuration_name" {
 }
 variable "max_size_gb" {
   description = "The max data size of the elastic pool in gigabytes. Conflicts with 'max_size_bytes'."
-  type        = int
+  type        = number
   default     = null
 }
 variable "max_size_bytes" {
   description = "The max data size of the elastic pool in bytes. Conflicts with 'max_size_gb'."
-  type        = int
+  type        = number
   default     = null
 }
 variable "tags" {

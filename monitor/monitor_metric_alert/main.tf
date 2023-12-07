@@ -57,8 +57,8 @@ resource "azurerm_monitor_metric_alert" "this" {
         }
       }
 
-      evaluation_total_count   = lookup(dynamic_criteria.value, "evaluation_total_count", 4)
-      evaluation_failure_count = lookup(dynamic_criteria.value, "evaluation_failure_count", 4)
+      evaluation_total_count   = lookup(dynamic_criteria.value, "evaluation_total_count", "4")
+      evaluation_failure_count = lookup(dynamic_criteria.value, "evaluation_failure_count", "4")
       ignore_data_before       = lookup(dynamic_criteria.value, "ignore_data_before", null)
       skip_metric_validation   = lookup(dynamic_criteria.value, "skip_metric_validation", null)
     }

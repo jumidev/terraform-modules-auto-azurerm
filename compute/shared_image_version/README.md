@@ -48,7 +48,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **blob_uri** | string |  -  |  -  |  URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created. | 
-| **end_of_life_date** | datetime |  -  |  -  |  The end of life date in RFC3339 format of the Image Version. | 
+| **end_of_life_date** | string |  -  |  -  |  The end of life date in RFC3339 format of the Image Version. | 
 | **exclude_from_latest** | bool |  `False`  |  -  |  Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`. | 
 | **managed_image_id** | string |  -  |  -  |  The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created. | 
 | **os_disk_snapshot_id** | string |  -  |  -  |  The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created. | 

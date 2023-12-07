@@ -42,8 +42,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **content_type** | string |  Specifies the content type for the Key Vault Secret. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
-| **not_before_date** | datetime |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **expiration_date** | datetime |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **not_before_date** | string |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **expiration_date** | string |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
 
 
 

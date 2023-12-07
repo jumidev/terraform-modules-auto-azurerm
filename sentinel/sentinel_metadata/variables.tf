@@ -77,7 +77,7 @@ variable "dependency" {
 
 variable "first_publish_date" {
   description = "The first publish date of solution content item."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "icon_id" {
@@ -87,7 +87,7 @@ variable "icon_id" {
 }
 variable "last_publish_date" {
   description = "The last publish date of solution content item."
-  type        = datetime
+  type        = string
   default     = null
 }
 variable "preview_images" {

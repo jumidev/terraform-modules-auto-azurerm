@@ -20,13 +20,13 @@ variable "lock_duration" {
 }
 variable "max_message_size_in_kilobytes" {
   description = "Integer value which controls the maximum size of a message allowed on the queue for Premium SKU. For supported values see the 'Large messages support' section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging#large-messages-support-preview)."
-  type        = int
+  type        = number
   default     = null
 }
 variable "max_size_in_megabytes" {
   description = "Integer value which controls the size of memory allocated for the queue. For supported values see the 'Queue or topic size' section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas). Defaults to '1024'."
-  type        = int
-  default     = 1024
+  type        = number
+  default     = "1024"
 }
 variable "requires_duplicate_detection" {
   description = "Boolean flag which controls whether the Queue requires duplicate detection. Changing this forces a new resource to be created. Defaults to 'false'."
@@ -55,8 +55,8 @@ variable "duplicate_detection_history_time_window" {
 }
 variable "max_delivery_count" {
   description = "Integer value which controls when a message is automatically dead lettered. Defaults to '10'."
-  type        = int
-  default     = 10
+  type        = number
+  default     = "10"
 }
 variable "status" {
   description = "The status of the Queue. Possible values are 'Active', 'Creating', 'Deleting', 'Disabled', 'ReceiveDisabled', 'Renaming', 'SendDisabled', 'Unknown'. Note that 'Restoring' is not accepted. Defaults to 'Active'."

@@ -25,7 +25,7 @@ resource "azurerm_monitor_aad_diagnostic_setting" "this" {
         for_each = log.value.retention_policy != null ? log.value.retention_policy : []
         content {
           enabled = lookup(retention_policy.value, "enabled", false)
-          days    = lookup(retention_policy.value, "days", 0)
+          days    = lookup(retention_policy.value, "days", "0")
         }
       }
 
@@ -43,7 +43,7 @@ resource "azurerm_monitor_aad_diagnostic_setting" "this" {
         for_each = enabled_log.value.retention_policy != null ? enabled_log.value.retention_policy : []
         content {
           enabled = lookup(retention_policy.value, "enabled", false)
-          days    = lookup(retention_policy.value, "days", 0)
+          days    = lookup(retention_policy.value, "days", "0")
         }
       }
 

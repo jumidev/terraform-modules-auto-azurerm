@@ -30,7 +30,7 @@ variable "os_disk" {
 #   storage_account_type (string)            : (REQUIRED) The Type of Storage Account which should back this the Internal OS Disk. Possible values are 'Standard_LRS', 'StandardSSD_LRS', 'Premium_LRS', 'StandardSSD_ZRS' and 'Premium_ZRS'. Changing this forces a new resource to be created.
 #   diff_disk_settings (block)               : A 'diff_disk_settings' block. Changing this forces a new resource to be created.
 #   disk_encryption_set_id (string)          : The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with 'secure_vm_disk_encryption_set_id'.
-#   disk_size_gb (int)                       : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
+#   disk_size_gb (number)                    : The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
 #   name (string)                            : The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
 #   secure_vm_disk_encryption_set_id (string): The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created.
 #   security_encryption_type (string)        : Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created.
@@ -300,4 +300,32 @@ variable "zone" {
   description = "Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created."
   type        = string
   default     = null
+}
+
+# OPTIONAL VARIABLES
+
+variable "managed_disk_id" {
+  description = "The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "lun" {
+  description = "The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created."
+  type        = number
+  default     = "3"
+}
+variable "caching" {
+  description = "Specifies the caching requirements for this Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'."
+  type        = string
+  default     = "ReadOnly"
+}
+variable "create_option" {
+  description = "The Create Option of the Data Disk, such as 'Empty' or 'Attach'. Defaults to 'Attach'. Changing this forces a new resource to be created."
+  type        = string
+  default     = "Attach"
+}
+variable "write_accelerator_enabled" {
+  description = "Specifies if Write Accelerator is enabled on the disk. This can only be enabled on 'Premium_LRS' managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to 'false'."
+  type        = bool
+  default     = false
 }

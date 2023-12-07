@@ -38,13 +38,13 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **node_count** | int |  `3`  |  The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`. | 
+| **node_count** | number |  `3`  |  The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`. | 
 | **backup_storage_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the backup Storage Account. | 
 | **base64_encoded_yaml_fragment** | string |  -  |  The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed. | 
 | **disk_sku** | string |  `P30`  |  The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`. | 
 | **managed_disk_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the Managed Disk. | 
 | **sku_name** | string |  -  |  Determines the selected sku. | 
-| **disk_count** | int |  -  |  Determines the number of p30 disks that are attached to each node. | 
+| **disk_count** | number |  -  |  Determines the number of p30 disks that are attached to each node. | 
 | **availability_zones_enabled** | bool |  `True`  |  Determines whether availability zones are enabled. Defaults to `true`. | 
 
 

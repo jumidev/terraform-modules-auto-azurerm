@@ -62,38 +62,12 @@ tfstate_store = {
 | **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `site_config` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `always_on` | bool | No | False | Should the Logic App be loaded at all times? Defaults to 'false'. |
-| `app_scale_limit` | int | No | - | The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan. |
-| `cors` | [block](#cors-block-structure) | No | - | A 'cors' block. |
-| `dotnet_framework_version` | string | No | v4.0 | The version of the .NET framework's CLR used in this Logic App Possible values are 'v4.0' (including .NET Core 2.1 and 3.1), 'v5.0' and 'v6.0'. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to 'v4.0'. |
-| `elastic_instance_minimum` | int | No | - | The number of minimum instances for this Logic App Only affects apps on the Premium plan. |
-| `ftps_state` | string | No | AllAllowed | State of FTP / FTPS service for this Logic App Possible values include: 'AllAllowed', 'FtpsOnly' and 'Disabled'. Defaults to 'AllAllowed'. |
-| `health_check_path` | string | No | - | Path which will be checked for this Logic App health. |
-| `http2_enabled` | bool | No | False | Specifies whether or not the HTTP2 protocol should be enabled. Defaults to 'false'. |
-| `ip_restriction` | [block](#ip_restriction-block-structure) | No | - | A list of 'ip_restriction' objects representing IP restrictions as defined below. |
-| `scm_ip_restriction` | [block](#scm_ip_restriction-block-structure) | No | - | A list of 'scm_ip_restriction' objects representing SCM IP restrictions as defined below. |
-| `scm_use_main_ip_restriction` | bool | No | False | Should the Logic App 'ip_restriction' configuration be used for the SCM too. Defaults to 'false'. |
-| `scm_min_tls_version` | string | No | - | Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are '1.0', '1.1' and '1.2'. |
-| `scm_type` | string | No | None | The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to 'None'. Possible values are: 'BitbucketGit', 'BitbucketHg', 'CodePlexGit', 'CodePlexHg', 'Dropbox', 'ExternalGit', 'ExternalHg', 'GitHub', 'LocalGit', 'None', 'OneDrive', 'Tfs', 'VSO', and 'VSTSRM' |
-| `linux_fx_version` | string | No | - | Linux App Framework and version for the AppService, e.g. 'DOCKER|(golang:latest)'. Setting this value will also set the 'kind' of application deployed to 'functionapp,linux,container,workflowapp' |
-| `min_tls_version` | string | No | 1.2 | The minimum supported TLS version for the Logic App Possible values are '1.0', '1.1', and '1.2'. Defaults to '1.2' for new Logic Apps. |
-| `pre_warmed_instance_count` | int | No | - | The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan. |
-| `runtime_scale_monitoring_enabled` | bool | No | False | Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to 'false'. |
-| `use_32_bit_worker_process` | bool | No | True | Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to 'true'. |
-| `vnet_route_all_enabled` | bool | No | - | Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. |
-| `websockets_enabled` | bool | No | - | Should WebSockets be enabled? |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
 
 ### `scm_ip_restriction` block structure
 
@@ -107,22 +81,6 @@ tfstate_store = {
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
 
-### `headers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `x_azure_fdid` | list | No | - | A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8. |
-| `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
-| `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
-| `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
-
 ### `ip_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -135,12 +93,54 @@ tfstate_store = {
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | [block](#headers-block-structure) | No | - | The 'headers' block for this specific as a 'ip_restriction' block. |
 
+### `site_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `always_on` | bool | No | False | Should the Logic App be loaded at all times? Defaults to 'false'. |
+| `app_scale_limit` | number | No | - | The number of workers this Logic App can scale out to. Only applicable to apps on the Consumption and Premium plan. |
+| `cors` | [block](#cors-block-structure) | No | - | A 'cors' block. |
+| `dotnet_framework_version` | string | No | v4.0 | The version of the .NET framework's CLR used in this Logic App Possible values are 'v4.0' (including .NET Core 2.1 and 3.1), 'v5.0' and 'v6.0'. [For more information on which .NET Framework version to use based on the runtime version you're targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to 'v4.0'. |
+| `elastic_instance_minimum` | number | No | - | The number of minimum instances for this Logic App Only affects apps on the Premium plan. |
+| `ftps_state` | string | No | AllAllowed | State of FTP / FTPS service for this Logic App Possible values include: 'AllAllowed', 'FtpsOnly' and 'Disabled'. Defaults to 'AllAllowed'. |
+| `health_check_path` | string | No | - | Path which will be checked for this Logic App health. |
+| `http2_enabled` | bool | No | False | Specifies whether or not the HTTP2 protocol should be enabled. Defaults to 'false'. |
+| `ip_restriction` | [block](#ip_restriction-block-structure) | No | - | A list of 'ip_restriction' objects representing IP restrictions as defined below. |
+| `scm_ip_restriction` | [block](#scm_ip_restriction-block-structure) | No | - | A list of 'scm_ip_restriction' objects representing SCM IP restrictions as defined below. |
+| `scm_use_main_ip_restriction` | bool | No | False | Should the Logic App 'ip_restriction' configuration be used for the SCM too. Defaults to 'false'. |
+| `scm_min_tls_version` | string | No | - | Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are '1.0', '1.1' and '1.2'. |
+| `scm_type` | string | No | None | The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to 'None'. Possible values are: 'BitbucketGit', 'BitbucketHg', 'CodePlexGit', 'CodePlexHg', 'Dropbox', 'ExternalGit', 'ExternalHg', 'GitHub', 'LocalGit', 'None', 'OneDrive', 'Tfs', 'VSO', and 'VSTSRM' |
+| `linux_fx_version` | string | No | - | Linux App Framework and version for the AppService, e.g. 'DOCKER|(golang:latest)'. Setting this value will also set the 'kind' of application deployed to 'functionapp,linux,container,workflowapp' |
+| `min_tls_version` | string | No | 1.2 | The minimum supported TLS version for the Logic App Possible values are '1.0', '1.1', and '1.2'. Defaults to '1.2' for new Logic Apps. |
+| `pre_warmed_instance_count` | number | No | - | The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan. |
+| `runtime_scale_monitoring_enabled` | bool | No | False | Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to 'false'. |
+| `use_32_bit_worker_process` | bool | No | True | Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to 'true'. |
+| `vnet_route_all_enabled` | bool | No | - | Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. |
+| `websockets_enabled` | bool | No | - | Should WebSockets be enabled? |
+
 ### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
 | `support_credentials` | string | No | - | Are credentials supported? |
+
+### `headers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `x_azure_fdid` | list | No | - | A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8. |
+| `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
+| `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
+| `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Connection String. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
 
 
 

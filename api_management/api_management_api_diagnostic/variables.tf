@@ -40,21 +40,21 @@ variable "backend_request" {
 }
 #
 # backend_request block structure:
-#   body_bytes (int)               : Number of payload bytes to log (up to 8192).
+#   body_bytes (number)            : Number of payload bytes to log (up to 8192).
 #   headers_to_log (string)        : Specifies a list of headers to log.
 #   data_masking (block)           : A 'data_masking' block.
 #
-# headers block structure:
-#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
+# query_params block structure:
+#   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)              : (REQUIRED) The name of the header or the query parameter to mask.
 #
 # data_masking block structure:
 #   query_params (block)        : A 'query_params' block.
 #   headers (block)             : A 'headers' block.
 #
-# query_params block structure:
-#   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)              : (REQUIRED) The name of the header or the query parameter to mask.
+# headers block structure:
+#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
 
 
 variable "backend_response" {
@@ -64,13 +64,9 @@ variable "backend_response" {
 }
 #
 # backend_response block structure:
-#   body_bytes (int)                : Number of payload bytes to log (up to 8192).
+#   body_bytes (number)             : Number of payload bytes to log (up to 8192).
 #   headers_to_log (string)         : Specifies a list of headers to log.
 #   data_masking (block)            : A 'data_masking' block.
-#
-# headers block structure:
-#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
 #
 # query_params block structure:
 #   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
@@ -79,6 +75,10 @@ variable "backend_response" {
 # data_masking block structure:
 #   query_params (block)        : A 'query_params' block.
 #   headers (block)             : A 'headers' block.
+#
+# headers block structure:
+#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
 
 
 variable "frontend_request" {
@@ -88,21 +88,21 @@ variable "frontend_request" {
 }
 #
 # frontend_request block structure:
-#   body_bytes (int)                : Number of payload bytes to log (up to 8192).
+#   body_bytes (number)             : Number of payload bytes to log (up to 8192).
 #   headers_to_log (string)         : Specifies a list of headers to log.
 #   data_masking (block)            : A 'data_masking' block.
 #
-# headers block structure:
-#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
+# query_params block structure:
+#   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)              : (REQUIRED) The name of the header or the query parameter to mask.
 #
 # data_masking block structure:
 #   query_params (block)        : A 'query_params' block.
 #   headers (block)             : A 'headers' block.
 #
-# query_params block structure:
-#   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)              : (REQUIRED) The name of the header or the query parameter to mask.
+# headers block structure:
+#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
 
 
 variable "frontend_response" {
@@ -112,21 +112,21 @@ variable "frontend_response" {
 }
 #
 # frontend_response block structure:
-#   body_bytes (int)                 : Number of payload bytes to log (up to 8192).
+#   body_bytes (number)              : Number of payload bytes to log (up to 8192).
 #   headers_to_log (string)          : Specifies a list of headers to log.
 #   data_masking (block)             : A 'data_masking' block.
 #
-# headers block structure:
-#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
+# query_params block structure:
+#   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)              : (REQUIRED) The name of the header or the query parameter to mask.
 #
 # data_masking block structure:
 #   query_params (block)        : A 'query_params' block.
 #   headers (block)             : A 'headers' block.
 #
-# query_params block structure:
-#   mode (string)               : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
-#   value (string)              : (REQUIRED) The name of the header or the query parameter to mask.
+# headers block structure:
+#   mode (string)          : (REQUIRED) The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'.
+#   value (string)         : (REQUIRED) The name of the header or the query parameter to mask.
 
 
 variable "http_correlation_protocol" {

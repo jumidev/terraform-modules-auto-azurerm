@@ -12,7 +12,7 @@ variable "topic_id" {
 }
 variable "max_delivery_count" {
   description = "(REQUIRED) The maximum number of deliveries."
-  type        = int
+  type        = number
 
 }
 
