@@ -7,8 +7,8 @@ resource "azurerm_virtual_machine_data_disk_attachment" "this" {
   ########################################
   virtual_machine_id = var.virtual_machine_id
   managed_disk_id    = var.managed_disk_id
-  lun                = var.lun
-  caching            = var.caching
+  lun                = var.lun     # Default: 3
+  caching            = var.caching # Default: ReadOnly
 
   ########################################
   # optional vars

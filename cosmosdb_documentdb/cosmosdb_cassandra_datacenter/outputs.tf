@@ -51,3 +51,8 @@ output "id" {
   value       = azurerm_cosmosdb_cassandra_datacenter.this.id
 }
 
+output "seed_node_ip_addresses" {
+  description = "A list of IP Address for the seed nodes in this Cassandra Datacenter."
+  value       = azurerm_cosmosdb_cassandra_datacenter.this.seed_node_ip_addresses
+}
+

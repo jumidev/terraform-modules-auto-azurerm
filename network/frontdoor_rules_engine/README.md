@@ -51,14 +51,12 @@ tfstate_store = {
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
 
-### `rule` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the rule. |
-| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
-| `match_condition` | [block](#match_condition-block-structure) | No | - | One or more 'match_condition' block. |
+| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
+| `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
 
 ### `response_header` block structure
 
@@ -67,13 +65,6 @@ tfstate_store = {
 | `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
-| `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
 
 ### `match_condition` block structure
 
@@ -85,6 +76,15 @@ tfstate_store = {
 | `transform` | list | No | - | can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode' |
 | `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
 | `value` | list | No | - | (array) can contain one or more strings. |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the rule. |
+| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
+| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#match_condition-block-structure) | No | - | One or more 'match_condition' block. |
 
 
 

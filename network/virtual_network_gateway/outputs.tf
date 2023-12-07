@@ -54,6 +54,30 @@ output "private_ip_address_enabled" {
   value = azurerm_virtual_network_gateway.this.private_ip_address_enabled
 }
 
+output "bgp_route_translation_for_nat_enabled" {
+  value = azurerm_virtual_network_gateway.this.bgp_route_translation_for_nat_enabled
+}
+
+output "dns_forwarding_enabled" {
+  value = azurerm_virtual_network_gateway.this.dns_forwarding_enabled
+}
+
+output "ip_sec_replay_protection_enabled" {
+  value = azurerm_virtual_network_gateway.this.ip_sec_replay_protection_enabled
+}
+
+output "policy_group" {
+  value = azurerm_virtual_network_gateway.this.policy_group
+}
+
+output "remote_vnet_traffic_enabled" {
+  value = azurerm_virtual_network_gateway.this.remote_vnet_traffic_enabled
+}
+
+output "virtual_wan_traffic_enabled" {
+  value = azurerm_virtual_network_gateway.this.virtual_wan_traffic_enabled
+}
+
 output "tags" {
   value = azurerm_virtual_network_gateway.this.tags
 }

@@ -34,14 +34,14 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  possible values |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **name** | string |  -  |  Specifies the name of the LB Rule. Changing this forces a new resource to be created. | 
-| **loadbalancer_id** | string |  -  |  The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created. | 
-| **frontend_ip_configuration_name** | string |  -  |  The name of the frontend IP configuration to which the rule is associated. | 
-| **protocol** | string |  `Tcp`, `Udp`, `All`  |  The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`. | 
-| **frontend_port** | string |  -  |  The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. | 
-| **backend_port** | string |  -  |  The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **name** | string |  -  |  -  |  Specifies the name of the LB Rule. Changing this forces a new resource to be created. | 
+| **loadbalancer_id** | string |  -  |  -  |  The ID of the Load Balancer in which to create the Rule. Changing this forces a new resource to be created. | 
+| **frontend_ip_configuration_name** | string |  `primary`  |  -  |  The name of the frontend IP configuration to which the rule is associated. | 
+| **protocol** | string |  -  |  `Tcp`, `Udp`, `All`  |  The transport protocol for the external endpoint. Possible values are `Tcp`, `Udp` or `All`. | 
+| **frontend_port** | string |  -  |  -  |  The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. | 
+| **backend_port** | string |  -  |  -  |  The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. | 
 
 ## Optional Variables
 

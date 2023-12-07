@@ -23,3 +23,21 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "name" {
+  description = "The name which should be used for this Application Gateway for Containers Association. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "subnet_id" {
+  description = "The ID of the subnet which the Application Gateway for Containers associated to. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "tags" {
+  description = "A mapping of tags which should be assigned to the Application Gateway for Containers Association."
+  type        = map(any)
+  default     = null
+}

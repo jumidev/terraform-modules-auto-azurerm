@@ -48,18 +48,6 @@ tfstate_store = {
 | **policy_settings** | [block](#policy_settings-block-structure) |  A `policy_settings` block. | 
 | **tags** | map |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
-### `policy_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Describes if the policy is in enabled state or disabled state. Defaults to 'true'. |
-| `mode` | string | No | Prevention | Describes if it is in detection mode or prevention mode at the policy level. Valid values are 'Detection' and 'Prevention'. Defaults to 'Prevention'. |
-| `file_upload_limit_in_mb` | int | No | 100 | The File Upload Limit in MB. Accepted values are in the range '1' to '4000'. Defaults to '100'. |
-| `request_body_check` | bool | No | True | Is Request Body Inspection enabled? Defaults to 'true'. |
-| `max_request_body_size_in_kb` | string | No | 128 | The Maximum Request Body Size in KB. Accepted values are in the range '8' to '2000'. Defaults to '128'. |
-| `log_scrubbing` | [block](#log_scrubbing-block-structure) | No | - | One 'log_scrubbing' block. |
-| `request_body_inspect_limit_in_kb` | string | No | 128 | Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to '128'. |
-
 ### `log_scrubbing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -104,6 +92,18 @@ tfstate_store = {
 | `rate_limit_duration` | string | No | - | Specifies the duration at which the rate limit policy will be applied. Should be used with 'RateLimitRule' rule type. Possible values are 'FiveMins' and 'OneMin'. |
 | `rate_limit_threshold` | string | No | - | Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided. |
 | `group_rate_limit_by` | string | No | - | Specifies what grouping the rate limit will count requests by. Possible values are 'GeoLocation', 'ClientAddr' and 'None'. |
+
+### `policy_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Describes if the policy is in enabled state or disabled state. Defaults to 'true'. |
+| `mode` | string | No | Prevention | Describes if it is in detection mode or prevention mode at the policy level. Valid values are 'Detection' and 'Prevention'. Defaults to 'Prevention'. |
+| `file_upload_limit_in_mb` | int | No | 100 | The File Upload Limit in MB. Accepted values are in the range '1' to '4000'. Defaults to '100'. |
+| `request_body_check` | bool | No | True | Is Request Body Inspection enabled? Defaults to 'true'. |
+| `max_request_body_size_in_kb` | string | No | 128 | The Maximum Request Body Size in KB. Accepted values are in the range '8' to '2000'. Defaults to '128'. |
+| `log_scrubbing` | [block](#log_scrubbing-block-structure) | No | - | One 'log_scrubbing' block. |
+| `request_body_inspect_limit_in_kb` | string | No | 128 | Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to '128'. |
 
 
 

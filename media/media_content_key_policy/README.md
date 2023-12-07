@@ -65,6 +65,13 @@ tfstate_store = {
 | `required_claim` | list | No | - | One or more 'required_claim' blocks. |
 | `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
 
+### `offline_rental_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `playback_duration_seconds` | int | No | - | Playback duration. |
+| `storage_duration_seconds` | int | No | - | Storage duration. |
+
 ### `fairplay_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,13 +95,6 @@ tfstate_store = {
 | `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
 | `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
 | `widevine_configuration_template` | string | No | - | The Widevine template. |
-
-### `offline_rental_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `playback_duration_seconds` | int | No | - | Playback duration. |
-| `storage_duration_seconds` | int | No | - | Storage duration. |
 
 
 

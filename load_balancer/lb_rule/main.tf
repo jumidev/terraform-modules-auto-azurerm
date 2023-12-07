@@ -7,7 +7,7 @@ resource "azurerm_lb_rule" "this" {
   ########################################
   name                           = var.name
   loadbalancer_id                = var.loadbalancer_id
-  frontend_ip_configuration_name = var.frontend_ip_configuration_name
+  frontend_ip_configuration_name = var.frontend_ip_configuration_name # Default: primary
   protocol                       = var.protocol
   frontend_port                  = var.frontend_port
   backend_port                   = var.backend_port

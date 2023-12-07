@@ -11,14 +11,6 @@ source = {
 }
 
 inputs = {
-   name = "The name which should be used for this VMware Private Cloud Netapp File Volume A..."   
-   # netapp_volume_id → set in tfstate_inputs
-   # vmware_cluster_id → set in tfstate_inputs
-}
-
-tfstate_inputs = {
-   netapp_volume_id = "path/to/netapp_volume_component:id"   
-   vmware_cluster_id = "path/to/vmware_cluster_component:id"   
 }
 
 tfstate_store = {
@@ -29,7 +21,7 @@ tfstate_store = {
 
 ```
 
-## Required Variables
+## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |

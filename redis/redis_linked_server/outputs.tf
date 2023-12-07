@@ -28,3 +28,8 @@ output "name" {
   value       = azurerm_redis_linked_server.this.name
 }
 
+output "geo_replicated_primary_host_name" {
+  description = "The geo-replicated primary hostname for this linked server."
+  value       = azurerm_redis_linked_server.this.geo_replicated_primary_host_name
+}
+

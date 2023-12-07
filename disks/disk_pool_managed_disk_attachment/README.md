@@ -11,13 +11,6 @@ source = {
 }
 
 inputs = {
-   # disk_pool_id → set in tfstate_inputs
-   # managed_disk_id → set in tfstate_inputs
-}
-
-tfstate_inputs = {
-   disk_pool_id = "path/to/disk_pool_component:id"   
-   managed_disk_id = "path/to/managed_disk_component:id"   
 }
 
 tfstate_store = {
@@ -28,7 +21,7 @@ tfstate_store = {
 
 ```
 
-## Required Variables
+## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |

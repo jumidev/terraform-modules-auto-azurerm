@@ -64,6 +64,12 @@ tfstate_store = {
 | `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
 | `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
 
+### `vpn_client_address_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
+
 ### `route` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,12 +87,6 @@ tfstate_store = {
 | `vpn_client_address_pool` | [block](#vpn_client_address_pool-block-structure) | Yes | - | A 'vpn_client_address_pool' block. |
 | `route` | [block](#route-block-structure) | No | - | A 'route' block. |
 | `internet_security_enabled` | bool | No | False | Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to 'false'. |
-
-### `vpn_client_address_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
 
 

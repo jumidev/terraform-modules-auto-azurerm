@@ -33,6 +33,20 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+| `tfstate_input` variable | Information |
+| -------- | ----------- |
+| **vmware_cluster_id** | If set to a valid `azurerm_vmware_cluster` `id`, makes a **azurerm_vmware_netapp_volume_attachment** - Manages a VMware Private Cloud Netapp File Attachment.|
+
+Example associated resources in a `tfstate_inputs` block:
+
+```hcl
+tfstate_inputs = {
+   vmware_cluster_id = "path/to/vmware_cluster_component:id"
+}
+```
+
 
 ## Required Variables
 
@@ -65,6 +79,12 @@ tfstate_store = {
 | **throughput_in_mibps** | string |  -  |  -  |  Throughput of this volume in Mibps. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
+
 ### `data_protection_replication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,12 +93,6 @@ tfstate_store = {
 | `remote_volume_location` | string | Yes | - | Location of the primary volume. Changing this forces a new resource to be created. |
 | `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
 | `replication_frequency` | string | Yes | - | Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive. |
-
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 
 

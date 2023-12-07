@@ -20,16 +20,18 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Optional associated resources
 
 | `tfstate_input` variable | Information |
 | -------- | ----------- |
+| **resource_management_private_link_id** | If set to a valid `azurerm_resource_management_private_link` `id`, makes a **azurerm_resource_management_private_link_association** - Manages a Resource Management Private Link Association.|
 | **subscription_id** | If set to a valid `azurerm_subscription` `subscription_id`, makes a **azurerm_management_group_subscription_association** - Manages a Management Group Subscription Association.!> **Note:** When using this resource, configuring `subscription_ids` on the `azurerm_management_group` resource is not supported.|
 
 Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {
+   resource_management_private_link_id = "path/to/resource_management_private_link_component:id"
    subscription_id = "path/to/subscription_component:subscription_id"
 }
 ```

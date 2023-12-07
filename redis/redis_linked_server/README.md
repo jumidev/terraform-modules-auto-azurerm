@@ -48,5 +48,6 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Redis. | 
 | **name** | string | No  | The name of the linked server. | 
+| **geo_replicated_primary_host_name** | string | No  | The geo-replicated primary hostname for this linked server. | 
 
 Additionally, all variables are provided as outputs.

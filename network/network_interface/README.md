@@ -43,14 +43,20 @@ tfstate_store = {
 | `tfstate_input` variable | Information |
 | -------- | ----------- |
 | **application_security_group_id** | If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.|
+| **backend_address_pool_id** | If set to a valid `azurerm_lb_backend_address_pool` `id`, makes a **azurerm_network_interface_backend_address_pool_association** - Manages the association between a Network Interface and a Load Balancer's Backend Address Pool.|
 | **network_security_group_id** | If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.|
+| **backend_address_pool_id** | If set to a valid `azurerm_lb_backend_address_pool` `id`, makes a **azurerm_network_interface_application_gateway_backend_address_pool_association** - Manages the association between a Network Interface and a Application Gateway's Backend Address Pool.|
+| **nat_rule_id** | If set to a valid `azurerm_lb_nat_rule` `id`, makes a **azurerm_network_interface_nat_rule_association** - Manages the association between a Network Interface and a Load Balancer's NAT Rule.|
 
 Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {
    application_security_group_id = "path/to/application_security_group_component:id"
+   backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"
    network_security_group_id = "path/to/network_security_group_component:id"
+   backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"
+   nat_rule_id = "path/to/lb_nat_rule_component:id"
 }
 ```
 

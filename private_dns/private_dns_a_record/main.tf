@@ -15,7 +15,7 @@ resource "azurerm_private_dns_a_record" "this" {
   name                = var.name
   resource_group_name = data.azurerm_resource_group.this.name
   zone_name           = data.azurerm_private_dns_zone.this.name
-  ttl                 = var.ttl
+  ttl                 = var.ttl # Default: 300
   records             = var.records
 
   ########################################

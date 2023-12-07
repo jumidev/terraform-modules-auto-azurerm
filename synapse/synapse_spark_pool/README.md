@@ -58,12 +58,12 @@ tfstate_store = {
 | **spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
 
-### `auto_scale` block structure
+### `library_requirement` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `content` | string | Yes | - | The content of library requirements. |
+| `filename` | string | Yes | - | The name of the library requirements file. |
 
 ### `auto_pause` block structure
 
@@ -71,12 +71,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `delay_in_minutes` | int | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
 
-### `library_requirement` block structure
+### `auto_scale` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The content of library requirements. |
-| `filename` | string | Yes | - | The name of the library requirements file. |
+| `max_node_count` | int | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `min_node_count` | int | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
 ### `spark_config` block structure
 

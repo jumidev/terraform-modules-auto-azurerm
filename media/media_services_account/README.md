@@ -50,6 +50,13 @@ tfstate_store = {
 | **key_delivery_access_control** | [block](#key_delivery_access_control-block-structure) |  -  |  A `key_delivery_access_control` block. | 
 | **tags** | map |  -  |  A mapping of tags assigned to the resource. | 
 
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `is_primary` | bool | No | False | Specifies whether the storage account should be the primary account or not. Defaults to 'false'. |
+| `managed_identity` | [block](#managed_identity-block-structure) | No | - | A 'managed_identity' block. |
+
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,13 +65,6 @@ tfstate_store = {
 | `key_vault_key_identifier` | string | No | - | Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey). |
 | `managed_identity` | [block](#managed_identity-block-structure) | No | - | A 'managed_identity' block. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account. |
-
 ### `managed_identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,19 +72,19 @@ tfstate_store = {
 | `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity. This value can only be set when 'use_system_assigned_identity' is 'false' |
 | `use_system_assigned_identity` | bool | No | - | Whether to use System Assigned Identity. Possible Values are 'true' and 'false'. |
 
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `is_primary` | bool | No | False | Specifies whether the storage account should be the primary account or not. Defaults to 'false'. |
-| `managed_identity` | [block](#managed_identity-block-structure) | No | - | A 'managed_identity' block. |
-
 ### `key_delivery_access_control` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `default_action` | string | No | - | The Default Action to use when no rules match from 'ip_allow_list'. Possible values are 'Allow' and 'Deny'. |
 | `ip_allow_list` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account. |
 
 
 

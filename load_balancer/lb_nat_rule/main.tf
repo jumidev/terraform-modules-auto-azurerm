@@ -11,7 +11,7 @@ resource "azurerm_lb_nat_rule" "this" {
   name                           = var.name
   resource_group_name            = data.azurerm_resource_group.this.name
   loadbalancer_id                = var.loadbalancer_id
-  frontend_ip_configuration_name = var.frontend_ip_configuration_name
+  frontend_ip_configuration_name = var.frontend_ip_configuration_name # Default: primary
   protocol                       = var.protocol
   backend_port                   = var.backend_port
 

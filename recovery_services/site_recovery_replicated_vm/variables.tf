@@ -78,17 +78,17 @@ variable "managed_disk" {
 #   target_disk_encryption_set_id (string): The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
 #   target_disk_encryption (block)        : A 'target_disk_encryption' block.
 #
-# target_disk_encryption block structure:
-#   disk_encryption_key (block)           : (REQUIRED) A 'disk_encryption_key' block.
-#   key_encryption_key (block)            : A 'key_encryption_key' block.
+# key_encryption_key block structure:
+#   key_url (string)                  : (REQUIRED) The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created.
+#   vault_id (string)                 : (REQUIRED) The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created.
 #
 # disk_encryption_key block structure:
 #   secret_url (string)                : (REQUIRED) The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. Changing this forces a new resource to be created.
 #   vault_id (string)                  : (REQUIRED) The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created.
 #
-# key_encryption_key block structure:
-#   key_url (string)                  : (REQUIRED) The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created.
-#   vault_id (string)                 : (REQUIRED) The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created.
+# target_disk_encryption block structure:
+#   disk_encryption_key (block)           : (REQUIRED) A 'disk_encryption_key' block.
+#   key_encryption_key (block)            : A 'key_encryption_key' block.
 
 
 variable "unmanaged_disk" {

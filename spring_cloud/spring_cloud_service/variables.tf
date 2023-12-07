@@ -98,6 +98,15 @@ variable "config_server_git_setting" {
 #   ssh_auth (block)                         : A 'ssh_auth' block.
 #   repository (block)                       : One or more 'repository' blocks.
 #
+# repository block structure:
+#   name (string)             : (REQUIRED) A name to identify on the Git repository, required only if repos exists.
+#   uri (string)              : (REQUIRED) The URI of the Git repository that's used as the Config Server back end should be started with 'http://', 'https://', 'git@', or 'ssh://'.
+#   pattern (string)          : An array of strings used to match an application name. For each pattern, use the '{application}/{profile}' format with wildcards.
+#   label (string)            : The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
+#   search_paths (string)     : An array of strings used to search subdirectories of the Git repository.
+#   http_basic_auth (block)   : A 'http_basic_auth' block.
+#   ssh_auth (block)          : A 'ssh_auth' block.
+#
 # ssh_auth block structure               :
 #   private_key (string)                   : (REQUIRED) The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'.
 #   host_key (string)                      : The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'.
@@ -107,15 +116,6 @@ variable "config_server_git_setting" {
 # http_basic_auth block structure:
 #   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 #   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
-#
-# repository block structure:
-#   name (string)             : (REQUIRED) A name to identify on the Git repository, required only if repos exists.
-#   uri (string)              : (REQUIRED) The URI of the Git repository that's used as the Config Server back end should be started with 'http://', 'https://', 'git@', or 'ssh://'.
-#   pattern (string)          : An array of strings used to match an application name. For each pattern, use the '{application}/{profile}' format with wildcards.
-#   label (string)            : The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
-#   search_paths (string)     : An array of strings used to search subdirectories of the Git repository.
-#   http_basic_auth (block)   : A 'http_basic_auth' block.
-#   ssh_auth (block)          : A 'ssh_auth' block.
 
 
 variable "service_registry_enabled" {

@@ -63,28 +63,22 @@ tfstate_store = {
 | **upgrade_wave** | string |  `Wave0`  |  `Wave0`, `Wave1`, `Wave2`  |  Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`. | 
 | **username** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
 
+### `lb_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_port` | string | Yes | - | LB Backend port. |
+| `frontend_port` | string | Yes | - | LB Frontend port. |
+| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
+| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
+| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
+
 ### `vm_secrets` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `certificates` | list | Yes | - | One or more 'certificates' blocks. |
 | `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
-
-### `custom_fabric_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | string | Yes | - | Parameter name. |
-| `section` | string | Yes | - | Section name. |
-| `value` | string | Yes | - | Parameter value. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_application_id` | string | Yes | - | The ID of the Client Application. |
-| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
-| `tenant_id` | string | Yes | - | The ID of the Tenant. |
 
 ### `node_type` block structure
 
@@ -108,13 +102,6 @@ tfstate_store = {
 | `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
 | `vm_secrets` | [block](#vm_secrets-block-structure) | No | - | One or more 'vm_secrets' blocks. |
 
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. |
-| `certificate` | [block](#certificate-block-structure) | No | - | One or more 'certificate' blocks. |
-
 ### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -123,15 +110,28 @@ tfstate_store = {
 | `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
 | `common_name` | string | No | - | The certificate's CN. |
 
-### `lb_rule` block structure
+### `custom_fabric_setting` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `backend_port` | string | Yes | - | LB Backend port. |
-| `frontend_port` | string | Yes | - | LB Frontend port. |
-| `probe_protocol` | string | Yes | - | Protocol for the probe. Can be one of 'tcp', 'udp', 'http', or 'https'. |
-| `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
-| `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
+| `parameter` | string | Yes | - | Parameter name. |
+| `section` | string | Yes | - | Section name. |
+| `value` | string | Yes | - | Parameter value. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_application_id` | string | Yes | - | The ID of the Client Application. |
+| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
+| `tenant_id` | string | Yes | - | The ID of the Tenant. |
+
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. |
+| `certificate` | [block](#certificate-block-structure) | No | - | One or more 'certificate' blocks. |
 
 
 

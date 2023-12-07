@@ -37,6 +37,10 @@ variable "policy_option" {
 #   required_claim (list)                      : One or more 'required_claim' blocks.
 #   token_type (string)                        : The type of token. Supported values are 'Jwt' or 'Swt'.
 #
+# offline_rental_configuration block structure:
+#   playback_duration_seconds (int)             : Playback duration.
+#   storage_duration_seconds (int)              : Storage duration.
+#
 # fairplay_configuration block structure:
 #   ask (string)                          : The key that must be used as FairPlay Application Secret key.
 #   offline_rental_configuration (block)  : A 'offline_rental_configuration' block.
@@ -44,10 +48,6 @@ variable "policy_option" {
 #   pfx_password (string)                 : The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
 #   rental_and_lease_key_type (string)    : The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'.
 #   rental_duration_seconds (int)         : The rental duration. Must be greater than 0.
-#
-# offline_rental_configuration block structure:
-#   playback_duration_seconds (int)             : Playback duration.
-#   storage_duration_seconds (int)              : Storage duration.
 
 
 variable "resource_group_name" {

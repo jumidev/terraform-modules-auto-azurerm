@@ -14,7 +14,7 @@ inputs = {
    name = "The name of the DNS A Record"   
    resource_group_name = "${resource_group}"   
    # zone_name → set in tfstate_inputs
-   ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
+   ttl = "300"   
 }
 
 tfstate_inputs = {
@@ -31,12 +31,12 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  The name of the DNS A Record. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **zone_name** | string |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **ttl** | int |  The Time To Live (TTL) of the DNS record in seconds. | 
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  The name of the DNS A Record. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
+| **zone_name** | string |  -  |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **ttl** | int |  `300`  |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables
 

@@ -57,6 +57,12 @@ tfstate_store = {
 | `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
 | `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
 
+### `frontend_public` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
+
 ### `network_interface` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,12 +82,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_name` | string | No | - | Specify the container name of Stoage Account for logging. |
 | `name` | string | No | - | The account name of the StorageAccount for Nginx Logging. |
-
-### `frontend_public` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | No | - | Specifies a list of Public IP Resouce ID to this Nginx Deployment. |
 
 
 

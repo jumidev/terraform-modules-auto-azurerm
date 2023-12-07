@@ -63,12 +63,12 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Monitor Scheduled Query Rule. | 
 | **target_resource_types** | string |  -  |  -  |  List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. | 
 
-### `action` block structure
+### `failing_periods` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action_groups` | string | No | - | List of Action Group resource IDs to invoke when the alert fires. |
-| `custom_properties` | string | No | - | Specifies the properties of an alert payload. |
+| `minimum_failing_periods_to_trigger_alert` | int | Yes | - | Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6. |
+| `number_of_evaluation_periods` | int | Yes | - | Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6. |
 
 ### `criteria` block structure
 
@@ -91,12 +91,12 @@ tfstate_store = {
 | `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
 | `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
 
-### `failing_periods` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `minimum_failing_periods_to_trigger_alert` | int | Yes | - | Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6. |
-| `number_of_evaluation_periods` | int | Yes | - | Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6. |
+| `action_groups` | string | No | - | List of Action Group resource IDs to invoke when the alert fires. |
+| `custom_properties` | string | No | - | Specifies the properties of an alert payload. |
 
 
 

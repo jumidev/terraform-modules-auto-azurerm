@@ -59,6 +59,13 @@ tfstate_store = {
 | **rat_frequency_selection_priority_index** | string |  -  |  RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Sim Policies. | 
 
+### `session_aggregate_maximum_bit_rate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
+| `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
+
 ### `slice` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,13 +90,6 @@ tfstate_store = {
 | `preemption_vulnerability` | string | No | NotPreemptable | The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreemptable' and 'Preemptable'. Defaults to 'NotPreemptable'. |
 
 ### `user_equipment_aggregate_maximum_bit_rate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
-| `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
-
-### `session_aggregate_maximum_bit_rate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

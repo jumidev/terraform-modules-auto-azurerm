@@ -53,13 +53,13 @@ variable "encryption_settings" {
 #   disk_encryption_key (block)        : A 'disk_encryption_key' block.
 #   key_encryption_key (block)         : A 'key_encryption_key' block.
 #
-# disk_encryption_key block structure:
-#   secret_url (string)                : (REQUIRED) The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource.
-#   source_vault_id (string)           : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
-#
 # key_encryption_key block structure:
 #   key_url (string)                  : (REQUIRED) The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource.
 #   source_vault_id (string)          : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
+#
+# disk_encryption_key block structure:
+#   secret_url (string)                : (REQUIRED) The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource.
+#   source_vault_id (string)           : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
 
 
 variable "incremental_enabled" {

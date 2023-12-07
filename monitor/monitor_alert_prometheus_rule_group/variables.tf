@@ -32,13 +32,13 @@ variable "rule" {
 #   alert_resolution (block): An 'alert_resolution' block.
 #   severity (string)       : Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4.
 #
-# action block structure    :
-#   action_group_id (string)  : (REQUIRED) Specifies the resource id of the monitor action group.
-#   action_properties (string): Specifies the properties of an action group object.
-#
 # alert_resolution block structure:
 #   auto_resolved (string)          : Is the alert auto-resolution? Possible values are 'true' and 'false'.
 #   time_to_resolve (string)        : Specifies the alert auto-resolution interval, represented in ISO 8601 duration format.
+#
+# action block structure    :
+#   action_group_id (string)  : (REQUIRED) Specifies the resource id of the monitor action group.
+#   action_properties (string): Specifies the properties of an action group object.
 
 
 variable "scopes" {

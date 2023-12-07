@@ -167,6 +167,26 @@ output "primary_blob_host" {
   value       = azurerm_storage_account.this.primary_blob_host
 }
 
+output "primary_blob_internet_endpoint" {
+  description = "The internet routing endpoint URL for blob storage in the primary location."
+  value       = azurerm_storage_account.this.primary_blob_internet_endpoint
+}
+
+output "primary_blob_internet_host" {
+  description = "The internet routing hostname with port if applicable for blob storage in the primary location."
+  value       = azurerm_storage_account.this.primary_blob_internet_host
+}
+
+output "primary_blob_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for blob storage in the primary location."
+  value       = azurerm_storage_account.this.primary_blob_microsoft_endpoint
+}
+
+output "primary_blob_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for blob storage in the primary location."
+  value       = azurerm_storage_account.this.primary_blob_microsoft_host
+}
+
 output "secondary_blob_endpoint" {
   description = "The endpoint URL for blob storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_blob_endpoint
@@ -175,6 +195,26 @@ output "secondary_blob_endpoint" {
 output "secondary_blob_host" {
   description = "The hostname with port if applicable for blob storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_blob_host
+}
+
+output "secondary_blob_internet_endpoint" {
+  description = "The internet routing endpoint URL for blob storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_blob_internet_endpoint
+}
+
+output "secondary_blob_internet_host" {
+  description = "The internet routing hostname with port if applicable for blob storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_blob_internet_host
+}
+
+output "secondary_blob_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for blob storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_blob_microsoft_endpoint
+}
+
+output "secondary_blob_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for blob storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_blob_microsoft_host
 }
 
 output "primary_queue_endpoint" {
@@ -187,6 +227,16 @@ output "primary_queue_host" {
   value       = azurerm_storage_account.this.primary_queue_host
 }
 
+output "primary_queue_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for queue storage in the primary location."
+  value       = azurerm_storage_account.this.primary_queue_microsoft_endpoint
+}
+
+output "primary_queue_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for queue storage in the primary location."
+  value       = azurerm_storage_account.this.primary_queue_microsoft_host
+}
+
 output "secondary_queue_endpoint" {
   description = "The endpoint URL for queue storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_queue_endpoint
@@ -195,6 +245,16 @@ output "secondary_queue_endpoint" {
 output "secondary_queue_host" {
   description = "The hostname with port if applicable for queue storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_queue_host
+}
+
+output "secondary_queue_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for queue storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_queue_microsoft_endpoint
+}
+
+output "secondary_queue_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for queue storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_queue_microsoft_host
 }
 
 output "primary_table_endpoint" {
@@ -207,6 +267,16 @@ output "primary_table_host" {
   value       = azurerm_storage_account.this.primary_table_host
 }
 
+output "primary_table_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for table storage in the primary location."
+  value       = azurerm_storage_account.this.primary_table_microsoft_endpoint
+}
+
+output "primary_table_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for table storage in the primary location."
+  value       = azurerm_storage_account.this.primary_table_microsoft_host
+}
+
 output "secondary_table_endpoint" {
   description = "The endpoint URL for table storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_table_endpoint
@@ -215,6 +285,16 @@ output "secondary_table_endpoint" {
 output "secondary_table_host" {
   description = "The hostname with port if applicable for table storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_table_host
+}
+
+output "secondary_table_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for table storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_table_microsoft_endpoint
+}
+
+output "secondary_table_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for table storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_table_microsoft_host
 }
 
 output "primary_file_endpoint" {
@@ -227,6 +307,26 @@ output "primary_file_host" {
   value       = azurerm_storage_account.this.primary_file_host
 }
 
+output "primary_file_internet_endpoint" {
+  description = "The internet routing endpoint URL for file storage in the primary location."
+  value       = azurerm_storage_account.this.primary_file_internet_endpoint
+}
+
+output "primary_file_internet_host" {
+  description = "The internet routing hostname with port if applicable for file storage in the primary location."
+  value       = azurerm_storage_account.this.primary_file_internet_host
+}
+
+output "primary_file_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for file storage in the primary location."
+  value       = azurerm_storage_account.this.primary_file_microsoft_endpoint
+}
+
+output "primary_file_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for file storage in the primary location."
+  value       = azurerm_storage_account.this.primary_file_microsoft_host
+}
+
 output "secondary_file_endpoint" {
   description = "The endpoint URL for file storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_file_endpoint
@@ -235,6 +335,26 @@ output "secondary_file_endpoint" {
 output "secondary_file_host" {
   description = "The hostname with port if applicable for file storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_file_host
+}
+
+output "secondary_file_internet_endpoint" {
+  description = "The internet routing endpoint URL for file storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_file_internet_endpoint
+}
+
+output "secondary_file_internet_host" {
+  description = "The internet routing hostname with port if applicable for file storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_file_internet_host
+}
+
+output "secondary_file_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for file storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_file_microsoft_endpoint
+}
+
+output "secondary_file_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for file storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_file_microsoft_host
 }
 
 output "primary_dfs_endpoint" {
@@ -247,6 +367,26 @@ output "primary_dfs_host" {
   value       = azurerm_storage_account.this.primary_dfs_host
 }
 
+output "primary_dfs_internet_endpoint" {
+  description = "The internet routing endpoint URL for DFS storage in the primary location."
+  value       = azurerm_storage_account.this.primary_dfs_internet_endpoint
+}
+
+output "primary_dfs_internet_host" {
+  description = "The internet routing hostname with port if applicable for DFS storage in the primary location."
+  value       = azurerm_storage_account.this.primary_dfs_internet_host
+}
+
+output "primary_dfs_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for DFS storage in the primary location."
+  value       = azurerm_storage_account.this.primary_dfs_microsoft_endpoint
+}
+
+output "primary_dfs_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for DFS storage in the primary location."
+  value       = azurerm_storage_account.this.primary_dfs_microsoft_host
+}
+
 output "secondary_dfs_endpoint" {
   description = "The endpoint URL for DFS storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_dfs_endpoint
@@ -255,6 +395,26 @@ output "secondary_dfs_endpoint" {
 output "secondary_dfs_host" {
   description = "The hostname with port if applicable for DFS storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_dfs_host
+}
+
+output "secondary_dfs_internet_endpoint" {
+  description = "The internet routing endpoint URL for DFS storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_dfs_internet_endpoint
+}
+
+output "secondary_dfs_internet_host" {
+  description = "The internet routing hostname with port if applicable for DFS storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_dfs_internet_host
+}
+
+output "secondary_dfs_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for DFS storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_dfs_microsoft_endpoint
+}
+
+output "secondary_dfs_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for DFS storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_dfs_microsoft_host
 }
 
 output "primary_web_endpoint" {
@@ -267,6 +427,26 @@ output "primary_web_host" {
   value       = azurerm_storage_account.this.primary_web_host
 }
 
+output "primary_web_internet_endpoint" {
+  description = "The internet routing endpoint URL for web storage in the primary location."
+  value       = azurerm_storage_account.this.primary_web_internet_endpoint
+}
+
+output "primary_web_internet_host" {
+  description = "The internet routing hostname with port if applicable for web storage in the primary location."
+  value       = azurerm_storage_account.this.primary_web_internet_host
+}
+
+output "primary_web_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for web storage in the primary location."
+  value       = azurerm_storage_account.this.primary_web_microsoft_endpoint
+}
+
+output "primary_web_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for web storage in the primary location."
+  value       = azurerm_storage_account.this.primary_web_microsoft_host
+}
+
 output "secondary_web_endpoint" {
   description = "The endpoint URL for web storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_web_endpoint
@@ -275,6 +455,26 @@ output "secondary_web_endpoint" {
 output "secondary_web_host" {
   description = "The hostname with port if applicable for web storage in the secondary location."
   value       = azurerm_storage_account.this.secondary_web_host
+}
+
+output "secondary_web_internet_endpoint" {
+  description = "The internet routing endpoint URL for web storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_web_internet_endpoint
+}
+
+output "secondary_web_internet_host" {
+  description = "The internet routing hostname with port if applicable for web storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_web_internet_host
+}
+
+output "secondary_web_microsoft_endpoint" {
+  description = "The microsoft routing endpoint URL for web storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_web_microsoft_endpoint
+}
+
+output "secondary_web_microsoft_host" {
+  description = "The microsoft routing hostname with port if applicable for web storage in the secondary location."
+  value       = azurerm_storage_account.this.secondary_web_microsoft_host
 }
 
 output "primary_access_key" {

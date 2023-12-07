@@ -34,14 +34,14 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  possible values |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **name** | string |  -  |  Specifies the name of the NAT Rule. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  -  |  The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
-| **loadbalancer_id** | string |  -  |  The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created. | 
-| **frontend_ip_configuration_name** | string |  -  |  The name of the frontend IP configuration exposing this rule. | 
-| **protocol** | string |  `Udp`, `Tcp`, `All`  |  The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`. | 
-| **backend_port** | string |  -  |  The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **name** | string |  -  |  -  |  Specifies the name of the NAT Rule. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  -  |  The name of the resource group in which to create the resource. Changing this forces a new resource to be created. | 
+| **loadbalancer_id** | string |  -  |  -  |  The ID of the Load Balancer in which to create the NAT Rule. Changing this forces a new resource to be created. | 
+| **frontend_ip_configuration_name** | string |  `primary`  |  -  |  The name of the frontend IP configuration exposing this rule. | 
+| **protocol** | string |  -  |  `Udp`, `Tcp`, `All`  |  The transport protocol for the external endpoint. Possible values are `Udp`, `Tcp` or `All`. | 
+| **backend_port** | string |  -  |  -  |  The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive. | 
 
 ## Optional Variables
 

@@ -23,6 +23,22 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resources
+
+| `tfstate_input` variable | Information |
+| -------- | ----------- |
+| **redis_cache_id** | If set to a valid `azurerm_redis_cache` `id`, makes a **azurerm_spring_cloud_app_redis_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [Redis Cache](redis_cache.html).|
+| **mysql_server_id** | If set to a valid `azurerm_mysql_server` `id`, makes a **azurerm_spring_cloud_app_mysql_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [MySQL Database](mysql_database.html).|
+
+Example associated resources in a `tfstate_inputs` block:
+
+```hcl
+tfstate_inputs = {
+   redis_cache_id = "path/to/redis_cache_component:id"
+   mysql_server_id = "path/to/mysql_server_component:id"
+}
+```
+
 
 ## Required Variables
 
@@ -45,13 +61,6 @@ tfstate_store = {
 | **persistent_disk** | [block](#persistent_disk-block-structure) |  -  |  An `persistent_disk` block. | 
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
 
 ### `ingress_settings` block structure
 
@@ -79,6 +88,13 @@ tfstate_store = {
 | `share_name` | string | Yes | - | The share name of the Azure File share. |
 | `mount_options` | string | No | - | These are the mount options for a persistent disk. |
 | `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
 
 
 

@@ -57,14 +57,6 @@ tfstate_store = {
 | **min_tls_version** | string |  -  |  Specifies the minimum TLS version to support for this hub. The only valid value is `1.2`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `ip_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the IP rule. |
-| `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the IP rule. |
-| `action` | string | No | Allow | The desired action for requests captured by this rule. Possible values are 'Allow'. Defaults to 'Allow'. |
-
 ### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,29 +64,6 @@ tfstate_store = {
 | `default_action` | string | No | Deny | Default Action for Network Rule Set. Possible values are 'Deny', 'Allow'. Defaults to 'Deny'. |
 | `apply_to_builtin_eventhub_endpoint` | bool | No | False | Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to 'false'. |
 | `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the sku. Possible values are 'B1', 'B2', 'B3', 'F1', 'S1', 'S2', and 'S3'. |
-| `capacity` | int | Yes | - | The number of provisioned IoT Hub units. |
-
-### `fallback_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `source` | string | No | DeviceMessages | The source that the routing rule is to be applied to, such as 'DeviceMessages'. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents', 'DeviceConnectionStateEvents', 'DeviceJobLifecycleEvents' and 'DigitalTwinChangeEvents'. Defaults to 'DeviceMessages'. |
-| `condition` | bool | No | True | The condition that is evaluated to apply the routing rule. Defaults to 'true'. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. |
-| `endpoint_names` | string | No | - | The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed. |
-| `enabled` | bool | No | - | Used to specify whether the fallback route is enabled. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub. |
 
 ### `endpoint` block structure
 
@@ -114,21 +83,15 @@ tfstate_store = {
 | `file_name_format` | string | No | {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm} | File name format for the blob. All parameters are mandatory but can be reordered. This attribute is applicable for endpoint type 'AzureIotHub.StorageContainer'. Defaults to '{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}'. |
 | `resource_group_name` | string | No | - | The resource group in which the endpoint will be created. |
 
-### `cloud_to_device` block structure
+### `route` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_delivery_count` | int | No | 10 | The maximum delivery count for cloud-to-device per-device queues. This value must be between '1' and '100'. Defaults to '10'. |
-| `default_ttl` | string | No | PT1H | The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to 'PT1H'. |
-| `feedback` | [block](#feedback-block-structure) | No | - | A 'feedback' block. |
-
-### `enrichment` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | The key of the enrichment. |
-| `value` | string | Yes | - | The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use '$iothubname') or information from the device twin (ex: '$twin.tags.latitude') |
-| `endpoint_names` | string | Yes | - | The list of endpoints which will be enriched. |
+| `name` | string | Yes | - | The name of the route. |
+| `source` | string | Yes | - | The source that the routing rule is to be applied to, such as 'DeviceMessages'. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents', 'DeviceConnectionStateEvents', 'DeviceJobLifecycleEvents' and 'DigitalTwinChangeEvents'. |
+| `condition` | bool | No | True | The condition that is evaluated to apply the routing rule. Defaults to 'true'. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. |
+| `endpoint_names` | string | Yes | - | The list of endpoints to which messages that satisfy the condition are routed. |
+| `enabled` | bool | Yes | - | Used to specify whether a route is enabled. |
 
 ### `feedback` block structure
 
@@ -137,6 +100,21 @@ tfstate_store = {
 | `time_to_live` | string | No | PT1H | The retention time for service-bound feedback messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to 'PT1H'. |
 | `max_delivery_count` | int | No | 10 | The maximum delivery count for the feedback queue. This value must be between '1' and '100'. Defaults to '10'. |
 | `lock_duration` | string | No | PT60S | The lock duration for the feedback queue, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 5 and 300 seconds. Defaults to 'PT60S'. |
+
+### `cloud_to_device` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_delivery_count` | int | No | 10 | The maximum delivery count for cloud-to-device per-device queues. This value must be between '1' and '100'. Defaults to '10'. |
+| `default_ttl` | string | No | PT1H | The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to 'PT1H'. |
+| `feedback` | [block](#feedback-block-structure) | No | - | A 'feedback' block. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the sku. Possible values are 'B1', 'B2', 'B3', 'F1', 'S1', 'S2', and 'S3'. |
+| `capacity` | int | Yes | - | The number of provisioned IoT Hub units. |
 
 ### `file_upload` block structure
 
@@ -152,15 +130,37 @@ tfstate_store = {
 | `default_ttl` | string | No | PT1H | The period of time for which a file upload notification message is available to consume before it expires, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to 'PT1H'. |
 | `max_delivery_count` | int | No | 10 | The number of times the IoT Hub attempts to deliver a file upload notification message. Defaults to '10'. |
 
-### `route` block structure
+### `fallback_route` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the route. |
-| `source` | string | Yes | - | The source that the routing rule is to be applied to, such as 'DeviceMessages'. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents', 'DeviceConnectionStateEvents', 'DeviceJobLifecycleEvents' and 'DigitalTwinChangeEvents'. |
+| `source` | string | No | DeviceMessages | The source that the routing rule is to be applied to, such as 'DeviceMessages'. Possible values include: 'Invalid', 'DeviceMessages', 'TwinChangeEvents', 'DeviceLifecycleEvents', 'DeviceConnectionStateEvents', 'DeviceJobLifecycleEvents' and 'DigitalTwinChangeEvents'. Defaults to 'DeviceMessages'. |
 | `condition` | bool | No | True | The condition that is evaluated to apply the routing rule. Defaults to 'true'. For grammar, see: <https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language>. |
-| `endpoint_names` | string | Yes | - | The list of endpoints to which messages that satisfy the condition are routed. |
-| `enabled` | bool | Yes | - | Used to specify whether a route is enabled. |
+| `endpoint_names` | string | No | - | The endpoints to which messages that satisfy the condition are routed. Currently only 1 endpoint is allowed. |
+| `enabled` | bool | No | - | Used to specify whether the fallback route is enabled. |
+
+### `ip_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the IP rule. |
+| `ip_mask` | string | Yes | - | The IP address range in CIDR notation for the IP rule. |
+| `action` | string | No | Allow | The desired action for requests captured by this rule. Possible values are 'Allow'. Defaults to 'Allow'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub. |
+
+### `enrichment` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | The key of the enrichment. |
+| `value` | string | Yes | - | The value of the enrichment. Value can be any static string, the name of the IoT Hub sending the message (use '$iothubname') or information from the device twin (ex: '$twin.tags.latitude') |
+| `endpoint_names` | string | Yes | - | The list of endpoints which will be enriched. |
 
 
 

@@ -57,14 +57,12 @@ tfstate_store = {
 | **transcription_languages** | string |  -  |  Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ). | 
 | **use_static_hostname** | bool |  -  |  Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created. | 
 
-### `input` block structure
+### `cross_site_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `access_token` | string | No | - | A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created. |
-| `ip_access_control_allow` | [block](#ip_access_control_allow-block-structure) | No | - | One or more 'ip_access_control_allow' blocks. |
-| `key_frame_interval_duration` | string | No | - | ISO 8601 time duration of the key frame interval duration of the input. This value sets the 'EXT-X-TARGETDURATION' property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when 'type' is set to 'Encoding'. |
-| `streaming_protocol` | string | No | - | The input protocol for the live event. Allowed values are 'FragmentedMP4' and 'RTMP'. Changing this forces a new resource to be created. |
+| `client_access_policy` | string | No | - | The content of clientaccesspolicy.xml used by Silverlight. |
+| `cross_domain_policy` | string | No | - | The content of the Cross Domain Policy ('crossdomain.xml'). |
 
 ### `preview` block structure
 
@@ -83,12 +81,14 @@ tfstate_store = {
 | `name` | string | No | - | The friendly name for the IP address range. |
 | `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
-### `cross_site_access_policy` block structure
+### `input` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_access_policy` | string | No | - | The content of clientaccesspolicy.xml used by Silverlight. |
-| `cross_domain_policy` | string | No | - | The content of the Cross Domain Policy ('crossdomain.xml'). |
+| `access_token` | string | No | - | A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created. |
+| `ip_access_control_allow` | [block](#ip_access_control_allow-block-structure) | No | - | One or more 'ip_access_control_allow' blocks. |
+| `key_frame_interval_duration` | string | No | - | ISO 8601 time duration of the key frame interval duration of the input. This value sets the 'EXT-X-TARGETDURATION' property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when 'type' is set to 'Encoding'. |
+| `streaming_protocol` | string | No | - | The input protocol for the live event. Allowed values are 'FragmentedMP4' and 'RTMP'. Changing this forces a new resource to be created. |
 
 ### `encoding` block structure
 

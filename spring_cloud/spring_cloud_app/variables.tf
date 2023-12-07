@@ -93,3 +93,54 @@ variable "tls_enabled" {
   type        = bool
   default     = false
 }
+
+# OPTIONAL VARIABLES
+
+variable "name" {
+  description = "Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "redis_cache_id" {
+  description = "Specifies the Redis Cache resource ID. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "redis_access_key" {
+  description = "Specifies the Redis Cache access key."
+  type        = string
+  default     = null
+}
+variable "ssl_enabled" {
+  description = "Should SSL be used when connecting to Redis? Defaults to 'true'."
+  type        = bool
+  default     = true
+}
+
+# OPTIONAL VARIABLES
+
+variable "name" {
+  description = "Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "mysql_server_id" {
+  description = "Specifies the ID of the MySQL Server. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "database_name" {
+  description = "Specifies the name of the MySQL Database which the Spring Cloud App should be associated with."
+  type        = string
+  default     = null
+}
+variable "username" {
+  description = "Specifies the username which should be used when connecting to the MySQL Database from the Spring Cloud App."
+  type        = string
+  default     = null
+}
+variable "password" {
+  description = "Specifies the password which should be used when connecting to the MySQL Database from the Spring Cloud App."
+  type        = string
+  default     = null
+}

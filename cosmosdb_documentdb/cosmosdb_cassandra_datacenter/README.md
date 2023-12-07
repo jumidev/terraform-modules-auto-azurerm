@@ -54,5 +54,6 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Cassandra Datacenter. | 
+| **seed_node_ip_addresses** | list | No  | A list of IP Address for the seed nodes in this Cassandra Datacenter. | 
 
 Additionally, all variables are provided as outputs.

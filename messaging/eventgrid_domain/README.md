@@ -57,13 +57,6 @@ tfstate_store = {
 | `data_version` | string | No | - | Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 | `subject` | string | No | - | Specifies the subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain. |
-
 ### `inbound_ip_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +71,13 @@ tfstate_store = {
 | `event_type` | string | No | - | Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 | `data_version` | string | No | - | Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
 | `subject` | string | No | - | Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid Domain. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid Domain. |
 
 
 

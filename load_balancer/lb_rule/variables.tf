@@ -13,7 +13,7 @@ variable "loadbalancer_id" {
 variable "frontend_ip_configuration_name" {
   description = "(REQUIRED) The name of the frontend IP configuration to which the rule is associated."
   type        = string
-
+  default     = "primary"
 }
 variable "protocol" {
   description = "(REQUIRED) The transport protocol for the external endpoint. Possible values are 'Tcp', 'Udp' or 'All'."

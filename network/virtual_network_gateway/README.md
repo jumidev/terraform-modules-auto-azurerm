@@ -50,22 +50,65 @@ tfstate_store = {
 | **custom_route** | [block](#custom_route-block-structure) |  -  |  -  |  A `custom_route` block. Specifies a custom routes address space for a virtual network gateway and a VpnClient. | 
 | **generation** | string |  -  |  `Generation1`, `Generation2`, `None`  |  The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created. | 
 | **private_ip_address_enabled** | bool |  -  |  -  |  Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created. | 
+| **bgp_route_translation_for_nat_enabled** | bool |  `False`  |  -  |  Is BGP Route Translation for NAT enabled? Defaults to `false`. | 
+| **dns_forwarding_enabled** | bool |  -  |  -  |  Is DNS forwarding enabled? | 
+| **ip_sec_replay_protection_enabled** | bool |  `True`  |  -  |  Is IP Sec Replay Protection enabled? Defaults to `true`. | 
+| **policy_group** | [block](#policy_group-block-structure) |  -  |  -  |  One or more `policy_group` blocks. | 
+| **remote_vnet_traffic_enabled** | bool |  `False`  |  -  |  Is remote vnet traffic that is used to configure this gateway to accept traffic from other Azure Virtual Networks enabled? Defaults to `false`. | 
+| **virtual_wan_traffic_enabled** | bool |  `False`  |  -  |  Is remote vnet traffic that is used to configure this gateway to accept traffic from remote Virtual WAN networks enabled? Defaults to `false`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **vpn_client_configuration** | [block](#vpn_client_configuration-block-structure) |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
 | **vpn_type** | string |  `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
 
-### `peering_addresses` block structure
+### `ipsec_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ip_configuration_name` | string | No | - | The name of the IP configuration of this Virtual Network Gateway. In case there are multiple 'ip_configuration' blocks defined, this property is **required** to specify. |
-| `apipa_addresses` | list | No | - | A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway. |
+| `dh_group` | string | Yes | - | The DH Group, used in IKE Phase 1. Possible values are 'DHGroup1', 'DHGroup2', 'DHGroup14', 'DHGroup24', 'DHGroup2048', 'ECP256', 'ECP384' and 'None'. |
+| `ike_encryption` | string | Yes | - | The IKE encryption algorithm, used for IKE Phase 2. Possible values are 'AES128', 'AES192', 'AES256', 'DES', 'DES3', 'GCMAES128' and 'GCMAES256'. |
+| `ike_integrity` | string | Yes | - | The IKE encryption integrity algorithm, used for IKE Phase 2. Possible values are 'GCMAES128', 'GCMAES256', 'MD5', 'SHA1', 'SHA256' and 'SHA384'. |
+| `ipsec_encryption` | string | Yes | - | The IPSec encryption algorithm, used for IKE phase 1. Possible values are 'AES128', 'AES192', 'AES256', 'DES', 'DES3', 'GCMAES128', 'GCMAES192', 'GCMAES256' and 'None'. |
+| `ipsec_integrity` | string | Yes | - | The IPSec integrity algorithm, used for IKE phase 1. Possible values are 'GCMAES128', 'GCMAES192', 'GCMAES256', 'MD5', 'SHA1' and 'SHA256'. |
+| `pfs_group` | string | Yes | - | The Pfs Group, used in IKE Phase 2. Possible values are 'ECP256', 'ECP384', 'PFS1', 'PFS2', 'PFS14', 'PFS24', 'PFS2048', 'PFSMM' and 'None'. |
+| `sa_lifetime_in_seconds` | string | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between '300' and '172799'. |
+| `sa_data_size_in_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between '1024' and '2147483647'. |
 
 ### `custom_route` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
+
+### `virtual_network_gateway_client_connection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Client Connection. |
+| `policy_group_names` | list | Yes | - | A list of names of Virtual Network Gateway Policy Groups. |
+| `address_prefixes` | list | Yes | - | A list of address prefixes for P2S VPN Client. |
+
+### `radius_server` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | Yes | - | The address of the Radius Server. |
+| `secret` | string | Yes | - | The secret that is used to communicate with the Radius Server. |
+| `score` | string | Yes | - | The score of the Radius Server determines the priority of the server. Possible values are between '1' and '30'. |
+
+### `peering_addresses` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_configuration_name` | string | No | primary | The name of the IP configuration of this Virtual Network Gateway. In case there are multiple 'ip_configuration' blocks defined, this property is **required** to specify. |
+| `apipa_addresses` | list | No | - | A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway. |
+
+### `policy_member` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group Member. |
+| `type` | string | Yes | - | The VPN Policy Member attribute type. Possible values are 'AADGroupId', 'CertificateGroupId' and 'RadiusAzureGroupId'. |
+| `value` | string | Yes | - | The value of attribute that is used for this Virtual Network Gateway Policy Group Member. |
 
 ### `bgp_settings` block structure
 
@@ -83,12 +126,24 @@ tfstate_store = {
 | `aad_tenant` | string | No | - | AzureAD Tenant URL |
 | `aad_audience` | string | No | - | The client id of the Azure VPN application. See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values |
 | `aad_issuer` | string | No | - | The STS url for your tenant |
+| `ipsec_policy` | [block](#ipsec_policy-block-structure) | No | - | An 'ipsec_policy' block. |
 | `root_certificate` | list | No | - | One or more 'root_certificate' blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway. |
 | `revoked_certificate` | list | No | - | One or more 'revoked_certificate' blocks which are defined below. |
+| `radius_server` | [block](#radius_server-block-structure) | No | - | One or more 'radius_server' blocks. |
 | `radius_server_address` | string | No | - | The address of the Radius server. |
 | `radius_server_secret` | string | No | - | The secret used by the Radius server. |
 | `vpn_client_protocols` | string | No | - | List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'. |
 | `vpn_auth_types` | string | No | - | List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. |
+| `virtual_network_gateway_client_connection` | [block](#virtual_network_gateway_client_connection-block-structure) | No | - | One or more 'virtual_network_gateway_client_connection' blocks. |
+
+### `policy_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group. |
+| `policy_member` | [block](#policy_member-block-structure) | Yes | - | One or more 'policy_member' blocks. |
+| `is_default` | bool | No | False | Is this a Default Virtual Network Gateway Policy Group? Defaults to 'false'. |
+| `priority` | string | No | 0 | The priority for the Virtual Network Gateway Policy Group. Defaults to '0'. |
 
 
 

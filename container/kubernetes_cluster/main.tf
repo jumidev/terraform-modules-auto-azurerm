@@ -405,7 +405,8 @@ resource "azurerm_kubernetes_cluster" "this" {
     }
   }
 
-  tags = var.tags
+  support_plan = var.support_plan # Default: KubernetesOfficial
+  tags         = var.tags
 
   dynamic "web_app_routing" { # var.web_app_routing
     for_each = var.web_app_routing != null ? var.web_app_routing : []

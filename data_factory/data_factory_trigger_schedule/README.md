@@ -51,6 +51,13 @@ tfstate_store = {
 | **pipeline_parameters** | string |  -  |  -  |  The pipeline parameters that the trigger will act upon. | 
 | **annotations** | string |  -  |  -  |  List of tags that can be used for describing the Data Factory Schedule Trigger. | 
 
+### `monthly` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekday` | string | Yes | - | The day of the week on which the trigger runs. For example, a 'monthly' property with a 'weekday' value of 'Sunday' means every Sunday of the month. |
+| `week` | string | No | - | The occurrence of the specified day during the month. For example, a 'monthly' property with 'weekday' and 'week' values of 'Sunday, -1' means the last Sunday of the month. |
+
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -60,13 +67,6 @@ tfstate_store = {
 | `hours` | string | No | - | Hours of the day on which the trigger is scheduled. |
 | `minutes` | int | No | - | Minutes of the hour on which the trigger is scheduled. |
 | `monthly` | [block](#monthly-block-structure) | No | - | A 'monthly' block, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency. |
-
-### `monthly` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekday` | string | Yes | - | The day of the week on which the trigger runs. For example, a 'monthly' property with a 'weekday' value of 'Sunday' means every Sunday of the month. |
-| `week` | string | No | - | The occurrence of the specified day during the month. For example, a 'monthly' property with 'weekday' and 'week' values of 'Sunday, -1' means the last Sunday of the month. |
 
 ### `pipeline` block structure
 

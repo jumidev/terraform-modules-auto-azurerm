@@ -13,12 +13,12 @@ variable "managed_disk_id" {
 variable "lun" {
   description = "(REQUIRED) The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created."
   type        = int
-
+  default     = 3
 }
 variable "caching" {
   description = "(REQUIRED) Specifies the caching requirements for this Data Disk. Possible values include 'None', 'ReadOnly' and 'ReadWrite'."
   type        = string
-
+  default     = "ReadOnly"
 }
 
 # OPTIONAL VARIABLES

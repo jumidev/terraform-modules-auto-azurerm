@@ -63,3 +63,28 @@ resource "azurerm_spring_cloud_app" "this" {
   public_endpoint_enabled = var.public_endpoint_enabled
   tls_enabled             = var.tls_enabled # Default: False
 }
+
+##############################################################################################
+# optional azurerm_spring_cloud_app_redis_association 
+##############################################################################################
+resource "azurerm_spring_cloud_app_redis_association" "this" {
+  count               = var.redis_cache_id != null ? 1 : 0
+  name                = var.name
+  spring_cloud_app_id = azurerm_spring_cloud_app.this.id
+  redis_cache_id      = var.redis_cache_id
+  redis_access_key    = var.redis_access_key
+  ssl_enabled         = var.ssl_enabled # Default: True
+}
+
+##############################################################################################
+# optional azurerm_spring_cloud_app_mysql_association 
+##############################################################################################
+resource "azurerm_spring_cloud_app_mysql_association" "this" {
+  count               = var.mysql_server_id != null ? 1 : 0
+  name                = var.name
+  spring_cloud_app_id = azurerm_spring_cloud_app.this.id
+  mysql_server_id     = var.mysql_server_id
+  database_name       = var.database_name
+  username            = var.username
+  password            = var.password
+}

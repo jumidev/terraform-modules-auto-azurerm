@@ -50,10 +50,40 @@ resource "azurerm_network_interface_application_security_group_association" "thi
 }
 
 ##############################################################################################
+# optional azurerm_network_interface_backend_address_pool_association 
+##############################################################################################
+resource "azurerm_network_interface_backend_address_pool_association" "this" {
+  count                   = var.backend_address_pool_id != null ? 1 : 0
+  network_interface_id    = azurerm_network_interface.this.id
+  ip_configuration_name   = var.ip_configuration_name # Default: primary
+  backend_address_pool_id = var.backend_address_pool_id
+}
+
+##############################################################################################
 # optional azurerm_network_interface_security_group_association 
 ##############################################################################################
 resource "azurerm_network_interface_security_group_association" "this" {
   count                     = var.network_security_group_id != null ? 1 : 0
   network_interface_id      = azurerm_network_interface.this.id
   network_security_group_id = var.network_security_group_id
+}
+
+##############################################################################################
+# optional azurerm_network_interface_application_gateway_backend_address_pool_association 
+##############################################################################################
+resource "azurerm_network_interface_application_gateway_backend_address_pool_association" "this" {
+  count                   = var.backend_address_pool_id != null ? 1 : 0
+  network_interface_id    = azurerm_network_interface.this.id
+  ip_configuration_name   = var.ip_configuration_name # Default: primary
+  backend_address_pool_id = var.backend_address_pool_id
+}
+
+##############################################################################################
+# optional azurerm_network_interface_nat_rule_association 
+##############################################################################################
+resource "azurerm_network_interface_nat_rule_association" "this" {
+  count                 = var.nat_rule_id != null ? 1 : 0
+  network_interface_id  = azurerm_network_interface.this.id
+  ip_configuration_name = var.ip_configuration_name # Default: primary
+  nat_rule_id           = var.nat_rule_id
 }

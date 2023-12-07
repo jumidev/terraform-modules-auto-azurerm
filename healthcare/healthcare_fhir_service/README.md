@@ -67,13 +67,6 @@ tfstate_store = {
 | `max_age_in_seconds` | int | No | - | The max age to be allowed via CORS. |
 | `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
-| `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
-
 ### `oci_artifact` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +82,13 @@ tfstate_store = {
 | `authority` | string | Yes | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
 | `audience` | string | Yes | - | The intended audience to receive authentication tokens for the service. |
 | `smart_proxy_enabled` | bool | No | - | Whether smart proxy is enabled. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'UserAssigned' and 'SystemAssigned'. |
+| `identity_ids` | list | No | - | A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned'. |
 
 
 

@@ -65,8 +65,8 @@ resource "azurerm_application_gateway" "this" {
     for_each = var.http_listener != null ? var.http_listener : []
     content {
       name                           = http_listener.key
-      frontend_ip_configuration_name = lookup(http_listener.value, "frontend_ip_configuration_name") # (Required) 
-      frontend_port_name             = lookup(http_listener.value, "frontend_port_name")             # (Required) 
+      frontend_ip_configuration_name = lookup(http_listener.value, "frontend_ip_configuration_name", "primary") # (Required) 
+      frontend_port_name             = lookup(http_listener.value, "frontend_port_name")                        # (Required) 
       host_name                      = lookup(http_listener.value, "host_name", null)
       host_names                     = lookup(http_listener.value, "host_names", null)
       protocol                       = lookup(http_listener.value, "protocol") # (Required) possible values: Http | Https

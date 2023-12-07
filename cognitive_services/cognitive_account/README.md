@@ -66,6 +66,14 @@ tfstate_store = {
 | `subnet_id` | string | Yes | - | The ID of the subnet which should be able to access this Cognitive Account. |
 | `ignore_missing_vnet_service_endpoint` | bool | No | False | Whether ignore missing vnet service endpoint or not. Default to 'false'. |
 
+### `network_acls` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'. |
+| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. |
+| `virtual_network_rules` | [block](#virtual_network_rules-block-structure) | No | - | A 'virtual_network_rules' block. |
+
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -86,14 +94,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
-
-### `network_acls` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'. |
-| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. |
-| `virtual_network_rules` | [block](#virtual_network_rules-block-structure) | No | - | A 'virtual_network_rules' block. |
 
 
 

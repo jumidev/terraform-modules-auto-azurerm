@@ -60,14 +60,6 @@ tfstate_store = {
 | `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
 | `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
-### `boot_recovery_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
-| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,6 +77,14 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
+| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
+
+### `boot_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
 | `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
 | `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 

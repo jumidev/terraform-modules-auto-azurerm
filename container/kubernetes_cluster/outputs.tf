@@ -202,6 +202,10 @@ output "storage_profile" {
   value = azurerm_kubernetes_cluster.this.storage_profile
 }
 
+output "support_plan" {
+  value = azurerm_kubernetes_cluster.this.support_plan
+}
+
 output "tags" {
   value = azurerm_kubernetes_cluster.this.tags
 }
