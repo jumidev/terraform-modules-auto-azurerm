@@ -71,6 +71,18 @@ tfstate_store = {
 | **backend_pool_settings** | [block](#backend_pool_settings-block-structure) |  -  |  A `backend_pool_settings` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `routing_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the Routing Rule. |
+| `frontend_endpoints` | string | Yes | - | The names of the 'frontend_endpoint' blocks within this resource to associate with this 'routing_rule'. |
+| `accepted_protocols` | string | Yes | - | Protocol schemes to match for the Backend Routing Rule. Possible values are 'Http' and 'Https'. |
+| `patterns_to_match` | string | Yes | - | The route patterns for the Backend Routing Rule. |
+| `enabled` | bool | No | True | 'Enable' or 'Disable' use of this Backend Routing Rule. Permitted values are 'true' or 'false'. Defaults to 'true'. |
+| `forwarding_configuration` | [block](#forwarding_configuration-block-structure) | No | - | A 'forwarding_configuration' block. |
+| `redirect_configuration` | [block](#redirect_configuration-block-structure) | No | - | A 'redirect_configuration' block. |
+
 ### `backend_pool_health_probe` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,24 +94,6 @@ tfstate_store = {
 | `probe_method` | string | No | GET | Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'. |
 | `interval_in_seconds` | number | No | 120 | The number of seconds between each Health Probe. Defaults to '120'. |
 
-### `backend_pool_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
-| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
-
-### `redirect_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `custom_host` | string | No | - | Set this to change the URL for the redirection. |
-| `redirect_protocol` | string | Yes | - | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. |
-| `redirect_type` | string | Yes | - | Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'. |
-| `custom_fragment` | string | No | - | The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL. |
-| `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
-| `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
-
 ### `frontend_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -109,6 +103,13 @@ tfstate_store = {
 | `session_affinity_enabled` | bool | No | False | Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'. |
 | `session_affinity_ttl_seconds` | number | No | 0 | The TTL to use in seconds for session affinity, if applicable. Defaults to '0'. |
 | `web_application_firewall_policy_link_id` | string | No | - | Defines the Web Application Firewall policy 'ID' for each host. |
+
+### `backend_pool_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
+| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
 
 ### `forwarding_configuration` block structure
 
@@ -132,18 +133,6 @@ tfstate_store = {
 | `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
 | `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
 
-### `routing_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Routing Rule. |
-| `frontend_endpoints` | string | Yes | - | The names of the 'frontend_endpoint' blocks within this resource to associate with this 'routing_rule'. |
-| `accepted_protocols` | string | Yes | - | Protocol schemes to match for the Backend Routing Rule. Possible values are 'Http' and 'Https'. |
-| `patterns_to_match` | string | Yes | - | The route patterns for the Backend Routing Rule. |
-| `enabled` | bool | No | True | 'Enable' or 'Disable' use of this Backend Routing Rule. Permitted values are 'true' or 'false'. Defaults to 'true'. |
-| `forwarding_configuration` | [block](#forwarding_configuration-block-structure) | No | - | A 'forwarding_configuration' block. |
-| `redirect_configuration` | [block](#redirect_configuration-block-structure) | No | - | A 'redirect_configuration' block. |
-
 ### `backend_pool_load_balancing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -152,6 +141,17 @@ tfstate_store = {
 | `sample_size` | number | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
 | `successful_samples_required` | number | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
 | `additional_latency_milliseconds` | number | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
+
+### `redirect_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_host` | string | No | - | Set this to change the URL for the redirection. |
+| `redirect_protocol` | string | Yes | - | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. |
+| `redirect_type` | string | Yes | - | Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'. |
+| `custom_fragment` | string | No | - | The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL. |
+| `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
+| `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
 
 ### `backend` block structure
 

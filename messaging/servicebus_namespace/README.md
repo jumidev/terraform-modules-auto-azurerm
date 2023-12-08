@@ -55,6 +55,13 @@ tfstate_store = {
 | `subnet_id` | string | Yes | - | The Subnet ID which should be able to access this ServiceBus Namespace. |
 | `ignore_missing_vnet_service_endpoint` | bool | No | False | Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to 'false'. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
+
 ### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,13 +71,6 @@ tfstate_store = {
 | `trusted_services_allowed` | bool | No | - | Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) |
 | `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. |
 | `network_rules` | [block](#network_rules-block-structure) | No | - | One or more 'network_rules' blocks. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
 
 ### `customer_managed_key` block structure
 

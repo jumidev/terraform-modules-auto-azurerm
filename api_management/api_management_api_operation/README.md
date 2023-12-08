@@ -76,6 +76,15 @@ tfstate_store = {
 | `schema_id` | string | No | - | The name of the Schema. |
 | `type_name` | string | No | - | The type name defined by the Schema. |
 
+### `response` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `status_code` | string | Yes | - | The HTTP Status Code. |
+| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
+
 ### `representation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,15 +94,6 @@ tfstate_store = {
 | `example` | list | No | - | One or more 'example' blocks. |
 | `schema_id` | string | No | - | The ID of an API Management Schema which represents this Response. |
 | `type_name` | string | No | - | The Type Name defined by the Schema. |
-
-### `response` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `status_code` | string | Yes | - | The HTTP Status Code. |
-| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
 
 
 

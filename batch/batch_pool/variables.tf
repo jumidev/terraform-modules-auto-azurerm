@@ -156,10 +156,6 @@ variable "start_task" {
 #   user_identity (block)                 : (REQUIRED) A 'user_identity' block that describes the user identity under which the start task runs as defined below.
 #   resource_file (list)                  : One or more 'resource_file' blocks that describe the files to be downloaded to a compute node as defined below.
 #
-# auto_user block structure:
-#   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
-#   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
-#
 # container block structure :
 #   image_name (string)       : (REQUIRED) The image to use to create the container in which the task will run. This is the full image reference, as would be specified to 'docker pull'. If no tag is provided as part of the image name, the tag ':latest' is used as a default.
 #   run_options (string)      : Additional options to the container create command. These additional options are supplied as arguments to the 'docker create' command, in addition to those controlled by the Batch Service.
@@ -169,6 +165,10 @@ variable "start_task" {
 # user_identity block structure:
 #   user_name (string)           : The username to be used by the Batch pool start task.
 #   auto_user (block)            : A 'auto_user' block that describes the user identity under which the start task runs as defined below.
+#
+# auto_user block structure:
+#   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
+#   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
 
 
 variable "certificate" {

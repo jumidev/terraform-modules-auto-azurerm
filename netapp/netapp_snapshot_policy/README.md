@@ -46,12 +46,12 @@ tfstate_store = {
 | **monthly_schedule** | [block](#monthly_schedule-block-structure) |  Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `monthly_schedule` block structure
+### `weekly_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
-| `days_of_month` | number | Yes | - | List of the days of the month when the snapshots will be created, valid range is from 1 to 30. |
+| `days_of_week` | number | Yes | - | List of the week days using English names when the snapshots will be created. |
 | `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
 | `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
@@ -70,12 +70,12 @@ tfstate_store = {
 | `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
 | `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
-### `weekly_schedule` block structure
+### `monthly_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
-| `days_of_week` | number | Yes | - | List of the week days using English names when the snapshots will be created. |
+| `days_of_month` | number | Yes | - | List of the days of the month when the snapshots will be created, valid range is from 1 to 30. |
 | `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
 | `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 

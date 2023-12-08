@@ -44,6 +44,13 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Active Role Assignment to be created. | 
 | **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Active Role Assignment to be created. | 
 
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiration` | [block](#expiration-block-structure) | No | - | A 'expiration' block. |
+| `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. |
+
 ### `expiration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,13 +65,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `number` | string | No | - | The ticket number. |
 | `system` | string | No | - | The ticket system. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `expiration` | [block](#expiration-block-structure) | No | - | A 'expiration' block. |
-| `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. |
 
 
 

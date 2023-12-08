@@ -72,13 +72,6 @@ tfstate_store = {
 | `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
 | `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
 
-### `client_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
-| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
-
 ### `sso` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +87,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
 | `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
+
+### `client_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
+| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
 
 
 

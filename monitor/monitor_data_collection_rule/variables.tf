@@ -28,21 +28,9 @@ variable "destinations" {
 #   storage_blob_direct (block)  : One or more 'storage_blob_direct' blocks.
 #   storage_table_direct (block) : One or more 'storage_table_direct' blocks.
 #
-# event_hub block structure:
-#   event_hub_id (string)    : (REQUIRED) The resource ID of the Event Hub.
-#   name (string)            : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#
-# azure_monitor_metrics block structure:
-#   name (string)                        : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#
-# storage_blob_direct block structure:
-#   container_name (string)            : (REQUIRED) The Storage Container name.
-#   name (string)                      : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#   storage_account_id (string)        : (REQUIRED) The resource ID of the Storage Account.
-#
-# event_hub_direct block structure:
-#   event_hub_id (string)           : (REQUIRED) The resource ID of the Event Hub.
-#   name (string)                   : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+# monitor_account block structure:
+#   monitor_account_id (string)    : (REQUIRED) The resource ID of the Monitor Account.
+#   name (string)                  : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #
 # storage_blob block structure:
 #   container_name (string)     : (REQUIRED) The Storage Container name.
@@ -54,13 +42,25 @@ variable "destinations" {
 #   name (string)                       : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #   storage_account_id (string)         : (REQUIRED) The resource ID of the Storage Account.
 #
+# event_hub_direct block structure:
+#   event_hub_id (string)           : (REQUIRED) The resource ID of the Event Hub.
+#   name (string)                   : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
 # log_analytics block structure :
 #   name (string)                 : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #   workspace_resource_id (string): (REQUIRED) The ID of a Log Analytic Workspace resource.
 #
-# monitor_account block structure:
-#   monitor_account_id (string)    : (REQUIRED) The resource ID of the Monitor Account.
-#   name (string)                  : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+# azure_monitor_metrics block structure:
+#   name (string)                        : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
+# storage_blob_direct block structure:
+#   container_name (string)            : (REQUIRED) The Storage Container name.
+#   name (string)                      : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#   storage_account_id (string)        : (REQUIRED) The resource ID of the Storage Account.
+#
+# event_hub block structure:
+#   event_hub_id (string)    : (REQUIRED) The resource ID of the Event Hub.
+#   name (string)            : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 
 
 variable "location" {

@@ -62,14 +62,12 @@ tfstate_store = {
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
 
-### `rule` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the rule. |
-| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
-| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
-| `match_condition` | [block](#match_condition-block-structure) | No | - | One or more 'match_condition' block. |
+| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
+| `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
 
 ### `request_header` block structure
 
@@ -79,12 +77,14 @@ tfstate_store = {
 | `header_name` | string | No | - | header name (string). |
 | `value` | string | No | - | value name (string). |
 
-### `action` block structure
+### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
-| `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
+| `name` | string | Yes | - | The name of the rule. |
+| `priority` | string | Yes | - | Priority of the rule, must be unique per rules engine definition. |
+| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
+| `match_condition` | [block](#match_condition-block-structure) | No | - | One or more 'match_condition' block. |
 
 
 

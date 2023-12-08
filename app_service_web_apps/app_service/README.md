@@ -59,6 +59,13 @@ tfstate_store = {
 | **source_control** | [block](#source_control-block-structure) |  -  |  -  |  A `source_control` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
+
 ### `scm_ip_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,33 +78,6 @@ tfstate_store = {
 | `action` | string | No | Allow | Allow or Deny access for this IP range. Defaults to 'Allow'. |
 | `headers` | string | No | - | The 'headers' block for this specific 'scm_ip_restriction' as defined below. |
 
-### `backup` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name for this Backup. |
-| `enabled` | bool | No | True | Is this Backup enabled? Defaults to 'true'. |
-| `storage_account_url` | string | Yes | - | The SAS URL to a Storage Container where Backups should be saved. |
-| `schedule` | [block](#schedule-block-structure) | Yes | - | A 'schedule' block. |
-
-### `facebook` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
-| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
-
-### `source_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `repo_url` | string | No | - | The URL of the source code repository. |
-| `branch` | string | No | - | The branch of the remote repository to use. Defaults to 'master'. |
-| `manual_integration` | bool | No | False | Limits to manual integration. Defaults to 'false' if not specified. |
-| `rollback_enabled` | bool | No | False | Enable roll-back for the repository. Defaults to 'false' if not specified. |
-| `use_mercurial` | bool | No | - | Use Mercurial if 'true', otherwise uses Git. |
-
 ### `logs` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -106,38 +86,6 @@ tfstate_store = {
 | `http_logs` | [block](#http_logs-block-structure) | No | - | An 'http_logs' block. |
 | `detailed_error_messages_enabled` | bool | No | False | Should 'Detailed error messages' be enabled on this App Service? Defaults to 'false'. |
 | `failed_request_tracing_enabled` | bool | No | False | Should 'Failed request tracing' be enabled on this App Service? Defaults to 'false'. |
-
-### `application_logs` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `azure_blob_storage` | [block](#azure_blob_storage-block-structure) | No | - | An 'azure_blob_storage' block. |
-| `file_system_level` | string | No | Off | Log level for filesystem based logging. Supported values are 'Error', 'Information', 'Verbose', 'Warning' and 'Off'. Defaults to 'Off'. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency_interval` | string | Yes | - | Sets how often the backup should be executed. |
-| `frequency_unit` | string | Yes | - | Sets the unit of time for how often the backup should be executed. Possible values are 'Day' or 'Hour'. |
-| `keep_at_least_one_backup` | string | No | - | Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is? |
-| `retention_period_in_days` | string | No | 30 | Specifies the number of days after which Backups should be deleted. Defaults to '30'. |
-| `start_time` | string | No | - | Sets when the schedule should start working. |
-
-### `file_system` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `retention_in_days` | number | Yes | - | The number of days to retain logs for. |
-| `retention_in_mb` | number | Yes | - | The maximum size in megabytes that HTTP log files can use before being removed. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory. |
-| `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
-| `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
 
 ### `ip_restriction` block structure
 
@@ -151,69 +99,12 @@ tfstate_store = {
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
 
-### `cors` block structure
+### `file_system` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
-
-### `twitter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The consumer key of the Twitter app used for login |
-| `consumer_secret` | string | Yes | - | The consumer secret of the Twitter app used for login. |
-
-### `microsoft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
-
-### `http_logs` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `file_system` | [block](#file_system-block-structure) | No | - | A 'file_system' block. |
-| `azure_blob_storage` | [block](#azure_blob_storage-block-structure) | No | - | An 'azure_blob_storage' block. |
-
-### `azure_blob_storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `level` | string | Yes | - | The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs' |
-| `sas_url` | string | Yes | - | The URL to the storage container with a shared access signature token appended. |
 | `retention_in_days` | number | Yes | - | The number of days to retain logs for. |
-
-### `google` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
-| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
-
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the storage account identifier. |
-| `type` | string | Yes | - | The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'. |
-| `account_name` | string | Yes | - | The name of the storage account. |
-| `share_name` | string | Yes | - | The name of the file share (container name, for Blob storage). |
-| `access_key` | string | Yes | - | The access key for the storage account. |
-| `mount_path` | string | No | - | The path to mount the storage within the site's runtime environment. |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
+| `retention_in_mb` | number | Yes | - | The maximum size in megabytes that HTTP log files can use before being removed. |
 
 ### `site_config` block structure
 
@@ -251,6 +142,42 @@ tfstate_store = {
 | `vnet_route_all_enabled` | bool | No | False | Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to 'false'. |
 | `websockets_enabled` | bool | No | - | Should WebSockets be enabled? |
 
+### `source_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `repo_url` | string | No | - | The URL of the source code repository. |
+| `branch` | string | No | - | The branch of the remote repository to use. Defaults to 'master'. |
+| `manual_integration` | bool | No | False | Limits to manual integration. Defaults to 'false' if not specified. |
+| `rollback_enabled` | bool | No | False | Enable roll-back for the repository. Defaults to 'false' if not specified. |
+| `use_mercurial` | bool | No | - | Use Mercurial if 'true', otherwise uses Git. |
+
+### `application_logs` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `azure_blob_storage` | [block](#azure_blob_storage-block-structure) | No | - | An 'azure_blob_storage' block. |
+| `file_system_level` | string | No | Off | Log level for filesystem based logging. Supported values are 'Error', 'Information', 'Verbose', 'Warning' and 'Off'. Defaults to 'Off'. |
+
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the storage account identifier. |
+| `type` | string | Yes | - | The type of storage. Possible values are 'AzureBlob' and 'AzureFiles'. |
+| `account_name` | string | Yes | - | The name of the storage account. |
+| `share_name` | string | Yes | - | The name of the file share (container name, for Blob storage). |
+| `access_key` | string | Yes | - | The access key for the storage account. |
+| `mount_path` | string | No | - | The path to mount the storage within the site's runtime environment. |
+
+### `google` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret` | string | Yes | - | The client secret associated with the Google web application. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/> |
+
 ### `auth_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -276,6 +203,79 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the identity type of the App Service. Possible values are 'SystemAssigned' (where Azure will generate a Service Principal for you), 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field, and 'SystemAssigned, UserAssigned' which assigns both a system managed identity as well as the specified user assigned identities. |
 | `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
+
+### `http_logs` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `file_system` | [block](#file_system-block-structure) | No | - | A 'file_system' block. |
+| `azure_blob_storage` | [block](#azure_blob_storage-block-structure) | No | - | An 'azure_blob_storage' block. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory. |
+| `client_secret` | string | No | - | The Client Secret of this relying party application. If no secret is provided, implicit flow will be used. |
+| `allowed_audiences` | string | No | - | Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency_interval` | string | Yes | - | Sets how often the backup should be executed. |
+| `frequency_unit` | string | Yes | - | Sets the unit of time for how often the backup should be executed. Possible values are 'Day' or 'Hour'. |
+| `keep_at_least_one_backup` | string | No | - | Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is? |
+| `retention_period_in_days` | string | No | 30 | Specifies the number of days after which Backups should be deleted. Defaults to '30'. |
+| `start_time` | string | No | - | Sets when the schedule should start working. |
+
+### `azure_blob_storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `level` | string | Yes | - | The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs' |
+| `sas_url` | string | Yes | - | The URL to the storage container with a shared access signature token appended. |
+| `retention_in_days` | number | Yes | - | The number of days to retain logs for. |
+
+### `facebook` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login |
+| `app_secret` | string | Yes | - | The App Secret of the Facebook app used for Facebook login. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login> |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Connection String. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
+
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name for this Backup. |
+| `enabled` | bool | No | True | Is this Backup enabled? Defaults to 'true'. |
+| `storage_account_url` | string | Yes | - | The SAS URL to a Storage Container where Backups should be saved. |
+| `schedule` | [block](#schedule-block-structure) | Yes | - | A 'schedule' block. |
+
+### `microsoft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret` | string | Yes | - | The OAuth 2.0 client secret that was created for the app used for authentication. |
+| `oauth_scopes` | string | No | - | The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx> |
+
+### `twitter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `consumer_key` | string | Yes | - | The consumer key of the Twitter app used for login |
+| `consumer_secret` | string | Yes | - | The consumer secret of the Twitter app used for login. |
 
 
 

@@ -72,53 +72,6 @@ tfstate_store = {
 | **sftp_enabled** | bool |  -  |  -  |  Boolean, enable SFTP for the storage account | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `network_rules` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | Yes | - | Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'. |
-| `bypass` | string | No | - | Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'. |
-| `ip_rules` | string | No | - | List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed. |
-| `virtual_network_subnet_ids` | list | No | - | A list of resource ids for subnets. |
-| `private_link_access` | [block](#private_link_access-block-structure) | No | - | One or more 'private_link_access' block. |
-
-### `restore_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | string | Yes | - | Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'. |
-
-### `immutability_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allow_protected_append_writes` | string | Yes | - | When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. |
-| `state` | string | Yes | - | Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. |
-| `period_since_creation_in_days` | number | Yes | - | The immutability period for the blobs in the container since the policy creation, in days. |
-
-### `minute_metrics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Indicates whether minute metrics are enabled for the Queue service. |
-| `version` | string | Yes | - | The version of storage analytics to configure. |
-| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
-| `retention_policy_days` | string | No | - | Specifies the number of days that logs will be retained. |
-
-### `routing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `publish_internet_endpoints` | bool | No | False | Should internet routing storage endpoints be published? Defaults to 'false'. |
-| `publish_microsoft_endpoints` | bool | No | False | Should Microsoft routing storage endpoints be published? Defaults to 'false'. |
-| `choice` | string | No | MicrosoftRouting | Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. |
-
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | string | No | 7 | Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'. |
-
 ### `hour_metrics` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -144,11 +97,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `days` | string | No | 7 | Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'. |
 
-### `container_delete_retention_policy` block structure
+### `immutability_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `days` | string | No | 7 | Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'. |
+| `allow_protected_append_writes` | string | Yes | - | When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. |
+| `state` | string | Yes | - | Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. |
+| `period_since_creation_in_days` | number | Yes | - | The immutability period for the blobs in the container since the policy creation, in days. |
+
+### `restore_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | string | Yes | - | Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'. |
 
 ### `private_link_access` block structure
 
@@ -157,16 +118,21 @@ tfstate_store = {
 | `endpoint_resource_id` | string | Yes | - | The resource id of the resource access rule to be granted access. |
 | `endpoint_tenant_id` | string | No | - | The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id. |
 
-### `active_directory` block structure
+### `custom_domain` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `domain_name` | string | Yes | - | Specifies the primary domain that the AD DNS server is authoritative for. |
-| `domain_guid` | string | Yes | - | Specifies the domain GUID. |
-| `domain_sid` | string | No | - | Specifies the security identifier (SID). This is required when 'directory_type' is set to 'AD'. |
-| `storage_sid` | string | No | - | Specifies the security identifier (SID) for Azure Storage. This is required when 'directory_type' is set to 'AD'. |
-| `forest_name` | string | No | - | Specifies the Active Directory forest. This is required when 'directory_type' is set to 'AD'. |
-| `netbios_domain_name` | string | No | - | Specifies the NetBIOS domain name. This is required when 'directory_type' is set to 'AD'. |
+| `name` | string | Yes | - | The Custom Domain Name to use for the Storage Account, which will be validated by Azure. |
+| `use_subdomain` | bool | No | - | Should the Custom Domain Name be validated by using indirect CNAME validation? |
+
+### `queue_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
+| `logging` | [block](#logging-block-structure) | No | - | A 'logging' block. |
+| `minute_metrics` | [block](#minute_metrics-block-structure) | No | - | A 'minute_metrics' block. |
+| `hour_metrics` | [block](#hour_metrics-block-structure) | No | - | A 'hour_metrics' block. |
 
 ### `static_website` block structure
 
@@ -175,44 +141,36 @@ tfstate_store = {
 | `index_document` | string | No | - | The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive. |
 | `error_404_document` | string | No | - | The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file. |
 
-### `sas_policy` block structure
+### `container_delete_retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `expiration_period` | string | Yes | - | The SAS expiration period in format of 'DD.HH:MM:SS'. |
-| `expiration_action` | string | No | Log | The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. |
+| `days` | string | No | 7 | Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'. |
 
-### `custom_domain` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Custom Domain Name to use for the Storage Account, which will be validated by Azure. |
-| `use_subdomain` | bool | No | - | Should the Custom Domain Name be validated by using indirect CNAME validation? |
-
-### `logging` block structure
+### `minute_metrics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `delete` | string | Yes | - | Indicates whether all delete requests should be logged. |
-| `read` | string | Yes | - | Indicates whether all read requests should be logged. |
+| `enabled` | bool | Yes | - | Indicates whether minute metrics are enabled for the Queue service. |
 | `version` | string | Yes | - | The version of storage analytics to configure. |
-| `write` | string | Yes | - | Indicates whether all write requests should be logged. |
+| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
 | `retention_policy_days` | string | No | - | Specifies the number of days that logs will be retained. |
 
-### `azure_files_authentication` block structure
+### `cors_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `directory_type` | string | Yes | - | Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. |
-| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. Required when 'directory_type' is 'AD'. |
+| `allowed_headers` | list | Yes | - | A list of headers that are allowed to be a part of the cross-origin request. |
+| `allowed_methods` | string | Yes | - | A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'. |
+| `allowed_origins` | list | Yes | - | A list of origin domains that will be allowed by CORS. |
+| `exposed_headers` | list | Yes | - | A list of response headers that are exposed to CORS clients. |
+| `max_age_in_seconds` | number | Yes | - | The number of seconds the client should cache a preflight response. |
 
-### `share_properties` block structure
+### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
-| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
-| `smb` | [block](#smb-block-structure) | No | - | A 'smb' block. |
+| `days` | string | No | 7 | Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'. |
 
 ### `blob_properties` block structure
 
@@ -228,25 +186,6 @@ tfstate_store = {
 | `last_access_time_enabled` | bool | No | False | Is the last access time based tracking enabled? Default to 'false'. |
 | `container_delete_retention_policy` | [block](#container_delete_retention_policy-block-structure) | No | - | A 'container_delete_retention_policy' block. |
 
-### `queue_properties` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
-| `logging` | [block](#logging-block-structure) | No | - | A 'logging' block. |
-| `minute_metrics` | [block](#minute_metrics-block-structure) | No | - | A 'minute_metrics' block. |
-| `hour_metrics` | [block](#hour_metrics-block-structure) | No | - | A 'hour_metrics' block. |
-
-### `cors_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_headers` | list | Yes | - | A list of headers that are allowed to be a part of the cross-origin request. |
-| `allowed_methods` | string | Yes | - | A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'. |
-| `allowed_origins` | list | Yes | - | A list of origin domains that will be allowed by CORS. |
-| `exposed_headers` | list | Yes | - | A list of response headers that are exposed to CORS clients. |
-| `max_age_in_seconds` | number | Yes | - | The number of seconds the client should cache a preflight response. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -260,6 +199,67 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. |
 | `user_assigned_identity_id` | string | Yes | - | The ID of a user assigned identity. |
+
+### `logging` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `delete` | string | Yes | - | Indicates whether all delete requests should be logged. |
+| `read` | string | Yes | - | Indicates whether all read requests should be logged. |
+| `version` | string | Yes | - | The version of storage analytics to configure. |
+| `write` | string | Yes | - | Indicates whether all write requests should be logged. |
+| `retention_policy_days` | string | No | - | Specifies the number of days that logs will be retained. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `domain_name` | string | Yes | - | Specifies the primary domain that the AD DNS server is authoritative for. |
+| `domain_guid` | string | Yes | - | Specifies the domain GUID. |
+| `domain_sid` | string | No | - | Specifies the security identifier (SID). This is required when 'directory_type' is set to 'AD'. |
+| `storage_sid` | string | No | - | Specifies the security identifier (SID) for Azure Storage. This is required when 'directory_type' is set to 'AD'. |
+| `forest_name` | string | No | - | Specifies the Active Directory forest. This is required when 'directory_type' is set to 'AD'. |
+| `netbios_domain_name` | string | No | - | Specifies the NetBIOS domain name. This is required when 'directory_type' is set to 'AD'. |
+
+### `share_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
+| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
+| `smb` | [block](#smb-block-structure) | No | - | A 'smb' block. |
+
+### `sas_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiration_period` | string | Yes | - | The SAS expiration period in format of 'DD.HH:MM:SS'. |
+| `expiration_action` | string | No | Log | The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. |
+
+### `network_rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | Yes | - | Specifies the default action of allow or deny when no other rules match. Valid options are 'Deny' or 'Allow'. |
+| `bypass` | string | No | - | Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'. |
+| `ip_rules` | string | No | - | List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed. |
+| `virtual_network_subnet_ids` | list | No | - | A list of resource ids for subnets. |
+| `private_link_access` | [block](#private_link_access-block-structure) | No | - | One or more 'private_link_access' block. |
+
+### `azure_files_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `directory_type` | string | Yes | - | Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. |
+| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. Required when 'directory_type' is 'AD'. |
+
+### `routing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publish_internet_endpoints` | bool | No | False | Should internet routing storage endpoints be published? Defaults to 'false'. |
+| `publish_microsoft_endpoints` | bool | No | False | Should Microsoft routing storage endpoints be published? Defaults to 'false'. |
+| `choice` | string | No | MicrosoftRouting | Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. |
 
 
 

@@ -49,31 +49,6 @@ tfstate_store = {
 | **analytical_storage_ttl** | string |  -  |  The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. | 
 | **conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 
-### `included_path` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
-
-### `autoscale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the SQL container (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
-
-### `excluded_path` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path that is excluded from indexing. |
-
-### `index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
-| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
-
 ### `indexing_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -92,11 +67,18 @@ tfstate_store = {
 | `conflict_resolution_path` | string | No | - | The conflict resolution path in the case of 'LastWriterWins' mode. |
 | `conflict_resolution_procedure` | string | No | - | The procedure to resolve conflicts in the case of 'Custom' mode. |
 
-### `unique_key` block structure
+### `autoscale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
+| `max_throughput` | string | No | - | The maximum throughput of the SQL container (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+
+### `index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
+| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
 
 ### `spatial_index` block structure
 
@@ -104,11 +86,29 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
 
+### `excluded_path` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path that is excluded from indexing. |
+
+### `included_path` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
+
 ### `composite_index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
+
+### `unique_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
 
 
 

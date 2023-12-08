@@ -64,27 +64,6 @@ tfstate_store = {
 | `included_packages` | string | No | - | Specifies a list of packages to included from the Software Update Configuration. |
 | `reboot` | string | No | IfRequired | Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'. |
 
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | The frequency of the schedule. - can be either 'OneTime', 'Day', 'Hour', 'Week', or 'Month'. |
-| `is_enabled` | bool | No | True | Whether the schedule is enabled. Defaults to 'true'. |
-| `description` | string | No | - | A description for this Schedule. |
-| `interval` | number | No | - | The number of 'frequency's between runs. Only valid when frequency is 'Day', 'Hour', 'Week', or 'Month'. |
-| `start_time` | string | No | - | Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created. |
-| `expiry_time` | string | No | - | The end time of the schedule. |
-| `time_zone` | string | No | Etc/UTC | The timezone of the start time. Defaults to 'Etc/UTC'. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows> |
-| `advanced_week_days` | string | No | - | List of days of the week that the job should execute on. Only valid when frequency is 'Week'. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'. |
-| `advanced_month_days` | number | No | - | List of days of the month that the job should execute on. Must be between '1' and '31'. '-1' for last day of the month. Only valid when frequency is 'Month'. |
-
-### `pre_task` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameters` | string | No | - | Specifies a map of parameters for the task. |
-| `source` | string | No | - | The name of the runbook for the pre task. |
-
 ### `target` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -107,6 +86,27 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `parameters` | string | No | - | Specifies a map of parameters for the task. |
 | `source` | string | No | - | The name of the runbook for the post task. |
+
+### `pre_task` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameters` | string | No | - | Specifies a map of parameters for the task. |
+| `source` | string | No | - | The name of the runbook for the pre task. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | The frequency of the schedule. - can be either 'OneTime', 'Day', 'Hour', 'Week', or 'Month'. |
+| `is_enabled` | bool | No | True | Whether the schedule is enabled. Defaults to 'true'. |
+| `description` | string | No | - | A description for this Schedule. |
+| `interval` | number | No | - | The number of 'frequency's between runs. Only valid when frequency is 'Day', 'Hour', 'Week', or 'Month'. |
+| `start_time` | string | No | - | Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created. |
+| `expiry_time` | string | No | - | The end time of the schedule. |
+| `time_zone` | string | No | Etc/UTC | The timezone of the start time. Defaults to 'Etc/UTC'. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows> |
+| `advanced_week_days` | string | No | - | List of days of the week that the job should execute on. Only valid when frequency is 'Week'. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'. |
+| `advanced_month_days` | number | No | - | List of days of the month that the job should execute on. Must be between '1' and '31'. '-1' for last day of the month. Only valid when frequency is 'Month'. |
 
 
 

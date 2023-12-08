@@ -56,6 +56,13 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Recovery Services Vault. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this App Configuration. |
 
+### `monitoring` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alerts_for_all_job_failures_enabled` | bool | No | True | Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to 'true'. |
+| `alerts_for_critical_operation_failures_enabled` | bool | No | True | Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to 'true'. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview). |
+
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,13 +71,6 @@ tfstate_store = {
 | `infrastructure_encryption_enabled` | bool | Yes | - | Enabling/Disabling the Double Encryption state. |
 | `user_assigned_identity_id` | string | No | - | Specifies the user assigned identity ID to be used. |
 | `use_system_assigned_identity` | bool | No | True | Indicate that system assigned identity should be used or not. Defaults to 'true'. |
-
-### `monitoring` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alerts_for_all_job_failures_enabled` | bool | No | True | Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to 'true'. |
-| `alerts_for_critical_operation_failures_enabled` | bool | No | True | Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to 'true'. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview). |
 
 
 

@@ -58,6 +58,14 @@ tfstate_store = {
 | `name` | string | Yes | - | Name of the cluster key to be created. |
 | `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
 
+### `schema` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column` | [block](#column-block-structure) | Yes | - | One or more 'column' blocks. |
+| `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
+| `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
+
 ### `column` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,14 +78,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the column to partition by. |
-
-### `schema` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `column` | [block](#column-block-structure) | Yes | - | One or more 'column' blocks. |
-| `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
-| `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
 
 
 

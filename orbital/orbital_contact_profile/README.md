@@ -54,15 +54,6 @@ tfstate_store = {
 | **minimum_elevation_degrees** | string |  Maximum elevation of the antenna during the contact in decimal degrees. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `end_point` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `end_point_name` | string | Yes | - | Name of an end point. |
-| `port` | string | Yes | - | TCP port to listen on to receive data. |
-| `protocol` | string | Yes | - | Protocol of an end point. Possible values are 'TCP' and 'UDP'. |
-| `ip_address` | string | No | - | IP address of an end point. |
-
 ### `links` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +73,15 @@ tfstate_store = {
 | `end_point` | [block](#end_point-block-structure) | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
 | `modulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
 | `demodulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
+
+### `end_point` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `end_point_name` | string | Yes | - | Name of an end point. |
+| `port` | string | Yes | - | TCP port to listen on to receive data. |
+| `protocol` | string | Yes | - | Protocol of an end point. Possible values are 'TCP' and 'UDP'. |
+| `ip_address` | string | No | - | IP address of an end point. |
 
 
 

@@ -50,12 +50,12 @@ tfstate_store = {
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
 | **minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
 
-### `virtual_network_rule` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The id of the subnet to match on. |
-| `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
 
 ### `ip_rule` block structure
 
@@ -64,12 +64,12 @@ tfstate_store = {
 | `ip_mask` | string | Yes | - | The IP mask to match on. |
 | `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
 
-### `identity` block structure
+### `virtual_network_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
+| `subnet_id` | string | Yes | - | The id of the subnet to match on. |
+| `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
 
 ### `network_rulesets` block structure
 
