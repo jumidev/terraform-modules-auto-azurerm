@@ -167,11 +167,11 @@ resource "azurerm_windows_virtual_machine" "this" {
 # optional azurerm_virtual_machine_data_disk_attachment 
 ##############################################################################################
 resource "azurerm_virtual_machine_data_disk_attachment" "this" {
-  count                     = var.managed_disk_id != null ? 1 : 0
+  count                     = var.virtual_machine_data_disk_attachment != null ? 1 : 0
   virtual_machine_id        = azurerm_windows_virtual_machine.this.id
-  managed_disk_id           = var.managed_disk_id
-  lun                       = var.lun                       # Default: 3
-  caching                   = var.caching                   # Default: ReadOnly
-  create_option             = var.create_option             # Default: Attach
-  write_accelerator_enabled = var.write_accelerator_enabled # Default: False
+  managed_disk_id           = lookup(var.virtual_machine_data_disk_attachment, "var.managed_disk_id", null)
+  lun                       = lookup(var.virtual_machine_data_disk_attachment, "var.lun", 3)
+  caching                   = lookup(var.virtual_machine_data_disk_attachment, "var.caching", "ReadOnly")
+  create_option             = lookup(var.virtual_machine_data_disk_attachment, "var.create_option", "Attach")
+  write_accelerator_enabled = lookup(var.virtual_machine_data_disk_attachment, "var.write_accelerator_enabled", false)
 }

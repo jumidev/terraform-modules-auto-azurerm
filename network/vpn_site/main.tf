@@ -33,7 +33,7 @@ resource "azurerm_vpn_site" "this" {
       fqdn          = lookup(link.value, "fqdn", null)
       ip_address    = lookup(link.value, "ip_address", null)
       provider_name = lookup(link.value, "provider_name", null)
-      speed_in_mbps = lookup(link.value, "speed_in_mbps", "0")
+      speed_in_mbps = lookup(link.value, "speed_in_mbps", 0)
     }
   }
 

@@ -11,9 +11,9 @@ resource "azurerm_kubernetes_flux_configuration" "this" {
   kustomizations {
     name                       = lookup(kustomizations.value, "name") # (Required) 
     path                       = lookup(kustomizations.value, "path", null)
-    timeout_in_seconds         = lookup(kustomizations.value, "timeout_in_seconds", "600")
-    sync_interval_in_seconds   = lookup(kustomizations.value, "sync_interval_in_seconds", "600")
-    retry_interval_in_seconds  = lookup(kustomizations.value, "retry_interval_in_seconds", "600")
+    timeout_in_seconds         = lookup(kustomizations.value, "timeout_in_seconds", 600)
+    sync_interval_in_seconds   = lookup(kustomizations.value, "sync_interval_in_seconds", 600)
+    retry_interval_in_seconds  = lookup(kustomizations.value, "retry_interval_in_seconds", 600)
     recreating_enabled         = lookup(kustomizations.value, "recreating_enabled", false)
     garbage_collection_enabled = lookup(kustomizations.value, "garbage_collection_enabled", false)
     depends_on                 = lookup(kustomizations.value, "depends_on", null)

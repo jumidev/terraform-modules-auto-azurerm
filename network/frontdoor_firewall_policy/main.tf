@@ -27,7 +27,7 @@ resource "azurerm_frontdoor_firewall_policy" "this" {
       priority                       = lookup(custom_rule.value, "priority", "1")
       type                           = lookup(custom_rule.value, "type") # (Required) possible values: MatchRule | RateLimitRule
       match_condition                = lookup(custom_rule.value, "match_condition", null)
-      rate_limit_duration_in_minutes = lookup(custom_rule.value, "rate_limit_duration_in_minutes", "1")
+      rate_limit_duration_in_minutes = lookup(custom_rule.value, "rate_limit_duration_in_minutes", 1)
       rate_limit_threshold           = lookup(custom_rule.value, "rate_limit_threshold", "10")
     }
   }

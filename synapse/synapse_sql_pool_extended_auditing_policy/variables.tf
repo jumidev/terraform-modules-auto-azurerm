@@ -16,7 +16,7 @@ variable "storage_endpoint" {
 variable "retention_in_days" {
   description = "The number of days to retain logs for in the storage account. Defaults to '0'."
   type        = number
-  default     = "0"
+  default     = 0
 }
 variable "storage_account_access_key" {
   description = "The access key to use for the auditing storage account."

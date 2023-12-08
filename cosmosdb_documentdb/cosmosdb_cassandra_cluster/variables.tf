@@ -46,7 +46,7 @@ variable "external_seed_node_ip_addresses" {
 variable "hours_between_backups" {
   description = "The number of hours to wait between taking a backup of the Cassandra Cluster. Defaults to '24'."
   type        = number
-  default     = "24"
+  default     = 24
 }
 variable "identity" {
   description = "An 'identity' block."

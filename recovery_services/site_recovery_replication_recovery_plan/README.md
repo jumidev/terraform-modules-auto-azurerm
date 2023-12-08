@@ -51,6 +51,13 @@ tfstate_store = {
 | `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
 | `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
+### `failover_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
+
 ### `azure_to_azure_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,13 +87,6 @@ tfstate_store = {
 | `runbook_id` | string | No | - | Id of runbook. |
 | `manual_action_instruction` | string | No | - | Instructions of manual action. |
 | `script_path` | string | No | - | Path of action script. |
-
-### `failover_recovery_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
 
 

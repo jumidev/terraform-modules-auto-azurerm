@@ -59,6 +59,14 @@ tfstate_store = {
 | **encryption_key** | [block](#encryption_key-block-structure) |  An `encryption_key` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Azure Managed Lustre File System. | 
 
+### `hsm_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container_id` | string | Yes | - | The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created. |
+| `logging_container_id` | string | Yes | - | The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created. |
+| `import_prefix` | string | No | - | The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,14 +87,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `day_of_week` | string | Yes | - | The day of the week on which the maintenance window will occur. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `time_of_day_in_utc` | string | Yes | - | The time of day (in UTC) to start the maintenance window. |
-
-### `hsm_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_id` | string | Yes | - | The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created. |
-| `logging_container_id` | string | Yes | - | The resource ID of the storage container that is used for logging events and errors. Changing this forces a new resource to be created. |
-| `import_prefix` | string | No | - | The import prefix for the Azure Managed Lustre File System. Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace. Changing this forces a new resource to be created. |
 
 
 

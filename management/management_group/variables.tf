@@ -24,20 +24,9 @@ variable "subscription_ids" {
 
 # OPTIONAL VARIABLES
 
-variable "resource_management_private_link_id" {
-  description = "The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created."
-  type        = string
-  default     = null
-}
-variable "public_network_access_enabled" {
-  description = "Whether public network access is allowed. Changing this forces a new Private Link Association to be created."
-  type        = bool
-  default     = null
-}
-variable "name" {
-  description = "Specifies the name of this Private Link Association, which should be a UUID. If 'name' is not provided, a UUID will be generated, you should use [the 'ignore_changes' attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess). Changing this forces a new Private Link Association to be created."
-  type        = string
-  default     = null
+variable "resource_management_private_link_association" {
+  type    = map(any)
+  default = null
 }
 
 # OPTIONAL VARIABLES

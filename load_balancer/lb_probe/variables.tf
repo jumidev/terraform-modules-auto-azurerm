@@ -41,5 +41,5 @@ variable "interval_in_seconds" {
 variable "number_of_probes" {
   description = "The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to '2'. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful."
   type        = number
-  default     = "2"
+  default     = 2
 }

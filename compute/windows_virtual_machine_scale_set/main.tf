@@ -81,7 +81,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "this" {
     for_each = var.automatic_instance_repair != null ? var.automatic_instance_repair : []
     content {
       enabled      = lookup(automatic_instance_repair.value, "enabled") # (Required) 
-      grace_period = lookup(automatic_instance_repair.value, "grace_period", "PT30M")
+      grace_period = lookup(automatic_instance_repair.value, "grace_period", pt30m)
     }
   }
 

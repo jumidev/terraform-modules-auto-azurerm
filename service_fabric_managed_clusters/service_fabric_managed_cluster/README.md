@@ -63,42 +63,12 @@ tfstate_store = {
 | **upgrade_wave** | string |  `Wave0`  |  `Wave0`, `Wave1`, `Wave2`  |  Upgrade wave for the fabric runtime. Default is `Wave0`, allowed value must be one of `Wave0`, `Wave1`, or `Wave2`. | 
 | **username** | string |  -  |  -  |  Administrator password for the VMs that will be created as part of this cluster. | 
 
-### `certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
-| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
-| `common_name` | string | No | - | The certificate's CN. |
-
 ### `authentication` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. |
 | `certificate` | [block](#certificate-block-structure) | No | - | One or more 'certificate' blocks. |
-
-### `node_type` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `application_port_range` | string | Yes | - | Sets the port range available for applications. Format is '<from_port>-<to_port>', for example '10000-20000'. |
-| `data_disk_size_gb` | number | Yes | - | The size of the data disk in gigabytes.. |
-| `ephemeral_port_range` | string | Yes | - | Sets the port range available for the OS. Format is '<from_port>-<to_port>', for example '10000-20000'. There has to be at least 255 ports available and cannot overlap with 'application_port_range'.. |
-| `name` | string | Yes | - | The name which should be used for this node type. |
-| `vm_image_offer` | string | Yes | - | The offer type of the marketplace image cluster VMs will use. |
-| `vm_image_publisher` | string | Yes | - | The publisher of the marketplace image cluster VMs will use. |
-| `vm_image_sku` | string | Yes | - | The SKU of the marketplace image cluster VMs will use. |
-| `vm_image_version` | string | Yes | - | The version of the marketplace image cluster VMs will use. |
-| `vm_instance_count` | number | Yes | - | The number of instances this node type will launch. |
-| `vm_size` | string | Yes | - | The size of the instances in this node type. |
-| `capacities` | string | No | - | Specifies a list of key/value pairs used to set capacity tags for this node type. |
-| `data_disk_type` | string | No | Standard_LRS | The type of the disk to use for storing data. It can be one of 'Premium_LRS', 'Standard_LRS', or 'StandardSSD_LRS'. Defaults to 'Standard_LRS'. |
-| `multiple_placement_groups_enabled` | string | No | - | If set the node type can be composed of multiple placement groups. |
-| `placement_properties` | string | No | - | Specifies a list of placement tags that can be used to indicate where services should run.. |
-| `primary` | string | No | - | If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created. |
-| `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
-| `vm_secrets` | [block](#vm_secrets-block-structure) | No | - | One or more 'vm_secrets' blocks. |
 
 ### `lb_rule` block structure
 
@@ -125,6 +95,36 @@ tfstate_store = {
 | `parameter` | string | Yes | - | Parameter name. |
 | `section` | string | Yes | - | Section name. |
 | `value` | string | Yes | - | Parameter value. |
+
+### `certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
+| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
+| `common_name` | string | No | - | The certificate's CN. |
+
+### `node_type` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `application_port_range` | string | Yes | - | Sets the port range available for applications. Format is '<from_port>-<to_port>', for example '10000-20000'. |
+| `data_disk_size_gb` | number | Yes | - | The size of the data disk in gigabytes.. |
+| `ephemeral_port_range` | string | Yes | - | Sets the port range available for the OS. Format is '<from_port>-<to_port>', for example '10000-20000'. There has to be at least 255 ports available and cannot overlap with 'application_port_range'.. |
+| `name` | string | Yes | - | The name which should be used for this node type. |
+| `vm_image_offer` | string | Yes | - | The offer type of the marketplace image cluster VMs will use. |
+| `vm_image_publisher` | string | Yes | - | The publisher of the marketplace image cluster VMs will use. |
+| `vm_image_sku` | string | Yes | - | The SKU of the marketplace image cluster VMs will use. |
+| `vm_image_version` | string | Yes | - | The version of the marketplace image cluster VMs will use. |
+| `vm_instance_count` | number | Yes | - | The number of instances this node type will launch. |
+| `vm_size` | string | Yes | - | The size of the instances in this node type. |
+| `capacities` | string | No | - | Specifies a list of key/value pairs used to set capacity tags for this node type. |
+| `data_disk_type` | string | No | Standard_LRS | The type of the disk to use for storing data. It can be one of 'Premium_LRS', 'Standard_LRS', or 'StandardSSD_LRS'. Defaults to 'Standard_LRS'. |
+| `multiple_placement_groups_enabled` | string | No | - | If set the node type can be composed of multiple placement groups. |
+| `placement_properties` | string | No | - | Specifies a list of placement tags that can be used to indicate where services should run.. |
+| `primary` | string | No | - | If set to true, system services will run on this node type. Only one node type should be marked as primary. Primary node type cannot be deleted or changed once they're created. |
+| `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
+| `vm_secrets` | [block](#vm_secrets-block-structure) | No | - | One or more 'vm_secrets' blocks. |
 
 ### `vm_secrets` block structure
 

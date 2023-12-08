@@ -98,6 +98,10 @@ variable "config_server_git_setting" {
 #   ssh_auth (block)                         : A 'ssh_auth' block.
 #   repository (block)                       : One or more 'repository' blocks.
 #
+# http_basic_auth block structure:
+#   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+#   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
+#
 # ssh_auth block structure               :
 #   private_key (string)                   : (REQUIRED) The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'.
 #   host_key (string)                      : The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'.
@@ -112,10 +116,6 @@ variable "config_server_git_setting" {
 #   search_paths (string)     : An array of strings used to search subdirectories of the Git repository.
 #   http_basic_auth (block)   : A 'http_basic_auth' block.
 #   ssh_auth (block)          : A 'ssh_auth' block.
-#
-# http_basic_auth block structure:
-#   username (string)              : (REQUIRED) The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
-#   password (string)              : (REQUIRED) The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
 
 
 variable "service_registry_enabled" {

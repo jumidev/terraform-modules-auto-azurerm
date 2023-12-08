@@ -240,7 +240,7 @@ resource "azurerm_application_gateway" "this" {
         }
       }
 
-      minimum_servers = lookup(probe.value, "minimum_servers", "0")
+      minimum_servers = lookup(probe.value, "minimum_servers", 0)
     }
   }
 
@@ -286,7 +286,7 @@ resource "azurerm_application_gateway" "this" {
         }
       }
 
-      file_upload_limit_mb     = lookup(waf_configuration.value, "file_upload_limit_mb", "100")
+      file_upload_limit_mb     = lookup(waf_configuration.value, "file_upload_limit_mb", 100)
       request_body_check       = lookup(waf_configuration.value, "request_body_check", true)
       max_request_body_size_kb = lookup(waf_configuration.value, "max_request_body_size_kb", "128")
 

@@ -40,12 +40,14 @@ tfstate_store = {
 | **use_manual_integration** | bool |  `False`  |  Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **use_mercurial** | bool |  `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
-### `code_configuration` block structure
+### `container_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. |
-| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
+| `image_name` | string | Yes | - | The image name for the build. Changing this forces a new resource to be created. |
+| `registry_password` | string | No | - | The password used to upload the image to the container registry. Changing this forces a new resource to be created. |
+| `registry_url` | string | Yes | - | The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created. |
+| `registry_username` | string | No | - | The username used to upload the image to the container registry. Changing this forces a new resource to be created. |
 
 ### `github_action_configuration` block structure
 
@@ -56,14 +58,12 @@ tfstate_store = {
 | `generate_workflow_file` | bool | No | True | Should the service generate the GitHub Action Workflow file. Defaults to 'true' Changing this forces a new resource to be created. |
 | `linux_action` | string | No | - | Denotes this action uses a Linux base image. |
 
-### `container_configuration` block structure
+### `code_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `image_name` | string | Yes | - | The image name for the build. Changing this forces a new resource to be created. |
-| `registry_password` | string | No | - | The password used to upload the image to the container registry. Changing this forces a new resource to be created. |
-| `registry_url` | string | Yes | - | The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created. |
-| `registry_username` | string | No | - | The username used to upload the image to the container registry. Changing this forces a new resource to be created. |
+| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Changing this forces a new resource to be created. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. |
+| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
 
 
 

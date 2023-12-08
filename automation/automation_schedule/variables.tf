@@ -31,7 +31,7 @@ variable "description" {
 variable "interval" {
   description = "The number of 'frequency's between runs. Only valid when frequency is 'Day', 'Hour', 'Week', or 'Month' and defaults to '1'."
   type        = number
-  default     = "1"
+  default     = 1
 }
 variable "start_time" {
   description = "Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created."

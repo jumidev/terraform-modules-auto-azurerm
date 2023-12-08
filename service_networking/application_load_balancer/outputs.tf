@@ -24,3 +24,24 @@ output "primary_configuration_endpoint" {
   value       = azurerm_application_load_balancer.this.primary_configuration_endpoint
 }
 
+output "application_load_balancer_subnet_association.name" {
+  value = lookup(var.application_load_balancer_subnet_association, "name", null)
+}
+
+output "application_load_balancer_subnet_association.application_load_balancer_id" {
+  value = lookup(var.application_load_balancer_subnet_association, "application_load_balancer_id", null)
+}
+
+output "application_load_balancer_subnet_association.subnet_id" {
+  value = lookup(var.application_load_balancer_subnet_association, "subnet_id", null)
+}
+
+output "application_load_balancer_subnet_association.tags" {
+  value = lookup(var.application_load_balancer_subnet_association, "tags", null)
+}
+
+output "application_load_balancer_subnet_association.id" {
+  description = "The ID of the Application Gateway for Containers Association."
+  value       = lookup(var.application_load_balancer_subnet_association, "id", null)
+}
+

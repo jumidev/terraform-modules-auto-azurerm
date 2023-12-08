@@ -22,9 +22,9 @@ resource "azurerm_application_load_balancer" "this" {
 # optional azurerm_application_load_balancer_subnet_association 
 ##############################################################################################
 resource "azurerm_application_load_balancer_subnet_association" "this" {
-  count                        = var.subnet_id != null ? 1 : 0
-  name                         = var.name
+  count                        = var.application_load_balancer_subnet_association != null ? 1 : 0
+  name                         = lookup(var.application_load_balancer_subnet_association, "var.name", null)
   application_load_balancer_id = azurerm_application_load_balancer.this.id
-  subnet_id                    = var.subnet_id
-  tags                         = var.tags
+  subnet_id                    = lookup(var.application_load_balancer_subnet_association, "var.subnet_id", null)
+  tags                         = lookup(var.application_load_balancer_subnet_association, "var.tags", null)
 }

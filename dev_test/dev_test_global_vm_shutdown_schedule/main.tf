@@ -13,7 +13,7 @@ resource "azurerm_dev_test_global_vm_shutdown_schedule" "this" {
   notification_settings {
     enabled         = lookup(notification_settings.value, "enabled") # (Required) 
     email           = lookup(notification_settings.value, "email", null)
-    time_in_minutes = lookup(notification_settings.value, "time_in_minutes", "30")
+    time_in_minutes = lookup(notification_settings.value, "time_in_minutes", 30)
     webhook_url     = lookup(notification_settings.value, "webhook_url", null)
   }
 

@@ -26,7 +26,7 @@ variable "resource_group_name" {
 variable "instance_count" {
   description = "VMSS instance count. Defaults to '1'."
   type        = number
-  default     = "1"
+  default     = 1
 }
 variable "tier" {
   description = "Sets the VM your agent pool will run on. Valid values are: 'S1' (2 vCPUs, 3 GiB RAM), 'S2' (4 vCPUs, 8 GiB RAM), 'S3' (8 vCPUs, 16 GiB RAM) or 'I6' (64 vCPUs, 216 GiB RAM, Isolated). Defaults to 'S1'. Changing this forces a new Azure Container Registry Agent Pool to be created."

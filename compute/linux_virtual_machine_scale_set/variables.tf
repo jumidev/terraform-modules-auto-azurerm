@@ -66,7 +66,7 @@ variable "os_disk" {
 variable "instances" {
   description = "The number of Virtual Machines in the Scale Set. Defaults to '0'."
   type        = number
-  default     = "0"
+  default     = 0
 }
 variable "additional_capabilities" {
   description = "An 'additional_capabilities' block."

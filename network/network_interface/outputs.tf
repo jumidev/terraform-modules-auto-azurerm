@@ -81,3 +81,80 @@ output "virtual_machine_id" {
   value       = azurerm_network_interface.this.virtual_machine_id
 }
 
+output "network_interface_id" {
+  value = azurerm_network_interface_application_security_group_association.this.*.network_interface_id
+}
+
+output "application_security_group_id" {
+  value = azurerm_network_interface_application_security_group_association.this.*.application_security_group_id
+}
+
+output "id" {
+  description = "The (Terraform specific) ID of the Association between the Network Interface and the Application Security Group."
+  value       = azurerm_network_interface_application_security_group_association.this.*.id
+}
+
+output "network_interface_backend_address_pool_association.network_interface_id" {
+  value = lookup(var.network_interface_backend_address_pool_association, "network_interface_id", null)
+}
+
+output "network_interface_backend_address_pool_association.ip_configuration_name" {
+  value = lookup(var.network_interface_backend_address_pool_association, "ip_configuration_name", null)
+}
+
+output "network_interface_backend_address_pool_association.backend_address_pool_id" {
+  value = lookup(var.network_interface_backend_address_pool_association, "backend_address_pool_id", null)
+}
+
+output "network_interface_backend_address_pool_association.id" {
+  description = "The (Terraform specific) ID of the Association between the Network Interface and the Load Balancers Backend Address Pool."
+  value       = lookup(var.network_interface_backend_address_pool_association, "id", null)
+}
+
+output "network_interface_id" {
+  value = azurerm_network_interface_security_group_association.this.*.network_interface_id
+}
+
+output "network_security_group_id" {
+  value = azurerm_network_interface_security_group_association.this.*.network_security_group_id
+}
+
+output "id" {
+  description = "The (Terraform specific) ID of the Association between the Network Interface and the Network Interface."
+  value       = azurerm_network_interface_security_group_association.this.*.id
+}
+
+output "network_interface_application_gateway_backend_address_pool_association.network_interface_id" {
+  value = lookup(var.network_interface_application_gateway_backend_address_pool_association, "network_interface_id", null)
+}
+
+output "network_interface_application_gateway_backend_address_pool_association.ip_configuration_name" {
+  value = lookup(var.network_interface_application_gateway_backend_address_pool_association, "ip_configuration_name", null)
+}
+
+output "network_interface_application_gateway_backend_address_pool_association.backend_address_pool_id" {
+  value = lookup(var.network_interface_application_gateway_backend_address_pool_association, "backend_address_pool_id", null)
+}
+
+output "network_interface_application_gateway_backend_address_pool_association.id" {
+  description = "The (Terraform specific) ID of the Association between the Network Interface and the Application Gateway Backend Address Pool."
+  value       = lookup(var.network_interface_application_gateway_backend_address_pool_association, "id", null)
+}
+
+output "network_interface_nat_rule_association.network_interface_id" {
+  value = lookup(var.network_interface_nat_rule_association, "network_interface_id", null)
+}
+
+output "network_interface_nat_rule_association.ip_configuration_name" {
+  value = lookup(var.network_interface_nat_rule_association, "ip_configuration_name", null)
+}
+
+output "network_interface_nat_rule_association.nat_rule_id" {
+  value = lookup(var.network_interface_nat_rule_association, "nat_rule_id", null)
+}
+
+output "network_interface_nat_rule_association.id" {
+  description = "The (Terraform specific) ID of the Association between the Network Interface and the Load Balancers NAT Rule."
+  value       = lookup(var.network_interface_nat_rule_association, "id", null)
+}
+

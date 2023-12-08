@@ -21,7 +21,7 @@ variable "location" {
 variable "idle_timeout_in_minutes" {
   description = "The idle timeout which should be used in minutes. Defaults to '4'."
   type        = number
-  default     = "4"
+  default     = 4
 }
 variable "sku_name" {
   description = "The SKU which should be used. At this time the only supported value is 'Standard'. Defaults to 'Standard'."

@@ -40,6 +40,10 @@ variable "slice" {
 #   default_data_network_id (string): (REQUIRED) The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block.
 #   slice_id (string)               : (REQUIRED) The ID of the slice that these settings apply to.
 #
+# session_aggregate_maximum_bit_rate block structure:
+#   downlink (string)                                 : (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#   uplink (string)                                   : (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#
 # data_network block structure                    :
 #   allowed_services_ids (string)                   : (REQUIRED) An array of IDs of services that can be used as part of this SIM policy. The array must not contain duplicate items and must contain at least one item.
 #   data_network_id (string)                        : (REQUIRED) The ID of Mobile Network Data Network which these settings apply to.
@@ -51,10 +55,6 @@ variable "slice" {
 #   max_buffered_packets (number)                   : The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. Defaults to '10', Must be at least '0', See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
 #   preemption_capability (string)                  : The Preemption Capability of a QoS Flow, it controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreempt' and 'MayPreempt', Defaults to 'NotPreempt'.
 #   preemption_vulnerability (string)               : The Preemption Vulnerability of a QoS Flow, it controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreemptable' and 'Preemptable'. Defaults to 'NotPreemptable'.
-#
-# session_aggregate_maximum_bit_rate block structure:
-#   downlink (string)                                 : (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#   uplink (string)                                   : (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
 
 
 
@@ -63,7 +63,7 @@ variable "slice" {
 variable "registration_timer_in_seconds" {
   description = "Interval for the user equipment periodic registration update procedure. Defaults to '3240'."
   type        = number
-  default     = "3240"
+  default     = 3240
 }
 variable "rat_frequency_selection_priority_index" {
   description = "RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413."

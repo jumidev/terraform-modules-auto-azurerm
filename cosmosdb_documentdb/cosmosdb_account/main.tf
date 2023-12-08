@@ -15,8 +15,8 @@ resource "azurerm_cosmosdb_account" "this" {
 
   consistency_policy {
     consistency_level       = lookup(consistency_policy.value, "consistency_level") # (Required) 
-    max_interval_in_seconds = lookup(consistency_policy.value, "max_interval_in_seconds", "5")
-    max_staleness_prefix    = lookup(consistency_policy.value, "max_staleness_prefix", "100")
+    max_interval_in_seconds = lookup(consistency_policy.value, "max_interval_in_seconds", 5)
+    max_staleness_prefix    = lookup(consistency_policy.value, "max_staleness_prefix", 100)
   }
 
 

@@ -53,13 +53,12 @@ tfstate_store = {
 | **timeout** | string |  `P1D`  |  -  |  Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Deployment Script. | 
 
-### `environment_variable` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the environment variable. |
-| `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
-| `value` | string | No | - | Specifies the value of the environment variable. |
+| `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
+| `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
 
 ### `container` block structure
 
@@ -74,12 +73,13 @@ tfstate_store = {
 | `key` | string | Yes | - | Specifies the storage account access key. |
 | `name` | string | Yes | - | Specifies the storage account name. |
 
-### `identity` block structure
+### `environment_variable` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
-| `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
+| `name` | string | Yes | - | Specifies the name of the environment variable. |
+| `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
+| `value` | string | No | - | Specifies the value of the environment variable. |
 
 
 

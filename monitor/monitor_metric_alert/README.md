@@ -62,14 +62,6 @@ tfstate_store = {
 | `dimension` | [block](#dimension-block-structure) | No | - | One or more 'dimension' blocks. |
 | `skip_metric_validation` | bool | No | False | Skip the metric validation to allow creating an alert rule on a custom metric that isn't yet emitted? Defaults to 'false'. |
 
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | One of the dimension names. |
-| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
-| `values` | string | Yes | - | The list of dimension values. |
-
 ### `application_insights_web_test_location_availability_criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,6 +91,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html) |
 | `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | One of the dimension names. |
+| `operator` | string | Yes | - | The dimension operator. Possible values are 'Include', 'Exclude' and 'StartsWith'. |
+| `values` | string | Yes | - | The list of dimension values. |
 
 
 

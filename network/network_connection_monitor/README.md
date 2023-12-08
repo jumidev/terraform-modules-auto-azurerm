@@ -65,13 +65,6 @@ tfstate_store = {
 | **output_workspace_resource_ids** | list |  A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Network Connection Monitor. | 
 
-### `item` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
-| `address` | string | No | - | The address of the filter item. |
-
 ### `http_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -96,12 +89,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
 
-### `success_threshold` block structure
+### `request_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
-| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
+| `name` | string | Yes | - | The name of the HTTP header. |
+| `value` | string | Yes | - | The value of the HTTP header. |
 
 ### `test_configuration` block structure
 
@@ -116,13 +109,6 @@ tfstate_store = {
 | `success_threshold` | [block](#success_threshold-block-structure) | No | - | A 'success_threshold' block. |
 | `tcp_configuration` | [block](#tcp_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
 
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the HTTP header. |
-| `value` | string | Yes | - | The value of the HTTP header. |
-
 ### `endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -136,14 +122,6 @@ tfstate_store = {
 | `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
 | `target_resource_type` | string | No | - | The endpoint type of the Network Connection Monitor. Possible values are 'AzureSubnet', 'AzureVM', 'AzureVNet', 'ExternalAddress', 'MMAWorkspaceMachine' and 'MMAWorkspaceNetwork'. |
 
-### `tcp_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port for the TCP connection. |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
-| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
-
 ### `test_group` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -153,6 +131,28 @@ tfstate_store = {
 | `source_endpoints` | list | Yes | - | A list of source endpoint names. |
 | `test_configuration_names` | list | Yes | - | A list of test configuration names. |
 | `enabled` | bool | No | True | Should the test group be enabled? Defaults to 'true'. |
+
+### `item` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
+| `address` | string | No | - | The address of the filter item. |
+
+### `success_threshold` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
+| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
+
+### `tcp_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port for the TCP connection. |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
 
 
 

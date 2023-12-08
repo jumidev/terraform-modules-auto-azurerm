@@ -67,17 +67,6 @@ tfstate_store = {
 | `parameter` | string | No | - | The authentication Parameter value. |
 | `scheme` | string | No | - | The authentication Scheme name. |
 
-### `service_fabric_cluster` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_certificate_thumbprint` | string | No | - | The client certificate thumbprint for the management endpoint. |
-| `client_certificate_id` | string | No | - | The client certificate resource id for the management endpoint. |
-| `management_endpoints` | list | Yes | - | A list of cluster management endpoints. |
-| `max_partition_resolution_retries` | number | Yes | - | The maximum number of retries when attempting resolve the partition. |
-| `server_certificate_thumbprints` | list | No | - | A list of thumbprints of the server certificates of the Service Fabric cluster. |
-| `server_x509_name` | list | No | - | One or more 'server_x509_name' blocks. |
-
 ### `credentials` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -93,6 +82,17 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `validate_certificate_chain` | string | No | - | Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host. |
 | `validate_certificate_name` | string | No | - | Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host. |
+
+### `service_fabric_cluster` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_certificate_thumbprint` | string | No | - | The client certificate thumbprint for the management endpoint. |
+| `client_certificate_id` | string | No | - | The client certificate resource id for the management endpoint. |
+| `management_endpoints` | list | Yes | - | A list of cluster management endpoints. |
+| `max_partition_resolution_retries` | number | Yes | - | The maximum number of retries when attempting resolve the partition. |
+| `server_certificate_thumbprints` | list | No | - | A list of thumbprints of the server certificates of the Service Fabric cluster. |
+| `server_x509_name` | list | No | - | One or more 'server_x509_name' blocks. |
 
 
 

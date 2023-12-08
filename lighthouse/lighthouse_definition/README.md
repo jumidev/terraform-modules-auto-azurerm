@@ -60,6 +60,22 @@ tfstate_store = {
 | `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
 | `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
 
+### `approver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
+| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
+
+### `plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The plan name of the marketplace offer. |
+| `publisher` | string | Yes | - | The publisher ID of the plan. |
+| `product` | string | Yes | - | The product code of the plan. |
+| `version` | string | Yes | - | The version of the plan. |
+
 ### `just_in_time_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,22 +92,6 @@ tfstate_store = {
 | `role_definition_id` | string | Yes | - | The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope. |
 | `just_in_time_access_policy` | [block](#just_in_time_access_policy-block-structure) | No | - | A 'just_in_time_access_policy' block. |
 | `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal. |
-
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The plan name of the marketplace offer. |
-| `publisher` | string | Yes | - | The publisher ID of the plan. |
-| `product` | string | Yes | - | The product code of the plan. |
-| `version` | string | Yes | - | The version of the plan. |
-
-### `approver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
-| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
 
 
 

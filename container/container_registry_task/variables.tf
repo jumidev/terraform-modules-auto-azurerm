@@ -184,5 +184,5 @@ variable "tags" {
 variable "timeout_in_seconds" {
   description = "The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to '3600'."
   type        = number
-  default     = "3600"
+  default     = 3600
 }

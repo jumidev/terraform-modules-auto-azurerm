@@ -37,9 +37,15 @@ variable "certificate_policy" {
 #   secret_properties (block)          : (REQUIRED) A 'secret_properties' block.
 #   x509_certificate_properties (block): A 'x509_certificate_properties' block. Required when 'certificate' block is not specified.
 #
+# secret_properties block structure:
+#   content_type (string)            : (REQUIRED) The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM.
+#
 # lifetime_action block structure:
 #   action (block)                 : (REQUIRED) A 'action' block.
 #   trigger (block)                : (REQUIRED) A 'trigger' block.
+#
+# issuer_parameters block structure:
+#   name (string)                    : (REQUIRED) The name of the Certificate Issuer. Possible values include 'Self' (for self-signed certificate), or 'Unknown' (for a certificate issuing authority like 'Let's Encrypt' and Azure direct supported ones).
 #
 # key_properties block structure:
 #   curve (string)                : Specifies the curve to use when creating an 'EC' key. Possible values are 'P-256', 'P-256K', 'P-384', and 'P-521'. This field will be required in a future release if 'key_type' is 'EC' or 'EC-HSM'.
@@ -58,12 +64,6 @@ variable "certificate_policy" {
 #   subject (string)                           : (REQUIRED) The Certificate's Subject.
 #   subject_alternative_names (block)          : A 'subject_alternative_names' block.
 #   validity_in_months (string)                : (REQUIRED) The Certificates Validity Period in Months.
-#
-# issuer_parameters block structure:
-#   name (string)                    : (REQUIRED) The name of the Certificate Issuer. Possible values include 'Self' (for self-signed certificate), or 'Unknown' (for a certificate issuing authority like 'Let's Encrypt' and Azure direct supported ones).
-#
-# secret_properties block structure:
-#   content_type (string)            : (REQUIRED) The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM.
 #
 # action block structure:
 #   action_type (string)  : (REQUIRED) The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'.

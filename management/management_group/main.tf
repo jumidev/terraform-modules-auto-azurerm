@@ -15,11 +15,11 @@ resource "azurerm_management_group" "this" {
 # optional azurerm_resource_management_private_link_association 
 ##############################################################################################
 resource "azurerm_resource_management_private_link_association" "this" {
-  count                               = var.resource_management_private_link_id != null ? 1 : 0
+  count                               = var.resource_management_private_link_association != null ? 1 : 0
   management_group_id                 = azurerm_management_group.this.id
-  resource_management_private_link_id = var.resource_management_private_link_id
-  public_network_access_enabled       = var.public_network_access_enabled
-  name                                = var.name
+  resource_management_private_link_id = lookup(var.resource_management_private_link_association, "var.resource_management_private_link_id", null)
+  public_network_access_enabled       = lookup(var.resource_management_private_link_association, "var.public_network_access_enabled", null)
+  name                                = lookup(var.resource_management_private_link_association, "var.name", null)
 }
 
 ##############################################################################################

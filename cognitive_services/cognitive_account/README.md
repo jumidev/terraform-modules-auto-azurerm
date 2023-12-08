@@ -59,12 +59,12 @@ tfstate_store = {
 | **storage** | [block](#storage-block-structure) |  -  |  A `storage` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
+### `storage` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
+| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
+| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
 
 ### `network_acls` block structure
 
@@ -74,19 +74,19 @@ tfstate_store = {
 | `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. |
 | `virtual_network_rules` | [block](#virtual_network_rules-block-structure) | No | - | A 'virtual_network_rules' block. |
 
-### `storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
-| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
-
 ### `virtual_network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | The ID of the subnet which should be able to access this Cognitive Account. |
 | `ignore_missing_vnet_service_endpoint` | bool | No | False | Whether ignore missing vnet service endpoint or not. Default to 'false'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
 
 ### `customer_managed_key` block structure
 

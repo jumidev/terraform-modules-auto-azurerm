@@ -292,7 +292,7 @@ resource "azurerm_windows_function_app_slot" "this" {
           frequency_interval       = lookup(schedule.value, "frequency_interval") # (Required) 
           frequency_unit           = lookup(schedule.value, "frequency_unit")     # (Required) possible values: Day | Hour
           keep_at_least_one_backup = lookup(schedule.value, "keep_at_least_one_backup", false)
-          retention_period_days    = lookup(schedule.value, "retention_period_days", "30")
+          retention_period_days    = lookup(schedule.value, "retention_period_days", 30)
           start_time               = lookup(schedule.value, "start_time", null)
           last_execution_time      = lookup(schedule.value, "last_execution_time", null)
         }

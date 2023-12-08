@@ -41,10 +41,10 @@ variable "enable_tcp_reset" {
 variable "allocated_outbound_ports" {
   description = "The number of outbound ports to be used for NAT. Defaults to '1024'."
   type        = number
-  default     = "1024"
+  default     = 1024
 }
 variable "idle_timeout_in_minutes" {
   description = "The timeout for the TCP idle connection Defaults to '4'."
   type        = number
-  default     = "4"
+  default     = 4
 }

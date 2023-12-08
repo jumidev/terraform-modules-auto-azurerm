@@ -31,7 +31,7 @@ variable "managed_resource_group" {
 variable "capacity" {
   description = "Specify the number of NGINX capacity units for this NGINX deployment. Defaults to '20'."
   type        = number
-  default     = "20"
+  default     = 20
 }
 variable "diagnose_support_enabled" {
   description = "Should the diagnosis support be enabled?"

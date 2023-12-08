@@ -61,7 +61,7 @@ resource "azurerm_container_registry" "this" {
   dynamic "retention_policy" { # var.retention_policy
     for_each = var.retention_policy != null ? var.retention_policy : []
     content {
-      days    = lookup(retention_policy.value, "days", "7")
+      days    = lookup(retention_policy.value, "days", 7)
       enabled = lookup(retention_policy.value, "enabled", null)
     }
   }

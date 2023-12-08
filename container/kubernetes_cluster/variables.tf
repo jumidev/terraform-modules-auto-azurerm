@@ -61,6 +61,21 @@ variable "default_node_pool" {
 #   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
 #
+# kubelet_config block structure    :
+#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
+#   container_log_max_line (string)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+#   container_log_max_size_mb (string): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
+#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
+#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
+#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
+#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
+#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
+#   pod_max_pid (string)              : Specifies the maximum number of processes per pod.
+#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
+#
+# upgrade_settings block structure:
+#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+#
 # linux_os_config block structure       :
 #   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
 #   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
@@ -100,21 +115,6 @@ variable "default_node_pool" {
 #
 # node_network_profile block structure:
 #   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-#
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-#
-# kubelet_config block structure    :
-#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
-#   container_log_max_line (string)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-#   container_log_max_size_mb (string): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
-#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
-#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
-#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
-#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
-#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
-#   pod_max_pid (string)              : Specifies the maximum number of processes per pod.
-#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
 
 
 
@@ -446,6 +446,10 @@ variable "network_profile" {
 #   load_balancer_profile (block)  : A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created.
 #   nat_gateway_profile (block)    : A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created.
 #
+# nat_gateway_profile block structure:
+#   idle_timeout_in_minutes (number)   : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
+#   managed_outbound_ip_count (number) : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
+#
 # load_balancer_profile block structure:
 #   idle_timeout_in_minutes (number)     : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
 #   managed_outbound_ip_count (number)   : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
@@ -453,10 +457,6 @@ variable "network_profile" {
 #   outbound_ip_address_ids (string)     : The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
 #   outbound_ip_prefix_ids (string)      : The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
 #   outbound_ports_allocated (number)    : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
-#
-# nat_gateway_profile block structure:
-#   idle_timeout_in_minutes (number)   : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
-#   managed_outbound_ip_count (number) : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
 
 
 variable "node_os_channel_upgrade" {

@@ -65,7 +65,7 @@ resource "azurerm_web_application_firewall_policy" "this" {
     content {
       enabled                     = lookup(policy_settings.value, "enabled", true)
       mode                        = lookup(policy_settings.value, "mode", "Prevention")
-      file_upload_limit_in_mb     = lookup(policy_settings.value, "file_upload_limit_in_mb", "100")
+      file_upload_limit_in_mb     = lookup(policy_settings.value, "file_upload_limit_in_mb", 100)
       request_body_check          = lookup(policy_settings.value, "request_body_check", true)
       max_request_body_size_in_kb = lookup(policy_settings.value, "max_request_body_size_in_kb", "128")
 

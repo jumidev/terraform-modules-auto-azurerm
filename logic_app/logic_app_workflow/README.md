@@ -47,12 +47,18 @@ tfstate_store = {
 | **parameters** | string |  -  |  A map of Key-Value pairs. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
+### `open_authentication_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow. |
+| `name` | string | Yes | - | The OAuth policy name for the Logic App Workflow. |
+| `claim` | [block](#claim-block-structure) | Yes | - | A 'claim' block. |
+
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
 
 ### `trigger` block structure
 
@@ -68,24 +74,18 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the OAuth policy claim for the Logic App Workflow. |
 | `value` | string | Yes | - | The value of the OAuth policy claim for the Logic App Workflow. |
 
-### `open_authentication_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The OAuth policy name for the Logic App Workflow. |
-| `claim` | [block](#claim-block-structure) | Yes | - | A 'claim' block. |
-
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
-
 ### `workflow_management` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow. |
 
 ### `access_control` block structure
 

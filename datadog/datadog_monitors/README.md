@@ -54,17 +54,6 @@ tfstate_store = {
 | **monitoring_enabled** | bool |  `True`  |  Is monitoring enabled? Defaults to `true`. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Datadog Monitor. | 
 
-### `datadog_organization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `api_key` | string | Yes | - | Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created. |
-| `application_key` | string | Yes | - | Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created. |
-| `enterprise_app_id` | string | No | - | The ID of the enterprise_app. Changing this forces a new resource to be created. |
-| `linking_auth_code` | string | No | - | The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created. |
-| `linking_client_id` | string | No | - | The ID of the linking_client. Changing this forces a new Datadog Monitor to be created. |
-| `redirect_uri` | string | No | - | The redirect uri for linking. Changing this forces a new Datadog Monitor to be created. |
-
 ### `user` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +67,17 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'. |
+
+### `datadog_organization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `api_key` | string | Yes | - | Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created. |
+| `application_key` | string | Yes | - | Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created. |
+| `enterprise_app_id` | string | No | - | The ID of the enterprise_app. Changing this forces a new resource to be created. |
+| `linking_auth_code` | string | No | - | The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created. |
+| `linking_client_id` | string | No | - | The ID of the linking_client. Changing this forces a new Datadog Monitor to be created. |
+| `redirect_uri` | string | No | - | The redirect uri for linking. Changing this forces a new Datadog Monitor to be created. |
 
 
 

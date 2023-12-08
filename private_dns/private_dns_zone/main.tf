@@ -23,7 +23,7 @@ resource "azurerm_private_dns_zone" "this" {
       minimum_ttl  = lookup(soa_record.value, "minimum_ttl", "10")
       refresh_time = lookup(soa_record.value, "refresh_time", "3600")
       retry_time   = lookup(soa_record.value, "retry_time", "300")
-      ttl          = lookup(soa_record.value, "ttl", "3600")
+      ttl          = lookup(soa_record.value, "ttl", 3600)
       tags         = lookup(soa_record.value, "tags", null)
     }
   }

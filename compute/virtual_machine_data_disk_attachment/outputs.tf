@@ -1,29 +1,29 @@
-output "virtual_machine_id" {
-  value = azurerm_virtual_machine_data_disk_attachment.this.*.virtual_machine_id
+output "virtual_machine_data_disk_attachment.virtual_machine_id" {
+  value = lookup(var.virtual_machine_data_disk_attachment, "virtual_machine_id", null)
 }
 
-output "managed_disk_id" {
-  value = azurerm_virtual_machine_data_disk_attachment.this.*.managed_disk_id
+output "virtual_machine_data_disk_attachment.managed_disk_id" {
+  value = lookup(var.virtual_machine_data_disk_attachment, "managed_disk_id", null)
 }
 
-output "lun" {
-  value = azurerm_virtual_machine_data_disk_attachment.this.*.lun
+output "virtual_machine_data_disk_attachment.lun" {
+  value = lookup(var.virtual_machine_data_disk_attachment, "lun", null)
 }
 
-output "caching" {
-  value = azurerm_virtual_machine_data_disk_attachment.this.*.caching
+output "virtual_machine_data_disk_attachment.caching" {
+  value = lookup(var.virtual_machine_data_disk_attachment, "caching", null)
 }
 
-output "create_option" {
-  value = azurerm_virtual_machine_data_disk_attachment.this.*.create_option
+output "virtual_machine_data_disk_attachment.create_option" {
+  value = lookup(var.virtual_machine_data_disk_attachment, "create_option", null)
 }
 
-output "write_accelerator_enabled" {
-  value = azurerm_virtual_machine_data_disk_attachment.this.*.write_accelerator_enabled
+output "virtual_machine_data_disk_attachment.write_accelerator_enabled" {
+  value = lookup(var.virtual_machine_data_disk_attachment, "write_accelerator_enabled", null)
 }
 
-output "id" {
+output "virtual_machine_data_disk_attachment.id" {
   description = "The ID of the Virtual Machine Data Disk attachment."
-  value       = azurerm_virtual_machine_data_disk_attachment.this.*.id
+  value       = lookup(var.virtual_machine_data_disk_attachment, "id", null)
 }
 

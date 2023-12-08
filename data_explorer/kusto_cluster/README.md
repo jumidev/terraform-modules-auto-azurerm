@@ -74,19 +74,19 @@ tfstate_store = {
 | `engine_public_ip_id` | string | Yes | - | Engine service's public IP address resource id. |
 | `data_management_public_ip_id` | string | Yes | - | Data management's service public IP address resource id. |
 
-### `optimized_auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `minimum_instances` | number | Yes | - | The minimum number of allowed instances. Must between '0' and '1000'. |
-| `maximum_instances` | number | Yes | - | The maximum number of allowed instances. Must between '0' and '1000'. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster. |
+
+### `optimized_auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `minimum_instances` | number | Yes | - | The minimum number of allowed instances. Must between '0' and '1000'. |
+| `maximum_instances` | number | Yes | - | The maximum number of allowed instances. Must between '0' and '1000'. |
 
 
 

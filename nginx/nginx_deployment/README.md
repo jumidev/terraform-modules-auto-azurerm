@@ -55,6 +55,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | Specify The SubNet Resource ID to this Nginx Deployment. |
 
+### `frontend_private` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allocation_method` | string | Yes | - | Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. |
+| `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
+| `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
+
 ### `frontend_public` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,14 +82,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field. |
 | `identity_ids` | string | No | - | Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. |
-
-### `frontend_private` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allocation_method` | string | Yes | - | Specify the methos of allocating the private IP. Possible values are 'Static' and 'Dynamic'. |
-| `ip_address` | string | Yes | - | Specify the IP Address of this private IP. |
-| `subnet_id` | string | Yes | - | Specify the SubNet Resource ID to this Nginx Deployment. |
 
 
 

@@ -79,8 +79,8 @@ resource "azurerm_batch_pool" "this" {
     for_each = var.fixed_scale != null ? var.fixed_scale : []
     content {
       node_deallocation_method  = lookup(fixed_scale.value, "node_deallocation_method", null)
-      target_dedicated_nodes    = lookup(fixed_scale.value, "target_dedicated_nodes", "1")
-      target_low_priority_nodes = lookup(fixed_scale.value, "target_low_priority_nodes", "0")
+      target_dedicated_nodes    = lookup(fixed_scale.value, "target_dedicated_nodes", 1)
+      target_low_priority_nodes = lookup(fixed_scale.value, "target_low_priority_nodes", 0)
       resize_timeout            = lookup(fixed_scale.value, "resize_timeout", "PT15M")
     }
   }

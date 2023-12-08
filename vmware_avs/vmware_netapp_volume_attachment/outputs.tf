@@ -1,12 +1,12 @@
-output "name" {
-  value = azurerm_vmware_netapp_volume_attachment.this.*.name
+output "vmware_netapp_volume_attachment.name" {
+  value = lookup(var.vmware_netapp_volume_attachment, "name", null)
 }
 
-output "netapp_volume_id" {
-  value = azurerm_vmware_netapp_volume_attachment.this.*.netapp_volume_id
+output "vmware_netapp_volume_attachment.netapp_volume_id" {
+  value = lookup(var.vmware_netapp_volume_attachment, "netapp_volume_id", null)
 }
 
-output "vmware_cluster_id" {
-  value = azurerm_vmware_netapp_volume_attachment.this.*.vmware_cluster_id
+output "vmware_netapp_volume_attachment.vmware_cluster_id" {
+  value = lookup(var.vmware_netapp_volume_attachment, "vmware_cluster_id", null)
 }
 

@@ -49,30 +49,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **description** | string |  A description for the Policy. | 
 
-### `policy_option` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Policy Option. |
-| `clear_key_configuration_enabled` | bool | No | - | Enable a configuration for non-DRM keys. |
-| `fairplay_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
-| `open_restriction_enabled` | bool | No | - | Enable an open restriction. License or key will be delivered on every request. |
-| `playready_configuration_license` | list | No | - | One or more 'playready_configuration_license' blocks. |
-| `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
-| `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
-| `widevine_configuration_template` | string | No | - | The Widevine template. |
-
-### `fairplay_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ask` | string | No | - | The key that must be used as FairPlay Application Secret key. |
-| `offline_rental_configuration` | [block](#offline_rental_configuration-block-structure) | No | - | A 'offline_rental_configuration' block. |
-| `pfx` | string | No | - | The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key). |
-| `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
-| `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
-| `rental_duration_seconds` | number | No | - | The rental duration. Must be greater than 0. |
-
 ### `token_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +70,30 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `playback_duration_seconds` | number | No | - | Playback duration. |
 | `storage_duration_seconds` | number | No | - | Storage duration. |
+
+### `fairplay_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ask` | string | No | - | The key that must be used as FairPlay Application Secret key. |
+| `offline_rental_configuration` | [block](#offline_rental_configuration-block-structure) | No | - | A 'offline_rental_configuration' block. |
+| `pfx` | string | No | - | The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key). |
+| `pfx_password` | string | No | - | The password encrypting FairPlay certificate in PKCS 12 (pfx) format. |
+| `rental_and_lease_key_type` | string | No | - | The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'. |
+| `rental_duration_seconds` | number | No | - | The rental duration. Must be greater than 0. |
+
+### `policy_option` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this Policy Option. |
+| `clear_key_configuration_enabled` | bool | No | - | Enable a configuration for non-DRM keys. |
+| `fairplay_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
+| `open_restriction_enabled` | bool | No | - | Enable an open restriction. License or key will be delivered on every request. |
+| `playready_configuration_license` | list | No | - | One or more 'playready_configuration_license' blocks. |
+| `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
+| `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
+| `widevine_configuration_template` | string | No | - | The Widevine template. |
 
 
 

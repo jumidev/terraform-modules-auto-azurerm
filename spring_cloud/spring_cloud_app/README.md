@@ -27,6 +27,7 @@ tfstate_store = {
 
 | `tfstate_inputs` variable | Information |
 | -------- | ----------- |
+| **cosmosdb_account_id** | If set to a valid `azurerm_cosmosdb_account` `id`, makes a **azurerm_spring_cloud_app_cosmosdb_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [CosmosDB Account](cosmosdb_account.html).|
 | **redis_cache_id** | If set to a valid `azurerm_redis_cache` `id`, makes a **azurerm_spring_cloud_app_redis_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [Redis Cache](redis_cache.html).|
 | **mysql_server_id** | If set to a valid `azurerm_mysql_server` `id`, makes a **azurerm_spring_cloud_app_mysql_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [MySQL Database](mysql_database.html).|
 
@@ -34,6 +35,7 @@ Example associated resources in a `tfstate_inputs` block:
 
 ```hcl
 tfstate_inputs = {
+   cosmosdb_account_id = "path/to/cosmosdb_account_component:id"
    redis_cache_id = "path/to/redis_cache_component:id"
    mysql_server_id = "path/to/mysql_server_component:id"
 }
@@ -62,26 +64,6 @@ tfstate_inputs = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
-### `ingress_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_protocol` | string | No | Default | Specifies how ingress should communicate with this app backend service. Allowed values are 'GRPC' and 'Default'. Defaults to 'Default'. |
-| `read_timeout_in_seconds` | string | No | 300 | Specifies the ingress read time out in seconds. Defaults to '300'. |
-| `send_timeout_in_seconds` | string | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
-| `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
-| `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
-
-### `custom_persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
-| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
-| `share_name` | string | Yes | - | The share name of the Azure File share. |
-| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
-| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
-
 ### `persistent_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -95,6 +77,26 @@ tfstate_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
+
+### `custom_persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
+| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
+| `share_name` | string | Yes | - | The share name of the Azure File share. |
+| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
+| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
+
+### `ingress_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_protocol` | string | No | Default | Specifies how ingress should communicate with this app backend service. Allowed values are 'GRPC' and 'Default'. Defaults to 'Default'. |
+| `read_timeout_in_seconds` | string | No | 300 | Specifies the ingress read time out in seconds. Defaults to '300'. |
+| `send_timeout_in_seconds` | string | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
+| `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
+| `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
 
 
 
