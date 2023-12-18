@@ -61,9 +61,6 @@ variable "default_node_pool" {
 #   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
 #
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-#
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
 #   container_log_max_line (string)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
@@ -75,6 +72,15 @@ variable "default_node_pool" {
 #   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
 #   pod_max_pid (string)              : Specifies the maximum number of processes per pod.
 #   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
+#
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+#
+# linux_os_config block structure       :
+#   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
+#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 #
 # upgrade_settings block structure:
 #   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
@@ -109,12 +115,6 @@ variable "default_node_pool" {
 #   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
-#
-# linux_os_config block structure       :
-#   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
-#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 
 
 
@@ -346,13 +346,13 @@ variable "maintenance_window" {
 #   allowed (block)                   : One or more 'allowed' blocks.
 #   not_allowed (block)               : One or more 'not_allowed' block.
 #
-# not_allowed block structure:
-#   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
-#   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
-#
 # allowed block structure:
 #   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
 #   hours (string)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
+#
+# not_allowed block structure:
+#   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
+#   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
 
 
 variable "maintenance_window_auto_upgrade" {

@@ -29,14 +29,14 @@ variable "source" {
 #   event_source (string) : (REQUIRED) Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations
 #   rule_set (block)      : A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks.
 #
-# rule_set block structure:
-#   rule (block)            : (REQUIRED) One or more 'rule' blocks.
-#
 # rule block structure   :
 #   expected_value (string): (REQUIRED) A value that will be compared with the value in 'property_path'.
 #   operator (string)      : (REQUIRED) The comparison operator to use, must be one of: 'Contains', 'EndsWith', 'Equals', 'GreaterThan', 'GreaterThanOrEqualTo', 'LesserThan', 'LesserThanOrEqualTo', 'NotEquals', 'StartsWith'
 #   property_path (string) : (REQUIRED) The JPath of the entity model property that should be checked.
 #   property_type (string) : (REQUIRED) The data type of the compared operands, must be one of: 'Integer', 'String', 'Boolean' or 'Number'.
+#
+# rule_set block structure:
+#   rule (block)            : (REQUIRED) One or more 'rule' blocks.
 
 
 variable "action" {

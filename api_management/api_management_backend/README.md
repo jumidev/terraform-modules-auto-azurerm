@@ -52,12 +52,20 @@ tfstate_store = {
 | **title** | string |  The title of the backend. | 
 | **tls** | [block](#tls-block-structure) |  A `tls` block. | 
 
-### `authorization` block structure
+### `proxy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | string | No | - | The authentication Parameter value. |
-| `scheme` | string | No | - | The authentication Scheme name. |
+| `password` | string | No | - | The password to connect to the proxy server. |
+| `url` | string | Yes | - | The URL of the proxy server. |
+| `username` | string | Yes | - | The username to connect to the proxy server. |
+
+### `tls` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `validate_certificate_chain` | string | No | - | Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host. |
+| `validate_certificate_name` | string | No | - | Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host. |
 
 ### `credentials` block structure
 
@@ -79,20 +87,12 @@ tfstate_store = {
 | `server_certificate_thumbprints` | list | No | - | A list of thumbprints of the server certificates of the Service Fabric cluster. |
 | `server_x509_name` | list | No | - | One or more 'server_x509_name' blocks. |
 
-### `tls` block structure
+### `authorization` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `validate_certificate_chain` | string | No | - | Flag indicating whether SSL certificate chain validation should be done when using self-signed certificates for the backend host. |
-| `validate_certificate_name` | string | No | - | Flag indicating whether SSL certificate name validation should be done when using self-signed certificates for the backend host. |
-
-### `proxy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | No | - | The password to connect to the proxy server. |
-| `url` | string | Yes | - | The URL of the proxy server. |
-| `username` | string | Yes | - | The username to connect to the proxy server. |
+| `parameter` | string | No | - | The authentication Parameter value. |
+| `scheme` | string | No | - | The authentication Scheme name. |
 
 
 

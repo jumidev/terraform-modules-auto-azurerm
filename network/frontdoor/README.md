@@ -83,6 +83,18 @@ tfstate_store = {
 | `forwarding_configuration` | [block](#forwarding_configuration-block-structure) | No | - | A 'forwarding_configuration' block. |
 | `redirect_configuration` | [block](#redirect_configuration-block-structure) | No | - | A 'redirect_configuration' block. |
 
+### `backend` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
+| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
+| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
+| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
+| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
+| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
+| `weight` | number | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
+
 ### `backend_pool_health_probe` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -93,15 +105,6 @@ tfstate_store = {
 | `protocol` | string | No | Http | Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'. |
 | `probe_method` | string | No | GET | Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'. |
 | `interval_in_seconds` | number | No | 120 | The number of seconds between each Health Probe. Defaults to '120'. |
-
-### `backend_pool_load_balancing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Load Balancer. |
-| `sample_size` | number | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
-| `successful_samples_required` | number | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
-| `additional_latency_milliseconds` | number | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
 
 ### `backend_pool` block structure
 
@@ -123,18 +126,6 @@ tfstate_store = {
 | `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
 | `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
 
-### `backend` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
-| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
-| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
-| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
-| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
-| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
-| `weight` | number | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
-
 ### `frontend_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -144,6 +135,15 @@ tfstate_store = {
 | `session_affinity_enabled` | bool | No | False | Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'. |
 | `session_affinity_ttl_seconds` | number | No | 0 | The TTL to use in seconds for session affinity, if applicable. Defaults to '0'. |
 | `web_application_firewall_policy_link_id` | string | No | - | Defines the Web Application Firewall policy 'ID' for each host. |
+
+### `backend_pool_load_balancing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the Load Balancer. |
+| `sample_size` | number | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
+| `successful_samples_required` | number | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
+| `additional_latency_milliseconds` | number | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
 
 ### `backend_pool_settings` block structure
 

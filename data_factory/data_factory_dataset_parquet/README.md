@@ -63,6 +63,16 @@ tfstate_store = {
 | `filename` | string | No | - | The filename of the file on the Azure Data Lake Storage Account. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
+### `http_server_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
+| `filename` | string | Yes | - | The filename of the file on the web server. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `path` | string | No | - | The folder path to the file on the web server. |
+
 ### `schema_column` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,16 +91,6 @@ tfstate_store = {
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `filename` | string | No | - | The filename of the file on the Azure Blob Storage Account. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-
-### `http_server_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
-| `filename` | string | Yes | - | The filename of the file on the web server. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `path` | string | No | - | The folder path to the file on the web server. |
 
 
 

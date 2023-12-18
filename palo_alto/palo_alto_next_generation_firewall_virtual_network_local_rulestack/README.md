@@ -50,34 +50,12 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Local Rulestack. | 
 
-### `network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `public_ip_address_ids` | string | Yes | - | Specifies a list of Azure Public IP Address IDs. |
-| `vnet_configuration` | [block](#vnet_configuration-block-structure) | Yes | - | A 'vnet_configuration' block. |
-| `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation. |
-
 ### `backend_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | Yes | - | The port number to send traffic to. |
 | `public_ip_address` | string | Yes | - | The IP Address to send the traffic to. |
-
-### `dns_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
-| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
-
-### `frontend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which to receive traffic. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
 
 ### `vnet_configuration` block structure
 
@@ -86,6 +64,28 @@ tfstate_store = {
 | `virtual_network_id` | string | Yes | - | The ID of the Virtual Network. |
 | `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
 | `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
+
+### `frontend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port on which to receive traffic. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+
+### `network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `public_ip_address_ids` | string | Yes | - | Specifies a list of Azure Public IP Address IDs. |
+| `vnet_configuration` | [block](#vnet_configuration-block-structure) | Yes | - | A 'vnet_configuration' block. |
+| `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation. |
+
+### `dns_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
+| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
 
 ### `destination_nat` block structure
 

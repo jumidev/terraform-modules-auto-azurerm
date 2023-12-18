@@ -55,14 +55,6 @@ tfstate_store = {
 | `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
 | `time_zone` | string | No | - | The timezone of the start/end time. |
 
-### `release_criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
-| `message_count` | number | No | - | The message count for the Logic App Integration Batch Configuration. |
-| `recurrence` | [block](#recurrence-block-structure) | No | - | A 'recurrence' block. |
-
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +71,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `weekday` | string | Yes | - | The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
 | `week` | string | Yes | - | The occurrence of the week within the month. |
+
+### `release_criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `batch_size` | string | No | - | The batch size in bytes for the Logic App Integration Batch Configuration. |
+| `message_count` | number | No | - | The message count for the Logic App Integration Batch Configuration. |
+| `recurrence` | [block](#recurrence-block-structure) | No | - | A 'recurrence' block. |
 
 
 

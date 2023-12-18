@@ -71,32 +71,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
 
-### `tcp_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port for the TCP connection. |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
-| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
-
-### `success_threshold` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
-| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
-
-### `http_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `method` | string | No | Get | The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'. |
-| `port` | string | No | - | The port for the HTTP connection. |
-| `path` | string | No | - | The path component of the URI. It only accepts the absolute path. |
-| `prefer_https` | bool | No | False | Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'. |
-| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
-| `valid_status_code_ranges` | string | No | - | The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'. |
-
 ### `test_group` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -107,19 +81,13 @@ tfstate_store = {
 | `test_configuration_names` | list | Yes | - | A list of test configuration names. |
 | `enabled` | bool | No | True | Should the test group be enabled? Defaults to 'true'. |
 
-### `item` block structure
+### `tcp_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
-| `address` | string | No | - | The address of the filter item. |
-
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the HTTP header. |
-| `value` | string | Yes | - | The value of the HTTP header. |
+| `port` | string | Yes | - | The port for the TCP connection. |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
 
 ### `test_configuration` block structure
 
@@ -134,6 +102,13 @@ tfstate_store = {
 | `success_threshold` | [block](#success_threshold-block-structure) | No | - | A 'success_threshold' block. |
 | `tcp_configuration` | [block](#tcp_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
 
+### `item` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
+| `address` | string | No | - | The address of the filter item. |
+
 ### `endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -147,12 +122,37 @@ tfstate_store = {
 | `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
 | `target_resource_type` | string | No | - | The endpoint type of the Network Connection Monitor. Possible values are 'AzureSubnet', 'AzureVM', 'AzureVNet', 'ExternalAddress', 'MMAWorkspaceMachine' and 'MMAWorkspaceNetwork'. |
 
+### `http_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `method` | string | No | Get | The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'. |
+| `port` | string | No | - | The port for the HTTP connection. |
+| `path` | string | No | - | The path component of the URI. It only accepts the absolute path. |
+| `prefer_https` | bool | No | False | Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'. |
+| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
+| `valid_status_code_ranges` | string | No | - | The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'. |
+
+### `request_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the HTTP header. |
+| `value` | string | Yes | - | The value of the HTTP header. |
+
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | No | Include | The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'. |
 | `item` | [block](#item-block-structure) | No | - | A 'item' block. |
+
+### `success_threshold` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
+| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
 
 
 

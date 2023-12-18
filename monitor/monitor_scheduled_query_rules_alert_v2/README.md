@@ -63,14 +63,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Monitor Scheduled Query Rule. | 
 | **target_resource_types** | string |  -  |  -  |  List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. | 
 
-### `dimension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the dimension. |
-| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
-| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
-
 ### `failing_periods` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -97,6 +89,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `action_groups` | string | No | - | List of Action Group resource IDs to invoke when the alert fires. |
 | `custom_properties` | string | No | - | Specifies the properties of an alert payload. |
+
+### `dimension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the dimension. |
+| `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
+| `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
 
 
 

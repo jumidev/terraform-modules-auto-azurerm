@@ -62,19 +62,14 @@ tfstate_store = {
 | **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
+### `headers` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
+| `x_azure_fdid` | list | No | - | A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8. |
+| `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
+| `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
+| `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
 
 ### `scm_ip_restriction` block structure
 
@@ -87,6 +82,21 @@ tfstate_store = {
 | `priority` | string | No | - | The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified. |
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | string | No | - | The 'headers' block for this specific 'ip_restriction' as defined below. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Connection String. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
 
 ### `site_config` block structure
 
@@ -125,22 +135,12 @@ tfstate_store = {
 | `action` | string | No | Allow | Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'. |
 | `headers` | [block](#headers-block-structure) | No | - | The 'headers' block for this specific as a 'ip_restriction' block. |
 
-### `connection_string` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `headers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `x_azure_fdid` | list | No | - | A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8. |
-| `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
-| `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
-| `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard. |
 
 
 
