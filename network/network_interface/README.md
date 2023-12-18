@@ -91,6 +91,7 @@ If set, makes a **azurerm_network_interface_backend_address_pool_association** -
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `ip_configuration_name` | string | True | "primary" |
+| `backend_address_pool_id` | string | True | null |
 
 
 Example component snippet:
@@ -128,6 +129,7 @@ If set, makes a **azurerm_network_interface_application_gateway_backend_address_
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `ip_configuration_name` | string | True | "primary" |
+| `backend_address_pool_id` | string | True | null |
 
 
 Example component snippet:
@@ -153,6 +155,7 @@ If set, makes a **azurerm_network_interface_nat_rule_association** - With the fo
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `ip_configuration_name` | string | True | "primary" |
+| `nat_rule_id` | string | True | null |
 
 
 Example component snippet:

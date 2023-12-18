@@ -83,15 +83,6 @@ tfstate_store = {
 | `data_protection_replication` | [block](#data_protection_replication-block-structure) | No | - | A 'data_protection_replication' block. Changing this forces a new Application Volume Group to be created and data will be lost. |
 | `data_protection_snapshot_policy` | [block](#data_protection_snapshot_policy-block-structure) | No | - | A 'data_protection_snapshot_policy' block. |
 
-### `data_protection_replication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
-| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
-| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
-| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
-
 ### `data_protection_snapshot_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -109,6 +100,15 @@ tfstate_store = {
 | `rule_index` | number | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
+
+### `data_protection_replication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
+| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
 
 

@@ -71,6 +71,27 @@ tfstate_store = {
 | **backend_pool_settings** | [block](#backend_pool_settings-block-structure) |  -  |  A `backend_pool_settings` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `backend` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
+| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
+| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
+| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
+| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
+| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
+| `weight` | number | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
+
+### `backend_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the Backend Pool. |
+| `backend` | [block](#backend-block-structure) | Yes | - | A 'backend' block. |
+| `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
+| `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
+
 ### `routing_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,24 +104,6 @@ tfstate_store = {
 | `forwarding_configuration` | [block](#forwarding_configuration-block-structure) | No | - | A 'forwarding_configuration' block. |
 | `redirect_configuration` | [block](#redirect_configuration-block-structure) | No | - | A 'redirect_configuration' block. |
 
-### `redirect_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `custom_host` | string | No | - | Set this to change the URL for the redirection. |
-| `redirect_protocol` | string | Yes | - | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. |
-| `redirect_type` | string | Yes | - | Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'. |
-| `custom_fragment` | string | No | - | The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL. |
-| `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
-| `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
-
-### `backend_pool_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
-| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
-
 ### `backend_pool_health_probe` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -112,17 +115,16 @@ tfstate_store = {
 | `probe_method` | string | No | GET | Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'. |
 | `interval_in_seconds` | number | No | 120 | The number of seconds between each Health Probe. Defaults to '120'. |
 
-### `backend` block structure
+### `redirect_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
-| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
-| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
-| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
-| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
-| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
-| `weight` | number | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
+| `custom_host` | string | No | - | Set this to change the URL for the redirection. |
+| `redirect_protocol` | string | Yes | - | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. |
+| `redirect_type` | string | Yes | - | Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'. |
+| `custom_fragment` | string | No | - | The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL. |
+| `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
+| `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
 
 ### `backend_pool_load_balancing` block structure
 
@@ -146,15 +148,6 @@ tfstate_store = {
 | `custom_forwarding_path` | string | No | - | Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path. |
 | `forwarding_protocol` | string | No | HttpsOnly | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'. |
 
-### `backend_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Backend Pool. |
-| `backend` | [block](#backend-block-structure) | Yes | - | A 'backend' block. |
-| `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
-| `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
-
 ### `frontend_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -164,6 +157,13 @@ tfstate_store = {
 | `session_affinity_enabled` | bool | No | False | Whether to allow session affinity on this host. Valid options are 'true' or 'false' Defaults to 'false'. |
 | `session_affinity_ttl_seconds` | number | No | 0 | The TTL to use in seconds for session affinity, if applicable. Defaults to '0'. |
 | `web_application_firewall_policy_link_id` | string | No | - | Defines the Web Application Firewall policy 'ID' for each host. |
+
+### `backend_pool_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `backend_pools_send_receive_timeout_seconds` | string | No | 60 | Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'. |
+| `enforce_backend_pools_certificate_name_check` | bool | Yes | - | Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. |
 
 
 

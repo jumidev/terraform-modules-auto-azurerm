@@ -33,6 +33,7 @@ If set, makes a **azurerm_application_load_balancer_subnet_association** - With 
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
+| `subnet_id` | string | True | null |
 | `tags` | map | False | null |
 
 

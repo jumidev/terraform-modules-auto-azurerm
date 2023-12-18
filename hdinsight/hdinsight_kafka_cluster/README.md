@@ -72,36 +72,6 @@ tfstate_store = {
 | **rest_proxy** | [block](#rest_proxy-block-structure) |  -  |  A `rest_proxy` block. | 
 | **security_profile** | [block](#security_profile-block-structure) |  -  |  A `security_profile` block. Changing this forces a new resource to be created. | 
 
-### `gateway` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | The password used for the Ambari Portal. |
-| `username` | string | Yes | - | The username used for the Ambari Portal. Changing this forces a new resource to be created. |
-
-### `extension` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | The workspace ID of the log analytics extension. |
-| `primary_key` | string | Yes | - | The workspace key of the log analytics extension. |
-
-### `disk_encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `encryption_algorithm` | string | No | - | This is an algorithm identifier for encryption. Possible values are 'RSA1_5', 'RSA-OAEP', 'RSA-OAEP-256'. |
-| `encryption_at_host_enabled` | bool | No | - | This is indicator to show whether resource disk encryption is enabled. |
-| `key_vault_key_id` | string | No | - | The ID of the key vault key. |
-| `key_vault_managed_identity_id` | string | No | - | This is the resource ID of Managed Identity used to access the key vault. |
-
-### `rest_proxy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `security_group_id` | string | Yes | - | The Azure Active Directory Security Group ID. Changing this forces a new resource to be created. |
-| `security_group_name` | string | Yes | - | The Azure Active Directory Security Group name. Changing this forces a new resource to be created. |
-
 ### `ambari` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -110,6 +80,14 @@ tfstate_store = {
 | `database_name` | string | Yes | - | The external Hive metastore's existing SQL database. Changing this forces a new resource to be created. |
 | `username` | string | Yes | - | The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created. |
 | `password` | string | Yes | - | The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created. |
+
+### `script_actions` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the script action. |
+| `uri` | string | Yes | - | The URI to the script. |
+| `parameters` | string | No | - | The parameters for the script provided. |
 
 ### `security_profile` block structure
 
@@ -123,21 +101,30 @@ tfstate_store = {
 | `msi_resource_id` | string | Yes | - | The User Assigned Identity for the HDInsight Cluster. Changing this forces a new resource to be created. |
 | `cluster_users_group_dns` | list | No | - | A list of the distinguished names for the cluster user groups. Changing this forces a new resource to be created. |
 
-### `monitor` block structure
+### `network` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | The Operations Management Suite (OMS) workspace ID. |
-| `primary_key` | string | Yes | - | The Operations Management Suite (OMS) workspace key. |
+| `connection_direction` | string | No | Inbound | The direction of the resource provider connection. Possible values include 'Inbound' or 'Outbound'. Defaults to 'Inbound'. Changing this forces a new resource to be created. |
+| `private_link_enabled` | bool | No | False | Is the private link enabled? Possible values include 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
 
-### `oozie` block structure
+### `disk_encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `server` | string | Yes | - | The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created. |
-| `database_name` | string | Yes | - | The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created. |
-| `username` | string | Yes | - | The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created. |
-| `password` | string | Yes | - | The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created. |
+| `encryption_algorithm` | string | No | - | This is an algorithm identifier for encryption. Possible values are 'RSA1_5', 'RSA-OAEP', 'RSA-OAEP-256'. |
+| `encryption_at_host_enabled` | bool | No | - | This is indicator to show whether resource disk encryption is enabled. |
+| `key_vault_key_id` | string | No | - | The ID of the key vault key. |
+| `key_vault_managed_identity_id` | string | No | - | This is the resource ID of Managed Identity used to access the key vault. |
+
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `is_default` | bool | Yes | - | Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created. |
+| `storage_account_key` | string | Yes | - | The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created. |
+| `storage_container_id` | string | Yes | - | The ID of the Storage Container. Changing this forces a new resource to be created. |
+| `storage_resource_id` | string | No | - | The ID of the Storage Account. Changing this forces a new resource to be created. |
 
 ### `zookeeper_node` block structure
 
@@ -151,14 +138,34 @@ tfstate_store = {
 | `subnet_id` | string | No | - | The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created. |
 | `virtual_network_id` | string | No | - | The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created. |
 
-### `hive` block structure
+### `monitor` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `server` | string | Yes | - | The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created. |
-| `database_name` | string | Yes | - | The external Hive metastore's existing SQL database. Changing this forces a new resource to be created. |
-| `username` | string | Yes | - | The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created. |
-| `password` | string | Yes | - | The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created. |
+| `log_analytics_workspace_id` | string | Yes | - | The Operations Management Suite (OMS) workspace ID. |
+| `primary_key` | string | Yes | - | The Operations Management Suite (OMS) workspace key. |
+
+### `storage_account_gen2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `is_default` | bool | Yes | - | Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created. |
+| `storage_resource_id` | string | Yes | - | The ID of the Storage Account. Changing this forces a new resource to be created. |
+| `filesystem_id` | string | Yes | - | The ID of the Gen2 Filesystem. Changing this forces a new resource to be created. |
+| `managed_identity_resource_id` | string | Yes | - | The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created. |
+
+### `component_version` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `kafka` | string | Yes | - | The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created. |
+
+### `rest_proxy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `security_group_id` | string | Yes | - | The Azure Active Directory Security Group ID. Changing this forces a new resource to be created. |
+| `security_group_name` | string | Yes | - | The Azure Active Directory Security Group name. Changing this forces a new resource to be created. |
 
 ### `kafka_management_node` block structure
 
@@ -172,34 +179,6 @@ tfstate_store = {
 | `subnet_id` | string | No | - | The ID of the Subnet within the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created. |
 | `virtual_network_id` | string | No | - | The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created. |
 
-### `network` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `connection_direction` | string | No | Inbound | The direction of the resource provider connection. Possible values include 'Inbound' or 'Outbound'. Defaults to 'Inbound'. Changing this forces a new resource to be created. |
-| `private_link_enabled` | bool | No | False | Is the private link enabled? Possible values include 'true' or 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
-
-### `compute_isolation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `compute_isolation_enabled` | string | No | - | This field indicates whether enable compute isolation or not. Possible values are 'true' or 'false'. |
-| `host_sku` | string | No | - | The name of the host SKU. |
-
-### `script_actions` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the script action. |
-| `uri` | string | Yes | - | The URI to the script. |
-| `parameters` | string | No | - | The parameters for the script provided. |
-
-### `component_version` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kafka` | string | Yes | - | The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created. |
-
 ### `head_node` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -212,14 +191,53 @@ tfstate_store = {
 | `subnet_id` | string | No | - | The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created. |
 | `virtual_network_id` | string | No | - | The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created. |
 
-### `storage_account_gen2` block structure
+### `compute_isolation` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `is_default` | bool | Yes | - | Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created. |
-| `storage_resource_id` | string | Yes | - | The ID of the Storage Account. Changing this forces a new resource to be created. |
-| `filesystem_id` | string | Yes | - | The ID of the Gen2 Filesystem. Changing this forces a new resource to be created. |
-| `managed_identity_resource_id` | string | Yes | - | The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created. |
+| `compute_isolation_enabled` | string | No | - | This field indicates whether enable compute isolation or not. Possible values are 'true' or 'false'. |
+| `host_sku` | string | No | - | The name of the host SKU. |
+
+### `hive` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `server` | string | Yes | - | The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created. |
+| `database_name` | string | Yes | - | The external Hive metastore's existing SQL database. Changing this forces a new resource to be created. |
+| `username` | string | Yes | - | The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created. |
+| `password` | string | Yes | - | The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created. |
+
+### `extension` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | The workspace ID of the log analytics extension. |
+| `primary_key` | string | Yes | - | The workspace key of the log analytics extension. |
+
+### `roles` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `head_node` | [block](#head_node-block-structure) | Yes | - | A 'head_node' block. |
+| `worker_node` | [block](#worker_node-block-structure) | Yes | - | A 'worker_node' block. |
+| `zookeeper_node` | [block](#zookeeper_node-block-structure) | Yes | - | A 'zookeeper_node' block. |
+| `kafka_management_node` | [block](#kafka_management_node-block-structure) | No | - | A 'kafka_management_node' block. |
+
+### `oozie` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `server` | string | Yes | - | The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created. |
+| `database_name` | string | Yes | - | The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created. |
+| `username` | string | Yes | - | The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created. |
+| `password` | string | Yes | - | The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created. |
+
+### `gateway` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | The password used for the Ambari Portal. |
+| `username` | string | Yes | - | The username used for the Ambari Portal. Changing this forces a new resource to be created. |
 
 ### `worker_node` block structure
 
@@ -235,15 +253,6 @@ tfstate_store = {
 | `target_instance_count` | number | Yes | - | The number of instances which should be run for the Worker Nodes. |
 | `virtual_network_id` | string | No | - | The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created. |
 
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `is_default` | bool | Yes | - | Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created. |
-| `storage_account_key` | string | Yes | - | The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created. |
-| `storage_container_id` | string | Yes | - | The ID of the Storage Container. Changing this forces a new resource to be created. |
-| `storage_resource_id` | string | No | - | The ID of the Storage Account. Changing this forces a new resource to be created. |
-
 ### `metastores` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -251,15 +260,6 @@ tfstate_store = {
 | `hive` | [block](#hive-block-structure) | No | - | A 'hive' block. |
 | `oozie` | [block](#oozie-block-structure) | No | - | An 'oozie' block. |
 | `ambari` | [block](#ambari-block-structure) | No | - | An 'ambari' block. |
-
-### `roles` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `head_node` | [block](#head_node-block-structure) | Yes | - | A 'head_node' block. |
-| `worker_node` | [block](#worker_node-block-structure) | Yes | - | A 'worker_node' block. |
-| `zookeeper_node` | [block](#zookeeper_node-block-structure) | Yes | - | A 'zookeeper_node' block. |
-| `kafka_management_node` | [block](#kafka_management_node-block-structure) | No | - | A 'kafka_management_node' block. |
 
 
 

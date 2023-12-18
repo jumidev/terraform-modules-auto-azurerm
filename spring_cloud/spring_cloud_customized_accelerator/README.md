@@ -63,6 +63,13 @@ tfstate_store = {
 | `ssh_auth` | [block](#ssh_auth-block-structure) | No | - | A 'ssh_auth' block. Conflicts with 'git_repository.0.basic_auth'. Changing this forces a new Spring Cloud Customized Accelerator to be created. |
 | `path` | string | No | - | Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on 'accelerator_type'). |
 
+### `basic_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
+| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
+
 ### `ssh_auth` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,13 +77,6 @@ tfstate_store = {
 | `private_key` | string | Yes | - | Specifies the Private SSH Key of git repository basic auth. |
 | `host_key` | string | No | - | Specifies the Public SSH Key of git repository basic auth. |
 | `host_key_algorithm` | string | No | - | Specifies the SSH Key algorithm of git repository basic auth. |
-
-### `basic_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | Specifies the password of git repository basic auth. |
-| `username` | string | Yes | - | Specifies the username of git repository basic auth. |
 
 
 

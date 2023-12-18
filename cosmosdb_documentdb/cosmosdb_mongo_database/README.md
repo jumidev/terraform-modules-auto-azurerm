@@ -34,8 +34,12 @@ If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the fol
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
 | `spring_cloud_app_id` | string | True | null |
+| `cosmosdb_account_id` | string | True | null |
 | `api_type` | string | True | null |
 | `cosmosdb_access_key` | string | True | null |
+| `cosmosdb_cassandra_keyspace_name` | string | False | null |
+| `cosmosdb_gremlin_database_name` | string | False | null |
+| `cosmosdb_gremlin_graph_name` | string | False | null |
 | `cosmosdb_sql_database_name` | string | False | null |
 
 

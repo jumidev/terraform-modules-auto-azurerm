@@ -68,48 +68,6 @@ tfstate_store = {
 | **user_accounts** | [block](#user_accounts-block-structure) |  -  |  -  |  A `user_accounts` block that describes the list of user accounts to be created on each node in the pool as defined below. | 
 | **windows** | [block](#windows-block-structure) |  -  |  -  |  A `windows` block that describes the Windows configuration in the pool as defined below. | 
 
-### `disk_encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_target` | string | Yes | - | On Linux pool, only ''TemporaryDisk'' is supported; on Windows pool, ''OsDisk'' and ''TemporaryDisk'' must be specified. |
-
-### `user_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `user_name` | string | No | - | The username to be used by the Batch pool start task. |
-| `auto_user` | [block](#auto_user-block-structure) | No | - | A 'auto_user' block that describes the user identity under which the start task runs as defined below. |
-
-### `fixed_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `node_deallocation_method` | string | No | - | It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are 'Requeue', 'RetainedData', 'TaskCompletion' and 'Terminate'. |
-| `target_dedicated_nodes` | number | No | 1 | The number of nodes in the Batch pool. Defaults to '1'. |
-| `target_low_priority_nodes` | number | No | 0 | The number of low priority nodes in the Batch pool. Defaults to '0'. |
-| `resize_timeout` | string | No | PT15M | The timeout for resize operations. Defaults to 'PT15M'. |
-
-### `nfs_mount` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `source` | string | Yes | - | The URI of the file system to mount. |
-| `relative_mount_path` | string | Yes | - | The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable. |
-| `mount_options` | string | No | - | Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux. |
-
-### `start_task` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `command_line` | string | Yes | - | The command line executed by the start task. |
-| `container` | [block](#container-block-structure) | No | - | A 'container' block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the 'AZ_BATCH_NODE_ROOT_DIR' (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container. |
-| `task_retry_maximum` | number | No | - | The number of retry count. |
-| `wait_for_success` | bool | No | False | A flag that indicates if the Batch pool should wait for the start task to be completed. Default to 'false'. |
-| `common_environment_properties` | string | No | - | A map of strings (key,value) that represents the environment variables to set in the start task. |
-| `user_identity` | [block](#user_identity-block-structure) | Yes | - | A 'user_identity' block that describes the user identity under which the start task runs as defined below. |
-| `resource_file` | list | No | - | One or more 'resource_file' blocks that describe the files to be downloaded to a compute node as defined below. |
-
 ### `network_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -120,6 +78,68 @@ tfstate_store = {
 | `public_ips` | list | No | - | A list of public IP ids that will be allocated to nodes. Changing this forces a new resource to be created. |
 | `endpoint_configuration` | string | No | - | A list of 'endpoint_configuration' blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created. |
 | `public_address_provisioning_type` | string | No | - | Type of public IP address provisioning. Supported values are 'BatchManaged', 'UserManaged' and 'NoPublicIPAddresses'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is 'UserAssigned'. |
+| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
+
+### `mount` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `azure_blob_file_system` | [block](#azure_blob_file_system-block-structure) | No | - | A 'azure_blob_file_system' block defined as below. |
+| `azure_file_share` | [block](#azure_file_share-block-structure) | No | - | A 'azure_file_share' block defined as below. |
+| `cifs_mount` | [block](#cifs_mount-block-structure) | No | - | A 'cifs_mount' block defined as below. |
+| `nfs_mount` | [block](#nfs_mount-block-structure) | No | - | A 'nfs_mount' block defined as below. |
+
+### `data_disks` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `lun` | string | Yes | - | The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive. |
+| `caching` | string | No | ReadOnly | Values are: 'none' - The caching mode for the disk is not enabled. 'readOnly' - The caching mode for the disk is read only. 'readWrite' - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. Defaults to 'ReadOnly'. |
+| `disk_size_gb` | number | Yes | - | The initial disk size in GB when creating new data disk. |
+| `storage_account_type` | string | No | Standard_LRS | The storage account type to be used for the data disk. Values are: Possible values are 'Standard_LRS' - The data disk should use standard locally redundant storage. 'Premium_LRS' - The data disk should use premium locally redundant storage. Defaults to 'Standard_LRS'. |
+
+### `auto_user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `elevation_level` | string | No | NonAdmin | The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'. |
+| `scope` | string | No | Task | The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'. |
+
+### `disk_encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_encryption_target` | string | Yes | - | On Linux pool, only ''TemporaryDisk'' is supported; on Windows pool, ''OsDisk'' and ''TemporaryDisk'' must be specified. |
+
+### `node_placement` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `policy` | string | No | Regional | The placement policy for allocating nodes in the pool. Values are: 'Regional': All nodes in the pool will be allocated in the same region; 'Zonal': Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to 'Regional'. |
+
+### `container` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `image_name` | string | Yes | - | The image to use to create the container in which the task will run. This is the full image reference, as would be specified to 'docker pull'. If no tag is provided as part of the image name, the tag ':latest' is used as a default. |
+| `run_options` | string | No | - | Additional options to the container create command. These additional options are supplied as arguments to the 'docker create' command, in addition to those controlled by the Batch Service. |
+| `registry` | string | No | - | The 'container_registries' block defined as below. |
+| `working_directory` | string | No | - | A flag to indicate where the container task working directory is. Possible values are 'TaskWorkingDirectory' and 'ContainerImageDefault'. |
+
+### `fixed_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `node_deallocation_method` | string | No | - | It determines what to do with a node and its running task(s) if the pool size is decreasing. Values are 'Requeue', 'RetainedData', 'TaskCompletion' and 'Terminate'. |
+| `target_dedicated_nodes` | number | No | 1 | The number of nodes in the Batch pool. Defaults to '1'. |
+| `target_low_priority_nodes` | number | No | 0 | The number of low priority nodes in the Batch pool. Defaults to '0'. |
+| `resize_timeout` | string | No | PT15M | The timeout for resize operations. Defaults to 'PT15M'. |
 
 ### `azure_blob_file_system` block structure
 
@@ -133,29 +153,6 @@ tfstate_store = {
 | `identity_id` | string | No | - | The ARM resource id of the user assigned identity. This property is mutually exclusive with both 'account_key' and 'sas_key'; exactly one must be specified. |
 | `blobfuse_options` | string | No | - | Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux. |
 
-### `windows` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enable_automatic_updates` | bool | No | True | Whether automatic updates are enabled on the virtual machine. Defaults to 'true'. |
-
-### `auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `evaluation_interval` | string | No | PT15M | The interval to wait before evaluating if the pool needs to be scaled. Defaults to 'PT15M'. |
-| `formula` | string | Yes | - | The autoscale formula that needs to be used for scaling the Batch pool. |
-
-### `cifs_mount` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `user_name` | string | Yes | - | The user to use for authentication against the CIFS file system. |
-| `password` | string | Yes | - | The password to use for authentication against the CIFS file system. |
-| `source` | string | Yes | - | The URI of the file system to mount. |
-| `relative_mount_path` | string | Yes | - | The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable. |
-| `mount_options` | string | No | - | Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux. |
-
 ### `azure_file_share` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -166,6 +163,20 @@ tfstate_store = {
 | `relative_mount_path` | string | Yes | - | The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable. |
 | `mount_options` | string | No | - | Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux. |
 
+### `auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `evaluation_interval` | string | No | PT15M | The interval to wait before evaluating if the pool needs to be scaled. Defaults to 'PT15M'. |
+| `formula` | string | Yes | - | The autoscale formula that needs to be used for scaling the Batch pool. |
+
+### `user_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `user_name` | string | No | - | The username to be used by the Batch pool start task. |
+| `auto_user` | [block](#auto_user-block-structure) | No | - | A 'auto_user' block that describes the user identity under which the start task runs as defined below. |
+
 ### `container_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -174,11 +185,42 @@ tfstate_store = {
 | `container_image_names` | list | No | - | A list of container image names to use, as would be specified by 'docker pull'. Changing this forces a new resource to be created. |
 | `container_registries` | string | No | - | One or more 'container_registries' blocks. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created. |
 
+### `storage_image_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publisher` | string | No | - | Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `offer` | string | No | - | Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `sku` | string | No | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `version` | string | No | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+
+### `start_task` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `command_line` | string | Yes | - | The command line executed by the start task. |
+| `container` | [block](#container-block-structure) | No | - | A 'container' block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the 'AZ_BATCH_NODE_ROOT_DIR' (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container. |
+| `task_retry_maximum` | number | No | - | The number of retry count. |
+| `wait_for_success` | bool | No | False | A flag that indicates if the Batch pool should wait for the start task to be completed. Default to 'false'. |
+| `common_environment_properties` | string | No | - | A map of strings (key,value) that represents the environment variables to set in the start task. |
+| `user_identity` | [block](#user_identity-block-structure) | Yes | - | A 'user_identity' block that describes the user identity under which the start task runs as defined below. |
+| `resource_file` | list | No | - | One or more 'resource_file' blocks that describe the files to be downloaded to a compute node as defined below. |
+
 ### `task_scheduling_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `node_fill_type` | string | No | - | Supported values are 'Pack' and 'Spread'. 'Pack' means as many tasks as possible (taskSlotsPerNode) should be assigned to each node in the pool before any tasks are assigned to the next node in the pool. 'Spread' means that tasks should be assigned evenly across all nodes in the pool. |
+
+### `cifs_mount` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `user_name` | string | Yes | - | The user to use for authentication against the CIFS file system. |
+| `password` | string | Yes | - | The password to use for authentication against the CIFS file system. |
+| `source` | string | Yes | - | The URI of the file system to mount. |
+| `relative_mount_path` | string | Yes | - | The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable. |
+| `mount_options` | string | No | - | Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux. |
 
 ### `extensions` block structure
 
@@ -194,62 +236,6 @@ tfstate_store = {
 | `protected_settings` | string | No | - | The extension can contain either 'protected_settings' or 'provision_after_extensions' or no protected settings at all. |
 | `provision_after_extensions` | string | No | - | The collection of extension names. Collection of extension names after which this extension needs to be provisioned. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Only possible value is 'UserAssigned'. |
-| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
-
-### `container` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `image_name` | string | Yes | - | The image to use to create the container in which the task will run. This is the full image reference, as would be specified to 'docker pull'. If no tag is provided as part of the image name, the tag ':latest' is used as a default. |
-| `run_options` | string | No | - | Additional options to the container create command. These additional options are supplied as arguments to the 'docker create' command, in addition to those controlled by the Batch Service. |
-| `registry` | string | No | - | The 'container_registries' block defined as below. |
-| `working_directory` | string | No | - | A flag to indicate where the container task working directory is. Possible values are 'TaskWorkingDirectory' and 'ContainerImageDefault'. |
-
-### `storage_image_reference` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `publisher` | string | No | - | Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-| `offer` | string | No | - | Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-| `sku` | string | No | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-| `version` | string | No | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-
-### `auto_user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `elevation_level` | string | No | NonAdmin | The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'. |
-| `scope` | string | No | Task | The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'. |
-
-### `node_placement` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `policy` | string | No | Regional | The placement policy for allocating nodes in the pool. Values are: 'Regional': All nodes in the pool will be allocated in the same region; 'Zonal': Nodes in the pool will be spread across different zones with the best effort balancing. Defaults to 'Regional'. |
-
-### `data_disks` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `lun` | string | Yes | - | The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive. |
-| `caching` | string | No | ReadOnly | Values are: 'none' - The caching mode for the disk is not enabled. 'readOnly' - The caching mode for the disk is read only. 'readWrite' - The caching mode for the disk is read and write. For information about the caching options see: <https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/>. Possible values are 'None', 'ReadOnly' and 'ReadWrite'. Defaults to 'ReadOnly'. |
-| `disk_size_gb` | number | Yes | - | The initial disk size in GB when creating new data disk. |
-| `storage_account_type` | string | No | Standard_LRS | The storage account type to be used for the data disk. Values are: Possible values are 'Standard_LRS' - The data disk should use standard locally redundant storage. 'Premium_LRS' - The data disk should use premium locally redundant storage. Defaults to 'Standard_LRS'. |
-
-### `mount` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `azure_blob_file_system` | [block](#azure_blob_file_system-block-structure) | No | - | A 'azure_blob_file_system' block defined as below. |
-| `azure_file_share` | [block](#azure_file_share-block-structure) | No | - | A 'azure_file_share' block defined as below. |
-| `cifs_mount` | [block](#cifs_mount-block-structure) | No | - | A 'cifs_mount' block defined as below. |
-| `nfs_mount` | [block](#nfs_mount-block-structure) | No | - | A 'nfs_mount' block defined as below. |
-
 ### `user_accounts` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -259,6 +245,20 @@ tfstate_store = {
 | `elevation_level` | string | Yes | - | The elevation level of the user account. 'NonAdmin' - The auto user is a standard user without elevated access. 'Admin' - The auto user is a user with elevated access and operates with full Administrator permissions. The default value is nonAdmin. |
 | `linux_user_configuration` | string | No | - | The 'linux_user_configuration' block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options. |
 | `windows_user_configuration` | string | No | - | The 'windows_user_configuration' block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options. |
+
+### `windows` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enable_automatic_updates` | bool | No | True | Whether automatic updates are enabled on the virtual machine. Defaults to 'true'. |
+
+### `nfs_mount` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source` | string | Yes | - | The URI of the file system to mount. |
+| `relative_mount_path` | string | Yes | - | The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable. |
+| `mount_options` | string | No | - | Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux. |
 
 
 

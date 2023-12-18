@@ -84,3 +84,10 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+# REQUIRED VARIABLES
+
+variable "application_group_id" {
+  description = "(REQUIRED) The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created."
+  type        = string
+
+}

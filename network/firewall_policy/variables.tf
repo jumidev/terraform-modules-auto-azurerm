@@ -73,9 +73,6 @@ variable "intrusion_detection" {
 #   traffic_bypass (block)             : One or more 'traffic_bypass' blocks.
 #   private_ranges (list)              : A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
 #
-# signature_overrides block structure:
-#   state (string)                     : state can be any of 'Off', 'Alert' or 'Deny'.
-#
 # traffic_bypass block structure:
 #   name (string)                 : (REQUIRED) The name which should be used for this bypass traffic setting.
 #   protocol (string)             : (REQUIRED) The protocols any of 'ANY', 'TCP', 'ICMP', 'UDP' that shall be bypassed by intrusion detection.
@@ -85,6 +82,9 @@ variable "intrusion_detection" {
 #   destination_ports (string)    : Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
 #   source_addresses (string)     : Specifies a list of source addresses that shall be bypassed by intrusion detection.
 #   source_ip_groups (string)     : Specifies a list of source IP groups that shall be bypassed by intrusion detection.
+#
+# signature_overrides block structure:
+#   state (string)                     : state can be any of 'Off', 'Alert' or 'Deny'.
 
 
 variable "private_ip_ranges" {

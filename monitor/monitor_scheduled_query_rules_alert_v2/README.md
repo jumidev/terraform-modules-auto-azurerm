@@ -63,19 +63,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Monitor Scheduled Query Rule. | 
 | **target_resource_types** | string |  -  |  -  |  List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is `Microsoft.Compute/virtualMachines`, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. | 
 
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | Specifies the criteria operator. Possible values are 'Equal', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan',and 'LessThanOrEqual'. |
-| `query` | string | Yes | - | The query to run on logs. The results returned by this query are used to populate the alert. |
-| `threshold` | string | Yes | - | Specifies the criteria threshold value that activates the alert. |
-| `time_aggregation_method` | string | Yes | - | The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'. |
-| `dimension` | [block](#dimension-block-structure) | No | - | A 'dimension' block. |
-| `failing_periods` | [block](#failing_periods-block-structure) | No | - | A 'failing_periods' block. |
-| `metric_measure_column` | string | No | - | Specifies the column containing the metric measure number. |
-| `resource_id_column` | string | No | - | Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,6 +77,19 @@ tfstate_store = {
 | `name` | string | Yes | - | Name of the dimension. |
 | `operator` | string | Yes | - | Operator for dimension values. Possible values are 'Exclude',and 'Include'. |
 | `values` | string | Yes | - | List of dimension values. Use a wildcard '*' to collect all. |
+
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | Specifies the criteria operator. Possible values are 'Equal', 'GreaterThan', 'GreaterThanOrEqual', 'LessThan',and 'LessThanOrEqual'. |
+| `query` | string | Yes | - | The query to run on logs. The results returned by this query are used to populate the alert. |
+| `threshold` | string | Yes | - | Specifies the criteria threshold value that activates the alert. |
+| `time_aggregation_method` | string | Yes | - | The type of aggregation to apply to the data points in aggregation granularity. Possible values are 'Average', 'Count', 'Maximum', 'Minimum',and 'Total'. |
+| `dimension` | [block](#dimension-block-structure) | No | - | A 'dimension' block. |
+| `failing_periods` | [block](#failing_periods-block-structure) | No | - | A 'failing_periods' block. |
+| `metric_measure_column` | string | No | - | Specifies the column containing the metric measure number. |
+| `resource_id_column` | string | No | - | Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID. |
 
 ### `failing_periods` block structure
 

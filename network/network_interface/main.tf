@@ -73,7 +73,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "this" {
   count                   = var.network_interface_backend_address_pool_association != null ? 1 : 0
   network_interface_id    = azurerm_network_interface.this.id
   ip_configuration_name   = lookup(var.network_interface_backend_address_pool_association, "ip_configuration_name", "primary")
-  backend_address_pool_id = azurerm_lb_backend_address_pool.this.id
+  backend_address_pool_id = lookup(var.network_interface_backend_address_pool_association, "backend_address_pool_id")
 }
 
 ##############################################################################################
@@ -92,7 +92,7 @@ resource "azurerm_network_interface_application_gateway_backend_address_pool_ass
   count                   = var.network_interface_application_gateway_backend_address_pool_association != null ? 1 : 0
   network_interface_id    = azurerm_network_interface.this.id
   ip_configuration_name   = lookup(var.network_interface_application_gateway_backend_address_pool_association, "ip_configuration_name", "primary")
-  backend_address_pool_id = azurerm_lb_backend_address_pool.this.id
+  backend_address_pool_id = lookup(var.network_interface_application_gateway_backend_address_pool_association, "backend_address_pool_id")
 }
 
 ##############################################################################################
@@ -102,7 +102,7 @@ resource "azurerm_network_interface_nat_rule_association" "this" {
   count                 = var.network_interface_nat_rule_association != null ? 1 : 0
   network_interface_id  = azurerm_network_interface.this.id
   ip_configuration_name = lookup(var.network_interface_nat_rule_association, "ip_configuration_name", "primary")
-  nat_rule_id           = azurerm_lb_nat_rule.this.id
+  nat_rule_id           = lookup(var.network_interface_nat_rule_association, "nat_rule_id")
 }
 
 ##############################################################################################

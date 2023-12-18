@@ -49,13 +49,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether this scheduled query rule is enabled. Default is `true`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dimension` | [block](#dimension-block-structure) | Yes | - | A 'dimension' block. |
-| `metric_name` | string | Yes | - | Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace. |
-
 ### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,6 +56,13 @@ tfstate_store = {
 | `name` | string | Yes | - | Name of the dimension. |
 | `operator` | string | No | Include | Operator for dimension values, - 'Include'. Defaults to 'Include'. |
 | `values` | string | Yes | - | List of dimension values. |
+
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dimension` | [block](#dimension-block-structure) | Yes | - | A 'dimension' block. |
+| `metric_name` | string | Yes | - | Name of the metric. Supported metrics are listed in the Azure Monitor [Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftoperationalinsightsworkspaces) metrics namespace. |
 
 
 

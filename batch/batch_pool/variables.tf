@@ -205,6 +205,13 @@ variable "mount" {
 #   cifs_mount (block)            : A 'cifs_mount' block defined as below.
 #   nfs_mount (block)             : A 'nfs_mount' block defined as below.
 #
+# cifs_mount block structure  :
+#   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
+#   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
+#   source (string)             : (REQUIRED) The URI of the file system to mount.
+#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
+#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+#
 # azure_blob_file_system block structure:
 #   account_name (string)                 : (REQUIRED) The Azure Storage Account name.
 #   container_name (string)               : (REQUIRED) The Azure Blob Storage Container name.
@@ -214,9 +221,7 @@ variable "mount" {
 #   identity_id (string)                  : The ARM resource id of the user assigned identity. This property is mutually exclusive with both 'account_key' and 'sas_key'; exactly one must be specified.
 #   blobfuse_options (string)             : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 #
-# cifs_mount block structure  :
-#   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
-#   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
+# nfs_mount block structure   :
 #   source (string)             : (REQUIRED) The URI of the file system to mount.
 #   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
 #   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
@@ -227,11 +232,6 @@ variable "mount" {
 #   azure_file_url (string)         : (REQUIRED) The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
 #   relative_mount_path (string)    : (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
 #   mount_options (string)          : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
-#
-# nfs_mount block structure   :
-#   source (string)             : (REQUIRED) The URI of the file system to mount.
-#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
-#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 
 
 variable "network_configuration" {

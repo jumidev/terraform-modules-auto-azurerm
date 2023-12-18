@@ -57,12 +57,6 @@ tfstate_store = {
 | **routing_preference_internet_enabled** | bool |  `False`  |  Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Point-to-Site VPN Gateway. | 
 
-### `vpn_client_address_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
-
 ### `connection_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,6 +81,12 @@ tfstate_store = {
 | `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
 | `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
+
+### `vpn_client_address_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
 
 

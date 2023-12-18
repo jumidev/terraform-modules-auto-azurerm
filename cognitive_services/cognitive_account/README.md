@@ -81,19 +81,19 @@ tfstate_store = {
 | `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
 | `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
-
 ### `virtual_network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | The ID of the subnet which should be able to access this Cognitive Account. |
 | `ignore_missing_vnet_service_endpoint` | bool | No | False | Whether ignore missing vnet service endpoint or not. Default to 'false'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
 
 
 

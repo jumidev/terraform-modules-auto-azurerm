@@ -34,6 +34,7 @@ If set, makes a **azurerm_virtual_machine_data_disk_attachment** - With the foll
 
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
+| `virtual_machine_id` | string | True | null |
 | `lun` | number | True | 3 |
 | `caching` | string | True | "ReadOnly" |
 | `create_option` | string | False | "Attach" |
@@ -105,6 +106,13 @@ tfstate_inputs = {
 | **disk_access_id** | string |  -  |  -  |  The ID of the disk access resource for using private endpoints on disks. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether it is allowed to access the disk via public network. Defaults to `true`. | 
 
+### `encryption_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | No | - | A 'disk_encryption_key' block. |
+| `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
+
 ### `key_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -118,13 +126,6 @@ tfstate_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. |
 | `source_vault_id` | string | Yes | - | The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. |
-
-### `encryption_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | No | - | A 'disk_encryption_key' block. |
-| `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
 
 
 

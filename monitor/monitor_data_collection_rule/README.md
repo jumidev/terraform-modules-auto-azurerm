@@ -57,26 +57,19 @@ tfstate_store = {
 | **stream_declaration** | [block](#stream_declaration-block-structure) |  -  |  A `stream_declaration` block. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Data Collection Rule. | 
 
-### `storage_table_direct` block structure
+### `monitor_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `table_name` | string | Yes | - | The Storage Table name. |
+| `monitor_account_id` | string | Yes | - | The resource ID of the Monitor Account. |
 | `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-| `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
 
-### `destinations` block structure
+### `log_analytics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `azure_monitor_metrics` | [block](#azure_monitor_metrics-block-structure) | No | - | A 'azure_monitor_metrics' block. |
-| `event_hub` | [block](#event_hub-block-structure) | No | - | One or more 'event_hub' blocks. |
-| `event_hub_direct` | [block](#event_hub_direct-block-structure) | No | - | One or more 'event_hub' blocks. |
-| `log_analytics` | [block](#log_analytics-block-structure) | No | - | One or more 'log_analytics' blocks. |
-| `monitor_account` | [block](#monitor_account-block-structure) | No | - | One or more 'monitor_account' blocks. |
-| `storage_blob` | [block](#storage_blob-block-structure) | No | - | One or more 'storage_blob' blocks. |
-| `storage_blob_direct` | [block](#storage_blob_direct-block-structure) | No | - | One or more 'storage_blob_direct' blocks. |
-| `storage_table_direct` | [block](#storage_table_direct-block-structure) | No | - | One or more 'storage_table_direct' blocks. |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
+| `workspace_resource_id` | string | Yes | - | The ID of a Log Analytic Workspace resource. |
 
 ### `stream_declaration` block structure
 
@@ -91,12 +84,20 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 
-### `identity` block structure
+### `storage_table_direct` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are 'SystemAssigned' and 'UserAssigned'. |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported. |
+| `table_name` | string | Yes | - | The Storage Table name. |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
+| `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
+
+### `event_hub` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `event_hub_id` | string | Yes | - | The resource ID of the Event Hub. |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 
 ### `storage_blob_direct` block structure
 
@@ -105,13 +106,6 @@ tfstate_store = {
 | `container_name` | string | Yes | - | The Storage Container name. |
 | `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 | `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
-
-### `monitor_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `monitor_account_id` | string | Yes | - | The resource ID of the Monitor Account. |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 
 ### `storage_blob` block structure
 
@@ -131,21 +125,27 @@ tfstate_store = {
 | `output_stream` | string | No | - | The output stream of the transform. Only required if the data flow changes data to a different stream. |
 | `transform_kql` | string | No | - | The KQL query to transform stream data. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported. |
+
+### `destinations` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `azure_monitor_metrics` | [block](#azure_monitor_metrics-block-structure) | No | - | A 'azure_monitor_metrics' block. |
+| `event_hub` | [block](#event_hub-block-structure) | No | - | One or more 'event_hub' blocks. |
+| `event_hub_direct` | [block](#event_hub_direct-block-structure) | No | - | One or more 'event_hub' blocks. |
+| `log_analytics` | [block](#log_analytics-block-structure) | No | - | One or more 'log_analytics' blocks. |
+| `monitor_account` | [block](#monitor_account-block-structure) | No | - | One or more 'monitor_account' blocks. |
+| `storage_blob` | [block](#storage_blob-block-structure) | No | - | One or more 'storage_blob' blocks. |
+| `storage_blob_direct` | [block](#storage_blob_direct-block-structure) | No | - | One or more 'storage_blob_direct' blocks. |
+| `storage_table_direct` | [block](#storage_table_direct-block-structure) | No | - | One or more 'storage_table_direct' blocks. |
+
 ### `event_hub_direct` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `event_hub_id` | string | Yes | - | The resource ID of the Event Hub. |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-
-### `log_analytics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-| `workspace_resource_id` | string | Yes | - | The ID of a Log Analytic Workspace resource. |
-
-### `event_hub` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

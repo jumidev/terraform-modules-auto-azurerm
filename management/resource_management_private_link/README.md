@@ -32,6 +32,7 @@ If set, makes a **azurerm_resource_management_private_link_association** - With 
 
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
+| `management_group_id` | string | True | null |
 | `public_network_access_enabled` | bool | True | null |
 | `name` | string | False | null |
 

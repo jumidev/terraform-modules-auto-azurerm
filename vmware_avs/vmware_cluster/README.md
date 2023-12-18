@@ -34,6 +34,7 @@ If set, makes a **azurerm_vmware_netapp_volume_attachment** - With the following
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
+| `netapp_volume_id` | string | True | null |
 
 
 Example component snippet:

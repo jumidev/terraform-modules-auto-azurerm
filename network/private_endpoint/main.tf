@@ -55,6 +55,6 @@ resource "azurerm_private_endpoint" "this" {
 ##############################################################################################
 resource "azurerm_private_endpoint_application_security_group_association" "this" {
   count                         = var.application_security_group_id != null ? 1 : 0
-  application_security_group_id = azurerm_application_security_group.this.id
+  application_security_group_id = var.application_security_group_id
   private_endpoint_id           = azurerm_private_endpoint.this.id
 }

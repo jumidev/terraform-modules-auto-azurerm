@@ -27,14 +27,16 @@ variable "profile" {
 #   fixed_date (block)     : A 'fixed_date' block. This cannot be specified if a 'recurrence' block is specified.
 #   recurrence (block)     : A 'recurrence' block. This cannot be specified if a 'fixed_date' block is specified.
 #
-# rule block structure  :
-#   metric_trigger (block): (REQUIRED) A 'metric_trigger' block.
-#   scale_action (block)  : (REQUIRED) A 'scale_action' block.
-#
 # capacity block structure:
 #   default (string)        : (REQUIRED) The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between '0' and '1000'.
 #   maximum (string)        : (REQUIRED) The maximum number of instances for this resource. Valid values are between '0' and '1000'.
 #   minimum (string)        : (REQUIRED) The minimum number of instances for this resource. Valid values are between '0' and '1000'.
+#
+# recurrence block structure:
+#   timezone (string)         : The Time Zone used for the 'hours' field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'.
+#   days (string)             : (REQUIRED) A list of days that this profile takes effect on. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
+#   hours (string)            : (REQUIRED) A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from '0' to '23'.
+#   minutes (string)          : (REQUIRED) A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
 #
 # metric_trigger block structure   :
 #   metric_name (string)             : (REQUIRED) The name of the metric that defines what the rule monitors, such as 'Percentage CPU' for 'Virtual Machine Scale Sets' and 'CpuPercentage' for 'App Service Plan'.
@@ -49,17 +51,9 @@ variable "profile" {
 #   dimensions (block)               : One or more 'dimensions' block.
 #   divide_by_instance_count (number): Whether to enable metric divide by instance count.
 #
-# recurrence block structure:
-#   timezone (string)         : The Time Zone used for the 'hours' field. A list of [possible values can be found here](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Defaults to 'UTC'.
-#   days (string)             : (REQUIRED) A list of days that this profile takes effect on. Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
-#   hours (string)            : (REQUIRED) A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered (in 24-hour time). Possible values are from '0' to '23'.
-#   minutes (string)          : (REQUIRED) A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-#
-# scale_action block structure:
-#   cooldown (string)           : (REQUIRED) The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
-#   direction (string)          : (REQUIRED) The scale direction. Possible values are 'Increase' and 'Decrease'.
-#   type (string)               : (REQUIRED) The type of action that should occur. Possible values are 'ChangeCount', 'ExactCount', 'PercentChangeCount' and 'ServiceAllowedNextValue'.
-#   value (number)              : (REQUIRED) The number of instances involved in the scaling action.
+# rule block structure  :
+#   metric_trigger (block): (REQUIRED) A 'metric_trigger' block.
+#   scale_action (block)  : (REQUIRED) A 'scale_action' block.
 #
 # fixed_date block structure:
 #   end (string)              : (REQUIRED) Specifies the end date for the profile, formatted as an RFC3339 date string.
@@ -70,6 +64,12 @@ variable "profile" {
 #   name (string)             : (REQUIRED) The name of the dimension.
 #   operator (string)         : (REQUIRED) The dimension operator. Possible values are 'Equals' and 'NotEquals'. 'Equals' means being equal to any of the values. 'NotEquals' means being not equal to any of the values.
 #   values (list)             : (REQUIRED) A list of dimension values.
+#
+# scale_action block structure:
+#   cooldown (string)           : (REQUIRED) The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
+#   direction (string)          : (REQUIRED) The scale direction. Possible values are 'Increase' and 'Decrease'.
+#   type (string)               : (REQUIRED) The type of action that should occur. Possible values are 'ChangeCount', 'ExactCount', 'PercentChangeCount' and 'ServiceAllowedNextValue'.
+#   value (number)              : (REQUIRED) The number of instances involved in the scaling action.
 
 
 variable "target_resource_id" {

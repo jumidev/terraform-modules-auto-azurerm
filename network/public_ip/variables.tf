@@ -95,6 +95,13 @@ variable "dns_a_record" {
   type    = map(any)
   default = null
 }
+# REQUIRED VARIABLES
+
+variable "nat_gateway_id" {
+  description = "(REQUIRED) The ID of the NAT Gateway. Changing this forces a new resource to be created."
+  type        = string
+
+}
 
 # OPTIONAL VARIABLES
 

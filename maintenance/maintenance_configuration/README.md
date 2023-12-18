@@ -45,14 +45,6 @@ tfstate_store = {
 | **properties** | string |  -  |  -  |  A mapping of properties to assign to the resource. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 
 
-### `windows` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
-| `kb_numbers_to_exclude` | string | No | - | List of KB numbers to be excluded from patching. |
-| `kb_numbers_to_include` | string | No | - | List of KB numbers to be included for patching. |
-
 ### `linux` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -60,6 +52,14 @@ tfstate_store = {
 | `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
 | `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
 | `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
+
+### `windows` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
+| `kb_numbers_to_exclude` | string | No | - | List of KB numbers to be excluded from patching. |
+| `kb_numbers_to_include` | string | No | - | List of KB numbers to be included for patching. |
 
 ### `window` block structure
 
