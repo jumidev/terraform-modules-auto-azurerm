@@ -49,9 +49,9 @@ variable "roles" {
 #   worker_node (block)   : (REQUIRED) A 'worker_node' block.
 #   zookeeper_node (block): (REQUIRED) A 'zookeeper_node' block.
 #
-# capacity block structure   :
-#   max_instance_count (number): (REQUIRED) The maximum number of worker nodes to autoscale to based on the cluster's activity.
-#   min_instance_count (number): (REQUIRED) The minimum number of worker nodes to autoscale to based on the cluster's activity.
+# recurrence block structure:
+#   schedule (block)          : (REQUIRED) A list of 'schedule' blocks.
+#   timezone (string)         : (REQUIRED) The time zone for the autoscale schedule times.
 #
 # head_node block structure  :
 #   username (string)          : (REQUIRED) The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -62,9 +62,9 @@ variable "roles" {
 #   virtual_network_id (string): The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   script_actions (block)     : The script action which will run on the cluster. One or more 'script_actions' blocks.
 #
-# recurrence block structure:
-#   schedule (block)          : (REQUIRED) A list of 'schedule' blocks.
-#   timezone (string)         : (REQUIRED) The time zone for the autoscale schedule times.
+# autoscale block structure:
+#   capacity (block)         : A 'capacity' block.
+#   recurrence (block)       : A 'recurrence' block.
 #
 # schedule block structure      :
 #   days (string)                 : (REQUIRED) The days of the week to perform autoscale. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
@@ -87,6 +87,10 @@ variable "roles" {
 #   virtual_network_id (string)   : The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   autoscale (block)             : A 'autoscale' block.
 #
+# capacity block structure   :
+#   max_instance_count (number): (REQUIRED) The maximum number of worker nodes to autoscale to based on the cluster's activity.
+#   min_instance_count (number): (REQUIRED) The minimum number of worker nodes to autoscale to based on the cluster's activity.
+#
 # zookeeper_node block structure:
 #   script_actions (list)         : The script action which will run on the cluster. One or more 'script_actions' blocks.
 #   username (string)             : (REQUIRED) The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -95,10 +99,6 @@ variable "roles" {
 #   ssh_keys (list)               : A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 #   subnet_id (string)            : The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   virtual_network_id (string)   : The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
-#
-# autoscale block structure:
-#   capacity (block)         : A 'capacity' block.
-#   recurrence (block)       : A 'recurrence' block.
 
 
 variable "tier" {
@@ -196,17 +196,17 @@ variable "metastores" {
 #   oozie (block)             : An 'oozie' block.
 #   ambari (block)            : An 'ambari' block.
 #
-# ambari block structure:
-#   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
-#   database_name (string): (REQUIRED) The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
-#   username (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
-#   password (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
-#
 # oozie block structure :
 #   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 #   database_name (string): (REQUIRED) The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 #   username (string)     : (REQUIRED) The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 #   password (string)     : (REQUIRED) The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+#
+# ambari block structure:
+#   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+#   database_name (string): (REQUIRED) The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+#   username (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+#   password (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 #
 # hive block structure  :
 #   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore. Changing this forces a new resource to be created.

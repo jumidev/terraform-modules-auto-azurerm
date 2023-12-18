@@ -60,6 +60,11 @@ variable "site_config" {
 #   action (block)                   : A 'action' block.
 #   trigger (block)                  : A 'trigger' block.
 #
+# trigger block structure:
+#   requests (block)       : A 'requests' block.
+#   slow_request (list)    : One or more 'slow_request' blocks.
+#   status_code (list)     : One or more 'status_code' blocks.
+#
 # requests block structure:
 #   count (number)          : (REQUIRED) The number of requests in the specified 'interval' to trigger this rule.
 #   interval (string)       : (REQUIRED) The interval in 'hh:mm:ss'.
@@ -71,11 +76,6 @@ variable "site_config" {
 # cors block structure      :
 #   allowed_origins (string)  : Specifies a list of origins that should be allowed to make cross-origin calls.
 #   support_credentials (bool): Whether CORS requests with credentials are allowed. Defaults to 'false'
-#
-# trigger block structure:
-#   requests (block)       : A 'requests' block.
-#   slow_request (list)    : One or more 'slow_request' blocks.
-#   status_code (list)     : One or more 'status_code' blocks.
 #
 # application_stack block structure:
 #   docker_image_name (string)       : The docker image, including tag, to be used. e.g. 'appsvc/staticsite:latest'.
@@ -124,22 +124,11 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'.
 #
-# twitter block structure              :
-#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-#   consumer_secret (string)             : The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'.
-#   consumer_secret_setting_name (string): The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'.
-#
-# facebook block structure        :
-#   app_id (string)                 : (REQUIRED) The App ID of the Facebook app used for login.
-#   app_secret (string)             : The App Secret of the Facebook app used for Facebook login. Cannot be specified with 'app_secret_setting_name'.
-#   app_secret_setting_name (string): The app setting name that contains the 'app_secret' value used for Facebook login. Cannot be specified with 'app_secret'.
-#   oauth_scopes (string)           : Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
-#
-# github block structure             :
-#   client_id (string)                 : (REQUIRED) The ID of the GitHub app used for login.
-#   client_secret (string)             : The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'.
-#   client_secret_setting_name (string): The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'.
-#   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
+# microsoft block structure          :
+#   client_id (string)                 : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
+#   client_secret (string)             : The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'.
+#   client_secret_setting_name (string): The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'.
+#   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope.
 #
 # active_directory block structure   :
 #   client_id (string)                 : (REQUIRED) The ID of the Client to use to authenticate with Azure Active Directory.
@@ -147,11 +136,22 @@ variable "auth_settings" {
 #   client_secret (string)             : The Client Secret for the Client ID. Cannot be used with 'client_secret_setting_name'.
 #   client_secret_setting_name (string): The App Setting name that contains the client secret of the Client. Cannot be used with 'client_secret'.
 #
-# microsoft block structure          :
-#   client_id (string)                 : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
-#   client_secret (string)             : The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'.
-#   client_secret_setting_name (string): The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'.
-#   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope.
+# facebook block structure        :
+#   app_id (string)                 : (REQUIRED) The App ID of the Facebook app used for login.
+#   app_secret (string)             : The App Secret of the Facebook app used for Facebook login. Cannot be specified with 'app_secret_setting_name'.
+#   app_secret_setting_name (string): The app setting name that contains the 'app_secret' value used for Facebook login. Cannot be specified with 'app_secret'.
+#   oauth_scopes (string)           : Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
+#
+# twitter block structure              :
+#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+#   consumer_secret (string)             : The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'.
+#   consumer_secret_setting_name (string): The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'.
+#
+# github block structure             :
+#   client_id (string)                 : (REQUIRED) The ID of the GitHub app used for login.
+#   client_secret (string)             : The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'.
+#   client_secret_setting_name (string): The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'.
+#   oauth_scopes (string)              : Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication.
 #
 # google block structure             :
 #   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Google web application.
@@ -190,58 +190,8 @@ variable "auth_settings_v2" {
 #   twitter_v2 (block)                              : A 'twitter_v2' block.
 #   login (block)                                   : (REQUIRED) A 'login' block.
 #
-# active_directory_v2 block structure          :
-#   client_id (string)                           : (REQUIRED) The ID of the Client to use to authenticate with Azure Active Directory.
-#   tenant_auth_endpoint (string)                : (REQUIRED) The Azure Tenant Endpoint for the Authenticating Tenant. e.g. 'https://login.microsoftonline.com/v2.0/{tenant-guid}/'
-#   client_secret_setting_name (string)          : The App Setting name that contains the client secret of the Client.
-#   client_secret_certificate_thumbprint (string): The thumbprint of the certificate used for signing purposes.
-#   jwt_allowed_groups (list)                    : A list of Allowed Groups in the JWT Claim.
-#   jwt_allowed_client_applications (list)       : A list of Allowed Client Applications in the JWT Claim.
-#   www_authentication_disabled (bool)           : Should the www-authenticate provider should be omitted from the request? Defaults to 'false'.
-#   allowed_groups (string)                      : The list of allowed Group Names for the Default Authorisation Policy.
-#   allowed_identities (string)                  : The list of allowed Identities for the Default Authorisation Policy.
-#   allowed_applications (string)                : The list of allowed Applications for the Default Authorisation Policy.
-#   login_parameters (string)                    : A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
-#   allowed_audiences (string)                   : Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-#
-# apple_v2 block structure           :
-#   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Apple web application.
-#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for Apple Login.
-#   login_scopes (list)                : A list of Login Scopes provided by this Authentication Provider.
-#
-# twitter_v2 block structure           :
-#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-#   consumer_secret_setting_name (string): (REQUIRED) The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
-#
-# github_v2 block structure          :
-#   client_id (string)                 : (REQUIRED) The ID of the GitHub app used for login..
-#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for GitHub Login.
-#   login_scopes (string)              : The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
-#
-# facebook_v2 block structure     :
-#   app_id (string)                 : (REQUIRED) The App ID of the Facebook app used for login.
-#   app_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'app_secret' value used for Facebook Login.
-#   graph_api_version (string)      : The version of the Facebook API to be used while logging in.
-#   login_scopes (string)           : The list of scopes that should be requested as part of Facebook Login authentication.
-#
-# custom_oidc_v2 block structure        :
-#   name (string)                         : (REQUIRED) The name of the Custom OIDC Authentication Provider.
-#   client_id (string)                    : (REQUIRED) The ID of the Client to use to authenticate with the Custom OIDC.
-#   openid_configuration_endpoint (string): (REQUIRED) Specifies the endpoint used for OpenID Connect Discovery. For example 'https://example.com/.well-known/openid-configuration'.
-#   name_claim_type (string)              : The name of the claim that contains the users name.
-#   scopes (string)                       : The list of the scopes that should be requested while authenticating.
-#   client_credential_method (string)     : The Client Credential Method used.
-#   client_secret_setting_name (string)   : The App Setting name that contains the secret for this Custom OIDC Client. This is generated from 'name' above and suffixed with '_PROVIDER_AUTHENTICATION_SECRET'.
-#   authorisation_endpoint (string)       : The endpoint to make the Authorisation Request as supplied by 'openid_configuration_endpoint' response.
-#   token_endpoint (string)               : The endpoint used to request a Token as supplied by 'openid_configuration_endpoint' response.
-#   issuer_endpoint (string)              : The endpoint that issued the Token as supplied by 'openid_configuration_endpoint' response.
-#   certification_uri (string)            : The endpoint that provides the keys necessary to validate the token as supplied by 'openid_configuration_endpoint' response.
-#
-# google_v2 block structure          :
-#   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Google web application.
-#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for Google Login.
-#   allowed_audiences (string)         : Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
-#   login_scopes (string)              : The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+# azure_static_web_app_v2 block structure:
+#   client_id (string)                     : (REQUIRED) The ID of the Client to use to authenticate with Azure Static Web App Authentication.
 #
 # login block structure                   :
 #   logout_endpoint (string)                : The endpoint to which logout requests should be made.
@@ -256,14 +206,64 @@ variable "auth_settings_v2" {
 #   validate_nonce (bool)                   : Should the nonce be validated while completing the login flow. Defaults to 'true'.
 #   nonce_expiration_time (string)          : The time after the request is made when the nonce should expire. Defaults to '00:05:00'.
 #
+# twitter_v2 block structure           :
+#   consumer_key (string)                : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+#   consumer_secret_setting_name (string): (REQUIRED) The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
+#
+# github_v2 block structure          :
+#   client_id (string)                 : (REQUIRED) The ID of the GitHub app used for login..
+#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for GitHub Login.
+#   login_scopes (string)              : The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication.
+#
+# active_directory_v2 block structure          :
+#   client_id (string)                           : (REQUIRED) The ID of the Client to use to authenticate with Azure Active Directory.
+#   tenant_auth_endpoint (string)                : (REQUIRED) The Azure Tenant Endpoint for the Authenticating Tenant. e.g. 'https://login.microsoftonline.com/v2.0/{tenant-guid}/'
+#   client_secret_setting_name (string)          : The App Setting name that contains the client secret of the Client.
+#   client_secret_certificate_thumbprint (string): The thumbprint of the certificate used for signing purposes.
+#   jwt_allowed_groups (list)                    : A list of Allowed Groups in the JWT Claim.
+#   jwt_allowed_client_applications (list)       : A list of Allowed Client Applications in the JWT Claim.
+#   www_authentication_disabled (bool)           : Should the www-authenticate provider should be omitted from the request? Defaults to 'false'.
+#   allowed_groups (string)                      : The list of allowed Group Names for the Default Authorisation Policy.
+#   allowed_identities (string)                  : The list of allowed Identities for the Default Authorisation Policy.
+#   allowed_applications (string)                : The list of allowed Applications for the Default Authorisation Policy.
+#   login_parameters (string)                    : A map of key-value pairs to send to the Authorisation Endpoint when a user logs in.
+#   allowed_audiences (string)                   : Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+#
+# facebook_v2 block structure     :
+#   app_id (string)                 : (REQUIRED) The App ID of the Facebook app used for login.
+#   app_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'app_secret' value used for Facebook Login.
+#   graph_api_version (string)      : The version of the Facebook API to be used while logging in.
+#   login_scopes (string)           : The list of scopes that should be requested as part of Facebook Login authentication.
+#
 # microsoft_v2 block structure       :
 #   client_id (string)                 : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
 #   client_secret_setting_name (string): (REQUIRED) The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
 #   allowed_audiences (string)         : Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication.
 #   login_scopes (string)              : The list of Login scopes that should be requested as part of Microsoft Account authentication.
 #
-# azure_static_web_app_v2 block structure:
-#   client_id (string)                     : (REQUIRED) The ID of the Client to use to authenticate with Azure Static Web App Authentication.
+# apple_v2 block structure           :
+#   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Apple web application.
+#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for Apple Login.
+#   login_scopes (list)                : A list of Login Scopes provided by this Authentication Provider.
+#
+# google_v2 block structure          :
+#   client_id (string)                 : (REQUIRED) The OpenID Connect Client ID for the Google web application.
+#   client_secret_setting_name (string): (REQUIRED) The app setting name that contains the 'client_secret' value used for Google Login.
+#   allowed_audiences (string)         : Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication.
+#   login_scopes (string)              : The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication.
+#
+# custom_oidc_v2 block structure        :
+#   name (string)                         : (REQUIRED) The name of the Custom OIDC Authentication Provider.
+#   client_id (string)                    : (REQUIRED) The ID of the Client to use to authenticate with the Custom OIDC.
+#   openid_configuration_endpoint (string): (REQUIRED) Specifies the endpoint used for OpenID Connect Discovery. For example 'https://example.com/.well-known/openid-configuration'.
+#   name_claim_type (string)              : The name of the claim that contains the users name.
+#   scopes (string)                       : The list of the scopes that should be requested while authenticating.
+#   client_credential_method (string)     : The Client Credential Method used.
+#   client_secret_setting_name (string)   : The App Setting name that contains the secret for this Custom OIDC Client. This is generated from 'name' above and suffixed with '_PROVIDER_AUTHENTICATION_SECRET'.
+#   authorisation_endpoint (string)       : The endpoint to make the Authorisation Request as supplied by 'openid_configuration_endpoint' response.
+#   token_endpoint (string)               : The endpoint used to request a Token as supplied by 'openid_configuration_endpoint' response.
+#   issuer_endpoint (string)              : The endpoint that issued the Token as supplied by 'openid_configuration_endpoint' response.
+#   certification_uri (string)            : The endpoint that provides the keys necessary to validate the token as supplied by 'openid_configuration_endpoint' response.
 
 
 variable "backup" {
@@ -366,10 +366,6 @@ variable "logs" {
 #   failed_request_tracing (string) : Should the failed request tracing be enabled?
 #   http_logs (block)               : An 'http_logs' block.
 #
-# http_logs block structure :
-#   azure_blob_storage (block): A 'azure_blob_storage_http' block.
-#   file_system (block)       : A 'file_system' block.
-#
 # file_system block structure:
 #   retention_in_days (number) : (REQUIRED) The retention period in days. A value of '0' means no retention.
 #   retention_in_mb (number)   : (REQUIRED) The maximum size in megabytes that log files can use.
@@ -382,6 +378,10 @@ variable "logs" {
 #   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
 #   retention_in_days (number)        : (REQUIRED) The time in days after which to remove blobs. A value of '0' means no retention.
 #   sas_url (string)                  : (REQUIRED) SAS url to an Azure blob container with read/write/list/delete permissions.
+#
+# http_logs block structure :
+#   azure_blob_storage (block): A 'azure_blob_storage_http' block.
+#   file_system (block)       : A 'file_system' block.
 
 
 variable "storage_account" {

@@ -48,6 +48,34 @@ tfstate_store = {
 | **policy_settings** | [block](#policy_settings-block-structure) |  A `policy_settings` block. | 
 | **tags** | map |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
+### `managed_rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `exclusion` | list | No | - | One or more 'exclusion' block defined below. |
+| `managed_rule_set` | list | Yes | - | One or more 'managed_rule_set' block defined below. |
+
+### `match_variables` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `variable_name` | string | Yes | - | The name of the Match Variable. Possible values are 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestUri', 'RequestHeaders', 'RequestBody' and 'RequestCookies'. |
+| `selector` | string | No | - | Describes field of the matchVariable collection |
+
+### `custom_rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Describes if the policy is in enabled state or disabled state. Defaults to 'true'. |
+| `name` | string | No | - | Gets name of the resource that is unique within a policy. This name can be used to access the resource. |
+| `priority` | string | Yes | - | Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. |
+| `rule_type` | string | Yes | - | Describes the type of rule. Possible values are 'MatchRule', 'RateLimitRule' and 'Invalid'. |
+| `match_conditions` | [block](#match_conditions-block-structure) | Yes | - | One or more 'match_conditions' blocks. |
+| `action` | string | Yes | - | Type of action. Possible values are 'Allow', 'Block' and 'Log'. |
+| `rate_limit_duration` | string | No | - | Specifies the duration at which the rate limit policy will be applied. Should be used with 'RateLimitRule' rule type. Possible values are 'FiveMins' and 'OneMin'. |
+| `rate_limit_threshold` | string | No | - | Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided. |
+| `group_rate_limit_by` | string | No | - | Specifies what grouping the rate limit will count requests by. Possible values are 'GeoLocation', 'ClientAddr' and 'None'. |
+
 ### `policy_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,34 +104,6 @@ tfstate_store = {
 | `operator` | string | Yes | - | Describes operator to be matched. Possible values are 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith', 'EndsWith' and 'Regex'. |
 | `negation_condition` | string | No | - | Describes if this is negate condition or not |
 | `transforms` | string | No | - | A list of transformations to do before the match is attempted. Possible values are 'HtmlEntityDecode', 'Lowercase', 'RemoveNulls', 'Trim', 'UrlDecode' and 'UrlEncode'. |
-
-### `match_variables` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `variable_name` | string | Yes | - | The name of the Match Variable. Possible values are 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestUri', 'RequestHeaders', 'RequestBody' and 'RequestCookies'. |
-| `selector` | string | No | - | Describes field of the matchVariable collection |
-
-### `custom_rules` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Describes if the policy is in enabled state or disabled state. Defaults to 'true'. |
-| `name` | string | No | - | Gets name of the resource that is unique within a policy. This name can be used to access the resource. |
-| `priority` | string | Yes | - | Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. |
-| `rule_type` | string | Yes | - | Describes the type of rule. Possible values are 'MatchRule', 'RateLimitRule' and 'Invalid'. |
-| `match_conditions` | [block](#match_conditions-block-structure) | Yes | - | One or more 'match_conditions' blocks. |
-| `action` | string | Yes | - | Type of action. Possible values are 'Allow', 'Block' and 'Log'. |
-| `rate_limit_duration` | string | No | - | Specifies the duration at which the rate limit policy will be applied. Should be used with 'RateLimitRule' rule type. Possible values are 'FiveMins' and 'OneMin'. |
-| `rate_limit_threshold` | string | No | - | Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided. |
-| `group_rate_limit_by` | string | No | - | Specifies what grouping the rate limit will count requests by. Possible values are 'GeoLocation', 'ClientAddr' and 'None'. |
-
-### `managed_rules` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `exclusion` | list | No | - | One or more 'exclusion' block defined below. |
-| `managed_rule_set` | list | Yes | - | One or more 'managed_rule_set' block defined below. |
 
 
 

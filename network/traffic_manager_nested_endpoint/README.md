@@ -52,6 +52,13 @@ tfstate_store = {
 | **geo_mappings** | list |  -  |  -  |  A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault). | 
 | **subnet** | [block](#subnet-block-structure) |  -  |  -  |  One or more `subnet` blocks. Changing this forces a new resource to be created. | 
 
+### `custom_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the custom header. |
+| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
+
 ### `subnet` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -59,13 +66,6 @@ tfstate_store = {
 | `first` | string | Yes | - | The first IP Address in this subnet. |
 | `last` | string | No | - | The last IP Address in this subnet. |
 | `scope` | number | No | - | The block size (number of leading bits in the subnet mask). |
-
-### `custom_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the custom header. |
-| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 
 

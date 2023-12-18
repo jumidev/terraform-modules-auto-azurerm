@@ -58,6 +58,19 @@ tfstate_store = {
 | **roster** | [block](#roster-block-structure) |  A `roster` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Lab. | 
 
+### `virtual_machine` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_user` | [block](#admin_user-block-structure) | Yes | - | An 'admin_user' block. |
+| `image_reference` | [block](#image_reference-block-structure) | Yes | - | An 'image_reference' block. |
+| `sku` | [block](#sku-block-structure) | Yes | - | A 'sku' block. |
+| `additional_capability_gpu_drivers_installed` | bool | No | False | Is flagged to pre-install dedicated GPU drivers? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `create_option` | string | No | Image | The create option to indicate what Lab Service Lab VMs are created from. Possible values are 'Image' and 'TemplateVM'. Defaults to 'Image'. Changing this forces a new resource to be created. |
+| `non_admin_user` | [block](#non_admin_user-block-structure) | No | - | A 'non_admin_user' block. |
+| `shared_password_enabled` | bool | No | False | Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `usage_quota` | string | No | PT0S | The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string. |
+
 ### `admin_user` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,12 +85,18 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the SKU. Changing this forces a new resource to be created. |
 | `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
 
-### `connection_setting` block structure
+### `security` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
+| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
+
+### `non_admin_user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. |
+| `password` | string | Yes | - | The password for the user. |
 
 ### `roster` block structure
 
@@ -98,18 +117,18 @@ tfstate_store = {
 | `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
 | `shutdown_on_idle` | string | No | - | A VM will get shutdown when it has idled for a period of time. Possible values are 'LowUsage' and 'UserAbsence'. |
 
-### `non_admin_user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. |
-| `password` | string | Yes | - | The password for the user. |
-
 ### `network` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
+
+### `connection_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
 
 ### `image_reference` block structure
 
@@ -119,25 +138,6 @@ tfstate_store = {
 | `publisher` | string | No | - | The image publisher. Changing this forces a new resource to be created. |
 | `sku` | string | No | - | The image SKU. Changing this forces a new resource to be created. |
 | `version` | string | No | - | The image version specified on creation. Changing this forces a new resource to be created. |
-
-### `virtual_machine` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_user` | [block](#admin_user-block-structure) | Yes | - | An 'admin_user' block. |
-| `image_reference` | [block](#image_reference-block-structure) | Yes | - | An 'image_reference' block. |
-| `sku` | [block](#sku-block-structure) | Yes | - | A 'sku' block. |
-| `additional_capability_gpu_drivers_installed` | bool | No | False | Is flagged to pre-install dedicated GPU drivers? Defaults to 'false'. Changing this forces a new resource to be created. |
-| `create_option` | string | No | Image | The create option to indicate what Lab Service Lab VMs are created from. Possible values are 'Image' and 'TemplateVM'. Defaults to 'Image'. Changing this forces a new resource to be created. |
-| `non_admin_user` | [block](#non_admin_user-block-structure) | No | - | A 'non_admin_user' block. |
-| `shared_password_enabled` | bool | No | False | Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created. |
-| `usage_quota` | string | No | PT0S | The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string. |
-
-### `security` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
 
 
 

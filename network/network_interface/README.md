@@ -59,6 +59,7 @@ Example component snippet:
 inputs = {
    dns_a_record = {
       name = "..."      
+      resource_group_name = "${resource_group}"      
       ttl = 300      
       tags = "..."      
    }
@@ -66,7 +67,6 @@ inputs = {
 }
 
 tfstate_inputs = {
-   dns_a_record.resource_group_name = "path/to/resource_group_component:name"   
    dns_a_record.zone_name = "path/to/dns_zone_component:name"   
 }
 
@@ -193,6 +193,7 @@ Example component snippet:
 inputs = {
    private_dns_a_record = {
       name = "..."      
+      resource_group_name = "${resource_group}"      
       ttl = 300      
       tags = "..."      
    }
@@ -200,7 +201,6 @@ inputs = {
 }
 
 tfstate_inputs = {
-   private_dns_a_record.resource_group_name = "path/to/resource_group_component:name"   
    private_dns_a_record.zone_name = "path/to/private_dns_zone_component:name"   
 }
 

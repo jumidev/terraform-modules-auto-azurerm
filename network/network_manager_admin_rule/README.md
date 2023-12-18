@@ -48,14 +48,14 @@ tfstate_store = {
 | **source_port_ranges** | string |  `1024-65535`  |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
 | **source** | [block](#source-block-structure) |  -  |  One or more `source` blocks. | 
 
-### `destination` block structure
+### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `address_prefix` | string | Yes | - | Specifies the address prefix. |
 | `address_prefix_type` | string | Yes | - | Specifies the address prefix type. Possible values are 'IPPrefix' and 'ServiceTag'. For more information, please see [this document](https://learn.microsoft.com/en-us/azure/virtual-network-manager/concept-security-admins#source-and-destination-types). |
 
-### `source` block structure
+### `destination` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

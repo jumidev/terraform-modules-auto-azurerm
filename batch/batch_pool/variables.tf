@@ -162,13 +162,13 @@ variable "start_task" {
 #   registry (string)         : The 'container_registries' block defined as below.
 #   working_directory (string): A flag to indicate where the container task working directory is. Possible values are 'TaskWorkingDirectory' and 'ContainerImageDefault'.
 #
-# auto_user block structure:
-#   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
-#   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
-#
 # user_identity block structure:
 #   user_name (string)           : The username to be used by the Batch pool start task.
 #   auto_user (block)            : A 'auto_user' block that describes the user identity under which the start task runs as defined below.
+#
+# auto_user block structure:
+#   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
+#   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
 
 
 variable "certificate" {
@@ -205,12 +205,12 @@ variable "mount" {
 #   cifs_mount (block)            : A 'cifs_mount' block defined as below.
 #   nfs_mount (block)             : A 'nfs_mount' block defined as below.
 #
-# cifs_mount block structure  :
-#   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
-#   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
-#   source (string)             : (REQUIRED) The URI of the file system to mount.
-#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
-#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+# azure_file_share block structure:
+#   account_name (string)           : (REQUIRED) The Azure Storage Account name.
+#   account_key (string)            : (REQUIRED) The Azure Storage Account key.
+#   azure_file_url (string)         : (REQUIRED) The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+#   relative_mount_path (string)    : (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
+#   mount_options (string)          : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 #
 # azure_blob_file_system block structure:
 #   account_name (string)                 : (REQUIRED) The Azure Storage Account name.
@@ -226,12 +226,12 @@ variable "mount" {
 #   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
 #   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 #
-# azure_file_share block structure:
-#   account_name (string)           : (REQUIRED) The Azure Storage Account name.
-#   account_key (string)            : (REQUIRED) The Azure Storage Account key.
-#   azure_file_url (string)         : (REQUIRED) The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
-#   relative_mount_path (string)    : (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
-#   mount_options (string)          : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+# cifs_mount block structure  :
+#   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
+#   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
+#   source (string)             : (REQUIRED) The URI of the file system to mount.
+#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
+#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 
 
 variable "network_configuration" {

@@ -50,9 +50,6 @@ variable "blob_storage" {
 #   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
 #   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
 #
-# managed_identity block structure:
-#   client_id (string)              : (REQUIRED) Specifies the client ID for authenticating a Managed Identity.
-#
 # service_principal block structure     :
 #   client_id (string)                    : (REQUIRED) Specifies the client ID for authenticating a Service Principal.
 #   tenant_id (string)                    : (REQUIRED) Specifies the tenant ID for authenticating a Service Principal.
@@ -60,6 +57,9 @@ variable "blob_storage" {
 #   client_certificate_password (string)  : Specifies the password for the certificate used to authenticate a Service Principal .
 #   client_certificate_send_chain (string): Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
 #   client_secret (string)                : Specifies the client secret for authenticating a Service Principal.
+#
+# managed_identity block structure:
+#   client_id (string)              : (REQUIRED) Specifies the client ID for authenticating a Managed Identity.
 
 
 variable "bucket" {

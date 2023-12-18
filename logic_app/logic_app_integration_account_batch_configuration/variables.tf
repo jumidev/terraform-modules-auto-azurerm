@@ -30,13 +30,6 @@ variable "release_criteria" {
 #   message_count (number)          : The message count for the Logic App Integration Batch Configuration.
 #   recurrence (block)              : A 'recurrence' block.
 #
-# schedule block structure:
-#   hours (string)          : A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
-#   minutes (string)        : A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
-#   month_days (number)     : A list of days of the month that the job should execute on.
-#   monthly (block)         : A 'monthly' block.
-#   week_days (string)      : A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#
 # recurrence block structure:
 #   frequency (string)        : (REQUIRED) The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'.
 #   interval (number)         : (REQUIRED) The number of 'frequency's between runs.
@@ -44,6 +37,13 @@ variable "release_criteria" {
 #   schedule (block)          : A 'schedule' block.
 #   start_time (string)       : The start time of the schedule, formatted as an RFC3339 string.
 #   time_zone (string)        : The timezone of the start/end time.
+#
+# schedule block structure:
+#   hours (string)          : A list containing a single item, which specifies the Hour interval at which this recurrence should be triggered.
+#   minutes (string)        : A list containing a single item which specifies the Minute interval at which this recurrence should be triggered.
+#   month_days (number)     : A list of days of the month that the job should execute on.
+#   monthly (block)         : A 'monthly' block.
+#   week_days (string)      : A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
 #
 # monthly block structure:
 #   weekday (string)       : (REQUIRED) The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.

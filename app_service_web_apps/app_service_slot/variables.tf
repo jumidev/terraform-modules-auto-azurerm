@@ -55,15 +55,6 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'.
 #
-# twitter block structure :
-#   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
-#   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
-#
-# facebook block structure:
-#   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
-#   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
-#   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-#
 # microsoft block structure:
 #   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
 #   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
@@ -73,6 +64,15 @@ variable "auth_settings" {
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 #   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+#
+# facebook block structure:
+#   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
+#   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
+#   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
+#
+# twitter block structure :
+#   consumer_key (string)   : (REQUIRED) The consumer key of the Twitter app used for login
+#   consumer_secret (string): (REQUIRED) The consumer secret of the Twitter app used for login.
 #
 # google block structure:
 #   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
@@ -155,10 +155,6 @@ variable "site_config" {
 #   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
 #
-# cors block structure        :
-#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
-#
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -167,6 +163,10 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
+#
+# cors block structure        :
+#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
 
 
 variable "storage_account" {
@@ -196,10 +196,6 @@ variable "logs" {
 #   detailed_error_messages_enabled (bool): Should 'Detailed error messages' be enabled on this App Service slot? Defaults to 'false'.
 #   failed_request_tracing_enabled (bool) : Should 'Failed request tracing' be enabled on this App Service slot? Defaults to 'false'.
 #
-# http_logs block structure :
-#   file_system (block)       : A 'file_system' block.
-#   azure_blob_storage (block): An 'azure_blob_storage' block.
-#
 # file_system block structure:
 #   retention_in_days (number) : (REQUIRED) The number of days to retain logs for.
 #   retention_in_mb (number)   : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
@@ -212,6 +208,10 @@ variable "logs" {
 #   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
 #   sas_url (string)                  : (REQUIRED) The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the 'azurerm' provider.
 #   retention_in_days (number)        : (REQUIRED) The number of days to retain logs for.
+#
+# http_logs block structure :
+#   file_system (block)       : A 'file_system' block.
+#   azure_blob_storage (block): An 'azure_blob_storage' block.
 
 
 variable "identity" {

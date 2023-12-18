@@ -49,16 +49,11 @@ tfstate_store = {
 | **o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
 
-### `link` block structure
+### `o365_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this VPN Site Link. |
-| `bgp` | [block](#bgp-block-structure) | No | - | A 'bgp' block. |
-| `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
-| `ip_address` | string | No | - | The IP address of this VPN Site Link. |
-| `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |
-| `speed_in_mbps` | number | No | 0 | The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'. |
+| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
 
 ### `traffic_category` block structure
 
@@ -75,11 +70,16 @@ tfstate_store = {
 | `asn` | string | Yes | - | The BGP speaker's ASN. |
 | `peering_address` | string | Yes | - | The BGP peering IP address. |
 
-### `o365_policy` block structure
+### `link` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
+| `name` | string | Yes | - | The name which should be used for this VPN Site Link. |
+| `bgp` | [block](#bgp-block-structure) | No | - | A 'bgp' block. |
+| `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
+| `ip_address` | string | No | - | The IP address of this VPN Site Link. |
+| `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |
+| `speed_in_mbps` | number | No | 0 | The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'. |
 
 
 

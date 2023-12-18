@@ -16,14 +16,14 @@ variable "git_repository" {
 #   ssh_auth (block)              : A 'ssh_auth' block. Conflicts with 'git_repository.0.basic_auth'. Changing this forces a new Spring Cloud Customized Accelerator to be created.
 #   path (string)                 : Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on 'accelerator_type').
 #
+# basic_auth block structure:
+#   password (string)         : (REQUIRED) Specifies the password of git repository basic auth.
+#   username (string)         : (REQUIRED) Specifies the username of git repository basic auth.
+#
 # ssh_auth block structure   :
 #   private_key (string)       : (REQUIRED) Specifies the Private SSH Key of git repository basic auth.
 #   host_key (string)          : Specifies the Public SSH Key of git repository basic auth.
 #   host_key_algorithm (string): Specifies the SSH Key algorithm of git repository basic auth.
-#
-# basic_auth block structure:
-#   password (string)         : (REQUIRED) Specifies the password of git repository basic auth.
-#   username (string)         : (REQUIRED) Specifies the username of git repository basic auth.
 
 
 variable "name" {

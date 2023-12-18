@@ -40,13 +40,6 @@ tfstate_store = {
 | **use_local_git** | bool |  -  |  Should the App use local Git configuration. Changing this forces a new resource to be created. | 
 | **use_mercurial** | bool |  `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
-### `code_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. Changing this forces a new resource to be created. |
-| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
-
 ### `github_action_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,6 +47,13 @@ tfstate_store = {
 | `code_configuration` | [block](#code_configuration-block-structure) | No | - | A 'code_configuration' block. Changing this forces a new resource to be created. |
 | `container_configuration` | [block](#container_configuration-block-structure) | No | - | A 'container_configuration' block. |
 | `generate_workflow_file` | bool | No | True | Whether to generate the GitHub work flow file. Defaults to 'true'. Changing this forces a new resource to be created. |
+
+### `code_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `runtime_stack` | string | Yes | - | The value to use for the Runtime Stack in the workflow file content for code base apps. Possible values are 'dotnetcore', 'spring', 'tomcat', 'node' and 'python'. Changing this forces a new resource to be created. |
+| `runtime_version` | string | Yes | - | The value to use for the Runtime Version in the workflow file content for code base apps. Changing this forces a new resource to be created. |
 
 ### `container_configuration` block structure
 

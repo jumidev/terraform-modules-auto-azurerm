@@ -60,14 +60,6 @@ tfstate_store = {
 | **subnet_resource_id** | string |  -  |  The ID of the Subnet that the Compute Cluster should reside in. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Cluster. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 
-### `scale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | number | Yes | - | Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
-| `min_node_count` | number | Yes | - | Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
-| `scale_down_nodes_after_idle_duration` | string | Yes | - | Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created. |
-
 ### `ssh` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +74,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Cluster. Changing this forces a new resource to be created. |
+
+### `scale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_node_count` | number | Yes | - | Maximum node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
+| `min_node_count` | number | Yes | - | Minimal node count. Changing this forces a new Machine Learning Compute Cluster to be created. |
+| `scale_down_nodes_after_idle_duration` | string | Yes | - | Node Idle Time Before Scale Down: defines the time until the compute is shutdown when it has gone into Idle state. Is defined according to W3C XML schema standard for duration. Changing this forces a new Machine Learning Compute Cluster to be created. |
 
 
 

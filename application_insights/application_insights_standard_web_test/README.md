@@ -57,6 +57,17 @@ tfstate_store = {
 | **timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
 | **validation_rules** | [block](#validation_rules-block-structure) |  -  |  -  |  A `validation_rules` block. | 
 
+### `request` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | The WebTest request URL. |
+| `body` | string | No | - | The WebTest request body. |
+| `follow_redirects_enabled` | bool | No | True | Should the following of redirects be enabled? Defaults to 'true'. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `http_verb` | string | No | GET | Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'. |
+| `parse_dependent_requests_enabled` | bool | No | True | Should the parsing of dependend requests be enabled? Defaults to 'true'. |
+
 ### `content` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,17 +84,6 @@ tfstate_store = {
 | `expected_status_code` | string | No | - | The expected status code of the response. Default is '200', '0' means 'response code < 400' |
 | `ssl_cert_remaining_lifetime` | number | No | - | The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365. |
 | `ssl_check_enabled` | bool | No | - | Should the SSL check be enabled? |
-
-### `request` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | The WebTest request URL. |
-| `body` | string | No | - | The WebTest request body. |
-| `follow_redirects_enabled` | bool | No | True | Should the following of redirects be enabled? Defaults to 'true'. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `http_verb` | string | No | GET | Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'. |
-| `parse_dependent_requests_enabled` | bool | No | True | Should the parsing of dependend requests be enabled? Defaults to 'true'. |
 
 
 

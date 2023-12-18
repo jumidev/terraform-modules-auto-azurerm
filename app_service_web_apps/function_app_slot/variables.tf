@@ -65,15 +65,6 @@ variable "auth_settings" {
 #   twitter (block)                        : A 'twitter' block.
 #   unauthenticated_client_action (string) : The action to take when an unauthenticated client attempts to access the app. Possible values are 'AllowAnonymous' and 'RedirectToLoginPage'.
 #
-# twitter block structure :
-#   consumer_key (string)   : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
-#   consumer_secret (string): (REQUIRED) The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
-#
-# facebook block structure:
-#   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
-#   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
-#   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
-#
 # microsoft block structure:
 #   client_id (string)       : (REQUIRED) The OAuth 2.0 client ID that was created for the app used for authentication.
 #   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
@@ -83,6 +74,15 @@ variable "auth_settings" {
 #   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
 #   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
 #   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
+#
+# facebook block structure:
+#   app_id (string)         : (REQUIRED) The App ID of the Facebook app used for login
+#   app_secret (string)     : (REQUIRED) The App Secret of the Facebook app used for Facebook login.
+#   oauth_scopes (string)   : The OAuth 2.0 scopes that will be requested as part of Facebook login authentication. <https://developers.facebook.com/docs/facebook-login>
+#
+# twitter block structure :
+#   consumer_key (string)   : (REQUIRED) The OAuth 1.0a consumer key of the Twitter application used for sign-in.
+#   consumer_secret (string): (REQUIRED) The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
 #
 # google block structure:
 #   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
@@ -169,10 +169,6 @@ variable "site_config" {
 #   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
 #
-# cors block structure        :
-#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
-#
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -181,6 +177,10 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
+#
+# cors block structure        :
+#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
 
 
 variable "identity" {

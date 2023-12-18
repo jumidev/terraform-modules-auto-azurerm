@@ -61,6 +61,15 @@ tfstate_store = {
 | **sku_name** | string |  -  |  `GP_S_Gen5_2`, `HS_Gen4_1`, `BC_Gen5_2`, `ElasticPool`, `Basic`, `S0`, `P2`, `DW100c`, `DS100`  |  Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource. | 
 | **storage_account_type** | string |  `Geo`  |  `Geo`, `Local`, `Zone`  |  Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`. | 
 
+### `long_term_retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_retention` | string | No | - | The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'. |
+| `monthly_retention` | string | No | - | The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'. |
+| `yearly_retention` | string | No | - | The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'. |
+| `week_of_year` | string | No | - | The week of year to take the yearly backup. Value has to be between '1' and '52'. |
+
 ### `import` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,15 +88,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `retention_days` | number | Yes | - | Point In Time Restore configuration. Value has to be between '1' and '35'. |
 | `backup_interval_in_hours` | string | No | 12 | The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours. |
-
-### `long_term_retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekly_retention` | string | No | - | The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. 'P1Y', 'P1M', 'P1W' or 'P7D'. |
-| `monthly_retention` | string | No | - | The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'. |
-| `yearly_retention` | string | No | - | The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'. |
-| `week_of_year` | string | No | - | The week of year to take the yearly backup. Value has to be between '1' and '52'. |
 
 
 
