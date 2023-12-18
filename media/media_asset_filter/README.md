@@ -38,6 +38,12 @@ tfstate_store = {
 | **presentation_time_range** | [block](#presentation_time_range-block-structure) |  A `presentation_time_range` block. | 
 | **track_selection** | [block](#track_selection-block-structure) |  One or more `track_selection` blocks. | 
 
+### `track_selection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `condition` | list | Yes | - | One or more 'condition' blocks. |
+
 ### `presentation_time_range` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -48,12 +54,6 @@ tfstate_store = {
 | `presentation_window_in_units` | string | No | - | The relative to end sliding window. Applies to Live Streaming only. Use 'presentation_window_in_units' to apply a sliding window of fragments to include in a playlist. The unit is defined by 'unit_timescale_in_miliseconds'. For example, set 'presentation_window_in_units' to 120 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds. |
 | `start_in_units` | string | No | - | The absolute start time boundary. Applies to Video on Demand (VoD) or Live Streaming. This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is defined by 'unit_timescale_in_miliseconds', so a 'start_in_units' of 15 would be for 15 seconds. Use 'start_in_units' and 'end_in_units' to trim the fragments that will be in the playlist (manifest). For example, 'start_in_units' set to 20 and 'end_in_units' set to 60 using 'unit_timescale_in_miliseconds' in 1000 will generate a playlist that contains fragments from between 20 seconds and 60 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest. |
 | `unit_timescale_in_miliseconds` | number | No | - | Specified as the number of miliseconds in one unit timescale. For example, if you want to set a 'start_in_units' at 30 seconds, you would use a value of 30 when using the 'unit_timescale_in_miliseconds' in 1000. Or if you want to set 'start_in_units' in 30 miliseconds, you would use a value of 30 when using the 'unit_timescale_in_miliseconds' in 1. Applies timescale to 'start_in_units', 'start_timescale' and 'presentation_window_in_timescale' and 'live_backoff_in_timescale'. |
-
-### `track_selection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `condition` | list | Yes | - | One or more 'condition' blocks. |
 
 
 

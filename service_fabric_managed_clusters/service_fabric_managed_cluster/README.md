@@ -71,21 +71,6 @@ tfstate_store = {
 | `section` | string | Yes | - | Section name. |
 | `value` | string | Yes | - | Parameter value. |
 
-### `vm_secrets` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
-| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_application_id` | string | Yes | - | The ID of the Client Application. |
-| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
-| `tenant_id` | string | Yes | - | The ID of the Tenant. |
-
 ### `node_type` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -108,6 +93,14 @@ tfstate_store = {
 | `stateless` | string | No | - | If set to true, only stateless workloads can run on this node type. |
 | `vm_secrets` | [block](#vm_secrets-block-structure) | No | - | One or more 'vm_secrets' blocks. |
 
+### `certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
+| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
+| `common_name` | string | No | - | The certificate's CN. |
+
 ### `lb_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -118,13 +111,13 @@ tfstate_store = {
 | `probe_request_path` | string | No | - | Path for the probe to check, when probe protocol is set to 'http'. |
 | `protocol` | string | Yes | - | The transport protocol used in this rule. Can be one of 'tcp' or 'udp'. |
 
-### `certificate` block structure
+### `active_directory` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The thumbprint of the certificate. |
-| `type` | string | Yes | - | The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'. |
-| `common_name` | string | No | - | The certificate's CN. |
+| `client_application_id` | string | Yes | - | The ID of the Client Application. |
+| `cluster_application_id` | string | Yes | - | The ID of the Cluster Application. |
+| `tenant_id` | string | Yes | - | The ID of the Tenant. |
 
 ### `authentication` block structure
 
@@ -132,6 +125,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. |
 | `certificate` | [block](#certificate-block-structure) | No | - | One or more 'certificate' blocks. |
+
+### `vm_secrets` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificates` | list | Yes | - | One or more 'certificates' blocks. |
+| `vault_id` | string | Yes | - | The ID of the Vault that contain the certificates. |
 
 
 

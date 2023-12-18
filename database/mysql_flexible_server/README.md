@@ -56,6 +56,13 @@ tfstate_store = {
 | **zone** | string |  -  |  `1`, `2`, `3`  |  Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the MySQL Flexible Server. | 
 
+### `high_availability` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. |
+| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. |
+
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,13 +79,6 @@ tfstate_store = {
 | `day_of_week` | string | No | 0 | The day of week for maintenance window. Defaults to '0'. |
 | `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
 | `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
-
-### `high_availability` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. |
-| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. |
 
 ### `storage` block structure
 

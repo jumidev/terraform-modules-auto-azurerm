@@ -62,6 +62,13 @@ tfstate_store = {
 | **virtual_network_subnet_id** | string |  -  |  -  |  The subnet id which will be used by this resource for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+| `support_credentials` | string | No | - | Are credentials supported? |
+
 ### `headers` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,21 +77,6 @@ tfstate_store = {
 | `x_fd_health_probe` | string | No | - | A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'. |
 | `x_forwarded_for` | list | No | - | A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8 |
 | `x_forwarded_host` | list | No | - | A list of allowed 'X-Forwarded-Host' domains with a maximum of 8. |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Connection String. |
-| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
-| `value` | string | Yes | - | The value for the Connection String. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
-| `support_credentials` | string | No | - | Are credentials supported? |
 
 ### `ip_restriction` block structure
 
@@ -141,6 +133,14 @@ tfstate_store = {
 | `use_32_bit_worker_process` | bool | No | True | Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to 'true'. |
 | `vnet_route_all_enabled` | bool | No | - | Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied. |
 | `websockets_enabled` | bool | No | - | Should WebSockets be enabled? |
+
+### `connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Connection String. |
+| `type` | string | Yes | - | The type of the Connection String. Possible values are 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure' and 'SQLServer'. |
+| `value` | string | Yes | - | The value for the Connection String. |
 
 
 

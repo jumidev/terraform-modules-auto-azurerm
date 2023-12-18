@@ -59,55 +59,12 @@ tfstate_store = {
 | **tactics** | string |  -  |  `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance`, `ResourceDevelopment`  |  A list of categories of attacks by which to classify the rule. Possible values are `Collection`, `CommandAndControl`, `CredentialAccess`, `DefenseEvasion`, `Discovery`, `Execution`, `Exfiltration`, `Impact`, `ImpairProcessControl`, `InhibitResponseFunction`, `InitialAccess`, `LateralMovement`, `Persistence`, `PreAttack`, `PrivilegeEscalation`, `Reconnaissance` and `ResourceDevelopment`. | 
 | **techniques** | list |  -  |  -  |  A list of techniques of attacks by which to classify the rule. | 
 
-### `event_grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
-
-### `dynamic_property` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the dynamic property. Possible Values are 'AlertLink', 'ConfidenceLevel', 'ConfidenceScore', 'ExtendedLinks', 'ProductComponentName', 'ProductName', 'ProviderName', 'RemediationSteps' and 'Techniques'. |
-| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
-
 ### `entity_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
 | `field_mapping` | [block](#field_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
-
-### `alert_details_override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description_format` | string | No | - | The format containing columns name(s) to override the description of this Sentinel Alert Rule. |
-| `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
-| `severity_column_name` | string | No | - | The column name to take the alert severity from. |
-| `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
-| `dynamic_property` | [block](#dynamic_property-block-structure) | No | - | A list of 'dynamic_property' blocks. |
-
-### `incident` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `create_incident_enabled` | bool | Yes | - | Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule? |
-| `grouping` | [block](#grouping-block-structure) | Yes | - | A 'grouping' block. |
-
-### `sentinel_entity_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
-
-### `field_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 ### `grouping` block structure
 
@@ -120,6 +77,49 @@ tfstate_store = {
 | `by_entities` | string | No | - | A list of entity types to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
 | `by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
 | `by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
+
+### `event_grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
+
+### `field_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `identifier` | string | Yes | - | The identifier of the entity. |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `alert_details_override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description_format` | string | No | - | The format containing columns name(s) to override the description of this Sentinel Alert Rule. |
+| `display_name_format` | string | No | - | The format containing columns name(s) to override the name of this Sentinel Alert Rule. |
+| `severity_column_name` | string | No | - | The column name to take the alert severity from. |
+| `tactics_column_name` | string | No | - | The column name to take the alert tactics from. |
+| `dynamic_property` | [block](#dynamic_property-block-structure) | No | - | A list of 'dynamic_property' blocks. |
+
+### `dynamic_property` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the dynamic property. Possible Values are 'AlertLink', 'ConfidenceLevel', 'ConfidenceScore', 'ExtendedLinks', 'ProductComponentName', 'ProductName', 'ProviderName', 'RemediationSteps' and 'Techniques'. |
+| `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
+
+### `sentinel_entity_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
+
+### `incident` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `create_incident_enabled` | bool | Yes | - | Whether to create an incident from alerts triggered by this Sentinel NRT Alert Rule? |
+| `grouping` | [block](#grouping-block-structure) | Yes | - | A 'grouping' block. |
 
 
 

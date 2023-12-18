@@ -51,15 +51,15 @@ variable "authentication" {
 #   active_directory (block)      : A 'active_directory' block.
 #   certificate (block)           : One or more 'certificate' blocks.
 #
-# certificate block structure:
-#   thumbprint (string)        : (REQUIRED) The thumbprint of the certificate.
-#   type (string)              : (REQUIRED) The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'.
-#   common_name (string)       : The certificate's CN.
-#
 # active_directory block structure:
 #   client_application_id (string)  : (REQUIRED) The ID of the Client Application.
 #   cluster_application_id (string) : (REQUIRED) The ID of the Cluster Application.
 #   tenant_id (string)              : (REQUIRED) The ID of the Tenant.
+#
+# certificate block structure:
+#   thumbprint (string)        : (REQUIRED) The thumbprint of the certificate.
+#   type (string)              : (REQUIRED) The type of the certificate. Can be 'AdminClient' or 'ReadOnlyClient'.
+#   common_name (string)       : The certificate's CN.
 
 
 variable "backup_service_enabled" {

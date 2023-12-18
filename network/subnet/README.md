@@ -90,7 +90,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   application_load_balancer_subnet_association.application_load_balancer.id = "path/to/application_load_balancer_component:id"   
+   application_load_balancer_subnet_association.application_load_balancer_id = "path/to/application_load_balancer_component:id"   
 }
 
 ```

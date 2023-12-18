@@ -75,17 +75,22 @@ variable "os_profile" {
 #   windows_configuration (block): A 'windows_configuration' block.
 #   linux_configuration (block)  : A 'linux_configuration' block.
 #
+# windows_configuration block structure:
+#   admin_username (string)              : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+#   admin_password (string)              : (REQUIRED) The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
+#   computer_name_prefix (string)        : The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the 'name' field. If the value of the 'name' field is not a valid 'computer_name_prefix', then you must specify 'computer_name_prefix'. Changing this forces a new resource to be created.
+#   enable_automatic_updates (bool)      : Are automatic updates enabled for this Virtual Machine? Defaults to 'true'.
+#   hotpatching_enabled (bool)           : Should the VM be patched without requiring a reboot? Possible values are 'true' or 'false'. Defaults to 'false'. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+#   patch_assessment_mode (string)       : Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are 'AutomaticByPlatform' or 'ImageDefault'. Defaults to 'ImageDefault'.
+#   patch_mode (string)                  : Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'Manual', 'AutomaticByOS' and 'AutomaticByPlatform'. Defaults to 'AutomaticByOS'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+#   provision_vm_agent (bool)            : Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created.
+#   secret (block)                       : One or more 'secret' blocks.
+#   timezone (string)                    : Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+#   winrm_listener (block)               : One or more 'winrm_listener' blocks. Changing this forces a new resource to be created.
+#
 # secret block structure:
 #   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
 #   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
-#
-# admin_ssh_key block structure:
-#   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
-#   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
-#
-# winrm_listener block structure:
-#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
-#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
 #
 # certificate block structure:
 #   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
@@ -102,18 +107,13 @@ variable "os_profile" {
 #   provision_vm_agent (bool)             : Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created.
 #   secret (block)                        : One or more 'secret' blocks.
 #
-# windows_configuration block structure:
-#   admin_username (string)              : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-#   admin_password (string)              : (REQUIRED) The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-#   computer_name_prefix (string)        : The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the 'name' field. If the value of the 'name' field is not a valid 'computer_name_prefix', then you must specify 'computer_name_prefix'. Changing this forces a new resource to be created.
-#   enable_automatic_updates (bool)      : Are automatic updates enabled for this Virtual Machine? Defaults to 'true'.
-#   hotpatching_enabled (bool)           : Should the VM be patched without requiring a reboot? Possible values are 'true' or 'false'. Defaults to 'false'. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
-#   patch_assessment_mode (string)       : Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are 'AutomaticByPlatform' or 'ImageDefault'. Defaults to 'ImageDefault'.
-#   patch_mode (string)                  : Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'Manual', 'AutomaticByOS' and 'AutomaticByPlatform'. Defaults to 'AutomaticByOS'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
-#   provision_vm_agent (bool)            : Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created.
-#   secret (block)                       : One or more 'secret' blocks.
-#   timezone (string)                    : Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-#   winrm_listener (block)               : One or more 'winrm_listener' blocks. Changing this forces a new resource to be created.
+# winrm_listener block structure:
+#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
+#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
+#
+# admin_ssh_key block structure:
+#   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+#   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
 
 
 variable "os_disk" {

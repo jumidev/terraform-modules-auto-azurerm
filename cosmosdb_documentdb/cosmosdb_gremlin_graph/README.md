@@ -56,12 +56,8 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_cosmosdb_association.spring_cloud_app.id = "path/to/spring_cloud_app_component:id"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_account.id = "path/to/cosmosdb_account_component:id"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_cassandra_keyspace.name = "path/to/cosmosdb_cassandra_keyspace_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_database.name = "path/to/cosmosdb_gremlin_database_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_mongo_database.name = "path/to/cosmosdb_mongo_database_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_sql_database.name = "path/to/cosmosdb_sql_database_component:name"   
+   spring_cloud_app_cosmosdb_association.spring_cloud_app_id = "path/to/spring_cloud_app_component:id"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_account_id = "path/to/cosmosdb_account_component:id"   
 }
 
 ```
@@ -90,24 +86,17 @@ tfstate_inputs = {
 | **conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 | **unique_key** | [block](#unique_key-block-structure) |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
 
+### `spatial_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
+
 ### `composite_index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
-
-### `index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
-| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
-
-### `unique_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
 
 ### `conflict_resolution_policy` block structure
 
@@ -128,17 +117,24 @@ tfstate_inputs = {
 | `composite_index` | [block](#composite_index-block-structure) | No | - | One or more 'composite_index' blocks. |
 | `spatial_index` | [block](#spatial_index-block-structure) | No | - | One or more 'spatial_index' blocks. |
 
-### `spatial_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
-
 ### `autoscale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_throughput` | string | No | - | The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+
+### `unique_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
+
+### `index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
+| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
 
 
 

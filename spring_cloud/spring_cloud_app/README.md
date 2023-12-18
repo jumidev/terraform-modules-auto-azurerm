@@ -50,12 +50,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_cosmosdb_association.cosmosdb_account.id = "path/to/cosmosdb_account_component:id"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_cassandra_keyspace.name = "path/to/cosmosdb_cassandra_keyspace_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_database.name = "path/to/cosmosdb_gremlin_database_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_graph.name = "path/to/cosmosdb_gremlin_graph_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_mongo_database.name = "path/to/cosmosdb_mongo_database_component:name"   
-   spring_cloud_app_cosmosdb_association.cosmosdb_sql_database.name = "path/to/cosmosdb_sql_database_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_account_id = "path/to/cosmosdb_account_component:id"   
 }
 
 ```
@@ -84,7 +79,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_redis_association.redis_cache.id = "path/to/redis_cache_component:id"   
+   spring_cloud_app_redis_association.redis_cache_id = "path/to/redis_cache_component:id"   
 }
 
 ```
@@ -115,7 +110,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_mysql_association.mysql_server.id = "path/to/mysql_server_component:id"   
+   spring_cloud_app_mysql_association.mysql_server_id = "path/to/mysql_server_component:id"   
 }
 
 ```
@@ -143,6 +138,16 @@ tfstate_inputs = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
+### `custom_persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
+| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
+| `share_name` | string | Yes | - | The share name of the Azure File share. |
+| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
+| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -166,16 +171,6 @@ tfstate_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
 | `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
-
-### `custom_persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
-| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
-| `share_name` | string | Yes | - | The share name of the Azure File share. |
-| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
-| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
 
 
 

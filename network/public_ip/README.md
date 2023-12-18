@@ -53,9 +53,8 @@ inputs = {
 }
 
 tfstate_inputs = {
-   dns_a_record.resource_group.name = "path/to/resource_group_component:name"   
-   dns_a_record.dns_zone.name = "path/to/dns_zone_component:name"   
-   dns_a_record.any_resource.id = "path/to/any_resource_component:id"   
+   dns_a_record.resource_group_name = "path/to/resource_group_component:name"   
+   dns_a_record.zone_name = "path/to/dns_zone_component:name"   
 }
 
 ```
@@ -98,8 +97,8 @@ inputs = {
 }
 
 tfstate_inputs = {
-   private_dns_a_record.resource_group.name = "path/to/resource_group_component:name"   
-   private_dns_a_record.private_dns_zone.name = "path/to/private_dns_zone_component:name"   
+   private_dns_a_record.resource_group_name = "path/to/resource_group_component:name"   
+   private_dns_a_record.zone_name = "path/to/private_dns_zone_component:name"   
 }
 
 ```

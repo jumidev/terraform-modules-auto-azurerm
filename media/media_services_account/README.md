@@ -72,19 +72,19 @@ tfstate_store = {
 | `default_action` | string | No | - | The Default Action to use when no rules match from 'ip_allow_list'. Possible values are 'Allow' and 'Deny'. |
 | `ip_allow_list` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account. |
-
 ### `storage_account` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `is_primary` | bool | No | False | Specifies whether the storage account should be the primary account or not. Defaults to 'false'. |
 | `managed_identity` | [block](#managed_identity-block-structure) | No | - | A 'managed_identity' block. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account. |
 
 
 

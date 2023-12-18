@@ -44,12 +44,6 @@ tfstate_store = {
 | **target_resource_id** | string |  The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres). | 
 | **authentication** | [block](#authentication-block-structure) |  The authentication info. An `authentication` block. | 
 
-### `secret_store` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_id` | string | Yes | - | The key vault id to store secret. |
-
 ### `authentication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,6 +58,12 @@ tfstate_store = {
 | `client_type` | string | No | none | The application client type. Possible values are 'none', 'dotnet', 'java', 'python', 'go', 'php', 'ruby', 'django', 'nodejs' and 'springBoot'. Defaults to 'none'. |
 | `vnet_solution` | string | No | - | The type of the VNet solution. Possible values are 'serviceEndpoint', 'privateLink'. |
 | `secret_store` | [block](#secret_store-block-structure) | No | - | An option to store secret value in secure place. An 'secret_store' block. |
+
+### `secret_store` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_id` | string | Yes | - | The key vault id to store secret. |
 
 
 

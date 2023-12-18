@@ -55,7 +55,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   network_interface_nat_rule_association.network_interface.id = "path/to/network_interface_component:id"   
+   network_interface_nat_rule_association.network_interface_id = "path/to/network_interface_component:id"   
 }
 
 ```

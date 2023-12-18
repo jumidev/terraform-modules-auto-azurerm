@@ -47,7 +47,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   vmware_netapp_volume_attachment.netapp_volume.id = "path/to/netapp_volume_component:id"   
+   vmware_netapp_volume_attachment.netapp_volume_id = "path/to/netapp_volume_component:id"   
 }
 
 ```

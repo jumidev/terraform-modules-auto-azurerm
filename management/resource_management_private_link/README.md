@@ -48,7 +48,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   resource_management_private_link_association.management_group.id = "path/to/management_group_component:id"   
+   resource_management_private_link_association.management_group_id = "path/to/management_group_component:id"   
 }
 
 ```

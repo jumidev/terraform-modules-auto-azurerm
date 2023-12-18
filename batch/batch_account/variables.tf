@@ -39,10 +39,6 @@ variable "network_profile" {
 #   account_access (block)         : An 'account_access' block.
 #   node_management_access (block) : A 'node_management_access' block.
 #
-# account_access block structure:
-#   default_action (string)       : Specifies the default action for the account access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'.
-#   ip_rule (block)               : One or more 'ip_rule' blocks.
-#
 # node_management_access block structure:
 #   default_action (string)               : Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'.
 #   ip_rule (block)                       : One or more 'ip_rule' blocks.
@@ -50,6 +46,10 @@ variable "network_profile" {
 # ip_rule block structure:
 #   ip_range (string)      : (REQUIRED) The CIDR block from which requests will match the rule.
 #   action (string)        : Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'.
+#
+# account_access block structure:
+#   default_action (string)       : Specifies the default action for the account access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'.
+#   ip_rule (block)               : One or more 'ip_rule' blocks.
 
 
 variable "pool_allocation_mode" {

@@ -77,54 +77,13 @@ tfstate_store = {
 | **webdeploy_publish_basic_authentication_enabled** | bool |  `True`  |  -  |  Should the default WebDeploy Basic Authentication publishing credentials enabled. Defaults to`true`. | 
 | **zip_deploy_file** | string |  -  |  -  |  The local path and filename of the Zip packaged application to deploy to this Windows Function App. | 
 
-### `sticky_settings` block structure
+### `apple_v2` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `app_setting_names` | list | No | - | A list of 'app_setting' names that the Windows Function App will not swap between Slots when a swap operation is triggered. |
-| `connection_string_names` | list | No | - | A list of 'connection_string' names that the Windows Function App will not swap between Slots when a swap operation is triggered. |
-
-### `google` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret` | string | No | - | The client secret associated with the Google web application. Cannot be specified with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for Google login. Cannot be specified with 'client_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, 'openid', 'profile', and 'email' are used as default scopes. |
-
-### `facebook_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
-| `app_secret_setting_name` | string | Yes | - | The app setting name that contains the 'app_secret' value used for Facebook Login. |
-| `graph_api_version` | string | No | - | The version of the Facebook API to be used while logging in. |
-| `login_scopes` | string | No | - | The list of scopes that should be requested as part of Facebook Login authentication. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_origins` | string | No | - | Specifies a list of origins that should be allowed to make cross-origin calls. |
-| `support_credentials` | bool | No | False | Are credentials allowed in CORS requests? Defaults to 'false'. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency_interval` | string | Yes | - | How often the backup should be executed (e.g. for weekly backup, this should be set to '7' and 'frequency_unit' should be set to 'Day'). |
-| `frequency_unit` | string | Yes | - | The unit of time for how often the backup should take place. Possible values include: 'Day' and 'Hour'. |
-| `keep_at_least_one_backup` | bool | No | False | Should the service keep at least one backup, regardless of age of backup. Defaults to 'false'. |
-| `retention_period_days` | number | No | 30 | After how many days backups should be deleted. Defaults to '30'. |
-| `start_time` | string | No | - | When the schedule should start working in RFC-3339 format. |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Apple web application. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Apple Login. |
+| `login_scopes` | list | No | - | A list of Login Scopes provided by this Authentication Provider. |
 
 ### `login` block structure
 
@@ -142,14 +101,38 @@ tfstate_store = {
 | `validate_nonce` | bool | No | True | Should the nonce be validated while completing the login flow. Defaults to 'true'. |
 | `nonce_expiration_time` | string | No | 00:05:00 | The time after the request is made when the nonce should expire. Defaults to '00:05:00'. |
 
-### `backup` block structure
+### `google` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Backup. |
-| `schedule` | [block](#schedule-block-structure) | Yes | - | A 'schedule' block. |
-| `storage_account_url` | string | Yes | - | The SAS URL to the container. |
-| `enabled` | bool | No | True | Should this backup job be enabled? Defaults to 'true'. |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret` | string | No | - | The client secret associated with the Google web application. Cannot be specified with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for Google login. Cannot be specified with 'client_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. If not specified, 'openid', 'profile', and 'email' are used as default scopes. |
+
+### `facebook` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
+| `app_secret` | string | No | - | The App Secret of the Facebook app used for Facebook login. Cannot be specified with 'app_secret_setting_name'. |
+| `app_secret_setting_name` | string | No | - | The app setting name that contains the 'app_secret' value used for Facebook login. Cannot be specified with 'app_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication. |
+
+### `app_service_logs` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_quota_mb` | string | No | 35 | The amount of disk space to use for logs. Valid values are between '25' and '100'. Defaults to '35'. |
+| `retention_period_days` | string | No | - | The retention period for logs in days. Valid values are between '0' and '99999'.(never delete). |
+
+### `twitter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
+| `consumer_secret` | string | No | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'. |
+| `consumer_secret_setting_name` | string | No | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'. |
 
 ### `active_directory_v2` block structure
 
@@ -168,6 +151,126 @@ tfstate_store = {
 | `login_parameters` | string | No | - | A map of key-value pairs to send to the Authorisation Endpoint when a user logs in. |
 | `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
 
+### `google_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Google Login. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication. |
+| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication. |
+
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this Backup. |
+| `schedule` | [block](#schedule-block-structure) | Yes | - | A 'schedule' block. |
+| `storage_account_url` | string | Yes | - | The SAS URL to the container. |
+| `enabled` | bool | No | True | Should this backup job be enabled? Defaults to 'true'. |
+
+### `sticky_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_setting_names` | list | No | - | A list of 'app_setting' names that the Windows Function App will not swap between Slots when a swap operation is triggered. |
+| `connection_string_names` | list | No | - | A list of 'connection_string' names that the Windows Function App will not swap between Slots when a swap operation is triggered. |
+
+### `site_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `always_on` | bool | No | False | If this Windows Function App is Always On enabled. Defaults to 'false'. |
+| `api_definition_url` | string | No | - | The URL of the API definition that describes this Windows Function App. |
+| `api_management_api_id` | string | No | - | The ID of the API Management API for this Windows Function App. |
+| `app_command_line` | string | No | - | The App command line to launch. |
+| `app_scale_limit` | number | No | - | The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan. |
+| `application_insights_connection_string` | string | No | - | The Connection String for linking the Windows Function App to Application Insights. |
+| `application_insights_key` | string | No | - | The Instrumentation Key for connecting the Windows Function App to Application Insights. |
+| `application_stack` | [block](#application_stack-block-structure) | No | - | An 'application_stack' block. |
+| `app_service_logs` | [block](#app_service_logs-block-structure) | No | - | An 'app_service_logs' block. |
+| `cors` | [block](#cors-block-structure) | No | - | A 'cors' block. |
+| `default_documents` | string | No | - | Specifies a list of Default Documents for the Windows Function App. |
+| `elastic_instance_minimum` | number | No | - | The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans. |
+| `ftps_state` | string | No | Disabled | State of FTP / FTPS service for this Windows Function App. Possible values include: 'AllAllowed', 'FtpsOnly' and 'Disabled'. Defaults to 'Disabled'. |
+| `health_check_path` | string | No | - | The path to be checked for this Windows Function App health. |
+| `health_check_eviction_time_in_min` | string | No | - | The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between '2' and '10'. Only valid in conjunction with 'health_check_path'. |
+| `http2_enabled` | bool | No | False | Specifies if the HTTP2 protocol should be enabled. Defaults to 'false'. |
+| `ip_restriction` | list | No | - | One or more 'ip_restriction' blocks. |
+| `load_balancing_mode` | string | No | LeastRequests | The Site load balancing mode. Possible values include: 'WeightedRoundRobin', 'LeastRequests', 'LeastResponseTime', 'WeightedTotalTraffic', 'RequestHash', 'PerSiteRoundRobin'. Defaults to 'LeastRequests' if omitted. |
+| `managed_pipeline_mode` | string | No | Integrated | Managed pipeline mode. Possible values include: 'Integrated', 'Classic'. Defaults to 'Integrated'. |
+| `minimum_tls_version` | string | No | 1.2 | Configures the minimum version of TLS required for SSL requests. Possible values include: '1.0', '1.1', and '1.2'. Defaults to '1.2'. |
+| `pre_warmed_instance_count` | number | No | - | The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan. |
+| `remote_debugging_enabled` | bool | No | False | Should Remote Debugging be enabled. Defaults to 'false'. |
+| `remote_debugging_version` | string | No | - | The Remote Debugging Version. Possible values include 'VS2017', 'VS2019', and 'VS2022'. |
+| `runtime_scale_monitoring_enabled` | bool | No | - | Should Scale Monitoring of the Functions Runtime be enabled? |
+| `scm_ip_restriction` | list | No | - | One or more 'scm_ip_restriction' blocks. |
+| `scm_minimum_tls_version` | string | No | 1.2 | Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: '1.0', '1.1', and '1.2'. Defaults to '1.2'. |
+| `scm_use_main_ip_restriction` | string | No | - | Should the Windows Function App 'ip_restriction' configuration be used for the SCM also. |
+| `use_32_bit_worker` | bool | No | True | Should the Windows Function App use a 32-bit worker process. Defaults to 'true'. |
+| `vnet_route_all_enabled` | bool | No | False | Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to 'false'. |
+| `websockets_enabled` | bool | No | False | Should Web Sockets be enabled. Defaults to 'false'. |
+| `worker_count` | number | No | - | The number of Workers for this Windows Function App. |
+
+### `microsoft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret` | string | No | - | The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency_interval` | string | Yes | - | How often the backup should be executed (e.g. for weekly backup, this should be set to '7' and 'frequency_unit' should be set to 'Day'). |
+| `frequency_unit` | string | Yes | - | The unit of time for how often the backup should take place. Possible values include: 'Day' and 'Hour'. |
+| `keep_at_least_one_backup` | bool | No | False | Should the service keep at least one backup, regardless of age of backup. Defaults to 'false'. |
+| `retention_period_days` | number | No | 30 | After how many days backups should be deleted. Defaults to '30'. |
+| `start_time` | string | No | - | When the schedule should start working in RFC-3339 format. |
+
+### `github` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the GitHub app used for login. |
+| `client_secret` | string | No | - | The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'. |
+| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication. |
+
+### `azure_static_web_app_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Static Web App Authentication. |
+
+### `active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Active Directory. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
+| `client_secret` | string | No | - | The Client Secret for the Client ID. Cannot be used with 'client_secret_setting_name'. |
+| `client_secret_setting_name` | string | No | - | The App Setting name that contains the client secret of the Client. Cannot be used with 'client_secret'. |
+
+### `facebook_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
+| `app_secret_setting_name` | string | Yes | - | The app setting name that contains the 'app_secret' value used for Facebook Login. |
+| `graph_api_version` | string | No | - | The version of the Facebook API to be used while logging in. |
+| `login_scopes` | string | No | - | The list of scopes that should be requested as part of Facebook Login authentication. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Windows Function App. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Windows Function App. |
+
 ### `custom_oidc_v2` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -183,6 +286,57 @@ tfstate_store = {
 | `token_endpoint` | string | No | - | The endpoint used to request a Token as supplied by 'openid_configuration_endpoint' response. |
 | `issuer_endpoint` | string | No | - | The endpoint that issued the Token as supplied by 'openid_configuration_endpoint' response. |
 | `certification_uri` | string | No | - | The endpoint that provides the keys necessary to validate the token as supplied by 'openid_configuration_endpoint' response. |
+
+### `github_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The ID of the GitHub app used for login.. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for GitHub Login. |
+| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication. |
+
+### `twitter_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
+| `consumer_secret_setting_name` | string | Yes | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
+
+### `auth_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the Authentication / Authorization feature be enabled for the Windows Function App? |
+| `active_directory` | [block](#active_directory-block-structure) | No | - | An 'active_directory' block. |
+| `additional_login_parameters` | string | No | - | Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in. |
+| `allowed_external_redirect_urls` | string | No | - | Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App. |
+| `default_provider` | string | No | - | The default authentication provider to use when multiple providers are configured. Possible values include: 'AzureActiveDirectory', 'Facebook', 'Google', 'MicrosoftAccount', 'Twitter', 'Github' |
+| `facebook` | [block](#facebook-block-structure) | No | - | A 'facebook' block. |
+| `github` | [block](#github-block-structure) | No | - | A 'github' block. |
+| `google` | [block](#google-block-structure) | No | - | A 'google' block. |
+| `issuer` | string | No | - | The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App. |
+| `microsoft` | [block](#microsoft-block-structure) | No | - | A 'microsoft' block. |
+| `runtime_version` | string | No | - | The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App. |
+| `token_refresh_extension_hours` | string | No | 72 | The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to '72' hours. |
+| `token_store_enabled` | bool | No | False | Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to 'false'. |
+| `twitter` | [block](#twitter-block-structure) | No | - | A 'twitter' block. |
+| `unauthenticated_client_action` | string | No | - | The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'. |
+
+### `microsoft_v2` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
+| `client_secret_setting_name` | string | Yes | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. |
+| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication. |
+| `login_scopes` | string | No | - | The list of Login scopes that should be requested as part of Microsoft Account authentication. |
+
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_origins` | string | No | - | Specifies a list of origins that should be allowed to make cross-origin calls. |
+| `support_credentials` | bool | No | False | Are credentials allowed in CORS requests? Defaults to 'false'. |
 
 ### `auth_settings_v2` block structure
 
@@ -222,161 +376,6 @@ tfstate_store = {
 | `type` | string | Yes | - | The Azure Storage Type. Possible values include 'AzureFiles'. |
 | `mount_path` | string | No | - | The path at which to mount the storage share. |
 
-### `site_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `always_on` | bool | No | False | If this Windows Function App is Always On enabled. Defaults to 'false'. |
-| `api_definition_url` | string | No | - | The URL of the API definition that describes this Windows Function App. |
-| `api_management_api_id` | string | No | - | The ID of the API Management API for this Windows Function App. |
-| `app_command_line` | string | No | - | The App command line to launch. |
-| `app_scale_limit` | number | No | - | The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan. |
-| `application_insights_connection_string` | string | No | - | The Connection String for linking the Windows Function App to Application Insights. |
-| `application_insights_key` | string | No | - | The Instrumentation Key for connecting the Windows Function App to Application Insights. |
-| `application_stack` | [block](#application_stack-block-structure) | No | - | An 'application_stack' block. |
-| `app_service_logs` | [block](#app_service_logs-block-structure) | No | - | An 'app_service_logs' block. |
-| `cors` | [block](#cors-block-structure) | No | - | A 'cors' block. |
-| `default_documents` | string | No | - | Specifies a list of Default Documents for the Windows Function App. |
-| `elastic_instance_minimum` | number | No | - | The number of minimum instances for this Windows Function App. Only affects apps on Elastic Premium plans. |
-| `ftps_state` | string | No | Disabled | State of FTP / FTPS service for this Windows Function App. Possible values include: 'AllAllowed', 'FtpsOnly' and 'Disabled'. Defaults to 'Disabled'. |
-| `health_check_path` | string | No | - | The path to be checked for this Windows Function App health. |
-| `health_check_eviction_time_in_min` | string | No | - | The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between '2' and '10'. Only valid in conjunction with 'health_check_path'. |
-| `http2_enabled` | bool | No | False | Specifies if the HTTP2 protocol should be enabled. Defaults to 'false'. |
-| `ip_restriction` | list | No | - | One or more 'ip_restriction' blocks. |
-| `load_balancing_mode` | string | No | LeastRequests | The Site load balancing mode. Possible values include: 'WeightedRoundRobin', 'LeastRequests', 'LeastResponseTime', 'WeightedTotalTraffic', 'RequestHash', 'PerSiteRoundRobin'. Defaults to 'LeastRequests' if omitted. |
-| `managed_pipeline_mode` | string | No | Integrated | Managed pipeline mode. Possible values include: 'Integrated', 'Classic'. Defaults to 'Integrated'. |
-| `minimum_tls_version` | string | No | 1.2 | Configures the minimum version of TLS required for SSL requests. Possible values include: '1.0', '1.1', and '1.2'. Defaults to '1.2'. |
-| `pre_warmed_instance_count` | number | No | - | The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan. |
-| `remote_debugging_enabled` | bool | No | False | Should Remote Debugging be enabled. Defaults to 'false'. |
-| `remote_debugging_version` | string | No | - | The Remote Debugging Version. Possible values include 'VS2017', 'VS2019', and 'VS2022'. |
-| `runtime_scale_monitoring_enabled` | bool | No | - | Should Scale Monitoring of the Functions Runtime be enabled? |
-| `scm_ip_restriction` | list | No | - | One or more 'scm_ip_restriction' blocks. |
-| `scm_minimum_tls_version` | string | No | 1.2 | Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values include: '1.0', '1.1', and '1.2'. Defaults to '1.2'. |
-| `scm_use_main_ip_restriction` | string | No | - | Should the Windows Function App 'ip_restriction' configuration be used for the SCM also. |
-| `use_32_bit_worker` | bool | No | True | Should the Windows Function App use a 32-bit worker process. Defaults to 'true'. |
-| `vnet_route_all_enabled` | bool | No | False | Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to 'false'. |
-| `websockets_enabled` | bool | No | False | Should Web Sockets be enabled. Defaults to 'false'. |
-| `worker_count` | number | No | - | The number of Workers for this Windows Function App. |
-
-### `apple_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Apple web application. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Apple Login. |
-| `login_scopes` | list | No | - | A list of Login Scopes provided by this Authentication Provider. |
-
-### `app_service_logs` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_quota_mb` | string | No | 35 | The amount of disk space to use for logs. Valid values are between '25' and '100'. Defaults to '35'. |
-| `retention_period_days` | string | No | - | The retention period for logs in days. Valid values are between '0' and '99999'.(never delete). |
-
-### `auth_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the Authentication / Authorization feature be enabled for the Windows Function App? |
-| `active_directory` | [block](#active_directory-block-structure) | No | - | An 'active_directory' block. |
-| `additional_login_parameters` | string | No | - | Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in. |
-| `allowed_external_redirect_urls` | string | No | - | Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App. |
-| `default_provider` | string | No | - | The default authentication provider to use when multiple providers are configured. Possible values include: 'AzureActiveDirectory', 'Facebook', 'Google', 'MicrosoftAccount', 'Twitter', 'Github' |
-| `facebook` | [block](#facebook-block-structure) | No | - | A 'facebook' block. |
-| `github` | [block](#github-block-structure) | No | - | A 'github' block. |
-| `google` | [block](#google-block-structure) | No | - | A 'google' block. |
-| `issuer` | string | No | - | The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App. |
-| `microsoft` | [block](#microsoft-block-structure) | No | - | A 'microsoft' block. |
-| `runtime_version` | string | No | - | The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App. |
-| `token_refresh_extension_hours` | string | No | 72 | The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to '72' hours. |
-| `token_store_enabled` | bool | No | False | Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to 'false'. |
-| `twitter` | [block](#twitter-block-structure) | No | - | A 'twitter' block. |
-| `unauthenticated_client_action` | string | No | - | The action to take when an unauthenticated client attempts to access the app. Possible values include: 'RedirectToLoginPage', 'AllowAnonymous'. |
-
-### `github_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the GitHub app used for login.. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for GitHub Login. |
-| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of GitHub Login authentication. |
-
-### `facebook` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `app_id` | string | Yes | - | The App ID of the Facebook app used for login. |
-| `app_secret` | string | No | - | The App Secret of the Facebook app used for Facebook login. Cannot be specified with 'app_secret_setting_name'. |
-| `app_secret_setting_name` | string | No | - | The app setting name that contains the 'app_secret' value used for Facebook login. Cannot be specified with 'app_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication. |
-
-### `github` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the GitHub app used for login. |
-| `client_secret` | string | No | - | The Client Secret of the GitHub app used for GitHub login. Cannot be specified with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The app setting name that contains the 'client_secret' value used for GitHub login. Cannot be specified with 'client_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of GitHub login authentication. |
-
-### `google_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OpenID Connect Client ID for the Google web application. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name that contains the 'client_secret' value used for Google Login. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that should be requested as part of Google Sign-In authentication. |
-| `login_scopes` | string | No | - | The list of OAuth 2.0 scopes that should be requested as part of Google Sign-In authentication. |
-
-### `connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Connection. |
-| `type` | string | Yes | - | Type of database. Possible values include: 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'. |
-| `value` | string | Yes | - | The connection string value. |
-
-### `microsoft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret` | string | No | - | The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with 'client_secret'. |
-| `oauth_scopes` | string | No | - | Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, 'wl.basic' is used as the default scope. |
-
-### `twitter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
-| `consumer_secret` | string | No | - | The OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret_setting_name'. |
-| `consumer_secret_setting_name` | string | No | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. Cannot be specified with 'consumer_secret'. |
-
-### `active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Active Directory. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory. |
-| `client_secret` | string | No | - | The Client Secret for the Client ID. Cannot be used with 'client_secret_setting_name'. |
-| `client_secret_setting_name` | string | No | - | The App Setting name that contains the client secret of the Client. Cannot be used with 'client_secret'. |
-
-### `azure_static_web_app_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The ID of the Client to use to authenticate with Azure Static Web App Authentication. |
-
-### `microsoft_v2` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The OAuth 2.0 client ID that was created for the app used for authentication. |
-| `client_secret_setting_name` | string | Yes | - | The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. |
-| `allowed_audiences` | string | No | - | Specifies a list of Allowed Audiences that will be requested as part of Microsoft Sign-In authentication. |
-| `login_scopes` | string | No | - | The list of Login scopes that should be requested as part of Microsoft Account authentication. |
-
 ### `application_stack` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -388,12 +387,13 @@ tfstate_store = {
 | `powershell_core_version` | string | No | - | The version of PowerShell Core to run. Possible values are '7', and '7.2'. |
 | `use_custom_runtime` | bool | No | - | Should the Windows Function App use a custom runtime? |
 
-### `twitter_v2` block structure
+### `connection_string` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `consumer_key` | string | Yes | - | The OAuth 1.0a consumer key of the Twitter application used for sign-in. |
-| `consumer_secret_setting_name` | string | Yes | - | The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in. |
+| `name` | string | Yes | - | The name which should be used for this Connection. |
+| `type` | string | Yes | - | Type of database. Possible values include: 'APIHub', 'Custom', 'DocDb', 'EventHub', 'MySQL', 'NotificationHub', 'PostgreSQL', 'RedisCache', 'ServiceBus', 'SQLAzure', and 'SQLServer'. |
+| `value` | string | Yes | - | The connection string value. |
 
 
 

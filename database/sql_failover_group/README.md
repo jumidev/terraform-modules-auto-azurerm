@@ -56,6 +56,13 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `read_write_endpoint_failover_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | the failover mode. Possible values are 'Manual', 'Automatic' |
+| `grace_minutes` | number | No | - | Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted |
+
 ### `partner_servers` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,13 +73,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
-
-### `read_write_endpoint_failover_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | the failover mode. Possible values are 'Manual', 'Automatic' |
-| `grace_minutes` | number | No | - | Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted |
 
 
 

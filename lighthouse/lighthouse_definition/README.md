@@ -51,6 +51,13 @@ tfstate_store = {
 | **eligible_authorization** | [block](#eligible_authorization-block-structure) |  An `eligible_authorization` block. | 
 | **plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
+### `approver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
+| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
+
 ### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,13 +92,6 @@ tfstate_store = {
 | `multi_factor_auth_provider` | string | No | - | The multi-factor authorization provider to be used for just-in-time access requests. Possible value is 'Azure'. |
 | `maximum_activation_duration` | number | No | PT8H | The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to 'PT8H'. |
 | `approver` | [block](#approver-block-structure) | No | - | An 'approver' block. |
-
-### `approver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
-| `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
 
 
 

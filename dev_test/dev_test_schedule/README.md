@@ -52,24 +52,18 @@ tfstate_store = {
 | **daily_recurrence** | [block](#daily_recurrence-block-structure) |  -  |  -  |  The properties of a daily schedule. If the schedule occurs once each day of the week, specify the daily recurrence. A `daily_recurrence` block. | 
 | **hourly_recurrence** | [block](#hourly_recurrence-block-structure) |  -  |  -  |  The properties of an hourly schedule. If the schedule occurs multiple times a day, specify the hourly recurrence. A `hourly_recurrence` block. | 
 
+### `hourly_recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
+
 ### `weekly_recurrence` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `time` | string | Yes | - | The time when the schedule takes effect. |
 | `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
-
-### `daily_recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `time` | string | Yes | - | The time each day when the schedule takes effect. |
-
-### `hourly_recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
 ### `notification_settings` block structure
 
@@ -78,6 +72,12 @@ tfstate_store = {
 | `status` | string | No | Disabled | The status of the notification. Possible values are 'Enabled' and 'Disabled'. Defaults to 'Disabled' |
 | `time_in_minutes` | number | No | - | Time in minutes before event at which notification will be sent. |
 | `webhook_url` | string | No | - | The webhook URL to which the notification will be sent. |
+
+### `daily_recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time` | string | Yes | - | The time each day when the schedule takes effect. |
 
 
 

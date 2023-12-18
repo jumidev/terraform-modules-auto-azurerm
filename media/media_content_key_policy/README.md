@@ -49,18 +49,20 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **description** | string |  A description for the Policy. | 
 
-### `policy_option` block structure
+### `token_restriction` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Policy Option. |
-| `clear_key_configuration_enabled` | bool | No | - | Enable a configuration for non-DRM keys. |
-| `fairplay_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
-| `open_restriction_enabled` | bool | No | - | Enable an open restriction. License or key will be delivered on every request. |
-| `playready_configuration_license` | list | No | - | One or more 'playready_configuration_license' blocks. |
-| `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
-| `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
-| `widevine_configuration_template` | string | No | - | The Widevine template. |
+| `alternate_key` | list | No | - | One or more 'alternate_key' block. |
+| `audience` | string | No | - | The audience for the token. |
+| `issuer` | string | No | - | The token issuer. |
+| `open_id_connect_discovery_document` | string | No | - | The OpenID connect discovery document. |
+| `primary_rsa_token_key_exponent` | string | No | - | The RSA parameter exponent. |
+| `primary_rsa_token_key_modulus` | string | No | - | The RSA parameter modulus. |
+| `primary_symmetric_token_key` | string | No | - | The key value of the key. Specifies a symmetric key for token validation. |
+| `primary_x509_token_key_raw` | string | No | - | The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation. |
+| `required_claim` | list | No | - | One or more 'required_claim' blocks. |
+| `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
 
 ### `fairplay_configuration` block structure
 
@@ -80,20 +82,18 @@ tfstate_store = {
 | `playback_duration_seconds` | number | No | - | Playback duration. |
 | `storage_duration_seconds` | number | No | - | Storage duration. |
 
-### `token_restriction` block structure
+### `policy_option` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `alternate_key` | list | No | - | One or more 'alternate_key' block. |
-| `audience` | string | No | - | The audience for the token. |
-| `issuer` | string | No | - | The token issuer. |
-| `open_id_connect_discovery_document` | string | No | - | The OpenID connect discovery document. |
-| `primary_rsa_token_key_exponent` | string | No | - | The RSA parameter exponent. |
-| `primary_rsa_token_key_modulus` | string | No | - | The RSA parameter modulus. |
-| `primary_symmetric_token_key` | string | No | - | The key value of the key. Specifies a symmetric key for token validation. |
-| `primary_x509_token_key_raw` | string | No | - | The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation. |
-| `required_claim` | list | No | - | One or more 'required_claim' blocks. |
-| `token_type` | string | No | - | The type of token. Supported values are 'Jwt' or 'Swt'. |
+| `name` | string | Yes | - | The name which should be used for this Policy Option. |
+| `clear_key_configuration_enabled` | bool | No | - | Enable a configuration for non-DRM keys. |
+| `fairplay_configuration` | [block](#fairplay_configuration-block-structure) | No | - | A 'fairplay_configuration' block. Check license requirements here <https://docs.microsoft.com/azure/media-services/latest/fairplay-license-overview>. |
+| `open_restriction_enabled` | bool | No | - | Enable an open restriction. License or key will be delivered on every request. |
+| `playready_configuration_license` | list | No | - | One or more 'playready_configuration_license' blocks. |
+| `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
+| `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
+| `widevine_configuration_template` | string | No | - | The Widevine template. |
 
 
 
