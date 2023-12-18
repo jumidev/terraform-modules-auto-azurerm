@@ -50,14 +50,6 @@ tfstate_store = {
 | **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `management_ip_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
-| `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. |
-
 ### `ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,6 +64,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `virtual_hub_id` | string | Yes | - | Specifies the ID of the Virtual Hub where the Firewall resides in. |
 | `public_ip_count` | string | No | 1 | Specifies the number of public IPs to assign to the Firewall. Defaults to '1'. |
+
+### `management_ip_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
+| `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. |
 
 
 

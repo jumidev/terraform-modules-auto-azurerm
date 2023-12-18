@@ -57,19 +57,19 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
 
-### `ip_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_mask` | string | Yes | - | The IP mask to match on. |
-| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
-
 ### `virtual_network_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | The id of the subnet to match on. |
 | `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
+
+### `ip_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_mask` | string | Yes | - | The IP mask to match on. |
+| `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
 
 ### `network_rulesets` block structure
 

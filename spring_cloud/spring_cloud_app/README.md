@@ -23,24 +23,6 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
-
-| `tfstate_inputs` variable | Information |
-| -------- | ----------- |
-| **cosmosdb_account_id** | If set to a valid `azurerm_cosmosdb_account` `id`, makes a **azurerm_spring_cloud_app_cosmosdb_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [CosmosDB Account](cosmosdb_account.html).|
-| **redis_cache_id** | If set to a valid `azurerm_redis_cache` `id`, makes a **azurerm_spring_cloud_app_redis_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [Redis Cache](redis_cache.html).|
-| **mysql_server_id** | If set to a valid `azurerm_mysql_server` `id`, makes a **azurerm_spring_cloud_app_mysql_association** - Associates a [Spring Cloud Application](spring_cloud_app.html) with a [MySQL Database](mysql_database.html).|
-
-Example associated resources in a `tfstate_inputs` block:
-
-```hcl
-tfstate_inputs = {
-   cosmosdb_account_id = "path/to/cosmosdb_account_component:id"
-   redis_cache_id = "path/to/redis_cache_component:id"
-   mysql_server_id = "path/to/mysql_server_component:id"
-}
-```
-
 
 ## Required Variables
 
@@ -64,20 +46,6 @@ tfstate_inputs = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
-### `persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
-| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
-
 ### `custom_persistent_disk` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -97,6 +65,20 @@ tfstate_inputs = {
 | `send_timeout_in_seconds` | string | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
 | `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
 | `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
+
+### `persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
+| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
 
 
 

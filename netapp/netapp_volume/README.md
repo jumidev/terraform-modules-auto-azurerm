@@ -35,16 +35,31 @@ tfstate_store = {
 ```
 ## Optional associated resource
 
-| `tfstate_inputs` variable | Information |
-| -------- | ----------- |
-| **vmware_cluster_id** | If set to a valid `azurerm_vmware_cluster` `id`, makes a **azurerm_vmware_netapp_volume_attachment** - Manages a VMware Private Cloud Netapp File Attachment.|
 
-Example associated resources in a `tfstate_inputs` block:
+### `vmware_netapp_volume_attachment` 
+
+If set, makes a **azurerm_vmware_netapp_volume_attachment** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `vmware_cluster_id` | string | True | null |
+
+
+Example component snippet:
 
 ```hcl
-tfstate_inputs = {
-   vmware_cluster_id = "path/to/vmware_cluster_component:id"
+inputs = {
+   vmware_netapp_volume_attachment = {
+      name = "..."      
+   }
+   
 }
+
+tfstate_inputs = {
+   vmware_netapp_volume_attachment.vmware_cluster_id = "path/to/vmware_cluster_id_component:id"   
+}
+
 ```
 
 

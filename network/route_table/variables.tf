@@ -41,11 +41,3 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-
-# OPTIONAL VARIABLES
-
-variable "subnet_id" {
-  description = "The ID of the Subnet. Changing this forces a new resource to be created."
-  type        = string
-  default     = null
-}

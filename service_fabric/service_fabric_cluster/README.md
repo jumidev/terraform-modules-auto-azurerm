@@ -71,19 +71,37 @@ tfstate_store = {
 | **vmss_zonal_upgrade_mode** | string |  `Hierarchical`, `Parallel`  |  Specifies the upgrade mode for the virtual machine scale set updates that happen in all availability zones at once. Possible values are `Hierarchical` or `Parallel`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `ephemeral_ports` block structure
+### `common_names` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `start_port` | string | Yes | - | The start of the Ephemeral Port Range on this Node Type. |
-| `end_port` | string | Yes | - | The end of the Ephemeral Port Range on this Node Type. |
+| `certificate_common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `certificate_issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
 
-### `application_ports` block structure
+### `client_certificate_common_name` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `start_port` | string | Yes | - | The start of the Application Port Range on this Node Type. |
-| `end_port` | string | Yes | - | The end of the Application Port Range on this Node Type. |
+| `common_name` | string | Yes | - | The common or subject name of the certificate. |
+| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
+
+### `reverse_proxy_certificate_common_names` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `common_names` | [block](#common_names-block-structure) | Yes | - | A 'common_names' block. |
+| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
+
+### `diagnostics_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_name` | string | Yes | - | The name of the Storage Account where the Diagnostics should be sent to. |
+| `protected_account_key_name` | string | Yes | - | The protected diagnostics storage key name, such as 'StorageAccountKey1'. |
+| `blob_endpoint` | string | Yes | - | The Blob Endpoint of the Storage Account. |
+| `queue_endpoint` | string | Yes | - | The Queue Endpoint of the Storage Account. |
+| `table_endpoint` | string | Yes | - | The Table Endpoint of the Storage Account. |
 
 ### `node_type` block structure
 
@@ -103,6 +121,35 @@ tfstate_store = {
 | `ephemeral_ports` | [block](#ephemeral_ports-block-structure) | No | - | A 'ephemeral_ports' block. |
 | `reverse_proxy_endpoint_port` | string | No | - | The Port used for the Reverse Proxy Endpoint for this Node Type. Changing this will upgrade the cluster. |
 
+### `upgrade_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `force_restart_enabled` | bool | No | - | Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed. |
+| `health_check_retry_timeout` | string | No | 00:45:00 | Specifies the duration, in 'hh:mm:ss' string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to '00:45:00'. |
+| `health_check_stable_duration` | string | No | 00:01:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to '00:01:00'. |
+| `health_check_wait_duration` | string | No | 00:00:30 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to '00:00:30'. |
+| `upgrade_domain_timeout` | string | No | 02:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to '02:00:00'. |
+| `upgrade_replica_set_check_timeout` | string | No | 10675199.02:48:05.4775807 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to '10675199.02:48:05.4775807'. |
+| `upgrade_timeout` | string | No | 12:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to '12:00:00'. |
+| `health_policy` | [block](#health_policy-block-structure) | No | - | A 'health_policy' block |
+| `delta_health_policy` | [block](#delta_health_policy-block-structure) | No | - | A 'delta_health_policy' block |
+
+### `delta_health_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_delta_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `max_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+| `max_upgrade_domain_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
+
+### `application_ports` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start_port` | string | Yes | - | The start of the Application Port Range on this Node Type. |
+| `end_port` | string | Yes | - | The end of the Application Port Range on this Node Type. |
+
 ### `reverse_proxy_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -118,16 +165,6 @@ tfstate_store = {
 | `max_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
 | `max_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to '0'. |
 
-### `diagnostics_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_name` | string | Yes | - | The name of the Storage Account where the Diagnostics should be sent to. |
-| `protected_account_key_name` | string | Yes | - | The protected diagnostics storage key name, such as 'StorageAccountKey1'. |
-| `blob_endpoint` | string | Yes | - | The Blob Endpoint of the Storage Account. |
-| `queue_endpoint` | string | Yes | - | The Queue Endpoint of the Storage Account. |
-| `table_endpoint` | string | Yes | - | The Table Endpoint of the Storage Account. |
-
 ### `client_certificate_thumbprint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -135,43 +172,12 @@ tfstate_store = {
 | `thumbprint` | string | Yes | - | The Thumbprint associated with the Client Certificate. |
 | `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
 
-### `client_certificate_common_name` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `common_name` | string | Yes | - | The common or subject name of the certificate. |
-| `issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
-| `is_admin` | string | Yes | - | Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster. |
-
-### `delta_health_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_delta_unhealthy_applications_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-| `max_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-| `max_upgrade_domain_delta_unhealthy_nodes_percent` | string | No | 0 | Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to '0'. |
-
-### `certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
-| `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `reverse_proxy_certificate_common_names` block structure
+### `certificate_common_names` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `common_names` | [block](#common_names-block-structure) | Yes | - | A 'common_names' block. |
 | `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
-
-### `fabric_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Fabric Setting, such as 'Security' or 'Federation'. |
-| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
 
 ### `azure_active_directory` block structure
 
@@ -181,33 +187,27 @@ tfstate_store = {
 | `cluster_application_id` | string | Yes | - | The Azure Active Directory Cluster Application ID. |
 | `client_application_id` | string | Yes | - | The Azure Active Directory Client ID which should be used for the Client Application. |
 
-### `certificate_common_names` block structure
+### `fabric_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `common_names` | [block](#common_names-block-structure) | Yes | - | A 'common_names' block. |
+| `name` | string | Yes | - | The name of the Fabric Setting, such as 'Security' or 'Federation'. |
+| `parameters` | string | No | - | A map containing settings for the specified Fabric Setting. |
+
+### `certificate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+| `thumbprint_secondary` | string | No | - | The Secondary Thumbprint of the Certificate. |
 | `x509_store_name` | string | Yes | - | The X509 Store where the Certificate Exists, such as 'My'. |
 
-### `upgrade_policy` block structure
+### `ephemeral_ports` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `force_restart_enabled` | bool | No | - | Indicates whether to restart the Service Fabric node even if only dynamic configurations have changed. |
-| `health_check_retry_timeout` | string | No | 00:45:00 | Specifies the duration, in 'hh:mm:ss' string format, after which Service Fabric retries the health check if the previous health check fails. Defaults to '00:45:00'. |
-| `health_check_stable_duration` | string | No | 00:01:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits in order to verify that the cluster is stable before it continues to the next upgrade domain or completes the upgrade. This wait duration prevents undetected changes of health right after the health check is performed. Defaults to '00:01:00'. |
-| `health_check_wait_duration` | string | No | 00:00:30 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to '00:00:30'. |
-| `upgrade_domain_timeout` | string | No | 02:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes to upgrade a single upgrade domain. After this period, the upgrade fails. Defaults to '02:00:00'. |
-| `upgrade_replica_set_check_timeout` | string | No | 10675199.02:48:05.4775807 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric waits for a replica set to reconfigure into a safe state, if it is not already in a safe state, before Service Fabric proceeds with the upgrade. Defaults to '10675199.02:48:05.4775807'. |
-| `upgrade_timeout` | string | No | 12:00:00 | Specifies the duration, in 'hh:mm:ss' string format, that Service Fabric takes for the entire upgrade. After this period, the upgrade fails. Defaults to '12:00:00'. |
-| `health_policy` | [block](#health_policy-block-structure) | No | - | A 'health_policy' block |
-| `delta_health_policy` | [block](#delta_health_policy-block-structure) | No | - | A 'delta_health_policy' block |
-
-### `common_names` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_common_name` | string | Yes | - | The common or subject name of the certificate. |
-| `certificate_issuer_thumbprint` | string | No | - | The Issuer Thumbprint of the Certificate. |
+| `start_port` | string | Yes | - | The start of the Ephemeral Port Range on this Node Type. |
+| `end_port` | string | Yes | - | The end of the Ephemeral Port Range on this Node Type. |
 
 
 

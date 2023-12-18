@@ -71,27 +71,12 @@ tfstate_store = {
 | `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
 | `wsdl_selector` | [block](#wsdl_selector-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
 
-### `oauth2_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
-| `scope` | string | No | - | Operations scope. |
-
 ### `license` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | No | - | The name of the license . |
 | `url` | string | No | - | Absolute URL of the license. |
-
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address of the contact person/organization. |
-| `name` | string | No | - | The name of the contact person/organization. |
-| `url` | string | No | - | Absolute URL of the contact information. |
 
 ### `openid_authentication` block structure
 
@@ -100,6 +85,13 @@ tfstate_store = {
 | `openid_provider_name` | string | Yes | - | OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html). |
 | `bearer_token_sending_methods` | string | No | - | How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'. |
 
+### `wsdl_selector` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `service_name` | string | Yes | - | The name of service to import from WSDL. |
+| `endpoint_name` | string | Yes | - | The name of endpoint (port) to import from WSDL. |
+
 ### `subscription_key_parameter_names` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -107,12 +99,20 @@ tfstate_store = {
 | `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
 | `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
 
-### `wsdl_selector` block structure
+### `oauth2_authorization` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `service_name` | string | Yes | - | The name of service to import from WSDL. |
-| `endpoint_name` | string | Yes | - | The name of endpoint (port) to import from WSDL. |
+| `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
+| `scope` | string | No | - | Operations scope. |
+
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | No | - | The email address of the contact person/organization. |
+| `name` | string | No | - | The name of the contact person/organization. |
+| `url` | string | No | - | Absolute URL of the contact information. |
 
 
 

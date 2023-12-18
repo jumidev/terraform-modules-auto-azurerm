@@ -21,18 +21,3 @@ variable "subscription_ids" {
   type        = list(any)
   default     = []
 }
-
-# OPTIONAL VARIABLES
-
-variable "resource_management_private_link_association" {
-  type    = map(any)
-  default = null
-}
-
-# OPTIONAL VARIABLES
-
-variable "subscription_id" {
-  description = "The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created."
-  type        = string
-  default     = null
-}

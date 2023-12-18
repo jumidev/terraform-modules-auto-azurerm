@@ -17,7 +17,7 @@ inputs = {
    nat_ip_configuration = {
       name = "..."      
       # subnet_id → set in tfstate_inputs
-      primary =       
+      primary = true      
    }
    
    # load_balancer_frontend_ip_configuration_ids → set in tfstate_inputs

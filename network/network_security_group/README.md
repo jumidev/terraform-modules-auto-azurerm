@@ -23,20 +23,6 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
-
-| `tfstate_inputs` variable | Information |
-| -------- | ----------- |
-| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_network_security_group_association** - Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
-
-Example associated resources in a `tfstate_inputs` block:
-
-```hcl
-tfstate_inputs = {
-   subnet_id = "path/to/subnet_component:id"
-}
-```
-
 
 ## Required Variables
 

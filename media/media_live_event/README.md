@@ -66,6 +66,14 @@ tfstate_store = {
 | `preview_locator` | string | No | - | The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created. |
 | `streaming_policy_name` | string | No | - | The name of streaming policy used for the live event preview. Changing this forces a new resource to be created. |
 
+### `ip_access_control_allow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | No | - | The IP address or CIDR range. |
+| `name` | string | No | - | The friendly name for the IP address range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
 ### `input` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,14 +89,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `client_access_policy` | string | No | - | The content of clientaccesspolicy.xml used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of the Cross Domain Policy ('crossdomain.xml'). |
-
-### `ip_access_control_allow` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address or CIDR range. |
-| `name` | string | No | - | The friendly name for the IP address range. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 ### `encoding` block structure
 

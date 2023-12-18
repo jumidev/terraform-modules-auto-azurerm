@@ -94,6 +94,47 @@ tfstate_store = {
 | `probe_method` | string | No | GET | Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'. |
 | `interval_in_seconds` | number | No | 120 | The number of seconds between each Health Probe. Defaults to '120'. |
 
+### `backend_pool_load_balancing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the Load Balancer. |
+| `sample_size` | number | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
+| `successful_samples_required` | number | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
+| `additional_latency_milliseconds` | number | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
+
+### `backend_pool` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the Backend Pool. |
+| `backend` | [block](#backend-block-structure) | Yes | - | A 'backend' block. |
+| `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
+| `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
+
+### `redirect_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_host` | string | No | - | Set this to change the URL for the redirection. |
+| `redirect_protocol` | string | Yes | - | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. |
+| `redirect_type` | string | Yes | - | Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'. |
+| `custom_fragment` | string | No | - | The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL. |
+| `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
+| `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
+
+### `backend` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
+| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
+| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
+| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
+| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
+| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
+| `weight` | number | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
+
 ### `frontend_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -123,47 +164,6 @@ tfstate_store = {
 | `cache_duration` | string | No | - | Specify the minimum caching duration (in ISO8601 notation e.g. 'P1DT2H' for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. 'cache_duration' works only in combination with 'cache_enabled' set to 'true'. |
 | `custom_forwarding_path` | string | No | - | Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path. |
 | `forwarding_protocol` | string | No | HttpsOnly | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'. |
-
-### `backend_pool` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Backend Pool. |
-| `backend` | [block](#backend-block-structure) | Yes | - | A 'backend' block. |
-| `load_balancing_name` | string | Yes | - | Specifies the name of the 'backend_pool_load_balancing' block within this resource to use for this 'Backend Pool'. |
-| `health_probe_name` | string | Yes | - | Specifies the name of the 'backend_pool_health_probe' block within this resource to use for this 'Backend Pool'. |
-
-### `backend_pool_load_balancing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the Load Balancer. |
-| `sample_size` | number | No | 4 | The number of samples to consider for load balancing decisions. Defaults to '4'. |
-| `successful_samples_required` | number | No | 2 | The number of samples within the sample period that must succeed. Defaults to '2'. |
-| `additional_latency_milliseconds` | number | No | 0 | The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to '0'. |
-
-### `redirect_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `custom_host` | string | No | - | Set this to change the URL for the redirection. |
-| `redirect_protocol` | string | Yes | - | Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. |
-| `redirect_type` | string | Yes | - | Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'. |
-| `custom_fragment` | string | No | - | The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL. |
-| `custom_path` | string | No | - | The path to retain as per the incoming request, or update in the URL for the redirection. |
-| `custom_query_string` | string | No | - | Replace any existing query string from the incoming request URL. |
-
-### `backend` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'. |
-| `address` | string | Yes | - | Location of the backend (IP address or FQDN) |
-| `host_header` | string | Yes | - | The value to use as the host header sent to the backend. |
-| `http_port` | string | Yes | - | The HTTP TCP port number. Possible values are between '1' - '65535'. |
-| `https_port` | string | Yes | - | The HTTPS TCP port number. Possible values are between '1' - '65535'. |
-| `priority` | string | No | 1 | Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'. |
-| `weight` | number | No | 50 | Weight of this endpoint for load balancing purposes. Defaults to '50'. |
 
 
 

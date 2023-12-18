@@ -40,16 +40,37 @@ tfstate_store = {
 ```
 ## Optional associated resource
 
-| `tfstate_inputs` variable | Information |
-| -------- | ----------- |
-| **managed_disk_id** | If set to a valid `azurerm_managed_disk` `id`, makes a **azurerm_virtual_machine_data_disk_attachment** - Manages attaching a Disk to a Virtual Machine.~> **NOTE:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.-> **Please Note:** only Managed Disks are supported via this separate resource, Unmanaged Disks can be attached using the `storage_data_disk` block in the `azurerm_virtual_machine` resource.|
 
-Example associated resources in a `tfstate_inputs` block:
+### `virtual_machine_data_disk_attachment` 
+
+If set, makes a **azurerm_virtual_machine_data_disk_attachment** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `managed_disk_id` | string | True | null |
+| `lun` | number | True | 3 |
+| `caching` | string | True | "ReadOnly" |
+| `create_option` | string | False | "Attach" |
+| `write_accelerator_enabled` | bool | False | false |
+
+
+Example component snippet:
 
 ```hcl
-tfstate_inputs = {
-   managed_disk_id = "path/to/managed_disk_component:id"
+inputs = {
+   virtual_machine_data_disk_attachment = {
+      lun = 3      
+      caching = "ReadOnly"      
+      create_option = "Attach"      
+      write_accelerator_enabled = false      
+   }
+   
 }
+
+tfstate_inputs = {
+   virtual_machine_data_disk_attachment.managed_disk_id = "path/to/managed_disk_id_component:id"   
+}
+
 ```
 
 
@@ -112,12 +133,37 @@ tfstate_inputs = {
 | **winrm_listener** | [block](#winrm_listener-block-structure) |  -  |  -  |  One or more `winrm_listener` blocks. Changing this forces a new resource to be created. | 
 | **zone** | string |  -  |  -  |  * `zones` -  Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created. | 
 
-### `secret` block structure
+### `boot_diagnostics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
-| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
+| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
+
+### `gallery_application` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `version_id` | string | Yes | - | Specifies the Gallery Application Version resource ID. |
+| `configuration_blob_uri` | string | No | - | Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. |
+| `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. |
+| `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. |
+
+### `plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+
+### `source_image_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `publisher` | string | Yes | - | Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `offer` | string | Yes | - | Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
+| `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 
 ### `additional_capabilities` block structure
 
@@ -131,6 +177,13 @@ tfstate_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
 | `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
+
+### `winrm_listener` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created. |
+| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
 
 ### `identity` block structure
 
@@ -153,36 +206,12 @@ tfstate_inputs = {
 | `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
 | `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
 
-### `source_image_reference` block structure
+### `secret` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `publisher` | string | Yes | - | Specifies the publisher of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-| `offer` | string | Yes | - | Specifies the offer of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-| `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-| `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
-
-### `additional_unattend_content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
-| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
-
-### `winrm_listener` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created. |
-| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
-
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-| `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-| `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
 
 ### `termination_notification` block structure
 
@@ -191,20 +220,12 @@ tfstate_inputs = {
 | `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
 | `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
 
-### `gallery_application` block structure
+### `additional_unattend_content` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `version_id` | string | Yes | - | Specifies the Gallery Application Version resource ID. |
-| `configuration_blob_uri` | string | No | - | Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. |
-| `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. |
-| `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. |
-
-### `boot_diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
+| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
+| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
 
 
 

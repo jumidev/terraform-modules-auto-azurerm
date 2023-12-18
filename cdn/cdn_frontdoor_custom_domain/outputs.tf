@@ -33,16 +33,3 @@ output "validation_token" {
   value       = azurerm_cdn_frontdoor_custom_domain.this.validation_token
 }
 
-output "cdn_frontdoor_custom_domain_id" {
-  value = azurerm_cdn_frontdoor_custom_domain_association.this.*.cdn_frontdoor_custom_domain_id
-}
-
-output "cdn_frontdoor_route_ids" {
-  value = azurerm_cdn_frontdoor_custom_domain_association.this.*.cdn_frontdoor_route_ids
-}
-
-output "id" {
-  description = "The ID of the Front Door Custom Domain Association."
-  value       = azurerm_cdn_frontdoor_custom_domain_association.this.*.id
-}
-

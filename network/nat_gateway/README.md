@@ -23,24 +23,6 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
-
-| `tfstate_inputs` variable | Information |
-| -------- | ----------- |
-| **public_ip_address_id** | If set to a valid `azurerm_public_ip` `id`, makes a **azurerm_nat_gateway_public_ip_association** - Manages the association between a NAT Gateway and a Public IP.|
-| **subnet_id** | If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_nat_gateway_association** - Associates a [NAT Gateway](nat_gateway.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).|
-| **public_ip_prefix_id** | If set to a valid `azurerm_public_ip_prefix` `id`, makes a **azurerm_nat_gateway_public_ip_prefix_association** - Manages the association between a NAT Gateway and a Public IP Prefix.|
-
-Example associated resources in a `tfstate_inputs` block:
-
-```hcl
-tfstate_inputs = {
-   public_ip_address_id = "path/to/public_ip_component:id"
-   subnet_id = "path/to/subnet_component:id"
-   public_ip_prefix_id = "path/to/public_ip_prefix_component:id"
-}
-```
-
 
 ## Required Variables
 

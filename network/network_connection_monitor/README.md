@@ -65,6 +65,27 @@ tfstate_store = {
 | **output_workspace_resource_ids** | list |  A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Network Connection Monitor. | 
 
+### `icmp_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+
+### `tcp_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port for the TCP connection. |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
+
+### `success_threshold` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
+| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
+
 ### `http_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,13 +97,42 @@ tfstate_store = {
 | `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
 | `valid_status_code_ranges` | string | No | - | The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'. |
 
-### `tcp_configuration` block structure
+### `test_group` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port for the TCP connection. |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
-| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
+| `name` | string | Yes | - | The name of the test group for the Network Connection Monitor. |
+| `destination_endpoints` | list | Yes | - | A list of destination endpoint names. |
+| `source_endpoints` | list | Yes | - | A list of source endpoint names. |
+| `test_configuration_names` | list | Yes | - | A list of test configuration names. |
+| `enabled` | bool | No | True | Should the test group be enabled? Defaults to 'true'. |
+
+### `item` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
+| `address` | string | No | - | The address of the filter item. |
+
+### `request_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the HTTP header. |
+| `value` | string | Yes | - | The value of the HTTP header. |
+
+### `test_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of test configuration for the Network Connection Monitor. |
+| `protocol` | string | Yes | - | The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'. |
+| `test_frequency_in_seconds` | number | No | 60 | The time interval in seconds at which the test evaluation will happen. Defaults to '60'. |
+| `http_configuration` | [block](#http_configuration-block-structure) | No | - | A 'http_configuration' block. |
+| `icmp_configuration` | [block](#icmp_configuration-block-structure) | No | - | A 'icmp_configuration' block. |
+| `preferred_ip_version` | string | No | - | The preferred IP version which is used in the test evaluation. Possible values are 'IPv4' and 'IPv6'. |
+| `success_threshold` | [block](#success_threshold-block-structure) | No | - | A 'success_threshold' block. |
+| `tcp_configuration` | [block](#tcp_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
 
 ### `endpoint` block structure
 
@@ -97,62 +147,12 @@ tfstate_store = {
 | `filter` | [block](#filter-block-structure) | No | - | A 'filter' block. |
 | `target_resource_type` | string | No | - | The endpoint type of the Network Connection Monitor. Possible values are 'AzureSubnet', 'AzureVM', 'AzureVNet', 'ExternalAddress', 'MMAWorkspaceMachine' and 'MMAWorkspaceNetwork'. |
 
-### `success_threshold` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
-| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
-
 ### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | No | Include | The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'. |
 | `item` | [block](#item-block-structure) | No | - | A 'item' block. |
-
-### `icmp_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
-
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the HTTP header. |
-| `value` | string | Yes | - | The value of the HTTP header. |
-
-### `item` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
-| `address` | string | No | - | The address of the filter item. |
-
-### `test_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the test group for the Network Connection Monitor. |
-| `destination_endpoints` | list | Yes | - | A list of destination endpoint names. |
-| `source_endpoints` | list | Yes | - | A list of source endpoint names. |
-| `test_configuration_names` | list | Yes | - | A list of test configuration names. |
-| `enabled` | bool | No | True | Should the test group be enabled? Defaults to 'true'. |
-
-### `test_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of test configuration for the Network Connection Monitor. |
-| `protocol` | string | Yes | - | The protocol used to evaluate tests. Possible values are 'Tcp', 'Http' and 'Icmp'. |
-| `test_frequency_in_seconds` | number | No | 60 | The time interval in seconds at which the test evaluation will happen. Defaults to '60'. |
-| `http_configuration` | [block](#http_configuration-block-structure) | No | - | A 'http_configuration' block. |
-| `icmp_configuration` | [block](#icmp_configuration-block-structure) | No | - | A 'icmp_configuration' block. |
-| `preferred_ip_version` | string | No | - | The preferred IP version which is used in the test evaluation. Possible values are 'IPv4' and 'IPv6'. |
-| `success_threshold` | [block](#success_threshold-block-structure) | No | - | A 'success_threshold' block. |
-| `tcp_configuration` | [block](#tcp_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
 
 
 

@@ -40,15 +40,6 @@ tfstate_store = {
 | **use_manual_integration** | bool |  `False`  |  Should code be deployed manually. Set to `true` to disable continuous integration, such as webhooks into online repos such as GitHub. Defaults to `false`. Changing this forces a new resource to be created. | 
 | **use_mercurial** | bool |  `False`  |  The repository specified is Mercurial. Defaults to `false`. Changing this forces a new resource to be created. | 
 
-### `github_action_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `code_configuration` | [block](#code_configuration-block-structure) | No | - | A 'code_configuration' block as detailed below. Changing this forces a new resource to be created. |
-| `container_configuration` | [block](#container_configuration-block-structure) | No | - | A 'container_configuration' block as detailed below. |
-| `generate_workflow_file` | bool | No | True | Should the service generate the GitHub Action Workflow file. Defaults to 'true' Changing this forces a new resource to be created. |
-| `linux_action` | string | No | - | Denotes this action uses a Linux base image. |
-
 ### `code_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,6 +55,15 @@ tfstate_store = {
 | `registry_password` | string | No | - | The password used to upload the image to the container registry. Changing this forces a new resource to be created. |
 | `registry_url` | string | Yes | - | The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created. |
 | `registry_username` | string | No | - | The username used to upload the image to the container registry. Changing this forces a new resource to be created. |
+
+### `github_action_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `code_configuration` | [block](#code_configuration-block-structure) | No | - | A 'code_configuration' block as detailed below. Changing this forces a new resource to be created. |
+| `container_configuration` | [block](#container_configuration-block-structure) | No | - | A 'container_configuration' block as detailed below. |
+| `generate_workflow_file` | bool | No | True | Should the service generate the GitHub Action Workflow file. Defaults to 'true' Changing this forces a new resource to be created. |
+| `linux_action` | string | No | - | Denotes this action uses a Linux base image. |
 
 
 

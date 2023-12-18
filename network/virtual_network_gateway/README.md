@@ -69,12 +69,6 @@ tfstate_store = {
 | `is_default` | bool | No | False | Is this a Default Virtual Network Gateway Policy Group? Defaults to 'false'. |
 | `priority` | string | No | 0 | The priority for the Virtual Network Gateway Policy Group. Defaults to '0'. |
 
-### `custom_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
-
 ### `policy_member` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +76,12 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group Member. |
 | `type` | string | Yes | - | The VPN Policy Member attribute type. Possible values are 'AADGroupId', 'CertificateGroupId' and 'RadiusAzureGroupId'. |
 | `value` | string | Yes | - | The value of attribute that is used for this Virtual Network Gateway Policy Group Member. |
+
+### `custom_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 
 

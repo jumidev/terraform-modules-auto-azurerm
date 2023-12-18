@@ -59,6 +59,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_group_name` | string | No | - | Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. |
 
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | Specifies the storage account access key. |
+| `name` | string | Yes | - | Specifies the storage account name. |
+
 ### `environment_variable` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,13 +80,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
 | `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
-
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | Specifies the storage account access key. |
-| `name` | string | Yes | - | Specifies the storage account name. |
 
 
 

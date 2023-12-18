@@ -57,20 +57,23 @@ tfstate_store = {
 | **stream_declaration** | [block](#stream_declaration-block-structure) |  -  |  A `stream_declaration` block. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Data Collection Rule. | 
 
-### `monitor_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `monitor_account_id` | string | Yes | - | The resource ID of the Monitor Account. |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-
-### `storage_blob` block structure
+### `storage_blob_direct` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_name` | string | Yes | - | The Storage Container name. |
 | `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 | `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
+
+### `data_flow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `destinations` | string | Yes | - | Specifies a list of destination names. A 'azure_monitor_metrics' data source only allows for stream of kind 'Microsoft-InsightsMetrics'. |
+| `streams` | string | Yes | - | Specifies a list of streams. Possible values include but not limited to 'Microsoft-Event', 'Microsoft-InsightsMetrics', 'Microsoft-Perf', 'Microsoft-Syslog', 'Microsoft-WindowsEvent', and 'Microsoft-PrometheusMetrics'. |
+| `built_in_transform` | string | No | - | The built-in transform to transform stream data. |
+| `output_stream` | string | No | - | The output stream of the transform. Only required if the data flow changes data to a different stream. |
+| `transform_kql` | string | No | - | The KQL query to transform stream data. |
 
 ### `storage_table_direct` block structure
 
@@ -79,6 +82,33 @@ tfstate_store = {
 | `table_name` | string | Yes | - | The Storage Table name. |
 | `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 | `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
+
+### `log_analytics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
+| `workspace_resource_id` | string | Yes | - | The ID of a Log Analytic Workspace resource. |
+
+### `monitor_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `monitor_account_id` | string | Yes | - | The resource ID of the Monitor Account. |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
+
+### `event_hub` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `event_hub_id` | string | Yes | - | The resource ID of the Event Hub. |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
+
+### `azure_monitor_metrics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
 
 ### `destinations` block structure
 
@@ -93,15 +123,13 @@ tfstate_store = {
 | `storage_blob_direct` | [block](#storage_blob_direct-block-structure) | No | - | One or more 'storage_blob_direct' blocks. |
 | `storage_table_direct` | [block](#storage_table_direct-block-structure) | No | - | One or more 'storage_table_direct' blocks. |
 
-### `data_flow` block structure
+### `storage_blob` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `destinations` | string | Yes | - | Specifies a list of destination names. A 'azure_monitor_metrics' data source only allows for stream of kind 'Microsoft-InsightsMetrics'. |
-| `streams` | string | Yes | - | Specifies a list of streams. Possible values include but not limited to 'Microsoft-Event', 'Microsoft-InsightsMetrics', 'Microsoft-Perf', 'Microsoft-Syslog', 'Microsoft-WindowsEvent', and 'Microsoft-PrometheusMetrics'. |
-| `built_in_transform` | string | No | - | The built-in transform to transform stream data. |
-| `output_stream` | string | No | - | The output stream of the transform. Only required if the data flow changes data to a different stream. |
-| `transform_kql` | string | No | - | The KQL query to transform stream data. |
+| `container_name` | string | Yes | - | The Storage Container name. |
+| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
+| `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
 
 ### `identity` block structure
 
@@ -110,13 +138,6 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Collection Rule. Possible values are 'SystemAssigned' and 'UserAssigned'. |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Data Collection Rule. Currently, up to 1 identity is supported. |
 
-### `event_hub_direct` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `event_hub_id` | string | Yes | - | The resource ID of the Event Hub. |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-
 ### `stream_declaration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -124,28 +145,7 @@ tfstate_store = {
 | `stream_name` | string | Yes | - | The name of the custom stream. This name should be unique across all 'stream_declaration' blocks. |
 | `column` | list | Yes | - | One or more 'column' blocks. |
 
-### `log_analytics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-| `workspace_resource_id` | string | Yes | - | The ID of a Log Analytic Workspace resource. |
-
-### `azure_monitor_metrics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-
-### `storage_blob_direct` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_name` | string | Yes | - | The Storage Container name. |
-| `name` | string | Yes | - | The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule. |
-| `storage_account_id` | string | Yes | - | The resource ID of the Storage Account. |
-
-### `event_hub` block structure
+### `event_hub_direct` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

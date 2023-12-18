@@ -64,24 +64,43 @@ tfstate_store = {
 | **virtual_network_configuration** | [block](#virtual_network_configuration-block-structure) |  -  |  -  |  A `virtual_network_configuration` block. Required when `virtual_network_type` is `External` or `Internal`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
-### `terms_of_service` block structure
+### `delegation` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `consent_required` | string | Yes | - | Should the user be asked for consent during sign up? |
-| `enabled` | bool | Yes | - | Should Terms of Service be displayed during sign up?. |
-| `text` | string | No | - | The Terms of Service which users are required to agree to in order to sign up. |
+| `subscriptions_enabled` | bool | No | False | Should subscription requests be delegated to an external url? Defaults to 'false'. |
+| `user_registration_enabled` | bool | No | False | Should user registration requests be delegated to an external url? Defaults to 'false'. |
+| `url` | string | No | - | The delegation URL. |
+| `validation_key` | string | No | - | A base64-encoded validation key to validate, that a request is coming from Azure API Management. |
 
-### `additional_location` block structure
+### `hostname_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | The name of the Azure Region in which the API Management Service should be expanded to. |
-| `capacity` | number | No | - | The number of compute units in this region. Defaults to the capacity of the main region. |
-| `zones` | list | No | - | A list of availability zones. Changing this forces a new resource to be created. |
-| `public_ip_address_id` | string | No | - | ID of a standard SKU IPv4 Public IP. |
-| `virtual_network_configuration` | [block](#virtual_network_configuration-block-structure) | No | - | A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'. |
-| `gateway_disabled` | string | No | - | Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location. |
+| `management` | list | No | - | One or more 'management' blocks. |
+| `portal` | list | No | - | One or more 'portal' blocks. |
+| `developer_portal` | list | No | - | One or more 'developer_portal' blocks. |
+| `proxy` | list | No | - | One or more 'proxy' blocks. |
+| `scm` | list | No | - | One or more 'scm' blocks. |
+
+### `protocols` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enable_http2` | bool | No | False | Should HTTP/2 be supported by the API Management Service? Defaults to 'false'. |
+
+### `virtual_network_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The id of the subnet that will be used for the API Management. |
+
+### `sign_up` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Can users sign up on the development portal? |
+| `terms_of_service` | [block](#terms_of_service-block-structure) | Yes | - | A 'terms_of_service' block. |
 
 ### `security` block structure
 
@@ -105,12 +124,24 @@ tfstate_store = {
 | `tls_rsa_with_aes256_cbc_sha_ciphers_enabled` | bool | No | False | Should the 'TLS_RSA_WITH_AES_256_CBC_SHA' cipher be enabled? Defaults to 'false'. |
 | `triple_des_ciphers_enabled` | bool | No | - | Should the 'TLS_RSA_WITH_3DES_EDE_CBC_SHA' cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? |
 
-### `policy` block structure
+### `terms_of_service` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `xml_content` | string | No | - | The XML Content for this Policy. |
-| `xml_link` | string | No | - | A link to an API Management Policy XML Document, which must be publicly available. |
+| `consent_required` | string | Yes | - | Should the user be asked for consent during sign up? |
+| `enabled` | bool | Yes | - | Should Terms of Service be displayed during sign up?. |
+| `text` | string | No | - | The Terms of Service which users are required to agree to in order to sign up. |
+
+### `additional_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | The name of the Azure Region in which the API Management Service should be expanded to. |
+| `capacity` | number | No | - | The number of compute units in this region. Defaults to the capacity of the main region. |
+| `zones` | list | No | - | A list of availability zones. Changing this forces a new resource to be created. |
+| `public_ip_address_id` | string | No | - | ID of a standard SKU IPv4 Public IP. |
+| `virtual_network_configuration` | [block](#virtual_network_configuration-block-structure) | No | - | A 'virtual_network_configuration' block. Required when 'virtual_network_type' is 'External' or 'Internal'. |
+| `gateway_disabled` | string | No | - | Only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location. |
 
 ### `identity` block structure
 
@@ -118,31 +149,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this API Management Service. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this API Management Service. |
-
-### `protocols` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enable_http2` | bool | No | False | Should HTTP/2 be supported by the API Management Service? Defaults to 'false'. |
-
-### `hostname_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `management` | list | No | - | One or more 'management' blocks. |
-| `portal` | list | No | - | One or more 'portal' blocks. |
-| `developer_portal` | list | No | - | One or more 'developer_portal' blocks. |
-| `proxy` | list | No | - | One or more 'proxy' blocks. |
-| `scm` | list | No | - | One or more 'scm' blocks. |
-
-### `delegation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subscriptions_enabled` | bool | No | False | Should subscription requests be delegated to an external url? Defaults to 'false'. |
-| `user_registration_enabled` | bool | No | False | Should user registration requests be delegated to an external url? Defaults to 'false'. |
-| `url` | string | No | - | The delegation URL. |
-| `validation_key` | string | No | - | A base64-encoded validation key to validate, that a request is coming from Azure API Management. |
 
 ### `sign_in` block structure
 
@@ -156,18 +162,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | Yes | - | Should the access to the management API be enabled? |
 
-### `virtual_network_configuration` block structure
+### `policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The id of the subnet that will be used for the API Management. |
-
-### `sign_up` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Can users sign up on the development portal? |
-| `terms_of_service` | [block](#terms_of_service-block-structure) | Yes | - | A 'terms_of_service' block. |
+| `xml_content` | string | No | - | The XML Content for this Policy. |
+| `xml_link` | string | No | - | A link to an API Management Policy XML Document, which must be publicly available. |
 
 
 

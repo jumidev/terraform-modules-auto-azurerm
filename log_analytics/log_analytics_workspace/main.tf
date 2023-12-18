@@ -36,12 +36,3 @@ resource "azurerm_log_analytics_workspace" "this" {
   data_collection_rule_id            = var.data_collection_rule_id
   tags                               = var.tags
 }
-
-##############################################################################################
-# optional azurerm_virtual_desktop_workspace_application_group_association 
-##############################################################################################
-resource "azurerm_virtual_desktop_workspace_application_group_association" "this" {
-  count                = var.application_group_id != null ? 1 : 0
-  workspace_id         = azurerm_log_analytics_workspace.this.id
-  application_group_id = var.application_group_id
-}

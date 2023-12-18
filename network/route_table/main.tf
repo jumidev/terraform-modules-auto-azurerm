@@ -29,12 +29,3 @@ resource "azurerm_route_table" "this" {
   disable_bgp_route_propagation = var.disable_bgp_route_propagation
   tags                          = var.tags
 }
-
-##############################################################################################
-# optional azurerm_subnet_route_table_association 
-##############################################################################################
-resource "azurerm_subnet_route_table_association" "this" {
-  count          = var.subnet_id != null ? 1 : 0
-  route_table_id = azurerm_route_table.this.id
-  subnet_id      = var.subnet_id
-}

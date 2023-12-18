@@ -11,6 +11,15 @@ source = {
 }
 
 inputs = {
+   # virtual_machine_id → set in tfstate_inputs
+   # managed_disk_id → set in tfstate_inputs
+   lun = "3"   
+   caching = "ReadOnly"   
+}
+
+tfstate_inputs = {
+   virtual_machine_id = "path/to/virtual_machine_component:id"   
+   managed_disk_id = "path/to/managed_disk_component:id"   
 }
 
 tfstate_store = {
@@ -21,7 +30,7 @@ tfstate_store = {
 
 ```
 
-## Optional Variables
+## Required Variables
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
@@ -29,8 +38,13 @@ tfstate_store = {
 | **managed_disk_id** | string |  -  |  -  |  The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created. | 
 | **lun** | number |  `3`  |  -  |  The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created. | 
 | **caching** | string |  `ReadOnly`  |  `None`, `ReadOnly`, `ReadWrite`  |  Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`. | 
-| **create_option** | string |  `Attach`  |  -  |  The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created. | 
-| **write_accelerator_enabled** | bool |  `False`  |  -  |  Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`. | 
+
+## Optional Variables
+
+| Name | Type |  Default  |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **create_option** | string |  `Attach`  |  The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created. | 
+| **write_accelerator_enabled** | bool |  `False`  |  Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`. | 
 
 
 

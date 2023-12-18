@@ -64,13 +64,12 @@ tfstate_store = {
 | **network_interface** | [block](#network_interface-block-structure) |  One or more `network_interface` block. | 
 | **multi_vm_group_name** | string |  Name of group in which all machines will replicate together and have shared crash consistent and app-consistent recovery points when failed over. | 
 
-### `unmanaged_disk` block structure
+### `disk_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
-| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
-| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. Changing this forces a new resource to be created. |
+| `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
 
 ### `target_disk_encryption` block structure
 
@@ -79,18 +78,31 @@ tfstate_store = {
 | `disk_encryption_key` | [block](#disk_encryption_key-block-structure) | Yes | - | A 'disk_encryption_key' block. |
 | `key_encryption_key` | [block](#key_encryption_key-block-structure) | No | - | A 'key_encryption_key' block. |
 
+### `managed_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_id` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_resource_group_id` | string | Yes | - | Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+| `target_disk_type` | string | Yes | - | What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
+| `target_replica_disk_type` | string | Yes | - | What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
+| `target_disk_encryption_set_id` | string | No | - | The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. |
+| `target_disk_encryption` | [block](#target_disk_encryption-block-structure) | No | - | A 'target_disk_encryption' block. |
+
+### `unmanaged_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `disk_uri` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
+| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
+| `target_storage_account_id` | string | Yes | - | Storage account disk should belong to when a failover is done. Changing this forces a new resource to be created. |
+
 ### `key_encryption_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_url` | string | Yes | - | The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_key' resource. Changing this forces a new resource to be created. |
-| `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
-
-### `disk_encryption_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_url` | string | Yes | - | The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as 'id' on the 'azurerm_key_vault_secret' resource. Changing this forces a new resource to be created. |
 | `vault_id` | string | Yes | - | The ID of the Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. Changing this forces a new resource to be created. |
 
 ### `network_interface` block structure
@@ -104,18 +116,6 @@ tfstate_store = {
 | `failover_test_static_ip` | string | No | - | Static IP to assign when a test failover is done. |
 | `failover_test_subnet_name` | string | No | - | Name of the subnet to to use when a test failover is done. |
 | `failover_test_public_ip_address_id` | string | No | - | Id of the public IP object to use when a test failover is done. |
-
-### `managed_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `disk_id` | string | Yes | - | Id of disk that should be replicated. Changing this forces a new resource to be created. |
-| `staging_storage_account_id` | string | Yes | - | Storage account that should be used for caching. Changing this forces a new resource to be created. |
-| `target_resource_group_id` | string | Yes | - | Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created. |
-| `target_disk_type` | string | Yes | - | What type should the disk be when a failover is done. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
-| `target_replica_disk_type` | string | Yes | - | What type should the disk be that holds the replication data. Possible values are 'Standard_LRS', 'Premium_LRS', 'StandardSSD_LRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created. |
-| `target_disk_encryption_set_id` | string | No | - | The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created. |
-| `target_disk_encryption` | [block](#target_disk_encryption-block-structure) | No | - | A 'target_disk_encryption' block. |
 
 
 

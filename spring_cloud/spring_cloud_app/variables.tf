@@ -93,24 +93,3 @@ variable "tls_enabled" {
   type        = bool
   default     = false
 }
-
-# OPTIONAL VARIABLES
-
-variable "spring_cloud_app_cosmosdb_association" {
-  type    = map(any)
-  default = null
-}
-
-# OPTIONAL VARIABLES
-
-variable "spring_cloud_app_redis_association" {
-  type    = map(any)
-  default = null
-}
-
-# OPTIONAL VARIABLES
-
-variable "spring_cloud_app_mysql_association" {
-  type    = map(any)
-  default = null
-}

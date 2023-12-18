@@ -63,17 +63,16 @@ variable "common_encryption_cenc" {
 #   drm_widevine_custom_license_acquisition_url_template (string): The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
 #   enabled_protocols (block)                                    : A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.
 #
+# clear_key_encryption block structure         :
+#   custom_keys_acquisition_url_template (string): (REQUIRED) The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
+#
 # content_key_to_track_mapping block structure:
 #   label (string)                              : Specifies the content key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
 #   policy_name (string)                        : The policy used by the default key. Changing this forces a new Streaming Policy to be created.
 #   track (block)                               : (REQUIRED) One or more 'track' blocks. Changing this forces a new Streaming Policy to be created.
 #
-# clear_key_encryption block structure         :
-#   custom_keys_acquisition_url_template (string): (REQUIRED) The URL template for the custom service that delivers content keys to the end user. This is not required when using Azure Media Services for issuing keys. Changing this forces a new Streaming Policy to be created.
-#
-# drm_playready block structure                   :
-#   custom_attributes (string)                      : Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
-#   custom_license_acquisition_url_template (string): The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
+# track block structure:
+#   condition (block)    : (REQUIRED) One or more 'condition' blocks. Changing this forces a new Streaming Policy to be created.
 #
 # clear_track block structure:
 #   condition (block)          : (REQUIRED) One or more 'condition' blocks. Changing this forces a new Streaming Policy to be created.
@@ -82,13 +81,14 @@ variable "common_encryption_cenc" {
 #   label (string)                     : Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
 #   policy_name (string)               : Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
 #
-# track block structure:
-#   condition (block)    : (REQUIRED) One or more 'condition' blocks. Changing this forces a new Streaming Policy to be created.
-#
 # condition block structure:
 #   operation (string)       : (REQUIRED) The track property condition operation. Possible value is 'Equal'. Changing this forces a new Streaming Policy to be created.
 #   property (string)        : (REQUIRED) The track property type. Possible value is 'FourCC'. Changing this forces a new Streaming Policy to be created.
 #   value (string)           : (REQUIRED) The track property value. Changing this forces a new Streaming Policy to be created.
+#
+# drm_playready block structure                   :
+#   custom_attributes (string)                      : Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
+#   custom_license_acquisition_url_template (string): The URL template for the custom service that delivers licenses to the end user. This is not required when using Azure Media Services for issuing licenses. Changing this forces a new Streaming Policy to be created.
 #
 # enabled_protocols block structure:
 #   dash (string)                    : Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
@@ -113,15 +113,15 @@ variable "envelope_encryption" {
 #   default_content_key (block)                  : A 'default_content_key' block. Changing this forces a new Streaming Policy to be created.
 #   enabled_protocols (block)                    : A 'enabled_protocols' block. Changing this forces a new Streaming Policy to be created.
 #
-# default_content_key block structure:
-#   label (string)                     : Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
-#   policy_name (string)               : Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
-#
 # enabled_protocols block structure:
 #   dash (string)                    : Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
 #   download (string)                : Enable Download protocol or not. Changing this forces a new Streaming Policy to be created.
 #   hls (string)                     : Enable HLS protocol or not. Changing this forces a new Streaming Policy to be created.
 #   smooth_streaming (string)        : Enable SmoothStreaming protocol or not. Changing this forces a new Streaming Policy to be created.
+#
+# default_content_key block structure:
+#   label (string)                     : Label can be used to specify Content Key when creating a Streaming Locator. Changing this forces a new Streaming Policy to be created.
+#   policy_name (string)               : Policy used by Default Key. Changing this forces a new Streaming Policy to be created.
 
 
 variable "no_encryption_enabled_protocols" {

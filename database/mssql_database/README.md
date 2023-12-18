@@ -73,6 +73,13 @@ tfstate_store = {
 | `authentication_type` | string | Yes | - | Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'. |
 | `storage_account_id` | string | No | - | The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter. |
 
+### `short_term_retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `retention_days` | number | Yes | - | Point In Time Restore configuration. Value has to be between '1' and '35'. |
+| `backup_interval_in_hours` | string | No | 12 | The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours. |
+
 ### `long_term_retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,13 +88,6 @@ tfstate_store = {
 | `monthly_retention` | string | No | - | The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'. |
 | `yearly_retention` | string | No | - | The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'. |
 | `week_of_year` | string | No | - | The week of year to take the yearly backup. Value has to be between '1' and '52'. |
-
-### `short_term_retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `retention_days` | number | Yes | - | Point In Time Restore configuration. Value has to be between '1' and '35'. |
-| `backup_interval_in_hours` | string | No | 12 | The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours. |
 
 
 
