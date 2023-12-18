@@ -29,3 +29,7 @@ output "hosts" {
   value       = azurerm_vmware_cluster.this.hosts
 }
 
+output "vmware_netapp_volume_attachment" {
+  value = var.vmware_netapp_volume_attachment
+}
+

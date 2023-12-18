@@ -130,3 +130,20 @@ resource "azurerm_cosmosdb_account" "this" {
   }
 
 }
+
+##############################################################################################
+# optional azurerm_spring_cloud_app_cosmosdb_association 
+##############################################################################################
+resource "azurerm_spring_cloud_app_cosmosdb_association" "this" {
+  count                            = var.spring_cloud_app_cosmosdb_association != null ? 1 : 0
+  name                             = lookup(var.spring_cloud_app_cosmosdb_association, "name")
+  spring_cloud_app_id              = lookup(var.spring_cloud_app_cosmosdb_association, "spring_cloud_app_id")
+  cosmosdb_account_id              = azurerm_cosmosdb_account.this.id
+  api_type                         = lookup(var.spring_cloud_app_cosmosdb_association, "api_type")
+  cosmosdb_access_key              = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_access_key")
+  cosmosdb_cassandra_keyspace_name = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_cassandra_keyspace_name", null)
+  cosmosdb_gremlin_database_name   = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_gremlin_database_name", null)
+  cosmosdb_gremlin_graph_name      = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_gremlin_graph_name", null)
+  cosmosdb_mongo_database_name     = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_mongo_database_name", null)
+  cosmosdb_sql_database_name       = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_sql_database_name", null)
+}

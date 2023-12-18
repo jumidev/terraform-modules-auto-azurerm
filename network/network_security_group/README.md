@@ -23,7 +23,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Optional associated resources
 
 
 ### `subnet_id` 
@@ -35,6 +35,18 @@ Example component snippet:
 ```hcl
 tfstate_inputs = {
    subnet_id = "path/to/subnet_component:id"
+}
+```
+
+### `network_interface_id` 
+
+- If set to a valid `azurerm_network_interface` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   network_interface_id = "path/to/network_interface_component:id"
 }
 ```
 

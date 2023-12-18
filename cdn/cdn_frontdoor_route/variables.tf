@@ -81,3 +81,10 @@ variable "link_to_default_domain" {
   type        = bool
   default     = true
 }
+# REQUIRED VARIABLES
+
+variable "cdn_frontdoor_custom_domain_id" {
+  description = "(REQUIRED) The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created."
+  type        = string
+
+}

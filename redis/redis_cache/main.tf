@@ -71,3 +71,15 @@ resource "azurerm_redis_cache" "this" {
   tags                 = var.tags
   zones                = var.zones
 }
+
+##############################################################################################
+# optional azurerm_spring_cloud_app_redis_association 
+##############################################################################################
+resource "azurerm_spring_cloud_app_redis_association" "this" {
+  count               = var.spring_cloud_app_redis_association != null ? 1 : 0
+  name                = lookup(var.spring_cloud_app_redis_association, "name")
+  spring_cloud_app_id = lookup(var.spring_cloud_app_redis_association, "spring_cloud_app_id")
+  redis_cache_id      = azurerm_redis_cache.this.id
+  redis_access_key    = lookup(var.spring_cloud_app_redis_association, "redis_access_key")
+  ssl_enabled         = lookup(var.spring_cloud_app_redis_association, "ssl_enabled", true)
+}

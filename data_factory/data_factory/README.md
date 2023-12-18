@@ -47,13 +47,17 @@ tfstate_store = {
 | **purview_id** | string |  -  |  -  |  Specifies the ID of the purview account resource associated with the Data Factory. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `global_parameter` block structure
+### `vsts_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the global parameter name. |
-| `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
-| `value` | string | Yes | - | Specifies the global parameter value. |
+| `account_name` | string | Yes | - | Specifies the VSTS account name. |
+| `branch_name` | string | Yes | - | Specifies the branch of the repository to get code from. |
+| `project_name` | string | Yes | - | Specifies the name of the VSTS project. |
+| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
+| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
+| `tenant_id` | string | Yes | - | Specifies the Tenant ID associated with the VSTS account. |
+| `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
 ### `github_configuration` block structure
 
@@ -66,17 +70,13 @@ tfstate_store = {
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
-### `vsts_configuration` block structure
+### `global_parameter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `account_name` | string | Yes | - | Specifies the VSTS account name. |
-| `branch_name` | string | Yes | - | Specifies the branch of the repository to get code from. |
-| `project_name` | string | Yes | - | Specifies the name of the VSTS project. |
-| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
-| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
-| `tenant_id` | string | Yes | - | Specifies the Tenant ID associated with the VSTS account. |
-| `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
+| `name` | string | Yes | - | Specifies the global parameter name. |
+| `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
+| `value` | string | Yes | - | Specifies the global parameter value. |
 
 ### `identity` block structure
 

@@ -31,3 +31,17 @@ variable "virtual_network_id" {
   type        = string
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "network_interface_backend_address_pool_association" {
+  type    = map(any)
+  default = null
+}
+
+# OPTIONAL VARIABLES
+
+variable "network_interface_application_gateway_backend_address_pool_association" {
+  type    = map(any)
+  default = null
+}

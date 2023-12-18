@@ -22,3 +22,12 @@ resource "azurerm_virtual_desktop_application_group" "this" {
   description                  = var.description
   tags                         = var.tags
 }
+
+##############################################################################################
+# optional azurerm_virtual_desktop_workspace_application_group_association 
+##############################################################################################
+resource "azurerm_virtual_desktop_workspace_application_group_association" "this" {
+  count                = var.workspace_id != null ? 1 : 0
+  workspace_id         = var.workspace_id
+  application_group_id = azurerm_virtual_desktop_application_group.this.id
+}

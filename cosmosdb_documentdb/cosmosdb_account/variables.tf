@@ -224,3 +224,10 @@ variable "restore" {
 #   collection_names (list) : A list of the collection names for the restore request. Changing this forces a new resource to be created.
 
 
+
+# OPTIONAL VARIABLES
+
+variable "spring_cloud_app_cosmosdb_association" {
+  type    = map(any)
+  default = null
+}

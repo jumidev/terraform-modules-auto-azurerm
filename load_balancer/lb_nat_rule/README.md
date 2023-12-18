@@ -31,6 +31,35 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `network_interface_nat_rule_association` 
+
+If set, makes a **azurerm_network_interface_nat_rule_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `network_interface_id` | string | True | null |
+| `ip_configuration_name` | string | True | "primary" |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   network_interface_nat_rule_association = {
+      ip_configuration_name = "primary"      
+   }
+   
+}
+
+tfstate_inputs = {
+   network_interface_nat_rule_association.network_interface_id = "path/to/network_interface_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

@@ -49,3 +49,12 @@ resource "azurerm_private_endpoint" "this" {
 
   tags = var.tags
 }
+
+##############################################################################################
+# optional azurerm_private_endpoint_application_security_group_association 
+##############################################################################################
+resource "azurerm_private_endpoint_application_security_group_association" "this" {
+  count                         = var.application_security_group_id != null ? 1 : 0
+  application_security_group_id = var.application_security_group_id
+  private_endpoint_id           = azurerm_private_endpoint.this.id
+}

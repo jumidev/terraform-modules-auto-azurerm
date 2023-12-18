@@ -44,3 +44,16 @@ resource "azurerm_mysql_server" "this" {
   ssl_minimal_tls_version_enforced  = var.ssl_minimal_tls_version_enforced # Default: TLS1_2
   storage_mb                        = var.storage_mb
 }
+
+##############################################################################################
+# optional azurerm_spring_cloud_app_mysql_association 
+##############################################################################################
+resource "azurerm_spring_cloud_app_mysql_association" "this" {
+  count               = var.spring_cloud_app_mysql_association != null ? 1 : 0
+  name                = lookup(var.spring_cloud_app_mysql_association, "name")
+  spring_cloud_app_id = lookup(var.spring_cloud_app_mysql_association, "spring_cloud_app_id")
+  mysql_server_id     = azurerm_mysql_server.this.id
+  database_name       = lookup(var.spring_cloud_app_mysql_association, "database_name")
+  username            = lookup(var.spring_cloud_app_mysql_association, "username")
+  password            = lookup(var.spring_cloud_app_mysql_association, "password")
+}

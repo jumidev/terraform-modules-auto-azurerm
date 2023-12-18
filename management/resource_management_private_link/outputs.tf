@@ -15,3 +15,7 @@ output "id" {
   value       = azurerm_resource_management_private_link.this.id
 }
 
+output "resource_management_private_link_association" {
+  value = var.resource_management_private_link_association
+}
+

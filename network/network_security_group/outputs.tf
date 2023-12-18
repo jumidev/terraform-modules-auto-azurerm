@@ -36,3 +36,16 @@ output "id" {
   value       = azurerm_subnet_network_security_group_association.this.*.id
 }
 
+output "network_interface_id" {
+  value = azurerm_network_interface_security_group_association.this.*.network_interface_id
+}
+
+output "network_security_group_id" {
+  value = azurerm_network_interface_security_group_association.this.*.network_security_group_id
+}
+
+output "id" {
+  description = "The (Terraform specific) ID of the Association between the Network Interface and the Network Interface."
+  value       = azurerm_network_interface_security_group_association.this.*.id
+}
+

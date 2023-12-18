@@ -55,6 +55,21 @@ tfstate_store = {
 | **max_cache_age_seconds** | number |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
+### `akamai_signature_header_authentication_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `base64_key` | string | No | - | Authentication key. |
+| `expiration` | string | No | - | The expiration time of the authentication key. |
+| `identifier` | string | No | - | Identifier of the key. |
+
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
+
 ### `ip_allow` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,21 +84,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
-
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
-
-### `akamai_signature_header_authentication_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `base64_key` | string | No | - | Authentication key. |
-| `expiration` | string | No | - | The expiration time of the authentication key. |
-| `identifier` | string | No | - | Identifier of the key. |
 
 
 

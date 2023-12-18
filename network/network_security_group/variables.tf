@@ -51,3 +51,10 @@ variable "subnet_id" {
   type        = string
 
 }
+# REQUIRED VARIABLES
+
+variable "network_interface_id" {
+  description = "(REQUIRED) The ID of the Network Interface. Changing this forces a new resource to be created."
+  type        = string
+
+}

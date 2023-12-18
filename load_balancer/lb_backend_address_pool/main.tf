@@ -24,3 +24,23 @@ resource "azurerm_lb_backend_address_pool" "this" {
 
   virtual_network_id = var.virtual_network_id
 }
+
+##############################################################################################
+# optional azurerm_network_interface_backend_address_pool_association 
+##############################################################################################
+resource "azurerm_network_interface_backend_address_pool_association" "this" {
+  count                   = var.network_interface_backend_address_pool_association != null ? 1 : 0
+  network_interface_id    = lookup(var.network_interface_backend_address_pool_association, "network_interface_id")
+  ip_configuration_name   = lookup(var.network_interface_backend_address_pool_association, "ip_configuration_name", "primary")
+  backend_address_pool_id = azurerm_lb_backend_address_pool.this.id
+}
+
+##############################################################################################
+# optional azurerm_network_interface_application_gateway_backend_address_pool_association 
+##############################################################################################
+resource "azurerm_network_interface_application_gateway_backend_address_pool_association" "this" {
+  count                   = var.network_interface_application_gateway_backend_address_pool_association != null ? 1 : 0
+  network_interface_id    = lookup(var.network_interface_application_gateway_backend_address_pool_association, "network_interface_id")
+  ip_configuration_name   = lookup(var.network_interface_application_gateway_backend_address_pool_association, "ip_configuration_name", "primary")
+  backend_address_pool_id = azurerm_lb_backend_address_pool.this.id
+}

@@ -59,3 +59,46 @@ output "address_prefixes" {
   value       = azurerm_subnet.this.address_prefixes
 }
 
+output "nat_gateway_id" {
+  value = azurerm_subnet_nat_gateway_association.this.*.nat_gateway_id
+}
+
+output "subnet_id" {
+  value = azurerm_subnet_nat_gateway_association.this.*.subnet_id
+}
+
+output "id" {
+  description = "The ID of the Subnet."
+  value       = azurerm_subnet_nat_gateway_association.this.*.id
+}
+
+output "network_security_group_id" {
+  value = azurerm_subnet_network_security_group_association.this.*.network_security_group_id
+}
+
+output "subnet_id" {
+  value = azurerm_subnet_network_security_group_association.this.*.subnet_id
+}
+
+output "id" {
+  description = "The ID of the Subnet."
+  value       = azurerm_subnet_network_security_group_association.this.*.id
+}
+
+output "route_table_id" {
+  value = azurerm_subnet_route_table_association.this.*.route_table_id
+}
+
+output "subnet_id" {
+  value = azurerm_subnet_route_table_association.this.*.subnet_id
+}
+
+output "id" {
+  description = "The ID of the Subnet."
+  value       = azurerm_subnet_route_table_association.this.*.id
+}
+
+output "application_load_balancer_subnet_association" {
+  value = var.application_load_balancer_subnet_association
+}
+

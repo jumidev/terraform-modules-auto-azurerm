@@ -57,20 +57,6 @@ tfstate_store = {
 | **zones** | list |  -  |  -  |  A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
-
-### `dns_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `nameservers` | list | Yes | - | A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created. |
-| `search_domains` | list | No | - | A list of search domains that DNS requests will search along. Changing this forces a new resource to be created. |
-| `options` | list | No | - | A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created. |
-
 ### `log_analytics` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +66,21 @@ tfstate_store = {
 | `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
 | `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. |
+
+### `dns_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `nameservers` | list | Yes | - | A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created. |
+| `search_domains` | list | No | - | A list of search domains that DNS requests will search along. Changing this forces a new resource to be created. |
+| `options` | list | No | - | A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created. |
+
 ### `exposed_port` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,12 +88,11 @@ tfstate_store = {
 | `port` | string | No | - | The port number the container will expose. Changing this forces a new resource to be created. |
 | `protocol` | string | No | TCP | The network protocol associated with port. Possible values are 'TCP' & 'UDP'. Changing this forces a new resource to be created. Defaults to 'TCP'. |
 
-### `identity` block structure
+### `diagnostics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. |
+| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
 
 ### `image_registry_credential` block structure
 

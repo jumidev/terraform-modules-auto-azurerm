@@ -95,3 +95,7 @@ output "tenant_id" {
   value       = azurerm_mysql_server.this.tenant_id
 }
 
+output "spring_cloud_app_mysql_association" {
+  value = var.spring_cloud_app_mysql_association
+}
+

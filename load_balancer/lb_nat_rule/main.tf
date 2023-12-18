@@ -26,3 +26,13 @@ resource "azurerm_lb_nat_rule" "this" {
   enable_floating_ip      = var.enable_floating_ip      # Default: False
   enable_tcp_reset        = var.enable_tcp_reset
 }
+
+##############################################################################################
+# optional azurerm_network_interface_nat_rule_association 
+##############################################################################################
+resource "azurerm_network_interface_nat_rule_association" "this" {
+  count                 = var.network_interface_nat_rule_association != null ? 1 : 0
+  network_interface_id  = lookup(var.network_interface_nat_rule_association, "network_interface_id")
+  ip_configuration_name = lookup(var.network_interface_nat_rule_association, "ip_configuration_name", "primary")
+  nat_rule_id           = azurerm_lb_nat_rule.this.id
+}

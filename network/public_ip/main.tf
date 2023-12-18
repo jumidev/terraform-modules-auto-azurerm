@@ -30,3 +30,12 @@ resource "azurerm_public_ip" "this" {
   sku_tier                = var.sku_tier # Default: Regional
   tags                    = var.tags
 }
+
+##############################################################################################
+# optional azurerm_nat_gateway_public_ip_association 
+##############################################################################################
+resource "azurerm_nat_gateway_public_ip_association" "this" {
+  count                = var.nat_gateway_id != null ? 1 : 0
+  nat_gateway_id       = var.nat_gateway_id
+  public_ip_address_id = azurerm_public_ip.this.id
+}

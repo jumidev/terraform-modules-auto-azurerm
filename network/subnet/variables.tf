@@ -63,3 +63,31 @@ variable "virtual_network_resource_group_name" {
   type        = string
   default     = null
 }
+# REQUIRED VARIABLES
+
+variable "nat_gateway_id" {
+  description = "(REQUIRED) The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created."
+  type        = string
+
+}
+# REQUIRED VARIABLES
+
+variable "network_security_group_id" {
+  description = "(REQUIRED) The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created."
+  type        = string
+
+}
+# REQUIRED VARIABLES
+
+variable "route_table_id" {
+  description = "(REQUIRED) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created."
+  type        = string
+
+}
+
+# OPTIONAL VARIABLES
+
+variable "application_load_balancer_subnet_association" {
+  type    = map(any)
+  default = null
+}

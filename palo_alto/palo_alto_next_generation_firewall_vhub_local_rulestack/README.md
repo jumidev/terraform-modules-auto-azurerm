@@ -59,28 +59,19 @@ tfstate_store = {
 | `dns_servers` | string | No | - | Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'. |
 | `use_azure_dns` | bool | No | False | Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
 
-### `backend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port number to send traffic to. |
-| `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
-
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this NAT. |
-| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
-
 ### `frontend_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | Yes | - | The port on which traffic will be receiveed. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address resource the traffic will be received on. |
+
+### `backend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port number to send traffic to. |
+| `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
 
 ### `network_profile` block structure
 
@@ -90,6 +81,15 @@ tfstate_store = {
 | `public_ip_address_ids` | string | Yes | - | Specifies a list of Public IP IDs to use for this Next Generation Firewall. |
 | `virtual_hub_id` | string | Yes | - | The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. |
 | `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Public IP IDs to use for Egress NAT. |
+
+### `destination_nat` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this NAT. |
+| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
 
 
 

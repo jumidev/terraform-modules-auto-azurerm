@@ -62,12 +62,6 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
-
 ### `volume` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -100,6 +94,12 @@ tfstate_store = {
 | `rule_index` | number | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
+
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 ### `data_protection_replication` block structure
 

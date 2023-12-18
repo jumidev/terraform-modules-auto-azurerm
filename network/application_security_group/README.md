@@ -23,8 +23,20 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Optional associated resources
 
+
+### `network_interface_id` 
+
+- If set to a valid `azurerm_network_interface` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   network_interface_id = "path/to/network_interface_component:id"
+}
+```
 
 ### `private_endpoint_id` 
 

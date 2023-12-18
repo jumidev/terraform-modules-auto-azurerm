@@ -43,3 +43,41 @@ resource "azurerm_subnet" "this" {
   service_endpoints                             = var.service_endpoints
   service_endpoint_policy_ids                   = var.service_endpoint_policy_ids
 }
+
+##############################################################################################
+# optional azurerm_subnet_nat_gateway_association 
+##############################################################################################
+resource "azurerm_subnet_nat_gateway_association" "this" {
+  count          = var.nat_gateway_id != null ? 1 : 0
+  nat_gateway_id = var.nat_gateway_id
+  subnet_id      = azurerm_subnet.this.id
+}
+
+##############################################################################################
+# optional azurerm_subnet_network_security_group_association 
+##############################################################################################
+resource "azurerm_subnet_network_security_group_association" "this" {
+  count                     = var.network_security_group_id != null ? 1 : 0
+  network_security_group_id = var.network_security_group_id
+  subnet_id                 = azurerm_subnet.this.id
+}
+
+##############################################################################################
+# optional azurerm_subnet_route_table_association 
+##############################################################################################
+resource "azurerm_subnet_route_table_association" "this" {
+  count          = var.route_table_id != null ? 1 : 0
+  route_table_id = var.route_table_id
+  subnet_id      = azurerm_subnet.this.id
+}
+
+##############################################################################################
+# optional azurerm_application_load_balancer_subnet_association 
+##############################################################################################
+resource "azurerm_application_load_balancer_subnet_association" "this" {
+  count                        = var.application_load_balancer_subnet_association != null ? 1 : 0
+  name                         = lookup(var.application_load_balancer_subnet_association, "name")
+  application_load_balancer_id = lookup(var.application_load_balancer_subnet_association, "application_load_balancer_id")
+  subnet_id                    = azurerm_subnet.this.id
+  tags                         = lookup(var.application_load_balancer_subnet_association, "tags", null)
+}

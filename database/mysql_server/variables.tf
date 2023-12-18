@@ -98,3 +98,10 @@ variable "storage_mb" {
   type        = string
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "spring_cloud_app_mysql_association" {
+  type    = map(any)
+  default = null
+}

@@ -143,3 +143,7 @@ output "id" {
   value       = azurerm_managed_disk.this.id
 }
 
+output "virtual_machine_data_disk_attachment" {
+  value = var.virtual_machine_data_disk_attachment
+}
+

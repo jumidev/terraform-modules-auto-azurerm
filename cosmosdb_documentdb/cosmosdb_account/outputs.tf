@@ -217,3 +217,7 @@ output "tenant_id" {
   value       = azurerm_cosmosdb_account.this.tenant_id
 }
 
+output "spring_cloud_app_cosmosdb_association" {
+  value = var.spring_cloud_app_cosmosdb_association
+}
+

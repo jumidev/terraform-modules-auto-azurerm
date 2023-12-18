@@ -24,6 +24,35 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `vmware_netapp_volume_attachment` 
+
+If set, makes a **azurerm_vmware_netapp_volume_attachment** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `netapp_volume_id` | string | True | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   vmware_netapp_volume_attachment = {
+      name = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   vmware_netapp_volume_attachment.netapp_volume_id = "path/to/netapp_volume_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

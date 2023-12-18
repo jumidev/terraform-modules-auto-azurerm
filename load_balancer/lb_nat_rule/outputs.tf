@@ -55,3 +55,7 @@ output "id" {
   value       = azurerm_lb_nat_rule.this.id
 }
 
+output "network_interface_nat_rule_association" {
+  value = var.network_interface_nat_rule_association
+}
+

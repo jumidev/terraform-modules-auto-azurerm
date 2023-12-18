@@ -23,6 +23,21 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `nat_gateway_id` 
+
+- If set to a valid `azurerm_nat_gateway` `id`, makes a **azurerm_nat_gateway_public_ip_prefix_association** - Manages the association between a NAT Gateway and a Public IP Prefix.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   nat_gateway_id = "path/to/nat_gateway_component:id"
+}
+```
+
 
 ## Required Variables
 

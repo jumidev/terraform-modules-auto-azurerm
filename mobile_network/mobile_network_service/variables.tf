@@ -32,13 +32,9 @@ variable "pcc_rule" {
 #   service_data_flow_template (block): (REQUIRED) A 'service_data_flow_template' block. The set of service data flow templates to use for this PCC rule.
 #   traffic_control_enabled (bool)    : Determines whether flows that match this data flow policy rule are permitted. Defaults to 'true'.
 #
-# qos_policy block structure                      :
-#   allocation_and_retention_priority_level (string): QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of 'preemption_capability' and 'preemption_vulnerability' allow it. 1 is the highest level of priority. If this field is not specified then 'qos_indicator' is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-#   qos_indicator (string)                          : (REQUIRED) The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between '1' and '127'.
-#   guaranteed_bit_rate (block)                     : A 'guaranteed_bit_rate' block. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
-#   maximum_bit_rate (block)                        : (REQUIRED) A 'maximum_bit_rate' block. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
-#   preemption_capability (string)                  : The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreempt' and 'MayPreempt', Defaults to 'NotPreempt'.
-#   preemption_vulnerability (string)               : The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreemptable' and 'Preemptable'. Defaults to 'Preemptable'.
+# maximum_bit_rate block structure:
+#   downlink (string)               : (REQUIRED) Downlink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#   uplink (string)                 : (REQUIRED) Uplink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
 #
 # service_data_flow_template block structure:
 #   name (string)                             : (REQUIRED) Specifies the name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - 'default', 'requested' or 'service'.
@@ -47,9 +43,13 @@ variable "pcc_rule" {
 #   remote_ip_list (string)                   : (REQUIRED) Specifies the remote IP address(es) to which UEs will connect for this flow. If you want to allow connections on any IP address, use the value 'any'. Otherwise, you must provide each of the remote IP addresses to which the packet core instance will connect for this flow. You must provide each IP address in CIDR notation, including the netmask (for example, '192.0.2.54/24').
 #   ports (list)                              : The port(s) to which UEs will connect for this flow. You can specify zero or more ports or port ranges. If you specify one or more ports or port ranges then you must specify a value other than 'ip' in the 'protocol' field. If it is not specified then connections will be allowed on all ports. Port ranges must be specified as <FirstPort>-<LastPort>. For example: ['8080', '8082-8085'].
 #
-# maximum_bit_rate block structure:
-#   downlink (string)               : (REQUIRED) Downlink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#   uplink (string)                 : (REQUIRED) Uplink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+# qos_policy block structure                      :
+#   allocation_and_retention_priority_level (string): QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of 'preemption_capability' and 'preemption_vulnerability' allow it. 1 is the highest level of priority. If this field is not specified then 'qos_indicator' is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+#   qos_indicator (string)                          : (REQUIRED) The QoS Indicator (5QI for 5G network /QCI for 4G net work) value identifies a set of QoS characteristics that control QoS forwarding treatment for QoS flows or EPS bearers. Recommended values: 5-9; 69-70; 79-80. Must be between '1' and '127'.
+#   guaranteed_bit_rate (block)                     : A 'guaranteed_bit_rate' block. The Guaranteed Bit Rate (GBR) for all service data flows that use this PCC Rule. If it's not specified, there will be no GBR set for the PCC Rule that uses this QoS definition.
+#   maximum_bit_rate (block)                        : (REQUIRED) A 'maximum_bit_rate' block. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
+#   preemption_capability (string)                  : The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreempt' and 'MayPreempt', Defaults to 'NotPreempt'.
+#   preemption_vulnerability (string)               : The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreemptable' and 'Preemptable'. Defaults to 'Preemptable'.
 #
 # guaranteed_bit_rate block structure:
 #   downlink (string)                  : (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.

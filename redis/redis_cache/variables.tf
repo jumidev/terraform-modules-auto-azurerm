@@ -139,3 +139,10 @@ variable "zones" {
   type        = string
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "spring_cloud_app_redis_association" {
+  type    = map(any)
+  default = null
+}

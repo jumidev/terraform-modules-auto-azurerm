@@ -30,10 +30,6 @@ variable "application_rule_collection" {
 #   priority (string)                          : (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.
 #   rule (block)                               : (REQUIRED) One or more 'application_rule' blocks.
 #
-# protocols block structure:
-#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
-#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
-#
 # application_rule block structure:
 #   name (string)                   : (REQUIRED) The name which should be used for this rule.
 #   description (string)            : The description which should be used for this rule.
@@ -51,6 +47,10 @@ variable "application_rule_collection" {
 # http_headers block structure:
 #   name (string)               : (REQUIRED) Specifies the name of the header.
 #   value (string)              : (REQUIRED) Specifies the value of the value.
+#
+# protocols block structure:
+#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
+#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
 
 
 variable "nat_rule_collection" {

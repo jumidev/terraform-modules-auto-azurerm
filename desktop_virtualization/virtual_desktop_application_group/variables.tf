@@ -48,3 +48,10 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+# REQUIRED VARIABLES
+
+variable "workspace_id" {
+  description = "(REQUIRED) The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created."
+  type        = string
+
+}

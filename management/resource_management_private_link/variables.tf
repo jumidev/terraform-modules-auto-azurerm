@@ -15,3 +15,10 @@ variable "location" {
   type        = string
 
 }
+
+# OPTIONAL VARIABLES
+
+variable "resource_management_private_link_association" {
+  type    = map(any)
+  default = null
+}

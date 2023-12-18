@@ -39,3 +39,11 @@ output "outbound_rules" {
   value       = azurerm_lb_backend_address_pool.this.outbound_rules
 }
 
+output "network_interface_backend_address_pool_association" {
+  value = var.network_interface_backend_address_pool_association
+}
+
+output "network_interface_application_gateway_backend_address_pool_association" {
+  value = var.network_interface_application_gateway_backend_address_pool_association
+}
+

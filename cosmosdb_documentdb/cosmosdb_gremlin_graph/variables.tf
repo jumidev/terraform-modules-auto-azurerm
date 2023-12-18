@@ -72,15 +72,15 @@ variable "index_policy" {
 #   composite_index (block)     : One or more 'composite_index' blocks.
 #   spatial_index (block)       : One or more 'spatial_index' blocks.
 #
-# composite_index block structure:
-#   index (block)                  : (REQUIRED) One or more 'index' blocks.
+# spatial_index block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
 #
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
 #
-# spatial_index block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
+# composite_index block structure:
+#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 
 
 variable "conflict_resolution_policy" {
@@ -105,3 +105,10 @@ variable "unique_key" {
 #   paths (list)              : (REQUIRED) A list of paths to use for this unique key. Changing this forces a new resource to be created.
 
 
+
+# OPTIONAL VARIABLES
+
+variable "spring_cloud_app_cosmosdb_association" {
+  type    = map(any)
+  default = null
+}

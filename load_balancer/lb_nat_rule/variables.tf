@@ -68,3 +68,10 @@ variable "enable_tcp_reset" {
   type        = bool
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "network_interface_nat_rule_association" {
+  type    = map(any)
+  default = null
+}

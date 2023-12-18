@@ -32,6 +32,21 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `cdn_frontdoor_custom_domain_id` 
+
+- If set to a valid `azurerm_cdn_frontdoor_custom_domain` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   cdn_frontdoor_custom_domain_id = "path/to/cdn_frontdoor_custom_domain_component:id"
+}
+```
+
 
 ## Required Variables
 

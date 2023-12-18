@@ -25,6 +25,21 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `workspace_id` 
+
+- If set to a valid `azurerm_log_analytics_workspace` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   workspace_id = "path/to/log_analytics_workspace_component:id"
+}
+```
+
 
 ## Required Variables
 

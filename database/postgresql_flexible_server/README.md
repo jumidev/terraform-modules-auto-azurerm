@@ -58,21 +58,19 @@ tfstate_store = {
 | **version** | string |  -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`. | 
 | **zone** | string |  -  |  -  |  Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located. | 
 
-### `customer_managed_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key. |
-| `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
-| `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
-| `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
 | `identity_ids` | [block](#customer_managed_key-block-structure) | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
+
+### `high_availability` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'. |
+| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. |
 
 ### `authentication` block structure
 
@@ -82,12 +80,14 @@ tfstate_store = {
 | `password_auth_enabled` | bool | No | True | Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'. |
 | `tenant_id` | string | No | - | The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. |
 
-### `high_availability` block structure
+### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'. |
-| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. |
+| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key. |
+| `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
+| `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
+| `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
 
 ### `maintenance_window` block structure
 

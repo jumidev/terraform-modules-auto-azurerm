@@ -69,19 +69,11 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set. | 
 | **priority_mix** | [block](#priority_mix-block-structure) |  -  |  -  |  a `priority_mix` block | 
 
-### `certificate` block structure
+### `additional_capabilities` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `store` | string | Yes | - | The certificate store on the Virtual Machine where the certificate should be added. |
-| `url` | string | Yes | - | The Secret URL of a Key Vault Certificate. |
-
-### `protected_settings_from_key_vault` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_url` | string | Yes | - | The URL to the Key Vault Secret which stores the protected settings. |
-| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. |
+| `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to 'false'. Changing this forces a new resource to be created. |
 
 ### `source_image_reference` block structure
 
@@ -92,28 +84,28 @@ tfstate_store = {
 | `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. |
 | `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. |
 
-### `extension` block structure
+### `windows_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
-| `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
-| `type` | string | Yes | - | Specifies the Type of the Extension. |
-| `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
-| `auto_upgrade_minor_version_enabled` | bool | No | True | Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to 'true'. |
-| `extensions_to_provision_after_vm_creation` | string | No | - | An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation. |
-| `force_extension_execution_on_change` | string | No | - | A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. |
-| `protected_settings` | string | No | - | A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. |
-| `protected_settings_from_key_vault` | [block](#protected_settings_from_key_vault-block-structure) | No | - | A 'protected_settings_from_key_vault' block. |
-| `failure_suppression_enabled` | string | No | - | Should failures from the extension be suppressed? Possible values are 'true' or 'false'. |
-| `settings` | string | No | - | A JSON String which specifies Settings for the Extension. |
+| `admin_username` | string | Yes | - | The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created. |
+| `admin_password` | string | Yes | - | The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created. |
+| `computer_name_prefix` | string | No | name | The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the 'name' field. If the value of the 'name' field is not a valid 'computer_name_prefix', then you must specify 'computer_name_prefix'. Changing this forces a new resource to be created. |
+| `enable_automatic_updates` | bool | No | True | Are automatic updates enabled for this Virtual Machine? Defaults to 'true'. |
+| `hotpatching_enabled` | bool | No | False | Should the VM be patched without requiring a reboot? Possible values are 'true' or 'false'. Defaults to 'false'. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch). |
+| `patch_assessment_mode` | string | No | ImageDefault | Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are 'AutomaticByPlatform' or 'ImageDefault'. Defaults to 'ImageDefault'. |
+| `patch_mode` | string | No | AutomaticByOS | Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'Manual', 'AutomaticByOS' and 'AutomaticByPlatform'. Defaults to 'AutomaticByOS'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). |
+| `provision_vm_agent` | bool | No | True | Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created. |
+| `secret` | [block](#secret-block-structure) | No | - | One or more 'secret' blocks. |
+| `timezone` | string | No | - | Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). |
+| `winrm_listener` | [block](#winrm_listener-block-structure) | No | - | One or more 'winrm_listener' blocks. Changing this forces a new resource to be created. |
 
-### `secret` block structure
+### `admin_ssh_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
-| `certificate` | [block](#certificate-block-structure) | Yes | - | One or more 'certificate' blocks. |
+| `public_key` | string | Yes | - | The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. |
+| `username` | string | Yes | - | The Username for which this Public SSH Key should be configured. |
 
 ### `automatic_instance_repair` block structure
 
@@ -122,19 +114,19 @@ tfstate_store = {
 | `enabled` | string | Yes | - | Should the automatic instance repair be enabled on this Orchestrated Virtual Machine Scale Set? Possible values are 'true' and 'false'. |
 | `grace_period` | string | No | PT30M | Amount of time for which automatic repairs will be delayed. The grace period starts right after the VM is found unhealthy. Possible values are between '30' and '90' minutes. The time duration should be specified in 'ISO 8601' format (e.g. 'PT30M' to 'PT90M'). Defaults to 'PT30M'. |
 
-### `diff_disk_settings` block structure
+### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
-| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
+| `store` | string | Yes | - | The certificate store on the Virtual Machine where the certificate should be added. |
+| `url` | string | Yes | - | The Secret URL of a Key Vault Certificate. |
 
-### `admin_ssh_key` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `public_key` | string | Yes | - | The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format. |
-| `username` | string | Yes | - | The Username for which this Public SSH Key should be configured. |
+| `type` | string | Yes | - | The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is 'UserAssigned'. |
+| `identity_ids` | string | Yes | - | Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set. |
 
 ### `os_disk` block structure
 
@@ -147,25 +139,48 @@ tfstate_store = {
 | `disk_size_gb` | number | No | - | The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from. |
 | `write_accelerator_enabled` | bool | No | False | Specifies if Write Accelerator is enabled on the OS Disk. Defaults to 'false'. |
 
-### `linux_configuration` block structure
+### `termination_notification` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created. |
-| `admin_password` | string | No | - | The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created. |
-| `admin_ssh_key` | [block](#admin_ssh_key-block-structure) | No | - | A 'admin_ssh_key' block. |
-| `computer_name_prefix` | string | No | computer_name_prefix | The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid 'computer_name_prefix', then you must specify 'computer_name_prefix'. Changing this forces a new resource to be created. |
-| `disable_password_authentication` | bool | No | True | When an 'admin_password' is specified 'disable_password_authentication' must be set to 'false'. Defaults to 'true'. |
-| `patch_assessment_mode` | string | No | ImageDefault | Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are 'AutomaticByPlatform' or 'ImageDefault'. Defaults to 'ImageDefault'. |
-| `patch_mode` | string | No | ImageDefault | Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'ImageDefault' or 'AutomaticByPlatform'. Defaults to 'ImageDefault'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). |
-| `provision_vm_agent` | bool | No | True | Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created. |
-| `secret` | [block](#secret-block-structure) | No | - | One or more 'secret' blocks. |
+| `enabled` | string | Yes | - | Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values 'true' or 'false' |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in 'ISO 8601' format. Defaults to 'PT5M'. |
 
-### `additional_capabilities` block structure
+### `secret` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Orchestrated Virtual Machine Scale Set? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
+| `certificate` | [block](#certificate-block-structure) | Yes | - | One or more 'certificate' blocks. |
+
+### `winrm_listener` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created. |
+| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created. |
+
+### `os_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_data` | string | No | - | The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set. |
+| `windows_configuration` | [block](#windows_configuration-block-structure) | No | - | A 'windows_configuration' block. |
+| `linux_configuration` | [block](#linux_configuration-block-structure) | No | - | A 'linux_configuration' block. |
+
+### `protected_settings_from_key_vault` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `secret_url` | string | Yes | - | The URL to the Key Vault Secret which stores the protected settings. |
+| `source_vault_id` | string | Yes | - | The ID of the source Key Vault. |
+
+### `diff_disk_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
+| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
 
 ### `network_interface` block structure
 
@@ -184,44 +199,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. By including a 'boot_diagnostics' block without passing the 'storage_account_uri' field will cause the API to utilize a Managed Storage Account to store the Boot Diagnostics output. |
-
-### `windows_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created. |
-| `admin_password` | string | Yes | - | The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created. |
-| `computer_name_prefix` | string | No | name | The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the 'name' field. If the value of the 'name' field is not a valid 'computer_name_prefix', then you must specify 'computer_name_prefix'. Changing this forces a new resource to be created. |
-| `enable_automatic_updates` | bool | No | True | Are automatic updates enabled for this Virtual Machine? Defaults to 'true'. |
-| `hotpatching_enabled` | bool | No | False | Should the VM be patched without requiring a reboot? Possible values are 'true' or 'false'. Defaults to 'false'. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch). |
-| `patch_assessment_mode` | string | No | ImageDefault | Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are 'AutomaticByPlatform' or 'ImageDefault'. Defaults to 'ImageDefault'. |
-| `patch_mode` | string | No | AutomaticByOS | Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'Manual', 'AutomaticByOS' and 'AutomaticByPlatform'. Defaults to 'AutomaticByOS'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). |
-| `provision_vm_agent` | bool | No | True | Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created. |
-| `secret` | [block](#secret-block-structure) | No | - | One or more 'secret' blocks. |
-| `timezone` | string | No | - | Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). |
-| `winrm_listener` | [block](#winrm_listener-block-structure) | No | - | One or more 'winrm_listener' blocks. Changing this forces a new resource to be created. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is 'UserAssigned'. |
-| `identity_ids` | string | Yes | - | Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set. |
-
-### `winrm_listener` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created. |
-| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created. |
-
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
-| `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
-| `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
 
 ### `data_disk` block structure
 
@@ -244,20 +221,43 @@ tfstate_store = {
 | `base_regular_count` | string | No | 0 | Specifies the base number of VMs of 'Regular' priority that will be created before any VMs of priority 'Spot' are created. Possible values are integers between '0' and '1000'. Defaults to '0'. |
 | `regular_percentage_above_base` | string | No | 0 | Specifies the desired percentage of VM instances that are of 'Regular' priority after the base count has been reached. Possible values are integers between '0' and '100'. Defaults to '0'. |
 
-### `os_profile` block structure
+### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `custom_data` | string | No | - | The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set. |
-| `windows_configuration` | [block](#windows_configuration-block-structure) | No | - | A 'windows_configuration' block. |
-| `linux_configuration` | [block](#linux_configuration-block-structure) | No | - | A 'linux_configuration' block. |
+| `name` | string | Yes | - | Specifies the name of the image from the marketplace. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | Specifies the publisher of the image. Changing this forces a new resource to be created. |
+| `product` | string | Yes | - | Specifies the product of the image from the marketplace. Changing this forces a new resource to be created. |
 
-### `termination_notification` block structure
+### `extension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | string | Yes | - | Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values 'true' or 'false' |
-| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in 'ISO 8601' format. Defaults to 'PT5M'. |
+| `name` | string | Yes | - | The name for the Virtual Machine Scale Set Extension. |
+| `publisher` | string | Yes | - | Specifies the Publisher of the Extension. |
+| `type` | string | Yes | - | Specifies the Type of the Extension. |
+| `type_handler_version` | string | Yes | - | Specifies the version of the extension to use, available versions can be found using the Azure CLI. |
+| `auto_upgrade_minor_version_enabled` | bool | No | True | Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to 'true'. |
+| `extensions_to_provision_after_vm_creation` | string | No | - | An ordered list of Extension names which Orchestrated Virtual Machine Scale Set should provision after VM creation. |
+| `force_extension_execution_on_change` | string | No | - | A value which, when different to the previous value can be used to force-run the Extension even if the Extension Configuration hasn't changed. |
+| `protected_settings` | string | No | - | A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension. |
+| `protected_settings_from_key_vault` | [block](#protected_settings_from_key_vault-block-structure) | No | - | A 'protected_settings_from_key_vault' block. |
+| `failure_suppression_enabled` | string | No | - | Should failures from the extension be suppressed? Possible values are 'true' or 'false'. |
+| `settings` | string | No | - | A JSON String which specifies Settings for the Extension. |
+
+### `linux_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created. |
+| `admin_password` | string | No | - | The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created. |
+| `admin_ssh_key` | [block](#admin_ssh_key-block-structure) | No | - | A 'admin_ssh_key' block. |
+| `computer_name_prefix` | string | No | computer_name_prefix | The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid 'computer_name_prefix', then you must specify 'computer_name_prefix'. Changing this forces a new resource to be created. |
+| `disable_password_authentication` | bool | No | True | When an 'admin_password' is specified 'disable_password_authentication' must be set to 'false'. Defaults to 'true'. |
+| `patch_assessment_mode` | string | No | ImageDefault | Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Orchestrated Virtual Machine Scale Set. Possible values are 'AutomaticByPlatform' or 'ImageDefault'. Defaults to 'ImageDefault'. |
+| `patch_mode` | string | No | ImageDefault | Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'ImageDefault' or 'AutomaticByPlatform'. Defaults to 'ImageDefault'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes). |
+| `provision_vm_agent` | bool | No | True | Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created. |
+| `secret` | [block](#secret-block-structure) | No | - | One or more 'secret' blocks. |
 
 
 

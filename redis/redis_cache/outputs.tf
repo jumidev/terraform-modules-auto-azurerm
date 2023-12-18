@@ -134,3 +134,7 @@ output "maxclients" {
   value       = azurerm_redis_cache.this.maxclients
 }
 
+output "spring_cloud_app_redis_association" {
+  value = var.spring_cloud_app_redis_association
+}
+

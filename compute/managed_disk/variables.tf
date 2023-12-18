@@ -192,3 +192,10 @@ variable "public_network_access_enabled" {
   type        = bool
   default     = true
 }
+
+# OPTIONAL VARIABLES
+
+variable "virtual_machine_data_disk_attachment" {
+  type    = map(any)
+  default = null
+}

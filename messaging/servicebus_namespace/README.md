@@ -48,13 +48,12 @@ tfstate_store = {
 | **network_rule_set** | [block](#network_rule_set-block-structure) |  -  |  -  |  An `network_rule_set` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `customer_managed_key` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace. |
-| `identity_id` | string | Yes | - | The ID of the User Assigned Identity that has access to the key. |
-| `infrastructure_encryption_enabled` | bool | No | - | Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
 
 ### `network_rule_set` block structure
 
@@ -66,12 +65,13 @@ tfstate_store = {
 | `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. |
 | `network_rules` | [block](#network_rules-block-structure) | No | - | One or more 'network_rules' blocks. |
 
-### `identity` block structure
+### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this ServiceBus Namespace. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this ServiceBus namespace. |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace. |
+| `identity_id` | string | Yes | - | The ID of the User Assigned Identity that has access to the key. |
+| `infrastructure_encryption_enabled` | bool | No | - | Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. |
 
 ### `network_rules` block structure
 

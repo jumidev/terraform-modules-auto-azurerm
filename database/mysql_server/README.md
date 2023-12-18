@@ -26,6 +26,41 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `spring_cloud_app_mysql_association` 
+
+If set, makes a **azurerm_spring_cloud_app_mysql_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `spring_cloud_app_id` | string | True | null |
+| `database_name` | string | True | null |
+| `username` | string | True | null |
+| `password` | string | True | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   spring_cloud_app_mysql_association = {
+      name = "..."      
+      database_name = "..."      
+      username = "..."      
+      password = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   spring_cloud_app_mysql_association.spring_cloud_app_id = "path/to/spring_cloud_app_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

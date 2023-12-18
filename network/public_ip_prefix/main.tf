@@ -21,3 +21,12 @@ resource "azurerm_public_ip_prefix" "this" {
   tags          = var.tags
   zones         = var.zones
 }
+
+##############################################################################################
+# optional azurerm_nat_gateway_public_ip_prefix_association 
+##############################################################################################
+resource "azurerm_nat_gateway_public_ip_prefix_association" "this" {
+  count               = var.nat_gateway_id != null ? 1 : 0
+  nat_gateway_id      = var.nat_gateway_id
+  public_ip_prefix_id = azurerm_public_ip_prefix.this.id
+}

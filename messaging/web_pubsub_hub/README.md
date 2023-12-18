@@ -42,11 +42,14 @@ tfstate_store = {
 | **event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
 | **event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
 
-### `auth` block structure
+### `event_listener` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
+| `system_event_name_filter` | string | No | - | Specifies the list of system events. Supported values are 'connected' and 'disconnected'. |
+| `user_event_name_filter` | string | No | - | Specifies the list of matching user event names. '['*']' can be used to match all events. |
+| `eventhub_namespace_name` | string | Yes | - | Specifies the event hub namespace name to receive the events. |
+| `eventhub_name` | string | Yes | - | Specifies the event hub name to receive the events. |
 
 ### `event_handler` block structure
 
@@ -57,14 +60,11 @@ tfstate_store = {
 | `system_events` | string | No | - | Specifies the list of system events. Supported values are 'connect', 'connected' and 'disconnected'. |
 | `auth` | [block](#auth-block-structure) | No | - | An 'auth' block. |
 
-### `event_listener` block structure
+### `auth` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `system_event_name_filter` | string | No | - | Specifies the list of system events. Supported values are 'connected' and 'disconnected'. |
-| `user_event_name_filter` | string | No | - | Specifies the list of matching user event names. '['*']' can be used to match all events. |
-| `eventhub_namespace_name` | string | Yes | - | Specifies the event hub namespace name to receive the events. |
-| `eventhub_name` | string | Yes | - | Specifies the event hub name to receive the events. |
+| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
 
 
 

@@ -66,15 +66,6 @@ tfstate_store = {
 | `event_source` | string | Yes | - | Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations |
 | `rule_set` | [block](#rule_set-block-structure) | No | - | A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks. |
 
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `expected_value` | string | Yes | - | A value that will be compared with the value in 'property_path'. |
-| `operator` | string | Yes | - | The comparison operator to use, must be one of: 'Contains', 'EndsWith', 'Equals', 'GreaterThan', 'GreaterThanOrEqualTo', 'LesserThan', 'LesserThanOrEqualTo', 'NotEquals', 'StartsWith' |
-| `property_path` | string | Yes | - | The JPath of the entity model property that should be checked. |
-| `property_type` | string | Yes | - | The data type of the compared operands, must be one of: 'Integer', 'String', 'Boolean' or 'Number'. |
-
 ### `action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +80,15 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `rule` | [block](#rule-block-structure) | Yes | - | One or more 'rule' blocks. |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expected_value` | string | Yes | - | A value that will be compared with the value in 'property_path'. |
+| `operator` | string | Yes | - | The comparison operator to use, must be one of: 'Contains', 'EndsWith', 'Equals', 'GreaterThan', 'GreaterThanOrEqualTo', 'LesserThan', 'LesserThanOrEqualTo', 'NotEquals', 'StartsWith' |
+| `property_path` | string | Yes | - | The JPath of the entity model property that should be checked. |
+| `property_type` | string | Yes | - | The data type of the compared operands, must be one of: 'Integer', 'String', 'Boolean' or 'Number'. |
 
 
 

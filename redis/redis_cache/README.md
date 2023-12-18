@@ -26,6 +26,39 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `spring_cloud_app_redis_association` 
+
+If set, makes a **azurerm_spring_cloud_app_redis_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `spring_cloud_app_id` | string | True | null |
+| `redis_access_key` | string | True | null |
+| `ssl_enabled` | bool | False | true |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   spring_cloud_app_redis_association = {
+      name = "..."      
+      redis_access_key = "..."      
+      ssl_enabled = true      
+   }
+   
+}
+
+tfstate_inputs = {
+   spring_cloud_app_redis_association.spring_cloud_app_id = "path/to/spring_cloud_app_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 
@@ -58,13 +91,12 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created. | 
 
-### `patch_schedule` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
-| `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
-| `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
 
 ### `redis_configuration` block structure
 
@@ -85,12 +117,13 @@ tfstate_store = {
 | `rdb_storage_connection_string` | string | No | - | The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. |
 | `notify_keyspace_events` | string | No | - | Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) |
 
-### `identity` block structure
+### `patch_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
+| `day_of_week` | string | Yes | - | the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc. |
+| `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
+| `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
 
 
 

@@ -33,3 +33,10 @@ variable "autoscale_settings" {
 #   max_throughput (string)           : The maximum throughput of the Cassandra KeySpace (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.
 
 
+
+# OPTIONAL VARIABLES
+
+variable "spring_cloud_app_cosmosdb_association" {
+  type    = map(any)
+  default = null
+}

@@ -23,6 +23,37 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `resource_management_private_link_association` 
+
+If set, makes a **azurerm_resource_management_private_link_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `management_group_id` | string | True | null |
+| `public_network_access_enabled` | bool | True | null |
+| `name` | string | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   resource_management_private_link_association = {
+      public_network_access_enabled = "..."      
+      name = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   resource_management_private_link_association.management_group_id = "path/to/management_group_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

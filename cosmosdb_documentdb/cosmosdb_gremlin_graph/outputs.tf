@@ -55,3 +55,7 @@ output "id" {
   value       = azurerm_cosmosdb_gremlin_graph.this.id
 }
 
+output "spring_cloud_app_cosmosdb_association" {
+  value = var.spring_cloud_app_cosmosdb_association
+}
+
