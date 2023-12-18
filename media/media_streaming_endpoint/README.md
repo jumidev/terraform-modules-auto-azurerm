@@ -55,6 +55,14 @@ tfstate_store = {
 | **max_cache_age_seconds** | number |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
+### `ip_allow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | No | - | The IP address to allow. |
+| `name` | string | No | - | The friendly name for the IP address range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
 ### `cross_site_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,14 +84,6 @@ tfstate_store = {
 | `base64_key` | string | No | - | Authentication key. |
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
-
-### `ip_allow` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address to allow. |
-| `name` | string | No | - | The friendly name for the IP address range. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 
 

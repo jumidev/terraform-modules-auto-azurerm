@@ -49,26 +49,6 @@ tfstate_store = {
 | **analytical_storage_ttl** | string |  -  |  The default time to live of Analytical Storage for this SQL container. If present and the value is set to `-1`, it is equal to infinity, and items don’t expire by default. If present and the value is set to some number `n` – items will expire `n` seconds after their last modified time. | 
 | **conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 
-### `autoscale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the SQL container (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
-
-### `excluded_path` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path that is excluded from indexing. |
-
-### `conflict_resolution_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'. |
-| `conflict_resolution_path` | string | No | - | The conflict resolution path in the case of 'LastWriterWins' mode. |
-| `conflict_resolution_procedure` | string | No | - | The procedure to resolve conflicts in the case of 'Custom' mode. |
-
 ### `indexing_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +58,12 @@ tfstate_store = {
 | `excluded_path` | [block](#excluded_path-block-structure) | No | - | One or more 'excluded_path' blocks. Either 'included_path' or 'excluded_path' must contain the 'path' '/*' |
 | `composite_index` | [block](#composite_index-block-structure) | No | - | One or more 'composite_index' blocks. |
 | `spatial_index` | [block](#spatial_index-block-structure) | No | - | One or more 'spatial_index' blocks. |
+
+### `excluded_path` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path that is excluded from indexing. |
 
 ### `composite_index` block structure
 
@@ -91,18 +77,32 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
 
-### `unique_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
-
 ### `index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
 | `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
+
+### `autoscale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the SQL container (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+
+### `unique_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
+
+### `conflict_resolution_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'. |
+| `conflict_resolution_path` | string | No | - | The conflict resolution path in the case of 'LastWriterWins' mode. |
+| `conflict_resolution_procedure` | string | No | - | The procedure to resolve conflicts in the case of 'Custom' mode. |
 
 ### `spatial_index` block structure
 

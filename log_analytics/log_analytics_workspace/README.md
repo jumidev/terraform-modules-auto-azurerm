@@ -23,6 +23,21 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `application_group_id` 
+
+- If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   application_group_id = "path/to/virtual_desktop_application_group_component:id"
+}
+```
+
 
 ## Required Variables
 

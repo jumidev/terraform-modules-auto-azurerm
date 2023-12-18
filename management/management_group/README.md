@@ -20,6 +20,49 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resources
+
+
+### `resource_management_private_link_association` 
+
+If set, makes a **azurerm_resource_management_private_link_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `resource_management_private_link_id` | string | True | null |
+| `public_network_access_enabled` | bool | True | null |
+| `name` | string | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   resource_management_private_link_association = {
+      public_network_access_enabled = "..."      
+      name = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   resource_management_private_link_association.resource_management_private_link_id = "path/to/resource_management_private_link_id_component:id"   
+}
+
+```
+
+### `subscription_id` 
+
+- If set to a valid `azurerm_subscription` `subscription_id`, makes a **azurerm_management_group_subscription_association** - Manages a Management Group Subscription Association.!> **Note:** When using this resource, configuring `subscription_ids` on the `azurerm_management_group` resource is not supported.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   subscription_id = "path/to/subscription_component:subscription_id"
+}
+```
+
 
 ## Optional Variables
 

@@ -94,6 +94,12 @@ tfstate_inputs = {
 | **throughput_in_mibps** | string |  -  |  -  |  Throughput of this volume in Mibps. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `data_protection_snapshot_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
+
 ### `data_protection_replication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -102,12 +108,6 @@ tfstate_inputs = {
 | `remote_volume_location` | string | Yes | - | Location of the primary volume. Changing this forces a new resource to be created. |
 | `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
 | `replication_frequency` | string | Yes | - | Replication frequency, supported values are '10minutes', 'hourly', 'daily', values are case sensitive. |
-
-### `data_protection_snapshot_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshot_policy_id` | string | Yes | - | Resource ID of the snapshot policy to apply to the volume. |
 
 
 

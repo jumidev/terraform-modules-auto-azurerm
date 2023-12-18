@@ -42,6 +42,12 @@ tfstate_store = {
 | **event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
 | **event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
 
+### `auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
+
 ### `event_handler` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -59,12 +65,6 @@ tfstate_store = {
 | `user_event_name_filter` | string | No | - | Specifies the list of matching user event names. '['*']' can be used to match all events. |
 | `eventhub_namespace_name` | string | Yes | - | Specifies the event hub namespace name to receive the events. |
 | `eventhub_name` | string | Yes | - | Specifies the event hub name to receive the events. |
-
-### `auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
 
 
 

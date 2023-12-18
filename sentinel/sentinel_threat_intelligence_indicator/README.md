@@ -61,11 +61,14 @@ tfstate_store = {
 | **threat_types** | string |  Specifies a list of threat types of this Threat Intelligence Indicator. | 
 | **validate_until_utc** | string |  The end of validate date of the Threat Intelligence Indicator in RFC3339 format. | 
 
-### `kill_chain_phase` block structure
+### `external_reference` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
+| `description` | string | No | - | The description of the external reference of the Threat Intelligence Indicator. |
+| `hashes` | string | No | - | The list of hashes of the external reference of the Threat Intelligence Indicator. |
+| `source_name` | string | No | - | The source name of the external reference of the Threat Intelligence Indicator. |
+| `url` | string | No | - | The url of the external reference of the Threat Intelligence Indicator. |
 
 ### `granular_marking` block structure
 
@@ -75,14 +78,11 @@ tfstate_store = {
 | `marking_ref` | string | No | - | The reference of the granular marking of the Threat Intelligence Indicator. |
 | `selectors` | list | No | - | A list of selectors of the granular marking of the Threat Intelligence Indicator. |
 
-### `external_reference` block structure
+### `kill_chain_phase` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | The description of the external reference of the Threat Intelligence Indicator. |
-| `hashes` | string | No | - | The list of hashes of the external reference of the Threat Intelligence Indicator. |
-| `source_name` | string | No | - | The source name of the external reference of the Threat Intelligence Indicator. |
-| `url` | string | No | - | The url of the external reference of the Threat Intelligence Indicator. |
+| `name` | string | No | - | The name which should be used for the Lockheed Martin cyber kill chain phase. |
 
 
 

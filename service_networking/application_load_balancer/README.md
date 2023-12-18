@@ -23,6 +23,37 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `application_load_balancer_subnet_association` 
+
+If set, makes a **azurerm_application_load_balancer_subnet_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `subnet_id` | string | True | null |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   application_load_balancer_subnet_association = {
+      name = "..."      
+      tags = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   application_load_balancer_subnet_association.subnet_id = "path/to/subnet_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

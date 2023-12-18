@@ -40,13 +40,14 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
-### `parameter` block structure
+### `match_criterion` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `as_path` | list | No | - | A list of AS paths. |
-| `community` | list | No | - | A list of BGP communities. |
-| `route_prefix` | list | No | - | A list of route prefixes. |
+| `match_condition` | string | Yes | - | The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'. |
+| `as_path` | list | No | - | A list of AS paths which this criterion matches. |
+| `community` | list | No | - | A list of BGP communities which this criterion matches. |
+| `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
 
 ### `rule` block structure
 
@@ -64,14 +65,13 @@ tfstate_store = {
 | `parameter` | [block](#parameter-block-structure) | Yes | - | A 'parameter' block. |
 | `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
-### `match_criterion` block structure
+### `parameter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `match_condition` | string | Yes | - | The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'. |
-| `as_path` | list | No | - | A list of AS paths which this criterion matches. |
-| `community` | list | No | - | A list of BGP communities which this criterion matches. |
-| `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
+| `as_path` | list | No | - | A list of AS paths. |
+| `community` | list | No | - | A list of BGP communities. |
+| `route_prefix` | list | No | - | A list of route prefixes. |
 
 
 

@@ -49,16 +49,6 @@ variable "roles" {
 #   worker_node (block)   : (REQUIRED) A 'worker_node' block.
 #   zookeeper_node (block): (REQUIRED) A 'zookeeper_node' block.
 #
-# script_actions block structure:
-#   name (string)                 : (REQUIRED) The name of the script action.
-#   uri (string)                  : (REQUIRED) The URI to the script.
-#   parameters (string)           : The parameters for the script provided.
-#
-# schedule block structure      :
-#   days (string)                 : (REQUIRED) The days of the week to perform autoscale. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
-#   target_instance_count (number): (REQUIRED) The number of worker nodes to autoscale at the specified time.
-#   time (string)                 : (REQUIRED) The time of day to perform the autoscale in 24hour format.
-#
 # zookeeper_node block structure:
 #   script_actions (list)         : The script action which will run on the cluster. One or more 'script_actions' blocks.
 #   username (string)             : (REQUIRED) The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -67,6 +57,15 @@ variable "roles" {
 #   ssh_keys (list)               : A list of SSH Keys which should be used for the local administrator on the Zookeeper Nodes. Changing this forces a new resource to be created.
 #   subnet_id (string)            : The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   virtual_network_id (string)   : The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
+#
+# capacity block structure   :
+#   max_instance_count (number): (REQUIRED) The maximum number of worker nodes to autoscale to based on the cluster's activity.
+#   min_instance_count (number): (REQUIRED) The minimum number of worker nodes to autoscale to based on the cluster's activity.
+#
+# schedule block structure      :
+#   days (string)                 : (REQUIRED) The days of the week to perform autoscale. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
+#   target_instance_count (number): (REQUIRED) The number of worker nodes to autoscale at the specified time.
+#   time (string)                 : (REQUIRED) The time of day to perform the autoscale in 24hour format.
 #
 # worker_node block structure   :
 #   script_actions (list)         : The script action which will run on the cluster. One or more 'script_actions' blocks.
@@ -79,17 +78,10 @@ variable "roles" {
 #   virtual_network_id (string)   : The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   autoscale (block)             : A 'autoscale' block.
 #
-# capacity block structure   :
-#   max_instance_count (number): (REQUIRED) The maximum number of worker nodes to autoscale to based on the cluster's activity.
-#   min_instance_count (number): (REQUIRED) The minimum number of worker nodes to autoscale to based on the cluster's activity.
-#
-# autoscale block structure:
-#   capacity (block)         : A 'capacity' block.
-#   recurrence (block)       : A 'recurrence' block.
-#
-# recurrence block structure:
-#   schedule (block)          : (REQUIRED) A list of 'schedule' blocks.
-#   timezone (string)         : (REQUIRED) The time zone for the autoscale schedule times.
+# script_actions block structure:
+#   name (string)                 : (REQUIRED) The name of the script action.
+#   uri (string)                  : (REQUIRED) The URI to the script.
+#   parameters (string)           : The parameters for the script provided.
 #
 # head_node block structure  :
 #   username (string)          : (REQUIRED) The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -99,6 +91,14 @@ variable "roles" {
 #   subnet_id (string)         : The ID of the Subnet within the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   virtual_network_id (string): The ID of the Virtual Network where the Head Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   script_actions (block)     : The script action which will run on the cluster. One or more 'script_actions' blocks.
+#
+# autoscale block structure:
+#   capacity (block)         : A 'capacity' block.
+#   recurrence (block)       : A 'recurrence' block.
+#
+# recurrence block structure:
+#   schedule (block)          : (REQUIRED) A list of 'schedule' blocks.
+#   timezone (string)         : (REQUIRED) The time zone for the autoscale schedule times.
 
 
 variable "tier" {

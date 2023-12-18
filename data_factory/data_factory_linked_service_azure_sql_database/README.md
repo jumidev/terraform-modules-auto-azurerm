@@ -51,19 +51,19 @@ tfstate_store = {
 | **key_vault_connection_string** | [block](#key_vault_connection_string-block-structure) |  A `key_vault_connection_string` block. Use this argument to store Azure SQL Database connection string in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. Exactly one of either `connection_string` or `key_vault_connection_string` is required. | 
 | **key_vault_password** | [block](#key_vault_password-block-structure) |  A `key_vault_password` block. Use this argument to store SQL Server password in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. | 
 
-### `key_vault_connection_string` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
-| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores SQL Server connection string. |
-
 ### `key_vault_password` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
 | `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores SQL Server password. |
+
+### `key_vault_connection_string` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault that stores SQL Server connection string. |
 
 
 

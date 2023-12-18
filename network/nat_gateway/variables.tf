@@ -38,3 +38,24 @@ variable "zones" {
   type        = list(any)
   default     = []
 }
+# REQUIRED VARIABLES
+
+variable "public_ip_address_id" {
+  description = "(REQUIRED) The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created."
+  type        = string
+
+}
+# REQUIRED VARIABLES
+
+variable "subnet_id" {
+  description = "(REQUIRED) The ID of the Subnet. Changing this forces a new resource to be created."
+  type        = string
+
+}
+# REQUIRED VARIABLES
+
+variable "public_ip_prefix_id" {
+  description = "(REQUIRED) The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created."
+  type        = string
+
+}

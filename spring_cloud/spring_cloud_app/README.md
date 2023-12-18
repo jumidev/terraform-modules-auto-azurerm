@@ -23,6 +23,106 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resources
+
+
+### `spring_cloud_app_cosmosdb_association` 
+
+If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `cosmosdb_account_id` | string | True | null |
+| `api_type` | string | True | null |
+| `cosmosdb_access_key` | string | True | null |
+| `cosmosdb_cassandra_keyspace_name` | string | False | null |
+| `cosmosdb_gremlin_database_name` | string | False | null |
+| `cosmosdb_gremlin_graph_name` | string | False | null |
+| `cosmosdb_mongo_database_name` | string | False | null |
+| `cosmosdb_sql_database_name` | string | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   spring_cloud_app_cosmosdb_association = {
+      name = "..."      
+      api_type = "..."      
+      cosmosdb_access_key = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   spring_cloud_app_cosmosdb_association.cosmosdb_account_id = "path/to/cosmosdb_account_id_component:name"   
+}
+
+```
+
+### `spring_cloud_app_redis_association` 
+
+If set, makes a **azurerm_spring_cloud_app_redis_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `redis_cache_id` | string | True | null |
+| `redis_access_key` | string | True | null |
+| `ssl_enabled` | bool | False | true |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   spring_cloud_app_redis_association = {
+      name = "..."      
+      redis_access_key = "..."      
+      ssl_enabled = true      
+   }
+   
+}
+
+tfstate_inputs = {
+   spring_cloud_app_redis_association.redis_cache_id = "path/to/redis_cache_id_component:id"   
+}
+
+```
+
+### `spring_cloud_app_mysql_association` 
+
+If set, makes a **azurerm_spring_cloud_app_mysql_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `mysql_server_id` | string | True | null |
+| `database_name` | string | True | null |
+| `username` | string | True | null |
+| `password` | string | True | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   spring_cloud_app_mysql_association = {
+      name = "..."      
+      database_name = "..."      
+      username = "..."      
+      password = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   spring_cloud_app_mysql_association.mysql_server_id = "path/to/mysql_server_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 
@@ -46,6 +146,13 @@ tfstate_store = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
+### `persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
+| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
+
 ### `ingress_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,13 +162,6 @@ tfstate_store = {
 | `send_timeout_in_seconds` | string | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
 | `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
 | `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
-
-### `persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
-| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
 
 ### `custom_persistent_disk` block structure
 

@@ -37,6 +37,111 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resources
+
+
+### `application_security_group_id` 
+
+- If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   application_security_group_id = "path/to/application_security_group_component:id"
+}
+```
+
+### `network_interface_backend_address_pool_association` 
+
+If set, makes a **azurerm_network_interface_backend_address_pool_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `ip_configuration_name` | string | True | "primary" |
+| `backend_address_pool_id` | string | True | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   network_interface_backend_address_pool_association = {
+      ip_configuration_name = "primary"      
+   }
+   
+}
+
+tfstate_inputs = {
+   network_interface_backend_address_pool_association.backend_address_pool_id = "path/to/backend_address_pool_id_component:id"   
+}
+
+```
+
+### `network_security_group_id` 
+
+- If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.
+
+Example component snippet:
+
+```hcl
+tfstate_inputs = {
+   network_security_group_id = "path/to/network_security_group_component:id"
+}
+```
+
+### `network_interface_application_gateway_backend_address_pool_association` 
+
+If set, makes a **azurerm_network_interface_application_gateway_backend_address_pool_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `ip_configuration_name` | string | True | "primary" |
+| `backend_address_pool_id` | string | True | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   network_interface_application_gateway_backend_address_pool_association = {
+      ip_configuration_name = "primary"      
+   }
+   
+}
+
+tfstate_inputs = {
+   network_interface_application_gateway_backend_address_pool_association.backend_address_pool_id = "path/to/backend_address_pool_id_component:id"   
+}
+
+```
+
+### `network_interface_nat_rule_association` 
+
+If set, makes a **azurerm_network_interface_nat_rule_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `ip_configuration_name` | string | True | "primary" |
+| `nat_rule_id` | string | True | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   network_interface_nat_rule_association = {
+      ip_configuration_name = "primary"      
+   }
+   
+}
+
+tfstate_inputs = {
+   network_interface_nat_rule_association.nat_rule_id = "path/to/nat_rule_id_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

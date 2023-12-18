@@ -78,3 +78,16 @@ output "workspace_id" {
   value       = azurerm_log_analytics_workspace.this.workspace_id
 }
 
+output "workspace_id" {
+  value = azurerm_virtual_desktop_workspace_application_group_association.this.*.workspace_id
+}
+
+output "application_group_id" {
+  value = azurerm_virtual_desktop_workspace_application_group_association.this.*.application_group_id
+}
+
+output "id" {
+  description = "The ID of the Virtual Desktop Workspace Application Group association."
+  value       = azurerm_virtual_desktop_workspace_application_group_association.this.*.id
+}
+

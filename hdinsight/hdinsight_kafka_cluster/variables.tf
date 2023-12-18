@@ -50,11 +50,6 @@ variable "roles" {
 #   zookeeper_node (block)       : (REQUIRED) A 'zookeeper_node' block.
 #   kafka_management_node (block): A 'kafka_management_node' block.
 #
-# script_actions block structure:
-#   name (string)                 : (REQUIRED) The name of the script action.
-#   uri (string)                  : (REQUIRED) The URI to the script.
-#   parameters (string)           : The parameters for the script provided.
-#
 # zookeeper_node block structure:
 #   script_actions (block)        : The script action which will run on the cluster. One or more 'script_actions' blocks.
 #   username (string)             : (REQUIRED) The Username of the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -74,6 +69,11 @@ variable "roles" {
 #   subnet_id (string)               : The ID of the Subnet within the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   target_instance_count (number)   : (REQUIRED) The number of instances which should be run for the Worker Nodes.
 #   virtual_network_id (string)      : The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
+#
+# script_actions block structure:
+#   name (string)                 : (REQUIRED) The name of the script action.
+#   uri (string)                  : (REQUIRED) The URI to the script.
+#   parameters (string)           : The parameters for the script provided.
 #
 # kafka_management_node block structure:
 #   script_actions (block)               : The script action which will run on the cluster. One or more 'script_actions' blocks.

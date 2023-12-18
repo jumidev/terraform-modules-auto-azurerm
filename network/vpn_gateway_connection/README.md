@@ -57,6 +57,22 @@ tfstate_store = {
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
 | **traffic_selector_policy** | [block](#traffic_selector_policy-block-structure) |  -  |  One or more `traffic_selector_policy` blocks. | 
 
+### `routing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
+| `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
+| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
+| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
+
+### `custom_bgp_address` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
+| `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
+
 ### `traffic_selector_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,22 +106,6 @@ tfstate_store = {
 | `local_azure_ip_address_enabled` | bool | No | False | Whether to use local Azure IP to initiate connection? Defaults to 'false'. |
 | `policy_based_traffic_selector_enabled` | bool | No | False | Whether to enable policy-based traffic selectors? Defaults to 'false'. |
 | `custom_bgp_address` | [block](#custom_bgp_address-block-structure) | No | - | One or more 'custom_bgp_address' blocks. |
-
-### `custom_bgp_address` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_address` | string | Yes | - | The custom bgp ip address which belongs to the IP Configuration. |
-| `ip_configuration_id` | string | Yes | - | The ID of the IP Configuration which belongs to the VPN Gateway. |
-
-### `routing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `associated_route_table` | string | Yes | - | The ID of the Route Table associated with this VPN Connection. |
-| `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
-| `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
-| `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 
 
 

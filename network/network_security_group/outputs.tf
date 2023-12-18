@@ -23,3 +23,16 @@ output "id" {
   value       = azurerm_network_security_group.this.id
 }
 
+output "network_security_group_id" {
+  value = azurerm_subnet_network_security_group_association.this.*.network_security_group_id
+}
+
+output "subnet_id" {
+  value = azurerm_subnet_network_security_group_association.this.*.subnet_id
+}
+
+output "id" {
+  description = "The ID of the Subnet."
+  value       = azurerm_subnet_network_security_group_association.this.*.id
+}
+

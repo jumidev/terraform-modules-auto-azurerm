@@ -74,3 +74,38 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+# REQUIRED VARIABLES
+
+variable "application_security_group_id" {
+  description = "(REQUIRED) The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created."
+  type        = string
+
+}
+
+# OPTIONAL VARIABLES
+
+variable "network_interface_backend_address_pool_association" {
+  type    = map(any)
+  default = null
+}
+# REQUIRED VARIABLES
+
+variable "network_security_group_id" {
+  description = "(REQUIRED) The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created."
+  type        = string
+
+}
+
+# OPTIONAL VARIABLES
+
+variable "network_interface_application_gateway_backend_address_pool_association" {
+  type    = map(any)
+  default = null
+}
+
+# OPTIONAL VARIABLES
+
+variable "network_interface_nat_rule_association" {
+  type    = map(any)
+  default = null
+}

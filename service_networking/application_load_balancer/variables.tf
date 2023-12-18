@@ -23,3 +23,10 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "application_load_balancer_subnet_association" {
+  type    = map(any)
+  default = null
+}

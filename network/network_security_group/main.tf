@@ -36,3 +36,12 @@ resource "azurerm_network_security_group" "this" {
 
   tags = var.tags
 }
+
+##############################################################################################
+# optional azurerm_subnet_network_security_group_association 
+##############################################################################################
+resource "azurerm_subnet_network_security_group_association" "this" {
+  count                     = var.subnet_id != null ? 1 : 0
+  network_security_group_id = azurerm_network_security_group.this.id
+  subnet_id                 = var.subnet_id
+}

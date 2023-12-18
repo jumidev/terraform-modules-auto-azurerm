@@ -71,3 +71,15 @@ output "tenant_id" {
   value       = azurerm_spring_cloud_app.this.tenant_id
 }
 
+output "spring_cloud_app_cosmosdb_association" {
+  value = var.spring_cloud_app_cosmosdb_association
+}
+
+output "spring_cloud_app_redis_association" {
+  value = var.spring_cloud_app_redis_association
+}
+
+output "spring_cloud_app_mysql_association" {
+  value = var.spring_cloud_app_mysql_association
+}
+

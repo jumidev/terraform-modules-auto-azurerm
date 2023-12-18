@@ -69,6 +69,29 @@ tfstate_store = {
 | `publisher` | string | Yes | - | Specifies the publisher ID of the 3rd Party Artifact that is being procured. |
 | `product` | string | Yes | - | Specifies the 3rd Party artifact that is being procured. |
 
+### `trace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `connection_string` | string | No | - | The connection string used for Application Insights. |
+| `sample_rate` | string | No | 10.0 | The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. |
+
+### `http_basic_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
+| `password` | string | Yes | - | The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
+
+### `container_registry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the container registry. |
+| `username` | string | Yes | - | Specifies the username of the container registry. |
+| `password` | string | Yes | - | Specifies the password of the container registry. |
+| `server` | string | Yes | - | Specifies the login server of the container registry. |
+
 ### `repository` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,14 +104,14 @@ tfstate_store = {
 | `http_basic_auth` | [block](#http_basic_auth-block-structure) | No | - | A 'http_basic_auth' block. |
 | `ssh_auth` | [block](#ssh_auth-block-structure) | No | - | A 'ssh_auth' block. |
 
-### `container_registry` block structure
+### `ssh_auth` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the container registry. |
-| `username` | string | Yes | - | Specifies the username of the container registry. |
-| `password` | string | Yes | - | Specifies the password of the container registry. |
-| `server` | string | Yes | - | Specifies the login server of the container registry. |
+| `private_key` | string | Yes | - | The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'. |
+| `host_key` | string | No | - | The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'. |
+| `host_key_algorithm` | string | No | - | The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists. |
+| `strict_host_key_checking_enabled` | bool | No | True | Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'. |
 
 ### `config_server_git_setting` block structure
 
@@ -106,29 +129,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `container_registry_name` | string | No | - | Specifies the name of the container registry used in the default build service. |
-
-### `trace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `connection_string` | string | No | - | The connection string used for Application Insights. |
-| `sample_rate` | string | No | 10.0 | The sampling rate of Application Insights Agent. Must be between '0.0' and '100.0'. Defaults to '10.0'. |
-
-### `http_basic_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
-| `password` | string | Yes | - | The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication. |
-
-### `ssh_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `private_key` | string | Yes | - | The SSH private key to access the Git repository, required when the URI starts with 'git@' or 'ssh://'. |
-| `host_key` | string | No | - | The host key of the Git repository server, should not include the algorithm prefix as covered by 'host-key-algorithm'. |
-| `host_key_algorithm` | string | No | - | The host key algorithm, should be 'ssh-dss', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ecdsa-sha2-nistp384', or 'ecdsa-sha2-nistp521'. Required only if 'host-key' exists. |
-| `strict_host_key_checking_enabled` | bool | No | True | Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to 'true'. |
 
 
 

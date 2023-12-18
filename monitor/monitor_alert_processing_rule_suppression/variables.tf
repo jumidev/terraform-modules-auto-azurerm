@@ -37,6 +37,22 @@ variable "condition" {
 #   target_resource_group (block): A 'target_resource_group' block.
 #   target_resource_type (block) : A 'target_resource_type' block.
 #
+# severity block structure:
+#   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (string)         : (REQUIRED) Specifies list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
+#
+# alert_rule_id block structure:
+#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (string)              : (REQUIRED) Specifies a list of values to match for a given condition.
+#
+# alert_rule_name block structure:
+#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (string)                : (REQUIRED) Specifies a list of values to match for a given condition.
+#
+# monitor_condition block structure:
+#   operator (string)                : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (string)                  : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
+#
 # signal_type block structure:
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
 #   values (string)            : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Metric', 'Log', 'Unknown', and 'Health'.
@@ -45,21 +61,9 @@ variable "condition" {
 #   operator (string)                    : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)                        : (REQUIRED) A list of values to match for a given condition. The values should be valid resource group IDs.
 #
-# alert_rule_id block structure:
-#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (string)              : (REQUIRED) Specifies a list of values to match for a given condition.
-#
-# target_resource block structure:
-#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                  : (REQUIRED) A list of values to match for a given condition. The values should be valid resource IDs.
-#
 # monitor_service block structure:
 #   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
 #   values (string)                : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Prometheus', 'Resource Health', 'Smart Detector', and 'VM Insights - Health'.
-#
-# target_resource_type block structure:
-#   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
 #
 # description block structure:
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
@@ -69,17 +73,13 @@ variable "condition" {
 #   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (string)              : (REQUIRED) Specifies a list of values to match for a given condition.
 #
-# severity block structure:
-#   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)         : (REQUIRED) Specifies list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
+# target_resource_type block structure:
+#   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
 #
-# alert_rule_name block structure:
+# target_resource block structure:
 #   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (string)                : (REQUIRED) Specifies a list of values to match for a given condition.
-#
-# monitor_condition block structure:
-#   operator (string)                : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)                  : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
+#   values (list)                  : (REQUIRED) A list of values to match for a given condition. The values should be valid resource IDs.
 
 
 variable "description" {

@@ -23,3 +23,10 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+# REQUIRED VARIABLES
+
+variable "private_endpoint_id" {
+  description = "(REQUIRED) The id of private endpoint to associate. Changing this forces a new resource to be created."
+  type        = string
+
+}

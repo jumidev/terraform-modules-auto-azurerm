@@ -24,3 +24,7 @@ output "primary_configuration_endpoint" {
   value       = azurerm_application_load_balancer.this.primary_configuration_endpoint
 }
 
+output "application_load_balancer_subnet_association" {
+  value = var.application_load_balancer_subnet_association
+}
+
