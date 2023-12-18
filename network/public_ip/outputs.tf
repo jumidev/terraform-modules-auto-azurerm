@@ -81,6 +81,10 @@ output "fqdn" {
   value       = azurerm_public_ip.this.fqdn
 }
 
+output "dns_a_record" {
+  value = var.dns_a_record
+}
+
 output "nat_gateway_id" {
   value = azurerm_nat_gateway_public_ip_association.this.*.nat_gateway_id
 }
@@ -92,5 +96,9 @@ output "public_ip_address_id" {
 output "id" {
   description = "The (Terraform specific) ID of the Association between the NAT Gateway and the Public IP."
   value       = azurerm_nat_gateway_public_ip_association.this.*.id
+}
+
+output "private_dns_a_record" {
+  value = var.private_dns_a_record
 }
 

@@ -36,7 +36,7 @@ resource "azurerm_nat_gateway_public_ip_association" "this" {
 resource "azurerm_subnet_nat_gateway_association" "this" {
   count          = var.subnet_id != null ? 1 : 0
   nat_gateway_id = azurerm_nat_gateway.this.id
-  subnet_id      = var.subnet_id
+  subnet_id      = azurerm_subnet.this.id
 }
 
 ##############################################################################################
@@ -45,5 +45,5 @@ resource "azurerm_subnet_nat_gateway_association" "this" {
 resource "azurerm_nat_gateway_public_ip_prefix_association" "this" {
   count               = var.public_ip_prefix_id != null ? 1 : 0
   nat_gateway_id      = azurerm_nat_gateway.this.id
-  public_ip_prefix_id = var.public_ip_prefix_id
+  public_ip_prefix_id = azurerm_public_ip_prefix.this.id
 }

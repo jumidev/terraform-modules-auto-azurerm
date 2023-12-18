@@ -46,7 +46,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   resource_management_private_link_association.resource_management_private_link_id = "path/to/resource_management_private_link_id_component:id"   
+   resource_management_private_link_association.resource_management_private_link.id = "path/to/resource_management_private_link_component:id"   
 }
 
 ```

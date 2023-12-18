@@ -20,21 +20,11 @@ variable "ttl" {
   type        = number
   default     = 300
 }
-variable "records" {
-  description = "(REQUIRED) List of IPv4 Addresses."
-  type        = string
-
-}
 
 # OPTIONAL VARIABLES
 
 variable "tags" {
   description = "A mapping of tags to assign to the resource."
   type        = map(any)
-  default     = null
-}
-variable "private_dns_zone_resource_group_name" {
-  description = "The Name of the Resource Group where the Private DNS Zone exists. If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private DNS Zones in your subscription that matches 'name' will be returned..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
-  type        = string
   default     = null
 }

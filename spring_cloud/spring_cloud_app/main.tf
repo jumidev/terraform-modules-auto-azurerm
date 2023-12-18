@@ -71,14 +71,14 @@ resource "azurerm_spring_cloud_app_cosmosdb_association" "this" {
   count                            = var.spring_cloud_app_cosmosdb_association != null ? 1 : 0
   name                             = lookup(var.spring_cloud_app_cosmosdb_association, "name")
   spring_cloud_app_id              = azurerm_spring_cloud_app.this.id
-  cosmosdb_account_id              = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_account_id")
+  cosmosdb_account_id              = azurerm_cosmosdb_account.this.id
   api_type                         = lookup(var.spring_cloud_app_cosmosdb_association, "api_type")
   cosmosdb_access_key              = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_access_key")
-  cosmosdb_cassandra_keyspace_name = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_cassandra_keyspace_name", null)
-  cosmosdb_gremlin_database_name   = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_gremlin_database_name", null)
-  cosmosdb_gremlin_graph_name      = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_gremlin_graph_name", null)
-  cosmosdb_mongo_database_name     = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_mongo_database_name", null)
-  cosmosdb_sql_database_name       = lookup(var.spring_cloud_app_cosmosdb_association, "cosmosdb_sql_database_name", null)
+  cosmosdb_cassandra_keyspace_name = azurerm_cosmosdb_cassandra_keyspace.this.name
+  cosmosdb_gremlin_database_name   = azurerm_cosmosdb_gremlin_database.this.name
+  cosmosdb_gremlin_graph_name      = azurerm_cosmosdb_gremlin_graph.this.name
+  cosmosdb_mongo_database_name     = azurerm_cosmosdb_mongo_database.this.name
+  cosmosdb_sql_database_name       = azurerm_cosmosdb_sql_database.this.name
 }
 
 ##############################################################################################
@@ -88,7 +88,7 @@ resource "azurerm_spring_cloud_app_redis_association" "this" {
   count               = var.spring_cloud_app_redis_association != null ? 1 : 0
   name                = lookup(var.spring_cloud_app_redis_association, "name")
   spring_cloud_app_id = azurerm_spring_cloud_app.this.id
-  redis_cache_id      = lookup(var.spring_cloud_app_redis_association, "redis_cache_id")
+  redis_cache_id      = azurerm_redis_cache.this.id
   redis_access_key    = lookup(var.spring_cloud_app_redis_association, "redis_access_key")
   ssl_enabled         = lookup(var.spring_cloud_app_redis_association, "ssl_enabled", true)
 }
@@ -100,7 +100,7 @@ resource "azurerm_spring_cloud_app_mysql_association" "this" {
   count               = var.spring_cloud_app_mysql_association != null ? 1 : 0
   name                = lookup(var.spring_cloud_app_mysql_association, "name")
   spring_cloud_app_id = azurerm_spring_cloud_app.this.id
-  mysql_server_id     = lookup(var.spring_cloud_app_mysql_association, "mysql_server_id")
+  mysql_server_id     = azurerm_mysql_server.this.id
   database_name       = lookup(var.spring_cloud_app_mysql_association, "database_name")
   username            = lookup(var.spring_cloud_app_mysql_association, "username")
   password            = lookup(var.spring_cloud_app_mysql_association, "password")

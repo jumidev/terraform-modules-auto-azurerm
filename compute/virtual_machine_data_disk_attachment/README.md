@@ -34,7 +34,6 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **virtual_machine_id** | string |  -  |  -  |  The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created. | 
 | **managed_disk_id** | string |  -  |  -  |  The ID of an existing Managed Disk which should be attached. Changing this forces a new resource to be created. | 
 | **lun** | number |  `3`  |  -  |  The Logical Unit Number of the Data Disk, which needs to be unique within the Virtual Machine. Changing this forces a new resource to be created. | 
 | **caching** | string |  `ReadOnly`  |  `None`, `ReadOnly`, `ReadWrite`  |  Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`. | 

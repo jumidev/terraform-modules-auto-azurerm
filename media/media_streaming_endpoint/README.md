@@ -55,6 +55,20 @@ tfstate_store = {
 | **max_cache_age_seconds** | number |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
+
+### `cross_site_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
+| `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
+
 ### `akamai_signature_header_authentication_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,13 +77,6 @@ tfstate_store = {
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
 
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
-
 ### `ip_allow` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,13 +84,6 @@ tfstate_store = {
 | `address` | string | No | - | The IP address to allow. |
 | `name` | string | No | - | The friendly name for the IP address range. |
 | `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
-
-### `cross_site_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
-| `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
 
 
 

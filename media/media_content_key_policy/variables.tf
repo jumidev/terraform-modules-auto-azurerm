@@ -25,9 +25,13 @@ variable "policy_option" {
 #   token_restriction (block)               : A 'token_restriction' block.
 #   widevine_configuration_template (string): The Widevine template.
 #
-# offline_rental_configuration block structure:
-#   playback_duration_seconds (number)          : Playback duration.
-#   storage_duration_seconds (number)           : Storage duration.
+# fairplay_configuration block structure:
+#   ask (string)                          : The key that must be used as FairPlay Application Secret key.
+#   offline_rental_configuration (block)  : A 'offline_rental_configuration' block.
+#   pfx (string)                          : The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
+#   pfx_password (string)                 : The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
+#   rental_and_lease_key_type (string)    : The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'.
+#   rental_duration_seconds (number)      : The rental duration. Must be greater than 0.
 #
 # token_restriction block structure          :
 #   alternate_key (list)                       : One or more 'alternate_key' block.
@@ -41,13 +45,9 @@ variable "policy_option" {
 #   required_claim (list)                      : One or more 'required_claim' blocks.
 #   token_type (string)                        : The type of token. Supported values are 'Jwt' or 'Swt'.
 #
-# fairplay_configuration block structure:
-#   ask (string)                          : The key that must be used as FairPlay Application Secret key.
-#   offline_rental_configuration (block)  : A 'offline_rental_configuration' block.
-#   pfx (string)                          : The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
-#   pfx_password (string)                 : The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
-#   rental_and_lease_key_type (string)    : The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'.
-#   rental_duration_seconds (number)      : The rental duration. Must be greater than 0.
+# offline_rental_configuration block structure:
+#   playback_duration_seconds (number)          : Playback duration.
+#   storage_duration_seconds (number)           : Storage duration.
 
 
 variable "resource_group_name" {

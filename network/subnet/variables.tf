@@ -77,13 +77,6 @@ variable "network_security_group_id" {
   type        = string
 
 }
-# REQUIRED VARIABLES
-
-variable "route_table_id" {
-  description = "(REQUIRED) The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created."
-  type        = string
-
-}
 
 # OPTIONAL VARIABLES
 

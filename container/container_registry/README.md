@@ -54,20 +54,18 @@ tfstate_store = {
 | **data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 
 
-### `identity` block structure
+### `trust_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
-### `network_rule_set` block structure
+### `virtual_network` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
-| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
-| `virtual_network` | [block](#virtual_network-block-structure) | No | - | One or more 'virtual_network' blocks. |
+| `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
+| `subnet_id` | string | Yes | - | The subnet id from which requests will match the rule. |
 
 ### `retention_policy` block structure
 
@@ -83,18 +81,20 @@ tfstate_store = {
 | `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
 | `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
 
-### `trust_policy` block structure
+### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
+| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
+| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. |
 
-### `virtual_network` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
-| `subnet_id` | string | Yes | - | The subnet id from which requests will match the rule. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. |
 
 ### `georeplications` block structure
 
@@ -105,13 +105,13 @@ tfstate_store = {
 | `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. |
 | `tags` | map | No | - | A mapping of tags to assign to this replication location. |
 
-### `encryption` block structure
+### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
-| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
-| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. |
+| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
+| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
+| `virtual_network` | [block](#virtual_network-block-structure) | No | - | One or more 'virtual_network' blocks. |
 
 
 

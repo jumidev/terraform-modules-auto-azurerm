@@ -24,8 +24,41 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Optional associated resources
 
+
+### `dns_a_record` 
+
+If set, makes a **azurerm_dns_a_record** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `zone_name` | string | True | null |
+| `ttl` | number | True | 300 |
+| `target_resource_id` | string | False | null |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   dns_a_record = {
+      name = "..."      
+      ttl = 300      
+      tags = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   dns_a_record.resource_group.name = "path/to/resource_group_component:name"   
+   dns_a_record.dns_zone.name = "path/to/dns_zone_component:name"   
+   dns_a_record.any_resource.id = "path/to/any_resource_component:id"   
+}
+
+```
 
 ### `nat_gateway_id` 
 
@@ -37,6 +70,38 @@ Example component snippet:
 tfstate_inputs = {
    nat_gateway_id = "path/to/nat_gateway_component:id"
 }
+```
+
+### `private_dns_a_record` 
+
+If set, makes a **azurerm_private_dns_a_record** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `resource_group_name` | string | True | null |
+| `zone_name` | string | True | null |
+| `ttl` | number | True | 300 |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   private_dns_a_record = {
+      name = "..."      
+      ttl = 300      
+      tags = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   private_dns_a_record.resource_group.name = "path/to/resource_group_component:name"   
+   private_dns_a_record.private_dns_zone.name = "path/to/private_dns_zone_component:name"   
+}
+
 ```
 
 

@@ -33,7 +33,6 @@ If set, makes a **azurerm_application_load_balancer_subnet_association** - With 
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
-| `subnet_id` | string | True | null |
 | `tags` | map | False | null |
 
 
@@ -49,7 +48,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   application_load_balancer_subnet_association.subnet_id = "path/to/subnet_id_component:id"   
+   application_load_balancer_subnet_association.subnet.id = "path/to/subnet_component:id"   
 }
 
 ```

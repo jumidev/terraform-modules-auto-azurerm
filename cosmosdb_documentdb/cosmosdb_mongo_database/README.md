@@ -34,12 +34,8 @@ If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the fol
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
 | `spring_cloud_app_id` | string | True | null |
-| `cosmosdb_account_id` | string | True | null |
 | `api_type` | string | True | null |
 | `cosmosdb_access_key` | string | True | null |
-| `cosmosdb_cassandra_keyspace_name` | string | False | null |
-| `cosmosdb_gremlin_database_name` | string | False | null |
-| `cosmosdb_gremlin_graph_name` | string | False | null |
 | `cosmosdb_sql_database_name` | string | False | null |
 
 
@@ -56,7 +52,12 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_cosmosdb_association.spring_cloud_app_id = "path/to/spring_cloud_app_id_component:name"   
+   spring_cloud_app_cosmosdb_association.spring_cloud_app.id = "path/to/spring_cloud_app_component:id"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_account.id = "path/to/cosmosdb_account_component:id"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_cassandra_keyspace.name = "path/to/cosmosdb_cassandra_keyspace_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_database.name = "path/to/cosmosdb_gremlin_database_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_graph.name = "path/to/cosmosdb_gremlin_graph_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_sql_database.name = "path/to/cosmosdb_sql_database_component:name"   
 }
 
 ```

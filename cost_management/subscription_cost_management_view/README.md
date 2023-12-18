@@ -57,6 +57,26 @@ tfstate_store = {
 | **kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
 | **pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
+### `sorting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
+| `name` | string | Yes | - | The name of the column to sort. |
+
+### `kpi` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
+
+### `grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column to group. |
+| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
+
 ### `pivot` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,26 +92,6 @@ tfstate_store = {
 | `granularity` | string | Yes | - | The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'. |
 | `grouping` | [block](#grouping-block-structure) | No | - | One or more 'grouping' blocks. |
 | `sorting` | [block](#sorting-block-structure) | No | - | One or more 'sorting' blocks, containing the order by expression to be used in the report |
-
-### `sorting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
-| `name` | string | Yes | - | The name of the column to sort. |
-
-### `grouping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the column to group. |
-| `type` | string | Yes | - | The type of the column. Possible values are 'Dimension' and 'TagKey'. |
-
-### `kpi` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
 
 
 

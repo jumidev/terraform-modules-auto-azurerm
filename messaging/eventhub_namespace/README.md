@@ -50,6 +50,16 @@ tfstate_store = {
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
 | **minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
 
+### `network_rulesets` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | Yes | - | The default action to take when a rule is not matched. Possible values are 'Allow' and 'Deny'. |
+| `public_network_access_enabled` | bool | No | True | Is public network access enabled for the EventHub Namespace? Defaults to 'true'. |
+| `trusted_service_access_enabled` | bool | No | - | Whether Trusted Microsoft Services are allowed to bypass firewall. |
+| `virtual_network_rule` | [block](#virtual_network_rule-block-structure) | No | - | One or more 'virtual_network_rule' blocks. |
+| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,16 +80,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `ip_mask` | string | Yes | - | The IP mask to match on. |
 | `action` | string | No | Allow | The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'. |
-
-### `network_rulesets` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | Yes | - | The default action to take when a rule is not matched. Possible values are 'Allow' and 'Deny'. |
-| `public_network_access_enabled` | bool | No | True | Is public network access enabled for the EventHub Namespace? Defaults to 'true'. |
-| `trusted_service_access_enabled` | bool | No | - | Whether Trusted Microsoft Services are allowed to bypass firewall. |
-| `virtual_network_rule` | [block](#virtual_network_rule-block-structure) | No | - | One or more 'virtual_network_rule' blocks. |
-| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
 
 
 

@@ -33,8 +33,3 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-variable "private_dns_zone_resource_group_name" {
-  description = "The Name of the Resource Group where the Private DNS Zone exists. If the Name of the Resource Group is not provided, the first Private DNS Zone from the list of Private DNS Zones in your subscription that matches 'name' will be returned..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

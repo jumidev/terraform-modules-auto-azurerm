@@ -25,13 +25,6 @@ variable "tags" {
 }
 # REQUIRED VARIABLES
 
-variable "network_interface_id" {
-  description = "(REQUIRED) The ID of the Network Interface. Changing this forces a new resource to be created."
-  type        = string
-
-}
-# REQUIRED VARIABLES
-
 variable "private_endpoint_id" {
   description = "(REQUIRED) The id of private endpoint to associate. Changing this forces a new resource to be created."
   type        = string

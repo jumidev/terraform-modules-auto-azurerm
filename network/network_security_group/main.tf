@@ -43,7 +43,7 @@ resource "azurerm_network_security_group" "this" {
 resource "azurerm_subnet_network_security_group_association" "this" {
   count                     = var.subnet_id != null ? 1 : 0
   network_security_group_id = azurerm_network_security_group.this.id
-  subnet_id                 = var.subnet_id
+  subnet_id                 = azurerm_subnet.this.id
 }
 
 ##############################################################################################
@@ -51,6 +51,6 @@ resource "azurerm_subnet_network_security_group_association" "this" {
 ##############################################################################################
 resource "azurerm_network_interface_security_group_association" "this" {
   count                     = var.network_interface_id != null ? 1 : 0
-  network_interface_id      = var.network_interface_id
+  network_interface_id      = azurerm_network_interface.this.id
   network_security_group_id = azurerm_network_security_group.this.id
 }

@@ -38,7 +38,6 @@ tfstate_store = {
 | **resource_group_name** | string |  -  |  Specifies the resource group where the Private DNS Zone exists. Changing this forces a new resource to be created. | 
 | **zone_name** | string |  -  |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
 | **ttl** | number |  `300`  |  The Time To Live (TTL) of the DNS record in seconds. | 
-| **records** | string |  -  |  List of IPv4 Addresses. | 
 
 ## Optional Variables
 

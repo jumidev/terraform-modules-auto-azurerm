@@ -33,14 +33,8 @@ If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the fol
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
-| `cosmosdb_account_id` | string | True | null |
 | `api_type` | string | True | null |
 | `cosmosdb_access_key` | string | True | null |
-| `cosmosdb_cassandra_keyspace_name` | string | False | null |
-| `cosmosdb_gremlin_database_name` | string | False | null |
-| `cosmosdb_gremlin_graph_name` | string | False | null |
-| `cosmosdb_mongo_database_name` | string | False | null |
-| `cosmosdb_sql_database_name` | string | False | null |
 
 
 Example component snippet:
@@ -56,7 +50,12 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_cosmosdb_association.cosmosdb_account_id = "path/to/cosmosdb_account_id_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_account.id = "path/to/cosmosdb_account_component:id"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_cassandra_keyspace.name = "path/to/cosmosdb_cassandra_keyspace_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_database.name = "path/to/cosmosdb_gremlin_database_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_graph.name = "path/to/cosmosdb_gremlin_graph_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_mongo_database.name = "path/to/cosmosdb_mongo_database_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_sql_database.name = "path/to/cosmosdb_sql_database_component:name"   
 }
 
 ```
@@ -68,7 +67,6 @@ If set, makes a **azurerm_spring_cloud_app_redis_association** - With the follow
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
-| `redis_cache_id` | string | True | null |
 | `redis_access_key` | string | True | null |
 | `ssl_enabled` | bool | False | true |
 
@@ -86,7 +84,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_redis_association.redis_cache_id = "path/to/redis_cache_id_component:id"   
+   spring_cloud_app_redis_association.redis_cache.id = "path/to/redis_cache_component:id"   
 }
 
 ```
@@ -98,7 +96,6 @@ If set, makes a **azurerm_spring_cloud_app_mysql_association** - With the follow
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
-| `mysql_server_id` | string | True | null |
 | `database_name` | string | True | null |
 | `username` | string | True | null |
 | `password` | string | True | null |
@@ -118,7 +115,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_mysql_association.mysql_server_id = "path/to/mysql_server_id_component:id"   
+   spring_cloud_app_mysql_association.mysql_server.id = "path/to/mysql_server_component:id"   
 }
 
 ```
@@ -146,29 +143,12 @@ tfstate_inputs = {
 | **public_endpoint_enabled** | bool |  -  |  Should the App in vnet injection instance exposes endpoint which could be accessed from Internet? | 
 | **tls_enabled** | bool |  `False`  |  Is End to End TLS Enabled? Defaults to `false`. | 
 
-### `persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
-| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Spring Cloud Application. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Spring Cloud Application. |
-
-### `custom_persistent_disk` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
-| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
-| `share_name` | string | Yes | - | The share name of the Azure File share. |
-| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
-| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
 
 ### `ingress_settings` block structure
 
@@ -179,6 +159,23 @@ tfstate_inputs = {
 | `send_timeout_in_seconds` | string | No | 60 | Specifies the ingress send time out in seconds. Defaults to '60'. |
 | `session_affinity` | string | No | None | Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'. |
 | `session_cookie_max_age` | string | No | - | Specifies the time in seconds until the cookie expires. |
+
+### `persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `size_in_gb` | string | Yes | - | Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'. |
+| `mount_path` | string | No | /persistent | Specifies the mount path of the persistent disk. Defaults to '/persistent'. |
+
+### `custom_persistent_disk` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_name` | string | Yes | - | The name of the Spring Cloud Storage. |
+| `mount_path` | string | Yes | - | The mount path of the persistent disk. |
+| `share_name` | string | Yes | - | The share name of the Azure File share. |
+| `mount_options` | string | No | - | These are the mount options for a persistent disk. |
+| `read_only_enabled` | bool | No | - | Indicates whether the persistent disk is a readOnly one. |
 
 
 

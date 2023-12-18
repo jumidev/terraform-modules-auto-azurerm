@@ -169,7 +169,7 @@ resource "azurerm_windows_virtual_machine" "this" {
 resource "azurerm_virtual_machine_data_disk_attachment" "this" {
   count                     = var.virtual_machine_data_disk_attachment != null ? 1 : 0
   virtual_machine_id        = azurerm_windows_virtual_machine.this.id
-  managed_disk_id           = lookup(var.virtual_machine_data_disk_attachment, "managed_disk_id")
+  managed_disk_id           = azurerm_managed_disk.this.id
   lun                       = lookup(var.virtual_machine_data_disk_attachment, "lun", 3)
   caching                   = lookup(var.virtual_machine_data_disk_attachment, "caching", "ReadOnly")
   create_option             = lookup(var.virtual_machine_data_disk_attachment, "create_option", "Attach")

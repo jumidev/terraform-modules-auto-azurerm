@@ -44,17 +44,3 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-# REQUIRED VARIABLES
-
-variable "subnet_id" {
-  description = "(REQUIRED) The ID of the Subnet. Changing this forces a new resource to be created."
-  type        = string
-
-}
-# REQUIRED VARIABLES
-
-variable "network_interface_id" {
-  description = "(REQUIRED) The ID of the Network Interface. Changing this forces a new resource to be created."
-  type        = string
-
-}

@@ -43,14 +43,6 @@ tfstate_store = {
 | **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
-### `exclusion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'. |
-| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
-| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
-
 ### `managed_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,6 +68,14 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+
+### `exclusion` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'. |
+| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
+| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
 
 ### `custom_rule` block structure
 

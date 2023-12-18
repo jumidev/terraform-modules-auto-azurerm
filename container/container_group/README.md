@@ -66,12 +66,11 @@ tfstate_store = {
 | `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
 | `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
 
-### `identity` block structure
+### `diagnostics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. |
+| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
 
 ### `dns_config` block structure
 
@@ -88,11 +87,12 @@ tfstate_store = {
 | `port` | string | No | - | The port number the container will expose. Changing this forces a new resource to be created. |
 | `protocol` | string | No | TCP | The network protocol associated with port. Possible values are 'TCP' & 'UDP'. Changing this forces a new resource to be created. Defaults to 'TCP'. |
 
-### `diagnostics` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. |
 
 ### `image_registry_credential` block structure
 

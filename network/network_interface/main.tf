@@ -39,6 +39,23 @@ resource "azurerm_network_interface" "this" {
   internal_dns_name_label       = var.internal_dns_name_label
   tags                          = var.tags
 }
+data "azurerm_resource_group" "this" {
+  name = var.resource_group_name
+}
+
+##############################################################################################
+# optional azurerm_dns_a_record 
+##############################################################################################
+resource "azurerm_dns_a_record" "this" {
+  count               = var.dns_a_record != null ? 1 : 0
+  name                = lookup(var.dns_a_record, "name")
+  resource_group_name = data.azurerm_resource_group.this.name
+  zone_name           = lookup(var.dns_a_record, "zone_name")
+  ttl                 = lookup(var.dns_a_record, "ttl", 300)
+  records             = azurerm_network_interface.this.private_ip_addresses
+  target_resource_id  = lookup(var.dns_a_record, "target_resource_id", null)
+  tags                = lookup(var.dns_a_record, "tags", null)
+}
 
 ##############################################################################################
 # optional azurerm_network_interface_application_security_group_association 
@@ -56,7 +73,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "this" {
   count                   = var.network_interface_backend_address_pool_association != null ? 1 : 0
   network_interface_id    = azurerm_network_interface.this.id
   ip_configuration_name   = lookup(var.network_interface_backend_address_pool_association, "ip_configuration_name", "primary")
-  backend_address_pool_id = lookup(var.network_interface_backend_address_pool_association, "backend_address_pool_id")
+  backend_address_pool_id = azurerm_lb_backend_address_pool.this.id
 }
 
 ##############################################################################################
@@ -75,7 +92,7 @@ resource "azurerm_network_interface_application_gateway_backend_address_pool_ass
   count                   = var.network_interface_application_gateway_backend_address_pool_association != null ? 1 : 0
   network_interface_id    = azurerm_network_interface.this.id
   ip_configuration_name   = lookup(var.network_interface_application_gateway_backend_address_pool_association, "ip_configuration_name", "primary")
-  backend_address_pool_id = lookup(var.network_interface_application_gateway_backend_address_pool_association, "backend_address_pool_id")
+  backend_address_pool_id = azurerm_lb_backend_address_pool.this.id
 }
 
 ##############################################################################################
@@ -85,5 +102,18 @@ resource "azurerm_network_interface_nat_rule_association" "this" {
   count                 = var.network_interface_nat_rule_association != null ? 1 : 0
   network_interface_id  = azurerm_network_interface.this.id
   ip_configuration_name = lookup(var.network_interface_nat_rule_association, "ip_configuration_name", "primary")
-  nat_rule_id           = lookup(var.network_interface_nat_rule_association, "nat_rule_id")
+  nat_rule_id           = azurerm_lb_nat_rule.this.id
+}
+
+##############################################################################################
+# optional azurerm_private_dns_a_record 
+##############################################################################################
+resource "azurerm_private_dns_a_record" "this" {
+  count               = var.private_dns_a_record != null ? 1 : 0
+  name                = lookup(var.private_dns_a_record, "name")
+  resource_group_name = lookup(var.private_dns_a_record, "resource_group_name")
+  zone_name           = lookup(var.private_dns_a_record, "zone_name")
+  ttl                 = lookup(var.private_dns_a_record, "ttl", 300)
+  records             = azurerm_network_interface.this.private_ip_addresses
+  tags                = lookup(var.private_dns_a_record, "tags", null)
 }

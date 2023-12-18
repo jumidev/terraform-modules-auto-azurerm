@@ -54,9 +54,6 @@ variable "roles" {
 #   uri (string)                  : (REQUIRED) The URI to the script.
 #   parameters (string)           : The parameters for the script provided.
 #
-# autoscale block structure:
-#   recurrence (block)       : A 'recurrence' block.
-#
 # schedule block structure      :
 #   days (string)                 : (REQUIRED) The days of the week to perform autoscale. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'.
 #   target_instance_count (number): (REQUIRED) The number of worker nodes to autoscale at the specified time.
@@ -71,6 +68,10 @@ variable "roles" {
 #   subnet_id (string)            : The ID of the Subnet within the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   virtual_network_id (string)   : The ID of the Virtual Network where the Zookeeper Nodes should be provisioned within. Changing this forces a new resource to be created.
 #
+# recurrence block structure:
+#   schedule (block)          : (REQUIRED) A list of 'schedule' blocks.
+#   timezone (string)         : (REQUIRED) The time zone for the autoscale schedule times.
+#
 # worker_node block structure   :
 #   script_actions (list)         : The script action which will run on the cluster. One or more 'script_actions' blocks.
 #   username (string)             : (REQUIRED) The Username of the local administrator for the Worker Nodes. Changing this forces a new resource to be created.
@@ -82,9 +83,8 @@ variable "roles" {
 #   virtual_network_id (string)   : The ID of the Virtual Network where the Worker Nodes should be provisioned within. Changing this forces a new resource to be created.
 #   autoscale (block)             : A 'autoscale' block.
 #
-# recurrence block structure:
-#   schedule (block)          : (REQUIRED) A list of 'schedule' blocks.
-#   timezone (string)         : (REQUIRED) The time zone for the autoscale schedule times.
+# autoscale block structure:
+#   recurrence (block)       : A 'recurrence' block.
 #
 # head_node block structure  :
 #   username (string)          : (REQUIRED) The Username of the local administrator for the Head Nodes. Changing this forces a new resource to be created.
@@ -192,17 +192,17 @@ variable "metastores" {
 #   username (string)     : (REQUIRED) The external Hive metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 #   password (string)     : (REQUIRED) The external Hive metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 #
-# ambari block structure:
-#   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
-#   database_name (string): (REQUIRED) The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
-#   username (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
-#   password (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
-#
 # oozie block structure :
 #   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Oozie metastore. Changing this forces a new resource to be created.
 #   database_name (string): (REQUIRED) The external Oozie metastore's existing SQL database. Changing this forces a new resource to be created.
 #   username (string)     : (REQUIRED) The external Oozie metastore's existing SQL server admin username. Changing this forces a new resource to be created.
 #   password (string)     : (REQUIRED) The external Oozie metastore's existing SQL server admin password. Changing this forces a new resource to be created.
+#
+# ambari block structure:
+#   server (string)       : (REQUIRED) The fully-qualified domain name (FQDN) of the SQL server to use for the external Ambari metastore. Changing this forces a new resource to be created.
+#   database_name (string): (REQUIRED) The external Hive metastore's existing SQL database. Changing this forces a new resource to be created.
+#   username (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin username. Changing this forces a new resource to be created.
+#   password (string)     : (REQUIRED) The external Ambari metastore's existing SQL server admin password. Changing this forces a new resource to be created.
 
 
 variable "monitor" {

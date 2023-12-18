@@ -47,6 +47,13 @@ tfstate_store = {
 | **aad_auth_enabled** | bool |  `True`  |  -  |  Whether to enable AAD auth? Defaults to `true`. | 
 | **tls_client_cert_enabled** | bool |  `False`  |  -  |  Whether to request client certificate during TLS handshake? Defaults to `false`. | 
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub. |
+
 ### `live_trace` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,13 +62,6 @@ tfstate_store = {
 | `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
 | `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
 | `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub. |
 
 
 

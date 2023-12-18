@@ -50,6 +50,18 @@ tfstate_store = {
 | **sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 
+### `cors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
+| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
+| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
+| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
+| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
+| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
+| `max_age_seconds` | string | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
+
 ### `quota` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,18 +77,6 @@ tfstate_store = {
 | `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
 | `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
 | `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
-
-### `cors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `credentials_allowed` | bool | No | - | is user credentials are supported on cross-site requests? |
-| `allowed_headers` | string | No | - | Allowed headers in cross-site requests. The special value '*' allows actual requests to send any header. |
-| `allowed_methods` | string | No | - | Allowed HTTP methods on cross-site requests. The special value '*' allows all methods. If not set, 'GET' and 'HEAD' are allowed by default. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS' and 'PUT'. |
-| `allowed_origins` | string | No | - | Allowed origins to make cross-site requests. The special value '*' allows all domains. |
-| `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
-| `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
-| `max_age_seconds` | string | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
 
 ### `client_authorization` block structure
 

@@ -74,6 +74,13 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "dns_a_record" {
+  type    = map(any)
+  default = null
+}
 # REQUIRED VARIABLES
 
 variable "application_security_group_id" {
@@ -106,6 +113,13 @@ variable "network_interface_application_gateway_backend_address_pool_association
 # OPTIONAL VARIABLES
 
 variable "network_interface_nat_rule_association" {
+  type    = map(any)
+  default = null
+}
+
+# OPTIONAL VARIABLES
+
+variable "private_dns_a_record" {
   type    = map(any)
   default = null
 }

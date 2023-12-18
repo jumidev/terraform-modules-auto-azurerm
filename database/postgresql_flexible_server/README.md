@@ -58,28 +58,6 @@ tfstate_store = {
 | **version** | string |  -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`. | 
 | **zone** | string |  -  |  -  |  Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | [block](#customer_managed_key-block-structure) | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
-
-### `high_availability` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'. |
-| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. |
-
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `active_directory_auth_enabled` | bool | No | False | Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'false'. |
-| `password_auth_enabled` | bool | No | True | Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'. |
-| `tenant_id` | string | No | - | The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. |
-
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -96,6 +74,28 @@ tfstate_store = {
 | `day_of_week` | string | No | 0 | The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'. |
 | `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
 | `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
+
+### `high_availability` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'. |
+| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. |
+
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory_auth_enabled` | bool | No | False | Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'false'. |
+| `password_auth_enabled` | bool | No | True | Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'. |
+| `tenant_id` | string | No | - | The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | [block](#customer_managed_key-block-structure) | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
 
 
 

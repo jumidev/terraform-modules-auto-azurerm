@@ -58,18 +58,20 @@ tfstate_store = {
 | **live_trace** | [block](#live_trace-block-structure) |  -  |  -  |  A `live_trace` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR. |
-
 ### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_origins` | string | Yes | - | A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls. |
+
+### `live_trace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Whether the live trace is enabled? Defaults to 'true'. |
+| `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
+| `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
+| `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
 
 ### `sku` block structure
 
@@ -88,14 +90,12 @@ tfstate_store = {
 | `hub_pattern` | string | Yes | - | The hubs to match on, or '*' for all. |
 | `user_assigned_identity_id` | string | No | - | Specifies the Managed Identity IDs to be assigned to this signalR upstream setting by using resource uuid as both system assigned and user assigned identity is supported. |
 
-### `live_trace` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether the live trace is enabled? Defaults to 'true'. |
-| `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
-| `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
-| `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR. |
 
 
 

@@ -34,7 +34,6 @@ If set, makes a **azurerm_vmware_netapp_volume_attachment** - With the following
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
-| `netapp_volume_id` | string | True | null |
 
 
 Example component snippet:
@@ -48,7 +47,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   vmware_netapp_volume_attachment.netapp_volume_id = "path/to/netapp_volume_id_component:id"   
+   vmware_netapp_volume_attachment.netapp_volume.id = "path/to/netapp_volume_component:id"   
 }
 
 ```

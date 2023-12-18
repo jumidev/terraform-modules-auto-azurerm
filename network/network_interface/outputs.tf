@@ -81,6 +81,10 @@ output "virtual_machine_id" {
   value       = azurerm_network_interface.this.virtual_machine_id
 }
 
+output "dns_a_record" {
+  value = var.dns_a_record
+}
+
 output "network_interface_id" {
   value = azurerm_network_interface_application_security_group_association.this.*.network_interface_id
 }
@@ -117,5 +121,9 @@ output "network_interface_application_gateway_backend_address_pool_association" 
 
 output "network_interface_nat_rule_association" {
   value = var.network_interface_nat_rule_association
+}
+
+output "private_dns_a_record" {
+  value = var.private_dns_a_record
 }
 

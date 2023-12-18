@@ -71,10 +71,3 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-# REQUIRED VARIABLES
-
-variable "application_security_group_id" {
-  description = "(REQUIRED) The id of application security group to associate. Changing this forces a new resource to be created."
-  type        = string
-
-}

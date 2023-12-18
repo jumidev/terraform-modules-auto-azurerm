@@ -30,12 +30,42 @@ resource "azurerm_public_ip" "this" {
   sku_tier                = var.sku_tier # Default: Regional
   tags                    = var.tags
 }
+data "azurerm_resource_group" "this" {
+  name = var.resource_group_name
+}
+
+##############################################################################################
+# optional azurerm_dns_a_record 
+##############################################################################################
+resource "azurerm_dns_a_record" "this" {
+  count               = var.dns_a_record != null ? 1 : 0
+  name                = lookup(var.dns_a_record, "name")
+  resource_group_name = data.azurerm_resource_group.this.name
+  zone_name           = lookup(var.dns_a_record, "zone_name")
+  ttl                 = lookup(var.dns_a_record, "ttl", 300)
+  records             = azurerm_public_ip.this.ip_address
+  target_resource_id  = lookup(var.dns_a_record, "target_resource_id", null)
+  tags                = lookup(var.dns_a_record, "tags", null)
+}
 
 ##############################################################################################
 # optional azurerm_nat_gateway_public_ip_association 
 ##############################################################################################
 resource "azurerm_nat_gateway_public_ip_association" "this" {
   count                = var.nat_gateway_id != null ? 1 : 0
-  nat_gateway_id       = var.nat_gateway_id
+  nat_gateway_id       = azurerm_nat_gateway.this.id
   public_ip_address_id = azurerm_public_ip.this.id
+}
+
+##############################################################################################
+# optional azurerm_private_dns_a_record 
+##############################################################################################
+resource "azurerm_private_dns_a_record" "this" {
+  count               = var.private_dns_a_record != null ? 1 : 0
+  name                = lookup(var.private_dns_a_record, "name")
+  resource_group_name = lookup(var.private_dns_a_record, "resource_group_name")
+  zone_name           = lookup(var.private_dns_a_record, "zone_name")
+  ttl                 = lookup(var.private_dns_a_record, "ttl", 300)
+  records             = azurerm_public_ip.this.ip_address
+  tags                = lookup(var.private_dns_a_record, "tags", null)
 }

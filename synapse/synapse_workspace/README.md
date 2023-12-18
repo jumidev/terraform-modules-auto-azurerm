@@ -61,20 +61,13 @@ tfstate_store = {
 | **sql_identity_control_enabled** | bool |  -  |  Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools? | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Synapse Workspace. | 
 
-### `identity` block structure
+### `aad_admin` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. |
-
-### `sql_aad_admin` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace SQL. |
-| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
-| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace. |
+| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace. |
+| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace. |
 
 ### `customer_managed_key` block structure
 
@@ -106,13 +99,20 @@ tfstate_store = {
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `tenant_id` | string | No | - | the ID of the tenant for the Azure DevOps account. |
 
-### `aad_admin` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace. |
-| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace. |
-| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. |
+
+### `sql_aad_admin` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
 
 
 

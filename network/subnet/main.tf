@@ -67,7 +67,7 @@ resource "azurerm_subnet_network_security_group_association" "this" {
 ##############################################################################################
 resource "azurerm_subnet_route_table_association" "this" {
   count          = var.route_table_id != null ? 1 : 0
-  route_table_id = var.route_table_id
+  route_table_id = azurerm_route_table.this.id
   subnet_id      = azurerm_subnet.this.id
 }
 

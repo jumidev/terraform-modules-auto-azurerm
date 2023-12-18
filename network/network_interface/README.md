@@ -40,6 +40,39 @@ tfstate_store = {
 ## Optional associated resources
 
 
+### `dns_a_record` 
+
+If set, makes a **azurerm_dns_a_record** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `zone_name` | string | True | null |
+| `ttl` | number | True | 300 |
+| `target_resource_id` | string | False | null |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   dns_a_record = {
+      name = "..."      
+      ttl = 300      
+      tags = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   dns_a_record.resource_group.name = "path/to/resource_group_component:name"   
+   dns_a_record.dns_zone.name = "path/to/dns_zone_component:name"   
+   dns_a_record.any_resource.id = "path/to/any_resource_component:id"   
+}
+
+```
+
 ### `application_security_group_id` 
 
 - If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.
@@ -59,7 +92,6 @@ If set, makes a **azurerm_network_interface_backend_address_pool_association** -
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `ip_configuration_name` | string | True | "primary" |
-| `backend_address_pool_id` | string | True | null |
 
 
 Example component snippet:
@@ -73,7 +105,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   network_interface_backend_address_pool_association.backend_address_pool_id = "path/to/backend_address_pool_id_component:id"   
+   network_interface_backend_address_pool_association.lb_backend_address_pool.id = "path/to/lb_backend_address_pool_component:id"   
 }
 
 ```
@@ -97,7 +129,6 @@ If set, makes a **azurerm_network_interface_application_gateway_backend_address_
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `ip_configuration_name` | string | True | "primary" |
-| `backend_address_pool_id` | string | True | null |
 
 
 Example component snippet:
@@ -111,7 +142,7 @@ inputs = {
 }
 
 tfstate_inputs = {
-   network_interface_application_gateway_backend_address_pool_association.backend_address_pool_id = "path/to/backend_address_pool_id_component:id"   
+   network_interface_application_gateway_backend_address_pool_association.lb_backend_address_pool.id = "path/to/lb_backend_address_pool_component:id"   
 }
 
 ```
@@ -123,7 +154,6 @@ If set, makes a **azurerm_network_interface_nat_rule_association** - With the fo
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `ip_configuration_name` | string | True | "primary" |
-| `nat_rule_id` | string | True | null |
 
 
 Example component snippet:
@@ -137,7 +167,39 @@ inputs = {
 }
 
 tfstate_inputs = {
-   network_interface_nat_rule_association.nat_rule_id = "path/to/nat_rule_id_component:id"   
+   network_interface_nat_rule_association.lb_nat_rule.id = "path/to/lb_nat_rule_component:id"   
+}
+
+```
+
+### `private_dns_a_record` 
+
+If set, makes a **azurerm_private_dns_a_record** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `resource_group_name` | string | True | null |
+| `zone_name` | string | True | null |
+| `ttl` | number | True | 300 |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   private_dns_a_record = {
+      name = "..."      
+      ttl = 300      
+      tags = "..."      
+   }
+   
+}
+
+tfstate_inputs = {
+   private_dns_a_record.resource_group.name = "path/to/resource_group_component:name"   
+   private_dns_a_record.private_dns_zone.name = "path/to/private_dns_zone_component:name"   
 }
 
 ```

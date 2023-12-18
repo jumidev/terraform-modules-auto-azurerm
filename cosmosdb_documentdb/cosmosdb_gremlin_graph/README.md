@@ -36,10 +36,8 @@ If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the fol
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
 | `spring_cloud_app_id` | string | True | null |
-| `cosmosdb_account_id` | string | True | null |
 | `api_type` | string | True | null |
 | `cosmosdb_access_key` | string | True | null |
-| `cosmosdb_cassandra_keyspace_name` | string | False | null |
 | `cosmosdb_gremlin_database_name` | string | False | null |
 | `cosmosdb_mongo_database_name` | string | False | null |
 | `cosmosdb_sql_database_name` | string | False | null |
@@ -58,7 +56,12 @@ inputs = {
 }
 
 tfstate_inputs = {
-   spring_cloud_app_cosmosdb_association.spring_cloud_app_id = "path/to/spring_cloud_app_id_component:name"   
+   spring_cloud_app_cosmosdb_association.spring_cloud_app.id = "path/to/spring_cloud_app_component:id"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_account.id = "path/to/cosmosdb_account_component:id"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_cassandra_keyspace.name = "path/to/cosmosdb_cassandra_keyspace_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_gremlin_database.name = "path/to/cosmosdb_gremlin_database_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_mongo_database.name = "path/to/cosmosdb_mongo_database_component:name"   
+   spring_cloud_app_cosmosdb_association.cosmosdb_sql_database.name = "path/to/cosmosdb_sql_database_component:name"   
 }
 
 ```
@@ -87,6 +90,12 @@ tfstate_inputs = {
 | **conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 | **unique_key** | [block](#unique_key-block-structure) |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
 
+### `composite_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
+
 ### `index` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,24 +108,6 @@ tfstate_inputs = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
-
-### `composite_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
-
-### `autoscale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
-
-### `spatial_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
 
 ### `conflict_resolution_policy` block structure
 
@@ -136,6 +127,18 @@ tfstate_inputs = {
 | `excluded_paths` | string | No | - | List of paths to exclude from indexing. Required if 'indexing_mode' is 'Consistent' or 'Lazy'. |
 | `composite_index` | [block](#composite_index-block-structure) | No | - | One or more 'composite_index' blocks. |
 | `spatial_index` | [block](#spatial_index-block-structure) | No | - | One or more 'spatial_index' blocks. |
+
+### `spatial_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
+
+### `autoscale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 
 

@@ -58,6 +58,19 @@ tfstate_store = {
 | **roster** | [block](#roster-block-structure) |  A `roster` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Lab. | 
 
+### `connection_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
+
+### `security` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
+
 ### `auto_shutdown` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,19 +94,6 @@ tfstate_store = {
 | `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created. |
 | `password` | string | Yes | - | The password for the Lab user. Changing this forces a new resource to be created. |
 
-### `virtual_machine` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_user` | [block](#admin_user-block-structure) | Yes | - | An 'admin_user' block. |
-| `image_reference` | [block](#image_reference-block-structure) | Yes | - | An 'image_reference' block. |
-| `sku` | [block](#sku-block-structure) | Yes | - | A 'sku' block. |
-| `additional_capability_gpu_drivers_installed` | bool | No | False | Is flagged to pre-install dedicated GPU drivers? Defaults to 'false'. Changing this forces a new resource to be created. |
-| `create_option` | string | No | Image | The create option to indicate what Lab Service Lab VMs are created from. Possible values are 'Image' and 'TemplateVM'. Defaults to 'Image'. Changing this forces a new resource to be created. |
-| `non_admin_user` | [block](#non_admin_user-block-structure) | No | - | A 'non_admin_user' block. |
-| `shared_password_enabled` | bool | No | False | Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created. |
-| `usage_quota` | string | No | PT0S | The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string. |
-
 ### `image_reference` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -110,18 +110,18 @@ tfstate_store = {
 | `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. |
 | `password` | string | Yes | - | The password for the user. |
 
-### `connection_setting` block structure
+### `virtual_machine` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
-
-### `network` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
+| `admin_user` | [block](#admin_user-block-structure) | Yes | - | An 'admin_user' block. |
+| `image_reference` | [block](#image_reference-block-structure) | Yes | - | An 'image_reference' block. |
+| `sku` | [block](#sku-block-structure) | Yes | - | A 'sku' block. |
+| `additional_capability_gpu_drivers_installed` | bool | No | False | Is flagged to pre-install dedicated GPU drivers? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `create_option` | string | No | Image | The create option to indicate what Lab Service Lab VMs are created from. Possible values are 'Image' and 'TemplateVM'. Defaults to 'Image'. Changing this forces a new resource to be created. |
+| `non_admin_user` | [block](#non_admin_user-block-structure) | No | - | A 'non_admin_user' block. |
+| `shared_password_enabled` | bool | No | False | Is the shared password enabled with the same password for all user VMs? Defaults to 'false'. Changing this forces a new resource to be created. |
+| `usage_quota` | string | No | PT0S | The initial quota allocated to each Lab Service Lab user. Defaults to 'PT0S'. This value must be formatted as an ISO 8601 string. |
 
 ### `roster` block structure
 
@@ -133,11 +133,11 @@ tfstate_store = {
 | `lti_context_id` | string | No | - | The unique context identifier for the Lab Service Lab in the lms. |
 | `lti_roster_endpoint` | string | No | - | The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab. |
 
-### `security` block structure
+### `network` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
+| `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
 
 
 

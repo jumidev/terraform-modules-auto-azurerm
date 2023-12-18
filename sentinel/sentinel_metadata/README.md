@@ -61,23 +61,6 @@ tfstate_store = {
 | **threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
 | **version** | string |  -  |  Version of the content. | 
 
-### `support` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
-| `email` | string | No | - | The email address of the support contact. |
-| `link` | string | No | - | The link for support help. |
-| `name` | string | No | - | The name of the support contact. |
-
-### `author` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the author, company or person. |
-| `email` | string | No | - | The email address of the author contact. |
-| `link` | string | No | - | The link for author/vendor page. |
-
 ### `dependency` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,12 +71,13 @@ tfstate_store = {
 | `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
 | `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
 
-### `source` block structure
+### `author` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+| `name` | string | No | - | The name of the author, company or person. |
+| `email` | string | No | - | The email address of the author contact. |
+| `link` | string | No | - | The link for author/vendor page. |
 
 ### `category` block structure
 
@@ -101,6 +85,22 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `domains` | string | No | - | Specifies a list of domains for the solution content item. |
 | `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
+
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+
+### `support` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
+| `email` | string | No | - | The email address of the support contact. |
+| `link` | string | No | - | The link for support help. |
+| `name` | string | No | - | The name of the support contact. |
 
 
 
