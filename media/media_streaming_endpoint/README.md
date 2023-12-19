@@ -62,13 +62,6 @@ tfstate_store = {
 | `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
 
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
-
 ### `akamai_signature_header_authentication_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,6 +77,13 @@ tfstate_store = {
 | `address` | string | No | - | The IP address to allow. |
 | `name` | string | No | - | The friendly name for the IP address range. |
 | `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
 
 
 

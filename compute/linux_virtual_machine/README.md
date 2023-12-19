@@ -129,19 +129,12 @@ component_inputs = {
 | **virtual_machine_scale_set_id** | string |  -  |  -  |  Specifies the Orchestrated Virtual Machine Scale Set that this Virtual Machine should be created within. Changing this forces a new resource to be created. | 
 | **zone** | string |  -  |  -  |  Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created. | 
 
-### `termination_notification` block structure
+### `diff_disk_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
-| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
-
-### `secret` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
-| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
+| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
+| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
 
 ### `boot_diagnostics` block structure
 
@@ -154,20 +147,6 @@ component_inputs = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine? Defaults to 'false'. |
-
-### `diff_disk_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
-| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine. |
 
 ### `os_disk` block structure
 
@@ -183,6 +162,13 @@ component_inputs = {
 | `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
 | `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
 
+### `admin_ssh_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `public_key` | string | Yes | - | The Public Key which should be used for authentication, which needs to be at least 2048-bit and in 'ssh-rsa' format. Changing this forces a new resource to be created. |
+| `username` | string | Yes | - | The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created. |
+
 ### `source_image_reference` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -192,12 +178,13 @@ component_inputs = {
 | `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 
-### `admin_ssh_key` block structure
+### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `public_key` | string | Yes | - | The Public Key which should be used for authentication, which needs to be at least 2048-bit and in 'ssh-rsa' format. Changing this forces a new resource to be created. |
-| `username` | string | Yes | - | The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created. |
+| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
 
 ### `gallery_application` block structure
 
@@ -208,13 +195,26 @@ component_inputs = {
 | `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. |
 | `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. |
 
-### `plan` block structure
+### `termination_notification` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-| `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-| `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+
+### `secret` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine. |
 
 
 

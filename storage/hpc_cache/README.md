@@ -58,13 +58,6 @@ tfstate_store = {
 | **automatically_rotate_key_to_latest_enabled** | bool |  -  |  Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the HPC Cache. | 
 
-### `dns` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
-| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
-
 ### `default_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,6 +92,13 @@ tfstate_store = {
 | `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
 | `download_certificate_automatically` | string | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
 | `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
+
+### `dns` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
+| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
 
 ### `directory_flat_file` block structure
 

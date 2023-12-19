@@ -45,16 +45,16 @@ variable "custom_rules" {
 #   rate_limit_threshold (string): Specifies the threshold value for the rate limit policy. Must be greater than or equal to 1 if provided.
 #   group_rate_limit_by (string) : Specifies what grouping the rate limit will count requests by. Possible values are 'GeoLocation', 'ClientAddr' and 'None'.
 #
-# match_variables block structure:
-#   variable_name (string)         : (REQUIRED) The name of the Match Variable. Possible values are 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestUri', 'RequestHeaders', 'RequestBody' and 'RequestCookies'.
-#   selector (string)              : Describes field of the matchVariable collection
-#
 # match_conditions block structure:
 #   match_variables (block)         : (REQUIRED) One or more 'match_variables' blocks.
 #   match_values (list)             : A list of match values. This is **Required** when the 'operator' is not 'Any'.
 #   operator (string)               : (REQUIRED) Describes operator to be matched. Possible values are 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith', 'EndsWith' and 'Regex'.
 #   negation_condition (string)     : Describes if this is negate condition or not
 #   transforms (string)             : A list of transformations to do before the match is attempted. Possible values are 'HtmlEntityDecode', 'Lowercase', 'RemoveNulls', 'Trim', 'UrlDecode' and 'UrlEncode'.
+#
+# match_variables block structure:
+#   variable_name (string)         : (REQUIRED) The name of the Match Variable. Possible values are 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestUri', 'RequestHeaders', 'RequestBody' and 'RequestCookies'.
+#   selector (string)              : Describes field of the matchVariable collection
 
 
 variable "policy_settings" {

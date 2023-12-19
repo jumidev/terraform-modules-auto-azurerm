@@ -69,15 +69,15 @@ variable "auth_settings" {
 #   client_secret (string)   : (REQUIRED) The OAuth 2.0 client secret that was created for the app used for authentication.
 #   oauth_scopes (string)    : The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. <https://msdn.microsoft.com/en-us/library/dn631845.aspx>
 #
-# active_directory block structure:
-#   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
-#   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
-#   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
-#
 # google block structure:
 #   client_id (string)    : (REQUIRED) The OpenID Connect Client ID for the Google web application.
 #   client_secret (string): (REQUIRED) The client secret associated with the Google web application.
 #   oauth_scopes (string) : The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication. <https://developers.google.com/identity/sign-in/web/>
+#
+# active_directory block structure:
+#   client_id (string)              : (REQUIRED) The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
+#   client_secret (string)          : The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
+#   allowed_audiences (string)      : Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
 
 
 variable "connection_string" {
@@ -146,9 +146,14 @@ variable "site_config" {
 #   vnet_route_all_enabled (bool)                : Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied? Defaults to 'false'.
 #   websockets_enabled (bool)                    : Should WebSockets be enabled?
 #
-# cors block structure        :
-#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
+# scm_ip_restriction block structure:
+#   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
+#   service_tag (string)              : The Service Tag used for this IP Restriction.
+#   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
+#   name (string)                     : The name for this IP Restriction.
+#   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
+#   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
+#   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
 #
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
@@ -159,14 +164,9 @@ variable "site_config" {
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 #
-# scm_ip_restriction block structure:
-#   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
-#   service_tag (string)              : The Service Tag used for this IP Restriction.
-#   virtual_network_subnet_id (string): The Virtual Network Subnet ID used for this IP Restriction.
-#   name (string)                     : The name for this IP Restriction.
-#   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, priority is set to 65000 if not specified.
-#   action (string)                   : Allow or Deny access for this IP range. Defaults to 'Allow'.
-#   headers (string)                  : The 'headers' block for this specific 'scm_ip_restriction' as defined below.
+# cors block structure        :
+#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
 
 
 variable "storage_account" {
@@ -200,18 +200,18 @@ variable "logs" {
 #   retention_in_days (number) : (REQUIRED) The number of days to retain logs for.
 #   retention_in_mb (number)   : (REQUIRED) The maximum size in megabytes that HTTP log files can use before being removed.
 #
-# http_logs block structure :
-#   file_system (block)       : A 'file_system' block.
-#   azure_blob_storage (block): An 'azure_blob_storage' block.
+# azure_blob_storage block structure:
+#   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
+#   sas_url (string)                  : (REQUIRED) The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the 'azurerm' provider.
+#   retention_in_days (number)        : (REQUIRED) The number of days to retain logs for.
 #
 # application_logs block structure:
 #   file_system_level (string)      : The file system log level. Possible values are 'Off', 'Error', 'Warning', 'Information', and 'Verbose'. Defaults to 'Off'.
 #   azure_blob_storage (block)      : An 'azure_blob_storage' block.
 #
-# azure_blob_storage block structure:
-#   level (string)                    : (REQUIRED) The level at which to log. Possible values include 'Error', 'Warning', 'Information', 'Verbose' and 'Off'. **NOTE:** this field is not available for 'http_logs'
-#   sas_url (string)                  : (REQUIRED) The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the 'azurerm' provider.
-#   retention_in_days (number)        : (REQUIRED) The number of days to retain logs for.
+# http_logs block structure :
+#   file_system (block)       : A 'file_system' block.
+#   azure_blob_storage (block): An 'azure_blob_storage' block.
 
 
 variable "identity" {

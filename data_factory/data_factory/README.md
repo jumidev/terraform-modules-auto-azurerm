@@ -55,12 +55,17 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the global parameter type. Possible Values are 'Array', 'Bool', 'Float', 'Int', 'Object' or 'String'. |
 | `value` | string | Yes | - | Specifies the global parameter value. |
 
-### `identity` block structure
+### `vsts_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
+| `account_name` | string | Yes | - | Specifies the VSTS account name. |
+| `branch_name` | string | Yes | - | Specifies the branch of the repository to get code from. |
+| `project_name` | string | Yes | - | Specifies the name of the VSTS project. |
+| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
+| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
+| `tenant_id` | string | Yes | - | Specifies the Tenant ID associated with the VSTS account. |
+| `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
 ### `github_configuration` block structure
 
@@ -73,17 +78,12 @@ tfstate_store = {
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
 
-### `vsts_configuration` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `account_name` | string | Yes | - | Specifies the VSTS account name. |
-| `branch_name` | string | Yes | - | Specifies the branch of the repository to get code from. |
-| `project_name` | string | Yes | - | Specifies the name of the VSTS project. |
-| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
-| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
-| `tenant_id` | string | Yes | - | Specifies the Tenant ID associated with the VSTS account. |
-| `publishing_enabled` | bool | No | True | Is automated publishing enabled? Defaults to 'true'. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Data Factory. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Data Factory. |
 
 
 

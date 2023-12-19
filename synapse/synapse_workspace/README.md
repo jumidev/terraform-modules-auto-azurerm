@@ -76,12 +76,13 @@ tfstate_store = {
 | `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
 | `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
 
-### `identity` block structure
+### `aad_admin` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. |
+| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace. |
+| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace. |
+| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace. |
 
 ### `github_repo` block structure
 
@@ -106,13 +107,12 @@ tfstate_store = {
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `tenant_id` | string | No | - | the ID of the tenant for the Azure DevOps account. |
 
-### `aad_admin` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace. |
-| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace. |
-| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. |
 
 
 

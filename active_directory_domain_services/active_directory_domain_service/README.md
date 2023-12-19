@@ -56,6 +56,12 @@ tfstate_store = {
 | **security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `initial_replica_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
+
 ### `security` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,12 +82,6 @@ tfstate_store = {
 | `external_access_enabled` | bool | No | False | Whether to enable external access to LDAPS over the Internet. Defaults to 'false'. |
 | `pfx_certificate` | string | Yes | - | The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file). |
 | `pfx_certificate_password` | string | Yes | - | The password to use for decrypting the PKCS#12 bundle (PFX file). |
-
-### `initial_replica_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
 
 ### `notifications` block structure
 

@@ -54,43 +54,6 @@ tfstate_store = {
 | **secret** | list |  One or more `secret` block as detailed below. | 
 | **tags** | map |  A mapping of tags to assign to the Container App. | 
 
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_name` | string | Yes | - | The name of the Container App Secret to use for this Scale Rule Authentication. |
-| `trigger_parameter` | string | Yes | - | The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'. |
-
-### `http_scale_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Scaling Rule |
-| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
-| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
-
-### `ingress` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allow_insecure_connections` | bool | No | - | Should this ingress allow insecure connections? |
-| `custom_domain` | list | No | - | One or more 'custom_domain' block as detailed below. |
-| `fqdn` | string | No | - | The FQDN of the ingress. |
-| `external_enabled` | bool | No | False | Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'. |
-| `target_port` | string | Yes | - | The target port on the container for the Ingress traffic. |
-| `exposed_port` | string | No | - | The exposed port on the container for the Ingress traffic. |
-| `traffic_weight` | [block](#traffic_weight-block-structure) | Yes | - | A 'traffic_weight' block as detailed below. |
-| `transport` | string | No | auto | The transport method for the Ingress. Possible values are 'auto', 'http', 'http2' and 'tcp'. Defaults to 'auto'. |
-
-### `azure_queue_scale_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Scaling Rule |
-| `queue_name` | string | Yes | - | The name of the Azure Queue |
-| `queue_length` | string | Yes | - | The value of the length of the queue to trigger scaling actions. |
-| `authentication` | [block](#authentication-block-structure) | Yes | - | One or more 'authentication' blocks. |
-
 ### `custom_scale_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -99,6 +62,32 @@ tfstate_store = {
 | `custom_rule_type` | string | Yes | - | The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'. |
 | `metadata` | string | Yes | - | - A map of string key-value pairs to configure the Custom Scale Rule. |
 | `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
+
+### `traffic_weight` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `label` | string | No | - | The label to apply to the revision as a name prefix for routing traffic. |
+| `latest_revision` | string | No | - | This traffic Weight relates to the latest stable Container Revision. |
+| `revision_suffix` | string | No | - | The suffix string to which this 'traffic_weight' applies. |
+| `percentage` | string | Yes | - | The percentage of traffic which should be sent this revision. |
+
+### `volume` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the volume. |
+| `storage_name` | string | No | - | The name of the 'AzureFile' storage. |
+| `storage_type` | string | No | EmptyDir | The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'. |
+
+### `registry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `server` | string | Yes | - | The hostname for the Container Registry. |
+| `identity` | string | No | - | Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry. |
+| `password_secret_name` | string | No | - | The name of the Secret Reference containing the password value for this user on the Container Registry, 'username' must also be supplied. |
+| `username` | string | No | - | The username to use for this Container Registry, 'password_secret_name' must also be supplied.. |
 
 ### `template` block structure
 
@@ -114,21 +103,50 @@ tfstate_store = {
 | `revision_suffix` | string | No | - | The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one. |
 | `volume` | [block](#volume-block-structure) | No | - | A 'volume' block as detailed below. |
 
-### `identity` block structure
+### `ingress` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'SystemAssigned', 'UserAssigned', and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | - A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
+| `allow_insecure_connections` | bool | No | - | Should this ingress allow insecure connections? |
+| `custom_domain` | list | No | - | One or more 'custom_domain' block as detailed below. |
+| `fqdn` | string | No | - | The FQDN of the ingress. |
+| `external_enabled` | bool | No | False | Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'. |
+| `target_port` | string | Yes | - | The target port on the container for the Ingress traffic. |
+| `exposed_port` | string | No | - | The exposed port on the container for the Ingress traffic. |
+| `traffic_weight` | [block](#traffic_weight-block-structure) | Yes | - | A 'traffic_weight' block as detailed below. |
+| `transport` | string | No | auto | The transport method for the Ingress. Possible values are 'auto', 'http', 'http2' and 'tcp'. Defaults to 'auto'. |
 
-### `registry` block structure
+### `authentication` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `server` | string | Yes | - | The hostname for the Container Registry. |
-| `identity` | string | No | - | Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry. |
-| `password_secret_name` | string | No | - | The name of the Secret Reference containing the password value for this user on the Container Registry, 'username' must also be supplied. |
-| `username` | string | No | - | The username to use for this Container Registry, 'password_secret_name' must also be supplied.. |
+| `secret_name` | string | Yes | - | The name of the Container App Secret to use for this Scale Rule Authentication. |
+| `trigger_parameter` | string | Yes | - | The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'. |
+
+### `tcp_scale_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Scaling Rule |
+| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
+| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
+
+### `azure_queue_scale_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Scaling Rule |
+| `queue_name` | string | Yes | - | The name of the Azure Queue |
+| `queue_length` | string | Yes | - | The value of the length of the queue to trigger scaling actions. |
+| `authentication` | [block](#authentication-block-structure) | Yes | - | One or more 'authentication' blocks. |
+
+### `http_scale_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Scaling Rule |
+| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
+| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
 
 ### `dapr` block structure
 
@@ -138,30 +156,12 @@ tfstate_store = {
 | `app_port` | string | No | - | The port which the application is listening on. This is the same as the 'ingress' port. |
 | `app_protocol` | string | No | http | The protocol for the app. Possible values include 'http' and 'grpc'. Defaults to 'http'. |
 
-### `volume` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the volume. |
-| `storage_name` | string | No | - | The name of the 'AzureFile' storage. |
-| `storage_type` | string | No | EmptyDir | The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'. |
-
-### `traffic_weight` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `label` | string | No | - | The label to apply to the revision as a name prefix for routing traffic. |
-| `latest_revision` | string | No | - | This traffic Weight relates to the latest stable Container Revision. |
-| `revision_suffix` | string | No | - | The suffix string to which this 'traffic_weight' applies. |
-| `percentage` | string | Yes | - | The percentage of traffic which should be sent this revision. |
-
-### `tcp_scale_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Scaling Rule |
-| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
-| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
+| `type` | string | Yes | - | The type of managed identity to assign. Possible values are 'SystemAssigned', 'UserAssigned', and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | - A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
 
 
 

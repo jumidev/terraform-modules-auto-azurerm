@@ -59,13 +59,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Boolean to enable or disable this Security Center Automation. Defaults to `true`. | 
 | **tags** | map |  -  |  A mapping of tags assigned to the resource. | 
 
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `event_source` | string | Yes | - | Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations |
-| `rule_set` | [block](#rule_set-block-structure) | No | - | A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks. |
-
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,6 +67,12 @@ tfstate_store = {
 | `operator` | string | Yes | - | The comparison operator to use, must be one of: 'Contains', 'EndsWith', 'Equals', 'GreaterThan', 'GreaterThanOrEqualTo', 'LesserThan', 'LesserThanOrEqualTo', 'NotEquals', 'StartsWith' |
 | `property_path` | string | Yes | - | The JPath of the entity model property that should be checked. |
 | `property_type` | string | Yes | - | The data type of the compared operands, must be one of: 'Integer', 'String', 'Boolean' or 'Number'. |
+
+### `rule_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule` | [block](#rule-block-structure) | Yes | - | One or more 'rule' blocks. |
 
 ### `action` block structure
 
@@ -84,11 +83,12 @@ tfstate_store = {
 | `connection_string` | string | No | - | (Optional, but required when 'type' is 'EventHub') A connection string to send data to the target Event Hub namespace, this should include a key with send permissions. |
 | `trigger_url` | string | No | - | (Optional, but required when 'type' is 'LogicApp') The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under 'See trigger history' |
 
-### `rule_set` block structure
+### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rule` | [block](#rule-block-structure) | Yes | - | One or more 'rule' blocks. |
+| `event_source` | string | Yes | - | Type of data that will trigger this automation. Must be one of 'Alerts', 'Assessments', 'AssessmentsSnapshot', 'RegulatoryComplianceAssessment', 'RegulatoryComplianceAssessmentSnapshot', 'SecureScoreControls', 'SecureScoreControlsSnapshot', 'SecureScores', 'SecureScoresSnapshot', 'SubAssessments' or 'SubAssessmentsSnapshot'. Note. assessments are also referred to as recommendations |
+| `rule_set` | [block](#rule_set-block-structure) | No | - | A set of rules which evaluate upon event and data interception. This is defined in one or more 'rule_set' blocks. |
 
 
 

@@ -58,12 +58,11 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the column to partition by. |
 
-### `cluster_key` block structure
+### `autoscale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the cluster key to be created. |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
+| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
 ### `schema` block structure
 
@@ -73,11 +72,12 @@ tfstate_store = {
 | `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
 | `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
 
-### `autoscale_settings` block structure
+### `cluster_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+| `name` | string | Yes | - | Name of the cluster key to be created. |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
 
 
 

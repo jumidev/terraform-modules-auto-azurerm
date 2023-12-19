@@ -41,19 +41,19 @@ tfstate_store = {
 | **automation_account_name** | string |  The name of the automation account in which the Module is created. Changing this forces a new resource to be created. | 
 | **module_link** | [block](#module_link-block-structure) |  A `module_link` block. | 
 
-### `hash` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `algorithm` | string | Yes | - | Specifies the algorithm used for the hash content. |
-| `value` | string | Yes | - | The hash value of the content. |
-
 ### `module_link` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `uri` | string | Yes | - | The URI of the module content (zip or nupkg). |
 | `hash` | [block](#hash-block-structure) | No | - | A 'hash' block. |
+
+### `hash` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `algorithm` | string | Yes | - | Specifies the algorithm used for the hash content. |
+| `value` | string | Yes | - | The hash value of the content. |
 
 
 

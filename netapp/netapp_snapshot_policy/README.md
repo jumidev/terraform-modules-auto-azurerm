@@ -1,6 +1,6 @@
 # azurerm_netapp_snapshot_policy
 
-Manages a NetApp Snapshot Policy.## NetApp Snapshot Policy Usage```hclresource "azurerm_resource_group" "example" {name     = "resource-group-01"location = "East US"}resource "azurerm_netapp_account" "example" {name                = "netappaccount-01"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.name}resource "azurerm_netapp_snapshot_policy" "example" {name                = "snapshotpolicy-01"location            = azurerm_resource_group.example.locationresource_group_name = azurerm_resource_group.example.nameaccount_name        = azurerm_netapp_account.example.nameenabled             = truehourly_schedule {snapshots_to_keep = 4minute            = 15}daily_schedule {snapshots_to_keep = 2hour              = 20minute            = 15}weekly_schedule {snapshots_to_keep = 1days_of_week      = ["Monday", "Friday"]hour              = 23minute            = 0}monthly_schedule {snapshots_to_keep = 1days_of_month     = [1, 15, 20, 30]hour              = 5minute            = 45}}```
+Manages a NetApp Snapshot Policy.
 
 ## Example `component.hclt`
 
@@ -46,6 +46,13 @@ tfstate_store = {
 | **monthly_schedule** | [block](#monthly_schedule-block-structure) |  Sets a monthly snapshot schedule. A `monthly_schedule` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `hourly_schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
+| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
+
 ### `weekly_schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,13 +77,6 @@ tfstate_store = {
 | `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
 | `days_of_month` | number | Yes | - | List of the days of the month when the snapshots will be created, valid range is from 1 to 30. |
 | `hour` | string | Yes | - | Hour of the day that the snapshots will be created, valid range is from 0 to 23. |
-| `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
-
-### `hourly_schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `snapshots_to_keep` | string | Yes | - | How many hourly snapshots to keep, valid range is from 0 to 255. |
 | `minute` | string | Yes | - | Minute of the hour that the snapshots will be created, valid range is from 0 to 59. |
 
 

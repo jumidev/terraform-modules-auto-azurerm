@@ -58,13 +58,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `minute` | string | Yes | - | Minutes of the hour the schedule will run. |
 
-### `weekly_recurrence` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `time` | string | Yes | - | The time when the schedule takes effect. |
-| `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
-
 ### `notification_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +71,13 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `time` | string | Yes | - | The time each day when the schedule takes effect. |
+
+### `weekly_recurrence` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time` | string | Yes | - | The time when the schedule takes effect. |
+| `week_days` | string | No | - | A list of days that this schedule takes effect . Possible values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
 
 
 

@@ -99,13 +99,6 @@ component_inputs = {
 | `start_hour_utc` | string | No | - | the Start Hour for maintenance in UTC - possible values range from '0 - 23'. |
 | `maintenance_window` | string | No | PT5H | The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
-
 ### `redis_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -124,6 +117,13 @@ component_inputs = {
 | `rdb_backup_max_snapshot_count` | number | No | - | The maximum number of snapshots to create as a backup. Only supported for Premium SKUs. |
 | `rdb_storage_connection_string` | string | No | - | The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. |
 | `notify_keyspace_events` | string | No | - | Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. |
 
 
 

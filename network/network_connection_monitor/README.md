@@ -65,27 +65,16 @@ tfstate_store = {
 | **output_workspace_resource_ids** | list |  A list of IDs of the Log Analytics Workspace which will accept the output from the Network Connection Monitor. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Network Connection Monitor. | 
 
-### `tcp_configuration` block structure
+### `http_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port for the TCP connection. |
-| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
-| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
-
-### `request_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the HTTP header. |
-| `value` | string | Yes | - | The value of the HTTP header. |
-
-### `success_threshold` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
-| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
+| `method` | string | No | Get | The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'. |
+| `port` | string | No | - | The port for the HTTP connection. |
+| `path` | string | No | - | The path component of the URI. It only accepts the absolute path. |
+| `prefer_https` | bool | No | False | Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'. |
+| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
+| `valid_status_code_ranges` | string | No | - | The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'. |
 
 ### `endpoint` block structure
 
@@ -106,23 +95,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
 
-### `item` block structure
+### `success_threshold` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
-| `address` | string | No | - | The address of the filter item. |
-
-### `http_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `method` | string | No | Get | The HTTP method for the HTTP request. Possible values are 'Get' and 'Post'. Defaults to 'Get'. |
-| `port` | string | No | - | The port for the HTTP connection. |
-| `path` | string | No | - | The path component of the URI. It only accepts the absolute path. |
-| `prefer_https` | bool | No | False | Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to 'false'. |
-| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
-| `valid_status_code_ranges` | string | No | - | The HTTP status codes to consider successful. For instance, '2xx', '301-304' and '418'. |
+| `checks_failed_percent` | string | No | - | The maximum percentage of failed checks permitted for a test to be successful. |
+| `round_trip_time_ms` | string | No | - | The maximum round-trip time in milliseconds permitted for a test to be successful. |
 
 ### `test_configuration` block structure
 
@@ -137,12 +115,12 @@ tfstate_store = {
 | `success_threshold` | [block](#success_threshold-block-structure) | No | - | A 'success_threshold' block. |
 | `tcp_configuration` | [block](#tcp_configuration-block-structure) | No | - | A 'tcp_configuration' block. |
 
-### `filter` block structure
+### `request_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | Include | The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'. |
-| `item` | [block](#item-block-structure) | No | - | A 'item' block. |
+| `name` | string | Yes | - | The name of the HTTP header. |
+| `value` | string | Yes | - | The value of the HTTP header. |
 
 ### `test_group` block structure
 
@@ -153,6 +131,28 @@ tfstate_store = {
 | `source_endpoints` | list | Yes | - | A list of source endpoint names. |
 | `test_configuration_names` | list | Yes | - | A list of test configuration names. |
 | `enabled` | bool | No | True | Should the test group be enabled? Defaults to 'true'. |
+
+### `filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | Include | The behaviour type of this endpoint filter. Currently the only allowed value is 'Include'. Defaults to 'Include'. |
+| `item` | [block](#item-block-structure) | No | - | A 'item' block. |
+
+### `item` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | AgentAddress | The type of items included in the filter. Possible values are 'AgentAddress'. Defaults to 'AgentAddress'. |
+| `address` | string | No | - | The address of the filter item. |
+
+### `tcp_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port for the TCP connection. |
+| `trace_route_enabled` | bool | No | True | Should path evaluation with trace route be enabled? Defaults to 'true'. |
+| `destination_port_behavior` | string | No | - | The destination port behavior for the TCP connection. Possible values are 'None' and 'ListenIfAvailable'. |
 
 
 

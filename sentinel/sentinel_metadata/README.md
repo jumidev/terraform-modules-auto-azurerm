@@ -61,14 +61,23 @@ tfstate_store = {
 | **threat_analysis_techniques** | string |  -  |  Specifies a list of techniques the resource covers. | 
 | **version** | string |  -  |  Version of the content. | 
 
-### `support` block structure
+### `dependency` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
-| `email` | string | No | - | The email address of the support contact. |
-| `link` | string | No | - | The link for support help. |
-| `name` | string | No | - | The name of the support contact. |
+| `contentId` | string | No | - | ID of the content item that is depended on. |
+| `kind` | string | No | - | Type of the content item that is depended on. |
+| `version` | string | No | - | Version of the content item that is depended on. |
+| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
+| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
+
+### `author` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the author, company or person. |
+| `email` | string | No | - | The email address of the author contact. |
+| `link` | string | No | - | The link for author/vendor page. |
 
 ### `source` block structure
 
@@ -84,23 +93,14 @@ tfstate_store = {
 | `domains` | string | No | - | Specifies a list of domains for the solution content item. |
 | `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
 
-### `author` block structure
+### `support` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the author, company or person. |
-| `email` | string | No | - | The email address of the author contact. |
-| `link` | string | No | - | The link for author/vendor page. |
-
-### `dependency` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `contentId` | string | No | - | ID of the content item that is depended on. |
-| `kind` | string | No | - | Type of the content item that is depended on. |
-| `version` | string | No | - | Version of the content item that is depended on. |
-| `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
-| `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
+| `tier` | string | Yes | - | The type of support for content item. Possible values are 'Microsoft', 'Partner' and 'Community'. |
+| `email` | string | No | - | The email address of the support contact. |
+| `link` | string | No | - | The link for support help. |
+| `name` | string | No | - | The name of the support contact. |
 
 
 
