@@ -19,7 +19,7 @@ resource "azurerm_batch_account" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type         = lookup(identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned | SystemAssigned, UserAssigned
+      type         = lookup(identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned
       identity_ids = lookup(identity.value, "identity_ids", null)
     }
   }

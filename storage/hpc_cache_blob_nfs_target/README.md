@@ -44,9 +44,11 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Default  |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **access_policy_name** | string |  `default`  |  The name of the access policy applied to this target. Defaults to `default`. | 
+| Name | Type |  Default  |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- | ----------- |
+| **verification_timer_in_seconds** | string |  -  |  `1`, `31536000`  |  The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between `1` and `31536000`. | 
+| **write_back_timer_in_seconds** | string |  -  |  `1`, `31536000`  |  The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between `1` and `31536000`. | 
+| **access_policy_name** | string |  `default`  |  -  |  The name of the access policy applied to this target. Defaults to `default`. | 
 
 
 

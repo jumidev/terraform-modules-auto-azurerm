@@ -32,6 +32,14 @@ variable "pcc_rule" {
 #   service_data_flow_template (block): (REQUIRED) A 'service_data_flow_template' block. The set of service data flow templates to use for this PCC rule.
 #   traffic_control_enabled (bool)    : Determines whether flows that match this data flow policy rule are permitted. Defaults to 'true'.
 #
+# maximum_bit_rate block structure:
+#   downlink (string)               : (REQUIRED) Downlink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#   uplink (string)                 : (REQUIRED) Uplink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#
+# guaranteed_bit_rate block structure:
+#   downlink (string)                  : (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#   uplink (string)                    : (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
+#
 # service_data_flow_template block structure:
 #   name (string)                             : (REQUIRED) Specifies the name of the data flow template. This must be unique within the parent data flow policy rule. You must not use any of the following reserved strings - 'default', 'requested' or 'service'.
 #   direction (string)                        : (REQUIRED) Specifies the direction of this flow. Possible values are 'Uplink', 'Downlink' and 'Bidirectional'.
@@ -46,14 +54,6 @@ variable "pcc_rule" {
 #   maximum_bit_rate (block)                        : (REQUIRED) A 'maximum_bit_rate' block. The Maximum Bit Rate (MBR) for all service data flows that use this PCC Rule or Service.
 #   preemption_capability (string)                  : The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreempt' and 'MayPreempt', Defaults to 'NotPreempt'.
 #   preemption_vulnerability (string)               : The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters. Possible values are 'NotPreemptable' and 'Preemptable'. Defaults to 'Preemptable'.
-#
-# guaranteed_bit_rate block structure:
-#   downlink (string)                  : (REQUIRED) Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#   uplink (string)                    : (REQUIRED) Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#
-# maximum_bit_rate block structure:
-#   downlink (string)               : (REQUIRED) Downlink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
-#   uplink (string)                 : (REQUIRED) Uplink bit rate. Must be a number followed by 'bps', 'Kbps', 'Mbps', 'Gbps' or 'Tbps'.
 
 
 

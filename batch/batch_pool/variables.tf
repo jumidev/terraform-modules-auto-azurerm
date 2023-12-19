@@ -212,13 +212,6 @@ variable "mount" {
 #   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
 #   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 #
-# azure_file_share block structure:
-#   account_name (string)           : (REQUIRED) The Azure Storage Account name.
-#   account_key (string)            : (REQUIRED) The Azure Storage Account key.
-#   azure_file_url (string)         : (REQUIRED) The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
-#   relative_mount_path (string)    : (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
-#   mount_options (string)          : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
-#
 # azure_blob_file_system block structure:
 #   account_name (string)                 : (REQUIRED) The Azure Storage Account name.
 #   container_name (string)               : (REQUIRED) The Azure Blob Storage Container name.
@@ -232,6 +225,13 @@ variable "mount" {
 #   source (string)             : (REQUIRED) The URI of the file system to mount.
 #   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
 #   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+#
+# azure_file_share block structure:
+#   account_name (string)           : (REQUIRED) The Azure Storage Account name.
+#   account_key (string)            : (REQUIRED) The Azure Storage Account key.
+#   azure_file_url (string)         : (REQUIRED) The Azure Files URL. This is of the form 'https://{account}.file.core.windows.net/'.
+#   relative_mount_path (string)    : (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
+#   mount_options (string)          : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 
 
 variable "network_configuration" {

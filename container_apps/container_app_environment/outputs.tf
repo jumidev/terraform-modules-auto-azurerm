@@ -30,6 +30,10 @@ output "log_analytics_workspace_id" {
   value = azurerm_container_app_environment.this.log_analytics_workspace_id
 }
 
+output "workload_profile" {
+  value = azurerm_container_app_environment.this.workload_profile
+}
+
 output "tags" {
   value = azurerm_container_app_environment.this.tags
 }

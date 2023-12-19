@@ -38,6 +38,10 @@ output "secret" {
   value = azurerm_container_app.this.secret
 }
 
+output "workload_profile_name" {
+  value = azurerm_container_app.this.workload_profile_name
+}
+
 output "tags" {
   value = azurerm_container_app.this.tags
 }

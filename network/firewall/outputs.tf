@@ -30,6 +30,10 @@ output "dns_servers" {
   value = azurerm_firewall.this.dns_servers
 }
 
+output "dns_proxy_enabled" {
+  value = azurerm_firewall.this.dns_proxy_enabled
+}
+
 output "private_ip_ranges" {
   value = azurerm_firewall.this.private_ip_ranges
 }

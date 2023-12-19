@@ -114,10 +114,17 @@ variable "site_config" {
 #   linux_fx_version (string)              : Linux App Framework and version for the AppService, e.g. 'DOCKER|(golang:latest)'. Setting this value will also set the 'kind' of application deployed to 'functionapp,linux,container,workflowapp'
 #   min_tls_version (string)               : The minimum supported TLS version for the Logic App Possible values are '1.0', '1.1', and '1.2'. Defaults to '1.2' for new Logic Apps.
 #   pre_warmed_instance_count (number)     : The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
+#   public_network_access_enabled (bool)   : Is public network access enabled? Defaults to 'true'.
 #   runtime_scale_monitoring_enabled (bool): Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to 'false'.
 #   use_32_bit_worker_process (bool)       : Should the Logic App run in 32 bit mode, rather than 64 bit mode? Defaults to 'true'.
 #   vnet_route_all_enabled (bool)          : Should all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
 #   websockets_enabled (bool)              : Should WebSockets be enabled?
+#
+# headers block structure   :
+#   x_azure_fdid (list)       : A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+#   x_fd_health_probe (string): A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'.
+#   x_forwarded_for (list)    : A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+#   x_forwarded_host (list)   : A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
 #
 # scm_ip_restriction block structure:
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
@@ -140,12 +147,6 @@ variable "site_config" {
 # cors block structure        :
 #   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
 #   support_credentials (string): Are credentials supported?
-#
-# headers block structure   :
-#   x_azure_fdid (list)       : A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-#   x_fd_health_probe (string): A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'.
-#   x_forwarded_for (list)    : A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-#   x_forwarded_host (list)   : A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
 
 
 variable "storage_account_share_name" {

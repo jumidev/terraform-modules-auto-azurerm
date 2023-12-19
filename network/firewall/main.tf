@@ -29,6 +29,7 @@ resource "azurerm_firewall" "this" {
   }
 
   dns_servers       = var.dns_servers
+  dns_proxy_enabled = var.dns_proxy_enabled
   private_ip_ranges = var.private_ip_ranges
 
   dynamic "management_ip_configuration" { # var.management_ip_configuration

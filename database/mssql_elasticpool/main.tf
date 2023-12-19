@@ -41,6 +41,7 @@ resource "azurerm_mssql_elasticpool" "this" {
   maintenance_configuration_name = data.azurerm_maintenance_configuration.this.name
   max_size_gb                    = var.max_size_gb
   max_size_bytes                 = var.max_size_bytes
+  enclave_type                   = var.enclave_type
   tags                           = var.tags
   zone_redundant                 = var.zone_redundant
   license_type                   = var.license_type

@@ -13,4 +13,5 @@ resource "azurerm_synapse_role_assignment" "this" {
   ########################################
   synapse_workspace_id  = var.synapse_workspace_id
   synapse_spark_pool_id = var.synapse_spark_pool_id
+  principal_type        = var.principal_type
 }

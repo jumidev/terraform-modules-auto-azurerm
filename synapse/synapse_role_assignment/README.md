@@ -36,6 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **synapse_workspace_id** | string |  The Synapse Workspace which the Synapse Role Assignment applies to. Changing this forces a new resource to be created. | 
 | **synapse_spark_pool_id** | string |  The Synapse Spark Pool which the Synapse Role Assignment applies to. Changing this forces a new resource to be created. | 
+| **principal_type** | string |  The Type of the Principal. One of `User`, `Group` or `ServicePrincipal`. Changing this forces a new resource to be created. | 
 
 
 

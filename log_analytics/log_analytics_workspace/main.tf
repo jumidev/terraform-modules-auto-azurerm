@@ -30,11 +30,12 @@ resource "azurerm_log_analytics_workspace" "this" {
     }
   }
 
-  internet_ingestion_enabled         = var.internet_ingestion_enabled # Default: True
-  internet_query_enabled             = var.internet_query_enabled     # Default: True
-  reservation_capacity_in_gb_per_day = var.reservation_capacity_in_gb_per_day
-  data_collection_rule_id            = var.data_collection_rule_id
-  tags                               = var.tags
+  internet_ingestion_enabled              = var.internet_ingestion_enabled # Default: True
+  internet_query_enabled                  = var.internet_query_enabled     # Default: True
+  reservation_capacity_in_gb_per_day      = var.reservation_capacity_in_gb_per_day
+  data_collection_rule_id                 = var.data_collection_rule_id
+  immediate_data_purge_on_30_days_enabled = var.immediate_data_purge_on_30_days_enabled
+  tags                                    = var.tags
 }
 
 ##############################################################################################

@@ -18,5 +18,7 @@ resource "azurerm_hpc_cache_blob_nfs_target" "this" {
   ########################################
   # optional vars
   ########################################
-  access_policy_name = var.access_policy_name # Default: default
+  verification_timer_in_seconds = var.verification_timer_in_seconds
+  write_back_timer_in_seconds   = var.write_back_timer_in_seconds
+  access_policy_name            = var.access_policy_name # Default: default
 }

@@ -16,7 +16,7 @@ variable "location" {
 
 }
 variable "datastore_type" {
-  description = "(REQUIRED) Specifies the type of the data store. Possible values are 'ArchiveStore', 'SnapshotStore' and 'VaultStore'. Changing this forces a new resource to be created."
+  description = "(REQUIRED) Specifies the type of the data store. Possible values are 'ArchiveStore', 'OperationalStore', 'SnapshotStore' and 'VaultStore'. Changing this forces a new resource to be created."
   type        = string
 
 }

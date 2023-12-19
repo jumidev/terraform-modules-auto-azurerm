@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   query_pack_id = "The ID of the Log Analytics Query Pack"   
+   # query_pack_id → set in component_inputs
    body = "The body of the Log Analytics Query Pack Query"   
    display_name = "The unique display name for the query within the Log Analytics Query Pack..."   
+}
+
+component_inputs = {
+   query_pack_id = "path/to/log_analytics_query_pack_component:id"   
 }
 
 tfstate_store = {

@@ -21,7 +21,7 @@ variable "automation_account_name" {
 
 }
 variable "runbook_type" {
-  description = "(REQUIRED) The type of the runbook - can be either 'Graph', 'GraphPowerShell', 'GraphPowerShellWorkflow', 'PowerShellWorkflow', 'PowerShell', 'Python3', 'Python2' or 'Script'. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The type of the runbook - can be either 'Graph', 'GraphPowerShell', 'GraphPowerShellWorkflow', 'PowerShellWorkflow', 'PowerShell', 'PowerShell72', 'Python3', 'Python2' or 'Script'. Changing this forces a new resource to be created."
   type        = string
 
 }
@@ -93,14 +93,14 @@ variable "draft" {
 #   position (string)         : Specifies the position of the parameter.
 #   default_value (string)    : Specifies the default value of the parameter.
 #
+# hash block structure:
+#   algorithm (string)  : (REQUIRED) Specifies the hash algorithm used to hash the content.
+#   value (string)      : (REQUIRED) Specifies the expected hash value of the content.
+#
 # publish_content_link block structure:
 #   uri (string)                        : (REQUIRED) The URI of the runbook content.
 #   version (string)                    : Specifies the version of the content
 #   hash (block)                        : A 'hash' block.
-#
-# hash block structure:
-#   algorithm (string)  : (REQUIRED) Specifies the hash algorithm used to hash the content.
-#   value (string)      : (REQUIRED) Specifies the expected hash value of the content.
 
 
 variable "automation_account_resource_group_name" {

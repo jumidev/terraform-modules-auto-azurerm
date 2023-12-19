@@ -54,15 +54,6 @@ tfstate_store = {
 | `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
 | `shutdown_on_idle` | string | No | - | Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'. |
 
-### `support` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address for the support contact. |
-| `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
-| `phone` | string | No | - | The phone number for the support contact. |
-| `url` | string | No | - | The web address for users of the Lab Service Plan. |
-
 ### `default_connection` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,6 +62,15 @@ tfstate_store = {
 | `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible values are 'Private' and 'Public'. |
 | `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
 | `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
+
+### `support` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | No | - | The email address for the support contact. |
+| `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
+| `phone` | string | No | - | The phone number for the support contact. |
+| `url` | string | No | - | The web address for users of the Lab Service Plan. |
 
 
 

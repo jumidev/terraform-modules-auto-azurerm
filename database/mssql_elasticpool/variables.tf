@@ -26,7 +26,7 @@ variable "sku" {
 }
 #
 # sku block structure:
-#   name (string)      : (REQUIRED) Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either 'vCore' based 'tier' + 'family' pattern (e.g. GP_Gen4, BC_Gen5) or the 'DTU' based 'BasicPool', 'StandardPool', or 'PremiumPool' pattern. Possible values are 'BasicPool', 'StandardPool', 'PremiumPool', 'GP_Gen4', 'GP_Gen5', 'GP_Fsv2', 'GP_DC', 'BC_Gen4', 'BC_Gen5', 'BC_DC', or 'HS_Gen5'.
+#   name (string)      : (REQUIRED) Specifies the SKU Name for this Elasticpool. The name of the SKU, will be either 'vCore' based or 'DTU' based. Possible 'DTU' based values are 'BasicPool', 'StandardPool', 'PremiumPool' while possible 'vCore' based values are 'GP_Gen4', 'GP_Gen5', 'GP_Fsv2', 'GP_DC', 'BC_Gen4', 'BC_Gen5', 'BC_DC', or 'HS_Gen5'.
 #   capacity (string)  : (REQUIRED) The scale up/out capacity, representing server's compute units. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 #   tier (string)      : (REQUIRED) The tier of the particular SKU. Possible values are 'GeneralPurpose', 'BusinessCritical', 'Basic', 'Standard', 'Premium', or 'HyperScale'. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
 #   family (string)    : The 'family' of hardware 'Gen4', 'Gen5', 'Fsv2' or 'DC'.
@@ -58,6 +58,11 @@ variable "max_size_gb" {
 variable "max_size_bytes" {
   description = "The max data size of the elastic pool in bytes. Conflicts with 'max_size_gb'."
   type        = number
+  default     = null
+}
+variable "enclave_type" {
+  description = "Specifies the type of enclave to be used by the elastic pool. Possible value 'VBS'."
+  type        = string
   default     = null
 }
 variable "tags" {

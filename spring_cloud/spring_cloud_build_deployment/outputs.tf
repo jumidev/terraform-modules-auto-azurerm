@@ -14,6 +14,10 @@ output "addon_json" {
   value = azurerm_spring_cloud_build_deployment.this.addon_json
 }
 
+output "application_performance_monitoring_ids" {
+  value = azurerm_spring_cloud_build_deployment.this.application_performance_monitoring_ids
+}
+
 output "environment_variables" {
   value = azurerm_spring_cloud_build_deployment.this.environment_variables
 }

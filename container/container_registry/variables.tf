@@ -55,15 +55,10 @@ variable "network_rule_set" {
 # network_rule_set block structure:
 #   default_action (string)         : The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow'
 #   ip_rule (block)                 : One or more 'ip_rule' blocks.
-#   virtual_network (block)         : One or more 'virtual_network' blocks.
 #
 # ip_rule block structure:
 #   action (string)        : (REQUIRED) The behaviour for requests matching this rule. At this time the only supported value is 'Allow'
 #   ip_range (string)      : (REQUIRED) The CIDR block from which requests will match the rule.
-#
-# virtual_network block structure:
-#   action (string)                : (REQUIRED) The behaviour for requests matching this rule. At this time the only supported value is 'Allow'
-#   subnet_id (string)             : (REQUIRED) The subnet id from which requests will match the rule.
 
 
 variable "public_network_access_enabled" {

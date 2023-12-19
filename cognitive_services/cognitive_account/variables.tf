@@ -29,7 +29,7 @@ variable "sku_name" {
 # OPTIONAL VARIABLES
 
 variable "custom_subdomain_name" {
-  description = "The subdomain name used for token-based authentication. Changing this forces a new resource to be created."
+  description = "The subdomain name used for token-based authentication. This property is required when 'network_acls' is specified. Changing this forces a new resource to be created."
   type        = string
   default     = null
 }
@@ -91,7 +91,7 @@ variable "metrics_advisor_website_name" {
   default     = null
 }
 variable "network_acls" {
-  description = "A 'network_acls' block."
+  description = "A 'network_acls' block. When this property is specified, 'custom_subdomain_name' is also required to be set."
   type        = map(any)
   default     = null
 }

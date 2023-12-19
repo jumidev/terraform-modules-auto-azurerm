@@ -41,6 +41,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **addon_json** | string |  -  |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Build Deployment. | 
+| **application_performance_monitoring_ids** | string |  -  |  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
 | **environment_variables** | string |  -  |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 
 | **instance_count** | string |  `1`  |  `1`, `500`  |  Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **quota** | [block](#quota-block-structure) |  -  |  -  |  A `quota` block. | 

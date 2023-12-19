@@ -23,6 +23,11 @@ variable "addon_json" {
   type        = string
   default     = null
 }
+variable "application_performance_monitoring_ids" {
+  description = "Specifies a list of Spring Cloud Application Performance Monitoring IDs."
+  type        = string
+  default     = null
+}
 variable "environment_variables" {
   description = "Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs."
   type        = string

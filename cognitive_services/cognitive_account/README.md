@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **custom_subdomain_name** | string |  -  |  The subdomain name used for token-based authentication. Changing this forces a new resource to be created. | 
+| **custom_subdomain_name** | string |  -  |  The subdomain name used for token-based authentication. This property is required when `network_acls` is specified. Changing this forces a new resource to be created. | 
 | **dynamic_throttling_enabled** | bool |  -  |  Whether to enable the dynamic throttling for this Cognitive Service Account. | 
 | **customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  A `customer_managed_key` block. | 
 | **fqdns** | string |  -  |  List of FQDNs allowed for the Cognitive Account. | 
@@ -50,7 +50,7 @@ tfstate_store = {
 | **metrics_advisor_aad_tenant_id** | string |  -  |  The Azure AD Tenant ID. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **metrics_advisor_super_user_name** | string |  -  |  The super user of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
 | **metrics_advisor_website_name** | string |  -  |  The website name of Metrics Advisor. This attribute is only set when kind is `MetricsAdvisor`. Changing this forces a new resource to be created. | 
-| **network_acls** | [block](#network_acls-block-structure) |  -  |  A `network_acls` block. | 
+| **network_acls** | [block](#network_acls-block-structure) |  -  |  A `network_acls` block. When this property is specified, `custom_subdomain_name` is also required to be set. | 
 | **outbound_network_access_restricted** | bool |  `False`  |  Whether outbound network access is restricted for the Cognitive Account. Defaults to `false`. | 
 | **public_network_access_enabled** | bool |  `True`  |  Whether public network access is allowed for the Cognitive Account. Defaults to `true`. | 
 | **qna_runtime_endpoint** | string |  -  |  A URL to link a QnAMaker cognitive account to a QnA runtime. | 
@@ -59,13 +59,19 @@ tfstate_store = {
 | **storage** | [block](#storage-block-structure) |  -  |  A `storage` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `network_acls` block structure
+### `virtual_network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'. |
-| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. |
-| `virtual_network_rules` | [block](#virtual_network_rules-block-structure) | No | - | A 'virtual_network_rules' block. |
+| `subnet_id` | string | Yes | - | The ID of the subnet which should be able to access this Cognitive Account. |
+| `ignore_missing_vnet_service_endpoint` | bool | No | False | Whether ignore missing vnet service endpoint or not. Default to 'false'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
 
 ### `customer_managed_key` block structure
 
@@ -81,19 +87,13 @@ tfstate_store = {
 | `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
 | `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
 
-### `virtual_network_rules` block structure
+### `network_acls` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The ID of the subnet which should be able to access this Cognitive Account. |
-| `ignore_missing_vnet_service_endpoint` | bool | No | False | Whether ignore missing vnet service endpoint or not. Default to 'false'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account. |
+| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'. |
+| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account. |
+| `virtual_network_rules` | [block](#virtual_network_rules-block-structure) | No | - | A 'virtual_network_rules' block. |
 
 
 

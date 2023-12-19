@@ -52,15 +52,24 @@ tfstate_store = {
 | **compression_codec** | string |  `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, `lz4`  |  The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive. | 
 | **compression_level** | string |  `Optimal`, `Fastest`  |  Specifies the compression level. Possible values are `Optimal` and `Fastest`, | 
 
-### `http_server_location` block structure
+### `azure_blob_fs_location` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
-| `filename` | string | Yes | - | The filename of the file on the web server. |
+| `file_system` | string | No | - | The container on the Azure Data Lake Storage Account hosting the file. |
+| `dynamic_file_system_enabled` | bool | No | False | Is the 'file_system' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `path` | string | No | - | The folder path to the file on the Azure Data Lake Storage Account. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `filename` | string | No | - | The filename of the file on the Azure Data Lake Storage Account. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `path` | string | No | - | The folder path to the file on the web server. |
+
+### `schema_column` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the column. |
+| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
+| `description` | string | No | - | The description of the column. |
 
 ### `azure_blob_storage_location` block structure
 
@@ -73,24 +82,15 @@ tfstate_store = {
 | `filename` | string | No | - | The filename of the file on the Azure Blob Storage Account. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
-### `schema_column` block structure
+### `http_server_location` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the column. |
-| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
-| `description` | string | No | - | The description of the column. |
-
-### `azure_blob_fs_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `file_system` | string | No | - | The container on the Azure Data Lake Storage Account hosting the file. |
-| `dynamic_file_system_enabled` | bool | No | False | Is the 'file_system' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `path` | string | No | - | The folder path to the file on the Azure Data Lake Storage Account. |
+| `relative_url` | string | Yes | - | The base URL to the web server hosting the file. |
+| `filename` | string | Yes | - | The filename of the file on the web server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `filename` | string | No | - | The filename of the file on the Azure Data Lake Storage Account. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `path` | string | No | - | The folder path to the file on the web server. |
 
 
 

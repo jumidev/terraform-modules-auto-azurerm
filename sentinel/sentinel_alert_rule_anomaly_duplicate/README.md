@@ -68,15 +68,6 @@ tfstate_store = {
 | `min` | string | No | - | The min value of the threshold observation. |
 | `value` | string | Yes | - | The value of the threshold observation. |
 
-### `single_select_observation` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the single select observation. |
-| `description` | string | No | - | The description of the single select observation. |
-| `supported_values` | list | No | - | A list of supported values of the single select observation. |
-| `value` | string | Yes | - | The value of the multi select observation. |
-
 ### `prioritized_exclude_observation` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,6 +76,15 @@ tfstate_store = {
 | `description` | string | No | - | The description of the prioritized exclude observation. |
 | `prioritize` | string | No | - | The prioritized value per 'description'. |
 | `exclude` | string | No | - | The excluded value per 'description'. |
+
+### `single_select_observation` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the single select observation. |
+| `description` | string | No | - | The description of the single select observation. |
+| `supported_values` | list | No | - | A list of supported values of the single select observation. |
+| `value` | string | Yes | - | The value of the multi select observation. |
 
 
 

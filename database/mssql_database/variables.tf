@@ -54,6 +54,11 @@ variable "elastic_pool_id" {
   type        = string
   default     = null
 }
+variable "enclave_type" {
+  description = "Specifies the type of enclave to be used by the database. Possible value 'VBS'."
+  type        = string
+  default     = null
+}
 variable "geo_backup_enabled" {
   description = "A boolean that specifies if the Geo Backup Policy is enabled. Defaults to 'true'."
   type        = bool

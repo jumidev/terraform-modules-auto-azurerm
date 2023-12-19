@@ -62,6 +62,7 @@ component_inputs = {
 | **internet_query_enabled** | bool |  `True`  |  -  |  Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`. | 
 | **reservation_capacity_in_gb_per_day** | string |  -  |  `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`  |  The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`. | 
 | **data_collection_rule_id** | string |  -  |  -  |  The ID of the Data Collection Rule to use for this workspace. | 
+| **immediate_data_purge_on_30_days_enabled** | bool |  -  |  -  |  Whether to remove the data in the Log Analytics Workspace immediately after 30 days. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `identity` block structure

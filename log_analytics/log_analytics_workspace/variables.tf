@@ -79,6 +79,11 @@ variable "data_collection_rule_id" {
   type        = string
   default     = null
 }
+variable "immediate_data_purge_on_30_days_enabled" {
+  description = "Whether to remove the data in the Log Analytics Workspace immediately after 30 days."
+  type        = bool
+  default     = null
+}
 variable "tags" {
   description = "A mapping of tags to assign to the resource."
   type        = map(any)

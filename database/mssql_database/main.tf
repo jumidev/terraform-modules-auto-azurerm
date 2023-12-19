@@ -34,6 +34,7 @@ resource "azurerm_mssql_database" "this" {
   creation_source_database_id    = var.creation_source_database_id
   collation                      = var.collation
   elastic_pool_id                = var.elastic_pool_id
+  enclave_type                   = var.enclave_type
   geo_backup_enabled             = var.geo_backup_enabled # Default: True
   maintenance_configuration_name = data.azurerm_maintenance_configuration.this.name
   ledger_enabled                 = var.ledger_enabled # Default: False

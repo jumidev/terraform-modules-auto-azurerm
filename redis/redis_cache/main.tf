@@ -58,6 +58,7 @@ resource "azurerm_redis_cache" "this" {
       rdb_backup_frequency                    = lookup(redis_configuration.value, "rdb_backup_frequency", null)
       rdb_backup_max_snapshot_count           = lookup(redis_configuration.value, "rdb_backup_max_snapshot_count", null)
       rdb_storage_connection_string           = lookup(redis_configuration.value, "rdb_storage_connection_string", null)
+      storage_account_subscription_id         = lookup(redis_configuration.value, "storage_account_subscription_id", null)
       notify_keyspace_events                  = lookup(redis_configuration.value, "notify_keyspace_events", null)
     }
   }

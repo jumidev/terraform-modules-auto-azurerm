@@ -14,8 +14,11 @@ inputs = {
    name = "Specifies the name which should be used for this Network Manager Connectivity Co..."   
    # network_manager_id → set in component_inputs
    applies_to_group = {
-      group_connectivity = "..."      
-      network_group_id = "..."      
+      this_applies_to_group = {
+         group_connectivity = "Possible values: None | DirectlyConnected"         
+         network_group_id = "..."         
+      }
+      
    }
    
    connectivity_topology = "Specifies the connectivity topology type"   
@@ -39,7 +42,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **name** | string |  -  |  Specifies the name which should be used for this Network Manager Connectivity Configuration. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
 | **network_manager_id** | string |  -  |  Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created. | 
-| **applies_to_group** | [block](#applies_to_group-block-structure) |  -  |  An `applies_to_group` block. | 
+| **applies_to_group** | [block](#applies_to_group-block-structure) |  -  |  One or more `applies_to_group` blocks. | 
 | **connectivity_topology** | string |  `HubAndSpoke`, `Mesh`  |  Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`. | 
 
 ## Optional Variables
@@ -51,13 +54,6 @@ tfstate_store = {
 | **global_mesh_enabled** | string |  `true`, `false`  |  Indicates whether to global mesh is supported. Possible values are `true` and `false`. | 
 | **hub** | [block](#hub-block-structure) |  -  |  A `hub` block. | 
 
-### `hub` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `resource_id` | string | Yes | - | Specifies the resource ID used as hub in Hub And Spoke topology. |
-| `resource_type` | string | Yes | - | Specifies the resource Type used as hub in Hub And Spoke topology. |
-
 ### `applies_to_group` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,6 +62,13 @@ tfstate_store = {
 | `network_group_id` | string | Yes | - | Specifies the resource ID of Network Group which the configuration applies to. |
 | `global_mesh_enabled` | string | No | - | Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'. |
 | `use_hub_gateway` | string | No | - | Indicates whether the hub gateway is used. Possible values are 'true' and 'false'. |
+
+### `hub` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `resource_id` | string | Yes | - | Specifies the resource ID used as hub in Hub And Spoke topology. |
+| `resource_type` | string | Yes | - | Specifies the resource Type used as hub in Hub And Spoke topology. |
 
 
 

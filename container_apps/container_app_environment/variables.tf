@@ -43,6 +43,19 @@ variable "log_analytics_workspace_id" {
   type        = string
   default     = null
 }
+variable "workload_profile" {
+  description = "The profile of the workload to scope the container app execution. A 'workload_profile' block."
+  type        = map(any)
+  default     = null
+}
+#
+# workload_profile block structure:
+#   name (string)                   : (REQUIRED) The name of the workload profile.
+#   workload_profile_type (string)  : (REQUIRED) Workload profile type for the workloads to run on. Possible values include 'D4', 'D8', 'D16', 'D32', 'E4', 'E8', 'E16' and 'E32'.
+#   maximum_count (string)          : The maximum number of instances of workload profile that can be deployed in the Container App Environment.
+#   minimum_count (string)          : The minimum number of instances of workload profile that can be deployed in the Container App Environment.
+
+
 variable "tags" {
   description = "A mapping of tags to assign to the resource."
   type        = map(any)

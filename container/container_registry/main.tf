@@ -43,15 +43,6 @@ resource "azurerm_container_registry" "this" {
         }
       }
 
-
-      dynamic "virtual_network" { # network_rule_set.value.virtual_network
-        for_each = network_rule_set.value.virtual_network != null ? network_rule_set.value.virtual_network : []
-        content {
-          action    = lookup(virtual_network.value, "action")    # (Required) 
-          subnet_id = lookup(virtual_network.value, "subnet_id") # (Required) 
-        }
-      }
-
     }
   }
 

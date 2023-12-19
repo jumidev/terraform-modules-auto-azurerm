@@ -44,14 +44,25 @@ tfstate_store = {
 | **boot_recovery_group** | [block](#boot_recovery_group-block-structure) |  One or more `boot_recovery_group` blocks. | 
 | **azure_to_azure_settings** | [block](#azure_to_azure_settings-block-structure) |  An `azure_to_azure_settings` block. | 
 
-### `azure_to_azure_settings` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `primary_zone` | string | No | - | The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
-| `recovery_zone` | string | No | - | The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
-| `primary_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
-| `recovery_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `name` | string | Yes | - | Name of the Action. |
+| `type` | string | Yes | - | Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'. |
+| `fail_over_directions` | string | Yes | - | Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary' |
+| `fail_over_types` | string | Yes | - | Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover' |
+| `fabric_location` | string | No | - | The fabric location of runbook or script. Possible values are 'Primary' and 'Recovery'. It must not be specified when 'type' is 'ManualActionDetails'. |
+| `runbook_id` | string | No | - | Id of runbook. |
+| `manual_action_instruction` | string | No | - | Instructions of manual action. |
+| `script_path` | string | No | - | Path of action script. |
+
+### `failover_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
 ### `shutdown_recovery_group` block structure
 
@@ -68,25 +79,14 @@ tfstate_store = {
 | `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
 | `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
-### `failover_recovery_group` block structure
+### `azure_to_azure_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the Action. |
-| `type` | string | Yes | - | Type of the action detail. Possible values are 'AutomationRunbookActionDetails', 'ManualActionDetails' and 'ScriptActionDetails'. |
-| `fail_over_directions` | string | Yes | - | Directions of fail over. Possible values are 'PrimaryToRecovery' and 'RecoveryToPrimary' |
-| `fail_over_types` | string | Yes | - | Types of fail over. Possible values are 'TestFailover', 'PlannedFailover' and 'UnplannedFailover' |
-| `fabric_location` | string | No | - | The fabric location of runbook or script. Possible values are 'Primary' and 'Recovery'. It must not be specified when 'type' is 'ManualActionDetails'. |
-| `runbook_id` | string | No | - | Id of runbook. |
-| `manual_action_instruction` | string | No | - | Instructions of manual action. |
-| `script_path` | string | No | - | Path of action script. |
+| `primary_zone` | string | No | - | The Availability Zone in which the VM is located. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `recovery_zone` | string | No | - | The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `primary_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+| `recovery_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
 
 
 

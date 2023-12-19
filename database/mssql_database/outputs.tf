@@ -30,6 +30,10 @@ output "elastic_pool_id" {
   value = azurerm_mssql_database.this.elastic_pool_id
 }
 
+output "enclave_type" {
+  value = azurerm_mssql_database.this.enclave_type
+}
+
 output "geo_backup_enabled" {
   value = azurerm_mssql_database.this.geo_backup_enabled
 }

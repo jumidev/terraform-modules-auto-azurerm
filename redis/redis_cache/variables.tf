@@ -96,6 +96,7 @@ variable "redis_configuration" {
 #   rdb_backup_frequency (string)                 : The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'.
 #   rdb_backup_max_snapshot_count (number)        : The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
 #   rdb_storage_connection_string (string)        : The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'.
+#   storage_account_subscription_id (string)      : The ID of the Subscription containing the Storage Account.
 #   notify_keyspace_events (string)               : Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
 
 

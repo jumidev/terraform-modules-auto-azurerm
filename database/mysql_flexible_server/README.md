@@ -64,6 +64,13 @@ tfstate_store = {
 | `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
 | `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
+
 ### `high_availability` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,13 +95,6 @@ tfstate_store = {
 | `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
 | `iops` | string | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
 | `size_gb` | string | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
 
 
 

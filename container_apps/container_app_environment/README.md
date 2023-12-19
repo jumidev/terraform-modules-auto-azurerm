@@ -41,7 +41,17 @@ tfstate_store = {
 | **internal_load_balancer_enabled** | bool |  `False`  |  Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **zone_redundancy_enabled** | bool |  `False`  |  Should the Container App Environment be created with Zone Redundancy enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **log_analytics_workspace_id** | string |  -  |  The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. Changing this forces a new resource to be created. | 
+| **workload_profile** | [block](#workload_profile-block-structure) |  -  |  The profile of the workload to scope the container app execution. A `workload_profile` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+
+### `workload_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the workload profile. |
+| `workload_profile_type` | string | Yes | - | Workload profile type for the workloads to run on. Possible values include 'D4', 'D8', 'D16', 'D32', 'E4', 'E8', 'E16' and 'E32'. |
+| `maximum_count` | string | No | - | The maximum number of instances of workload profile that can be deployed in the Container App Environment. |
+| `minimum_count` | string | No | - | The minimum number of instances of workload profile that can be deployed in the Container App Environment. |
 
 
 

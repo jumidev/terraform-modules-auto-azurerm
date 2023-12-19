@@ -50,6 +50,11 @@ variable "dns_servers" {
   type        = list(any)
   default     = []
 }
+variable "dns_proxy_enabled" {
+  description = "Whether DNS proxy is enabled. It will forward DNS requests to the DNS servers when set to 'true'. It will be set to 'true' if 'dns_servers' provided with a not empty list."
+  type        = bool
+  default     = null
+}
 variable "private_ip_ranges" {
   description = "A list of SNAT private CIDR IP ranges, or the special string 'IANAPrivateRanges', which indicates Azure Firewall does not SNAT when the destination IP address is a private range per IANA RFC 1918."
   type        = list(any)

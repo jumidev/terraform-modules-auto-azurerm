@@ -34,6 +34,10 @@ output "max_size_bytes" {
   value = azurerm_mssql_elasticpool.this.max_size_bytes
 }
 
+output "enclave_type" {
+  value = azurerm_mssql_elasticpool.this.enclave_type
+}
+
 output "tags" {
   value = azurerm_mssql_elasticpool.this.tags
 }

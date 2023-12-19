@@ -14,6 +14,7 @@ resource "azurerm_container_app" "this" {
   revision_mode                = var.revision_mode
 
   template {
+    init_container         = lookup(template.value, "init_container", null)
     container              = lookup(template.value, "container") # (Required) 
     max_replicas           = lookup(template.value, "max_replicas", null)
     min_replicas           = lookup(template.value, "min_replicas", null)
@@ -84,6 +85,7 @@ resource "azurerm_container_app" "this" {
     }
   }
 
-  secret = var.secret
-  tags   = var.tags
+  secret                = var.secret
+  workload_profile_name = var.workload_profile_name
+  tags                  = var.tags
 }

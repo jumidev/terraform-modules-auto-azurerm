@@ -23,3 +23,8 @@ variable "synapse_spark_pool_id" {
   type        = string
   default     = null
 }
+variable "principal_type" {
+  description = "The Type of the Principal. One of 'User', 'Group' or 'ServicePrincipal'. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}

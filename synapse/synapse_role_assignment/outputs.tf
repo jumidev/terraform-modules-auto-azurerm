@@ -14,6 +14,10 @@ output "principal_id" {
   value = azurerm_synapse_role_assignment.this.principal_id
 }
 
+output "principal_type" {
+  value = azurerm_synapse_role_assignment.this.principal_type
+}
+
 output "id" {
   description = "The Synapse Role Assignment ID."
   value       = azurerm_synapse_role_assignment.this.id

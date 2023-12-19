@@ -54,6 +54,10 @@ output "data_collection_rule_id" {
   value = azurerm_log_analytics_workspace.this.data_collection_rule_id
 }
 
+output "immediate_data_purge_on_30_days_enabled" {
+  value = azurerm_log_analytics_workspace.this.immediate_data_purge_on_30_days_enabled
+}
+
 output "tags" {
   value = azurerm_log_analytics_workspace.this.tags
 }

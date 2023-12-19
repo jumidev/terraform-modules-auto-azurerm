@@ -51,6 +51,50 @@ tfstate_store = {
 | **webhook_receiver** | [block](#webhook_receiver-block-structure) |  -  |  One or more `webhook_receiver` blocks. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `webhook_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
+| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+| `aad_auth` | [block](#aad_auth-block-structure) | No | - | The 'aad_auth' block. |
+
+### `logic_app_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the logic app receiver. |
+| `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
+| `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
+### `voice_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the voice receiver. |
+| `country_code` | string | Yes | - | The country code of the voice receiver. |
+| `phone_number` | number | Yes | - | The phone number of the voice receiver. |
+
+### `itsm_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the ITSM receiver. |
+| `workspace_id` | string | Yes | - | The Azure Log Analytics workspace ID where this connection is defined. Format is '<subscription id>|<workspace id>', for example '00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000'. |
+| `connection_id` | string | Yes | - | The unique connection identifier of the ITSM connection. |
+| `ticket_configuration` | string | Yes | - | A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well. |
+| `region` | string | Yes | - | The region of the workspace. |
+
+### `arm_role_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the ARM role receiver. |
+| `role_id` | string | Yes | - | The arm role id. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
 ### `email_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +132,22 @@ tfstate_store = {
 | `tenant_id` | string | No | - | The Tenant ID for the subscription containing this Event Hub. |
 | `use_common_alert_schema` | bool | No | - | Indicates whether to use common alert schema. |
 
+### `sms_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
+| `country_code` | string | Yes | - | The country code of the SMS receiver. |
+| `phone_number` | number | Yes | - | The phone number of the SMS receiver. |
+
+### `aad_auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `object_id` | string | Yes | - | The webhook application object Id for AAD auth. |
+| `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
+| `tenant_id` | string | No | - | The tenant id for AAD auth. |
+
 ### `automation_runbook_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -98,66 +158,6 @@ tfstate_store = {
 | `webhook_resource_id` | string | Yes | - | The resource id for webhook linked to this runbook. |
 | `is_global_runbook` | string | Yes | - | Indicates whether this instance is global runbook. |
 | `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-
-### `sms_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
-| `country_code` | string | Yes | - | The country code of the SMS receiver. |
-| `phone_number` | number | Yes | - | The phone number of the SMS receiver. |
-
-### `itsm_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the ITSM receiver. |
-| `workspace_id` | string | Yes | - | The Azure Log Analytics workspace ID where this connection is defined. Format is '<subscription id>|<workspace id>', for example '00000000-0000-0000-0000-000000000000|00000000-0000-0000-0000-000000000000'. |
-| `connection_id` | string | Yes | - | The unique connection identifier of the ITSM connection. |
-| `ticket_configuration` | string | Yes | - | A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well. |
-| `region` | string | Yes | - | The region of the workspace. |
-
-### `webhook_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
-| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-| `aad_auth` | [block](#aad_auth-block-structure) | No | - | The 'aad_auth' block. |
-
-### `voice_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the voice receiver. |
-| `country_code` | string | Yes | - | The country code of the voice receiver. |
-| `phone_number` | number | Yes | - | The phone number of the voice receiver. |
-
-### `aad_auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `object_id` | string | Yes | - | The webhook application object Id for AAD auth. |
-| `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
-| `tenant_id` | string | No | - | The tenant id for AAD auth. |
-
-### `arm_role_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the ARM role receiver. |
-| `role_id` | string | Yes | - | The arm role id. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-
-### `logic_app_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the logic app receiver. |
-| `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
-| `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
 

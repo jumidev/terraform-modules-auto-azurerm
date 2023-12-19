@@ -13,12 +13,16 @@ source = {
 inputs = {
    name = "The name which should be used for this Managed Instance Failover Group..."   
    location = "${location}"   
-   managed_instance_id = "The ID of the Azure SQL Managed Instance which will be replicated using a Manage..."   
+   # managed_instance_id → set in component_inputs
    partner_managed_instance_id = "The ID of the Azure SQL Managed Instance which will be replicated to..."   
    read_write_endpoint_failover_policy = {
       mode = "..."      
    }
    
+}
+
+component_inputs = {
+   managed_instance_id = "path/to/mssql_managed_instance_component:id"   
 }
 
 tfstate_store = {

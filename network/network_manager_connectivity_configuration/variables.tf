@@ -11,8 +11,8 @@ variable "network_manager_id" {
 
 }
 variable "applies_to_group" {
-  description = "(REQUIRED) An 'applies_to_group' block."
-  type        = map(any)
+  description = "(REQUIRED) One or more 'applies_to_group' blocks."
+  type        = map(map(any))
 }
 #
 # applies_to_group block structure:

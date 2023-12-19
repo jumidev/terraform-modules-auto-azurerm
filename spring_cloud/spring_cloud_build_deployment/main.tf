@@ -12,9 +12,10 @@ resource "azurerm_spring_cloud_build_deployment" "this" {
   ########################################
   # optional vars
   ########################################
-  addon_json            = var.addon_json
-  environment_variables = var.environment_variables
-  instance_count        = var.instance_count # Default: 1
+  addon_json                             = var.addon_json
+  application_performance_monitoring_ids = var.application_performance_monitoring_ids
+  environment_variables                  = var.environment_variables
+  instance_count                         = var.instance_count # Default: 1
 
   dynamic "quota" { # var.quota
     for_each = var.quota != null ? var.quota : []

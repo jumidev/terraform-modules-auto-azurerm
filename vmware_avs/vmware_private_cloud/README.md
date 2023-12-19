@@ -39,7 +39,7 @@ tfstate_store = {
 | **location** | string |  -  |  The Azure Region where the VMware Private Cloud should exist. Changing this forces a new VMware Private Cloud to be created. | 
 | **management_cluster** | [block](#management_cluster-block-structure) |  -  |  A `management_cluster` block. ~> **NOTE :** `internet_connection_enabled` and `management_cluster.0.size` cannot be updated at the same time. | 
 | **network_subnet_cidr** | string |  -  |  The subnet which should be unique across virtual network in your subscription as well as on-premise. Changing this forces a new VMware Private Cloud to be created. | 
-| **sku_name** | string |  `av20`, `av36`, `av36t`, `av36p`, `av52`  |  The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p` and `av52`. Changing this forces a new VMware Private Cloud to be created. | 
+| **sku_name** | string |  `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, `av64`  |  The Name of the SKU used for this Private Cloud. Possible values are `av20`, `av36`, `av36t`, `av36p`, `av36pt`, `av52`, `av52t`, and `av64`. Changing this forces a new VMware Private Cloud to be created. | 
 
 ## Optional Variables
 

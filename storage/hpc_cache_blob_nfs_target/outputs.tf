@@ -22,6 +22,14 @@ output "usage_model" {
   value = azurerm_hpc_cache_blob_nfs_target.this.usage_model
 }
 
+output "verification_timer_in_seconds" {
+  value = azurerm_hpc_cache_blob_nfs_target.this.verification_timer_in_seconds
+}
+
+output "write_back_timer_in_seconds" {
+  value = azurerm_hpc_cache_blob_nfs_target.this.write_back_timer_in_seconds
+}
+
 output "access_policy_name" {
   value = azurerm_hpc_cache_blob_nfs_target.this.access_policy_name
 }

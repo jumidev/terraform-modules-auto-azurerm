@@ -55,6 +55,12 @@ tfstate_store = {
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Container Registry Task. | 
 | **timeout_in_seconds** | number |  `3600`  |  The timeout of this Container Registry Task in seconds. The valid range lies from 300 to 28800. Defaults to `3600`. | 
 
+### `agent_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cpu` | number | Yes | - | The number of cores required for the Container Registry Task. |
+
 ### `encoded_step` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,6 +80,47 @@ tfstate_store = {
 | `schedule` | string | Yes | - | The CRON expression for the task schedule. |
 | `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task. |
+
+### `base_image_trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this trigger. |
+| `type` | string | Yes | - | The type of the trigger. Possible values are 'All' and 'Runtime'. |
+| `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
+| `update_trigger_endpoint` | string | No | - | The endpoint URL for receiving the trigger. |
+| `update_trigger_payload_type` | string | No | - | Type of payload body for the trigger. Possible values are 'Default' and 'Token'. |
+
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login_mode` | string | Yes | - | The login mode for the source registry. Possible values are 'None' and 'Default'. |
+
+### `file_step` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `task_file_path` | string | Yes | - | The task template file path relative to the source context. |
+| `context_access_token` | string | No | - | The token (Git PAT or SAS token of storage account blob) associated with the context for this step. |
+| `context_path` | string | No | - | The URL (absolute or relative) of the source context for this step. |
+| `secret_values` | string | No | - | Specifies a map of secret values that can be passed when running a task. |
+| `value_file_path` | string | No | - | The parameters file path relative to the source context. |
+| `values` | string | No | - | Specifies a map of values that can be passed when running a task. |
+
+### `platform` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `architecture` | string | No | - | The OS architecture. Possible values are 'amd64', 'x86', '386', 'arm' and 'arm64'. |
+| `variant` | string | No | - | The variant of the CPU. Possible values are 'v6', 'v7', 'v8'. |
+
 ### `source_trigger` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,39 +132,6 @@ tfstate_store = {
 | `authentication` | [block](#authentication-block-structure) | No | - | A 'authentication' block. |
 | `branch` | string | No | - | The branch name of the source code. |
 | `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
-
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login_mode` | string | Yes | - | The login mode for the source registry. Possible values are 'None' and 'Default'. |
-
-### `agent_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cpu` | number | Yes | - | The number of cores required for the Container Registry Task. |
-
-### `platform` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `architecture` | string | No | - | The OS architecture. Possible values are 'amd64', 'x86', '386', 'arm' and 'arm64'. |
-| `variant` | string | No | - | The variant of the CPU. Possible values are 'v6', 'v7', 'v8'. |
-
-### `docker_step` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `context_access_token` | string | Yes | - | The token (Git PAT or SAS token of storage account blob) associated with the context for this step. |
-| `context_path` | string | Yes | - | The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via '#branch:folder'. |
-| `dockerfile_path` | string | Yes | - | The Dockerfile path relative to the source context. |
-| `arguments` | string | No | - | Specifies a map of arguments to be used when executing this step. |
-| `image_names` | string | No | - | Specifies a list of fully qualified image names including the repository and tag. |
-| `cache_enabled` | bool | No | True | Should the image cache be enabled? Defaults to 'true'. |
-| `push_enabled` | bool | No | True | Should the image built be pushed to the registry or not? Defaults to 'true'. |
-| `secret_arguments` | string | No | - | Specifies a map of *secret* arguments to be used when executing this step. |
-| `target` | string | No | - | The name of the target build stage for the docker build. |
 
 ### `registry_credential` block structure
 
@@ -136,33 +150,19 @@ tfstate_store = {
 | `refresh_token` | string | No | - | The refresh token used to refresh the access token. |
 | `scope` | string | No | - | The scope of the access token. |
 
-### `file_step` block structure
+### `docker_step` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `task_file_path` | string | Yes | - | The task template file path relative to the source context. |
-| `context_access_token` | string | No | - | The token (Git PAT or SAS token of storage account blob) associated with the context for this step. |
-| `context_path` | string | No | - | The URL (absolute or relative) of the source context for this step. |
-| `secret_values` | string | No | - | Specifies a map of secret values that can be passed when running a task. |
-| `value_file_path` | string | No | - | The parameters file path relative to the source context. |
-| `values` | string | No | - | Specifies a map of values that can be passed when running a task. |
-
-### `base_image_trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this trigger. |
-| `type` | string | Yes | - | The type of the trigger. Possible values are 'All' and 'Runtime'. |
-| `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
-| `update_trigger_endpoint` | string | No | - | The endpoint URL for receiving the trigger. |
-| `update_trigger_payload_type` | string | No | - | Type of payload body for the trigger. Possible values are 'Default' and 'Token'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task. |
+| `context_access_token` | string | Yes | - | The token (Git PAT or SAS token of storage account blob) associated with the context for this step. |
+| `context_path` | string | Yes | - | The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via '#branch:folder'. |
+| `dockerfile_path` | string | Yes | - | The Dockerfile path relative to the source context. |
+| `arguments` | string | No | - | Specifies a map of arguments to be used when executing this step. |
+| `image_names` | string | No | - | Specifies a list of fully qualified image names including the repository and tag. |
+| `cache_enabled` | bool | No | True | Should the image cache be enabled? Defaults to 'true'. |
+| `push_enabled` | bool | No | True | Should the image built be pushed to the registry or not? Defaults to 'true'. |
+| `secret_arguments` | string | No | - | Specifies a map of *secret* arguments to be used when executing this step. |
+| `target` | string | No | - | The name of the target build stage for the docker build. |
 
 
 

@@ -1,6 +1,6 @@
 # azurerm_kusto_database
 
-Manages a Kusto (also known as Azure Data Explorer) Database
+Manages a Kusto (also known as Azure Data Explorer) Database!>**IMPORTANT:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the [terraform documentation](https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle#prevent-resource-deletion).
 
 ## Example `component.hclt`
 

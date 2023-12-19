@@ -88,17 +88,18 @@ component_inputs = {
 | **conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 | **unique_key** | [block](#unique_key-block-structure) |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
 
-### `composite_index` block structure
+### `index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
+| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
 
-### `unique_key` block structure
+### `spatial_index` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
 
 ### `conflict_resolution_policy` block structure
 
@@ -107,13 +108,6 @@ component_inputs = {
 | `mode` | string | Yes | - | Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'. |
 | `conflict_resolution_path` | string | No | - | The conflict resolution path in the case of LastWriterWins mode. |
 | `conflict_resolution_procedure` | string | No | - | The procedure to resolve conflicts in the case of custom mode. |
-
-### `index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
-| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
 
 ### `index_policy` block structure
 
@@ -126,17 +120,23 @@ component_inputs = {
 | `composite_index` | [block](#composite_index-block-structure) | No | - | One or more 'composite_index' blocks. |
 | `spatial_index` | [block](#spatial_index-block-structure) | No | - | One or more 'spatial_index' blocks. |
 
+### `composite_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
+
 ### `autoscale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_throughput` | string | No | - | The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
-### `spatial_index` block structure
+### `unique_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
+| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
 
 
 

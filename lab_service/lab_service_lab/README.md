@@ -58,59 +58,6 @@ tfstate_store = {
 | **roster** | [block](#roster-block-structure) |  A `roster` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Lab. | 
 
-### `security` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
-
-### `non_admin_user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. |
-| `password` | string | Yes | - | The password for the user. |
-
-### `connection_setting` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
-| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
-
-### `image_reference` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `offer` | string | No | - | The image offer if applicable. Changing this forces a new resource to be created. |
-| `publisher` | string | No | - | The image publisher. Changing this forces a new resource to be created. |
-| `sku` | string | No | - | The image SKU. Changing this forces a new resource to be created. |
-| `version` | string | No | - | The image version specified on creation. Changing this forces a new resource to be created. |
-
-### `roster` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `active_directory_group_id` | string | No | - | The AAD group ID which this Lab Service Lab roster is populated from. |
-| `lms_instance` | string | No | - | The base URI identifying the lms instance. |
-| `lti_client_id` | string | No | - | The unique id of the Azure Lab Service tool in the lms. |
-| `lti_context_id` | string | No | - | The unique context identifier for the Lab Service Lab in the lms. |
-| `lti_roster_endpoint` | string | No | - | The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab. |
-
-### `admin_user` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created. |
-| `password` | string | Yes | - | The password for the Lab user. Changing this forces a new resource to be created. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the SKU. Changing this forces a new resource to be created. |
-| `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
-
 ### `auto_shutdown` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -138,6 +85,59 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | No | - | The resource ID of the Subnet for the network profile of the Lab Service Lab. |
+
+### `image_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `offer` | string | No | - | The image offer if applicable. Changing this forces a new resource to be created. |
+| `publisher` | string | No | - | The image publisher. Changing this forces a new resource to be created. |
+| `sku` | string | No | - | The image SKU. Changing this forces a new resource to be created. |
+| `version` | string | No | - | The image version specified on creation. Changing this forces a new resource to be created. |
+
+### `connection_setting` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_rdp_access` | string | No | - | The enabled access level for Client Access over RDP. Possible value is 'Public'. |
+| `client_ssh_access` | string | No | - | The enabled access level for Client Access over SSH. Possible value is 'Public'. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the SKU. Changing this forces a new resource to be created. |
+| `capacity` | string | Yes | - | The capacity for the SKU. Possible values are between '0' and '400'. |
+
+### `roster` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `active_directory_group_id` | string | No | - | The AAD group ID which this Lab Service Lab roster is populated from. |
+| `lms_instance` | string | No | - | The base URI identifying the lms instance. |
+| `lti_client_id` | string | No | - | The unique id of the Azure Lab Service tool in the lms. |
+| `lti_context_id` | string | No | - | The unique context identifier for the Lab Service Lab in the lms. |
+| `lti_roster_endpoint` | string | No | - | The URI of the names and roles service endpoint on the lms for the class attached to this Lab Service Lab. |
+
+### `security` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `open_access_enabled` | bool | Yes | - | Is open access enabled to allow any user or only specified users to register to a Lab Service Lab? |
+
+### `admin_user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. Changing this forces a new resource to be created. |
+| `password` | string | Yes | - | The password for the Lab user. Changing this forces a new resource to be created. |
+
+### `non_admin_user` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `username` | string | Yes | - | The username to use when signing in to Lab Service Lab VMs. |
+| `password` | string | Yes | - | The password for the user. |
 
 
 

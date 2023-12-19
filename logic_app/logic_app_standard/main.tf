@@ -112,6 +112,7 @@ resource "azurerm_logic_app_standard" "this" {
       linux_fx_version                 = lookup(site_config.value, "linux_fx_version", null)
       min_tls_version                  = lookup(site_config.value, "min_tls_version", "1.2")
       pre_warmed_instance_count        = lookup(site_config.value, "pre_warmed_instance_count", null)
+      public_network_access_enabled    = lookup(site_config.value, "public_network_access_enabled", true)
       runtime_scale_monitoring_enabled = lookup(site_config.value, "runtime_scale_monitoring_enabled", false)
       use_32_bit_worker_process        = lookup(site_config.value, "use_32_bit_worker_process", true)
       vnet_route_all_enabled           = lookup(site_config.value, "vnet_route_all_enabled", null)

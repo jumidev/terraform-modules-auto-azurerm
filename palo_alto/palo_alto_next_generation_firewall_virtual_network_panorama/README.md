@@ -52,6 +52,29 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall Virtual Network Panorama. | 
 
+### `dns_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
+| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+
+### `frontend_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | The port on which to receive traffic. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
+
+### `destination_nat` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this Destination NAT. |
+| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
+
 ### `backend_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,29 +97,6 @@ tfstate_store = {
 | `virtual_network_id` | string | Yes | - | The ID of the Virtual Network. |
 | `trusted_subnet_id` | string | No | - | The ID of the Trust subnet. |
 | `untrusted_subnet_id` | string | No | - | The ID of the UnTrust subnet. |
-
-### `dns_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | No | - | Specifies a list of DNS servers to use. Conflicts with 'dns_settings.0.use_azure_dns'. |
-| `use_azure_dns` | bool | No | False | Should the Firewall use Azure Supplied DNS servers. Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
-
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this Destination NAT. |
-| `protocol` | string | Yes | - | The Protocol for this Destination NAT configuration. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
-
-### `frontend_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which to receive traffic. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address on which to receive traffic. |
 
 
 

@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   managed_instance_id = "Specifies the name of the MS SQL Managed Instance"   
+   # managed_instance_id → set in component_inputs
+}
+
+component_inputs = {
+   managed_instance_id = "path/to/mssql_managed_instance_component:id"   
 }
 
 tfstate_store = {

@@ -26,6 +26,7 @@ variable "template" {
 }
 #
 # template block structure      :
+#   init_container (string)       : The definition of an init container that is part of the group as documented in the 'init_container' block below.
 #   container (list)              : (REQUIRED) One or more 'container' blocks as detailed below.
 #   max_replicas (number)         : The maximum number of replicas for this container.
 #   min_replicas (number)         : The minimum number of replicas for this container.
@@ -36,31 +37,31 @@ variable "template" {
 #   revision_suffix (string)      : The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 #   volume (block)                : A 'volume' block as detailed below.
 #
-# custom_scale_rule block structure:
-#   name (string)                    : (REQUIRED) The name of the Scaling Rule
-#   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
-#   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
-#   authentication (block)           : Zero or more 'authentication' blocks.
-#
-# volume block structure:
-#   name (string)         : (REQUIRED) The name of the volume.
-#   storage_name (string) : The name of the 'AzureFile' storage.
-#   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
-#
-# authentication block structure:
-#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
-#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
+# azure_queue_scale_rule block structure:
+#   name (string)                         : (REQUIRED) The name of the Scaling Rule
+#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
+#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
+#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 #
 # tcp_scale_rule block structure:
 #   name (string)                 : (REQUIRED) The name of the Scaling Rule
 #   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
 #   authentication (block)        : Zero or more 'authentication' blocks.
 #
-# azure_queue_scale_rule block structure:
-#   name (string)                         : (REQUIRED) The name of the Scaling Rule
-#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
-#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
-#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
+# volume block structure:
+#   name (string)         : (REQUIRED) The name of the volume.
+#   storage_name (string) : The name of the 'AzureFile' storage.
+#   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
+#
+# custom_scale_rule block structure:
+#   name (string)                    : (REQUIRED) The name of the Scaling Rule
+#   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
+#   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
+#   authentication (block)           : Zero or more 'authentication' blocks.
+#
+# authentication block structure:
+#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
+#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
 #
 # http_scale_rule block structure:
 #   name (string)                  : (REQUIRED) The name of the Scaling Rule
@@ -134,6 +135,11 @@ variable "secret" {
   description = "One or more 'secret' block as detailed below."
   type        = list(any)
   default     = []
+}
+variable "workload_profile_name" {
+  description = "The name of the Workload Profile in the Container App Environment to place this Container App."
+  type        = string
+  default     = null
 }
 variable "tags" {
   description = "A mapping of tags to assign to the Container App."
