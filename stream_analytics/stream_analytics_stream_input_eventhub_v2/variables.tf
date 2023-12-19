@@ -70,7 +70,7 @@ variable "eventhub_namespace_name" {
   default     = null
 }
 variable "eventhub_consumer_group_eventhub_name" {
-  description = "Specifies the name of the EventHub..  If not specified, value of var.eventhub_name will be used..  If not specified, value of var.eventhub_name will be used..  If not specified, value of var.eventhub_name will be used."
+  description = "Specifies the name of the EventHub..  If not specified, value of var.eventhub_name will be used."
   type        = string
   default     = null
 }

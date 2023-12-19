@@ -81,15 +81,6 @@ tfstate_store = {
 | **min_count** | string |  -  |  `0`, `1000`, `max_count`  |  The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`. | 
 | **node_count** | string |  -  |  `0`, `1000`, `1`  |  The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools. | 
 
-### `linux_os_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `swap_file_size_mb` | string | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
-| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
-| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-| `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-
 ### `sysctl_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -124,12 +115,6 @@ tfstate_store = {
 | `vm_swappiness` | string | No | - | The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 | `vm_vfs_cache_pressure` | string | No | - | The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 
-### `upgrade_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
-
 ### `kubelet_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -150,6 +135,21 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
+
+### `linux_os_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `swap_file_size_mb` | string | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
+| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
+| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+| `transparent_huge_page_enabled` | string | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+
+### `upgrade_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
 
 ### `windows_profile` block structure
 

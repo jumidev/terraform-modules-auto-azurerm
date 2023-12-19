@@ -65,6 +65,16 @@ tfstate_store = {
 | `start_date` | string | Yes | - | The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new resource to be created. |
 | `end_date` | string | No | - | The end date for the budget. If not set this will be 10 years after the start date. |
 
+### `notification` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
+| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
+| `contact_emails` | string | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
+| `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
+| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
+
 ### `tag` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,16 +90,6 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the column to use for the filter. The allowed values are 'ChargeType', 'Frequency', 'InvoiceId', 'Meter', 'MeterCategory', 'MeterSubCategory', 'PartNumber', 'PricingModel', 'Product', 'ProductOrderId', 'ProductOrderName', 'PublisherType', 'ReservationId', 'ReservationName', 'ResourceGroupName', 'ResourceGuid', 'ResourceId', 'ResourceLocation', 'ResourceType', 'ServiceFamily', 'ServiceName', 'SubscriptionID', 'SubscriptionName', 'UnitOfMeasure'. |
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
 | `values` | string | Yes | - | Specifies a list of values for the column. |
-
-### `notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
-| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
-| `contact_emails` | string | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
-| `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
-| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
 ### `filter` block structure
 

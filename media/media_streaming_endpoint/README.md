@@ -62,14 +62,6 @@ tfstate_store = {
 | `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
 | `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
 
-### `ip_allow` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address to allow. |
-| `name` | string | No | - | The friendly name for the IP address range. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
-
 ### `akamai_signature_header_authentication_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,6 +69,14 @@ tfstate_store = {
 | `base64_key` | string | No | - | Authentication key. |
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
+
+### `ip_allow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | No | - | The IP address to allow. |
+| `name` | string | No | - | The friendly name for the IP address range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 ### `cross_site_access_policy` block structure
 

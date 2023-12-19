@@ -48,31 +48,18 @@ tfstate_store = {
 | **encryption** | [block](#encryption-block-structure) |  -  |  -  |  Specifies if customer managed key encryption should be used to encrypt batch account data. One `encryption` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `encryption` block structure
+### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
-
-### `node_management_access` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Deny | Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
-| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
+| `account_access` | [block](#account_access-block-structure) | No | - | An 'account_access' block. |
+| `node_management_access` | [block](#node_management_access-block-structure) | No | - | A 'node_management_access' block. |
 
 ### `key_vault_reference` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `url` | string | Yes | - | The HTTPS URL of the Azure KeyVault to use. |
-
-### `ip_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
-| `action` | string | No | Allow | Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'. |
 
 ### `identity` block structure
 
@@ -81,6 +68,13 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Batch Account. Possible values are 'SystemAssigned' or 'UserAssigned'. |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Batch Account. |
 
+### `node_management_access` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | No | Deny | Specifies the default action for the node management access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
+| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
+
 ### `account_access` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,12 +82,18 @@ tfstate_store = {
 | `default_action` | string | No | Deny | Specifies the default action for the account access. Possible values are 'Allow' and 'Deny'. Defaults to 'Deny'. |
 | `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
 
-### `network_profile` block structure
+### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `account_access` | [block](#account_access-block-structure) | No | - | An 'account_access' block. |
-| `node_management_access` | [block](#node_management_access-block-structure) | No | - | A 'node_management_access' block. |
+| `key_vault_key_id` | string | Yes | - | The full URL path to the Azure key vault key id that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Both versioned and versionless keys are supported. |
+
+### `ip_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
+| `action` | string | No | Allow | Specifies the action of the ip rule. The only possible value is 'Allow'. Defaults to 'Allow'. |
 
 
 

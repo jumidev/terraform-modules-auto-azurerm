@@ -49,12 +49,15 @@ tfstate_store = {
 | **ip_filter_rule** | [block](#ip_filter_rule-block-structure) |  -  |  An `ip_filter_rule` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `sku` block structure
+### `linked_hub` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the sku. Currently can only be set to 'S1'. |
-| `capacity` | number | Yes | - | The number of provisioned IoT Device Provisioning Service units. |
+| `connection_string` | string | Yes | - | The connection string to connect to the IoT Hub. |
+| `location` | string | Yes | - | The location of the IoT hub. |
+| `apply_allocation_policy` | bool | No | True | Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. |
+| `allocation_weight` | string | No | 1 | The weight applied to the IoT Hub. Defaults to '1'. |
+| `hostname` | string | No | - | (Computed) The IoT Hub hostname. |
 
 ### `ip_filter_rule` block structure
 
@@ -65,15 +68,12 @@ tfstate_store = {
 | `action` | string | Yes | - | The desired action for requests captured by this rule. Possible values are 'Accept', 'Reject' |
 | `target` | string | No | - | Target for requests captured by this rule. Possible values are 'all', 'deviceApi' and 'serviceApi'. |
 
-### `linked_hub` block structure
+### `sku` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `connection_string` | string | Yes | - | The connection string to connect to the IoT Hub. |
-| `location` | string | Yes | - | The location of the IoT hub. |
-| `apply_allocation_policy` | bool | No | True | Determines whether to apply allocation policies to the IoT Hub. Defaults to 'true'. |
-| `allocation_weight` | string | No | 1 | The weight applied to the IoT Hub. Defaults to '1'. |
-| `hostname` | string | No | - | (Computed) The IoT Hub hostname. |
+| `name` | string | Yes | - | The name of the sku. Currently can only be set to 'S1'. |
+| `capacity` | number | Yes | - | The number of provisioned IoT Device Provisioning Service units. |
 
 
 

@@ -52,42 +52,13 @@ tfstate_store = {
 | **wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `key_vault_credential` block structure
+### `assessment` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The credential name. |
-| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
-| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
-| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
-| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
-| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
-
-### `sql_instance` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `adhoc_workloads_optimization_enabled` | bool | No | False | Specifies if the SQL Server is optimized for adhoc workloads. Possible values are 'true' and 'false'. Defaults to 'false'. |
-| `collation` | string | No | SQL_Latin1_General_CP1_CI_AS | Collation of the SQL Server. Defaults to 'SQL_Latin1_General_CP1_CI_AS'. Changing this forces a new resource to be created. |
-| `instant_file_initialization_enabled` | bool | No | False | Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `lock_pages_in_memory_enabled` | bool | No | False | Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
-| `max_dop` | string | No | 0 | Maximum Degree of Parallelism of the SQL Server. Possible values are between '0' and '32767'. Defaults to '0'. |
-| `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
-| `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
-
-### `storage_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_file_path` | string | Yes | - | The SQL Server default path |
-| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+| `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
+| `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
+| `schedule` | [block](#schedule-block-structure) | No | - | An 'schedule' block. |
 
 ### `auto_patching` block structure
 
@@ -117,13 +88,33 @@ tfstate_store = {
 | `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
 | `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
 
-### `assessment` block structure
+### `storage_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Should Assessment be enabled? Defaults to 'true'. |
-| `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
-| `schedule` | [block](#schedule-block-structure) | No | - | An 'schedule' block. |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+
+### `sql_instance` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `adhoc_workloads_optimization_enabled` | bool | No | False | Specifies if the SQL Server is optimized for adhoc workloads. Possible values are 'true' and 'false'. Defaults to 'false'. |
+| `collation` | string | No | SQL_Latin1_General_CP1_CI_AS | Collation of the SQL Server. Defaults to 'SQL_Latin1_General_CP1_CI_AS'. Changing this forces a new resource to be created. |
+| `instant_file_initialization_enabled` | bool | No | False | Specifies if Instant File Initialization is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `lock_pages_in_memory_enabled` | bool | No | False | Specifies if Lock Pages in Memory is enabled for the SQL Server. Possible values are 'true' and 'false'. Defaults to 'false'. Changing this forces a new resource to be created. |
+| `max_dop` | string | No | 0 | Maximum Degree of Parallelism of the SQL Server. Possible values are between '0' and '32767'. Defaults to '0'. |
+| `max_server_memory_mb` | string | No | 2147483647 | Maximum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '128' and '2147483647' Defaults to '2147483647'. |
+| `min_server_memory_mb` | string | No | 0 | Minimum amount memory that SQL Server Memory Manager can allocate to the SQL Server process. Possible values are between '0' and '2147483647' Defaults to '0'. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
+| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
+| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
 
 ### `storage_configuration` block structure
 
@@ -135,6 +126,15 @@ tfstate_store = {
 | `log_settings` | [block](#storage_settings-block-structure) | No | - | A 'storage_settings' block. |
 | `system_db_on_data_disk_enabled` | bool | No | False | Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'. |
 | `temp_db_settings` | [block](#temp_db_settings-block-structure) | No | - | An 'temp_db_settings' block. |
+
+### `key_vault_credential` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The credential name. |
+| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
+| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
+| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
 
 
 

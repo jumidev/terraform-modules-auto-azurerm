@@ -57,18 +57,18 @@ tfstate_store = {
 | **kpi** | [block](#kpi-block-structure) |  One or more `kpi` blocks, to show in Cost Analysis UI. | 
 | **pivot** | [block](#pivot-block-structure) |  One or more `pivot` blocks, containing the configuration of 3 sub-views in the Cost Analysis UI. Non table views should have three pivots. | 
 
+### `kpi` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
+
 ### `sorting` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `direction` | string | Yes | - | Direction of sort. Possible values are 'Ascending' and 'Descending'. |
 | `name` | string | Yes | - | The name of the column to sort. |
-
-### `kpi` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | KPI type. Possible values are 'Budget' and 'Forecast'. |
 
 ### `dataset` block structure
 

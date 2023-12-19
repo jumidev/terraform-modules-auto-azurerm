@@ -58,17 +58,11 @@ tfstate_store = {
 | `weekdays` | string | No | - | The weekday backups to retain. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' or 'Saturday'. |
 | `weeks` | string | No | - | The weeks of the month to retain backups of. Possible values are 'First', 'Second', 'Third', 'Fourth' and 'Last'. |
 
-### `protection_policy` block structure
+### `retention_daily` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `policy_type` | string | Yes | - | The type of the VM Workload Backup Policy. Possible values are 'Differential', 'Full', 'Incremental' and 'Log'. |
-| `backup` | [block](#backup-block-structure) | Yes | - | A 'backup' block. |
-| `retention_daily` | [block](#retention_daily-block-structure) | No | - | A 'retention_daily' block. |
-| `retention_weekly` | [block](#retention_weekly-block-structure) | No | - | A 'retention_weekly' block. |
-| `retention_monthly` | [block](#retention_monthly-block-structure) | No | - | A 'retention_monthly' block. |
-| `retention_yearly` | [block](#retention_yearly-block-structure) | No | - | A 'retention_yearly' block. |
-| `simple_retention` | [block](#simple_retention-block-structure) | No | - | A 'simple_retention' block. |
+| `count` | string | Yes | - | The number of daily backups to keep. Possible values are between '7' and '9999'. |
 
 ### `retention_yearly` block structure
 
@@ -81,18 +75,33 @@ tfstate_store = {
 | `weekdays` | string | No | - | The weekday backups to retain. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' or 'Saturday'. |
 | `weeks` | string | No | - | The weeks of the month to retain backups of. Possible values are 'First', 'Second', 'Third', 'Fourth', 'Last'. |
 
+### `protection_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `policy_type` | string | Yes | - | The type of the VM Workload Backup Policy. Possible values are 'Differential', 'Full', 'Incremental' and 'Log'. |
+| `backup` | [block](#backup-block-structure) | Yes | - | A 'backup' block. |
+| `retention_daily` | [block](#retention_daily-block-structure) | No | - | A 'retention_daily' block. |
+| `retention_weekly` | [block](#retention_weekly-block-structure) | No | - | A 'retention_weekly' block. |
+| `retention_monthly` | [block](#retention_monthly-block-structure) | No | - | A 'retention_monthly' block. |
+| `retention_yearly` | [block](#retention_yearly-block-structure) | No | - | A 'retention_yearly' block. |
+| `simple_retention` | [block](#simple_retention-block-structure) | No | - | A 'simple_retention' block. |
+
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | No | - | The backup frequency for the VM Workload Backup Policy. Possible values are 'Daily' and 'Weekly'. |
+| `frequency_in_minutes` | string | No | - | The backup frequency in minutes for the VM Workload Backup Policy. Possible values are '15', '30', '60', '120', '240', '480', '720' and '1440'. |
+| `time` | string | No | - | The time of day to perform the backup in 24hour format. |
+| `weekdays` | string | No | - | The days of the week to perform backups on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' or 'Saturday'. This is used when 'frequency' is 'Weekly'. |
+
 ### `settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `time_zone` | string | Yes | - | The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). |
 | `compression_enabled` | bool | No | False | The compression setting for the VM Workload Backup Policy. Defaults to 'false'. |
-
-### `retention_daily` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `count` | string | Yes | - | The number of daily backups to keep. Possible values are between '7' and '9999'. |
 
 ### `retention_weekly` block structure
 
@@ -106,15 +115,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `count` | string | Yes | - | The count that is used to count retention duration with duration type 'Days'. Possible values are between '7' and '35'. |
-
-### `backup` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | No | - | The backup frequency for the VM Workload Backup Policy. Possible values are 'Daily' and 'Weekly'. |
-| `frequency_in_minutes` | string | No | - | The backup frequency in minutes for the VM Workload Backup Policy. Possible values are '15', '30', '60', '120', '240', '480', '720' and '1440'. |
-| `time` | string | No | - | The time of day to perform the backup in 24hour format. |
-| `weekdays` | string | No | - | The days of the week to perform backups on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' or 'Saturday'. This is used when 'frequency' is 'Weekly'. |
 
 
 

@@ -57,14 +57,13 @@ tfstate_store = {
 | **transcription_languages** | string |  -  |  Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ). | 
 | **use_static_hostname** | bool |  -  |  Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created. | 
 
-### `encoding` block structure
+### `ip_access_control_allow` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_frame_interval` | string | No | PT2S | Use an 'ISO 8601' time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use 'PT2S' to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to 'PT2S'. |
-| `preset_name` | string | No | - | The optional encoding preset name, used when 'type' is not 'None'. If the 'type' is set to 'Standard', then the default preset name is 'Default720p'. Else if the 'type' is set to 'Premium1080p', Changing this forces a new resource to be created. |
-| `stretch_mode` | string | No | None | Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are 'None', 'AutoFit' or 'AutoSize'. Default is 'None'. |
-| `type` | string | No | None | Live event type. Possible values are 'None', 'Premium1080p', 'PassthroughBasic', 'PassthroughStandard' and 'Standard'. When set to 'None', the service simply passes through the incoming video and audio layer(s) to the output. When 'type' is set to 'Standard' or 'Premium1080p', a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to 'None'. Changing this forces a new resource to be created. |
+| `address` | string | No | - | The IP address or CIDR range. |
+| `name` | string | No | - | The friendly name for the IP address range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 ### `input` block structure
 
@@ -75,13 +74,14 @@ tfstate_store = {
 | `key_frame_interval_duration` | string | No | - | ISO 8601 time duration of the key frame interval duration of the input. This value sets the 'EXT-X-TARGETDURATION' property in the HLS output. For example, use PT2S to indicate 2 seconds. This field cannot be set when 'type' is set to 'Encoding'. |
 | `streaming_protocol` | string | No | - | The input protocol for the live event. Allowed values are 'FragmentedMP4' and 'RTMP'. Changing this forces a new resource to be created. |
 
-### `ip_access_control_allow` block structure
+### `encoding` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address or CIDR range. |
-| `name` | string | No | - | The friendly name for the IP address range. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+| `key_frame_interval` | string | No | PT2S | Use an 'ISO 8601' time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use 'PT2S' to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). The value cannot be set for pass-through live events. Defaults to 'PT2S'. |
+| `preset_name` | string | No | - | The optional encoding preset name, used when 'type' is not 'None'. If the 'type' is set to 'Standard', then the default preset name is 'Default720p'. Else if the 'type' is set to 'Premium1080p', Changing this forces a new resource to be created. |
+| `stretch_mode` | string | No | None | Specifies how the input video will be resized to fit the desired output resolution(s). Allowed values are 'None', 'AutoFit' or 'AutoSize'. Default is 'None'. |
+| `type` | string | No | None | Live event type. Possible values are 'None', 'Premium1080p', 'PassthroughBasic', 'PassthroughStandard' and 'Standard'. When set to 'None', the service simply passes through the incoming video and audio layer(s) to the output. When 'type' is set to 'Standard' or 'Premium1080p', a live encoder transcodes the incoming stream into multiple bitrates or layers. Defaults to 'None'. Changing this forces a new resource to be created. |
 
 ### `preview` block structure
 

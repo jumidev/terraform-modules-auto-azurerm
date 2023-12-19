@@ -42,12 +42,6 @@ tfstate_store = {
 | **event_handler** | [block](#event_handler-block-structure) |  -  |  -  |  An `event_handler` block. | 
 | **event_listener** | [block](#event_listener-block-structure) |  -  |  -  |  An `event_listener` block. | 
 
-### `auth` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
-
 ### `event_listener` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +59,12 @@ tfstate_store = {
 | `user_event_pattern` | string | No | - | Specifies the matching event names. There are 3 kind of patterns supported: * '*' matches any event name * ',' Combine multiple events with ',' for example 'event1,event2', it matches event 'event1' and 'event2' * The single event name, for example 'event1', it matches 'event1'. |
 | `system_events` | string | No | - | Specifies the list of system events. Supported values are 'connect', 'connected' and 'disconnected'. |
 | `auth` | [block](#auth-block-structure) | No | - | An 'auth' block. |
+
+### `auth` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `managed_identity_id` | string | Yes | - | Specify the identity ID of the target resource. |
 
 
 

@@ -4,9 +4,10 @@ data "azurerm_eventhub" "this" {
   namespace_name      = var.eventhub_namespace_name == null ? null : var.eventhub_namespace_name
 }
 data "azurerm_eventhub_consumer_group" "this" {
-  name                = var.eventhub_consumer_group_name
-  namespace_name      = var.eventhub_consumer_group_namespace_name
-  eventhub_name       = var.eventhub_consumer_group_eventhub_name == null ? null : var.eventhub_consumer_group_eventhub_name
+  name           = var.eventhub_consumer_group_name
+  namespace_name = var.eventhub_consumer_group_namespace_name
+  eventhub_name  = var.eventhub_consumer_group_eventhub_name != null ? var.eventhub_consumer_group_eventhub_name : var.eventhub_name
+
   resource_group_name = var.eventhub_consumer_group_resource_group_name == null ? null : var.eventhub_consumer_group_resource_group_name
 }
 

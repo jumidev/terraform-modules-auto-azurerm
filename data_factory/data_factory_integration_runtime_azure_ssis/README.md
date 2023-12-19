@@ -55,6 +55,24 @@ tfstate_store = {
 | **vnet_integration** | [block](#vnet_integration-block-structure) |  -  |  -  |  A `vnet_integration` block. | 
 | **description** | string |  -  |  -  |  Integration runtime description. | 
 
+### `key_vault_secret_reference` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
+| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault. |
+| `secret_version` | string | No | - | Specifies the secret version in Azure Key Vault. |
+| `parameters` | string | No | - | A map of parameters to associate with the Key Vault Data Factory Linked Service. |
+
+### `vnet_integration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `vnet_id` | string | No | - | ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added. |
+| `subnet_name` | string | No | - | Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added. |
+| `subnet_id` | string | No | - | id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added. |
+| `public_ips` | string | No | - | Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2. |
+
 ### `catalog_info` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,14 +84,14 @@ tfstate_store = {
 | `elastic_pool_name` | string | No | - | The name of SQL elastic pool where the database will be created for the SSIS catalog. Mutually exclusive with 'pricing_tier'. |
 | `dual_standby_pair_name` | string | No | - | The dual standby Azure-SSIS Integration Runtime pair with SSISDB failover. |
 
-### `vnet_integration` block structure
+### `command_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `vnet_id` | string | No | - | ID of the virtual network to which the nodes of the Azure-SSIS Integration Runtime will be added. |
-| `subnet_name` | string | No | - | Name of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added. |
-| `subnet_id` | string | No | - | id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added. |
-| `public_ips` | string | No | - | Static public IP addresses for the Azure-SSIS Integration Runtime. The size must be 2. |
+| `target_name` | string | Yes | - | The target computer or domain name. |
+| `user_name` | string | Yes | - | The username for the target device. |
+| `password` | string | No | - | The password for the target device. |
+| `key_vault_password` | [block](#key_vault_secret_reference-block-structure) | No | - | A 'key_vault_secret_reference' block. |
 
 ### `express_custom_setup` block structure
 
@@ -91,14 +109,6 @@ tfstate_store = {
 | `name` | string | Yes | - | Name of the package store. |
 | `linked_service_name` | string | Yes | - | Name of the Linked Service to associate with the packages. |
 
-### `component` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Component Name installed for the Azure-SSIS Integration Runtime. |
-| `license` | string | No | - | The license used for the Component. |
-| `key_vault_license` | [block](#key_vault_secret_reference-block-structure) | No | - | A 'key_vault_secret_reference' block. |
-
 ### `express_vnet_integration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -112,15 +122,6 @@ tfstate_store = {
 | `blob_container_uri` | string | Yes | - | The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
 | `sas_token` | string | Yes | - | A container SAS token that gives access to the files. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information. |
 
-### `command_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `target_name` | string | Yes | - | The target computer or domain name. |
-| `user_name` | string | Yes | - | The username for the target device. |
-| `password` | string | No | - | The password for the target device. |
-| `key_vault_password` | [block](#key_vault_secret_reference-block-structure) | No | - | A 'key_vault_secret_reference' block. |
-
 ### `proxy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -129,14 +130,13 @@ tfstate_store = {
 | `staging_storage_linked_service_name` | string | Yes | - | Name of Azure Blob Storage linked service to reference the staging data store to be used when moving data between self-hosted and Azure-SSIS integration runtimes. |
 | `path` | string | No | - | The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes. |
 
-### `key_vault_secret_reference` block structure
+### `component` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `linked_service_name` | string | Yes | - | Specifies the name of an existing Key Vault Data Factory Linked Service. |
-| `secret_name` | string | Yes | - | Specifies the secret name in Azure Key Vault. |
-| `secret_version` | string | No | - | Specifies the secret version in Azure Key Vault. |
-| `parameters` | string | No | - | A map of parameters to associate with the Key Vault Data Factory Linked Service. |
+| `name` | string | Yes | - | The Component Name installed for the Azure-SSIS Integration Runtime. |
+| `license` | string | No | - | The license used for the Component. |
+| `key_vault_license` | [block](#key_vault_secret_reference-block-structure) | No | - | A 'key_vault_secret_reference' block. |
 
 
 
