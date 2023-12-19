@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Application Insights Analytics Item..."   
-   # application_insights_id → set in tfstate_inputs
+   # application_insights_id → set in component_inputs
    type = "The type of Analytics Item to create"   
    scope = "The scope for the Analytics Item"   
    content = "The content for the Analytics Item, for example the query text if `type` is `que..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_insights_id = "path/to/application_insights_component:id"   
 }
 

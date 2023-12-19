@@ -19,12 +19,12 @@ inputs = {
    wsfc_domain_profile = {
       cluster_subnet_type = "..."      
       fqdn = "..."      
-      # storage_account_url → (optional) set in tfstate_inputs
+      # storage_account_url → (optional) set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    wsfc_domain_profile.storage_account_url = "path/to/storage_account_component:url"   
 }
 

@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "The name of the DNS A Record"   
    resource_group_name = "${resource_group}"   
-   # zone_name → set in tfstate_inputs
+   # zone_name → set in component_inputs
    ttl = "300"   
    records = "List of IPv4 Addresses"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    zone_name = "path/to/private_dns_zone_component:name"   
 }
 

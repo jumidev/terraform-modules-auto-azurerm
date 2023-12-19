@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    scope = "The scope of VMs to send their security data to the desired workspace, unless ov..."   
-   # workspace_id → set in tfstate_inputs
+   # workspace_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

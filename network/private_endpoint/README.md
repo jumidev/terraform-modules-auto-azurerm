@@ -14,7 +14,7 @@ inputs = {
    name = "Specifies the Name of the Private Endpoint"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
    private_service_connection = {
       name = "..."      
       is_manual_connection = "..."      
@@ -22,7 +22,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
 
@@ -43,7 +43,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    application_security_group_id = "path/to/application_security_group_component:id"
 }
 ```
@@ -68,6 +68,15 @@ tfstate_inputs = {
 | **ip_configuration** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `ip_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the Name of the IP Configuration. Changing this forces a new resource to be created. |
+| `private_ip_address` | string | Yes | - | Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created. |
+| `subresource_name` | string | No | - | Specifies the subresource this IP address applies to. 'subresource_names' corresponds to 'group_id'. Changing this forces a new resource to be created. |
+| `member_name` | string | No | - | Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created. |
+
 ### `private_dns_zone_group` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,15 +94,6 @@ tfstate_inputs = {
 | `private_connection_resource_alias` | string | No | - | The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of 'private_connection_resource_id' or 'private_connection_resource_alias' must be specified. Changing this forces a new resource to be created. |
 | `subresource_names` | string | No | - | A list of subresource names which the Private Endpoint is able to connect to. 'subresource_names' corresponds to 'group_id'. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the 'Subresources' column. Changing this forces a new resource to be created. |
 | `request_message` | string | No | - | A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of '140' characters in length. Only valid if 'is_manual_connection' is set to 'true'. |
-
-### `ip_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the IP Configuration. Changing this forces a new resource to be created. |
-| `private_ip_address` | string | Yes | - | Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created. |
-| `subresource_name` | string | No | - | Specifies the subresource this IP address applies to. 'subresource_names' corresponds to 'group_id'. Changing this forces a new resource to be created. |
-| `member_name` | string | No | - | Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created. |
 
 
 

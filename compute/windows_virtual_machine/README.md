@@ -15,18 +15,18 @@ inputs = {
    admin_username = "The username of the local administrator used for the Virtual Machine..."   
    location = "${location}"   
    name = "The name of the Windows Virtual Machine"   
-   # network_interface_ids → set in tfstate_inputs
+   # network_interface_ids → set in component_inputs
    os_disk = {
       caching = "..."      
       storage_account_type = "..."      
-      # disk_encryption_set_id → (optional) set in tfstate_inputs
+      # disk_encryption_set_id → (optional) set in component_inputs
    }
    
    resource_group_name = "${resource_group}"   
    size = "The SKU which should be used for this Virtual Machine, such as `Standard_F2`..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_interface_ids = ["path/to/network_interface_component:id", "..."]   
    os_disk.disk_encryption_set_id = "path/to/disk_encryption_set_component:id"   
 }
@@ -67,7 +67,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_data_disk_attachment.managed_disk_id = "path/to/managed_disk_component:id"   
 }
 
@@ -133,25 +133,32 @@ tfstate_inputs = {
 | **winrm_listener** | [block](#winrm_listener-block-structure) |  -  |  -  |  One or more `winrm_listener` blocks. Changing this forces a new resource to be created. | 
 | **zone** | string |  -  |  -  |  * `zones` -  Specifies the Availability Zone in which this Windows Virtual Machine should be located. Changing this forces a new Windows Virtual Machine to be created. | 
 
-### `boot_diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
-
-### `winrm_listener` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created. |
-| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine. |
+
+### `additional_unattend_content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
+| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
+
+### `boot_diagnostics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
+
+### `secret` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
+| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
 
 ### `source_image_reference` block structure
 
@@ -162,6 +169,13 @@ tfstate_inputs = {
 | `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 
+### `termination_notification` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+
 ### `gallery_application` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -170,6 +184,26 @@ tfstate_inputs = {
 | `configuration_blob_uri` | string | No | - | Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. |
 | `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. |
 | `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. |
+
+### `winrm_listener` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created. |
+| `certificate_url` | string | No | - | The Secret URL of a Key Vault Certificate, which must be specified when 'protocol' is set to 'Https'. Changing this forces a new resource to be created. |
+
+### `diff_disk_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
+| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
+
+### `additional_capabilities` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine? Defaults to 'false'. |
 
 ### `plan` block structure
 
@@ -192,40 +226,6 @@ tfstate_inputs = {
 | `secure_vm_disk_encryption_set_id` | string | No | - | The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with 'disk_encryption_set_id'. Changing this forces a new resource to be created. |
 | `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
 | `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
-
-### `termination_notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
-| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
-
-### `secret` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate` | list | Yes | - | One or more 'certificate' blocks. |
-| `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
-
-### `diff_disk_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
-| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
-
-### `additional_capabilities` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine? Defaults to 'false'. |
-
-### `additional_unattend_content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created. |
-| `setting` | string | Yes | - | The name of the setting to which the content applies. Possible values are 'AutoLogon' and 'FirstLogonCommands'. Changing this forces a new resource to be created. |
 
 
 

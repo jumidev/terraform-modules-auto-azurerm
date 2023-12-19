@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Storage Sync Group..."   
-   # storage_sync_id → set in tfstate_inputs
+   # storage_sync_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_sync_id = "path/to/storage_sync_component:id"   
 }
 

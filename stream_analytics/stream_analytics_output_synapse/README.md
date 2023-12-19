@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
    server = "The name of the SQL server containing the Azure SQL database..."   
    database = "The name of the Azure SQL database"   
    user = "The user name that will be used to connect to the Azure SQL database..."   
@@ -21,7 +21,7 @@ inputs = {
    table = "The name of the table in the Azure SQL database"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 

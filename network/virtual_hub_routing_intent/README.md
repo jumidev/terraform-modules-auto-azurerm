@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Virtual Hub Routing Intent..."   
-   # virtual_hub_id → set in tfstate_inputs
+   # virtual_hub_id → set in component_inputs
    routing_policy = {
       this_routing_policy = {
          destinations = "Possible values: Internet | PrivateTraffic"         
@@ -23,7 +23,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 

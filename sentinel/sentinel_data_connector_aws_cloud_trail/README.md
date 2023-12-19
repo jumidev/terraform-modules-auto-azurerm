@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    aws_role_arn = "The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Da..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    name = "The name which should be used for this AWS CloudTrail Data Connector..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

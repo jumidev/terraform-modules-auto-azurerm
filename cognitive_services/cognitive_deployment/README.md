@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "The name of the Cognitive Services Account Deployment..."   
-   # cognitive_account_id → set in tfstate_inputs
+   # cognitive_account_id → set in component_inputs
    model = {
       format = "..."      
       name = "..."      
@@ -25,7 +25,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    cognitive_account_id = "path/to/cognitive_account_component:id"   
 }
 

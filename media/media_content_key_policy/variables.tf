@@ -33,6 +33,10 @@ variable "policy_option" {
 #   rental_and_lease_key_type (string)    : The rental and lease key type. Supported values are 'DualExpiry', 'PersistentLimited', 'PersistentUnlimited' or 'Undefined'.
 #   rental_duration_seconds (number)      : The rental duration. Must be greater than 0.
 #
+# offline_rental_configuration block structure:
+#   playback_duration_seconds (number)          : Playback duration.
+#   storage_duration_seconds (number)           : Storage duration.
+#
 # token_restriction block structure          :
 #   alternate_key (list)                       : One or more 'alternate_key' block.
 #   audience (string)                          : The audience for the token.
@@ -44,10 +48,6 @@ variable "policy_option" {
 #   primary_x509_token_key_raw (string)        : The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
 #   required_claim (list)                      : One or more 'required_claim' blocks.
 #   token_type (string)                        : The type of token. Supported values are 'Jwt' or 'Swt'.
-#
-# offline_rental_configuration block structure:
-#   playback_duration_seconds (number)          : Playback duration.
-#   storage_duration_seconds (number)           : Storage duration.
 
 
 variable "resource_group_name" {

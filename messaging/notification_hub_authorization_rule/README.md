@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name to use for this Authorization Rule"   
-   # notification_hub_name → set in tfstate_inputs
-   # namespace_name → set in tfstate_inputs
+   # notification_hub_name → set in component_inputs
+   # namespace_name → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    notification_hub_name = "path/to/notification_hub_component:name"   
    namespace_name = "path/to/eventhub_namespace_component:name"   
 }

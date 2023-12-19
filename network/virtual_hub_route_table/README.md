@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for Virtual Hub Route Table..."   
-   # virtual_hub_id → set in tfstate_inputs
+   # virtual_hub_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 

@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Front Door Origin Group..."   
-   # cdn_frontdoor_profile_id → set in tfstate_inputs
+   # cdn_frontdoor_profile_id → set in component_inputs
    load_balancing = {
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
 }
 

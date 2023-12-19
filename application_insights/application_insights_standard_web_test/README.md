@@ -14,7 +14,7 @@ inputs = {
    name = "The name which should be used for this Application Insights Standard WebTest..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # application_insights_id → set in tfstate_inputs
+   # application_insights_id → set in component_inputs
    geo_locations = "Specifies a list of where to physically run the tests from to give global covera..."   
    request = {
       url = "..."      
@@ -22,7 +22,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_insights_id = "path/to/application_insights_component:id"   
 }
 

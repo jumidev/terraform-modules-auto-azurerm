@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    hostname = "Specifies the Custom Hostname to use for the App Service, example `www..."   
-   # app_service_name → set in tfstate_inputs
+   # app_service_name → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    app_service_name = "path/to/app_service_component:name"   
 }
 

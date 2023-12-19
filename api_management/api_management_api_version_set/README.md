@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name of the API Version Set"   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    display_name = "The display name of this API Version Set"   
    versioning_scheme = "Specifies where in an Inbound HTTP Request that the API Version should be read f..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

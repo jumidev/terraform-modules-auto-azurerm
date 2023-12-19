@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Machine Learning Synapse Spark..."   
-   # machine_learning_workspace_id → set in tfstate_inputs
+   # machine_learning_workspace_id → set in component_inputs
    location = "${location}"   
-   # synapse_spark_pool_id → set in tfstate_inputs
+   # synapse_spark_pool_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id"   
    synapse_spark_pool_id = "path/to/synapse_spark_pool_component:id"   
 }

@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Dataset Azure SQL Table..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    linked_service_id = "The Data Factory Linked Service ID in which to associate the Dataset with..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

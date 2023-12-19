@@ -15,10 +15,10 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    access_endpoint_type = "The type of access endpoint to use for the Integration Service Environment..."   
-   # virtual_network_subnet_ids → set in tfstate_inputs
+   # virtual_network_subnet_ids → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_network_subnet_ids = ["path/to/subnet_component:id", "..."]   
 }
 

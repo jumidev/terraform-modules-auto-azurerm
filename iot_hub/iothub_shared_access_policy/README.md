@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "Specifies the name of the IotHub Shared Access Policy resource..."   
    resource_group_name = "${resource_group}"   
-   # iothub_name → set in tfstate_inputs
+   # iothub_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_name = "path/to/iothub_component:name"   
 }
 

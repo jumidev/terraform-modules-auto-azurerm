@@ -14,16 +14,16 @@ inputs = {
    name = "Specifies the name of the Machine Learning Workspace..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # application_insights_id → set in tfstate_inputs
-   # key_vault_id → set in tfstate_inputs
-   # storage_account_id → set in tfstate_inputs
+   # application_insights_id → set in component_inputs
+   # key_vault_id → set in component_inputs
+   # storage_account_id → set in component_inputs
    identity = {
       type = "..."      
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_insights_id = "path/to/application_insights_component:id"   
    key_vault_id = "path/to/key_vault_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   

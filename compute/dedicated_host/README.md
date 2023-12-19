@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of this Dedicated Host"   
-   # dedicated_host_group_id → set in tfstate_inputs
+   # dedicated_host_group_id → set in component_inputs
    location = "${location}"   
    sku_name = "Specify the SKU name of the Dedicated Host"   
    platform_fault_domain = "Specify the fault domain of the Dedicated Host Group in which to create the Dedi..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    dedicated_host_group_id = "path/to/dedicated_host_group_component:id"   
 }
 

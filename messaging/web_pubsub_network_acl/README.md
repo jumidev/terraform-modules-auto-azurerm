@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # web_pubsub_id → set in tfstate_inputs
+   # web_pubsub_id → set in component_inputs
    public_network = {
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    web_pubsub_id = "path/to/web_pubsub_component:id"   
 }
 

@@ -13,14 +13,14 @@ source = {
 inputs = {
    operation_id = "A unique identifier for this API Operation"   
    api_name = "The name of the API within the API Management Service where this API Operation s..."   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    display_name = "The Display Name for this API Management Operation"   
    method = "The HTTP Method used for this API Management Operation, like `GET`, `DELETE`, `P..."   
    url_template = "The relative URL Template identifying the target resource for this operation, wh..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 
@@ -53,19 +53,14 @@ tfstate_store = {
 | **response** | [block](#response-block-structure) |  One or more `response` blocks. | 
 | **template_parameter** | [block](#template_parameter-block-structure) |  One or more `template_parameter` blocks. Required if `url_template` contains one or more parameters. | 
 
-### `template_parameter` block structure
+### `response` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The Name of this Template Parameter. |
-| `required` | bool | Yes | - | Is this Template Parameter Required? |
-| `type` | string | Yes | - | The Type of this Template Parameter, such as a 'string'. |
-| `description` | string | No | - | A description of this Template Parameter. |
-| `default_value` | string | No | - | The default value for this Template Parameter. |
-| `values` | list | No | - | One or more acceptable values for this Template Parameter. |
-| `example` | list | No | - | One or more 'example' blocks. |
-| `schema_id` | string | No | - | The name of the Schema. |
-| `type_name` | string | No | - | The type name defined by the Schema. |
+| `status_code` | string | Yes | - | The HTTP Status Code. |
+| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
+| `header` | list | No | - | One or more 'header' blocks. |
+| `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
 
 ### `request` block structure
 
@@ -86,14 +81,19 @@ tfstate_store = {
 | `schema_id` | string | No | - | The ID of an API Management Schema which represents this Response. |
 | `type_name` | string | No | - | The Type Name defined by the Schema. |
 
-### `response` block structure
+### `template_parameter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `status_code` | string | Yes | - | The HTTP Status Code. |
-| `description` | string | No | - | A description of the HTTP Response, which may include HTML tags. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `representation` | [block](#representation-block-structure) | No | - | One or more 'representation' blocks. |
+| `name` | string | Yes | - | The Name of this Template Parameter. |
+| `required` | bool | Yes | - | Is this Template Parameter Required? |
+| `type` | string | Yes | - | The Type of this Template Parameter, such as a 'string'. |
+| `description` | string | No | - | A description of this Template Parameter. |
+| `default_value` | string | No | - | The default value for this Template Parameter. |
+| `values` | list | No | - | One or more acceptable values for this Template Parameter. |
+| `example` | list | No | - | One or more 'example' blocks. |
+| `schema_id` | string | No | - | The name of the Schema. |
+| `type_name` | string | No | - | The type name defined by the Schema. |
 
 
 

@@ -16,12 +16,12 @@ inputs = {
    scope = "The ID of the managed subscription"   
    authorization = {
       principal_id = "..."      
-      # role_definition_id → set in tfstate_inputs
+      # role_definition_id → set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    authorization.role_definition_id = "path/to/role_definition_component:id"   
 }
 
@@ -51,6 +51,23 @@ tfstate_store = {
 | **eligible_authorization** | [block](#eligible_authorization-block-structure) |  An `eligible_authorization` block. | 
 | **plan** | [block](#plan-block-structure) |  A `plan` block. | 
 
+### `just_in_time_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `multi_factor_auth_provider` | string | No | - | The multi-factor authorization provider to be used for just-in-time access requests. Possible value is 'Azure'. |
+| `maximum_activation_duration` | number | No | PT8H | The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to 'PT8H'. |
+| `approver` | [block](#approver-block-structure) | No | - | An 'approver' block. |
+
+### `authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `principal_id` | string | Yes | - | Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. |
+| `role_definition_id` | string | Yes | - | The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role. |
+| `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
+| `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
+
 ### `eligible_authorization` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,14 +84,6 @@ tfstate_store = {
 | `principal_id` | string | Yes | - | The Principal ID of the Azure Active Directory principal for the approver. |
 | `principal_display_name` | string | No | - | The display name of the Azure Active Directory Principal for the approver. |
 
-### `just_in_time_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `multi_factor_auth_provider` | string | No | - | The multi-factor authorization provider to be used for just-in-time access requests. Possible value is 'Azure'. |
-| `maximum_activation_duration` | number | No | PT8H | The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to 'PT8H'. |
-| `approver` | [block](#approver-block-structure) | No | - | An 'approver' block. |
-
 ### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -83,15 +92,6 @@ tfstate_store = {
 | `publisher` | string | Yes | - | The publisher ID of the plan. |
 | `product` | string | Yes | - | The product code of the plan. |
 | `version` | string | Yes | - | The version of the plan. |
-
-### `authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `principal_id` | string | Yes | - | Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription. |
-| `role_definition_id` | string | Yes | - | The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an 'Owner' role. |
-| `delegated_role_definition_ids` | string | No | - | The set of role definition ids which define all the permissions that the principal id can assign. |
-| `principal_display_name` | string | No | - | The display name of the security group/service principal/user that would be assigned permissions to the projected subscription. |
 
 
 

@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name (or path) of the Directory that should be created within this File Shar..."   
    share_name = "The name of the File Share where this Directory should be created..."   
-   # storage_account_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
 

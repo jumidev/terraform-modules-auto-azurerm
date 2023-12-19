@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # mssql_server_id → set in tfstate_inputs
+   # mssql_server_id → set in component_inputs
    name = "The name which should be used for this MSSQL Server DNS Alias..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    mssql_server_id = "path/to/mssql_server_component:id"   
 }
 

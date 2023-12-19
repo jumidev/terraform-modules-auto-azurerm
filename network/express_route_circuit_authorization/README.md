@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name of the ExpressRoute circuit"   
    resource_group_name = "${resource_group}"   
-   # express_route_circuit_name → set in tfstate_inputs
+   # express_route_circuit_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    express_route_circuit_name = "path/to/express_route_circuit_component:name"   
 }
 

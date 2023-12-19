@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    name = "The name which should be used for this Threat Intelligence TAXII Data Connector..."   
    display_name = "The friendly name which should be used for this Threat Intelligence TAXII Data C..."   
    api_root_url = "The API root URI of the TAXII server"   
    collection_id = "The collection ID of the TAXII server"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

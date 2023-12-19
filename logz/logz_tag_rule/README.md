@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   # logz_monitor_id → set in tfstate_inputs
+   # logz_monitor_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    logz_monitor_id = "path/to/logz_monitor_component:id"   
 }
 

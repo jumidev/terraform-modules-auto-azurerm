@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
    topic_name = "The name of the Service Bus Topic"   
    servicebus_namespace = "The namespace that is associated with the desired Event Hub, Service Bus Topic, ..."   
    serialization = {
@@ -22,7 +22,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 

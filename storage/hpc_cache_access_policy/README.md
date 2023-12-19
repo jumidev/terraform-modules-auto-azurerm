@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this HPC Cache Access Policy..."   
-   # hpc_cache_id → set in tfstate_inputs
+   # hpc_cache_id → set in component_inputs
    access_rule = "One or more `access_rule` blocks (up to three) as defined below..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    hpc_cache_id = "path/to/hpc_cache_component:id"   
 }
 

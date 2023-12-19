@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # app_service_id → set in tfstate_inputs
+   # app_service_id → set in component_inputs
    slot_name = "The name of the App Service Slot or Function App Slot..."   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    app_service_id = "path/to/app_service_component:id"   
    subnet_id = "path/to/subnet_component:id"   
 }

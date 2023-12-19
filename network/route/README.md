@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "The name of the route"   
    resource_group_name = "${resource_group}"   
-   # route_table_name → set in tfstate_inputs
+   # route_table_name → set in component_inputs
    address_prefix = "The destination to which the route applies"   
    next_hop_type = "The type of Azure hop the packet should be sent to"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    route_table_name = "path/to/route_table_component:name"   
 }
 

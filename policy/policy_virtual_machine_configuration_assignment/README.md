@@ -13,13 +13,13 @@ source = {
 inputs = {
    name = "The name of the Guest Configuration that will be assigned in this Guest Configur..."   
    location = "${location}"   
-   # virtual_machine_id → set in tfstate_inputs
+   # virtual_machine_id → set in component_inputs
    configuration = {
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_id = "path/to/virtual_machine_component:id"   
 }
 

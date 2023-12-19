@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Application Gateway for Containers Fronte..."   
-   # application_load_balancer_id → set in tfstate_inputs
+   # application_load_balancer_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_load_balancer_id = "path/to/application_load_balancer_component:id"   
 }
 

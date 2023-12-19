@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name of the Automation Variable"   
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

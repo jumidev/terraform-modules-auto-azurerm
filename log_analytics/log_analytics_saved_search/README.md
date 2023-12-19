@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Log Analytics Saved Search..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    display_name = "The name that Saved Search will be displayed as"   
    category = "The category that the Saved Search will be listed under..."   
    query = "The query expression for the saved search"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

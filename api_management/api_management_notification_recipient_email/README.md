@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # api_management_id → set in tfstate_inputs
+   # api_management_id → set in component_inputs
    email = "The recipient email address"   
    notification_type = "The Notification Name to be received"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_id = "path/to/api_management_component:id"   
 }
 

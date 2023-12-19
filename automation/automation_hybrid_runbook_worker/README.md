@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    worker_group_name = "The name of the HybridWorker Group"   
    worker_id = "Specify the ID of this HybridWorker in UUID notation..."   
    vm_resource_id = "The ID of the virtual machine used for this HybridWorker..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

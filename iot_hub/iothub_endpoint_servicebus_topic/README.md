@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name of the endpoint"   
    resource_group_name = "${resource_group}"   
-   # iothub_id → set in tfstate_inputs
+   # iothub_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_id = "path/to/iothub_component:id"   
 }
 

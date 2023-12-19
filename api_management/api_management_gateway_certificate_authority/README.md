@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # api_management_id → set in tfstate_inputs
+   # api_management_id → set in component_inputs
    certificate_name = "The name of the API Management Certificate"   
    gateway_name = "The name of the API Management Gateway"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_id = "path/to/api_management_component:id"   
 }
 

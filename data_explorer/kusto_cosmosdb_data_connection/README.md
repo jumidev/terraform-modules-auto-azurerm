@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    cosmosdb_container_id = "The name of an existing container in the Cosmos DB database..."   
-   # kusto_database_id → set in tfstate_inputs
+   # kusto_database_id → set in component_inputs
    location = "${location}"   
    managed_identity_id = "The resource ID of a managed system or user-assigned identity..."   
    name = "The name of the data connection"   
    table_name = "The case-sensitive name of the existing target table in your cluster..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    kusto_database_id = "path/to/kusto_database_component:id"   
 }
 

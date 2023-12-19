@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name (or path) of the File that should be created within this File Share..."   
-   # storage_share_id → set in tfstate_inputs
+   # storage_share_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_share_id = "path/to/storage_share_component:id"   
 }
 

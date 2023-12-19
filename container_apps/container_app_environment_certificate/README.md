@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name of the Container Apps Environment Certificate..."   
-   # container_app_environment_id → set in tfstate_inputs
+   # container_app_environment_id → set in component_inputs
    certificate_blob_base64 = "The Certificate Private Key as a base64 encoded PFX or PEM..."   
    certificate_password = "The password for the Certificate"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    container_app_environment_id = "path/to/container_app_environment_component:id"   
 }
 

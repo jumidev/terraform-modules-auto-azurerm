@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Subscription Network Ma..."   
-   # subscription_id → set in tfstate_inputs
-   # network_manager_id → set in tfstate_inputs
+   # subscription_id → set in component_inputs
+   # network_manager_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    subscription_id = "path/to/subscription_component:subscription_id"   
    network_manager_id = "path/to/network_manager_component:id"   
 }

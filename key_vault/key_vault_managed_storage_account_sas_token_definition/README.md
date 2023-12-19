@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this SAS Definition..."   
-   # managed_storage_account_id → set in tfstate_inputs
+   # managed_storage_account_id → set in component_inputs
    sas_template_uri = "The SAS definition token template signed with an arbitrary key..."   
    sas_type = "The type of SAS token the SAS definition will create..."   
    validity_period = "Validity period of SAS token"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    managed_storage_account_id = "path/to/storage_account_component:id"   
 }
 

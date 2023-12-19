@@ -50,6 +50,14 @@ tfstate_store = {
 | **key_delivery_access_control** | [block](#key_delivery_access_control-block-structure) |  -  |  -  |  A `key_delivery_access_control` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | SystemKey | Specifies the type of key used to encrypt the account data. Possible values are 'SystemKey' and 'CustomerKey'. Defaults to 'SystemKey'. |
+| `key_vault_key_identifier` | string | No | - | Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey). |
+| `managed_identity` | [block](#managed_identity-block-structure) | No | - | A 'managed_identity' block. |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,14 +78,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `default_action` | string | No | - | The Default Action to use when no rules match from 'ip_allow_list'. Possible values are 'Allow' and 'Deny'. |
 | `ip_allow_list` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery. |
-
-### `encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | SystemKey | Specifies the type of key used to encrypt the account data. Possible values are 'SystemKey' and 'CustomerKey'. Defaults to 'SystemKey'. |
-| `key_vault_key_identifier` | string | No | - | Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey). |
-| `managed_identity` | [block](#managed_identity-block-structure) | No | - | A 'managed_identity' block. |
 
 ### `managed_identity` block structure
 

@@ -13,9 +13,9 @@ source = {
 inputs = {
    ip_configuration = {
       primary = {
-         # subnet_id → (optional) set in tfstate_inputs
+         # subnet_id → (optional) set in component_inputs
          private_ip_address_allocation = "Dynamic"         
-         # public_ip_address_id → (optional) set in tfstate_inputs
+         # public_ip_address_id → (optional) set in component_inputs
       }
       
    }
@@ -25,7 +25,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    ip_configuration.primary.subnet_id = "path/to/subnet_component:id"   
    ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id"   
 }
@@ -66,7 +66,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    dns_a_record.zone_name = "path/to/dns_zone_component:name"   
 }
 
@@ -79,7 +79,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    application_security_group_id = "path/to/application_security_group_component:id"
 }
 ```
@@ -104,7 +104,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_interface_backend_address_pool_association.backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"   
 }
 
@@ -117,7 +117,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    network_security_group_id = "path/to/network_security_group_component:id"
 }
 ```
@@ -142,7 +142,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_interface_application_gateway_backend_address_pool_association.backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"   
 }
 
@@ -168,7 +168,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_interface_nat_rule_association.nat_rule_id = "path/to/lb_nat_rule_component:id"   
 }
 
@@ -200,7 +200,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    private_dns_a_record.zone_name = "path/to/private_dns_zone_component:name"   
 }
 

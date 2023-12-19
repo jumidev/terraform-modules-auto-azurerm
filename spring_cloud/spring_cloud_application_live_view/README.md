@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Spring Cloud Application Live View..."   
-   # spring_cloud_service_id → set in tfstate_inputs
+   # spring_cloud_service_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
 }
 

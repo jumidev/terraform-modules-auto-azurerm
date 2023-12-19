@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "The name of the JavaScript UDF Function"   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
    input = {
       this_input = {
          type = "Possible values: array | any | bigint | datetime | float | nvarchar(max) | record"         
@@ -31,7 +31,7 @@ inputs = {
    script = "The JavaScript of this UDF Function"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 
@@ -54,18 +54,18 @@ tfstate_store = {
 | **output** | [block](#output-block-structure) |  An `output` blocks. | 
 | **script** | string |  The JavaScript of this UDF Function. | 
 
-### `output` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
-
 ### `input` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The Data Type for the Input Argument of this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
 | `configuration_parameter` | bool | No | False | Is this input parameter a configuration parameter? Defaults to 'false'. |
+
+### `output` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Data Type output from this JavaScript Function. Possible values include 'array', 'any', 'bigint', 'datetime', 'float', 'nvarchar(max)' and 'record'. |
 
 
 

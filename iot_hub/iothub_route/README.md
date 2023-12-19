@@ -13,13 +13,13 @@ source = {
 inputs = {
    name = "The name of the route"   
    resource_group_name = "${resource_group}"   
-   # iothub_name → set in tfstate_inputs
+   # iothub_name → set in component_inputs
    source = "The source that the routing rule is to be applied to..."   
    endpoint_names = "The list of endpoints to which messages that satisfy the condition are routed..."   
    enabled = "Specifies whether a route is enabled"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_name = "path/to/iothub_component:name"   
 }
 

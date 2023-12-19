@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   # media_services_account_name → set in tfstate_inputs
+   # media_services_account_name → set in component_inputs
    name = "The name which should be used for this Content Key Policy..."   
    policy_option = {
       this_policy_option = {
@@ -22,7 +22,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    media_services_account_name = "path/to/media_services_account_component:name"   
 }
 
@@ -48,6 +48,13 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **description** | string |  A description for the Policy. | 
+
+### `offline_rental_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `playback_duration_seconds` | number | No | - | Playback duration. |
+| `storage_duration_seconds` | number | No | - | Storage duration. |
 
 ### `fairplay_configuration` block structure
 
@@ -87,13 +94,6 @@ tfstate_store = {
 | `playready_response_custom_data` | string | No | - | The custom response data of the PlayReady configuration. This only applies when 'playready_configuration_license' is specified. |
 | `token_restriction` | [block](#token_restriction-block-structure) | No | - | A 'token_restriction' block. |
 | `widevine_configuration_template` | string | No | - | The Widevine template. |
-
-### `offline_rental_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `playback_duration_seconds` | number | No | - | Playback duration. |
-| `storage_duration_seconds` | number | No | - | Storage duration. |
 
 
 

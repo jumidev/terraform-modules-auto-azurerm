@@ -13,15 +13,15 @@ source = {
 inputs = {
    name = "The name of the service connection"   
    spring_cloud_id = "The ID of the data source spring cloud"   
-   # target_resource_id → set in tfstate_inputs
+   # target_resource_id → set in component_inputs
    authentication = {
       type = "..."      
-      # subscription_id → (optional) set in tfstate_inputs
+      # subscription_id → (optional) set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    target_resource_id = "path/to/any_resource_component:id"   
    authentication.subscription_id = "path/to/subscription_component:subscription_id"   
 }

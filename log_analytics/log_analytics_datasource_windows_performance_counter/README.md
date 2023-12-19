@@ -13,14 +13,14 @@ source = {
 inputs = {
    name = "The Name which should be used for this Log Analytics Windows Performance Counter..."   
    resource_group_name = "${resource_group}"   
-   # workspace_name → set in tfstate_inputs
+   # workspace_name → set in component_inputs
    object_name = "The object name of the Log Analytics Windows Performance Counter DataSource..."   
    instance_name = "The name of the virtual machine instance to which the Windows Performance Counte..."   
    counter_name = "The friendly name of the performance counter"   
    interval_seconds = "The time of sample interval in seconds"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
 

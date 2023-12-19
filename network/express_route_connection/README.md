@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Express Route Connection..."   
-   # express_route_circuit_peering_id → set in tfstate_inputs
-   # express_route_gateway_id → set in tfstate_inputs
+   # express_route_circuit_peering_id → set in component_inputs
+   # express_route_gateway_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    express_route_circuit_peering_id = "path/to/express_route_circuit_peering_component:id"   
    express_route_gateway_id = "path/to/express_route_gateway_component:id"   
 }

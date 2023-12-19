@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "Specifies the name of the Webhook"   
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    expiry_time = "Timestamp when the webhook expires"   
    runbook_name = "Name of the Automation Runbook to execute by Webhook..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

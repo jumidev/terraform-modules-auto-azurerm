@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    client_id = "Client ID of the Application in your B2C tenant"   
    client_secret = "Client secret of the Application in your B2C tenant..."   
@@ -22,7 +22,7 @@ inputs = {
    signup_policy = "Signup Policy Name"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

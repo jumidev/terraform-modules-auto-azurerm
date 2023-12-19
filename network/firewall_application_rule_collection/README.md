@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Application Rule Collection which must be unique withi..."   
-   # azure_firewall_name → set in tfstate_inputs
+   # azure_firewall_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
@@ -24,7 +24,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    azure_firewall_name = "path/to/firewall_component:name"   
 }
 
@@ -47,6 +47,13 @@ tfstate_store = {
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
+### `protocol` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | Specify a port for the connection. |
+| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,13 +65,6 @@ tfstate_store = {
 | `fqdn_tags` | string | No | - | A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. |
 | `target_fqdns` | list | No | - | A list of FQDNs. |
 | `protocol` | [block](#protocol-block-structure) | No | - | One or more 'protocol' blocks. |
-
-### `protocol` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | Specify a port for the connection. |
-| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
 
 
 

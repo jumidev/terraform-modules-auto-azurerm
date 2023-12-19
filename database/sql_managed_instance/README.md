@@ -20,10 +20,10 @@ inputs = {
    license_type = "What type of license the Managed Instance will use"   
    administrator_login = "The administrator login name for the new server"   
    administrator_login_password = "The password associated with the `administrator_login` user..."   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
 

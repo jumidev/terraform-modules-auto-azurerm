@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the SQL virtual network rule"   
-   # server_id → set in tfstate_inputs
-   # subnet_id → set in tfstate_inputs
+   # server_id → set in component_inputs
+   # subnet_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_id = "path/to/mssql_server_component:id"   
    subnet_id = "path/to/subnet_component:id"   
 }

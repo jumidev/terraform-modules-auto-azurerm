@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the MariaDB Configuration, which needs [to be a valid Mari..."   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the MariaDB Configuration"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/mariadb_server_component:name"   
 }
 

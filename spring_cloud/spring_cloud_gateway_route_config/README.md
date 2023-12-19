@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Spring Cloud Gateway Route Config..."   
-   # spring_cloud_gateway_id → set in tfstate_inputs
+   # spring_cloud_gateway_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    spring_cloud_gateway_id = "path/to/spring_cloud_gateway_component:id"   
 }
 
@@ -46,12 +46,6 @@ tfstate_store = {
 | **protocol** | string |  `HTTP`  |  `HTTP`, `HTTPS`  |  Specifies the protocol of routed Spring Cloud App. Allowed values are `HTTP` and `HTTPS`. Defaults to `HTTP`. | 
 | **spring_cloud_app_id** | string |  -  |  -  |  The ID of the Spring Cloud App. | 
 
-### `open_api` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `uri` | string | No | - | The URI of OpenAPI specification. |
-
 ### `route` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +59,12 @@ tfstate_store = {
 | `title` | string | No | - | Specifies the title which will be applied to methods in the generated OpenAPI documentation. |
 | `token_relay` | string | No | - | Should pass currently-authenticated user's identity token to application service? |
 | `uri` | string | No | - | Specifies the full uri which will override 'appName'. |
+
+### `open_api` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `uri` | string | No | - | The URI of OpenAPI specification. |
 
 
 

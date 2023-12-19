@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the SignalR Custom Certificate"   
-   # signalr_service_id → set in tfstate_inputs
+   # signalr_service_id → set in component_inputs
    custom_certificate_id = "The certificate id of the SignalR Custom Certificate service..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    signalr_service_id = "path/to/signalr_service_component:id"   
 }
 

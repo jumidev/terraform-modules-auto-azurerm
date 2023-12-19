@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   # automation_account_id → set in tfstate_inputs
+   # automation_account_id → set in component_inputs
    name = "The name which should be used for this Automation Watcher..."   
    execution_frequency_in_seconds = "Specify the frequency at which the watcher is invoked..."   
    location = "${location}"   
@@ -19,7 +19,7 @@ inputs = {
    script_run_on = "Specify the name of the Hybrid work group the watcher will run on..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_id = "path/to/automation_account_component:id"   
 }
 

@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   # iotcentral_application_id → set in tfstate_inputs
+   # iotcentral_application_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    iotcentral_application_id = "path/to/iotcentral_application_component:id"   
 }
 

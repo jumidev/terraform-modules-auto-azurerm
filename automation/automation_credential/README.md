@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "Specifies the name of the Credential"   
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    username = "The username associated with this Automation Credential..."   
    password = "The password associated with this Automation Credential..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

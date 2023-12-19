@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the PostgreSQL Configuration, which needs [to be a valid P..."   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the PostgreSQL Configuration..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/postgresql_server_component:name"   
 }
 

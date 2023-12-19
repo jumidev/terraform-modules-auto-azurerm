@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    schema_id = "A unique identifier for this Schema"   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    type = "The content type of the Schema"   
    value = "The string defining the document representing the Schema..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

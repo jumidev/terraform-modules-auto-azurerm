@@ -14,7 +14,7 @@ inputs = {
    name = "The name of the elastic pool"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    sku = {
       name = "..."      
       capacity = "..."      
@@ -28,7 +28,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/mssql_server_component:name"   
 }
 

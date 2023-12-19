@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Sentinel MS Security Incident Alert Rule..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    display_name = "The friendly name of this Sentinel MS Security Incident Alert Rule..."   
    product_filter = "The Microsoft Security Service from where the alert will be generated..."   
    severity_filter = "Only create incidents from alerts when alert severity level is contained in this..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

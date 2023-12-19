@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # iothub_id → set in tfstate_inputs
+   # iothub_id → set in component_inputs
    connection_string = "The connection string for the Azure Storage account to which files are uploaded..."   
    container_name = "The name of the root container where the files should be uploaded to..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_id = "path/to/iothub_component:id"   
 }
 

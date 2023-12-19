@@ -15,14 +15,14 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    scope = {
-      # management_group_ids → (optional) set in tfstate_inputs
-      # subscription_ids → (optional) set in tfstate_inputs
+      # management_group_ids → (optional) set in component_inputs
+      # subscription_ids → (optional) set in component_inputs
    }
    
    scope_accesses = "A list of configuration deployment type"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    scope.management_group_ids = "path/to/management_group_component:id"   
    scope.subscription_ids = "path/to/subscription_component:id"   
 }

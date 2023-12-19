@@ -18,11 +18,11 @@ inputs = {
    volume_path = "A unique file path for the volume"   
    pool_name = "The name of the NetApp pool in which the NetApp Volume should be created..."   
    service_level = "The target performance of the file system"   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
    storage_quota_in_gb = "The maximum Storage Quota allowed for a file system in Gigabytes..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
 
@@ -56,7 +56,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    vmware_netapp_volume_attachment.vmware_cluster_id = "path/to/vmware_cluster_component:id"   
 }
 

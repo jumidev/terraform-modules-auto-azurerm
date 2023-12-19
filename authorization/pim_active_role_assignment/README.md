@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    principal_id = "The principal id"   
-   # role_definition_id → set in tfstate_inputs
+   # role_definition_id → set in component_inputs
    scope = "The scope"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    role_definition_id = "path/to/role_definition_component:id"   
 }
 
@@ -44,12 +44,12 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Active Role Assignment to be created. | 
 | **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Active Role Assignment to be created. | 
 
-### `schedule` block structure
+### `ticket` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `expiration` | [block](#expiration-block-structure) | No | - | A 'expiration' block. |
-| `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. |
+| `number` | string | No | - | The ticket number. |
+| `system` | string | No | - | The ticket system. |
 
 ### `expiration` block structure
 
@@ -59,12 +59,12 @@ tfstate_store = {
 | `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Active Role Assignment to be created. |
 | `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Active Role Assignment to be created. |
 
-### `ticket` block structure
+### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `number` | string | No | - | The ticket number. |
-| `system` | string | No | - | The ticket system. |
+| `expiration` | [block](#expiration-block-structure) | No | - | A 'expiration' block. |
+| `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Active Role Assignment to be created. |
 
 
 

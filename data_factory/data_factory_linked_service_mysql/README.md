@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Linked Service MySQL..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    connection_string = "The connection string in which to authenticate with MySQL..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

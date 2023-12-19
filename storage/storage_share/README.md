@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the share"   
-   # storage_account_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
    quota = "The maximum size of the share, in gigabytes"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
 

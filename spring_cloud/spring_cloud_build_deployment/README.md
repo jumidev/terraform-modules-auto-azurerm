@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Spring Cloud Build Deployment..."   
-   # spring_cloud_app_id → set in tfstate_inputs
+   # spring_cloud_app_id → set in component_inputs
    build_result_id = "The ID of the Spring Cloud Build Result"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    spring_cloud_app_id = "path/to/spring_cloud_app_component:id"   
 }
 

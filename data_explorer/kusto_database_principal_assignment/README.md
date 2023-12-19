@@ -18,10 +18,10 @@ inputs = {
    principal_id = "The object id of the principal"   
    principal_type = "The type of the principal"   
    role = "The database role assigned to the principal"   
-   # tenant_id → set in tfstate_inputs
+   # tenant_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 

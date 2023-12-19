@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "The name which should be used for this Log Analytics Windows Event DataSource..."   
    resource_group_name = "${resource_group}"   
-   # workspace_name → set in tfstate_inputs
+   # workspace_name → set in component_inputs
    event_log_name = "Specifies the name of the Windows Event Log to collect events from..."   
    event_types = "Specifies an array of event types applied to the specified event log..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
 

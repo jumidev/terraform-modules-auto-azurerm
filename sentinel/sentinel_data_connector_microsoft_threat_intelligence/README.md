@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Microsoft Threat Intelligence Data Connec..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

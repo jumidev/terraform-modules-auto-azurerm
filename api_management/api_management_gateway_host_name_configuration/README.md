@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name of the API Management Gateway Host Name Configuration..."   
-   # api_management_id → set in tfstate_inputs
+   # api_management_id → set in component_inputs
    gateway_name = "The name of the API Management Gateway"   
    certificate_id = "The certificate ID to be used for TLS connection establishment..."   
    host_name = "The host name to use for the API Management Gateway Host Name Configuration..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_id = "path/to/api_management_component:id"   
 }
 

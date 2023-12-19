@@ -33,7 +33,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"
 }
 ```

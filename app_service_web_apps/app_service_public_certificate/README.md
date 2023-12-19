@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # app_service_name → set in tfstate_inputs
+   # app_service_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    certificate_name = "The name of the public certificate"   
    certificate_location = "The location of the certificate"   
    blob = "The base64-encoded contents of the certificate"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    app_service_name = "path/to/app_service_component:name"   
 }
 

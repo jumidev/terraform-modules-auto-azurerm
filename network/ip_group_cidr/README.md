@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # ip_group_id → set in tfstate_inputs
+   # ip_group_id → set in component_inputs
    cidr = "The `CIDR` that should be added to the IP Group"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    ip_group_id = "path/to/ip_group_component:id"   
 }
 

@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "The name which should be used for this Machine Learning Compute Instance..."   
    location = "${location}"   
-   # machine_learning_workspace_id → set in tfstate_inputs
+   # machine_learning_workspace_id → set in component_inputs
    virtual_machine_size = "The Virtual Machine Size"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    machine_learning_workspace_id = "path/to/machine_learning_workspace_component:id"   
 }
 
@@ -52,12 +52,6 @@ tfstate_store = {
 | **node_public_ip_enabled** | bool |  `True`  |  -  |  Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
 
-### `ssh` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
-
 ### `assign_to_user` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,6 +65,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Machine Learning Compute Instance. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
 | `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Compute Instance. Changing this forces a new resource to be created. |
+
+### `ssh` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
 
 
 

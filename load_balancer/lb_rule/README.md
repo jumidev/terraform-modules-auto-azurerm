@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    name = "Specifies the name of the LB Rule"   
-   # loadbalancer_id → set in tfstate_inputs
-   # frontend_ip_configuration_name → set in tfstate_inputs
+   # loadbalancer_id → set in component_inputs
+   # frontend_ip_configuration_name → set in component_inputs
    protocol = "The transport protocol for the external endpoint"   
    frontend_port = "The port for the external endpoint"   
    backend_port = "The port used for internal connections on the endpoint..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
    frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }

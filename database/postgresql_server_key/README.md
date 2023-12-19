@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # server_id → set in tfstate_inputs
-   # key_vault_key_id → set in tfstate_inputs
+   # server_id → set in component_inputs
+   # key_vault_key_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_id = "path/to/postgresql_server_component:id"   
    key_vault_key_id = "path/to/key_vault_key_component:id"   
 }

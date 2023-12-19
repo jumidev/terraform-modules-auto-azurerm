@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "Specifies the name which should be used for this IoT Hub Device Update Instance..."   
    device_update_account_id = "Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device U..."   
-   # iothub_id → set in tfstate_inputs
+   # iothub_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_id = "path/to/iothub_component:id"   
 }
 

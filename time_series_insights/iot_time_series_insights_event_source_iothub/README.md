@@ -14,14 +14,14 @@ inputs = {
    name = "Specifies the name of the Azure IoT Time Series Insights IoTHub Event Source..."   
    environment_id = "Specifies the id of the IoT Time Series Insights Environment that the Event Sour..."   
    location = "${location}"   
-   # iothub_name → set in tfstate_inputs
+   # iothub_name → set in component_inputs
    consumer_group_name = "Specifies the name of the IotHub Consumer Group that holds the partitions from w..."   
    event_source_resource_id = "Specifies the resource id where events will be coming from..."   
    shared_access_key_name = "Specifies the name of the Shared Access key that grants the Event Source access ..."   
    shared_access_key = "Specifies the value of the Shared Access Policy key that grants the Time Series ..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_name = "path/to/iothub_component:name"   
 }
 

@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Linked Service Azure SQL Database..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

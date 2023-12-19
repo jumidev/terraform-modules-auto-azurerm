@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    name = "The name of the Stream Output"   
-   # stream_analytics_job_id → set in tfstate_inputs
+   # stream_analytics_job_id → set in component_inputs
    dataset = "The name of the Power BI dataset"   
    table = "The name of the Power BI table under the specified dataset..."   
    group_id = "The ID of the Power BI group, this must be a valid UUID..."   
    group_name = "The name of the Power BI group"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_id = "path/to/stream_analytics_job_component:id"   
 }
 

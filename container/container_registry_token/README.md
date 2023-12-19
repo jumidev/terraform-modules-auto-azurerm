@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "Specifies the name of the token"   
    resource_group_name = "${resource_group}"   
-   # container_registry_name → set in tfstate_inputs
+   # container_registry_name → set in component_inputs
    scope_map_id = "The ID of the Container Registry Scope Map associated with the token..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    container_registry_name = "path/to/container_registry_component:name"   
 }
 

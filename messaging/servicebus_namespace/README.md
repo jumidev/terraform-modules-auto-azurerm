@@ -48,6 +48,16 @@ tfstate_store = {
 | **network_rule_set** | [block](#network_rule_set-block-structure) |  -  |  -  |  An `network_rule_set` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `network_rule_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | No | Allow | Specifies the default action for the Network Rule Set. Possible values are 'Allow' and 'Deny'. Defaults to 'Allow'. |
+| `public_network_access_enabled` | bool | No | True | Whether to allow traffic over public network. Possible values are 'true' and 'false'. Defaults to 'true'. |
+| `trusted_services_allowed` | bool | No | - | Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) |
+| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. |
+| `network_rules` | [block](#network_rules-block-structure) | No | - | One or more 'network_rules' blocks. |
+
 ### `network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,16 +79,6 @@ tfstate_store = {
 | `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace. |
 | `identity_id` | string | Yes | - | The ID of the User Assigned Identity that has access to the key. |
 | `infrastructure_encryption_enabled` | bool | No | - | Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created. |
-
-### `network_rule_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Allow | Specifies the default action for the Network Rule Set. Possible values are 'Allow' and 'Deny'. Defaults to 'Allow'. |
-| `public_network_access_enabled` | bool | No | True | Whether to allow traffic over public network. Possible values are 'true' and 'false'. Defaults to 'true'. |
-| `trusted_services_allowed` | bool | No | - | Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) |
-| `ip_rules` | list | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. |
-| `network_rules` | [block](#network_rules-block-structure) | No | - | One or more 'network_rules' blocks. |
 
 
 

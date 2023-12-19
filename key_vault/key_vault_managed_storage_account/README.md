@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Key Vault Managed Storage Account..."   
-   # key_vault_id → set in tfstate_inputs
-   # storage_account_id → set in tfstate_inputs
+   # key_vault_id → set in component_inputs
+   # storage_account_id → set in component_inputs
    storage_account_key = "Which Storage Account access key that is managed by Key Vault..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }

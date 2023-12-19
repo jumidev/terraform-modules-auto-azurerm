@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Storage Mover Target Endpoint..."   
-   # storage_mover_id → set in tfstate_inputs
-   # storage_account_id → set in tfstate_inputs
-   # storage_container_name → set in tfstate_inputs
+   # storage_mover_id → set in component_inputs
+   # storage_account_id → set in component_inputs
+   # storage_container_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_mover_id = "path/to/storage_mover_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
    storage_container_name = "path/to/storage_container_component:name"   

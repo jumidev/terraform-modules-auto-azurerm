@@ -15,11 +15,11 @@ inputs = {
    name = "The name which should be used for this HPC Cache Blob NFS Target..."   
    namespace_path = "The client-facing file path of the HPC Cache Blob NFS Target..."   
    resource_group_name = "${resource_group}"   
-   # storage_container_id → set in tfstate_inputs
+   # storage_container_id → set in component_inputs
    usage_model = "The type of usage of the HPC Cache Blob NFS Target"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_container_id = "path/to/storage_container_component:id"   
 }
 

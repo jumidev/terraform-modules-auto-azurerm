@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "the Name of the OpenID Connect Provider which should be created within the API M..."   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    client_id = "The Client ID used for the Client Application"   
    client_secret = "The Client Secret used for the Client Application"   
@@ -20,7 +20,7 @@ inputs = {
    metadata_endpoint = "The URI of the Metadata endpoint"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

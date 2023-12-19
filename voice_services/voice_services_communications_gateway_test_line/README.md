@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "Specifies the name which should be used for this Voice Services Communications G..."   
    location = "${location}"   
-   # voice_services_communications_gateway_id → set in tfstate_inputs
+   # voice_services_communications_gateway_id → set in component_inputs
    phone_number = "Specifies the phone number"   
    purpose = "The purpose of the Voice Services Communications Gateway Test Line..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    voice_services_communications_gateway_id = "path/to/voice_services_communications_gateway_component:id"   
 }
 

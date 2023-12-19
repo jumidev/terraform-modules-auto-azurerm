@@ -56,13 +56,28 @@ tfstate_store = {
 | **labels** | list |  -  |  -  |  A list of labels to assign to the event subscription. | 
 | **advanced_filtering_on_arrays_enabled** | bool |  `False`  |  -  |  Specifies whether advanced filters should be evaluated against an array of values instead of expecting a singular value. Defaults to `false`. | 
 
-### `azure_function_endpoint` block structure
+### `delivery_identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `function_id` | string | Yes | - | Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}. |
-| `max_events_per_batch` | number | No | - | Maximum number of events per batch. |
-| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+
+### `storage_queue_endpoint` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
+| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
+| `queue_message_time_to_live_in_seconds` | number | No | - | Storage queue message time to live in seconds. |
+
+### `subject_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
+| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
+| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
 
 ### `delivery_property` block structure
 
@@ -87,20 +102,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_delivery_attempts` | string | Yes | - | Specifies the maximum number of delivery retry attempts for events. |
 | `event_time_to_live` | string | Yes | - | Specifies the time to live (in minutes) for events. Supported range is '1' to '1440'. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details. |
-
-### `dead_letter_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
-
-### `delivery_identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for event delivery. Allowed value is 'SystemAssigned', 'UserAssigned'. |
-| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
 
 ### `advanced_filter` block structure
 
@@ -129,6 +130,13 @@ tfstate_store = {
 | `value` | string | Yes | - | Specifies a single value to compare to when using a single value operator. |
 | `values` | string | Yes | - | Specifies an array of values to compare to when using a multiple values operator. |
 
+### `dead_letter_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is 'SystemAssigned', 'UserAssigned'. |
+| `user_assigned_identity` | string | No | - | The user identity associated with the resource. |
+
 ### `webhook_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -140,21 +148,13 @@ tfstate_store = {
 | `active_directory_tenant_id` | string | No | - | The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests. |
 | `active_directory_app_id_or_uri` | string | No | - | The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests. |
 
-### `subject_filter` block structure
+### `azure_function_endpoint` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `subject_begins_with` | string | No | - | A string to filter events for an event subscription based on a resource path prefix. |
-| `subject_ends_with` | string | No | - | A string to filter events for an event subscription based on a resource path suffix. |
-| `case_sensitive` | string | No | - | Specifies if 'subject_begins_with' and 'subject_ends_with' case sensitive. This value |
-
-### `storage_queue_endpoint` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Specifies the id of the storage account id where the storage queue is located. |
-| `queue_name` | string | Yes | - | Specifies the name of the storage queue where the Event Subscription will receive events. |
-| `queue_message_time_to_live_in_seconds` | number | No | - | Storage queue message time to live in seconds. |
+| `function_id` | string | Yes | - | Specifies the ID of the Function where the Event Subscription will receive events. This must be the functions ID in format {function_app.id}/functions/{name}. |
+| `max_events_per_batch` | number | No | - | Maximum number of events per batch. |
+| `preferred_batch_size_in_kilobytes` | string | No | - | Preferred batch size in Kilobytes. |
 
 
 

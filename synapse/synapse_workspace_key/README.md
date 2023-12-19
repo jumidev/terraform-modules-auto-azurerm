@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    customer_managed_key_name = "Specifies the name of the workspace key"   
-   # synapse_workspace_id → set in tfstate_inputs
+   # synapse_workspace_id → set in component_inputs
    active = "Specifies if the workspace should be encrypted with this key..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 

@@ -15,10 +15,10 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    type = "The type of connection"   
-   # virtual_network_gateway_id → set in tfstate_inputs
+   # virtual_network_gateway_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id"   
 }
 

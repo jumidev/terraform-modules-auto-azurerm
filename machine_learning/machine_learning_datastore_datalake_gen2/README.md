@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the Machine Learning DataStore"   
-   # workspace_id → set in tfstate_inputs
-   # storage_container_id → set in tfstate_inputs
+   # workspace_id → set in component_inputs
+   # storage_container_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_id = "path/to/log_analytics_workspace_component:id"   
    storage_container_id = "path/to/storage_container_component:id"   
 }

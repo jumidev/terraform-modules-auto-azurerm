@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # route_table_id → set in tfstate_inputs
+   # route_table_id → set in component_inputs
    name = "The name which should be used for this route"   
    destinations = "A list of destination addresses for this route"   
    destinations_type = "The type of destinations"   
    next_hop = "The next hop's resource ID"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    route_table_id = "path/to/route_table_component:id"   
 }
 

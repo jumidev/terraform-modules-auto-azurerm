@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Linked Service..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    url = "The URL of the Search Service endpoint (e"   
    search_service_key = "The key of the Azure Search Service"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

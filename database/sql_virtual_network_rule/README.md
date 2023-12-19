@@ -14,10 +14,10 @@ inputs = {
    name = "The name of the SQL virtual network rule"   
    resource_group_name = "${resource_group}"   
    server_name = "The name of the SQL Server to which this SQL virtual network rule will be applie..."   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
 

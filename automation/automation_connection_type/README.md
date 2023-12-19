@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "The name which should be used for this Automation Connection Type..."   
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    field = {
       this_field = {
          type = "..."         
@@ -23,7 +23,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Cost Management Export"   
-   # subscription_id → set in tfstate_inputs
+   # subscription_id → set in component_inputs
    recurrence_type = "How often the requested information will be exported..."   
    recurrence_period_start_date = "The date the export will start capturing information..."   
    recurrence_period_end_date = "The date the export will stop capturing information..."   
@@ -28,7 +28,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    subscription_id = "path/to/subscription_component:subscription_id"   
 }
 

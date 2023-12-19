@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name which should be used for this Account Filter..."   
    resource_group_name = "${resource_group}"   
-   # media_services_account_name → set in tfstate_inputs
+   # media_services_account_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    media_services_account_name = "path/to/media_services_account_component:name"   
 }
 

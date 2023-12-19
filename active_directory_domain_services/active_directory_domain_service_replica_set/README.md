@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # domain_service_id → set in tfstate_inputs
+   # domain_service_id → set in component_inputs
    location = "${location}"   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    domain_service_id = "path/to/active_directory_domain_service_component:id"   
    subnet_id = "path/to/subnet_component:id"   
 }

@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this PostgreSQL Flexible Server Firewall Rule..."   
-   # server_id → set in tfstate_inputs
+   # server_id → set in component_inputs
    start_ip_address = "The Start IP Address associated with this PostgreSQL Flexible Server Firewall Ru..."   
    end_ip_address = "The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_id = "path/to/postgresql_flexible_server_component:id"   
 }
 

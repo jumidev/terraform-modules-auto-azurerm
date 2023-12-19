@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name which should be used for this Storage Encryption Scope..."   
    source = "The source of the Storage Encryption Scope"   
-   # storage_account_id → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

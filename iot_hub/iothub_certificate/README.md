@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "Specifies the name of the IotHub Certificate resource..."   
    resource_group_name = "${resource_group}"   
-   # iothub_name → set in tfstate_inputs
+   # iothub_name → set in component_inputs
    certificate_content = "The Base-64 representation of the X509 leaf certificate ..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_name = "path/to/iothub_component:name"   
 }
 

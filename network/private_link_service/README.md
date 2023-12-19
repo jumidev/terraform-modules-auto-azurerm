@@ -16,14 +16,14 @@ inputs = {
    location = "${location}"   
    nat_ip_configuration = {
       name = "..."      
-      # subnet_id → set in tfstate_inputs
+      # subnet_id → set in component_inputs
       primary = true      
    }
    
-   # load_balancer_frontend_ip_configuration_ids → set in tfstate_inputs
+   # load_balancer_frontend_ip_configuration_ids → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    nat_ip_configuration.subnet_id = "path/to/subnet_component:id"   
    load_balancer_frontend_ip_configuration_ids = ["path/to/lb_outbound_rule_component:frontend_ip_configuration", "..."]   
 }

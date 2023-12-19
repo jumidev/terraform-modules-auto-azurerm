@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the Policy Remediation"   
-   # subscription_id → set in tfstate_inputs
+   # subscription_id → set in component_inputs
    policy_assignment_id = "The ID of the Policy Assignment that should be remediated..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    subscription_id = "path/to/subscription_component:subscription_id"   
 }
 

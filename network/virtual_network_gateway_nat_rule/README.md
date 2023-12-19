@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "The name which should be used for this Virtual Network Gateway Nat Rule..."   
    resource_group_name = "${resource_group}"   
-   # virtual_network_gateway_id → set in tfstate_inputs
+   # virtual_network_gateway_id → set in component_inputs
    external_mapping = "One or more `external_mapping` blocks"   
    internal_mapping = "One or more `internal_mapping` blocks"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id"   
 }
 

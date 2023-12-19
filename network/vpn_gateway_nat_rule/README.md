@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name which should be used for this VPN Gateway NAT Rule..."   
    resource_group_name = "${resource_group}"   
-   # vpn_gateway_id → set in tfstate_inputs
+   # vpn_gateway_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    vpn_gateway_id = "path/to/vpn_gateway_component:id"   
 }
 

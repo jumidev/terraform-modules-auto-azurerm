@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name of the Firewall Rule"   
-   # redis_cache_name → set in tfstate_inputs
+   # redis_cache_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    start_ip = "The lowest IP address included in the range"   
    end_ip = "The highest IP address included in the range"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    redis_cache_name = "path/to/redis_cache_component:name"   
 }
 

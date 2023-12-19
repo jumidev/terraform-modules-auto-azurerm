@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name of the outbound firewall rule"   
-   # server_id → set in tfstate_inputs
+   # server_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_id = "path/to/mssql_server_component:id"   
 }
 

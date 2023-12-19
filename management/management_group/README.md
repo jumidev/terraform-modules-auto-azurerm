@@ -45,7 +45,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    resource_management_private_link_association.resource_management_private_link_id = "path/to/resource_management_private_link_component:id"   
 }
 
@@ -58,7 +58,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    subscription_id = "path/to/subscription_component:subscription_id"
 }
 ```

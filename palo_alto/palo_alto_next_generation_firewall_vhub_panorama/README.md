@@ -17,13 +17,13 @@ inputs = {
    panorama_base64_config = "The Base64 Encoded configuration value for connecting to the Panorama Configurat..."   
    network_profile = {
       network_virtual_appliance_id = "..."      
-      # public_ip_address_ids → set in tfstate_inputs
-      # virtual_hub_id → set in tfstate_inputs
+      # public_ip_address_ids → set in component_inputs
+      # virtual_hub_id → set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_profile.public_ip_address_ids = "path/to/public_ip_component:id"   
    network_profile.virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
@@ -54,12 +54,12 @@ tfstate_store = {
 | **dns_settings** | [block](#dns_settings-block-structure) |  A `dns_settings` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Palo Alto Next Generation Firewall VHub Panorama. | 
 
-### `dns_settings` block structure
+### `frontend_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_servers` | string | No | - | Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'. |
-| `use_azure_dns` | bool | No | False | Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
+| `port` | string | Yes | - | The port on which traffic will be receiveed. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address resource the traffic will be received on. |
 
 ### `backend_config` block structure
 
@@ -67,15 +67,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `port` | string | Yes | - | The port number to send traffic to. |
 | `public_ip_address` | string | Yes | - | The Public IP Address to send the traffic to. |
-
-### `destination_nat` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this NAT. |
-| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
-| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
-| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
 
 ### `network_profile` block structure
 
@@ -86,12 +77,21 @@ tfstate_store = {
 | `virtual_hub_id` | string | Yes | - | The ID of the Virtual Hub this Next generation Fireall will be deployed in. Changing this forces a new Palo Alto Next Generation Firewall VHub Local Rulestack to be created. |
 | `egress_nat_ip_address_ids` | string | No | - | Specifies a list of Public IP IDs to use for Egress NAT. |
 
-### `frontend_config` block structure
+### `destination_nat` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | The port on which traffic will be receiveed. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address resource the traffic will be received on. |
+| `name` | string | Yes | - | The name which should be used for this NAT. |
+| `protocol` | string | Yes | - | The protocol used for this Destination NAT. Possible values include 'TCP' and 'UDP'. |
+| `backend_config` | [block](#backend_config-block-structure) | No | - | A 'backend_config' block. |
+| `frontend_config` | [block](#frontend_config-block-structure) | No | - | A 'frontend_config' block. |
+
+### `dns_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_servers` | string | No | - | Specifies a list of DNS servers to proxy. Conflicts with 'dns_settings.0.use_azure_dns'. |
+| `use_azure_dns` | bool | No | False | Should Azure DNS servers be used? Conflicts with 'dns_settings.0.dns_servers'. Defaults to 'false'. |
 
 
 

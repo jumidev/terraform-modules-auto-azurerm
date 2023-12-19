@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Managed Private Endpoint..."   
-   # synapse_workspace_id → set in tfstate_inputs
-   # target_resource_id → set in tfstate_inputs
+   # synapse_workspace_id → set in component_inputs
+   # target_resource_id → set in component_inputs
    subresource_name = "Specifies the sub resource name which the Synapse Private Endpoint is able to co..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
    target_resource_id = "path/to/any_resource_component:id"   
 }

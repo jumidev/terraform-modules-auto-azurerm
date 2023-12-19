@@ -13,12 +13,12 @@ source = {
 inputs = {
    schema_id = "A unique identifier for this API Schema"   
    api_name = "The name of the API within the API Management Service where this API Schema shou..."   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    content_type = "The content type of the API Schema"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

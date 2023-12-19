@@ -14,10 +14,10 @@ inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # virtual_network_id → set in tfstate_inputs
+   # virtual_network_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_network_id = "path/to/virtual_network_component:id"   
 }
 

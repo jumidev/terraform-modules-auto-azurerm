@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name of the storage table"   
-   # storage_account_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
 

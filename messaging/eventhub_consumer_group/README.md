@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the EventHub Consumer Group resource..."   
-   # namespace_name → set in tfstate_inputs
-   # eventhub_name → set in tfstate_inputs
+   # namespace_name → set in component_inputs
+   # eventhub_name → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    namespace_name = "path/to/eventhub_namespace_component:name"   
    eventhub_name = "path/to/eventhub_component:name"   
 }

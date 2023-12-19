@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Application Insights Smart Detection Rule..."   
-   # application_insights_id → set in tfstate_inputs
+   # application_insights_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_insights_id = "path/to/application_insights_component:id"   
 }
 

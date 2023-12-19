@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    scope = "The scope at which the Lighthouse Assignment applies too, such as `/subscription..."   
-   # lighthouse_definition_id → set in tfstate_inputs
+   # lighthouse_definition_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    lighthouse_definition_id = "path/to/lighthouse_definition_component:id"   
 }
 

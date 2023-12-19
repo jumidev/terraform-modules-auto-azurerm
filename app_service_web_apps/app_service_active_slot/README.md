@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   # app_service_name → set in tfstate_inputs
-   # app_service_slot_name → set in tfstate_inputs
+   # app_service_name → set in component_inputs
+   # app_service_slot_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    app_service_name = "path/to/app_service_component:name"   
    app_service_slot_name = "path/to/app_service_slot_component:name"   
 }

@@ -13,14 +13,14 @@ source = {
 inputs = {
    name = "Specifies the name of the Application Insights WebTest..."   
    resource_group_name = "${resource_group}"   
-   # application_insights_id → set in tfstate_inputs
+   # application_insights_id → set in component_inputs
    location = "${location}"   
    kind = "The kind of web test that this web test watches"   
    geo_locations = "A list of where to physically run the tests from to give global coverage for acc..."   
    configuration = "An XML configuration specification for a WebTest ([see here for more information..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_insights_id = "path/to/application_insights_component:id"   
 }
 

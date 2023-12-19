@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Linked Service..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    authentication_type = "The type of authentication used to connect to the web table source..."   
    host = "The SFTP server hostname"   
    port = "The TCP port number that the SFTP server uses to listen for client connection..."   
@@ -20,7 +20,7 @@ inputs = {
    password = "Password to logon to the SFTP Server for Basic Authentication..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

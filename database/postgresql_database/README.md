@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the PostgreSQL Database, which needs [to be a valid Postgr..."   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    charset = "Specifies the Charset for the PostgreSQL Database, which needs [to be a valid Po..."   
    collation = "Specifies the Collation for the PostgreSQL Database, which needs [to be a valid ..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/postgresql_server_component:name"   
 }
 

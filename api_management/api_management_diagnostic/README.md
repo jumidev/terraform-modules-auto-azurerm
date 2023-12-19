@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    identifier = "The diagnostic identifier for the API Management Service..."   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
-   # api_management_logger_id → set in tfstate_inputs
+   # api_management_logger_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
    api_management_logger_id = "path/to/api_management_logger_component:id"   
 }
@@ -54,13 +54,6 @@ tfstate_store = {
 | **verbosity** | string |  -  |  `verbose`, `information`, `error`  |  Logging verbosity. Possible values are `verbose`, `information` or `error`. | 
 | **operation_name_format** | string |  `Name`  |  `Name`, `Url`  |  The format of the Operation Name for Application Insights telemetries. Possible values are `Name`, and `Url`. Defaults to `Name`. | 
 
-### `query_params` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
-| `value` | string | Yes | - | The name of the header or the query parameter to mask. |
-
 ### `backend_request` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,13 +62,12 @@ tfstate_store = {
 | `headers_to_log` | string | No | - | Specifies a list of headers to log. |
 | `data_masking` | [block](#data_masking-block-structure) | No | - | A 'data_masking' block. |
 
-### `frontend_request` block structure
+### `headers` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `body_bytes` | number | No | - | Number of payload bytes to log (up to 8192). |
-| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
-| `data_masking` | [block](#data_masking-block-structure) | No | - | A 'data_masking' block. |
+| `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
+| `value` | string | Yes | - | The name of the header or the query parameter to mask. |
 
 ### `backend_response` block structure
 
@@ -93,19 +85,27 @@ tfstate_store = {
 | `headers_to_log` | string | No | - | Specifies a list of headers to log. |
 | `data_masking` | [block](#data_masking-block-structure) | No | - | A 'data_masking' block. |
 
+### `query_params` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
+| `value` | string | Yes | - | The name of the header or the query parameter to mask. |
+
+### `frontend_request` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `body_bytes` | number | No | - | Number of payload bytes to log (up to 8192). |
+| `headers_to_log` | string | No | - | Specifies a list of headers to log. |
+| `data_masking` | [block](#data_masking-block-structure) | No | - | A 'data_masking' block. |
+
 ### `data_masking` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `query_params` | [block](#query_params-block-structure) | No | - | A 'query_params' block. |
 | `headers` | [block](#headers-block-structure) | No | - | A 'headers' block. |
-
-### `headers` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The data masking mode. Possible values are 'Mask' and 'Hide' for 'query_params'. The only possible value is 'Mask' for 'headers'. |
-| `value` | string | Yes | - | The name of the header or the query parameter to mask. |
 
 
 

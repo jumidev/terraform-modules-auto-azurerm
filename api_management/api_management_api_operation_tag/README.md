@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # api_operation_id → set in tfstate_inputs
+   # api_operation_id → set in component_inputs
    name = "The name which should be used for this API Management API Operation Tag..."   
    display_name = "The display name of the API Management API Operation Tag..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_operation_id = "path/to/api_management_api_operation_component:id"   
 }
 

@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the MySQL Database, which needs [to be a valid MySQL ident..."   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    charset = "Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL C..."   
    collation = "Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/mysql_server_component:name"   
 }
 

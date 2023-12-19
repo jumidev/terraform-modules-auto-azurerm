@@ -13,8 +13,8 @@ source = {
 inputs = {
    name = "The name of the Stream Input IoTHub"   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
-   # eventhub_consumer_group_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
+   # eventhub_consumer_group_name → set in component_inputs
    endpoint = "The IoT Hub endpoint to connect to (ie"   
    iothub_namespace = "The name or the URI of the IoT Hub"   
    serialization = {
@@ -25,7 +25,7 @@ inputs = {
    shared_access_policy_name = "The shared access policy name for the Event Hub, Service Bus Queue, Service Bus ..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
    eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name"   
 }

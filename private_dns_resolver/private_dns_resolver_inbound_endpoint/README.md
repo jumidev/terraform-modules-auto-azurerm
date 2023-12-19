@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Inbound En..."   
-   # private_dns_resolver_id → set in tfstate_inputs
+   # private_dns_resolver_id → set in component_inputs
    ip_configurations = "Can be specified multiple times to define multiple IP configurations..."   
    location = "${location}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    private_dns_resolver_id = "path/to/private_dns_resolver_component:id"   
 }
 

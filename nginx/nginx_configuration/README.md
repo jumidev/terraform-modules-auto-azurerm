@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # nginx_deployment_id → set in tfstate_inputs
+   # nginx_deployment_id → set in component_inputs
    root_file = "Specify the root file path of this Nginx Configuration..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    nginx_deployment_id = "path/to/nginx_deployment_component:id"   
 }
 

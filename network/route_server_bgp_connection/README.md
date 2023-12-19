@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Route Server Bgp Connection..."   
-   # route_server_id → set in tfstate_inputs
+   # route_server_id → set in component_inputs
    peer_asn = "The peer autonomous system number for the Route Server Bgp Connection..."   
    peer_ip = "The peer ip address for the Route Server Bgp Connection..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    route_server_id = "path/to/route_server_component:id"   
 }
 

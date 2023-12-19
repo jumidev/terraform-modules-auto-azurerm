@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The Name which should be used for this VPN Server Configuration Policy Group..."   
-   # vpn_server_configuration_id → set in tfstate_inputs
+   # vpn_server_configuration_id → set in component_inputs
    policy = "One or more `policy` blocks"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id"   
 }
 

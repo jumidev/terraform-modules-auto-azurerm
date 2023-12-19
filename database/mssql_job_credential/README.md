@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Elastic Job Credential..."   
-   # job_agent_id → set in tfstate_inputs
+   # job_agent_id → set in component_inputs
    username = "The username part of the credential"   
    password = "The password part of the credential"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    job_agent_id = "path/to/mssql_job_agent_component:id"   
 }
 

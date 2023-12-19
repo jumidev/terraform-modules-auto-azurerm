@@ -12,15 +12,15 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Front Door Custom Domain..."   
-   # cdn_frontdoor_profile_id → set in tfstate_inputs
+   # cdn_frontdoor_profile_id → set in component_inputs
    host_name = "The host name of the domain"   
    tls = {
-      # cdn_frontdoor_secret_id → (optional) set in tfstate_inputs
+      # cdn_frontdoor_secret_id → (optional) set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
    tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id"   
 }
@@ -42,7 +42,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_route_ids = ["path/to/cdn_frontdoor_route_component1:id", "path/to/cdn_frontdoor_route_ids_component2:cdn_frontdoor_route"...]
 }
 ```

@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL ..."   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the MySQL Configuration"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/mysql_server_component:name"   
 }
 

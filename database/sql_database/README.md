@@ -14,10 +14,10 @@ inputs = {
    name = "The name of the database"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/sql_server_component:name"   
 }
 

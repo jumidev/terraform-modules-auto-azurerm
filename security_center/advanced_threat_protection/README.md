@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # target_resource_id → set in tfstate_inputs
+   # target_resource_id → set in component_inputs
    enabled = "Should Advanced Threat Protection be enabled on this resource?..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    target_resource_id = "path/to/any_resource_component:id"   
 }
 

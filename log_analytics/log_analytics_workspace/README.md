@@ -33,7 +33,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    application_group_id = "path/to/virtual_desktop_application_group_component:id"
 }
 ```

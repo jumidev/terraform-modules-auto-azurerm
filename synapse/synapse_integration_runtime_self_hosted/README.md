@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Synapse Self-hosted Integration Runtime..."   
-   # synapse_workspace_id → set in tfstate_inputs
+   # synapse_workspace_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 

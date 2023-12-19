@@ -13,10 +13,10 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    recovery_vault_name = "The name of the vault where the storage account will be registered..."   
-   # storage_account_id → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

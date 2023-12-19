@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # mobile_network_data_network_name → set in tfstate_inputs
-   # mobile_network_packet_core_data_plane_id → set in tfstate_inputs
+   # mobile_network_data_network_name → set in component_inputs
+   # mobile_network_packet_core_data_plane_id → set in component_inputs
    location = "${location}"   
    dns_addresses = "Specifies the DNS servers to signal to UEs to use for this attached data network..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    mobile_network_data_network_name = "path/to/mobile_network_data_network_component:name"   
    mobile_network_packet_core_data_plane_id = "path/to/mobile_network_packet_core_data_plane_component:id"   
 }

@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # app_service_name → set in tfstate_inputs
+   # app_service_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    relay_id = "The ID of the Service Bus Relay"   
    hostname = "The hostname of the endpoint"   
    port = "The port of the endpoint"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    app_service_name = "path/to/app_service_component:name"   
 }
 

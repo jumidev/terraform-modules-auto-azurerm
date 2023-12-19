@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name of the Container which should be created within the Storage Account..."   
-   # storage_account_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
 

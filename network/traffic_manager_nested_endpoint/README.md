@@ -14,10 +14,10 @@ inputs = {
    minimum_child_endpoints = "This argument specifies the minimum number of endpoints that must be ‘online’ in..."   
    name = "The name of the External Endpoint"   
    profile_id = "The ID of the Traffic Manager Profile that this External Endpoint should be crea..."   
-   # target_resource_id → set in tfstate_inputs
+   # target_resource_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    target_resource_id = "path/to/any_resource_component:id"   
 }
 
@@ -52,13 +52,6 @@ tfstate_store = {
 | **geo_mappings** | list |  -  |  -  |  A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault). | 
 | **subnet** | [block](#subnet-block-structure) |  -  |  -  |  One or more `subnet` blocks. Changing this forces a new resource to be created. | 
 
-### `custom_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the custom header. |
-| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
-
 ### `subnet` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -66,6 +59,13 @@ tfstate_store = {
 | `first` | string | Yes | - | The first IP Address in this subnet. |
 | `last` | string | No | - | The last IP Address in this subnet. |
 | `scope` | number | No | - | The block size (number of leading bits in the subnet mask). |
+
+### `custom_header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the custom header. |
+| `value` | string | Yes | - | The value of custom header. Applicable for HTTP and HTTPS protocol. |
 
 
 

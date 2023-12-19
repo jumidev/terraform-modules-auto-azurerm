@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the SQL Managed Instance"   
-   # sql_managed_instance_id → set in tfstate_inputs
+   # sql_managed_instance_id → set in component_inputs
    location = "${location}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    sql_managed_instance_id = "path/to/sql_managed_instance_component:id"   
 }
 

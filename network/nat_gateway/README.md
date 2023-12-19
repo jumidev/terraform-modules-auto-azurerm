@@ -33,7 +33,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    public_ip_address_id = "path/to/public_ip_component:id"
 }
 ```
@@ -45,7 +45,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"
 }
 ```
@@ -57,7 +57,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    public_ip_prefix_id = "path/to/public_ip_prefix_component:id"
 }
 ```

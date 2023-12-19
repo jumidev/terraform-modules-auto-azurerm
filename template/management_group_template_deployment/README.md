@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    location = "${location}"   
-   # management_group_id → set in tfstate_inputs
+   # management_group_id → set in component_inputs
    name = "The name which should be used for this Template Deployment..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    management_group_id = "path/to/management_group_component:id"   
 }
 

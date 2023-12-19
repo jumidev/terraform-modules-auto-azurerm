@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Sentinel Watchlist..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    display_name = "The display name of this Sentinel Watchlist"   
    item_search_key = "The key used to optimize query performance when using Watchlist for joins with o..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

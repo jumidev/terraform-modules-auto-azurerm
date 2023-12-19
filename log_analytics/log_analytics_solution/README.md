@@ -15,7 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    workspace_resource_id = "The full resource ID of the Log Analytics workspace with which the solution will..."   
-   # workspace_name → set in tfstate_inputs
+   # workspace_name → set in component_inputs
    plan = {
       publisher = "..."      
       product = "..."      
@@ -23,7 +23,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
 

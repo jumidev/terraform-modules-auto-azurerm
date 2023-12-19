@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "The name which should be used for this Log Analytics Storage Insights..."   
    resource_group_name = "${resource_group}"   
-   # workspace_id → set in tfstate_inputs
-   # storage_account_id → set in tfstate_inputs
+   # workspace_id → set in component_inputs
+   # storage_account_id → set in component_inputs
    storage_account_key = "The storage access key to be used to connect to the storage account..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_id = "path/to/log_analytics_workspace_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }

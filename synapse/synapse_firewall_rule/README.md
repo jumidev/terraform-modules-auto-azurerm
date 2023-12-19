@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The Name of the firewall rule"   
-   # synapse_workspace_id → set in tfstate_inputs
+   # synapse_workspace_id → set in component_inputs
    start_ip_address = "The starting IP address to allow through the firewall for this rule..."   
    end_ip_address = "The ending IP address to allow through the firewall for this rule..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 

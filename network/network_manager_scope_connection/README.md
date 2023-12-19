@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Manager Scope Connectio..."   
-   # network_manager_id → set in tfstate_inputs
+   # network_manager_id → set in component_inputs
    target_scope_id = "Specifies the Resource ID of the target scope which the Network Manager is conne..."   
-   # tenant_id → set in tfstate_inputs
+   # tenant_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_manager_id = "path/to/network_manager_component:id"   
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }

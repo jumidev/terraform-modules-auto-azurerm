@@ -13,11 +13,11 @@ source = {
 inputs = {
    path = "The path which should be created within the Data Lake Gen2 File System in the St..."   
    filesystem_name = "The name of the Data Lake Gen2 File System which should be created within the St..."   
-   # storage_account_id → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
    resource = "Specifies the type for path to create"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

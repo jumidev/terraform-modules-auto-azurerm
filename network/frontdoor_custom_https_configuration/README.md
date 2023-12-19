@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # frontend_endpoint_id → set in tfstate_inputs
+   # frontend_endpoint_id → set in component_inputs
    custom_https_provisioning_enabled = "Should the HTTPS protocol be enabled for this custom domain associated with the ..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    frontend_endpoint_id = "path/to/frontdoor_component:id"   
 }
 

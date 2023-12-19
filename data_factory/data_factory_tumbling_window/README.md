@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Tumbling Window Trigger..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    frequency = "Specifies the frequency of Tumbling Window"   
    interval = "Specifies the interval of Tumbling Window"   
    pipeline = {
@@ -22,7 +22,7 @@ inputs = {
    start_time = "Specifies the start time of Tumbling Window, formatted as an RFC3339 string..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 
@@ -66,13 +66,6 @@ tfstate_store = {
 | `name` | string | Yes | - | The Data Factory Pipeline name that the trigger will act on. |
 | `parameters` | string | No | - | The Data Factory Pipeline parameters that the trigger will act on. |
 
-### `retry` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `count` | number | Yes | - | The maximum retry attempts if the pipeline run failed. |
-| `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
-
 ### `trigger_dependency` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +73,13 @@ tfstate_store = {
 | `offset` | string | No | - | The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency. |
 | `size` | string | No | - | The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss). |
 | `trigger_name` | string | No | - | The dependency trigger name. If not specified, it will use self dependency. |
+
+### `retry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `count` | number | Yes | - | The maximum retry attempts if the pipeline run failed. |
+| `interval` | string | No | 30 | The Interval in seconds between each retry if the pipeline run failed. Defaults to '30'. |
 
 
 

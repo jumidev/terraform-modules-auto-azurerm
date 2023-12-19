@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Backend Address Pool"   
-   # loadbalancer_id → set in tfstate_inputs
+   # loadbalancer_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
 }
 
@@ -49,7 +49,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_interface_backend_address_pool_association.network_interface_id = "path/to/network_interface_component:id"   
 }
 
@@ -75,7 +75,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_interface_application_gateway_backend_address_pool_association.network_interface_id = "path/to/network_interface_component:id"   
 }
 

@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    api_name = "The name of the API within the API Management Service where the Operation exists..."   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    operation_id = "The operation identifier within an API"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

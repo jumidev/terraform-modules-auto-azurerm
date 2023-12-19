@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name of the Signalr Shared Private Link Resource..."   
-   # signalr_service_id → set in tfstate_inputs
+   # signalr_service_id → set in component_inputs
    sub_resource_name = "The sub resource name which the Signalr Private Endpoint can connect to..."   
-   # target_resource_id → set in tfstate_inputs
+   # target_resource_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    signalr_service_id = "path/to/signalr_service_component:id"   
    target_resource_id = "path/to/any_resource_component:id"   
 }

@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "The name which should be used for this Azure Relay Hybrid Connection Authorizati..."   
    hybrid_connection_name = "Name of the Azure Relay Hybrid Connection for which this Azure Relay Hybrid Conn..."   
-   # namespace_name → set in tfstate_inputs
+   # namespace_name → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    namespace_name = "path/to/eventhub_namespace_component:name"   
 }
 

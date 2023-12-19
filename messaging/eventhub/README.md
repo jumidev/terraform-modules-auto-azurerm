@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the EventHub resource"   
-   # namespace_name → set in tfstate_inputs
+   # namespace_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    partition_count = "Specifies the current number of shards on the Event Hub..."   
    message_retention = "Specifies the number of days to retain the events for this Event Hub..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    namespace_name = "path/to/eventhub_namespace_component:name"   
 }
 

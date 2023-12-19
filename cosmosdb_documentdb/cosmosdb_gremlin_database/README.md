@@ -55,7 +55,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    spring_cloud_app_cosmosdb_association.spring_cloud_app_id = "path/to/spring_cloud_app_component:id"   
    spring_cloud_app_cosmosdb_association.cosmosdb_account_id = "path/to/cosmosdb_account_component:id"   
 }

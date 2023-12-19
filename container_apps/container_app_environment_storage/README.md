@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    name = "The name for this Container App Environment Storage..."   
-   # container_app_environment_id → set in tfstate_inputs
+   # container_app_environment_id → set in component_inputs
    account_name = "The Azure Storage Account in which the Share to be used is located..."   
    access_key = "The Storage Account Access Key"   
    share_name = "The name of the Azure Storage Share to use"   
    access_mode = "The access mode to connect this storage to the Container App..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    container_app_environment_id = "path/to/container_app_environment_component:id"   
 }
 

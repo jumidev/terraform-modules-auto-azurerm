@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Shared Image"   
-   # gallery_name → set in tfstate_inputs
+   # gallery_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    identifier = {
@@ -24,7 +24,7 @@ inputs = {
    os_type = "The type of Operating System present in this Shared Image..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    gallery_name = "path/to/shared_image_gallery_component:name"   
 }
 
@@ -72,14 +72,6 @@ tfstate_store = {
 | **accelerated_network_support_enabled** | bool |  -  |  -  |  Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Shared Image. | 
 
-### `identifier` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `offer` | string | Yes | - | The Offer Name for this Shared Image. Changing this forces a new resource to be created. |
-| `publisher` | string | Yes | - | The Publisher Name for this Gallery Image. Changing this forces a new resource to be created. |
-| `sku` | string | Yes | - | The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created. |
-
 ### `purchase_plan` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,6 +79,14 @@ tfstate_store = {
 | `name` | string | Yes | - | The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created. |
 | `publisher` | string | No | - | The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created. |
 | `product` | string | No | - | The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. |
+
+### `identifier` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `offer` | string | Yes | - | The Offer Name for this Shared Image. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | The Publisher Name for this Gallery Image. Changing this forces a new resource to be created. |
+| `sku` | string | Yes | - | The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created. |
 
 
 

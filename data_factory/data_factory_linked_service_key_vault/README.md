@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Linked Service Key Vault..."   
-   # data_factory_id → set in tfstate_inputs
-   # key_vault_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
+   # key_vault_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
    key_vault_id = "path/to/key_vault_component:id"   
 }

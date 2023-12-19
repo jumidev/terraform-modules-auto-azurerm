@@ -14,12 +14,12 @@ inputs = {
    name = "The name of the elastic pool"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    edition = "The edition of the elastic pool to be created"   
    dtu = "The total shared DTU for the elastic pool"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/sql_server_component:name"   
 }
 

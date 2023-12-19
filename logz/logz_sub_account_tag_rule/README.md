@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   # logz_sub_account_id → set in tfstate_inputs
+   # logz_sub_account_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    logz_sub_account_id = "path/to/logz_sub_account_component:id"   
 }
 

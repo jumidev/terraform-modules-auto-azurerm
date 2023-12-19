@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # managed_disk_id → set in tfstate_inputs
+   # managed_disk_id → set in component_inputs
    duration_in_seconds = "The duration for which the export should be allowed..."   
    access_level = "The level of access required on the disk"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    managed_disk_id = "path/to/managed_disk_component:id"   
 }
 

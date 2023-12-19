@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Kubernetes Cluster Extension..."   
-   # cluster_id → set in tfstate_inputs
+   # cluster_id → set in component_inputs
    extension_type = "Specifies the type of extension"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    cluster_id = "path/to/kubernetes_cluster_component:id"   
 }
 

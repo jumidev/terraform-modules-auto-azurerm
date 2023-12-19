@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Front Door Route..."   
-   # cdn_frontdoor_endpoint_id → set in tfstate_inputs
-   # cdn_frontdoor_origin_group_id → set in tfstate_inputs
-   # cdn_frontdoor_origin_ids → set in tfstate_inputs
+   # cdn_frontdoor_endpoint_id → set in component_inputs
+   # cdn_frontdoor_origin_group_id → set in component_inputs
+   # cdn_frontdoor_origin_ids → set in component_inputs
    patterns_to_match = "The route patterns of the rule"   
    supported_protocols = "One or more Protocols supported by this Front Door Route..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id"   
    cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
    cdn_frontdoor_origin_ids = ["path/to/cdn_frontdoor_origin_component:id", "..."]   
@@ -42,7 +42,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_custom_domain_id = "path/to/cdn_frontdoor_custom_domain_component:id"
 }
 ```

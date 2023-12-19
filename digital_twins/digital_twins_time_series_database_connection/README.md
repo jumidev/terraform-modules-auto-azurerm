@@ -13,15 +13,15 @@ source = {
 inputs = {
    name = "The name which should be used for this Digital Twins Time Series Database Connec..."   
    digital_twins_id = "The ID of the Digital Twins"   
-   # eventhub_name → set in tfstate_inputs
+   # eventhub_name → set in component_inputs
    eventhub_namespace_endpoint_uri = "URI of the Event Hub Namespace"   
-   # eventhub_namespace_id → set in tfstate_inputs
-   # kusto_cluster_id → set in tfstate_inputs
+   # eventhub_namespace_id → set in component_inputs
+   # kusto_cluster_id → set in component_inputs
    kusto_cluster_uri = "URI of the Kusto Cluster"   
-   # kusto_database_name → set in tfstate_inputs
+   # kusto_database_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    eventhub_name = "path/to/eventhub_component:name"   
    eventhub_namespace_id = "path/to/eventhub_namespace_component:id"   
    kusto_cluster_id = "path/to/kusto_cluster_component:id"   

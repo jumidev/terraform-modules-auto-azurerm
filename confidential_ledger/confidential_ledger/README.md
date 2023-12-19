@@ -18,7 +18,7 @@ inputs = {
       this_azuread_based_service_principal = {
          ledger_role_name = "Possible values: Administrator | Contributor | Reader"         
          principal_id = "..."         
-         # tenant_id → set in tfstate_inputs
+         # tenant_id → set in component_inputs
       }
       
    }
@@ -26,7 +26,7 @@ inputs = {
    ledger_type = "Specifies the type of Confidential Ledger"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    azuread_based_service_principal.this_azuread_based_service_principal.tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 

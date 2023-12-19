@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Linked Service..."   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    type = "The type of data stores that will be connected to Data Factory..."   
    type_properties_json = "A JSON object that contains the properties of the Data Factory Linked Service..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "Specifies the name of the Healthcare FHIR Service"   
    resource_group_name = "${resource_group}"   
-   # workspace_id → set in tfstate_inputs
+   # workspace_id → set in component_inputs
    location = "${location}"   
    authentication = {
       authority = "..."      
@@ -22,7 +22,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
@@ -67,14 +67,6 @@ tfstate_store = {
 | `max_age_in_seconds` | number | No | - | The max age to be allowed via CORS. |
 | `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
 
-### `oci_artifact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
-| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
-| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +81,14 @@ tfstate_store = {
 | `authority` | string | Yes | - | The Azure Active Directory (tenant) that serves as the authentication authority to access the service. The default authority is the Directory defined in the authentication scheme in use when running Terraform. Authority must be registered to Azure AD and in the following format: <https://{Azure-AD-endpoint}/{tenant-id>}. |
 | `audience` | string | Yes | - | The intended audience to receive authentication tokens for the service. |
 | `smart_proxy_enabled` | bool | No | - | Whether smart proxy is enabled. |
+
+### `oci_artifact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
+| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
+| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
 
 
 

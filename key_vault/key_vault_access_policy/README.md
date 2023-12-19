@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # key_vault_id → set in tfstate_inputs
-   # tenant_id → set in tfstate_inputs
+   # key_vault_id → set in component_inputs
+   # tenant_id → set in component_inputs
    object_id = "The object ID of a user, service principal or security group in the Azure Active..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }

@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Sentinel Scheduled Alert Rule..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    display_name = "The friendly name of this Sentinel Scheduled Alert Rule..."   
    severity = "The alert severity of this Sentinel Scheduled Alert Rule..."   
    query = "The query of this Sentinel Scheduled Alert Rule"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 
@@ -87,6 +87,12 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the dynamic property. Possible Values are 'AlertLink', 'ConfidenceLevel', 'ConfidenceScore', 'ExtendedLinks', 'ProductComponentName', 'ProductName', 'ProviderName', 'RemediationSteps' and 'Techniques'. |
 | `value` | string | Yes | - | The value of the dynamic property. Pssible Values are 'Caller', 'dcount_ResourceId' and 'EventSubmissionTimestamp'. |
 
+### `event_grouping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
+
 ### `sentinel_entity_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -100,11 +106,12 @@ tfstate_store = {
 | `entity_type` | string | Yes | - | The type of the entity. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
 | `field_mapping` | [block](#field_mapping-block-structure) | Yes | - | A list of 'field_mapping' blocks. |
 
-### `event_grouping` block structure
+### `field_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `aggregation_method` | string | Yes | - | The aggregation type of grouping the events. Possible values are 'AlertPerResult' and 'SingleAlert'. |
+| `identifier` | string | Yes | - | The identifier of the entity. |
+| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 ### `grouping` block structure
 
@@ -117,13 +124,6 @@ tfstate_store = {
 | `group_by_entities` | string | No | - | A list of entity types to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'Account', 'AzureResource', 'CloudApplication', 'DNS', 'File', 'FileHash', 'Host', 'IP', 'Mailbox', 'MailCluster', 'MailMessage', 'Malware', 'Process', 'RegistryKey', 'RegistryValue', 'SecurityGroup', 'SubmissionMail', 'URL'. |
 | `group_by_alert_details` | string | No | - | A list of alert details to group by, only when the 'entity_matching_method' is 'Selected'. Possible values are 'DisplayName' and 'Severity'. |
 | `group_by_custom_details` | list | No | - | A list of custom details keys to group by, only when the 'entity_matching_method' is 'Selected'. Only keys defined in the 'custom_details' may be used. |
-
-### `field_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The identifier of the entity. |
-| `column_name` | string | Yes | - | The column name to be mapped to the identifier. |
 
 
 

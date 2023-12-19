@@ -19,11 +19,11 @@ inputs = {
    resource_group_name = "${resource_group}"   
    sku_name = "Specifies the SKU Name for the SQL Managed Instance..."   
    storage_size_in_gb = "Maximum storage space for the SQL Managed instance"   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
    vcores = "Number of cores that should be assigned to the SQL Managed Instance..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
 

@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the App Service Environment"   
-   # subnet_id → set in tfstate_inputs
+   # subnet_id → set in component_inputs
    resource_group_name = "subnet_id"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
 

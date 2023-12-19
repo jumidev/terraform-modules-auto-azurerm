@@ -15,10 +15,10 @@ inputs = {
    location = "${location}"   
    resource_group_name = "${resource_group}"   
    sku_name = "The Name of the SKU used for this Key Vault"   
-   # tenant_id → set in tfstate_inputs
+   # tenant_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 

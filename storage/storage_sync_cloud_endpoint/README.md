@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Storage Sync Cloud Endpoint..."   
-   # storage_sync_group_id → set in tfstate_inputs
+   # storage_sync_group_id → set in component_inputs
    file_share_name = "The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint..."   
-   # storage_account_id → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_sync_group_id = "path/to/storage_sync_group_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }

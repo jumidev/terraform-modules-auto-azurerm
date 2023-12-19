@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "Specifies the name which should be used for this Mobile Network Sim Groups..."   
    location = "${location}"   
-   # mobile_network_id → set in tfstate_inputs
+   # mobile_network_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    mobile_network_id = "path/to/mobile_network_component:id"   
 }
 

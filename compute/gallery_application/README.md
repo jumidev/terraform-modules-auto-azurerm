@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name of the Gallery Application"   
-   # gallery_id → set in tfstate_inputs
+   # gallery_id → set in component_inputs
    location = "${location}"   
    supported_os_type = "The type of the Operating System supported for the Gallery Application..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    gallery_id = "path/to/shared_image_gallery_component:id"   
 }
 

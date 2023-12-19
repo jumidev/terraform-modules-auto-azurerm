@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name of the function"   
-   # function_app_id → set in tfstate_inputs
+   # function_app_id → set in component_inputs
    config_json = "The config for this Function in JSON format"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    function_app_id = "path/to/function_app_component:id"   
 }
 

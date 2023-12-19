@@ -14,14 +14,14 @@ inputs = {
    name = "The name of the Disk Encryption Set"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # key_vault_key_id → set in tfstate_inputs
+   # key_vault_key_id → set in component_inputs
    identity = {
       type = "..."      
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 

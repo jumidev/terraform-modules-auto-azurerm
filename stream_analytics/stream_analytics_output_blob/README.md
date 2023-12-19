@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "The name of the Stream Output"   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
    date_format = "The date format"   
    path_pattern = "The blob path pattern"   
-   # storage_account_name → set in tfstate_inputs
-   # storage_container_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
+   # storage_container_name → set in component_inputs
    time_format = "The time format"   
    serialization = {
       type = "..."      
@@ -25,7 +25,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
    storage_account_name = "path/to/storage_account_component:name"   
    storage_container_name = "path/to/storage_container_component:name"   

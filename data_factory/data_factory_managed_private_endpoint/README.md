@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Managed Private Endpoint..."   
-   # data_factory_id → set in tfstate_inputs
-   # target_resource_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
+   # target_resource_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
    target_resource_id = "path/to/any_resource_component:id"   
 }

@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The Name which should be used for this Connection, which must be unique within t..."   
-   # virtual_hub_id → set in tfstate_inputs
+   # virtual_hub_id → set in component_inputs
    remote_virtual_network_id = "The ID of the Virtual Network which the Virtual Hub should be connected to..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
@@ -43,14 +43,6 @@ tfstate_store = {
 | **internet_security_enabled** | bool |  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 
-### `static_vnet_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name which should be used for this Static Route. |
-| `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
-| `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
-
 ### `propagated_route_table` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,6 +60,14 @@ tfstate_store = {
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
 | `static_vnet_local_route_override_criteria` | string | No | Contains | The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created. |
 | `static_vnet_route` | [block](#static_vnet_route-block-structure) | No | - | A 'static_vnet_route' block. |
+
+### `static_vnet_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name which should be used for this Static Route. |
+| `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
+| `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
 
 
 

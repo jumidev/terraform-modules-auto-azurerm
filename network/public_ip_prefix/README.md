@@ -33,7 +33,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    nat_gateway_id = "path/to/nat_gateway_component:id"
 }
 ```

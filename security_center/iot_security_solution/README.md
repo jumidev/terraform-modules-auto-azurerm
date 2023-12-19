@@ -15,10 +15,10 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    display_name = "Specifies the Display Name for this Iot Security Solution..."   
-   # iothub_ids → set in tfstate_inputs
+   # iothub_ids → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_ids = "path/to/iothub_component:id"   
 }
 
@@ -55,6 +55,13 @@ tfstate_store = {
 | **query_subscription_ids** | list |  -  |  -  |  A list of subscription Ids on which the user defined resources query should be executed. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `additional_workspace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `data_types` | string | Yes | - | A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'. |
+| `workspace_id` | string | Yes | - | The resource ID of the Log Analytics Workspace. |
+
 ### `recommendations_enabled` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,13 +82,6 @@ tfstate_store = {
 | `privileged_docker_options` | bool | No | True | Is high level permissions are needed for the module? Defaults to 'true'. |
 | `shared_credentials` | bool | No | True | Is any credentials shared among devices? Defaults to 'true'. |
 | `vulnerable_tls_cipher_suite` | bool | No | True | Does TLS cipher suite need to be updated? Defaults to 'true'. |
-
-### `additional_workspace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `data_types` | string | Yes | - | A list of data types which sent to workspace. Possible values are 'Alerts' and 'RawEvents'. |
-| `workspace_id` | string | Yes | - | The resource ID of the Log Analytics Workspace. |
 
 
 

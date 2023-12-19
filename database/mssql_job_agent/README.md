@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "The name which should be used for this Elastic Job Agent..."   
    location = "${location}"   
-   # database_id → set in tfstate_inputs
+   # database_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    database_id = "path/to/mssql_database_component:id"   
 }
 

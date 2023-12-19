@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    location = "${location}"   
-   # virtual_machine_id → set in tfstate_inputs
+   # virtual_machine_id → set in component_inputs
    timezone = "The time zone ID (e"   
    daily_recurrence_time = "The time each day when the schedule takes effect"   
    notification_settings = {
@@ -21,7 +21,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_id = "path/to/virtual_machine_component:id"   
 }
 

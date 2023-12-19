@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   # iothub_name → set in tfstate_inputs
+   # iothub_name → set in component_inputs
    enabled = "Used to specify whether the fallback route is enabled..."   
    endpoint_names = "The endpoints to which messages that satisfy the condition are routed..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_name = "path/to/iothub_component:name"   
 }
 

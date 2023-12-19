@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # cosmosdb_account_id → set in tfstate_inputs
+   # cosmosdb_account_id → set in component_inputs
    instance_size = "The instance size for the CosmosDB SQL Dedicated Gateway..."   
    instance_count = "The instance count for the CosmosDB SQL Dedicated Gateway..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    cosmosdb_account_id = "path/to/cosmosdb_account_component:id"   
 }
 

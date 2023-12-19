@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name of the virtual machine extension peering"   
-   # virtual_machine_id → set in tfstate_inputs
+   # virtual_machine_id → set in component_inputs
    publisher = "The publisher of the extension, available publishers can be found by using the A..."   
    type = "The type of extension, available types for a publisher can be found using the Az..."   
    type_handler_version = "Specifies the version of the extension to use, available versions can be found u..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_id = "path/to/virtual_machine_component:id"   
 }
 

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Network Rule Collection which must be unique within th..."   
-   # azure_firewall_name → set in tfstate_inputs
+   # azure_firewall_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
@@ -26,7 +26,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    azure_firewall_name = "path/to/firewall_component:name"   
 }
 

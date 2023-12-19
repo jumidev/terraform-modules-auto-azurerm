@@ -14,11 +14,11 @@ inputs = {
    name = "The name which should be used for this Backup Instance Blob Storage..."   
    location = "${location}"   
    vault_id = "The ID of the Backup Vault within which the Backup Instance Blob Storage should ..."   
-   # storage_account_id → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
    backup_policy_id = "The ID of the Backup Policy"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # network_manager_id → set in tfstate_inputs
+   # network_manager_id → set in component_inputs
    location = "${location}"   
    scope_access = "Specifies the configuration deployment type"   
    configuration_ids = "A list of Network Manager Configuration IDs which should be aligned with `scope_..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_manager_id = "path/to/network_manager_component:id"   
 }
 

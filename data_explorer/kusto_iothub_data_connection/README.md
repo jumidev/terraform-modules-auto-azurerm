@@ -16,12 +16,12 @@ inputs = {
    resource_group_name = "${resource_group}"   
    cluster_name = "Specifies the name of the Kusto Cluster this data connection will be added to..."   
    database_name = "Specifies the name of the Kusto Database this data connection will be added to..."   
-   # iothub_id → set in tfstate_inputs
+   # iothub_id → set in component_inputs
    consumer_group = "Specifies the IotHub consumer group this data connection will use for ingestion..."   
    shared_access_policy_name = "Specifies the IotHub Shared Access Policy this data connection will use for inge..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_id = "path/to/iothub_component:id"   
 }
 

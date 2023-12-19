@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Dns Forwar..."   
    resource_group_name = "${resource_group}"   
-   # private_dns_resolver_outbound_endpoint_ids → set in tfstate_inputs
+   # private_dns_resolver_outbound_endpoint_ids → set in component_inputs
    location = "${location}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    private_dns_resolver_outbound_endpoint_ids = "path/to/private_dns_resolver_outbound_endpoint_component:id"   
 }
 

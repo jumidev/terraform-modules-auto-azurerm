@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    authorization_methods = "The HTTP Verbs supported by the Authorization Endpoint..."   
    authorization_endpoint = "The OAUTH Authorization Endpoint"   
    client_id = "The Client/App ID registered with this Authorization Server..."   
@@ -22,7 +22,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

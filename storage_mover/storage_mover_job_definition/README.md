@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Storage Mover Job Definition..."   
-   # storage_mover_project_id → set in tfstate_inputs
+   # storage_mover_project_id → set in component_inputs
    source_name = "Specifies the name of the Storage Mover Source Endpoint..."   
    target_name = "Specifies the name of the Storage Mover target Endpoint..."   
    copy_mode = "Specifies the strategy to use for copy"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_mover_project_id = "path/to/storage_mover_project_component:id"   
 }
 

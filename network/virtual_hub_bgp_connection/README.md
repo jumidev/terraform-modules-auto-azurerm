@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Virtual Hub Bgp Connection..."   
-   # virtual_hub_id → set in tfstate_inputs
+   # virtual_hub_id → set in component_inputs
    peer_asn = "The peer autonomous system number for the Virtual Hub Bgp Connection..."   
    peer_ip = "The peer IP address for the Virtual Hub Bgp Connection..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 

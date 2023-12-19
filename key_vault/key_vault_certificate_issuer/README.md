@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # key_vault_id → set in tfstate_inputs
+   # key_vault_id → set in component_inputs
    name = "The name which should be used for this Key Vault Certificate Issuer..."   
    provider_name = "The name of the third-party Certificate Issuer"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
 }
 

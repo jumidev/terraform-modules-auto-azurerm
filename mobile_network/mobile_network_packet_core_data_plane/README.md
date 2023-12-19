@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Mobile Network Packet Core Data..."   
-   # mobile_network_packet_core_control_plane_id → set in tfstate_inputs
+   # mobile_network_packet_core_control_plane_id → set in component_inputs
    location = "${location}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    mobile_network_packet_core_control_plane_id = "path/to/mobile_network_packet_core_control_plane_component:id"   
 }
 

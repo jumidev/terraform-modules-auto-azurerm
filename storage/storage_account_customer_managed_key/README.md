@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # storage_account_id → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
    key_name = "The name of Key Vault Key"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # virtual_machine_id → set in tfstate_inputs
-   # managed_disk_id → set in tfstate_inputs
+   # virtual_machine_id → set in component_inputs
+   # managed_disk_id → set in component_inputs
    lun = "3"   
    caching = "ReadOnly"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_id = "path/to/virtual_machine_component:id"   
    managed_disk_id = "path/to/managed_disk_component:id"   
 }

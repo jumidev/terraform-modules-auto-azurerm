@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Front Door Secret..."   
-   # cdn_frontdoor_profile_id → set in tfstate_inputs
+   # cdn_frontdoor_profile_id → set in component_inputs
    secret = {
       customer_certificate = "..."      
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
 }
 
@@ -39,18 +39,18 @@ tfstate_store = {
 | **cdn_frontdoor_profile_id** | string |  The Resource ID of the Front Door Profile. Changing this forces a new Front Door Secret to be created. | 
 | **secret** | [block](#secret-block-structure) |  A `secret` block. Changing this forces a new Front Door Secret to be created. | 
 
-### `secret` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `customer_certificate` | [block](#customer_certificate-block-structure) | Yes | - | A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created. |
-
 ### `customer_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_certificate_id` | string | Yes | - | The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created. |
 | `subject_alternative_names` | list | No | - | (Computed) One or more 'subject alternative names' contained within the key vault certificate. |
+
+### `secret` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `customer_certificate` | [block](#customer_certificate-block-structure) | Yes | - | A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created. |
 
 
 

@@ -13,14 +13,14 @@ source = {
 inputs = {
    name = "The name of the security rule"   
    resource_group_name = "${resource_group}"   
-   # network_security_group_name → set in tfstate_inputs
+   # network_security_group_name → set in component_inputs
    protocol = "Network protocol this rule applies to"   
    access = "Specifies whether network traffic is allowed or denied..."   
    priority = "Specifies the priority of the rule"   
    direction = "The direction specifies if rule will be evaluated on incoming or outgoing traffi..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_security_group_name = "path/to/network_security_group_component:name"   
 }
 

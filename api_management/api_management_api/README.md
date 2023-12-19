@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name of the API Management API"   
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    revision = "The Revision which used for this API"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 
@@ -63,12 +63,13 @@ tfstate_store = {
 | **version_description** | string |  -  |  -  |  The description of the API Version of the API Management API. | 
 | **source_api_id** | string |  -  |  -  |  The API id of the source API, which could be in format `azurerm_api_management_api.example.id` or in format `azurerm_api_management_api.example.id;rev=1` | 
 
-### `license` block structure
+### `import` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the license . |
-| `url` | string | No | - | Absolute URL of the license. |
+| `content_format` | string | Yes | - | The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'. |
+| `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
+| `wsdl_selector` | [block](#wsdl_selector-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
 
 ### `contact` block structure
 
@@ -92,6 +93,13 @@ tfstate_store = {
 | `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
 | `scope` | string | No | - | Operations scope. |
 
+### `license` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the license . |
+| `url` | string | No | - | Absolute URL of the license. |
+
 ### `openid_authentication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -105,14 +113,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `header` | string | Yes | - | The name of the HTTP Header which should be used for the Subscription Key. |
 | `query` | string | Yes | - | The name of the QueryString parameter which should be used for the Subscription Key. |
-
-### `import` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_format` | string | Yes | - | The format of the content from which the API Definition should be imported. Possible values are: 'openapi', 'openapi+json', 'openapi+json-link', 'openapi-link', 'swagger-json', 'swagger-link-json', 'wadl-link-json', 'wadl-xml', 'wsdl' and 'wsdl-link'. |
-| `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
-| `wsdl_selector` | [block](#wsdl_selector-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
 
 
 

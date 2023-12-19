@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of this Capacity Reservation"   
-   # capacity_reservation_group_id → set in tfstate_inputs
+   # capacity_reservation_group_id → set in component_inputs
    sku = {
       name = "..."      
       capacity = "..."      
@@ -20,7 +20,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    capacity_reservation_group_id = "path/to/capacity_reservation_group_component:id"   
 }
 

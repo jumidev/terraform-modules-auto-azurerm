@@ -64,6 +64,14 @@ tfstate_store = {
 | `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
 | `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
 
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,14 +80,6 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-
-### `override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `custom_rule` block structure
 

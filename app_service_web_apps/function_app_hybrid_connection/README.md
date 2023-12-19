@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # function_app_id → set in tfstate_inputs
+   # function_app_id → set in component_inputs
    relay_id = "The ID of the Relay Hybrid Connection to use"   
    hostname = "The hostname of the endpoint"   
    port = "The port to use for the endpoint"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    function_app_id = "path/to/function_app_component:id"   
 }
 

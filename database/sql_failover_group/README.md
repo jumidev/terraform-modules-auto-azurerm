@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "The name of the failover group"   
    resource_group_name = "${resource_group}"   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    partner_servers = {
       this_partner_servers = {
       }
@@ -26,7 +26,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/sql_server_component:name"   
 }
 
@@ -56,6 +56,12 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `readonly_endpoint_failover_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
+
 ### `partner_servers` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,12 +73,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | the failover mode. Possible values are 'Manual', 'Automatic' |
 | `grace_minutes` | number | No | - | Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted |
-
-### `readonly_endpoint_failover_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
 
 
 

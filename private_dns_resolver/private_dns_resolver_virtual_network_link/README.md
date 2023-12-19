@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Virtual Ne..."   
    dns_forwarding_ruleset_id = "Specifies the ID of the Private DNS Resolver DNS Forwarding Ruleset..."   
-   # virtual_network_id → set in tfstate_inputs
+   # virtual_network_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_network_id = "path/to/virtual_network_component:id"   
 }
 

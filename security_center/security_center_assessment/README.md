@@ -12,14 +12,14 @@ source = {
 
 inputs = {
    assessment_policy_id = "The ID of the security Assessment policy to apply to this resource..."   
-   # target_resource_id → set in tfstate_inputs
+   # target_resource_id → set in component_inputs
    status = {
       code = "..."      
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    target_resource_id = "path/to/any_resource_component:id"   
 }
 

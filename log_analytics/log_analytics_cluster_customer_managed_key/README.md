@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # key_vault_key_id → set in tfstate_inputs
-   # log_analytics_cluster_id → set in tfstate_inputs
+   # key_vault_key_id → set in component_inputs
+   # log_analytics_cluster_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    key_vault_key_id = "path/to/key_vault_key_component:id"   
    log_analytics_cluster_id = "path/to/log_analytics_cluster_component:id"   
 }

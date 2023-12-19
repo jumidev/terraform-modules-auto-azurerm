@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "Specifies the name of the Web PubSub Custom Domain"   
    domain_name = "Specifies the custom domain name of the Web PubSub Custom Domain..."   
-   # web_pubsub_id → set in tfstate_inputs
-   # web_pubsub_custom_certificate_id → set in tfstate_inputs
+   # web_pubsub_id → set in component_inputs
+   # web_pubsub_custom_certificate_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    web_pubsub_id = "path/to/web_pubsub_component:id"   
    web_pubsub_custom_certificate_id = "path/to/web_pubsub_custom_certificate_component:id"   
 }

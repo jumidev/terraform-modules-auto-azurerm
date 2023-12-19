@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # stream_analytics_job_id → set in tfstate_inputs
+   # stream_analytics_job_id → set in component_inputs
    start_mode = "The starting mode of the Stream Analytics Job"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_id = "path/to/stream_analytics_job_component:id"   
 }
 

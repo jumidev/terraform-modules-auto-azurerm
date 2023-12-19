@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Route Map"   
-   # virtual_hub_id → set in tfstate_inputs
+   # virtual_hub_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 
@@ -40,15 +40,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The unique name for the rule. |
-| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
-| `match_criterion` | [block](#match_criterion-block-structure) | No | - | A 'match_criterion' block. |
-| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
-
 ### `parameter` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,13 +47,6 @@ tfstate_store = {
 | `as_path` | list | No | - | A list of AS paths. |
 | `community` | list | No | - | A list of BGP communities. |
 | `route_prefix` | list | No | - | A list of route prefixes. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | [block](#parameter-block-structure) | Yes | - | A 'parameter' block. |
-| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
 ### `match_criterion` block structure
 
@@ -72,6 +56,22 @@ tfstate_store = {
 | `as_path` | list | No | - | A list of AS paths which this criterion matches. |
 | `community` | list | No | - | A list of BGP communities which this criterion matches. |
 | `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The unique name for the rule. |
+| `action` | [block](#action-block-structure) | No | - | An 'action' block. |
+| `match_criterion` | [block](#match_criterion-block-structure) | No | - | A 'match_criterion' block. |
+| `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameter` | [block](#parameter-block-structure) | Yes | - | A 'parameter' block. |
+| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
 
 
 

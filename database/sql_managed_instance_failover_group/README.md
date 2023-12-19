@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "The name which should be used for this SQL Instance Failover Group..."   
-   # managed_instance_name → set in tfstate_inputs
+   # managed_instance_name → set in component_inputs
    location = "${location}"   
    partner_managed_instance_id = "ID of the SQL Managed Instance which will be replicated to..."   
    read_write_endpoint_failover_policy = {
@@ -22,7 +22,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    managed_instance_name = "path/to/sql_server_component:name"   
 }
 

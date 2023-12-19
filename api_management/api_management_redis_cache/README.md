@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this API Management Redis Cache..."   
-   # api_management_id → set in tfstate_inputs
+   # api_management_id → set in component_inputs
    connection_string = "The connection string to the Cache for Redis"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_id = "path/to/api_management_component:id"   
 }
 

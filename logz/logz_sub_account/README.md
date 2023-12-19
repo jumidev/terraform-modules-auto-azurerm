@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "The name which should be used for this logz Sub Account..."   
-   # logz_monitor_id → set in tfstate_inputs
+   # logz_monitor_id → set in component_inputs
    user = {
       email = "..."      
       first_name = "..."      
@@ -22,7 +22,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    logz_monitor_id = "path/to/logz_monitor_component:id"   
 }
 

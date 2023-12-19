@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Automation Source Control..."   
-   # automation_account_id → set in tfstate_inputs
+   # automation_account_id → set in component_inputs
    folder_path = "The folder path of the source control"   
    repository_url = "The Repository URL of the source control"   
    security = {
@@ -23,7 +23,7 @@ inputs = {
    source_control_type = "The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_id = "path/to/automation_account_component:id"   
 }
 

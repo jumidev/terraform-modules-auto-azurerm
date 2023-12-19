@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # iothub_name → set in tfstate_inputs
+   # iothub_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    key = "The key of the enrichment"   
    value = "The value of the enrichment"   
    endpoint_names = "The list of endpoints which will be enriched"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    iothub_name = "path/to/iothub_component:name"   
 }
 

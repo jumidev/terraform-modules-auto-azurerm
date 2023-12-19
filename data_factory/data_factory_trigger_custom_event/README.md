@@ -12,8 +12,8 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Custom Event Trigger..."   
-   # data_factory_id → set in tfstate_inputs
-   # eventgrid_topic_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
+   # eventgrid_topic_id → set in component_inputs
    events = "List of events that will fire this trigger"   
    pipeline = {
       this_pipeline = {
@@ -23,7 +23,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
    eventgrid_topic_id = "path/to/eventgrid_topic_component:id"   
 }

@@ -13,13 +13,13 @@ source = {
 inputs = {
    name = "The name which should be used for this Stream Analytics Output..."   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
    api_key = "The API key for the Function"   
    function_app = "The name of the Function App"   
    function_name = "The name of the function in the Function App"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 

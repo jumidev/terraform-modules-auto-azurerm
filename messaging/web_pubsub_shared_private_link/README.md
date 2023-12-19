@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specify the name of the Web Pubsub Shared Private Link Resource..."   
-   # web_pubsub_id → set in tfstate_inputs
+   # web_pubsub_id → set in component_inputs
    subresource_name = "Specify the sub resource name which the Web Pubsub Private Endpoint is able to c..."   
-   # target_resource_id → set in tfstate_inputs
+   # target_resource_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    web_pubsub_id = "path/to/web_pubsub_component:id"   
    target_resource_id = "path/to/any_resource_component:id"   
 }

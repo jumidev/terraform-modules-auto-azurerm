@@ -21,12 +21,12 @@ inputs = {
       this_volume = {
          capacity_pool_id = "..."         
          protocols = "..."         
-         # proximity_placement_group_id → (optional) set in tfstate_inputs
+         # proximity_placement_group_id → (optional) set in component_inputs
          security_style = "Possible values: ntfs | unix"         
          service_level = "Possible values: Premium | Standard | Ultra"         
          snapshot_directory_visible = "..."         
          storage_quota_in_gb = "..."         
-         # subnet_id → set in tfstate_inputs
+         # subnet_id → set in component_inputs
          throughput_in_mibps = "..."         
          volume_path = "..."         
          volume_spec_name = "Possible values: data | log | shared | data-backup | log-backup"         
@@ -37,7 +37,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    volume.this_volume.proximity_placement_group_id = "path/to/proximity_placement_group_component:id"   
    volume.this_volume.subnet_id = "path/to/subnet_component:id"   
 }
@@ -62,15 +62,6 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost. | 
 | **volume** | [block](#volume-block-structure) |  One or more `volume` blocks. | 
 
-### `data_protection_replication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
-| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
-| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
-| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
-
 ### `export_policy_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +73,15 @@ tfstate_store = {
 | `rule_index` | number | Yes | - | The index number of the rule, must start at 1 and maximum 5. |
 | `unix_read_only` | string | No | false. | Is the file system on unix read only? Defaults to 'false. |
 | `unix_read_write` | bool | No | True | Is the file system on unix read and write? Defaults to 'true'. |
+
+### `data_protection_replication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `remote_volume_location` | string | Yes | - | Location of the primary volume. |
+| `remote_volume_resource_id` | string | Yes | - | Resource ID of the primary volume. |
+| `replication_frequency` | string | Yes | - | eplication frequency. Possible values are '10minutes', 'daily' and 'hourly'. |
+| `endpoint_type` | string | No | dst | The endpoint type. Possible values are 'dst' and 'src'. Defaults to 'dst'. |
 
 ### `data_protection_snapshot_policy` block structure
 

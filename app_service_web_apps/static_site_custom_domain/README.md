@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    domain_name = "The Domain Name which should be associated with this Static Site..."   
-   # static_site_id → set in tfstate_inputs
+   # static_site_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    static_site_id = "path/to/static_site_component:id"   
 }
 

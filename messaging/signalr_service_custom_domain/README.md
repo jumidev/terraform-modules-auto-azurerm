@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "Specifies the name of the SignalR Custom Domain"   
    domain_name = "Specifies the custom domain name of the SignalR Custom Domain..."   
-   # signalr_service_id → set in tfstate_inputs
+   # signalr_service_id → set in component_inputs
    signalr_custom_certificate_id = "Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    signalr_service_id = "path/to/signalr_service_component:id"   
 }
 

@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name for the Virtual Machine Scale Set Extension..."   
-   # virtual_machine_scale_set_id → set in tfstate_inputs
+   # virtual_machine_scale_set_id → set in component_inputs
    publisher = "Specifies the Publisher of the Extension"   
    type = "Specifies the Type of the Extension"   
    type_handler_version = "Specifies the version of the extension to use, available versions can be found u..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_scale_set_id = "path/to/virtual_machine_scale_set_component:id"   
 }
 

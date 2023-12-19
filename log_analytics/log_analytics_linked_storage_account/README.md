@@ -14,10 +14,10 @@ inputs = {
    data_source_type = "The data source type which should be used for this Log Analytics Linked Storage ..."   
    resource_group_name = "${resource_group}"   
    workspace_resource_id = "The resource ID of the Log Analytics Workspace"   
-   # storage_account_ids → set in tfstate_inputs
+   # storage_account_ids → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_ids = "path/to/storage_account_component:id"   
 }
 

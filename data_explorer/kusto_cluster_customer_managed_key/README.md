@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    cluster_id = "The ID of the Kusto Cluster"   
-   # key_vault_id → set in tfstate_inputs
+   # key_vault_id → set in component_inputs
    key_name = "The name of Key Vault Key"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
 }
 

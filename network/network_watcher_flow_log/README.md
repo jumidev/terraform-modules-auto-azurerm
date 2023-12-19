@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name of the Network Watcher Flow Log"   
-   # network_watcher_name → set in tfstate_inputs
+   # network_watcher_name → set in component_inputs
    resource_group_name = "${resource_group}"   
-   # network_security_group_id → set in tfstate_inputs
-   # storage_account_id → set in tfstate_inputs
+   # network_security_group_id → set in component_inputs
+   # storage_account_id → set in component_inputs
    enabled = "Should Network Flow Logging be Enabled?"   
    retention_policy = {
       enabled = "..."      
@@ -24,7 +24,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_watcher_name = "path/to/network_watcher_component:name"   
    network_security_group_id = "path/to/network_security_group_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   

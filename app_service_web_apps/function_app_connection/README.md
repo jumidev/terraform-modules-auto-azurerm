@@ -12,16 +12,16 @@ source = {
 
 inputs = {
    name = "The name of the service connection"   
-   # function_app_id → set in tfstate_inputs
-   # target_resource_id → set in tfstate_inputs
+   # function_app_id → set in component_inputs
+   # target_resource_id → set in component_inputs
    authentication = {
       type = "..."      
-      # subscription_id → (optional) set in tfstate_inputs
+      # subscription_id → (optional) set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    function_app_id = "path/to/function_app_component:id"   
    target_resource_id = "path/to/any_resource_component:id"   
    authentication.subscription_id = "path/to/subscription_component:subscription_id"   

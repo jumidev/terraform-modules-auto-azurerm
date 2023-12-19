@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    location = "${location}"   
-   # maintenance_configuration_id → set in tfstate_inputs
-   # dedicated_host_id → set in tfstate_inputs
+   # maintenance_configuration_id → set in component_inputs
+   # dedicated_host_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    maintenance_configuration_id = "path/to/maintenance_configuration_component:id"   
    dedicated_host_id = "path/to/dedicated_host_component:id"   
 }

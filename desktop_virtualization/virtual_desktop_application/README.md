@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name of the Virtual Desktop Application"   
-   # application_group_id → set in tfstate_inputs
+   # application_group_id → set in component_inputs
    path = "The file path location of the app on the Virtual Desktop OS..."   
    command_line_argument_policy = "Specifies whether this published application can be launched with command line a..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_group_id = "path/to/virtual_desktop_application_group_component:id"   
 }
 

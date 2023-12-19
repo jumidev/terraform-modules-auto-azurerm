@@ -45,6 +45,14 @@ tfstate_store = {
 | **properties** | string |  -  |  -  |  A mapping of properties to assign to the resource. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. The key could not contain upper case letter. | 
 
+### `install_patches` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `linux` | [block](#linux-block-structure) | No | - | A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch' |
+| `windows` | [block](#windows-block-structure) | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
+| `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
+
 ### `window` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,22 +63,6 @@ tfstate_store = {
 | `time_zone` | string | Yes | - | The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. |
 | `recur_every` | string | No | - | The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. |
 
-### `linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
-| `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
-| `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
-
-### `install_patches` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `linux` | [block](#linux-block-structure) | No | - | A 'linux' block. This property only applies when 'scope' is set to 'InGuestPatch' |
-| `windows` | [block](#windows-block-structure) | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
-| `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
-
 ### `windows` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +70,14 @@ tfstate_store = {
 | `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
 | `kb_numbers_to_exclude` | string | No | - | List of KB numbers to be excluded from patching. |
 | `kb_numbers_to_include` | string | No | - | List of KB numbers to be included for patching. |
+
+### `linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
+| `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
+| `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
 
 
 

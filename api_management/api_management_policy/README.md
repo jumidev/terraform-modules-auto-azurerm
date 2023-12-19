@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   # api_management_id → set in tfstate_inputs
+   # api_management_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_id = "path/to/api_management_component:id"   
 }
 

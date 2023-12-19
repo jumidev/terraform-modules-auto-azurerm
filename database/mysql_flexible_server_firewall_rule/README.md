@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the MySQL Firewall Rule"   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    start_ip_address = "Specifies the Start IP Address associated with this Firewall Rule..."   
    end_ip_address = "Specifies the End IP Address associated with this Firewall Rule..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/mysql_flexible_server_component:name"   
 }
 

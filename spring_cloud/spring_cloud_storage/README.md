@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Spring Cloud Storage..."   
-   # spring_cloud_service_id → set in tfstate_inputs
+   # spring_cloud_service_id → set in component_inputs
    storage_account_key = "The access key of the Azure Storage Account"   
-   # storage_account_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
    storage_account_name = "path/to/storage_account_component:name"   
 }

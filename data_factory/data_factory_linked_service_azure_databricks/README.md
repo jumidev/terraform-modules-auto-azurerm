@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    adb_domain = "The domain URL of the databricks instance"   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    name = "Specifies the name of the Data Factory Linked Service..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

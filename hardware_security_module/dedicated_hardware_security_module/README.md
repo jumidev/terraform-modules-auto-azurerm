@@ -16,13 +16,13 @@ inputs = {
    location = "${location}"   
    network_profile = {
       network_interface_private_ip_addresses = "..."      
-      # subnet_id → set in tfstate_inputs
+      # subnet_id → set in component_inputs
    }
    
    sku_name = "The SKU name of the dedicated hardware security module..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    network_profile.subnet_id = "path/to/subnet_component:id"   
 }
 

@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    name = "The name which should be used for this Automation Account Runbook Worker Group..."   
    resource_group_name = "${resource_group}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

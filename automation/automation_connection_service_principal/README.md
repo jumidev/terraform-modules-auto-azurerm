@@ -13,14 +13,14 @@ source = {
 inputs = {
    name = "Specifies the name of the Connection"   
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    application_id = "The (Client) ID of the Service Principal"   
    certificate_thumbprint = "The thumbprint of the Service Principal Certificate..."   
-   # subscription_id → set in tfstate_inputs
-   # tenant_id → set in tfstate_inputs
+   # subscription_id → set in component_inputs
+   # tenant_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
    subscription_id = "path/to/subscription_component:subscription_id"   
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   

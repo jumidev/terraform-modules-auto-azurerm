@@ -59,13 +59,12 @@ tfstate_store = {
 | **client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
 | **radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
-### `azure_active_directory_authentication` block structure
+### `radius` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `audience` | string | Yes | - | The Audience which should be used for authentication. |
-| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
-| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
+| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
+| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
 ### `client_revoked_certificate` block structure
 
@@ -73,6 +72,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
+
+### `azure_active_directory_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `audience` | string | Yes | - | The Audience which should be used for authentication. |
+| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
+| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
 
 ### `ipsec_policy` block structure
 
@@ -88,13 +95,6 @@ tfstate_store = {
 | `sa_data_size_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. |
 
 ### `client_root_certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | A name used to uniquely identify this certificate. |
-| `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
-
-### `radius` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

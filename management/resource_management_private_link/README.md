@@ -48,7 +48,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    resource_management_private_link_association.management_group_id = "path/to/management_group_component:id"   
 }
 

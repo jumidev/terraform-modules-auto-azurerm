@@ -15,10 +15,10 @@ inputs = {
    name = "The name of the HPC Cache Blob Target"   
    resource_group_name = "${resource_group}"   
    namespace_path = "The client-facing file path of the HPC Cache Blob Target..."   
-   # storage_container_id → set in tfstate_inputs
+   # storage_container_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_container_id = "path/to/storage_container_component:id"   
 }
 

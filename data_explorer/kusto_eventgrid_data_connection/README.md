@@ -16,12 +16,12 @@ inputs = {
    resource_group_name = "${resource_group}"   
    cluster_name = "Specifies the name of the Kusto Cluster this data connection will be added to..."   
    database_name = "Specifies the name of the Kusto Database this data connection will be added to..."   
-   # storage_account_id → set in tfstate_inputs
-   # eventhub_id → set in tfstate_inputs
-   # eventhub_consumer_group_name → set in tfstate_inputs
+   # storage_account_id → set in component_inputs
+   # eventhub_id → set in component_inputs
+   # eventhub_consumer_group_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
    eventhub_id = "path/to/eventhub_component:id"   
    eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name"   

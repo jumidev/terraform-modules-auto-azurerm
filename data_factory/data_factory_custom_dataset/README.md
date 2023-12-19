@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Data Factory Dataset"   
-   # data_factory_id → set in tfstate_inputs
+   # data_factory_id → set in component_inputs
    linked_service = {
       name = "..."      
    }
@@ -21,7 +21,7 @@ inputs = {
    type_properties_json = "A JSON object that contains the properties of the Data Factory Dataset..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    data_factory_id = "path/to/data_factory_component:id"   
 }
 

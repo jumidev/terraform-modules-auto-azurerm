@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # signalr_service_id → set in tfstate_inputs
+   # signalr_service_id → set in component_inputs
    default_action = "The default action to control the network access when no other rule matches..."   
    public_network = {
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    signalr_service_id = "path/to/signalr_service_component:id"   
 }
 

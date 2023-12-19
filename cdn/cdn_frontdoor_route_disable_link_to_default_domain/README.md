@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # cdn_frontdoor_route_id → set in tfstate_inputs
-   # cdn_frontdoor_custom_domain_ids → set in tfstate_inputs
+   # cdn_frontdoor_route_id → set in component_inputs
+   # cdn_frontdoor_custom_domain_ids → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    cdn_frontdoor_route_id = "path/to/cdn_frontdoor_route_component:id"   
    cdn_frontdoor_custom_domain_ids = "path/to/cdn_frontdoor_custom_domain_component:id"   
 }

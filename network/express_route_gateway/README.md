@@ -14,11 +14,11 @@ inputs = {
    name = "The name of the ExpressRoute gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # virtual_hub_id → set in tfstate_inputs
+   # virtual_hub_id → set in component_inputs
    scale_units = "The number of scale units with which to provision the ExpressRoute gateway..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
 

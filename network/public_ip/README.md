@@ -53,7 +53,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    dns_a_record.zone_name = "path/to/dns_zone_component:name"   
 }
 
@@ -66,7 +66,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    nat_gateway_id = "path/to/nat_gateway_component:id"
 }
 ```
@@ -97,7 +97,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    private_dns_a_record.zone_name = "path/to/private_dns_zone_component:name"   
 }
 

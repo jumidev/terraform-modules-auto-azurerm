@@ -30,6 +30,10 @@ variable "release_criteria" {
 #   message_count (number)          : The message count for the Logic App Integration Batch Configuration.
 #   recurrence (block)              : A 'recurrence' block.
 #
+# monthly block structure:
+#   weekday (string)       : (REQUIRED) The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
+#   week (string)          : (REQUIRED) The occurrence of the week within the month.
+#
 # recurrence block structure:
 #   frequency (string)        : (REQUIRED) The frequency of the schedule. Possible values are 'Day', 'Hour', 'Minute', 'Month', 'NotSpecified', 'Second', 'Week' and 'Year'.
 #   interval (number)         : (REQUIRED) The number of 'frequency's between runs.
@@ -44,10 +48,6 @@ variable "release_criteria" {
 #   month_days (number)     : A list of days of the month that the job should execute on.
 #   monthly (block)         : A 'monthly' block.
 #   week_days (string)      : A list of days of the week that the job should execute on. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#
-# monthly block structure:
-#   weekday (string)       : (REQUIRED) The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#   week (string)          : (REQUIRED) The occurrence of the week within the month.
 
 
 

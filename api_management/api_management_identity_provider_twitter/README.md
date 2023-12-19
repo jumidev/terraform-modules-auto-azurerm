@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # api_management_name → set in tfstate_inputs
+   # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    api_key = "App Consumer API key for Twitter"   
    api_secret_key = "App Consumer API secret key for Twitter"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
 }
 

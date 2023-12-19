@@ -13,11 +13,11 @@ source = {
 inputs = {
    name = "The name of the subnet"   
    resource_group_name = "${resource_group}"   
-   # virtual_network_name → set in tfstate_inputs
+   # virtual_network_name → set in component_inputs
    address_prefixes = "The address prefixes to use for the subnet"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_network_name = "path/to/virtual_network_component:name"   
 }
 
@@ -38,7 +38,7 @@ tfstate_store = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    nat_gateway_id = "path/to/nat_gateway_component:id"
 }
 ```
@@ -50,7 +50,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    network_security_group_id = "path/to/network_security_group_component:id"
 }
 ```
@@ -62,7 +62,7 @@ tfstate_inputs = {
 Example component snippet:
 
 ```hcl
-tfstate_inputs = {
+component_inputs = {
    route_table_id = "path/to/route_table_component:id"
 }
 ```
@@ -89,7 +89,7 @@ inputs = {
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    application_load_balancer_subnet_association.application_load_balancer_id = "path/to/application_load_balancer_component:id"   
 }
 

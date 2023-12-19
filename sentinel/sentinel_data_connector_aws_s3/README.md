@@ -12,13 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this AWS S3 Data Connector..."   
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    aws_role_arn = "The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connecto..."   
    destination_table = "The name of the Log Analytics table that will store the ingested data..."   
    sqs_urls = "Specifies a list of AWS SQS urls for the AWS S3 Data Connector..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

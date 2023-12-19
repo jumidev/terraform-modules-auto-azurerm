@@ -11,13 +11,13 @@ source = {
 }
 
 inputs = {
-   # api_management_name → set in tfstate_inputs
-   # api_management_product_id → set in tfstate_inputs
+   # api_management_name → set in component_inputs
+   # api_management_product_id → set in component_inputs
    resource_group_name = "${resource_group}"   
    name = "The name which should be used for this API Management Tag..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
    api_management_product_id = "path/to/api_management_product_component:id"   
 }

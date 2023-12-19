@@ -13,12 +13,12 @@ source = {
 inputs = {
    name = "The name of the firewall rule"   
    resource_group_name = "${resource_group}"   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    start_ip_address = "The starting IP address to allow through the firewall for this rule..."   
    end_ip_address = "The ending IP address to allow through the firewall for this rule..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/sql_server_component:name"   
 }
 

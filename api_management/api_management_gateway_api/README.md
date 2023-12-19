@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # gateway_id → set in tfstate_inputs
-   # api_id → set in tfstate_inputs
+   # gateway_id → set in component_inputs
+   # api_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    gateway_id = "path/to/api_management_gateway_component:id"   
    api_id = "path/to/api_management_component:id"   
 }

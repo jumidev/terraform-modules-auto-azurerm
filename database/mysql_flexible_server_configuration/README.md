@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the MySQL Flexible Server Configuration, which needs [to b..."   
-   # server_name → set in tfstate_inputs
+   # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the MySQL Flexible Server Configuration..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    server_name = "path/to/mysql_flexible_server_component:name"   
 }
 

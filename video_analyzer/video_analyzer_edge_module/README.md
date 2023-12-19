@@ -13,10 +13,10 @@ source = {
 inputs = {
    name = "Specifies the name of the Video Analyzer Edge Module..."   
    resource_group_name = "${resource_group}"   
-   # video_analyzer_name → set in tfstate_inputs
+   # video_analyzer_name → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    video_analyzer_name = "path/to/video_analyzer_component:name"   
 }
 

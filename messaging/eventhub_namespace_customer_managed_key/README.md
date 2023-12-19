@@ -11,11 +11,11 @@ source = {
 }
 
 inputs = {
-   # eventhub_namespace_id → set in tfstate_inputs
-   # key_vault_key_ids → set in tfstate_inputs
+   # eventhub_namespace_id → set in component_inputs
+   # key_vault_key_ids → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    eventhub_namespace_id = "path/to/eventhub_namespace_component:id"   
    key_vault_key_ids = "path/to/key_vault_key_component:id"   
 }

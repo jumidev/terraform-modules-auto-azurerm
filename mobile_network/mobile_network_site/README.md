@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Mobile Network Site..."   
-   # mobile_network_id → set in tfstate_inputs
+   # mobile_network_id → set in component_inputs
    location = "${location}"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    mobile_network_id = "path/to/mobile_network_component:id"   
 }
 

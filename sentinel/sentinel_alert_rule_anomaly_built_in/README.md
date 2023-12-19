@@ -11,12 +11,12 @@ source = {
 }
 
 inputs = {
-   # log_analytics_workspace_id → set in tfstate_inputs
+   # log_analytics_workspace_id → set in component_inputs
    enabled = "Should the Built-in Anomaly Alert Rule be enabled?"   
    mode = "mode of the Built-in Anomaly Alert Rule"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    log_analytics_workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
 

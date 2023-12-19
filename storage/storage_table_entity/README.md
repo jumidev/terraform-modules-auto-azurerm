@@ -11,14 +11,14 @@ source = {
 }
 
 inputs = {
-   # storage_account_name → set in tfstate_inputs
+   # storage_account_name → set in component_inputs
    table_name = "The name of the storage table in which to create the storage table entity..."   
    partition_key = "The key for the partition where the entity will be inserted/merged..."   
    row_key = "The key for the row where the entity will be inserted/merged..."   
    entity = "A map of key/value pairs that describe the entity to be inserted/merged in to th..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
 

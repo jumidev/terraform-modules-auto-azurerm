@@ -11,10 +11,10 @@ source = {
 }
 
 inputs = {
-   # virtual_machine_id → set in tfstate_inputs
+   # virtual_machine_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    virtual_machine_id = "path/to/virtual_machine_component:id"   
 }
 
@@ -52,13 +52,16 @@ tfstate_store = {
 | **wsfc_domain_credential** | [block](#wsfc_domain_credential-block-structure) |  -  |  -  |  A `wsfc_domain_credential` block | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `wsfc_domain_credential` block structure
+### `storage_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
-| `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
-| `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
+| `disk_type` | string | Yes | - | The type of disk configuration to apply to the SQL Server. Valid values include 'NEW', 'EXTEND', or 'ADD'. |
+| `storage_workload_type` | string | Yes | - | The type of storage workload. Valid values include 'GENERAL', 'OLTP', or 'DW'. |
+| `data_settings` | [block](#storage_settings-block-structure) | No | - | A 'storage_settings' block. |
+| `log_settings` | [block](#storage_settings-block-structure) | No | - | A 'storage_settings' block. |
+| `system_db_on_data_disk_enabled` | bool | No | False | Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'. |
+| `temp_db_settings` | [block](#temp_db_settings-block-structure) | No | - | An 'temp_db_settings' block. |
 
 ### `auto_patching` block structure
 
@@ -67,22 +70,6 @@ tfstate_store = {
 | `day_of_week` | string | Yes | - | The day of week to apply the patch on. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. |
 | `maintenance_window_starting_hour` | string | Yes | - | The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin. |
 | `maintenance_window_duration_in_minutes` | number | Yes | - | The size of the Maintenance Window in minutes. |
-
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
-| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
-| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
-
-### `storage_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_file_path` | string | Yes | - | The SQL Server default path |
-| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
 
 ### `sql_instance` block structure
 
@@ -104,16 +91,14 @@ tfstate_store = {
 | `run_immediately` | bool | No | False | Should Assessment be run immediately? Defaults to 'false'. |
 | `schedule` | [block](#schedule-block-structure) | No | - | An 'schedule' block. |
 
-### `storage_configuration` block structure
+### `key_vault_credential` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disk_type` | string | Yes | - | The type of disk configuration to apply to the SQL Server. Valid values include 'NEW', 'EXTEND', or 'ADD'. |
-| `storage_workload_type` | string | Yes | - | The type of storage workload. Valid values include 'GENERAL', 'OLTP', or 'DW'. |
-| `data_settings` | [block](#storage_settings-block-structure) | No | - | A 'storage_settings' block. |
-| `log_settings` | [block](#storage_settings-block-structure) | No | - | A 'storage_settings' block. |
-| `system_db_on_data_disk_enabled` | bool | No | False | Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are 'true' and 'false'. Defaults to 'false'. |
-| `temp_db_settings` | [block](#temp_db_settings-block-structure) | No | - | An 'temp_db_settings' block. |
+| `name` | string | Yes | - | The credential name. |
+| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
+| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
+| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
 
 ### `temp_db_settings` block structure
 
@@ -127,14 +112,29 @@ tfstate_store = {
 | `log_file_size_mb` | number | No | 256 | The SQL Server default file size - This value defaults to '256' |
 | `log_file_growth_mb` | number | No | 512 | The SQL Server default file size - This value defaults to '512' |
 
-### `key_vault_credential` block structure
+### `wsfc_domain_credential` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The credential name. |
-| `key_vault_url` | string | Yes | - | The Azure Key Vault url. Changing this forces a new resource to be created. |
-| `service_principal_name` | string | Yes | - | The service principal name to access key vault. Changing this forces a new resource to be created. |
-| `service_principal_secret` | string | Yes | - | The service principal name secret to access key vault. Changing this forces a new resource to be created. |
+| `cluster_bootstrap_account_password` | string | Yes | - | The account password used for creating cluster. |
+| `cluster_operator_account_password` | string | Yes | - | The account password used for operating cluster. |
+| `sql_service_account_password` | string | Yes | - | The account password under which SQL service will run on all participating SQL virtual machines in the cluster. |
+
+### `storage_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_file_path` | string | Yes | - | The SQL Server default path |
+| `luns` | list | Yes | - | A list of Logical Unit Numbers for the disks. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekly_interval` | string | No | - | How many weeks between assessment runs. Valid values are between '1' and '6'. |
+| `monthly_occurrence` | string | No | - | How many months between assessment runs. Valid values are between '1' and '5'. |
+| `day_of_week` | string | Yes | - | What day of the week the assessment will be run. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `start_time` | string | Yes | - | What time the assessment will be run. Must be in the format 'HH:mm'. |
 
 
 

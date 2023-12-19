@@ -12,10 +12,10 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Spring Cloud Gateway..."   
-   # spring_cloud_service_id → set in tfstate_inputs
+   # spring_cloud_service_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    spring_cloud_service_id = "path/to/spring_cloud_service_component:id"   
 }
 
@@ -50,13 +50,6 @@ tfstate_store = {
 | **sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 
-### `quota` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
-| `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
-
 ### `sso` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +58,13 @@ tfstate_store = {
 | `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
 | `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
 | `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
+
+### `quota` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cpu` | string | No | 1 | Specifies the required cpu of the Spring Cloud Deployment. Possible Values are '500m', '1', '2', '3' and '4'. Defaults to '1' if not specified. |
+| `memory` | string | No | 2Gi | Specifies the required memory size of the Spring Cloud Deployment. Possible Values are '512Mi', '1Gi', '2Gi', '3Gi', '4Gi', '5Gi', '6Gi', '7Gi', and '8Gi'. Defaults to '2Gi' if not specified. |
 
 ### `api_metadata` block structure
 

@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   # automation_account_name → set in tfstate_inputs
+   # automation_account_name → set in component_inputs
    name = "The name which should be used for this Automation Python3 Package..."   
    content_uri = "The URL of the python package"   
 }
 
-tfstate_inputs = {
+component_inputs = {
    automation_account_name = "path/to/automation_account_component:name"   
 }
 

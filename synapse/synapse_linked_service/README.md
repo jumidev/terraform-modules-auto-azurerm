@@ -12,12 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Synapse Linked Service..."   
-   # synapse_workspace_id → set in tfstate_inputs
+   # synapse_workspace_id → set in component_inputs
    type = "The type of data stores that will be connected to Synapse..."   
    type_properties_json = "A JSON object that contains the properties of the Synapse Linked Service..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
 

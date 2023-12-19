@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Firewall Policy Rule Collection Group..."   
-   # firewall_policy_id → set in tfstate_inputs
+   # firewall_policy_id → set in component_inputs
    priority = "The priority of the Firewall Policy Rule Collection Group..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    firewall_policy_id = "path/to/firewall_policy_component:id"   
 }
 
@@ -76,22 +76,12 @@ tfstate_store = {
 | `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
 | `rule` | [block](#network_rule-block-structure) | Yes | - | One or more 'network_rule' blocks. |
 
-### `application_rule` block structure
+### `protocols` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this rule. |
-| `description` | string | No | - | The description which should be used for this rule. |
-| `protocols` | [block](#protocols-block-structure) | No | - | One or more 'protocols' blocks. |
-| `http_headers` | [block](#http_headers-block-structure) | Yes | - | Specifies a list of HTTP/HTTPS headers to insert. One or more 'http_headers' blocks. |
-| `source_addresses` | string | No | - | Specifies a list of source IP addresses (including CIDR, IP range and '*'). |
-| `source_ip_groups` | string | No | - | Specifies a list of source IP groups. |
-| `destination_addresses` | string | No | - | Specifies a list of destination IP addresses (including CIDR, IP range and '*'). |
-| `destination_urls` | string | No | - | Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with 'destination_fqdns'. |
-| `destination_fqdns` | string | No | - | Specifies a list of destination FQDNs. Conflicts with 'destination_urls'. |
-| `destination_fqdn_tags` | map | No | - | Specifies a list of destination FQDN tags. |
-| `terminate_tls` | string | No | - | Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy. |
-| `web_categories` | string | No | - | Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy. |
+| `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
+| `port` | number | Yes | - | Port number of the protocol. Range is 0-64000. |
 
 ### `http_headers` block structure
 
@@ -124,12 +114,22 @@ tfstate_store = {
 | `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
 | `rule` | [block](#application_rule-block-structure) | Yes | - | One or more 'application_rule' blocks. |
 
-### `protocols` block structure
+### `application_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
-| `port` | number | Yes | - | Port number of the protocol. Range is 0-64000. |
+| `name` | string | Yes | - | The name which should be used for this rule. |
+| `description` | string | No | - | The description which should be used for this rule. |
+| `protocols` | [block](#protocols-block-structure) | No | - | One or more 'protocols' blocks. |
+| `http_headers` | [block](#http_headers-block-structure) | Yes | - | Specifies a list of HTTP/HTTPS headers to insert. One or more 'http_headers' blocks. |
+| `source_addresses` | string | No | - | Specifies a list of source IP addresses (including CIDR, IP range and '*'). |
+| `source_ip_groups` | string | No | - | Specifies a list of source IP groups. |
+| `destination_addresses` | string | No | - | Specifies a list of destination IP addresses (including CIDR, IP range and '*'). |
+| `destination_urls` | string | No | - | Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with 'destination_fqdns'. |
+| `destination_fqdns` | string | No | - | Specifies a list of destination FQDNs. Conflicts with 'destination_urls'. |
+| `destination_fqdn_tags` | map | No | - | Specifies a list of destination FQDN tags. |
+| `terminate_tls` | string | No | - | Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy. |
+| `web_categories` | string | No | - | Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy. |
 
 
 

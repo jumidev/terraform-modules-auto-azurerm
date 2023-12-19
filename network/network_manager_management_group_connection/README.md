@@ -12,11 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Manager Management Grou..."   
-   # management_group_id → set in tfstate_inputs
-   # network_manager_id → set in tfstate_inputs
+   # management_group_id → set in component_inputs
+   # network_manager_id → set in component_inputs
 }
 
-tfstate_inputs = {
+component_inputs = {
    management_group_id = "path/to/management_group_component:id"   
    network_manager_id = "path/to/network_manager_component:id"   
 }

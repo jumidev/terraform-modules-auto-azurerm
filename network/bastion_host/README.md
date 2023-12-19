@@ -16,13 +16,13 @@ inputs = {
    location = "${location}"   
    ip_configuration = {
       name = "..."      
-      # subnet_id → set in tfstate_inputs
-      # public_ip_address_id → set in tfstate_inputs
+      # subnet_id → set in component_inputs
+      # public_ip_address_id → set in component_inputs
    }
    
 }
 
-tfstate_inputs = {
+component_inputs = {
    ip_configuration.subnet_id = "path/to/subnet_component:id"   
    ip_configuration.public_ip_address_id = "path/to/public_ip_component:id"   
 }

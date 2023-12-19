@@ -13,7 +13,7 @@ source = {
 inputs = {
    name = "The name of the Reference Input MS SQL data"   
    resource_group_name = "${resource_group}"   
-   # stream_analytics_job_name → set in tfstate_inputs
+   # stream_analytics_job_name → set in component_inputs
    server = "The fully qualified domain name of the MS SQL server..."   
    database = "The MS SQL database name where the reference data exists..."   
    username = "The username to connect to the MS SQL database"   
@@ -22,7 +22,7 @@ inputs = {
    full_snapshot_query = "The query used to retrieve the reference data from the MS SQL database..."   
 }
 
-tfstate_inputs = {
+component_inputs = {
    stream_analytics_job_name = "path/to/stream_analytics_job_component:name"   
 }
 
