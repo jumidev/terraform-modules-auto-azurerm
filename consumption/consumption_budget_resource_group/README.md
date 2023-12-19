@@ -68,12 +68,13 @@ tfstate_store = {
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
 | `values` | string | Yes | - | Specifies a list of values for the tag. |
 
-### `filter` block structure
+### `dimension` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dimension` | [block](#dimension-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
-| `tag` | [block](#tag-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
+| `name` | string | Yes | - | The name of the column to use for the filter. The allowed values are 'ChargeType', 'Frequency', 'InvoiceId', 'Meter', 'MeterCategory', 'MeterSubCategory', 'PartNumber', 'PricingModel', 'Product', 'ProductOrderId', 'ProductOrderName', 'PublisherType', 'ReservationId', 'ReservationName', 'ResourceGroupName', 'ResourceGuid', 'ResourceId', 'ResourceLocation', 'ResourceType', 'ServiceFamily', 'ServiceName', 'SubscriptionID', 'SubscriptionName', 'UnitOfMeasure'. |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | string | Yes | - | Specifies a list of values for the column. |
 
 ### `notification` block structure
 
@@ -87,13 +88,12 @@ tfstate_store = {
 | `contact_roles` | string | No | - | Specifies a list of contact roles to send the budget notification to when the threshold is exceeded. |
 | `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
-### `dimension` block structure
+### `filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the column to use for the filter. The allowed values are 'ChargeType', 'Frequency', 'InvoiceId', 'Meter', 'MeterCategory', 'MeterSubCategory', 'PartNumber', 'PricingModel', 'Product', 'ProductOrderId', 'ProductOrderName', 'PublisherType', 'ReservationId', 'ReservationName', 'ResourceGroupName', 'ResourceGuid', 'ResourceId', 'ResourceLocation', 'ResourceType', 'ServiceFamily', 'ServiceName', 'SubscriptionID', 'SubscriptionName', 'UnitOfMeasure'. |
-| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
-| `values` | string | Yes | - | Specifies a list of values for the column. |
+| `dimension` | [block](#dimension-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
+| `tag` | [block](#tag-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
 
 
 

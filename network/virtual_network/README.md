@@ -24,6 +24,40 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `private_dns_zone_virtual_network_link` 
+
+If set, makes a **azurerm_private_dns_zone_virtual_network_link** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `private_dns_zone_name` | string | True | null |
+| `registration_enabled` | bool | False | false |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   private_dns_zone_virtual_network_link = {
+      name = "..."      
+      resource_group_name = "${resource_group}"      
+      registration_enabled = false      
+      tags = "..."      
+   }
+   
+}
+
+component_inputs = {
+   private_dns_zone_virtual_network_link.private_dns_zone_name = "path/to/private_dns_zone_component:name"   
+}
+
+```
+
 
 ## Required Variables
 
@@ -45,17 +79,17 @@ tfstate_store = {
 | **edge_zone** | string |  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
 | **flow_timeout_in_minutes** | string |  `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 
 
-### `ddos_protection_plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
-
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enforcement` | string | Yes | - | Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. |
+
+### `ddos_protection_plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
 
 
 

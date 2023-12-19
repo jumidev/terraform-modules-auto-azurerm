@@ -53,13 +53,6 @@ tfstate_store = {
 | **timeout** | string |  `P1D`  |  -  |  Maximum allowed script execution time specified in ISO 8601 format. Needs to be greater than 0 and smaller than 1 day. Defaults to `P1D`. Changing this forces a new Resource Deployment Script to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Resource Deployment Script. | 
 
-### `storage_account` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | Specifies the storage account access key. |
-| `name` | string | Yes | - | Specifies the storage account name. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +73,13 @@ tfstate_store = {
 | `name` | string | Yes | - | Specifies the name of the environment variable. |
 | `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
 | `value` | string | No | - | Specifies the value of the environment variable. |
+
+### `storage_account` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | Specifies the storage account access key. |
+| `name` | string | Yes | - | Specifies the storage account name. |
 
 
 

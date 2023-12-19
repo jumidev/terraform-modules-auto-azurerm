@@ -47,14 +47,7 @@ tfstate_store = {
 | **script_lines** | string |  The script lines for the Data Factory Flowlet Data Flow. | 
 | **transformation** | [block](#transformation-block-structure) |  One or more `transformation` blocks. | 
 
-### `rejected_linked_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Data Factory Linked Service with schema. |
-| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
-
-### `sink` block structure
+### `source` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -65,13 +58,6 @@ tfstate_store = {
 | `name` | string | Yes | - | The name for the Data Flow Source. |
 | `rejected_linked_service` | [block](#rejected_linked_service-block-structure) | No | - | A 'rejected_linked_service' block. |
 | `schema_linked_service` | [block](#schema_linked_service-block-structure) | No | - | A 'schema_linked_service' block. |
-
-### `schema_linked_service` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name for the Data Factory Linked Service with schema. |
-| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
 ### `transformation` block structure
 
@@ -90,6 +76,13 @@ tfstate_store = {
 | `name` | string | Yes | - | The name for the Data Factory Linked Service. |
 | `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
+### `schema_linked_service` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name for the Data Factory Linked Service with schema. |
+| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
+
 ### `dataset` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -97,7 +90,7 @@ tfstate_store = {
 | `name` | string | Yes | - | The name for the Data Factory Dataset. |
 | `parameters` | string | No | - | A map of parameters to associate with the Data Factory dataset. |
 
-### `source` block structure
+### `sink` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -108,6 +101,13 @@ tfstate_store = {
 | `name` | string | Yes | - | The name for the Data Flow Source. |
 | `rejected_linked_service` | [block](#rejected_linked_service-block-structure) | No | - | A 'rejected_linked_service' block. |
 | `schema_linked_service` | [block](#schema_linked_service-block-structure) | No | - | A 'schema_linked_service' block. |
+
+### `rejected_linked_service` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name for the Data Factory Linked Service with schema. |
+| `parameters` | string | No | - | A map of parameters to associate with the Data Factory Linked Service. |
 
 ### `flowlet` block structure
 

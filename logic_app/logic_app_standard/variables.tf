@@ -135,6 +135,10 @@ variable "site_config" {
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (string)                  : The 'headers' block for this specific 'ip_restriction' as defined below.
 #
+# cors block structure        :
+#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+#   support_credentials (string): Are credentials supported?
+#
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -143,10 +147,6 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (block)                   : The 'headers' block for this specific as a 'ip_restriction' block.
-#
-# cors block structure        :
-#   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
-#   support_credentials (string): Are credentials supported?
 
 
 variable "storage_account_share_name" {

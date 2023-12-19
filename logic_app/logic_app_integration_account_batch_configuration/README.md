@@ -52,13 +52,6 @@ tfstate_store = {
 | `message_count` | number | No | - | The message count for the Logic App Integration Batch Configuration. |
 | `recurrence` | [block](#recurrence-block-structure) | No | - | A 'recurrence' block. |
 
-### `monthly` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `weekday` | string | Yes | - | The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `week` | string | Yes | - | The occurrence of the week within the month. |
-
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +72,13 @@ tfstate_store = {
 | `schedule` | [block](#schedule-block-structure) | No | - | A 'schedule' block. |
 | `start_time` | string | No | - | The start time of the schedule, formatted as an RFC3339 string. |
 | `time_zone` | string | No | - | The timezone of the start/end time. |
+
+### `monthly` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `weekday` | string | Yes | - | The day of the occurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `week` | string | Yes | - | The occurrence of the week within the month. |
 
 
 

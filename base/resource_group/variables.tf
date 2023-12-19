@@ -23,3 +23,10 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "private_dns_zone_virtual_network_link" {
+  type    = map(any)
+  default = null
+}

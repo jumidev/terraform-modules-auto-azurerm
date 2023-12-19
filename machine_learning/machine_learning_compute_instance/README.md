@@ -52,12 +52,6 @@ tfstate_store = {
 | **node_public_ip_enabled** | bool |  `True`  |  -  |  Whether the compute instance will have a public ip. To set this to false a `subnet_resource_id` needs to be set. Defaults to `true`. Changing this forces a new Machine Learning Compute Cluster to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Machine Learning Compute Instance. Changing this forces a new Machine Learning Compute Instance to be created. | 
 
-### `ssh` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,6 +65,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `object_id` | string | No | - | User’s AAD Object Id. |
 | `tenant_id` | string | No | - | User’s AAD Tenant Id. |
+
+### `ssh` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `public_key` | string | Yes | - | Specifies the SSH rsa public key file as a string. Use 'ssh-keygen -t rsa -b 2048' to generate your SSH key pairs. |
 
 
 

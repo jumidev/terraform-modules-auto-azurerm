@@ -57,14 +57,6 @@ tfstate_store = {
 | **configuration_export_storage_account_name** | string |  -  |  -  |  Specifies the name of the storage account which the operation configuration information is exported to. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Healthcare FHIR Service. | 
 
-### `oci_artifact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
-| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
-| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
-
 ### `authentication` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +81,14 @@ tfstate_store = {
 | `allowed_methods` | string | Yes | - | The methods to be allowed via CORS. Possible values are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PATCH' and 'PUT'. |
 | `max_age_in_seconds` | number | No | - | The max age to be allowed via CORS. |
 | `credentials_allowed` | bool | No | - | If credentials are allowed via CORS. |
+
+### `oci_artifact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login_server` | string | Yes | - | An Azure container registry used for export operations of the service instance. |
+| `image_name` | string | No | - | An image within Azure container registry used for export operations of the service instance. |
+| `digest` | string | No | - | A digest of an image within Azure container registry used for export operations of the service instance to narrow the artifacts down. |
 
 
 

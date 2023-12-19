@@ -59,3 +59,7 @@ output "serial_number" {
   value       = azurerm_private_dns_zone.this.serial_number
 }
 
+output "private_dns_zone_virtual_network_link" {
+  value = var.private_dns_zone_virtual_network_link
+}
+

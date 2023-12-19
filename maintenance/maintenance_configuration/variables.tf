@@ -53,15 +53,15 @@ variable "install_patches" {
 #   windows (block)                : A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch'
 #   reboot (string)                : Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'.
 #
-# linux block structure                 :
-#   classifications_to_include (string)   : List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'.
-#   package_names_mask_to_exclude (string): List of package names to be excluded from patching.
-#   package_names_mask_to_include (string): List of package names to be included for patching.
-#
 # windows block structure            :
 #   classifications_to_include (string): List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'.
 #   kb_numbers_to_exclude (string)     : List of KB numbers to be excluded from patching.
 #   kb_numbers_to_include (string)     : List of KB numbers to be included for patching.
+#
+# linux block structure                 :
+#   classifications_to_include (string)   : List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'.
+#   package_names_mask_to_exclude (string): List of package names to be excluded from patching.
+#   package_names_mask_to_include (string): List of package names to be included for patching.
 
 
 variable "in_guest_user_patch_mode" {

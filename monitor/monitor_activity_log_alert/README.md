@@ -46,13 +46,6 @@ tfstate_store = {
 | **description** | string |  -  |  The description of this activity log alert. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html). |
-| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
-
 ### `criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +72,13 @@ tfstate_store = {
 | `recommendation_impact` | string | No | - | The recommendation impact of the event. Possible values are 'High', 'Medium' and 'Low'. It is only allowed when 'category' is 'Recommendation'. |
 | `resource_health` | string | No | - | A block to define fine grain resource health settings. |
 | `service_health` | string | No | - | A block to define fine grain service health settings. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html). |
+| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
 
 

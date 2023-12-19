@@ -19,3 +19,7 @@ output "id" {
   value       = azurerm_resource_group.this.id
 }
 
+output "private_dns_zone_virtual_network_link" {
+  value = var.private_dns_zone_virtual_network_link
+}
+

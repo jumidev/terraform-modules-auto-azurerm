@@ -59,6 +59,13 @@ tfstate_store = {
 | **storage** | [block](#storage-block-structure) |  -  |  A `storage` block. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
+| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
+
 ### `virtual_network_rules` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,13 +86,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key which should be used to Encrypt the data in this Cognitive Account. |
 | `identity_client_id` | string | No | - | The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there're multiple identities attached to the Cognitive Account. |
-
-### `storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_id` | string | Yes | - | Full resource id of a Microsoft.Storage resource. |
-| `identity_client_id` | string | No | - | The client ID of the managed identity associated with the storage resource. |
 
 ### `network_acls` block structure
 

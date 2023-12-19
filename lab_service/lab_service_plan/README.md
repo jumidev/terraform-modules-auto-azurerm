@@ -45,14 +45,14 @@ tfstate_store = {
 | **support** | [block](#support-block-structure) |  A `support` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Lab Service Plan. | 
 
-### `default_auto_shutdown` block structure
+### `support` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
-| `shutdown_on_idle` | string | No | - | Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'. |
+| `email` | string | No | - | The email address for the support contact. |
+| `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
+| `phone` | string | No | - | The phone number for the support contact. |
+| `url` | string | No | - | The web address for users of the Lab Service Plan. |
 
 ### `default_connection` block structure
 
@@ -63,14 +63,14 @@ tfstate_store = {
 | `web_rdp_access` | string | No | - | The enabled access level for Web Access over RDP. Possible values are 'Private' and 'Public'. |
 | `web_ssh_access` | string | No | - | The enabled access level for Web Access over SSH. Possible values are 'Private' and 'Public'. |
 
-### `support` block structure
+### `default_auto_shutdown` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address for the support contact. |
-| `instructions` | string | No | - | The instructions for users of the Lab Service Plan. |
-| `phone` | string | No | - | The phone number for the support contact. |
-| `url` | string | No | - | The web address for users of the Lab Service Plan. |
+| `disconnect_delay` | string | No | - | The amount of time a VM will stay running after a user disconnects if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `idle_delay` | string | No | - | The amount of time a VM will idle before it is shutdown if this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `no_connect_delay` | string | No | - | The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled. This value must be formatted as an ISO 8601 string. |
+| `shutdown_on_idle` | string | No | - | Will a VM get shutdown when it has idled for a period of time? Possible values are 'LowUsage' and 'UserAbsence'. |
 
 
 

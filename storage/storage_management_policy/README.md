@@ -38,6 +38,24 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
+### `snapshot` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `change_tier_to_archive_after_days_since_creation` | number | No | -1 | The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to '-1'. |
+| `tier_to_archive_after_days_since_last_tier_change_greater_than` | number | No | -1 | The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to '-1'. |
+| `change_tier_to_cool_after_days_since_creation` | number | No | -1 | The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to '-1'. |
+| `tier_to_cold_after_days_since_creation_greater_than` | number | No | -1 | The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between '0' and '99999'. Defaults to '-1'. |
+| `delete_after_days_since_creation_greater_than` | number | No | -1 | The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to '-1'. |
+
+### `actions` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `base_blob` | [block](#base_blob-block-structure) | No | - | A 'base_blob' block. |
+| `snapshot` | [block](#snapshot-block-structure) | No | - | A 'snapshot' block. |
+| `version` | [block](#version-block-structure) | No | - | A 'version' block. |
+
 ### `version` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,22 +74,13 @@ tfstate_store = {
 | `prefix_match` | string | No | - | An array of strings for prefixes to be matched. |
 | `match_blob_index_tag` | [block](#match_blob_index_tag-block-structure) | No | - | A 'match_blob_index_tag' block. The block defines the blob index tag based filtering for blob objects. |
 
-### `rule` block structure
+### `match_blob_index_tag` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the rule. Rule name is case-sensitive. It must be unique within a policy. |
-| `enabled` | bool | Yes | - | Boolean to specify whether the rule is enabled. |
-| `filters` | [block](#filters-block-structure) | Yes | - | A 'filters' block. |
-| `actions` | [block](#actions-block-structure) | Yes | - | An 'actions' block. |
-
-### `actions` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `base_blob` | [block](#base_blob-block-structure) | No | - | A 'base_blob' block. |
-| `snapshot` | [block](#snapshot-block-structure) | No | - | A 'snapshot' block. |
-| `version` | [block](#version-block-structure) | No | - | A 'version' block. |
+| `name` | string | Yes | - | The filter tag name used for tag based filtering for blob objects. |
+| `operation` | string | No | == | The comparison operator which is used for object comparison and filtering. Possible value is '=='. Defaults to '=='. |
+| `value` | string | Yes | - | The filter tag value used for tag based filtering for blob objects. |
 
 ### `base_blob` block structure
 
@@ -92,23 +101,14 @@ tfstate_store = {
 | `delete_after_days_since_last_access_time_greater_than` | number | No | -1 | The age in days after last access time to delete the blob. Must be between '0' and '99999'. Defaults to '-1'. |
 | `delete_after_days_since_creation_greater_than` | number | No | -1 | The age in days after creation to delete the blob. Must be between '0' and '99999'. Defaults to '-1'. |
 
-### `snapshot` block structure
+### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `change_tier_to_archive_after_days_since_creation` | number | No | -1 | The age in days after creation to tier blob snapshot to archive storage. Must be between 0 and 99999. Defaults to '-1'. |
-| `tier_to_archive_after_days_since_last_tier_change_greater_than` | number | No | -1 | The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to '-1'. |
-| `change_tier_to_cool_after_days_since_creation` | number | No | -1 | The age in days after creation to tier blob snapshot to cool storage. Must be between 0 and 99999. Defaults to '-1'. |
-| `tier_to_cold_after_days_since_creation_greater_than` | number | No | -1 | The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between '0' and '99999'. Defaults to '-1'. |
-| `delete_after_days_since_creation_greater_than` | number | No | -1 | The age in days after creation to delete the blob snapshot. Must be between 0 and 99999. Defaults to '-1'. |
-
-### `match_blob_index_tag` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The filter tag name used for tag based filtering for blob objects. |
-| `operation` | string | No | == | The comparison operator which is used for object comparison and filtering. Possible value is '=='. Defaults to '=='. |
-| `value` | string | Yes | - | The filter tag value used for tag based filtering for blob objects. |
+| `name` | string | Yes | - | The name of the rule. Rule name is case-sensitive. It must be unique within a policy. |
+| `enabled` | bool | Yes | - | Boolean to specify whether the rule is enabled. |
+| `filters` | [block](#filters-block-structure) | Yes | - | A 'filters' block. |
+| `actions` | [block](#actions-block-structure) | Yes | - | An 'actions' block. |
 
 
 

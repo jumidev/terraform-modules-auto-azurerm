@@ -63,3 +63,10 @@ variable "flow_timeout_in_minutes" {
   type        = string
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "private_dns_zone_virtual_network_link" {
+  type    = map(any)
+  default = null
+}

@@ -43,15 +43,19 @@ variable "template" {
 #   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
 #   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 #
-# tcp_scale_rule block structure:
-#   name (string)                 : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)        : Zero or more 'authentication' blocks.
-#
 # volume block structure:
 #   name (string)         : (REQUIRED) The name of the volume.
 #   storage_name (string) : The name of the 'AzureFile' storage.
 #   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
+#
+# http_scale_rule block structure:
+#   name (string)                  : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)   : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)         : Zero or more 'authentication' blocks.
+#
+# authentication block structure:
+#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
+#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
 #
 # custom_scale_rule block structure:
 #   name (string)                    : (REQUIRED) The name of the Scaling Rule
@@ -59,14 +63,10 @@ variable "template" {
 #   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
 #   authentication (block)           : Zero or more 'authentication' blocks.
 #
-# authentication block structure:
-#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
-#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
-#
-# http_scale_rule block structure:
-#   name (string)                  : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (number)   : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)         : Zero or more 'authentication' blocks.
+# tcp_scale_rule block structure:
+#   name (string)                 : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)        : Zero or more 'authentication' blocks.
 
 
 

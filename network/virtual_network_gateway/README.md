@@ -60,12 +60,6 @@ tfstate_store = {
 | **vpn_client_configuration** | string |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
 | **vpn_type** | string |  `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
 
-### `custom_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
-
 ### `policy_member` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,6 +67,12 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group Member. |
 | `type` | string | Yes | - | The VPN Policy Member attribute type. Possible values are 'AADGroupId', 'CertificateGroupId' and 'RadiusAzureGroupId'. |
 | `value` | string | Yes | - | The value of attribute that is used for this Virtual Network Gateway Policy Group Member. |
+
+### `custom_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 ### `policy_group` block structure
 

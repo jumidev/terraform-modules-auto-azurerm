@@ -73,3 +73,7 @@ output "subnet" {
   value       = azurerm_virtual_network.this.subnet
 }
 
+output "private_dns_zone_virtual_network_link" {
+  value = var.private_dns_zone_virtual_network_link
+}
+

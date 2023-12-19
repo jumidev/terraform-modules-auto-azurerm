@@ -22,6 +22,40 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `private_dns_zone_virtual_network_link` 
+
+If set, makes a **azurerm_private_dns_zone_virtual_network_link** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `name` | string | True | null |
+| `virtual_network_id` | string | True | null |
+| `registration_enabled` | bool | False | false |
+| `tags` | map | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   private_dns_zone_virtual_network_link = {
+      name = "..."      
+      resource_group_name = "${resource_group}"      
+      registration_enabled = false      
+      tags = "..."      
+   }
+   
+}
+
+component_inputs = {
+   private_dns_zone_virtual_network_link.virtual_network_id = "path/to/virtual_network_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

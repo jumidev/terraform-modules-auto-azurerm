@@ -50,6 +50,16 @@ tfstate_store = {
 | **sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 
+### `api_metadata` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
+| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
+| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
+| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
+| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
+
 ### `sso` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,16 +82,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
 | `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
-
-### `api_metadata` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `description` | string | No | - | Detailed description of the APIs available on the Gateway instance. |
-| `documentation_url` | string | No | - | Location of additional documentation for the APIs available on the Gateway instance. |
-| `server_url` | string | No | - | Base URL that API consumers will use to access APIs on the Gateway instance. |
-| `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
-| `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
 
 ### `cors` block structure
 

@@ -53,14 +53,14 @@ tfstate_store = {
 | **zones** | string |  -  |  Specifies a list of Availability Zones in which this Dedicated Hardware Security Module should be located. Changing this forces a new Dedicated Hardware Security Module to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Dedicated Hardware Security Module. | 
 
-### `network_profile` block structure
+### `management_network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `network_interface_private_ip_addresses` | string | Yes | - | The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created. |
 | `subnet_id` | string | Yes | - | The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created. |
 
-### `management_network_profile` block structure
+### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

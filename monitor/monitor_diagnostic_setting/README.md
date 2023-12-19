@@ -56,15 +56,6 @@ tfstate_store = {
 | `category_group` | string | No | - | The name of a Diagnostic Log Category Group for this Resource. |
 | `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
 
-### `log` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `category` | string | No | - | The name of a Diagnostic Log Category for this Resource. |
-| `category_group` | string | No | - | The name of a Diagnostic Log Category Group for this Resource. |
-| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
-| `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
-
 ### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +70,15 @@ tfstate_store = {
 | `category` | string | Yes | - | The name of a Diagnostic Metric Category for this Resource. |
 | `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
 | `enabled` | bool | No | True | Is this Diagnostic Metric enabled? Defaults to 'true'. |
+
+### `log` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `category` | string | No | - | The name of a Diagnostic Log Category for this Resource. |
+| `category_group` | string | No | - | The name of a Diagnostic Log Category Group for this Resource. |
+| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
+| `enabled` | bool | No | True | Is this Diagnostic Log enabled? Defaults to 'true'. |
 
 
 

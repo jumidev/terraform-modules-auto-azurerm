@@ -37,3 +37,16 @@ resource "azurerm_virtual_network" "this" {
   edge_zone               = var.edge_zone
   flow_timeout_in_minutes = var.flow_timeout_in_minutes
 }
+
+##############################################################################################
+# optional azurerm_private_dns_zone_virtual_network_link 
+##############################################################################################
+resource "azurerm_private_dns_zone_virtual_network_link" "this" {
+  count                 = var.private_dns_zone_virtual_network_link != null ? 1 : 0
+  name                  = lookup(var.private_dns_zone_virtual_network_link, "name")
+  private_dns_zone_name = lookup(var.private_dns_zone_virtual_network_link, "private_dns_zone_name")
+  resource_group_name   = azurerm_resource_group.this.name
+  virtual_network_id    = azurerm_virtual_network.this.id
+  registration_enabled  = lookup(var.private_dns_zone_virtual_network_link, "registration_enabled", false)
+  tags                  = lookup(var.private_dns_zone_virtual_network_link, "tags", null)
+}

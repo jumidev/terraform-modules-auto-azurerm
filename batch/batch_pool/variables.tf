@@ -156,9 +156,9 @@ variable "start_task" {
 #   user_identity (block)                 : (REQUIRED) A 'user_identity' block that describes the user identity under which the start task runs as defined below.
 #   resource_file (list)                  : One or more 'resource_file' blocks that describe the files to be downloaded to a compute node as defined below.
 #
-# user_identity block structure:
-#   user_name (string)           : The username to be used by the Batch pool start task.
-#   auto_user (block)            : A 'auto_user' block that describes the user identity under which the start task runs as defined below.
+# auto_user block structure:
+#   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
+#   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
 #
 # container block structure :
 #   image_name (string)       : (REQUIRED) The image to use to create the container in which the task will run. This is the full image reference, as would be specified to 'docker pull'. If no tag is provided as part of the image name, the tag ':latest' is used as a default.
@@ -166,9 +166,9 @@ variable "start_task" {
 #   registry (string)         : The 'container_registries' block defined as below.
 #   working_directory (string): A flag to indicate where the container task working directory is. Possible values are 'TaskWorkingDirectory' and 'ContainerImageDefault'.
 #
-# auto_user block structure:
-#   elevation_level (string) : The elevation level of the user identity under which the start task runs. Possible values are 'Admin' or 'NonAdmin'. Defaults to 'NonAdmin'.
-#   scope (string)           : The scope of the user identity under which the start task runs. Possible values are 'Task' or 'Pool'. Defaults to 'Task'.
+# user_identity block structure:
+#   user_name (string)           : The username to be used by the Batch pool start task.
+#   auto_user (block)            : A 'auto_user' block that describes the user identity under which the start task runs as defined below.
 
 
 variable "certificate" {
@@ -205,13 +205,6 @@ variable "mount" {
 #   cifs_mount (block)            : A 'cifs_mount' block defined as below.
 #   nfs_mount (block)             : A 'nfs_mount' block defined as below.
 #
-# cifs_mount block structure  :
-#   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
-#   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
-#   source (string)             : (REQUIRED) The URI of the file system to mount.
-#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
-#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
-#
 # azure_blob_file_system block structure:
 #   account_name (string)                 : (REQUIRED) The Azure Storage Account name.
 #   container_name (string)               : (REQUIRED) The Azure Blob Storage Container name.
@@ -220,6 +213,13 @@ variable "mount" {
 #   sas_key (string)                      : The Azure Storage SAS token. This property is mutually exclusive with both 'account_key' and 'identity_id'; exactly one must be specified.
 #   identity_id (string)                  : The ARM resource id of the user assigned identity. This property is mutually exclusive with both 'account_key' and 'sas_key'; exactly one must be specified.
 #   blobfuse_options (string)             : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
+#
+# cifs_mount block structure  :
+#   user_name (string)          : (REQUIRED) The user to use for authentication against the CIFS file system.
+#   password (string)           : (REQUIRED) The password to use for authentication against the CIFS file system.
+#   source (string)             : (REQUIRED) The URI of the file system to mount.
+#   relative_mount_path (string): (REQUIRED) The relative path on compute node where the file system will be mounted All file systems are mounted relative to the Batch mounts directory, accessible via the 'AZ_BATCH_NODE_MOUNTS_DIR' environment variable.
+#   mount_options (string)      : Additional command line options to pass to the mount command. These are 'net use' options in Windows and 'mount' options in Linux.
 #
 # nfs_mount block structure   :
 #   source (string)             : (REQUIRED) The URI of the file system to mount.
