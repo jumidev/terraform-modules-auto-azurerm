@@ -71,6 +71,13 @@ variable "indexing_policy" {
 #   composite_index (block)        : One or more 'composite_index' blocks.
 #   spatial_index (block)          : One or more 'spatial_index' blocks.
 #
+# index block structure:
+#   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
+#   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
+#
+# excluded_path block structure:
+#   path (string)                : (REQUIRED) Path that is excluded from indexing.
+#
 # included_path block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
 #
@@ -79,13 +86,6 @@ variable "indexing_policy" {
 #
 # spatial_index block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
-#
-# excluded_path block structure:
-#   path (string)                : (REQUIRED) Path that is excluded from indexing.
-#
-# index block structure:
-#   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
-#   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
 
 
 variable "default_ttl" {

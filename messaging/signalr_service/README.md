@@ -58,20 +58,6 @@ tfstate_store = {
 | **live_trace** | [block](#live_trace-block-structure) |  -  |  -  |  A `live_trace` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR. |
-
-### `sku` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies which tier to use. Valid values are 'Free_F1', 'Standard_S1' and 'Premium_P1'. |
-| `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
-
 ### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -96,6 +82,20 @@ tfstate_store = {
 | `messaging_logs_enabled` | bool | No | True | Whether the log category 'MessagingLogs' is enabled? Defaults to 'true' |
 | `connectivity_logs_enabled` | bool | No | True | Whether the log category 'ConnectivityLogs' is enabled? Defaults to 'true' |
 | `http_request_logs_enabled` | bool | No | True | Whether the log category 'HttpRequestLogs' is enabled? Defaults to 'true' |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this signalR. Possible values are 'SystemAssigned', 'UserAssigned'. |
+| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this signalR. |
+
+### `sku` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies which tier to use. Valid values are 'Free_F1', 'Standard_S1' and 'Premium_P1'. |
+| `capacity` | string | Yes | - | Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'. |
 
 
 

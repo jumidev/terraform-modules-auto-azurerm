@@ -50,15 +50,6 @@ tfstate_store = {
 | **sensitive_environment_variables** | string |  -  |  -  |  Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created. | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 
-### `sso` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | No | - | The public identifier for the application. |
-| `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
-| `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
-| `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
-
 ### `quota` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,13 +67,6 @@ tfstate_store = {
 | `title` | string | No | - | Specifies the title describing the context of the APIs available on the Gateway instance. |
 | `version` | string | No | - | Specifies the version of APIs available on this Gateway instance. |
 
-### `client_authorization` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
-| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
-
 ### `cors` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -94,6 +78,22 @@ tfstate_store = {
 | `allowed_origin_patterns` | string | No | - | Allowed origin patterns to make cross-site requests. |
 | `exposed_headers` | string | No | - | HTTP response headers to expose for cross-site requests. |
 | `max_age_seconds` | string | No | - | How long, in seconds, the response from a pre-flight request can be cached by clients. |
+
+### `client_authorization` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `certificate_ids` | string | No | - | Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway. |
+| `verification_enabled` | bool | No | - | Specifies whether the client certificate verification is enabled. |
+
+### `sso` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | No | - | The public identifier for the application. |
+| `client_secret` | string | No | - | The secret known only to the application and the authorization server. |
+| `issuer_uri` | string | No | - | The URI of Issuer Identifier. |
+| `scope` | string | No | - | It defines the specific actions applications can be allowed to do on a user's behalf. |
 
 
 

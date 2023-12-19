@@ -60,6 +60,12 @@ tfstate_store = {
 | `type` | string | Yes | - | Type of the managed identity. The only possible value is 'UserAssigned'. Changing this forces a new resource to be created. |
 | `identity_ids` | string | Yes | - | Specifies the list of user-assigned managed identity IDs associated with the resource. Changing this forces a new resource to be created. |
 
+### `container` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `container_group_name` | string | No | - | Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. |
+
 ### `environment_variable` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,12 +73,6 @@ tfstate_store = {
 | `name` | string | Yes | - | Specifies the name of the environment variable. |
 | `secure_value` | string | No | - | Specifies the value of the secure environment variable. |
 | `value` | string | No | - | Specifies the value of the environment variable. |
-
-### `container` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `container_group_name` | string | No | - | Container group name, if not specified then the name will get auto-generated. For more information, please refer to the [Container Configuration](https://learn.microsoft.com/en-us/rest/api/resources/deployment-scripts/create?tabs=HTTP#containerconfiguration) documentation. |
 
 ### `storage_account` block structure
 

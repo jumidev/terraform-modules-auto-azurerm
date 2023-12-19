@@ -50,16 +50,13 @@ tfstate_store = {
 | **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **encoding** | string |  The encoding format for the file. | 
 
-### `azure_blob_storage_location` block structure
+### `schema_column` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `container` | string | Yes | - | The container on the Azure Blob Storage Account hosting the file. |
-| `path` | string | Yes | - | The folder path to the file on the web server. |
-| `filename` | string | Yes | - | The filename of the file on the web server. |
-| `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `name` | string | Yes | - | The name of the column. |
+| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
+| `description` | string | No | - | The description of the column. |
 
 ### `http_server_location` block structure
 
@@ -71,13 +68,16 @@ tfstate_store = {
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
-### `schema_column` block structure
+### `azure_blob_storage_location` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the column. |
-| `type` | string | No | - | Type of the column. Valid values are 'Byte', 'Byte[]', 'Boolean', 'Date', 'DateTime','DateTimeOffset', 'Decimal', 'Double', 'Guid', 'Int16', 'Int32', 'Int64', 'Single', 'String', 'TimeSpan'. Please note these values are case sensitive. |
-| `description` | string | No | - | The description of the column. |
+| `container` | string | Yes | - | The container on the Azure Blob Storage Account hosting the file. |
+| `path` | string | Yes | - | The folder path to the file on the web server. |
+| `filename` | string | Yes | - | The filename of the file on the web server. |
+| `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
 
 

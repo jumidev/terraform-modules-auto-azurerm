@@ -64,19 +64,19 @@ tfstate_store = {
 | `alert_resolution` | [block](#alert_resolution-block-structure) | No | - | An 'alert_resolution' block. |
 | `severity` | string | No | - | Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4. |
 
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
-| `action_properties` | string | No | - | Specifies the properties of an action group object. |
-
 ### `alert_resolution` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `auto_resolved` | string | No | - | Is the alert auto-resolution? Possible values are 'true' and 'false'. |
 | `time_to_resolve` | string | No | - | Specifies the alert auto-resolution interval, represented in ISO 8601 duration format. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
+| `action_properties` | string | No | - | Specifies the properties of an action group object. |
 
 
 

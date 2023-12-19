@@ -53,6 +53,14 @@ tfstate_store = {
 | `windows` | [block](#windows-block-structure) | No | - | A 'windows' block. This property only applies when 'scope' is set to 'InGuestPatch' |
 | `reboot` | string | No | - | Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are 'Always', 'IfRequired' and 'Never'. This property only applies when 'scope' is set to 'InGuestPatch'. |
 
+### `linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
+| `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
+| `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
+
 ### `window` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,14 +78,6 @@ tfstate_store = {
 | `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'. |
 | `kb_numbers_to_exclude` | string | No | - | List of KB numbers to be excluded from patching. |
 | `kb_numbers_to_include` | string | No | - | List of KB numbers to be included for patching. |
-
-### `linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `classifications_to_include` | string | No | - | List of Classification category of patches to be patched. Possible values are 'Critical', 'Security' and 'Other'. |
-| `package_names_mask_to_exclude` | string | No | - | List of package names to be excluded from patching. |
-| `package_names_mask_to_include` | string | No | - | List of package names to be included for patching. |
 
 
 

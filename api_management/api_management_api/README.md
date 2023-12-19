@@ -71,13 +71,19 @@ tfstate_store = {
 | `content_value` | string | Yes | - | The Content from which the API Definition should be imported. When a 'content_format' of '*-link-*' is specified this must be a URL, otherwise this must be defined inline. |
 | `wsdl_selector` | [block](#wsdl_selector-block-structure) | No | - | A 'wsdl_selector' block, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when 'content_format' is 'wsdl' or 'wsdl-link'. |
 
-### `contact` block structure
+### `openid_authentication` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | No | - | The email address of the contact person/organization. |
-| `name` | string | No | - | The name of the contact person/organization. |
-| `url` | string | No | - | Absolute URL of the contact information. |
+| `openid_provider_name` | string | Yes | - | OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html). |
+| `bearer_token_sending_methods` | string | No | - | How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'. |
+
+### `license` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the license . |
+| `url` | string | No | - | Absolute URL of the license. |
 
 ### `wsdl_selector` block structure
 
@@ -93,19 +99,13 @@ tfstate_store = {
 | `authorization_server_name` | string | Yes | - | OAuth authorization server identifier. The name of an [OAuth2 Authorization Server](https://www.terraform.io/docs/providers/azurerm/r/api_management_authorization_server.html). |
 | `scope` | string | No | - | Operations scope. |
 
-### `license` block structure
+### `contact` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the license . |
-| `url` | string | No | - | Absolute URL of the license. |
-
-### `openid_authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `openid_provider_name` | string | Yes | - | OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html). |
-| `bearer_token_sending_methods` | string | No | - | How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'. |
+| `email` | string | No | - | The email address of the contact person/organization. |
+| `name` | string | No | - | The name of the contact person/organization. |
+| `url` | string | No | - | Absolute URL of the contact information. |
 
 ### `subscription_key_parameter_names` block structure
 

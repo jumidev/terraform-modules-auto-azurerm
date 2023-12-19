@@ -59,13 +59,6 @@ tfstate_store = {
 | **rat_frequency_selection_priority_index** | string |  -  |  RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Sim Policies. | 
 
-### `session_aggregate_maximum_bit_rate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
-| `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
-
 ### `user_equipment_aggregate_maximum_bit_rate` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +73,13 @@ tfstate_store = {
 | `data_network` | [block](#data_network-block-structure) | Yes | - | An array of 'data_network' block. |
 | `default_data_network_id` | string | Yes | - | The ID of default data network to use if the user equipment does not explicitly specify it. Configuration for this object must exist in the 'data_network' block. |
 | `slice_id` | string | Yes | - | The ID of the slice that these settings apply to. |
+
+### `session_aggregate_maximum_bit_rate` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `downlink` | string | Yes | - | Downlink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
+| `uplink` | string | Yes | - | Uplink bit rate. Must be a number followed by 'Kbps', 'Mbps', 'Gbps' or 'Tbps'. |
 
 ### `data_network` block structure
 

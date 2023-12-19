@@ -57,6 +57,13 @@ tfstate_store = {
 | `default_endpoint_enabled` | bool | No | False | Is default endpoint enabled? The 'Default' endpoint represents O365 services and dependencies that do not require any optimization, and can be treated by customer networks as normal Internet bound traffic. Defaults to 'false'. |
 | `optimize_endpoint_enabled` | bool | No | False | Is optimize endpoint enabled? The 'Optimize' endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to 'false'. |
 
+### `bgp` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `asn` | string | Yes | - | The BGP speaker's ASN. |
+| `peering_address` | string | Yes | - | The BGP peering IP address. |
+
 ### `link` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,13 +80,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
-
-### `bgp` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `asn` | string | Yes | - | The BGP speaker's ASN. |
-| `peering_address` | string | Yes | - | The BGP peering IP address. |
 
 
 

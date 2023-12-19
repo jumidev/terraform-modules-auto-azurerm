@@ -54,6 +54,15 @@ tfstate_store = {
 | **minimum_elevation_degrees** | string |  Maximum elevation of the antenna during the contact in decimal degrees. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `links` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `channels` | [block](#channels-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
+| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
+| `name` | string | Yes | - | Name of the link. |
+| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
+
 ### `end_point` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,15 +82,6 @@ tfstate_store = {
 | `end_point` | [block](#end_point-block-structure) | Yes | - | Customer End point to store/retrieve data during a contact. An 'end_point' block. |
 | `modulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream. |
 | `demodulation_configuration` | string | No | - | Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream. |
-
-### `links` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `channels` | [block](#channels-block-structure) | Yes | - | A list of contact profile link channels. A 'channels' block. Changing this forces a new resource to be created. |
-| `direction` | string | Yes | - | Direction of the link. Possible values are 'Uplink' and 'Downlink'. |
-| `name` | string | Yes | - | Name of the link. |
-| `polarization` | string | Yes | - | Polarization of the link. Possible values are 'LHCP', 'RHCP', 'linearVertical' and 'linearHorizontal'. |
 
 
 

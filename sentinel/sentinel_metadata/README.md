@@ -70,6 +70,20 @@ tfstate_store = {
 | `link` | string | No | - | The link for support help. |
 | `name` | string | No | - | The name of the support contact. |
 
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
+| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
+
+### `category` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
+| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
+
 ### `author` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,20 +101,6 @@ tfstate_store = {
 | `version` | string | No | - | Version of the content item that is depended on. |
 | `operator` | string | No | - | Operator used for list of dependencies in 'criteria' array. |
 | `criteria` | string | No | - | Specifies a list of 'dependency' which must be fulfilled, according to the 'operator'. |
-
-### `category` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `domains` | string | No | - | Specifies a list of domains for the solution content item. |
-| `verticals` | string | No | - | Specifies a list of industry verticals for the solution content item. |
-
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name of the content source, repo name, solution name, Log Analytics Workspace name, etc. |
-| `kind` | string | Yes | - | The kind of the content source. Possible values are 'Community', 'LocalWorkspace', 'Solution' and 'SourceRepository'. |
 
 
 

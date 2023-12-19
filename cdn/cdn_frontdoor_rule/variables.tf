@@ -27,6 +27,16 @@ variable "actions" {
 #   request_header_action (block)              : A 'request_header_action' block.
 #   response_header_action (block)             : A 'response_header_action' block.
 #
+# url_rewrite_action block structure:
+#   source_pattern (string)           : (REQUIRED) The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash ''/'' as the source pattern value.
+#   destination (string)              : (REQUIRED) The destination path to use in the rewrite. The destination path overwrites the source pattern.
+#   preserve_unmatched_path (bool)    : Append the remaining path after the source pattern to the new destination path? Possible values 'true' or 'false'. Defaults to 'false'.
+#
+# response_header_action block structure:
+#   header_action (string)                : (REQUIRED) The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'.
+#   header_name (string)                  : (REQUIRED) The name of the header to modify.
+#   value (string)                        : The value to append or overwrite.
+#
 # request_header_action block structure:
 #   header_action (string)               : (REQUIRED) The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'.
 #   header_name (string)                 : (REQUIRED) The name of the header to modify.
@@ -48,16 +58,6 @@ variable "actions" {
 #   destination_path (string)          : The path to use in the redirect. The value must be a string and include the leading '/', leave blank to preserve the incoming path. Defaults to ''''.
 #   query_string (string)              : The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={'action_server_variable'} format and must not include the leading '?', leave blank to preserve the incoming query string. Maximum allowed length for this field is '2048' characters. Defaults to ''''.
 #   destination_fragment (string)      : The fragment to use in the redirect. The value must be a string between '0' and '1024' characters in length, leave blank to preserve the incoming fragment. Defaults to ''''.
-#
-# url_rewrite_action block structure:
-#   source_pattern (string)           : (REQUIRED) The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash ''/'' as the source pattern value.
-#   destination (string)              : (REQUIRED) The destination path to use in the rewrite. The destination path overwrites the source pattern.
-#   preserve_unmatched_path (bool)    : Append the remaining path after the source pattern to the new destination path? Possible values 'true' or 'false'. Defaults to 'false'.
-#
-# response_header_action block structure:
-#   header_action (string)                : (REQUIRED) The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'.
-#   header_name (string)                  : (REQUIRED) The name of the header to modify.
-#   value (string)                        : The value to append or overwrite.
 
 
 
@@ -95,23 +95,10 @@ variable "conditions" {
 #   host_name_condition (block)         : A 'host_name_condition' block.
 #   ssl_protocol_condition (block)      : A 'ssl_protocol_condition' block.
 #
-# query_string_condition block structure:
-#   operator (string)                     : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                   : One or more string or integer values(e.g. '1') representing the value of the query string to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#   transforms (string)                   : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
-#
-# url_path_condition block structure:
-#   operator (string)                 : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   negate_condition (bool)           : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)               : One or more string or integer values(e.g. '1') representing the value of the request path to match. Don't include the leading slash ('/'). If multiple values are specified, they're evaluated using 'OR' logic.
-#   transforms (string)               : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
-#
-# request_uri_condition block structure:
-#   operator (string)                    : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   negate_condition (bool)              : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                  : One or more string or integer values(e.g. '1') representing the value of the request URL to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#   transforms (string)                  : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+# request_scheme_condition block structure:
+#   operator (string)                       : Possible value 'Equal'. Defaults to 'Equal'.
+#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (string)                   : The requests protocol to match. Possible values include 'HTTP' or 'HTTPS'.
 #
 # url_file_extension_condition block structure:
 #   operator (string)                           : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
@@ -119,53 +106,10 @@ variable "conditions" {
 #   match_values (list)                         : (REQUIRED) A list of one or more string or integer values(e.g. '1') representing the value of the request file extension to match. If multiple values are specified, they're evaluated using 'OR' logic.
 #   transforms (string)                         : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
 #
-# request_body_condition block structure:
-#   operator (string)                     : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                   : (REQUIRED) A list of one or more string or integer values(e.g. '1') representing the value of the request body text to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   transforms (string)                   : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
-#
-# post_args_condition block structure:
-#   post_args_name (string)            : (REQUIRED) A string value representing the name of the 'POST' argument.
-#   operator (string)                  : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   negate_condition (bool)            : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                : One or more string or integer values(e.g. '1') representing the value of the 'POST' argument to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#   transforms (string)                : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
-#
-# socket_address_condition block structure:
-#   operator (string)                       : The type of match. The Possible values are 'IpMatch' or 'Any'. Defaults to 'IPMatch'.
-#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                     : Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic.
-#
-# remote_address_condition block structure:
-#   operator (string)                       : The type of the remote address to match. Possible values include 'Any', 'GeoMatch' or 'IPMatch'. Use the 'negate_condition' to specify Not 'GeoMatch' or Not 'IPMatch'. Defaults to 'IPMatch'.
-#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                     : For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
-#
-# client_port_condition block structure:
-#   operator (string)                    : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   negate_condition (bool)              : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                  : One or more integer values(e.g. '1') representing the value of the client port to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#
-# request_scheme_condition block structure:
-#   operator (string)                       : Possible value 'Equal'. Defaults to 'Equal'.
-#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (string)                   : The requests protocol to match. Possible values include 'HTTP' or 'HTTPS'.
-#
-# request_method_condition block structure:
-#   match_values (string)                   : (REQUIRED) A list of one or more HTTP methods. Possible values include 'GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS' or 'TRACE'. If multiple values are specified, they're evaluated using 'OR' logic.
-#   operator (string)                       : Possible value 'Equal'. Defaults to 'Equal'.
-#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#
-# http_version_condition block structure:
-#   match_values (string)                 : (REQUIRED) What HTTP version should this condition match? Possible values '2.0', '1.1', '1.0' or '0.9'.
+# ssl_protocol_condition block structure:
+#   match_values (string)                 : (REQUIRED) A list of one or more HTTP methods. Possible values are 'TLSv1', 'TLSv1.1' and 'TLSv1.2' logic.
 #   operator (string)                     : Possible value 'Equal'. Defaults to 'Equal'.
 #   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#
-# server_port_condition block structure:
-#   operator (string)                    : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   match_values (string)                : (REQUIRED) A list of one or more integer values(e.g. '1') representing the value of the client port to match. Possible values include '80' or '443'. If multiple values are specified, they're evaluated using 'OR' logic.
-#   negate_condition (bool)              : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
 #
 # cookies_condition block structure:
 #   cookie_name (string)             : (REQUIRED) A string value representing the name of the cookie.
@@ -173,6 +117,25 @@ variable "conditions" {
 #   negate_condition (bool)          : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
 #   match_values (list)              : One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic.
 #   transforms (string)              : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+#
+# request_header_condition block structure:
+#   header_name (string)                    : (REQUIRED) A string value representing the name of the 'POST' argument.
+#   operator (string)                       : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                     : One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#   transforms (string)                     : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+#
+# url_path_condition block structure:
+#   operator (string)                 : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   negate_condition (bool)           : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)               : One or more string or integer values(e.g. '1') representing the value of the request path to match. Don't include the leading slash ('/'). If multiple values are specified, they're evaluated using 'OR' logic.
+#   transforms (string)               : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+#
+# request_body_condition block structure:
+#   operator (string)                     : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                   : (REQUIRED) A list of one or more string or integer values(e.g. '1') representing the value of the request body text to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   transforms (string)                   : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
 #
 # is_device_condition block structure         :
 #   operator (string)                           : Possible value 'Equal'. Defaults to 'Equal'.
@@ -189,10 +152,50 @@ variable "conditions" {
 #   url_redirect_action (string)                : 
 #   url_rewrite_action (string)                 : 
 #
-# ssl_protocol_condition block structure:
-#   match_values (string)                 : (REQUIRED) A list of one or more HTTP methods. Possible values are 'TLSv1', 'TLSv1.1' and 'TLSv1.2' logic.
+# remote_address_condition block structure:
+#   operator (string)                       : The type of the remote address to match. Possible values include 'Any', 'GeoMatch' or 'IPMatch'. Use the 'negate_condition' to specify Not 'GeoMatch' or Not 'IPMatch'. Defaults to 'IPMatch'.
+#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                     : For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code.
+#
+# request_method_condition block structure:
+#   match_values (string)                   : (REQUIRED) A list of one or more HTTP methods. Possible values include 'GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS' or 'TRACE'. If multiple values are specified, they're evaluated using 'OR' logic.
+#   operator (string)                       : Possible value 'Equal'. Defaults to 'Equal'.
+#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#
+# url_filename_condition block structure:
+#   operator (string)                     : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                   : A list of one or more string or integer values(e.g. '1') representing the value of the request file name to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   transforms (string)                   : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+#
+# http_version_condition block structure:
+#   match_values (string)                 : (REQUIRED) What HTTP version should this condition match? Possible values '2.0', '1.1', '1.0' or '0.9'.
 #   operator (string)                     : Possible value 'Equal'. Defaults to 'Equal'.
 #   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#
+# request_uri_condition block structure:
+#   operator (string)                    : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   negate_condition (bool)              : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                  : One or more string or integer values(e.g. '1') representing the value of the request URL to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#   transforms (string)                  : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+#
+# query_string_condition block structure:
+#   operator (string)                     : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                   : One or more string or integer values(e.g. '1') representing the value of the query string to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#   transforms (string)                   : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+#
+# client_port_condition block structure:
+#   operator (string)                    : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   negate_condition (bool)              : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                  : One or more integer values(e.g. '1') representing the value of the client port to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#
+# post_args_condition block structure:
+#   post_args_name (string)            : (REQUIRED) A string value representing the name of the 'POST' argument.
+#   operator (string)                  : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   negate_condition (bool)            : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                : One or more string or integer values(e.g. '1') representing the value of the 'POST' argument to match. If multiple values are specified, they're evaluated using 'OR' logic.
+#   transforms (string)                : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
 #
 # host_name_condition block structure:
 #   operator (string)                  : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
@@ -200,17 +203,14 @@ variable "conditions" {
 #   transforms (string)                : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
 #   negate_condition (bool)            : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
 #
-# request_header_condition block structure:
-#   header_name (string)                    : (REQUIRED) A string value representing the name of the 'POST' argument.
-#   operator (string)                       : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                     : One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#   transforms (string)                     : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+# server_port_condition block structure:
+#   operator (string)                    : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
+#   match_values (string)                : (REQUIRED) A list of one or more integer values(e.g. '1') representing the value of the client port to match. Possible values include '80' or '443'. If multiple values are specified, they're evaluated using 'OR' logic.
+#   negate_condition (bool)              : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
 #
-# url_filename_condition block structure:
-#   operator (string)                     : (REQUIRED) A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below.
-#   match_values (list)                   : A list of one or more string or integer values(e.g. '1') representing the value of the request file name to match. If multiple values are specified, they're evaluated using 'OR' logic.
-#   negate_condition (bool)               : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
-#   transforms (string)                   : A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below.
+# socket_address_condition block structure:
+#   operator (string)                       : The type of match. The Possible values are 'IpMatch' or 'Any'. Defaults to 'IPMatch'.
+#   negate_condition (bool)                 : If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below.
+#   match_values (list)                     : Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic.
 
 

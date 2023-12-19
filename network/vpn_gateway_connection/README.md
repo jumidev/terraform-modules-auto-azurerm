@@ -57,13 +57,6 @@ tfstate_store = {
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. If this is not specified, there will be a default route table created implicitly. | 
 | **traffic_selector_policy** | [block](#traffic_selector_policy-block-structure) |  -  |  One or more `traffic_selector_policy` blocks. | 
 
-### `traffic_selector_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
-| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
-
 ### `propagated_route_table` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -86,6 +79,13 @@ tfstate_store = {
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
 | `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
 | `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
+
+### `traffic_selector_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `local_address_ranges` | list | Yes | - | A list of local address spaces in CIDR format for this VPN Gateway Connection. |
+| `remote_address_ranges` | list | Yes | - | A list of remote address spaces in CIDR format for this VPN Gateway Connection. |
 
 ### `vpn_link` block structure
 

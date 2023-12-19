@@ -57,6 +57,14 @@ tfstate_store = {
 | **timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
 | **validation_rules** | [block](#validation_rules-block-structure) |  -  |  -  |  A `validation_rules` block. | 
 
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_match` | string | Yes | - | A string value containing the content to match on. |
+| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
+| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
+
 ### `request` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -67,14 +75,6 @@ tfstate_store = {
 | `header` | list | No | - | One or more 'header' blocks. |
 | `http_verb` | string | No | GET | Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'. |
 | `parse_dependent_requests_enabled` | bool | No | True | Should the parsing of dependend requests be enabled? Defaults to 'true'. |
-
-### `content` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content_match` | string | Yes | - | A string value containing the content to match on. |
-| `ignore_case` | string | No | - | Ignore the casing in the 'content_match' value. |
-| `pass_if_text_found` | string | No | - | If the content of 'content_match' is found, pass the test. If set to 'false', the WebTest is failing if the content of 'content_match' is found. |
 
 ### `validation_rules` block structure
 

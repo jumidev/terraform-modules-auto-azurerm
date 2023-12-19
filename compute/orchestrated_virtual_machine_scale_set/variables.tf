@@ -92,13 +92,13 @@ variable "os_profile" {
 #   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
 #   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
 #
-# winrm_listener block structure:
-#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
-#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
-#
 # certificate block structure:
 #   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
 #   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
+#
+# winrm_listener block structure:
+#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
+#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
 #
 # linux_configuration block structure   :
 #   admin_username (string)               : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.

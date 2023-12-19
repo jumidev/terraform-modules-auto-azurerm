@@ -72,16 +72,16 @@ variable "managed_rule" {
 #   exclusion (block)       : One or more 'exclusion' blocks.
 #   rule (block)            : One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled.
 #
-# exclusion block structure:
-#   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'.
-#   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
-#   selector (string)        : (REQUIRED) Selector for the value in the 'match_variable' attribute this exclusion applies to.
-#
 # rule block structure:
 #   rule_id (string)    : (REQUIRED) Identifier for the managed rule.
 #   action (string)     : (REQUIRED) The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
 #   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
 #   exclusion (block)   : One or more 'exclusion' blocks.
+#
+# exclusion block structure:
+#   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'.
+#   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
+#   selector (string)        : (REQUIRED) Selector for the value in the 'match_variable' attribute this exclusion applies to.
 
 
 variable "tags" {
